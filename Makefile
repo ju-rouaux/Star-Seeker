@@ -5,7 +5,7 @@ LDFLAGS =
 INCLUDES = -I./include
 
 # Parametres du makefile
-APPNAME = ./bin/Star_Seeker
+APPNAME = ./bin/td_dev
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -15,14 +15,8 @@ OBJDIR = ./obj
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
-# Parametres OS type UNIX
 RM = rm
 DELOBJ = $(OBJ)
-
-# Parametres Windows
-DEL = del
-EXE = .exe
-WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
@@ -38,7 +32,6 @@ $(APPNAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS) -o $@ -c $<
 
-################### Parametres de nettoyage pour OS type UNIX ################
 
 # Supprime tout les fichiers objets et l'executable (.o et exe)
 .PHONY: clean
@@ -46,10 +39,3 @@ clean:
 	$(RM) $(DELOBJ) $(APPNAME)
 	@echo Nettoyage de tout les fichiers generes reussi
 
-#################### Parametres de nettoyage pour Windows ####################
-
-# Supprime tout les fichiers objets et l'executable (.o et exe)
-.PHONY: cleanw
-cleanw:
-	$(DEL) $(WDELOBJ) $(APPNAME)$(EXE)
-	@echo Nettoyage de tout les fichiers generes reussi
