@@ -17,11 +17,11 @@
     dessus ou d'à gauche, est identique on relie les salles.
 */
 
+#define NOMBRE_DE_PORTES 4 //Taille maximale d'un groupe de salle (à definir)
+
 typedef enum {
     UP, RIGHT, DOWN, LEFT
 } e_porte;
-
-#define NOMBRE_DE_PORTES 4 //Taille maximale d'un groupe de salle (à definir)
 
 typedef struct s_salle{
     int complete; /** Booléen, vrai si la salle est complétée (plus de monstres) */
@@ -42,4 +42,6 @@ typedef struct {
 } t_niveau;
 
 //Charge à partir d'un fichier le niveau vers t_niveau;
-int chargerNiveau();
+
+t_niveau * chargerNiveau(const FILE * fichier);
+void detruireNiveau(t_niveau ** niveau);
