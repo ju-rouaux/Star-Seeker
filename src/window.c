@@ -5,7 +5,7 @@
 */
 
 #include <SDL2/SDL.h>
-
+#include <stdio.h>
 /**
  * Génère une fenêtre et son rendu, pour les mettre dans 
  * les pointeurs donnés en paramètre.

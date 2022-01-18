@@ -1,7 +1,7 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -std=c11 -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2 
+LDFLAGS = -I./include -Llib -lSDL2 -lmingw32
 
 # Parametres du makefile
 APPNAME = ./bin/event
