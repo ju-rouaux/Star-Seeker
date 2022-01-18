@@ -15,13 +15,12 @@ int main(int argc, char * argv[])
     }
 
     creerFenetreEtRendu(&window, &renderer);
-    if(handleEvents() != 1){
+    while(handleEvents() != 1){
         
-    }else{
+    }
     SDL_Delay(5000);
     detruireFenetreEtRendu(&window, &renderer);
 
     SDL_Quit();
     return 0;
-    }
-}
+ }
