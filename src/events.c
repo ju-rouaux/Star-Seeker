@@ -4,15 +4,10 @@
 
 #include <SDL2/SDL.h>
 
-/*
-
-
-
-*/
 
 int handleEvents() {
-  const char * key_code;
-  const char * key_name;
+  const char * key_code,* key_name;
+  int mouse_x, mouse_y;
 
   SDL_Event event;
 
@@ -23,13 +18,24 @@ int handleEvents() {
 
         //gestion de la souris
     case SDL_MOUSEBUTTONDOWN:
+    switch(event.button){
+      case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris appuyé");break;
+      case SDL_BUTTON_MIDDLE : printf("Molette de la souris appuyé");break;
+      case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris appuyé");break;
+    };
       printf("SDL_MOUSEBUTTONDOWN");
       break;
     case SDL_MOUSEBUTTONUP:
+    switch(event.button){
+      case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris relaché");break;
+      case SDL_BUTTON_MIDDLE : printf("Molette de la souris relaché");break;
+      case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris relaché");break;
+    };
       printf("SDL_MOUSEBUTTONUP");
       break;
     case SDL_MOUSEMOTION:
-      printf("Mouse has moved");
+    SDL_GetMouseState(mouse_x,mouse_y);
+      printf("Mouse has moved\nMouse coordinates relative to window : x = %d, y = %d",mouse_x,mouse_y);
       break;
 
     //gestion du clavier
