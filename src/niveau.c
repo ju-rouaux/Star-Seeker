@@ -22,7 +22,7 @@ void lierSalles(t_niveau * niveau)
             
             if((hauteur-l) > 0 ) //Vérification des limites
             {
-                if(niveau->salles[hauteur-l + largeur] ->) //Vérifier si la salle du dessus a le même id
+                if(niveau->salles[hauteur-l + largeur]->id_salle == id_courant) //Vérifier si la salle du dessus a le même id
                 {
 
                 }
