@@ -1,2 +1,2 @@
 
-void handleEvents();
+int handleEvents();
