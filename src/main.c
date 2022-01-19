@@ -16,9 +16,8 @@ int main(int argc, char * argv[])
 
     creerFenetreEtRendu(&window, &renderer);
     while(handleEvents() != 1){
-        
+         
     }
-    SDL_Delay(5000);
     detruireFenetreEtRendu(&window, &renderer);
 
     SDL_Quit();

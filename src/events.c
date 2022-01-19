@@ -2,7 +2,8 @@
 
 #include <stdlib.h>
 
-#include <SDL2/SDL.h>
+#include "../include/SDL2/SDL.h"
+
 
 
 int handleEvents() {
@@ -18,7 +19,7 @@ int handleEvents() {
 
         //gestion de la souris
     case SDL_MOUSEBUTTONDOWN:
-    switch(event.button){
+    switch(event.button.button){
       case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris appuyé");break;
       case SDL_BUTTON_MIDDLE : printf("Molette de la souris appuyé");break;
       case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris appuyé");break;
@@ -26,7 +27,7 @@ int handleEvents() {
       printf("SDL_MOUSEBUTTONDOWN");
       break;
     case SDL_MOUSEBUTTONUP:
-    switch(event.button){
+    switch(event.button.button){
       case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris relaché");break;
       case SDL_BUTTON_MIDDLE : printf("Molette de la souris relaché");break;
       case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris relaché");break;
@@ -34,7 +35,7 @@ int handleEvents() {
       printf("SDL_MOUSEBUTTONUP");
       break;
     case SDL_MOUSEMOTION:
-    SDL_GetMouseState(mouse_x,mouse_y);
+    mouse_x = event.button.x, mouse_y = event.button.y;
       printf("Mouse has moved\nMouse coordinates relative to window : x = %d, y = %d",mouse_x,mouse_y);
       break;
 
@@ -67,4 +68,5 @@ int handleEvents() {
         }
     }
   }
+  return 0;
 }
