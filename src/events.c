@@ -13,7 +13,7 @@
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
  * 
- * \return int
+ * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
  */
 
 int handleEvents() {
