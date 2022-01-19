@@ -13,9 +13,9 @@
 /**
  * Remplie la matrice t_salle * portes[] du pointeur des salles voisines de chaque salles. 
  * Fonctionnement : 
- *      Pour chaque salle, si l'id des voisines est différent, il faut lier les portes des salles. 
- *      Sinon ne rien faire, pour que les portes pointent toujours vers NULL, signifiant que les deux salles 
- *      forment une unique salle.
+ *      Pour chaque salle, si une voisine existe, il faut lier les portes des salles. 
+ *      Sinon ne rien faire, pour que les portes pointent toujours vers NULL.
+ *      Deux salles liées et ayant un même identifiant ne formeront qu'une salle.
  * 
  *  \param niveau Le niveau dont il faut lier les salles
  */
@@ -32,8 +32,7 @@ static void lierSalles(t_niveau * niveau)
                 id_courant = niveau->salles[i*niveau->l + j]->id_salle;
 
                 if( i > 0 && //Pour éviter de sortir du haut de la matrice
-                    niveau->salles[(i-1)*niveau->l + j] != NULL && //Si la salle du dessus existe
-                    niveau->salles[(i-1)*niveau->l + j]->id_salle != id_courant) //Si elle est différente de la salle courante
+                    niveau->salles[(i-1)*niveau->l + j] != NULL) //Si la salle du dessus existe
                 {
                     //Lier porte haut salle courante à celle du bas salle du dessus
                     niveau->salles[i*niveau->l + j]->portes[UP] = niveau->salles[(i-1)*niveau->l + j];
@@ -41,8 +40,7 @@ static void lierSalles(t_niveau * niveau)
                 }
 
                 if( j > 0 && //Pour éviter de sortir d'à gauche de la matrice
-                    niveau->salles[i*niveau->l + (j-1)] != NULL && //Si la salle de gauche existe
-                    niveau->salles[i*niveau->l + (j-1)]->id_salle != id_courant) //Si elle est différente de la salle courante
+                    niveau->salles[i*niveau->l + (j-1)] != NULL) //Si la salle de gauche existe
                 {
                     //Lier porte gauche salle courante à celle de droite salle de gauche
                     niveau->salles[i*niveau->l + j]->portes[LEFT] = niveau->salles[i*niveau->l + (j-1)];
@@ -107,7 +105,7 @@ static void chargerSalle(); //Appelle les 2 précédentes
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-t_niveau * chargerNiveau(const FILE * fichier)
+t_niveau * chargerNiveau(FILE * fichier)
 {
     //Dimensions du niveau
     int largeur;
@@ -115,9 +113,9 @@ t_niveau * chargerNiveau(const FILE * fichier)
     //Identifiant de salle
     int id_salle;
 
+    t_niveau * niveau = malloc(sizeof(t_niveau));
     t_salle * salleCourante = NULL;
 
-    t_niveau * niveau = malloc(sizeof(t_niveau));
     if(niveau == NULL)
     {
         printf("Impossible d'allouer la mémoire d'un niveau.\n");
@@ -126,9 +124,11 @@ t_niveau * chargerNiveau(const FILE * fichier)
 
     //Lecture de la taille du niveau
     fscanf(fichier, "%i %i", &largeur, &hauteur);
+    printf("l : %i / h : %i\n", largeur, hauteur);
 
     niveau->l = largeur;
     niveau->h = hauteur;
+    niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur); //Allouer l'array de pointeurs
 
     for(int i = 0; i < hauteur; i++)
     {
@@ -136,9 +136,12 @@ t_niveau * chargerNiveau(const FILE * fichier)
         {
             fscanf(fichier, "%i", &id_salle);
 
+            if(feof(fichier)) //En cas d'erreur du fichier, ne rien charger de particulier
+                id_salle = 0;
+
             if(id_salle == 0) //S'il n'y a pas de salle
-                niveau->salles[i*largeur + j] = NULL;
-            
+               niveau->salles[i*largeur + j] = NULL;
+
             else
             {
                 salleCourante = creerSalle(id_salle);
@@ -151,6 +154,7 @@ t_niveau * chargerNiveau(const FILE * fichier)
                 //chargerObstacles();
 
                 niveau->salles[i*largeur + j] = salleCourante;
+                salleCourante = NULL;
             }
         }
     }
@@ -172,8 +176,8 @@ void detruireNiveau(t_niveau ** niveau)
     {
         for(int i = 0; i < (*niveau)->h; i++)
             for(int j = 0; j < (*niveau)->l; j++)
-                detruireSalle((*niveau)->salles[i*(*niveau)->l + j]); //La fonction appelée se charge de vérifier si le pointeur n'est pas NULL
-
+                detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]); //La fonction appelée se charge de vérifier si le pointeur n'est pas NULL
+        free((*niveau)->salles);
         free(*niveau);
     }
     niveau = NULL;
