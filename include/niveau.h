@@ -19,12 +19,22 @@
     dessus ou d'à gauche est non nulle, on relie les deux salles.
 */
 
+
 #define NOMBRE_DE_PORTES 4 //D'une salle, une par coté
 
+/**
+ * \enum e_porte
+ * \brief Position d'une porte
+*/
 typedef enum {
     UP, RIGHT, DOWN, LEFT
 } e_porte;
 
+
+/**
+ * \struct t_salle
+ * \brief Structure représentant une salle et ses liaisons
+*/
 typedef struct s_salle{
     int complete; /** Booléen, vrai si la salle est complétée (plus de monstres) */
     struct s_salle * portes[NOMBRE_DE_PORTES]; /** Salles auxquelles sont reliées notre salle */
@@ -32,6 +42,7 @@ typedef struct s_salle{
     //t_monstre ** (liste de monstres)
     //t_obstacle ** (liste d'obstacles)
 } t_salle;
+
 
 /**
  * \struct t_niveau
@@ -43,7 +54,6 @@ typedef struct {
     int l; /** Hauteur du niveau */
 } t_niveau;
 
-//Charge à partir d'un fichier le niveau vers t_niveau;
 
 t_niveau * chargerNiveau(FILE * fichier);
 void detruireNiveau(t_niveau ** niveau);
