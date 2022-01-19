@@ -1,13 +1,14 @@
 # Parametres de la compilation
 CC = gcc
-CXXFLAGS = -Wall -g -lmingw32 -lSDL2main -lSDL2 -Llib 
-LDFLAGS = -I./include 
+CXXFLAGS = -std=c11 -Wall -g
+LDFLAGS = 
+INCLUDES = -I./include
 
 # Parametres du makefile
-APPNAME = ./bin/event
+APPNAME = ./bin/td_dev
 EXT = .c
-SRCDIR = src
-OBJDIR = obj
+SRCDIR = ./src
+OBJDIR = ./obj
 
 ########################################################################
 
@@ -29,7 +30,7 @@ $(APPNAME): $(OBJ)
 
 # Construit les fichiers .o avec les .h
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
-	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
+	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 
 # Supprime tout les fichiers objets et l'executable (.o et exe)

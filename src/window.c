@@ -5,8 +5,7 @@
 */
 
 #include <stdio.h>
-#include "SDL2/SDL.h"
-
+#include <SDL2/SDL.h>
 
 /**
  * Génère une fenêtre et son rendu, pour les mettre dans 
