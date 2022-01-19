@@ -5,67 +5,121 @@
 #include "../include/SDL2/SDL.h"
 
 
-
 int handleEvents() {
-  const char * key_code,* key_name;
+
+  const char * key_code, * key_name;
   int mouse_x, mouse_y;
+  int scrolling;
 
   SDL_Event event;
 
   while (SDL_PollEvent( & event)) {
 
-
     switch (event.type) {
 
-        //gestion de la souris
+      //gestion de la souris
     case SDL_MOUSEBUTTONDOWN:
-    switch(event.button.button){
-      case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris appuyé");break;
-      case SDL_BUTTON_MIDDLE : printf("Molette de la souris appuyé");break;
-      case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris appuyé");break;
-    };
-      printf("SDL_MOUSEBUTTONDOWN");
+      switch (event.button.button) {
+      case SDL_BUTTON_LEFT:
+        printf("\nMouse left button pressed");
+        break;
+      case SDL_BUTTON_MIDDLE:
+        printf("\nMouse scroll button pressed");
+        break;
+      case SDL_BUTTON_RIGHT:
+        printf("\nMouse right button pressed");
+        break;
+      default:
+        printf("\nMouse got unknown event");
+        break;
+      };
+      switch (event.button.clicks) {
+      case 1:
+        printf("\nSimple click");
+        break;
+      case 2:
+        printf("\nDouble click");
+        break;
+      default:
+        printf("\nClicked too many times hahaha");
+        break;
+      };
+      break;
+      printf("\nSDL_MOUSEBUTTONDOWN");
       break;
     case SDL_MOUSEBUTTONUP:
-    switch(event.button.button){
-      case SDL_BUTTON_LEFT : printf("Bouton gauche de la souris relaché");break;
-      case SDL_BUTTON_MIDDLE : printf("Molette de la souris relaché");break;
-      case SDL_BUTTON_RIGHT : printf("Bouton droit de la souris relaché");break;
-    };
-      printf("SDL_MOUSEBUTTONUP");
+      switch (event.button.button) {
+      case SDL_BUTTON_LEFT:
+        printf("\nMouse left button released");
+        break;
+      case SDL_BUTTON_MIDDLE:
+        printf("\nMouse scroll button released");
+        break;
+      case SDL_BUTTON_RIGHT:
+        printf("\nMouse right button released");
+        break;
+      default:
+        printf("\nMouse got unknown event");
+        break;
+      };
+      printf("\nSDL_MOUSEBUTTONUP");
       break;
     case SDL_MOUSEMOTION:
-    mouse_x = event.button.x, mouse_y = event.button.y;
-      printf("Mouse has moved\nMouse coordinates relative to window : x = %d, y = %d",mouse_x,mouse_y);
+      mouse_x = event.button.x, mouse_y = event.button.y;
+      printf("\nMouse has moved  : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
+      break;
+    case SDL_MOUSEWHEEL:
+    scrolling = event.wheel.y;
+      if(scrolling < 0)
+        printf("\nScrolling down");
+      if(scrolling > 0)
+        printf("\nScrolling up");
+      
       break;
 
-    //gestion du clavier
-    case SDL_KEYDOWN:
-      printf("SDL_KEYDOWN"),
-      key_code = SDL_GetScancodeName(event.key.keysym.scancode),
+      //gestion du clavier
+    case SDL_KEYDOWN://touche appuyée
+      printf("\nKey pressed"), 
+        key_code = SDL_GetScancodeName(event.key.keysym.scancode),
         key_name = SDL_GetKeyName(event.key.keysym.sym),
-        printf("La cle %s : %s a été appuyée", key_name, key_code);break; 
-    case SDL_KEYUP:
-      printf("SDL_KEYDOWN"),
-      key_code = SDL_GetScancodeName(event.key.keysym.scancode),
+        printf("\nKey %s : %s has been pressed", key_name, key_code);
+      break;
+    case SDL_KEYUP://touche relachée
+      printf("\nKey released"),
+        key_code = SDL_GetScancodeName(event.key.keysym.scancode),
         key_name = SDL_GetKeyName(event.key.keysym.sym),
-        printf("La cle %s : %s a été relachée", key_name, key_code);break;
-        
-    
-    
-    //gestion de la fenetre
+        printf("\nKey %s : %s has been released", key_name, key_code);// key_name touche correspondant clavier azerty | key_code = clavier qwerty
+      break;
+
+      //gestion de la fenetre
 
     case SDL_WINDOWEVENT:
-        switch(event.window.event){
-            case SDL_WINDOWEVENT_CLOSE : return 1; break;
-            case SDL_WINDOWEVENT_HIDDEN : printf("fenetre cachée");break;
-            case SDL_WINDOWEVENT_MAXIMIZED :printf("fenetre agrandie");break;
-            case SDL_WINDOWEVENT_MINIMIZED :printf("fenetre diminuée");break;
-            case SDL_WINDOWEVENT_MOVED : printf("Fenetre deplacée");break;
-            case SDL_WINDOWEVENT_SHOWN : printf("Fenetre montrée");break;
-            case SDL_WINDOWEVENT_LEAVE : printf("La souris a quitté la fenetre");break;
-
-        }
+      switch (event.window.event) {
+      case SDL_WINDOWEVENT_CLOSE:
+        return 1;
+        break;
+      case SDL_WINDOWEVENT_SHOWN:
+        printf("\nWindow shown");
+        break;
+      case SDL_WINDOWEVENT_HIDDEN:
+        printf("\nWindow hidden");
+        break;
+      case SDL_WINDOWEVENT_MAXIMIZED:
+        printf("\nWindow maximized");
+        break;
+      case SDL_WINDOWEVENT_MINIMIZED:
+        printf("\nWindow minimized");
+        break;
+      case SDL_WINDOWEVENT_MOVED:
+        printf("\nWindow moved");
+        break;
+      case SDL_WINDOWEVENT_ENTER:
+        printf("\nMouse entered window");
+        break;
+      case SDL_WINDOWEVENT_LEAVE:
+        printf("\nMouse left window");
+        break;
+      }
     }
   }
   return 0;
