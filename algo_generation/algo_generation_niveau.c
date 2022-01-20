@@ -17,7 +17,7 @@
 #define LONGUEUR_NIVEAU_MAX 25
 #define HAUTEUR_NIVEAU_MAX 25
 
-// Cases du niveau
+//Cases du niveau
 #define VIDE 0
 #define SALLE -1
 
@@ -44,10 +44,9 @@
 
 void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
-    for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-     
-     
-        for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+
+        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
 
             switch(niv[i][j]){
 
@@ -80,8 +79,8 @@ int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char na
 
     fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
 
-    for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-        for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
 
                 fprintf(f, "%d ", niv[i][j]);            
         }
