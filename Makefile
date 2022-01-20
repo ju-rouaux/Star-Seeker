@@ -1,11 +1,10 @@
 # Parametres de la compilation
 CC = gcc
-CXXFLAGS = -std=c11 -Wall -g
-LDFLAGS = 
-INCLUDES = -I./include
+CXXFLAGS = -Wall -g 
+LDFLAGS = -I./include -Llib -lSDL2
 
 # Parametres du makefile
-APPNAME = ./bin/td_dev
+APPNAME = ./bin/event
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -30,7 +29,7 @@ $(APPNAME): $(OBJ)
 
 # Construit les fichiers .o avec les .h
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
-	$(CC) $(CXXFLAGS) -o $@ -c $<
+	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
 
 
 # Supprime tout les fichiers objets et l'executable (.o et exe)
@@ -38,4 +37,3 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 clean:
 	$(RM) $(DELOBJ) $(APPNAME)
 	@echo Nettoyage de tout les fichiers generes reussi
-
