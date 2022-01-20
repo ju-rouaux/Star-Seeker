@@ -66,11 +66,13 @@ void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 }
 
 
-int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
     //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
 
 
-    FILE * f = fopen("test.niv", "w");
+
+
+    FILE * f = fopen(name, "w");
 
     if(f == NULL)
         return 0;
@@ -304,6 +306,8 @@ void main(){
 
     afficher_niv(niv);
 
-    ecrire_fichier_niv(niv);
+
+    char name[20] = "test.niv";
+    ecrire_fichier_niv(niv, name);
 
 }
