@@ -38,7 +38,7 @@
 
 
 //Probabilités pour les indentifications de salles
-#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
+#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 100
 
 
 
@@ -66,7 +66,7 @@ void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
 int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
-    //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
+    //Écrit un fichier name qui contient toutes les informations nécessaires à un niveau.
 
 
 
