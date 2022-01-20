@@ -20,17 +20,13 @@
  *  \param niveau Le niveau dont il faut lier les salles
  */
 static void lierSalles(t_niveau * niveau)
-{
-    int id_courant; //id de la salle courante
-    
+{   
     for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
         {
             if(niveau->salles[i*niveau->l + j] != NULL) //Si la salle courante existe
             {
-                id_courant = niveau->salles[i*niveau->l + j]->id_salle;
-
                 if( i > 0 && //Pour éviter de sortir du haut de la matrice
                     niveau->salles[(i-1)*niveau->l + j] != NULL) //Si la salle du dessus existe
                 {
