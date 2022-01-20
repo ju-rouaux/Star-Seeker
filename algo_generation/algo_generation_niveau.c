@@ -14,27 +14,27 @@
 #include <time.h>
 
 
-#define LONGUEUR_NIVEAU_MAX 20
-#define HAUTEUR_NIVEAU_MAX 20
+#define LONGUEUR_NIVEAU_MAX 25
+#define HAUTEUR_NIVEAU_MAX 25
 
 // Cases du niveau
 #define VIDE 0
 #define SALLE -1
 
 //Pourcentages de génération des salles
-#define POURCENTAGE_DE_SALLES_GLOBAL 25
+#define POURCENTAGE_DE_SALLES_GLOBAL 20
 
 #define CHANCE_GEN_SALLE_8_VOISINES_LIBRES 100
 #define CHANCE_GEN_SALLE_7_VOISINES_LIBRES 70
 #define CHANCE_GEN_SALLE_6_VOISINES_LIBRES 40
 #define CHANCE_GEN_SALLE_5_VOISINES_LIBRES 20
-#define CHANCE_GEN_SALLE_4_VOISINES_LIBRES 20
-#define CHANCE_GEN_SALLE_3_VOISINES_LIBRES 20
+#define CHANCE_GEN_SALLE_4_VOISINES_LIBRES 10
+#define CHANCE_GEN_SALLE_3_VOISINES_LIBRES 5
 #define CHANCE_GEN_SALLE_2_VOISINES_LIBRES 1
 #define CHANCE_GEN_SALLE_1_VOISINE_LIBRE 1
 #define CHANCE_GEN_SALLE_0_VOISINE_LIBRE 0
 
-#define NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN 5
+#define NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN 4
 
 
 //Probabilités pour les indentifications de salles
@@ -51,9 +51,10 @@ void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
             switch(niv[i][j]){
 
-                case VIDE : printf("0 "); break;
-                case SALLE : printf("+"); break;
-                default : printf("%d ", niv[i][j]);
+                case VIDE : printf("  "); break;
+                case SALLE : printf("+ "); break;
+                //default : printf("%d ", niv[i][j]);
+                default : printf("+ ");
 
             } 
 
@@ -62,8 +63,38 @@ void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         printf("\n");
 
     }
+}
+
+
+int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+    //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
+
+
+    FILE * f = fopen("test.niv", "w");
+
+    if(f == NULL)
+        return 0;
+
+
+    fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
+
+    for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
+        for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+
+                fprintf(f, "%d ", niv[i][j]);            
+        }
+        fprintf(f, "\n");
+    }
+            
+
+    fclose(f);
+    return 1;
+
 
 }
+
+
+
 
 int de(int nbFaces){
     //Dé à nbFaces faces
@@ -165,6 +196,8 @@ int compterSalle(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
+    //Donne un id unique à chaque salle et crée des salles de plusieurs cases
+
     int id = 1;
 
     for(int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
@@ -190,12 +223,8 @@ void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         }
 
     }
-
-
-
-
-
 }
+
 
 
 
@@ -253,8 +282,6 @@ void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         nbSalles += ajout_salle_adjacente(niv, i, j);
 
     }
-
-
 }
 
 
@@ -269,16 +296,14 @@ void main(){
     
     int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
-
-   
+ 
 
     init_niveau(niv);
-    afficher_niv(niv);
 
     identificationSalles(niv);
 
-    printf("\n%d\n", compterSalle(niv));
-
     afficher_niv(niv);
+
+    ecrire_fichier_niv(niv);
 
 }
