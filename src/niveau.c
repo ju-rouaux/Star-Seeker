@@ -93,9 +93,9 @@ static void detruireSalle(t_salle ** salle)
 }
 
 //A faire
-static void chargerMonstres();
-static void chargerObstacles();
-static void chargerSalle(); //Appelle les 2 précédentes
+//static void chargerMonstres();
+//static void chargerObstacles();
+//static void chargerSalle(); //Appelle les 2 précédentes
 
 
 /**
