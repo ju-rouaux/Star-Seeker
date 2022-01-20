@@ -1,0 +1,3 @@
+#define NB_TILE_LARGEUR 15
+#define NB_TILE_HAUTEUR 9
+
