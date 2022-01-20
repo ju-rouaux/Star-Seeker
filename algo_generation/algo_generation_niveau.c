@@ -201,9 +201,9 @@ void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
     int id = 1;
 
-    for(int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
+    for(int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
 
-        for(int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+        for(int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
 
             if(niv[i][j] == SALLE){
 
