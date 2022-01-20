@@ -51,9 +51,15 @@ int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
 */
 void detruireFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
 {
-    SDL_DestroyRenderer(*renderer);
-    (*renderer) = NULL;
+    if(*renderer != NULL)
+    {
+        SDL_DestroyRenderer(*renderer);
+        (*renderer) = NULL;
+    }
 
-    SDL_DestroyWindow(*window);
-    (*window) = NULL;
+    if(*window != NULL)
+    {
+        SDL_DestroyWindow(*window);
+        (*window) = NULL;
+    }
 }
