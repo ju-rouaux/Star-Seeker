@@ -1,3 +1,5 @@
 /.vscode/
 /lib/
 /include/SDL2/
+/bin/
+/obj/
