@@ -257,7 +257,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
 
-void main(){
+void creer_niveau(char * nom_fichier){
 
     srand(time(NULL));
 
@@ -270,10 +270,6 @@ void main(){
 
     identificationSalles(niv);
 
-    afficher_niv(niv);
-
-
-    char name[20] = "./test/test.niv";
-    ecrire_fichier_niv(niv, name);
+    ecrire_fichier_niv(niv, nom_fichier);
 
 }
