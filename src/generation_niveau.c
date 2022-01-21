@@ -8,41 +8,9 @@
  */
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
+#include <generation_niveau.h>
 
-
-#define LONGUEUR_NIVEAU_MAX 25
-#define HAUTEUR_NIVEAU_MAX 25
-
-//Cases du niveau
-#define VIDE 0
-#define SALLE -1
-
-//Pourcentages de génération des salles
-#define POURCENTAGE_DE_SALLES_GLOBAL 20
-
-#define CHANCE_GEN_SALLE_8_VOISINES_LIBRES 100
-#define CHANCE_GEN_SALLE_7_VOISINES_LIBRES 70
-#define CHANCE_GEN_SALLE_6_VOISINES_LIBRES 40
-#define CHANCE_GEN_SALLE_5_VOISINES_LIBRES 20
-#define CHANCE_GEN_SALLE_4_VOISINES_LIBRES 10
-#define CHANCE_GEN_SALLE_3_VOISINES_LIBRES 5
-#define CHANCE_GEN_SALLE_2_VOISINES_LIBRES 1
-#define CHANCE_GEN_SALLE_1_VOISINE_LIBRE 1
-#define CHANCE_GEN_SALLE_0_VOISINE_LIBRE 0
-
-#define NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN 4
-
-
-//Probabilités pour les indentifications de salles
-#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
-
-
-
-void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
     for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
 
@@ -64,8 +32,7 @@ void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
     }
 }
 
-
-int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
+static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
     //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
 
 
@@ -112,7 +79,7 @@ int coordonnees_valides(int i, int j){
 
 }
 
-int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j, int compterDiagonales){
+static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j, int compterDiagonales){
     //Renvoie le nombre de salles dispos à côté de (i ; j)
     //compterDiagonales détermine si l'on compte les voisines en diagonale (1) ou pas
 
@@ -148,7 +115,7 @@ int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX],
     return cpt_salles;
 }
 
-int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j){
+static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j){
     //Crée une nouvelle salle adjacente positionnée aléatoirement à celle passée en paramètre.
     //Ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
 
@@ -170,7 +137,7 @@ int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int 
 
 }
 
-int compterSalle(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static int compterSalle(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
     int cpt = 0;
@@ -194,7 +161,7 @@ int compterSalle(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
 
-void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
     //Donne un id unique à chaque salle et crée des salles de plusieurs cases
@@ -231,7 +198,7 @@ void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
 
-void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
     // Fonction qui initialise la matrice niv[][] avec un niveau aléatoirement généré
 
@@ -306,7 +273,7 @@ void main(){
     afficher_niv(niv);
 
 
-    char name[20] = "test.niv";
+    char name[20] = "./test/test.niv";
     ecrire_fichier_niv(niv, name);
 
 }
