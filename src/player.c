@@ -6,14 +6,16 @@
 #include <player.h>
 
 /**
- * \brief Gestion des deplacements du joueur
+ *\file player.c 
  * 
+ *
+ * \brief Gestion des deplacements du joueur
+ * \author Guillaume
  */
 
 move move_player(move * player) {
 
-    while(refresh_keys(&player) != 1){
-
+        refresh_keys(player);
     if (player->arrow_down == 1)
         player->y = player->y + 10;
 
@@ -26,14 +28,16 @@ move move_player(move * player) {
     if (player->arrow_up == 1)
         player->y = player->y - 10;
     
-    }
-
+    printf("\nCoordonnées du joueur : x = %d, y = %d",player->x, player->y);
+    
     return *player;
 
 }
 
 int refresh_keys(move * player) {
-        SDL_Event arrows;
+        SDL_Event arrows ;
+        arrows.type = 0;
+        arrows.key.keysym.sym = 0;
 
         switch (arrows.type) {
         case SDL_KEYDOWN:
@@ -51,7 +55,8 @@ int refresh_keys(move * player) {
                 player -> arrow_right = 1;
                 break;
             case SDLK_ESCAPE:
-                return 1;break;
+                return 1;
+                break;
             }
 
         }

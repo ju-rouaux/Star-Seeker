@@ -9,5 +9,5 @@ typedef struct {
 }
 move;
 
-move move_player();
+move move_player(move * player);
 int refresh_keys(move * player);

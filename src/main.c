@@ -8,7 +8,8 @@
 int main(int argc, char * argv[])
 {
     SDL_Window * window = NULL;
-    SDL_Renderer * renderer = NULL, *image = NULL;
+    SDL_Renderer * renderer = NULL;
+    SDL_Surface * image = NULL;
     
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
@@ -29,17 +30,14 @@ int main(int argc, char * argv[])
     }
     SDL_FreeSurface(image); /* on a la texture, plus besoin de l'image */
 
-    move player;
+    move * player = malloc(sizeof(move));
 
 
     while(handleEvents() != 1){
-        move_player(&player);
-        
-
-        
-
+        move_player(player);
          
     }
+    free(player);
     detruireFenetreEtRendu(&window, &renderer);
 
     SDL_Quit();
