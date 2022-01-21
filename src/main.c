@@ -32,7 +32,6 @@ int main(int argc, char * argv[])
 
     move * player = malloc(sizeof(move));
 
-
     while(handleEvents() != 1){
         move_player(player);
          

@@ -1,4 +1,3 @@
-
 typedef struct {
     int arrow_right; /**Booleen, vrai si la fleche de droite est appuyée */
     int arrow_left; /**Booleen, vrai si la fleche de gauche est appuyée */
