@@ -3,6 +3,16 @@
 
 #include <SDL2/SDL.h>
 
+/*
+    CE FICHIER CONTIENDRA AUSSI LES ENUMERATIONS NECESSAIRES
+    A L'IDENTIFICATION D'UNE TILE DANS UN TILESET
+*/
+
+
+/**
+ * \struct t_textures
+ * \brief Contient toutes les textures du jeu
+ */
 typedef struct
 {
     SDL_Texture * map;

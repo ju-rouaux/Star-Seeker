@@ -1,9 +1,23 @@
+/**
+ * \file
+ * \brief Module de chargement de textures et d'identification de ces dernières
+ * 
+ * \author Julien
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <textures.h>
 
-//REtourne NULL si echec
+/**
+ * \brief Charge les textures du jeu
+ * 
+ * \param renderer Pointeur du renderer de la fenêtre.
+ * 
+ * \return Le pointeur de la structure contenant les références à toutes 
+ * les textures, NULL si echec.
+ */
 t_textures * chargerTextures(SDL_Renderer * renderer)
 {
     SDL_Surface * surface = NULL;
@@ -58,6 +72,12 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     return textures;
 }
 
+/**
+ * \brief Libère la mémoire allouée pour les textures et mets son 
+ * pointeur à NULL.
+ * 
+ * \param textures La structure des textures du jeu.
+ */
 void detruireTextures(t_textures ** textures)
 {
     if(*textures != NULL)

@@ -36,6 +36,7 @@ int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
     if(*renderer == NULL)
     {
         printf("Impossible de créer le rendu : %s\n", SDL_GetError());
+        SDL_DestroyWindow(*window);
         return -2;
     }
 

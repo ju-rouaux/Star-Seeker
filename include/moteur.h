@@ -6,6 +6,10 @@
 //include vecteur.h
 
 //Structure contenant toutes les données utiles au moteur de jeu
+/**
+ * \struct t_moteur
+ * \brief Objet contenant les données nécéssaires au rendu du jeu
+ */
 typedef struct
 {
     SDL_Window * window;
