@@ -14,6 +14,8 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
         printf("Impossible d'allouer la mémoire pour t_textures\n");
         return NULL;
     }
+    textures->map = NULL;
+    textures->player = NULL;
 
     //Map
     surface = SDL_LoadBMP("./img/tileset_map.bmp");
@@ -53,7 +55,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
 
 */
 
-    return 
+    return textures;
 }
 
 void detruireTextures(t_textures ** textures)
@@ -61,10 +63,10 @@ void detruireTextures(t_textures ** textures)
     if(*textures != NULL)
     {
         if((*textures)->map != NULL)
-            SDL_DestroyTextures((*textures)->map);
+            SDL_DestroyTexture((*textures)->map);
         if((*textures)->player != NULL)
-            SDL_DestroyTextures((*textures)->player);
-        free(*textures)
+            SDL_DestroyTexture((*textures)->player);
+        free(*textures);
     }
     *textures = NULL;
 }

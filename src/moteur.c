@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
 #include <window.h>
@@ -10,7 +11,7 @@ t_moteur * chargerMoteur()
     t_moteur * moteur = malloc(sizeof(t_moteur));
     if(moteur == NULL)
     {
-        print("Impossible d'allouer la mémoire pour la structure moteur\n");
+        printf("Impossible d'allouer la mémoire pour la structure moteur\n");
         return NULL;
     }
 

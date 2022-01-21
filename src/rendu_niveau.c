@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <niveau.h>
+#include <moteur.h>
 #include <rendu_niveau.h>
 
 //Retourne la taille en pixel d'un bloc selon la taille de l'écran
@@ -21,7 +22,7 @@ int getScale(SDL_Window * window)
 int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y)
 {
     //Afficher sol
-    SDL_Texture * 
+    
 
     //Afficher murs
 
