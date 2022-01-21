@@ -1,3 +1,6 @@
+#ifndef _JEU_MOTEUR_
+#define _JEU_MOTEUR_
+
 #include <SDL2/SDL.h>
 #include <textures.h>
 //include vecteur.h
@@ -12,3 +15,5 @@ typedef struct
 
 t_moteur * chargerMoteur();
 void detruireMoteur(t_moteur ** moteur);
+
+#endif // _JEU_MOTEUR_

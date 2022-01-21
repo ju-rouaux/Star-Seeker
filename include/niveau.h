@@ -58,4 +58,4 @@ typedef struct {
 t_niveau * chargerNiveau(FILE * fichier);
 void detruireNiveau(t_niveau ** niveau);
 
-#endif
+#endif //_JEU_NIVEAU_

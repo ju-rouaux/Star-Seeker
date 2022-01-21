@@ -6,4 +6,4 @@
 int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer);
 void detruireFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer);
 
-#endif
+#endif //_JEU_WINDOW_

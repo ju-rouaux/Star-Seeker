@@ -12,4 +12,4 @@ typedef struct
 t_textures * chargerTextures(SDL_Renderer * renderer);
 void detruireTextures(t_textures ** textures);
 
-#endif
+#endif //_JEU_TEXTURES_
