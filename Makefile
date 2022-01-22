@@ -1,7 +1,7 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2_image -lSDL2
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2
 
 # Parametres du makefile
 APPNAME = ./bin/event

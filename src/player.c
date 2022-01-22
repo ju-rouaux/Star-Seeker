@@ -1,9 +1,3 @@
-#include <stdio.h>
-
-#include <SDL2/SDL.h>
-
-#include <player.h>
-
 /**
  *\file player.c 
  * 
@@ -12,53 +6,70 @@
  * \author Guillaume
  */
 
-move move_player(move * player) {
+#include <stdio.h>
 
-        refresh_keys(player);
-    if (player->arrow_down == 1)
-        player->y = player->y + 10;
+#include <SDL2/SDL.h>
 
-    if (player->arrow_left == 1)
-        player->x = player->x - 10;
+#include <player.h>
 
-    if (player->arrow_right == 1)
-        player->x = player->x + 10;
 
-    if (player->arrow_up == 1)
-        player->y = player->y - 10;
-    
-    printf("\nCoordonnées du joueur : x = %d, y = %d",player->x, player->y);
-    SDL_Delay(500);
-    
+move move_player(SDL_Event * keyboard, move * player) {
+    refresh_keys( * keyboard, player);
+    if (player -> arrow_down == 1)
+        player -> y = player -> y + 10;
+
+    if (player -> arrow_left == 1)
+        player -> x = player -> x - 10;
+
+    if (player -> arrow_right == 1)
+        player -> x = player -> x + 10;
+
+    if (player -> arrow_up == 1)
+        player -> y = player -> y - 10;
+
+    printf("\nCoordonnées du joueur : x = %d, y = %d", player -> x, player -> y);
+    printf("\no");
+
     return *player;
 
 }
 
-int refresh_keys(move * player) {
-        SDL_Event arrows ;
-        arrows.type = 0;
-        arrows.key.keysym.sym = 0;
+void refresh_keys(SDL_Event keyboard, move * player) {
 
-        switch (arrows.type) {
+    while (SDL_PollEvent( & keyboard)) {
+        switch (keyboard.type) {
         case SDL_KEYDOWN:
-            switch (arrows.key.keysym.sym) {
+            switch (keyboard.key.keysym.sym) {
             case SDLK_UP:
-                player -> arrow_up = 1;printf("aaaaaaaaaaaaaaaaaaaaaaaa");
+                player -> arrow_up = 1;printf("upp");
                 break;
             case SDLK_DOWN:
-                player -> arrow_down = 1;printf("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                player -> arrow_down = 1;
                 break;
             case SDLK_LEFT:
-                player -> arrow_left = 1;printf("cccccccccccccccccccccccccccccc");
+                player -> arrow_left = 1;
                 break;
             case SDLK_RIGHT:
-                player -> arrow_right = 1;printf("ddddddddddddddddddddddddddddd");
+                player -> arrow_right = 1;
                 break;
-            case SDLK_ESCAPE:
-                return 1;
+            };
+        case SDL_KEYUP:
+            switch (keyboard.key.keysym.sym) {
+            case SDLK_UP:
+                player -> arrow_up = 0;
+                printf("up-down");
                 break;
-            }
+            case SDLK_DOWN:
+                player -> arrow_down = 0;
+                break;
+            case SDLK_LEFT:
+                player -> arrow_left = 0;
+                break;
+            case SDLK_RIGHT:
+                player -> arrow_right = 0;
+                break;
+            };
+        };
+    }
 
-        }
-        return 0;
 }

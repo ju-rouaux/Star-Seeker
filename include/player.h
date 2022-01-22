@@ -8,5 +8,5 @@ typedef struct {
 }
 move;
 
-move move_player(move * player);
-int refresh_keys(move * player);
+move move_player(SDL_Event * keyboard, move * player);
+void refresh_keys(SDL_Event keyboard, move * player);

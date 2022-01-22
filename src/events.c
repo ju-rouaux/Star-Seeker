@@ -16,13 +16,11 @@
  * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
  */
 
-int handleEvents() {
+int handleEvents(SDL_Event event) {
 
   const char * key_code, * key_name; /**nom de la touche azerty, qwerty*/
   int mouse_x, mouse_y; /**Coordonnées du curseur*/
   int scrolling; /**Boléen, 1 si on scrolle vers le haut, 0 si on scrolle vers le bas*/
-
-  SDL_Event event;
 
   while (SDL_PollEvent( & event)) {
 
@@ -78,7 +76,7 @@ int handleEvents() {
       break;
     case SDL_MOUSEMOTION:
       mouse_x = event.button.x, mouse_y = event.button.y; /**Recupere les coordonées x et y relative a la fenetre*/
-      printf("\nMouse has moved  : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
+      //printf("\nMouse has moved  : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
       break;
     case SDL_MOUSEWHEEL:
       scrolling = event.wheel.y; /**Recupere la valeur de la molette, 1 si on scrolle vers le haut, 0 si on scrolle vers le bas */
@@ -93,14 +91,14 @@ int handleEvents() {
     case SDL_KEYDOWN: /**touche appuyée*/
       printf("\nKey pressed"),
         key_code = SDL_GetScancodeName(event.key.keysym.scancode),
-        key_name = SDL_GetKeyName(event.key.keysym.sym),
-        printf("\nKey %s : %s has been pressed", key_name, key_code);
+        key_name = SDL_GetKeyName(event.key.keysym.sym);
+        //printf("\nKey %s : %s has been pressed", key_name, key_code);
       break;
     case SDL_KEYUP: /**touche relachée*/
       printf("\nKey released"),
         key_code = SDL_GetScancodeName(event.key.keysym.scancode),
-        key_name = SDL_GetKeyName(event.key.keysym.sym),
-        printf("\nKey %s : %s has been released", key_name, key_code); /** key_name touche correspondant clavier azerty | key_code = clavier qwerty*/
+        key_name = SDL_GetKeyName(event.key.keysym.sym);
+        //printf("\nKey %s : %s has been released", key_name, key_code); /** key_name touche correspondant clavier azerty | key_code = clavier qwerty*/
       break;
 
       /**Gestion de la fenetre */
