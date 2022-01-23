@@ -22,10 +22,10 @@ int main(int argc, char * argv[]) {
 
     creerFenetreEtRendu( & window, & renderer);
 
-        while (handleEvents(event) != 1) {
+    while (handleEvents(event) != 1) {
 
-            move_player( & event, player);
-        }
+        move_player( & event, player);
+    }
     free(player);
     detruireFenetreEtRendu( & window, & renderer);
     SDL_Quit();

@@ -1,3 +1,11 @@
+#ifndef _MOVE_PLAYER_
+#define _MOVE_PLAYER_
+
+/**
+ * \struct move 
+ * \brief Objet contenenant toutes les coordonées du joueur ainsi que l'etat des fleches pour son deplacement
+ */
+
 typedef struct {
     int arrow_right; /**Booleen, vrai si la fleche de droite est appuyée */
     int arrow_left; /**Booleen, vrai si la fleche de gauche est appuyée */
@@ -11,3 +19,5 @@ move;
 move move_player(SDL_Event * keyboard, move * player);
 void refresh_keys(SDL_Event * keyboard, move * player);
 void initialize_keys(move * player);
+
+#endif
