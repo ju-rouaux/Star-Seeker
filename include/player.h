@@ -9,4 +9,5 @@ typedef struct {
 move;
 
 move move_player(SDL_Event * keyboard, move * player);
-void refresh_keys(SDL_Event keyboard, move * player);
+void refresh_keys(SDL_Event * keyboard, move * player);
+void initialize_keys(move * player);

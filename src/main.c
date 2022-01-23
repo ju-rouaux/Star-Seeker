@@ -22,10 +22,9 @@ int main(int argc, char * argv[]) {
 
     creerFenetreEtRendu( & window, & renderer);
 
-        while (1) {
+        while (handleEvents(event) != 1) {
 
             move_player( & event, player);
-            //refresh_keys(event,player);
         }
     free(player);
     detruireFenetreEtRendu( & window, & renderer);
