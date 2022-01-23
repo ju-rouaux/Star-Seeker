@@ -90,3 +90,56 @@ void detruireTextures(t_textures ** textures)
     }
     *textures = NULL;
 }
+
+/**
+ * \brief Permet de découper une tileset et récupérer une partie de la texture.
+ * 
+ * Les cas simples sont traités par des fonctions de plus haut niveau,
+ * mais lorsqu'il s'agit d'animations, cette fonction pourrait s'avérer utile.
+ * 
+ * \param rectangle Rectangle où stocker le résultat de calcul
+ * \param x Position en x de la tile désirée
+ * \param y Position en y de la tile désirée
+ */
+void splitTexture(SDL_Rect * rectangle, int x, int y)
+{
+    rectangle->x = x * TAILLE_TILE;
+    rectangle->y = y * TAILLE_TILE;
+    rectangle->h = TAILLE_TILE;
+    rectangle->w = TAILLE_TILE;
+}
+
+/**
+ * \brief Permet de récupérer la bonne partie du tileset de niveau en fonction
+ * du type de tile désiré.
+ * 
+ * \param rectangle Rectangle où stocker le résultat de calcul
+ * \param type Type de tile désiré
+ */
+void tileNiveau(SDL_Rect * rectangle, t_tile_type type)
+{
+    switch (type)
+    {
+    case SOL:
+        splitTexture(rectangle, 0,0);
+        break;
+    case MUR:
+        splitTexture(rectangle, 1,0);
+        break;
+    case PORTE_HAUT:
+        splitTexture(rectangle, 2,0);
+        break;
+    case PORTE_GAUCHE:
+        splitTexture(rectangle, 3,0);
+        break;
+    case PORTE_BAS:
+        splitTexture(rectangle, 4,0);
+        break;
+    case PORTE_DROITE:
+        splitTexture(rectangle, 5,0);
+        break;
+    default: //texture par défaut
+        splitTexture(rectangle, 0,0);
+        break;
+    }
+}

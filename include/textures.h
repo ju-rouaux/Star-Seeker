@@ -3,11 +3,16 @@
 
 #include <SDL2/SDL.h>
 
+#define TAILLE_TILE 16
+
 /*
-    CE FICHIER CONTIENDRA AUSSI LES ENUMERATIONS NECESSAIRES
+    CE FICHIER CONTIENT AUSSI LES ENUMERATIONS NECESSAIRES
     A L'IDENTIFICATION D'UNE TILE DANS UN TILESET
 */
-
+typedef enum
+{
+    SOL, MUR, PORTE_BAS, PORTE_DROITE, PORTE_HAUT, PORTE_GAUCHE
+} t_tile_type;
 
 /**
  * \struct t_textures
@@ -21,5 +26,7 @@ typedef struct
 
 t_textures * chargerTextures(SDL_Renderer * renderer);
 void detruireTextures(t_textures ** textures);
+void splitTexture(SDL_Rect * rectangle, int x, int y);
+void tileNiveau(SDL_Rect * rectangle, t_tile_type type);
 
 #endif //_JEU_TEXTURES_
