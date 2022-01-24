@@ -44,8 +44,6 @@ move move_player(SDL_Event * keyboard, move * player) {
     initialize_keys(player);
   }
 
-  printf("\nCoordonnées du joueur : x = %d, y = %d", player -> x, player -> y);
-
   return *player;
 
 }
