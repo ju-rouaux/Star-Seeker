@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -g
 LDFLAGS = -I./include -Llib -lSDL2
 
 # Parametres du makefile
-APPNAME = generation_niveau
+APPNAME = ./bin/generation_niveau
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj

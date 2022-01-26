@@ -10,28 +10,6 @@
 
 #include <generation_niveau.h>
 
-static void afficher_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
-
-    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
-
-        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-
-            switch(niv[i][j]){
-
-                case VIDE : printf("  "); break;
-                case SALLE : printf("+ "); break;
-                //default : printf("%d ", niv[i][j]);
-                default : printf("+ ");
-
-            } 
-
-        }
-
-        printf("\n");
-
-    }
-}
-
 static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
     //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
 
@@ -60,9 +38,6 @@ static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], 
 
 
 }
-
-
-
 
 int de(int nbFaces){
     //Dé à nbFaces faces
@@ -137,29 +112,6 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
 }
 
-static int compterSalle(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
-
-
-    int cpt = 0;
-
-    for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-     
-     
-        for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
-
-            if(niv[i][j] != 0)
-                cpt++;
-
-        }
-
-    }
-
-
-
-    return cpt;
-}
-
-
 
 static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
@@ -192,10 +144,6 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
     }
 }
-
-
-
-
 
 
 static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
@@ -254,12 +202,25 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
 
 
+static int seed_depuis_mot(char * mot){
+
+    int seed = 0;
+
+    for(int i = 0; i < strlen(mot); i++)
+        seed = seed*100 + tolower(*(mot + i));
+    
+
+    return seed;
+
+}
+
+void creer_niveau(char * nom_fichier, char * nom_planete){
+
+    unsigned int seed = 564;
 
 
 
-void creer_niveau(char * nom_fichier){
-
-    srand(time(NULL));
+    srand(seed);
 
     
     int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
