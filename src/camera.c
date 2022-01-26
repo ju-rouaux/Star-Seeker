@@ -119,7 +119,7 @@ void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, 
  */
 void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
 {
-    calculerPosCamera(camera->x, camera->y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->x, &camera->y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
 }
 
 /**
@@ -135,7 +135,7 @@ void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int 
  */
 void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
 {
-    calculerPosCamera(camera->futur_x, camera->futur_y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->futur_x, &camera->futur_y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
 }
 
 //Vrai tant que l'animation est en cours
@@ -160,7 +160,7 @@ int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** av
 
     //Si on est suffisamment près de la destination, y aller directement.
     //On admet que si un des axes est arrivé, l'autre l'est aussi
-    if(abs(camera->futur_x - camera->x) < abs(avancer_x) || abs(camera->futur_y - camera->y) < abs(avancer_y))
+    if(abs(camera->futur_x - camera->x) < abs(**avancer_x) || abs(camera->futur_y - camera->y) < abs(**avancer_y))
     {
         camera->x = camera->futur_x;
         camera->y = camera->futur_y;

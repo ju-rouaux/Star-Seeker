@@ -9,6 +9,34 @@
 #include <stdlib.h>
 #include <niveau.h>
 
+t_dimensions_salle * creerDimensions(int i, int j)
+{
+    t_dimensions_salle * dimensions = malloc(sizeof(t_dimensions_salle));
+    if(dimensions == NULL)
+    {
+        printf("Impossible d'allouer la mémoire d'une dimension de salle\n");
+        return NULL;
+    }
+
+    dimensions->i = i;
+    dimensions->j = j;
+    dimensions->largeur = 1;
+    dimensions->hauteur = 1;
+    dimensions->nombre = 1;
+
+    return dimensions;
+}
+
+/**
+ * Ne fonctionne que si une salle ne pointe sur la dimension
+ * 
+ */
+void detruireDimensions(t_dimensions_salle ** dimensions)
+{
+    if(dimensions != NULL && (*dimensions)->nombre == 1)
+        free(*dimensions);
+    dimensions = NULL;
+}
 
 /**
  * Remplie la matrice t_salle * portes[] du pointeur des salles voisines de chaque salles. 
@@ -18,33 +46,76 @@
  *      Deux salles liées et ayant un même identifiant ne formeront qu'une salle.
  * 
  *  \param niveau Le niveau dont il faut lier les salles
+ * 
+ * \return 0 si succès. Valeur négative si échec.
  */
-static void lierSalles(t_niveau * niveau)
+static int lierSalles(t_niveau * niveau)
 {   
+    t_salle * salle_courante = NULL;
+    int id_courant;
+
     for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
         {
-            if(niveau->salles[i*niveau->l + j] != NULL) //Si la salle courante existe
+            salle_courante = niveau->salles[i*niveau->l + j];
+            id_courant = salle_courante->id_salle;
+
+            if(salle_courante != NULL) //Si la salle courante existe
             {
                 if( i > 0 && //Pour éviter de sortir du haut de la matrice
                     niveau->salles[(i-1)*niveau->l + j] != NULL) //Si la salle du dessus existe
                 {
                     //Lier porte haut salle courante à celle du bas salle du dessus
-                    niveau->salles[i*niveau->l + j]->portes[UP] = niveau->salles[(i-1)*niveau->l + j];
-                    niveau->salles[(i-1)*niveau->l + j]->portes[DOWN] = niveau->salles[i*niveau->l + j];
+                    salle_courante->portes[UP] = niveau->salles[(i-1)*niveau->l + j];
+                    niveau->salles[(i-1)*niveau->l + j]->portes[DOWN] = salle_courante;
                 }
 
                 if( j > 0 && //Pour éviter de sortir d'à gauche de la matrice
                     niveau->salles[i*niveau->l + (j-1)] != NULL) //Si la salle de gauche existe
                 {
                     //Lier porte gauche salle courante à celle de droite salle de gauche
-                    niveau->salles[i*niveau->l + j]->portes[LEFT] = niveau->salles[i*niveau->l + (j-1)];
-                    niveau->salles[i*niveau->l + (j-1)]->portes[RIGHT] = niveau->salles[i*niveau->l + j];
+                    salle_courante->portes[LEFT] = niveau->salles[i*niveau->l + (j-1)];
+                    niveau->salles[i*niveau->l + (j-1)]->portes[RIGHT] = salle_courante;
                 }
+                
+/*              Ce code pose problème. Mince !
+
+                //-- Calcul des dimensions des salles --
+                if(id_courant != salle_courante->portes[UP]->id_salle &&
+                id_courant != salle_courante->portes[LEFT]->id_salle) //Salle origine
+                {
+                   salle_courante->dimensions = creerDimensions(i, j);
+                   if(salle_courante->dimensions == NULL)
+                   {
+                       printf("La liaison des salles a échoué\n");
+                       return -1;
+                   }
+                }
+                else //Extension de la salle
+                {
+                    if(id_courant == salle_courante->portes[UP]->id_salle)
+                    {
+                        salle_courante->dimensions = salle_courante->portes[UP]->dimensions;
+                        if(i > salle_courante->dimensions->i + salle_courante->dimensions->hauteur - 1)
+                            salle_courante->dimensions->hauteur++;
+                    }
+
+                    if(id_courant == salle_courante->portes[LEFT]->id_salle)
+                    {
+                        salle_courante->dimensions = salle_courante->portes[LEFT]->dimensions; //Peut écraser l'affectation du if d'au dessus mais c'est pas grave c'est la même valeur
+                        salle_courante->dimensions = salle_courante->portes[LEFT]->dimensions;
+                        if(j > salle_courante->dimensions->j + salle_courante->dimensions->largeur - 1)
+                            salle_courante->dimensions->largeur++;
+                    }
+
+                    salle_courante->dimensions->nombre++;
+                }*/
             }
         }
     }
+
+    return 0;
 }
 
 
@@ -84,7 +155,11 @@ static t_salle * creerSalle(int id_salle)
 static void detruireSalle(t_salle ** salle)
 {
     if(*salle != NULL)
+    {
+        --(*salle)->dimensions->nombre;
+        detruireDimensions(&(*salle)->dimensions);
         free(*salle);
+    }
     salle = NULL;
 }
 

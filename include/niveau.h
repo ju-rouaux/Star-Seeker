@@ -36,13 +36,12 @@ typedef enum {
  */
 typedef struct {
     //La salle origine est forcément la salle la plus en haut à gauche
-    int i; //Coordonnée de la salle origine en hauteur
-    int j; //Coordonnée de la salle origine en largeur
+    int i; //Coordonnée matrice niveau de la salle origine en hauteur
+    int j; //Coordonnée matrice niveau de la salle origine en largeur
     int largeur; //Dimension en terme de nombre de salles en largeur
     int hauteur; //Dimension en terme de nombre de salles en hauteur
     int nombre; //Nombre de sous-salles (utile pour la libération de la mémoire)
 } t_dimensions_salle;
-//!!!!!!!!!!!!!!!!!! Faire une fonction qui remplit ça
 
 /**
  * \struct t_salle
@@ -53,7 +52,7 @@ typedef struct s_salle{
     struct s_salle * portes[NOMBRE_DE_PORTES]; /** Salles auxquelles sont reliées notre salle */
     int id_salle; /** Manière d'identifier si plusieurs salles forment une même salle */
     
-    t_dimensions_salle * dimensions; //NULL si salle formée d'une unique salle
+    t_dimensions_salle * dimensions;
     
     //t_monstre ** (liste de monstres)
     //t_obstacle ** (liste d'obstacles)

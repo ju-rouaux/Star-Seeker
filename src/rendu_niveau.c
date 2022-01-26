@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
+#include <camera.h>
 #include <niveau.h>
 #include <rendu_niveau.h>
 #include <textures.h>
-#include <camera.h>
 
 
 /**
@@ -237,21 +237,19 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
     int id_desire1 = 24;
     int id_desire2 = 25;
 
-    updateScale(moteur->window, camera);
-    
-
+    //updateScale(moteur->window, camera);
 
 
     //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
-    /*for(int i = 0; i < niveau->h; i++)
+    for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
         {
             if(niveau->salles[i*niveau->l + j] != NULL)
-                if(niveau->salles[i*niveau->l +j]->id_salle == id_desire)
+                //if(niveau->salles[i*niveau->l +j]->id_salle == id_desire1)
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, 6);
         }
     }
-    */
+    
     return 0;
 }
