@@ -10,7 +10,7 @@
 
 //gcc .\src\niveau.c .\test\test_niveau.c -o .\bin\test_niveau -Iinclude
 
-void afficherNiveau(const t_niveau * niveau)
+void afficher(const t_niveau * niveau)
 {
     t_salle * salle_courante;
     for(int i = 0; i < (niveau->h)*2; i++)
@@ -69,7 +69,7 @@ int main(void)
     else
     {
         printf("affichage...\n");
-        afficherNiveau(niveau);
+        afficher(niveau);
         detruireNiveau(&niveau);
     }
 

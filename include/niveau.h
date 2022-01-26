@@ -30,6 +30,19 @@ typedef enum {
     UP, RIGHT, DOWN, LEFT
 } e_porte;
 
+/**
+ * \struct t_dimensions_salle
+ * \brief Informations sur le nombre de salles formant la salle
+ */
+typedef struct {
+    //La salle origine est forcément la salle la plus en haut à gauche
+    int i; //Coordonnée de la salle origine en hauteur
+    int j; //Coordonnée de la salle origine en largeur
+    int largeur; //Dimension en terme de nombre de salles en largeur
+    int hauteur; //Dimension en terme de nombre de salles en hauteur
+    int nombre; //Nombre de sous-salles (utile pour la libération de la mémoire)
+} t_dimensions_salle;
+//!!!!!!!!!!!!!!!!!! Faire une fonction qui remplit ça
 
 /**
  * \struct t_salle
@@ -39,6 +52,9 @@ typedef struct s_salle{
     int complete; /** Booléen, vrai si la salle est complétée (plus de monstres) */
     struct s_salle * portes[NOMBRE_DE_PORTES]; /** Salles auxquelles sont reliées notre salle */
     int id_salle; /** Manière d'identifier si plusieurs salles forment une même salle */
+    
+    t_dimensions_salle * dimensions; //NULL si salle formée d'une unique salle
+    
     //t_monstre ** (liste de monstres)
     //t_obstacle ** (liste d'obstacles)
 } t_salle;

@@ -5,35 +5,16 @@
 #include <niveau.h>
 #include <rendu_niveau.h>
 #include <textures.h>
+#include <camera.h>
 
-
-//Il faudra probablement déplacer cette fonction dans un autre module car elle pourrait être utile aux autres modules
-/**
- * \brief Calcule la taille en pixel d'un bloc selon la taille de l'écran
- * 
- * \param window La fenêtre d'affichage
- * 
- * \return La taille en pixel d'un bloc selon la taille de l'écran
- */
-int getScale(SDL_Window * window)
-{
-    int l, h;
-    SDL_GetWindowSize(window, &l, &h);
-    
-    if(h < l) //Si la hauteur est petite, on se base sur cette dimension
-        return h / (NB_TILE_HAUTEUR + 1); //On laisse un demi bloc de vide avec les bordures
-    
-    else //Si la largeur est petite, on se base sur cette dimension
-        return l / (NB_TILE_LARGEUR + 1);
-}
 
 /**
  * \brief Dessine un carré aux coordonnées données
  * 
  * \param moteur Structure moteur du jeu
  * \param type Apparence du carré
- * \param x Position en hauteur de la fenêtre
- * \param y Position en largeur de la fenêtre
+ * \param x Position en largeur de la fenêtre
+ * \param y Position en hauteur de la fenêtre
  * \param taille Taille des cotés des carrés
  * 
  * \return 0 si succès, sinon faire un SDL_GetError() pour connaitre l'erreur.
@@ -58,13 +39,12 @@ int dessinerTile(t_moteur * moteur, t_tile_type type, int x, int y, int taille)
  * 
  * \param moteur Structure moteur du jeu
  * \param salle Salle à afficher
- * \param x Position en hauteur de la fenêtre
- * \param y Position en largeur de la fenêtre
+ * \param x Position en largeur de la fenêtre
+ * \param y Position en hauteur de la fenêtre
+ * \param scale Echelle de rendu du niveau
  */
-static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y)
+static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int scale)
 {
-    //int scale = getScale(moteur->window);
-    int scale = 10;
     t_tile_type type;
     int id_courant = salle->id_salle;
 
@@ -130,7 +110,7 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y)
             else
                 type = SOL;
 
-            if(dessinerTile(moteur, type, (j+y)*scale, (i+x)*scale, scale) != 0)
+            if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
             {
                 printf("Erreur lors de l'affichage d'une tile : %s\n", SDL_GetError());
                 return -1;
@@ -146,12 +126,13 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y)
 int afficherNiveau(t_moteur * moteur, t_niveau * niveau)
 {
     int resultat = 0;
+    //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
     for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
         {
             if(niveau->salles[i*niveau->l + j] != NULL)
-                resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], i*NB_TILE_HAUTEUR, j*NB_TILE_LARGEUR);
+                resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, 4);
             
             
         }
