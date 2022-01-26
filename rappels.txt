@@ -17,3 +17,11 @@ au bon endroit quand il entre dans une salle. L'ancienne salle passe transparent
 tandis que l'autre devient plus opaque
 
 Changer de salle va être bloquant, pas besoin de compter les frames
+
+Quand on passe dans une salle
+    -Charger nouvelle salle
+    -Actualiser future position caméra
+    -Animation camera
+
+TODO : le code de la caméra en général est à tester, maintenant il faut charger les dimensiosn
+de salle

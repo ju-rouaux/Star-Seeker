@@ -50,6 +50,7 @@ t_moteur * chargerMoteur()
     return moteur;
 }
 
+
 /**
  * \brief Libère la mémoire allouée pour la structure moteur et mets son 
  * pointeur à NULL. 

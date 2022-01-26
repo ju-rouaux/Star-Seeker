@@ -231,12 +231,19 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int s
 
 //Fonction temporaire affichant l'entièreté du niveau.
 //Elle devra appeler les salles chargées pour les afficher.
-int afficherNiveau(t_moteur * moteur, t_niveau * niveau)
+int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
 {
     int resultat = 0;
-    int id_desire = 25;
+    int id_desire1 = 24;
+    int id_desire2 = 25;
+
+    updateScale(moteur->window, camera);
+    
+
+
+
     //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
-    for(int i = 0; i < niveau->h; i++)
+    /*for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
         {
@@ -245,5 +252,6 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau)
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, 6);
         }
     }
+    */
     return 0;
 }
