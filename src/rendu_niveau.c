@@ -1,3 +1,11 @@
+/**
+ * \file
+ * \brief Module d'affichage d'un niveau
+ * 
+ * \author Julien Rouaux
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -5,21 +13,20 @@
 #include <camera.h>
 #include <niveau.h>
 #include <rendu_niveau.h>
-#include <textures.h>
 
 
 /**
- * \brief Dessine un carré aux coordonnées données
+ * \brief Dessine un carré aux coordonnées données.
  * 
  * \param moteur Structure moteur du jeu
  * \param type Apparence du carré
- * \param x Position en largeur de la fenêtre
- * \param y Position en hauteur de la fenêtre
+ * \param x Position en largeur de la fenêtre de l'origine de la tile
+ * \param y Position en hauteur de la fenêtre de l'origine de la tile
  * \param taille Taille des cotés des carrés
  * 
  * \return 0 si succès, sinon faire un SDL_GetError() pour connaitre l'erreur.
  */
-int dessinerTile(t_moteur * moteur, t_tile_type type, int x, int y, int taille)
+static int dessinerTile(t_moteur * moteur, t_tile_type type, int x, int y, int taille)
 {
     if(type == AUCUN)
         return 0;
@@ -38,26 +45,28 @@ int dessinerTile(t_moteur * moteur, t_tile_type type, int x, int y, int taille)
 }
 
 /**
- * \brief Affiche une salle dont l'origine se situe aux coordonnées données
+ * \brief Affiche une salle dont l'origine se situe aux coordonnées données.
  * 
  * \param moteur Structure moteur du jeu
  * \param salle Salle à afficher
- * \param x Position en largeur de la fenêtre
- * \param y Position en hauteur de la fenêtre
+ * \param x Position en largeur de la fenêtre de l'origine de la salle
+ * \param y Position en hauteur de la fenêtre de l'origine de la salle
  * \param scale Echelle de rendu du niveau
+ * 
+ * \return 0 si tout va bien, sinon une valeur négative
  */
-static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int scale)
+static int afficherSalle(t_moteur * moteur, const t_salle * salle, int x, int y, int scale)
 {
-    t_tile_type type;
-    int id_courant = salle->id_salle;
+    t_tile_type type = AUCUN;
     int i, j;
+    int id_courant = salle->id_salle;
     
     //Dessiner sol
     for(i = 0; i < NB_TILE_HAUTEUR; i++)
     {
         for(j = 0; j < NB_TILE_LARGEUR; j++)
         {
-            if(dessinerTile(moteur, SOL, (j+x)*scale, (i+y)*scale, scale) != 0)
+            if(dessinerTile(moteur, SOL, x + j*scale, y + i*scale, scale) != 0)
             {
                 printf("Erreur lors de l'affichage d'une tile du sol : %s\n", SDL_GetError());
                 return -1;
@@ -74,13 +83,20 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int s
             type = AUCUN;
         else
         {
-            if(j == (NB_TILE_LARGEUR / 2) && salle->portes[UP] != NULL) //Porte haut
+            //Porte haut
+            if(j == (NB_TILE_LARGEUR / 2) && salle->portes[UP] != NULL)
                 type = PORTE_HAUT;
-            else //Mur
+            //Coins
+            else if(j == -1 && salle->portes[LEFT] != NULL && id_courant == salle->portes[LEFT]->id_salle)
+                type = AUCUN;
+            else if(j == NB_TILE_LARGEUR && salle->portes[RIGHT] != NULL && id_courant == salle->portes[RIGHT]->id_salle)
+                type = AUCUN;
+            //Mur
+            else 
                 type = MUR;
                 
         }
-        if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
+        if(dessinerTile(moteur, type, x + j*scale, y + i*scale, scale) != 0)
         {
             printf("Erreur lors de l'affichage d'une tile du mur du haut : %s\n", SDL_GetError());
             return -1;
@@ -96,13 +112,20 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int s
             type = AUCUN;
         else
         {
-            if(j == (NB_TILE_LARGEUR / 2) && salle->portes[DOWN] != NULL) //Porte bas
+            //Porte bas
+            if(j == (NB_TILE_LARGEUR / 2) && salle->portes[DOWN] != NULL)
                 type = PORTE_BAS;
-            else //Mur
+            //Coins
+            else if(j == -1 && salle->portes[LEFT] != NULL && id_courant == salle->portes[LEFT]->id_salle)
+                type = AUCUN;
+            else if(j == NB_TILE_LARGEUR && salle->portes[RIGHT] != NULL && id_courant == salle->portes[RIGHT]->id_salle)
+                type = AUCUN;
+            //Mur
+            else
                 type = MUR;
                 
         }
-        if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
+        if(dessinerTile(moteur, type, x + j*scale, y + i*scale, scale) != 0)
         {
             printf("Erreur lors de l'affichage d'une tile du mur du bas : %s\n", SDL_GetError());
             return -1;
@@ -118,14 +141,21 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int s
             type = AUCUN;
         else
         {
-            if(i == (NB_TILE_HAUTEUR / 2) && salle->portes[LEFT] != NULL) //Porte gauche
+            //Porte gauche
+            if(i == (NB_TILE_HAUTEUR / 2) && salle->portes[LEFT] != NULL)
                 type = PORTE_GAUCHE;
-            else //Mur
+            //Coins
+            else if(i == -1 && salle->portes[UP] != NULL && id_courant == salle->portes[UP]->id_salle)
+                type = AUCUN;
+            else if(i == NB_TILE_HAUTEUR && salle->portes[DOWN] != NULL && id_courant == salle->portes[DOWN]->id_salle)
+                type = AUCUN;
+            //Mur
+            else 
                 type = MUR;
                 
-            if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
+            if(dessinerTile(moteur, type, x + j*scale, y + i*scale, scale) != 0)
             {
-                printf("Erreur lors de l'affichage d'une tile du mur du bas : %s\n", SDL_GetError());
+                printf("Erreur lors de l'affichage d'une tile du mur de gauche : %s\n", SDL_GetError());
                 return -1;
             }
         }
@@ -140,105 +170,42 @@ static int afficherSalle(t_moteur * moteur, t_salle * salle, int x, int y, int s
             type = AUCUN;
         else
         {
-            if(i == (NB_TILE_HAUTEUR / 2) && salle->portes[RIGHT] != NULL) //Porte droite
+            //Porte droite
+            if(i == (NB_TILE_HAUTEUR / 2) && salle->portes[RIGHT] != NULL)
                 type = PORTE_DROITE;
-            else //Mur
+            //Coins
+            else if(i == -1 && salle->portes[UP] != NULL && id_courant == salle->portes[UP]->id_salle)
+                type = AUCUN;
+            else if(i == NB_TILE_HAUTEUR && salle->portes[DOWN] != NULL && id_courant == salle->portes[DOWN]->id_salle)
+                type = AUCUN;
+            //Mur
+            else
                 type = MUR;
                 
-            if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
+            if(dessinerTile(moteur, type, x + j*scale, y + i*scale, scale) != 0)
             {
-                printf("Erreur lors de l'affichage d'une tile du mur du bas : %s\n", SDL_GetError());
+                printf("Erreur lors de l'affichage d'une tile du mur de droite : %s\n", SDL_GetError());
                 return -1;
             }
         }
     }
 
     return 0;
-
-    //ANCIEN RENDU
-    /*
-    //Afficher sol
-    for(int i = -1; i < NB_TILE_HAUTEUR+1; i++)
-    {
-        for(int j = -1; j < NB_TILE_LARGEUR+1; j++)
-        {
-            if(i == -1) //Mur du haut
-            {
-                if(salle->portes[UP] != NULL &&
-                id_courant == salle->portes[UP]->id_salle &&
-                j != -1 && j != NB_TILE_LARGEUR+1) //Reliée en haut
-                    type = AUCUN;
-                else
-                {
-                    if(j == (NB_TILE_LARGEUR+2) / 2 && salle->portes[UP] != NULL) //Porte haut
-                        type = PORTE_HAUT;
-                    else //Mur
-                        type = MUR;
-                }
-            }
-            else if(i == NB_TILE_HAUTEUR+1) //Mur du bas
-            {
-                if(salle->portes[DOWN] != NULL &&
-                id_courant == salle->portes[DOWN]->id_salle &&
-                j != -1 && j != NB_TILE_LARGEUR+1) //Reliée en haut
-                    type = AUCUN;
-                else
-                {
-                    if(j == (NB_TILE_LARGEUR+2) / 2 && salle->portes[DOWN] != NULL) //Porte bas
-                        type = PORTE_BAS;
-                    else //Mur
-                        type = MUR;
-                }
-            }
-            else if(j == -1) //Mur de gauche
-            {
-                if(salle->portes[LEFT] != NULL &&
-                id_courant == salle->portes[LEFT]->id_salle) //Reliée à gauche
-                    type = AUCUN;
-                else
-                {
-                    if(i == (NB_TILE_HAUTEUR+2) / 2 && salle->portes[LEFT] != NULL) //Porte gauche
-                        type = PORTE_GAUCHE;
-                    else //Mur
-                        type = MUR;
-                }
-            }
-            else if(j == NB_TILE_LARGEUR+1) //Mur de droite
-            {
-                if(salle->portes[RIGHT] != NULL &&
-                id_courant == salle->portes[RIGHT]->id_salle) //Reliée à gauche
-                    type = AUCUN;
-                else
-                {
-                    if(i == (NB_TILE_HAUTEUR+2) / 2 && salle->portes[RIGHT] != NULL) //Porte gauche
-                        type = PORTE_DROITE;
-                    else //Mur
-                        type = MUR;
-                }
-            }
-            else
-                type = SOL;
-            if(type != AUCUN)
-                if(dessinerTile(moteur, type, (j+x)*scale, (i+y)*scale, scale) != 0)
-                {
-                    printf("Erreur lors de l'affichage d'une tile : %s\n", SDL_GetError());
-                    return -1;
-                } 
-        }
-    }
-    */
 }
 
-//Fonction temporaire affichant l'entièreté du niveau.
+
+//Fonction temporaire affichant le niveau
 //Elle devra appeler les salles chargées pour les afficher.
+//
 int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
 {
     int resultat = 0;
-    int id_desire1 = 24;
+    int id_desire1 = 2;
     int id_desire2 = 25;
-
-    //updateScale(moteur->window, camera);
-
+    updateScale(moteur->window, camera);
+    int echelle = camera->echelle;
+    int * avancer_x = NULL;
+    int * avancer_y = NULL;
 
     //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
     for(int i = 0; i < niveau->h; i++)
@@ -246,8 +213,24 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
         for(int j = 0; j < niveau->l; j++)
         {
             if(niveau->salles[i*niveau->l + j] != NULL)
-                //if(niveau->salles[i*niveau->l +j]->id_salle == id_desire1)
-                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, 6);
+                /*if(niveau->salles[i*niveau->l +j]->id_salle == id_desire1)
+                {
+                    if(i == niveau->salles[i*niveau->l + j]->dimensions->i && j == niveau->salles[i*niveau->l + j]->dimensions->j);
+                        //updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, 0, 0);
+                    printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
+                    //resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*2, i*NB_TILE_HAUTEUR*2, 2);
+                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, echelle);
+                }*/
+                if(niveau->salles[i*niveau->l +j]->id_salle == id_desire1)
+                {
+                    afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, echelle);
+                   /* while(transitionCamera(camera, 2, &avancer_x, &avancer_y))
+                    {
+                        afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, echelle);
+                        SDL_Delay(10);
+                    }*/
+
+                }
         }
     }
     
