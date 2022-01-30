@@ -3,7 +3,8 @@
 
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
-
+#define NB_TILE_LARGEUR 15 /**< Surface au sol en largeur */
+#define NB_TILE_HAUTEUR 9 /**< Surface au sol en hauteur */
 
 /**
  * \enum e_porte
