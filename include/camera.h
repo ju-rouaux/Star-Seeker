@@ -3,24 +3,29 @@
 
 #include <niveau.h>
 
-#define NB_TILE_LARGEUR 15 //Représente la surface au sol
-#define NB_TILE_HAUTEUR 9
-
 typedef struct
 {
-    int x;
-    int y;
-    int futur_x;
-    int futur_y;
-    int echelle;
+    int x; /**< Position en x du centre de la caméra par rapport au niveau */
+    int y; /**< Position en y du centre de la caméra par rapport au niveau */
+    int futur_x; /**< Stockage d'une future position de la caméra en x pour la gestion d'animation */
+    int futur_y; /**< Stockage d'une future position de la caméra en y pour la gestion d'animation */
+
+    int echelle; /**< Echelle du jeu, c'est à dire la taille des éléments */
+
+    int window_width; /**< Largeur de la fenêtre */
+    int window_height; /**< Hauteur de la fenêtre */
 } t_camera;
 
+
 void updateScale(SDL_Window * window, t_camera * camera);
-t_camera * creerCamera(int x, int y);
+
+t_camera * creerCamera(SDL_Window * window, int x, int y);
 void detruireCamera(t_camera ** camera);
-void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle);
+
 void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y);
 void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y);
+
 int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y);
+
 
 #endif //_JEU_CAMERA_

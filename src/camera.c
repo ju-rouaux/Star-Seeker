@@ -1,10 +1,11 @@
 /**
  * \file
- * EN COURS D'ECRITURE
- * C'EST LE BORDEL ICI
+ * \brief Module de calcul de position de caméra pour savoir où
+ * dessiner les éléments sur la fenêtre
  * 
- * 
+ * \author Julien Rouaux
  */
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +13,7 @@
 #include <camera.h>
 #include <niveau.h>
 #include <window.h>
+
 
 /**
  * \brief Calcule la taille en pixel d'un bloc selon la taille de l'écran et 
@@ -22,23 +24,32 @@
  */
 void updateScale(SDL_Window * window, t_camera * camera)
 {
-    int l = 400;
-    int h = 170;
+    int l = 1280;
+    int h = 720;
 
     SDL_GetWindowSize(window, &l, &h);
+
+    camera->window_height = h;
+    camera->window_width = l;
     
     if(h < l) //Si la hauteur est petite, on se base sur cette dimension
-        camera->echelle = h / (NB_TILE_HAUTEUR + 1); //On laisse un demi bloc de vide avec les bordures
+        camera->echelle = h / (NB_TILE_HAUTEUR + 3); //On laisse un bloc et demi de vide avec les bordures
     
     else //Si la largeur est petite, on se base sur cette dimension
-        camera->echelle = l / (NB_TILE_LARGEUR + 1);
+        camera->echelle = l / (NB_TILE_LARGEUR + 3);
 }
 
+
 /**
- * \brief Nb Echelle à 0, penser à l'actualiser avant utilisation
+ * \brief Alloue la mémoire pour une caméra, et appelle updateScale automatiquement.
  * 
+ * \param window SDL_Window du jeu
+ * \param x Position de la caméra en x
+ * \param y Position de la caméra en y
+ * 
+ * \return Le pointeur de la caméra, NULL si échec
  */
-t_camera * creerCamera(int x, int y)
+t_camera * creerCamera(SDL_Window * window, int x, int y)
 {
     t_camera * camera = malloc(sizeof(t_camera));
     if(camera == NULL)
@@ -49,21 +60,30 @@ t_camera * creerCamera(int x, int y)
 
     camera->x = x;
     camera->y = y;
-    camera->echelle = 0;
+    camera->futur_x = x;
+    camera->futur_y = y;
+
+    updateScale(window, camera);
 
     return camera;
 }
 
+
+/**
+ * \brief Libère la mémoire allouée à une caméra et mets son pointeur à NULL.
+ * 
+ * \param camera L'adresse du pointeur de la caméra
+ */
 void detruireCamera(t_camera ** camera)
 {
     if(*camera != NULL)
         free(*camera);
+
     *camera = NULL;
 }
 
 /**
- * \brief Calule la position de la caméra au bon endroit selon la configuration de la salle et 
- * de la position du joueur.
+ * \brief Calule la position de la caméra de telle sorte à ce que son origine soit au centre de la salle ou sur le joueur
  * 
  * \param x Retour de la position en x
  * \param y Retour de la position en y
@@ -74,41 +94,43 @@ void detruireCamera(t_camera ** camera)
  * \param j_y Position en y du joueur relative au niveau
  * \param echelle Echelle du niveau
  */
-void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle)
+static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle)
 {
     int quart; //Largeur ou longueur du quart d'une salle
 
     if(dimensions == NULL || (dimensions->largeur == 1))
-        *x = (orig_x + echelle) / 2;
+    {
+        *x = orig_x + (echelle*NB_TILE_LARGEUR) / 2;
+    }
     else
     {
-        quart = (orig_x + dimensions->largeur*echelle) / 4;
-        if(j_x < quart)
-            *x = quart;
-        else if(j_x > 3*quart)
-            *x = 3*quart;
+        quart = (dimensions->largeur*echelle*NB_TILE_LARGEUR) / 4;
+        if(j_x < orig_x + quart)
+            *x = orig_x + quart;
+        else if(j_x > orig_x + 3*quart)
+            *x = orig_x + 3*quart;
         else
             *x = j_x;
     }
 
     if(dimensions == NULL || (dimensions->hauteur == 1))
-        *y = (orig_y + echelle) / 2;
+        *y = orig_y + (echelle*NB_TILE_HAUTEUR) / 2;
     else
     {
-        quart = (orig_y + dimensions->hauteur*echelle) / 4;
-        if(j_y < quart)
-            *y = quart;
-        else if(j_y > 3*quart)
-            *y = 3*quart;
+        quart = (dimensions->hauteur*echelle*NB_TILE_HAUTEUR) / 4;
+        if(j_y < orig_y + quart)
+            *y = orig_y + quart;
+        else if(j_y > orig_y + 3*quart)
+            *y = orig_y + 3*quart;
         else
             *x = j_x;
     }
-    
 }
+
 
 /**
  * \brief Place la caméra au bon endroit selon la configuration de la salle et 
- * de la position du joueur.
+ * de la position du joueur. Le sujet de la caméra sera placé au centre.
  * 
  * \param camera Camera à actualiser
  * \param dimensions Nombre de sous-salles contenues dans la salle
@@ -120,11 +142,18 @@ void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, 
 void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
 {
     calculerPosCamera(&camera->x, &camera->y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    
+    //Maintenant que l'origine de la caméra est placée au bon endroit,
+    //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
+    //accueille l'origine de la caméra.
+    camera->x = camera->x - camera->window_width / 2;
+    camera->y = camera->y - camera->window_height / 2;
 }
+
 
 /**
  * \brief Actualise la future position de la caméra selon la configuration de la future salle et 
- * de la position du joueur.
+ * de la position du joueur. Le sujet de la caméra sera placé au centre.
  * 
  * \param camera Camera à actualiser
  * \param dimensions Nombre de sous-salles contenues dans la salle
@@ -136,12 +165,20 @@ void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int 
 void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
 {
     calculerPosCamera(&camera->futur_x, &camera->futur_y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    
+    //Maintenant que l'origine de la caméra est placée au bon endroit,
+    //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
+    //accueille l'origine de la caméra.
+    camera->futur_x = camera->futur_x - camera->window_width / 2;
+    camera->futur_y = camera->futur_y - camera->window_height / 2;
 }
+
 
 //Vrai tant que l'animation est en cours
 //duree en secondes
 //Cette fonction doit être améliorée pour calculer sa vitesse elle même
 //Si avancer NULL, calculer combien avancer et informer le calcul. sinon avancer de ce qui est indiqué
+//Cette fonction n'est pas encore prête
 int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y)
 {
     if(avancer_x == NULL)
@@ -154,7 +191,7 @@ int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** av
         *avancer_y = malloc(sizeof(int));
         **avancer_y = (camera->futur_y - camera->y) / (NB_FPS * duree); //Distance / nb de FPS alloué à la durée
     }
-
+/*
     camera->x += **avancer_x;
     camera->y += **avancer_y;
 
@@ -172,6 +209,6 @@ int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** av
         avancer_y = NULL;
         return 0;
     }
-
+*/
     return 1;
 }
