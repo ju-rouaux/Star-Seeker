@@ -1,22 +1,27 @@
+#include <stdlib.h>
+
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#include <window.h>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-int main(int argc, char * argv[])
-{
-    SDL_Window * window = NULL;
-    SDL_Renderer * renderer = NULL;
-    
-    if(SDL_Init(SDL_INIT_VIDEO) != 0)
-    {
-        printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
-        return EXIT_FAILURE;
-    }
 
-    creerFenetreEtRendu(&window, &renderer);
-    SDL_Delay(5000);
-    detruireFenetreEtRendu(&window, &renderer);
+#include "liste.h"
 
-    SDL_Quit();
+int main() {
+    liste_t MaListe;
+
+    init_liste( & MaListe);
+
+    pushfront_liste( & MaListe, 10);
+    pushback_liste( & MaListe, 20);
+    pushback_liste( & MaListe, 40);
+    pushback_liste( & MaListe, 50);
+
+    display_liste(MaListe);
+    printf("\n");
+    remove_by_index( & MaListe, 2);
+    printf("\n");
+    display_liste(MaListe);
+    printf("\n");
+    clear_liste( & MaListe);
+
+
     return 0;
 }
