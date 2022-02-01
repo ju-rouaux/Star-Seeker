@@ -1,15 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <niveau.h>
 #include <rendu_niveau.h>
 #include <event.h>
+#include <player.h>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 int main(int argc, char * argv[])
 {
     t_moteur * moteur = NULL;
     t_camera * camera = NULL;
-    
+    SDL_Event event;
+    move * player = malloc(sizeof(move));
+    player -> x = 0;
+    player -> y = 0;
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
         printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
@@ -26,8 +31,9 @@ int main(int argc, char * argv[])
     }
     t_niveau * niveau = chargerNiveau(fichier);
 
-    while(handleEvents() != 1){
+    while(handleEvents(event) != 1){
         //Logic here
+        move_player( & event, player);
         SDL_RenderClear(moteur->renderer);
         afficherNiveau(moteur, niveau, camera);
         SDL_RenderPresent(moteur->renderer);
@@ -35,6 +41,10 @@ int main(int argc, char * argv[])
     }
 
     detruireMoteur(&moteur);
+
+    free(player);
+
     SDL_Quit();
     return 0;
- }
+
+}
