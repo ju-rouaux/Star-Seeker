@@ -16,6 +16,18 @@ typedef struct {
 }
 move;
 
+typedef struct
+{
+    int x;
+    int y;
+} t_position;
+
+typedef struct
+{
+    t_position * position;
+    
+} t_player;
+
 move move_player(SDL_Event * keyboard, move * player);
 void refresh_keys(SDL_Event * keyboard, move * player);
 void initialize_keys(move * player);

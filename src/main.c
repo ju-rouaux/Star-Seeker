@@ -33,6 +33,11 @@ int main(int argc, char * argv[])
 
     while(handleEvents(event) != 1){
         //Logic here
+        //deplacer joueur
+        //check position par rapport ancien rendu
+        //si collision remttre joueur au meme endroit
+        //rendu niveau
+        //rendu joueur
         move_player( & event, player);
         SDL_RenderClear(moteur->renderer);
         afficherNiveau(moteur, niveau, camera);

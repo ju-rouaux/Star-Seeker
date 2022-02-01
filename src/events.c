@@ -25,7 +25,8 @@ int handleEvents(SDL_Event event) {
   while (SDL_PollEvent( & event)) {
 
     switch (event.type) {
-
+    case SDL_QUIT:
+      return 1;
       /**gestion de la souris*/
 
       /**Si un des boutons de la souris est appuyé*/
@@ -119,15 +120,6 @@ int handleEvents(SDL_Event event) {
         break;
       case SDL_WINDOWEVENT_MINIMIZED: /**Fenetre minimisée*/
         printf("\nWindow minimized");
-        break;
-      case SDL_WINDOWEVENT_MOVED: /**Fenetre bougée*/
-        printf("\nWindow moved");
-        break;
-      case SDL_WINDOWEVENT_ENTER: /**Souris est rentrée dans la fenetre*/
-        printf("\nMouse entered window");
-        break;
-      case SDL_WINDOWEVENT_LEAVE: /**Souris a quittée la fenetre*/
-        printf("\nMouse left window");
         break;
       }
     }
