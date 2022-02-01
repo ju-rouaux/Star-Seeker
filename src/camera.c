@@ -96,7 +96,6 @@ void detruireCamera(t_camera ** camera)
  */
 static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle)
 {
-    int quart; //Largeur ou longueur du quart d'une salle
     int demi; //Largeur ou longueur d'une demi salle
 
     if(dimensions == NULL || (dimensions->largeur == 1))

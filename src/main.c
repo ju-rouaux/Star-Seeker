@@ -16,7 +16,7 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur();
-    camera = creerCamera(0,0);
+    camera = creerCamera(moteur->window, 0,0);
     SDL_RenderClear(moteur->renderer);
     FILE * fichier = fopen("./test/allure_d'un_niveau.txt", "r");
     if(fichier == NULL)
@@ -24,8 +24,8 @@ int main(int argc, char * argv[])
         printf("mince");
         return EXIT_FAILURE;
     }
-    //t_niveau * niveau = chargerNiveau(fichier);
-    //afficherNiveau(moteur, niveau, camera);
+    t_niveau * niveau = chargerNiveau(fichier);
+    afficherNiveau(moteur, niveau, camera);
     SDL_RenderPresent(moteur->renderer);
 
     SDL_Delay(5000);
