@@ -7,20 +7,22 @@
  *  
  */
 
-
+#include <string.h>
+#include <ctype.h>
 #include <generation_niveau.h>
 
 
 /**
- *  Écrit un fichier qui contient toutes les informations nécessaires à un niveau.
+ * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
  * 
  * \param niv La matrice du niveau
- * \param name Le nom du fichier de sortie
+ * \param fileName Le nom du fichier de sortie
+ * 
+ * \return VRAI seulement si le fichier a été créé correctement.
 */
+static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char fileName[20]){
 
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
-
-    FILE * f = fopen(name, "w");
+    FILE * f = fopen(fileName, "w");
 
     if(f == NULL)
         return 0;
@@ -43,13 +45,15 @@ static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], 
 
 }
 
-int de(int nbFaces){
-    //Dé à nbFaces faces
-    return rand() % nbFaces + 1;
-}
 
-int coordonnees_valides(int i, int j){
-    //Renvoie VRAI si les coordonnées sont valides
+/**
+ *  
+ * \param i Coordonnée i
+ * \param j Coordonnée j
+ * 
+ * \return VRAI seulement si les coordonnées sont à l'intérieur de la matrice
+*/
+static int coordonnees_valides(int i, int j){
 
     if(i >= 0 && i < LONGUEUR_NIVEAU_MAX && j >= 0 && j < HAUTEUR_NIVEAU_MAX)
         return 1;
@@ -58,9 +62,19 @@ int coordonnees_valides(int i, int j){
 
 }
 
+
+
+/**
+ * \brief Compter les salles VIDE à côté de la salle (i, j). Possibilité de compter les voisines diagonales ou pas 
+ * 
+ * \param niv Matrice principale
+ * \param i Coordonnée i
+ * \param j Coordonnée j
+ * \param compterDiagonales Si égal à 0, ne pas compter les voisines diagonales. Toute autre valeur les prend en compte.
+ * 
+ * \return Le nombre de cases VIDE adjacentes à la case (i, j) :
+ */
 static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j, int compterDiagonales){
-    //Renvoie le nombre de salles dispos à côté de (i ; j)
-    //compterDiagonales détermine si l'on compte les voisines en diagonale (1) ou pas
 
     int cpt_salles = 0;
 
@@ -76,7 +90,7 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
     if( (coordonnees_valides(i, j-1) && niv[i][j-1] == VIDE ))
         cpt_salles++;
 
-    if(compterDiagonales == 1){
+    if(compterDiagonales != 0){
      
         if( (coordonnees_valides(i+1, j+1) && niv[i+1][j+1] == VIDE ))
             cpt_salles++;
@@ -94,11 +108,25 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
     return cpt_salles;
 }
 
+
+
+
+
+/**
+ * 
+ * \brief Crée une salle adjacente à un côté aléatoire de (i, j).
+ * 
+ * Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j).
+ * Prise en compte de NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN : Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDE.
+ * Attention : la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
+ * 
+ * \param niv Matrice principale
+ * \param i Coordonnée i
+ * \param j Coordonnée j
+ * 
+ * \return VRAI seulement si une nouvelle salle a été créée.
+ */
 static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j){
-    //Crée une nouvelle salle adjacente positionnée aléatoirement à celle passée en paramètre.
-    //Ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
-
-
     
     int direction = rand() % 4;
 
@@ -117,10 +145,13 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 }
 
 
+/**
+ * \brief Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne.
+ *  
+ * \param niv La matrice du niveau
+ *  
+ */
 static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
-
-
-    //Donne un id unique à chaque salle et crée des salles de plusieurs cases
 
     int id = 1;
 
@@ -150,9 +181,13 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 }
 
 
+/**
+ * \brief initialise la matrice avec un niveau aléatoirement généré
+ * 
+ * \param niv La matrice de sortie
+ * 
+ */
 static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
-
-    // Fonction qui initialise la matrice niv[][] avec un niveau aléatoirement généré
 
     for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++)
         for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++)
@@ -205,7 +240,13 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 }
 
 
-
+/**
+ * \brief Transforme arbitrairement un mot (lettres) en seed (entier)
+ * 
+ * \param mot chaine de caractères en entrée
+ * 
+ * \return La seed correspondant au mot.
+ */
 static int seed_depuis_mot(char * mot){
 
     int seed = 0;
@@ -218,7 +259,14 @@ static int seed_depuis_mot(char * mot){
 
 }
 
-void creer_niveau(char * nom_fichier, char * nom_planete){
+
+/**
+ * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
+ * 
+ * \param nom_fichier Nom du fichier de sortie
+ * \param nom_planete Nom associé à un niveau unique : il génère la seed
+ */
+void creer_niveau(const char * nom_fichier, const char * nom_planete){
 
     unsigned int seed = seed_depuis_mot(nom_planete);
 

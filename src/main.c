@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <SDL2/SDL.h>
 #include <window.h>
 #include <generation_niveau.h>
@@ -10,7 +9,7 @@ int main(int argc, char * argv[])
 
 
     
-    char * nom_planete = "bloblo";
+    char * nom_planete = "bloblop";
     creer_niveau("test15.niv", nom_planete);
 
 

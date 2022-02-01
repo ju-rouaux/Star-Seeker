@@ -37,12 +37,11 @@
 #define NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN 4
 
 
-//Probabilités pour les indentifications de salles
+//Probabilité qu'une salle sans id prenne l'id d'une salle adjacente au lieu d'un nouvel id
+//En d'autres termes, probabilité de générer une extension de salle au lieu d'une nouvelle salle
 #define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
 
 
 
-int de(int nbFaces);
-int coordonnees_valides(int i, int j);
-void creer_niveau(char *, char *);
+void creer_niveau(const char * nom_fichier, const char * nom_planete);
 
