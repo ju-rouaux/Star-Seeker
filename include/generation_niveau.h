@@ -8,11 +8,6 @@
  */
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
-
 
 #define LONGUEUR_NIVEAU_MAX 25
 #define HAUTEUR_NIVEAU_MAX 25
