@@ -97,6 +97,7 @@ void detruireCamera(t_camera ** camera)
 static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle)
 {
     int quart; //Largeur ou longueur du quart d'une salle
+    int demi; //Largeur ou longueur d'une demi salle
 
     if(dimensions == NULL || (dimensions->largeur == 1))
     {
@@ -104,11 +105,11 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
     }
     else
     {
-        quart = (dimensions->largeur*echelle*NB_TILE_LARGEUR) / 4;
-        if(j_x < orig_x + quart)
-            *x = orig_x + quart;
-        else if(j_x > orig_x + 3*quart)
-            *x = orig_x + 3*quart;
+        demi = echelle * NB_TILE_LARGEUR / 2;
+        if(j_x < orig_x + demi)
+            *x = orig_x + demi;
+        else if(j_x > orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi)
+            *x = orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi;
         else
             *x = j_x;
     }
@@ -117,13 +118,13 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
         *y = orig_y + (echelle*NB_TILE_HAUTEUR) / 2;
     else
     {
-        quart = (dimensions->hauteur*echelle*NB_TILE_HAUTEUR) / 4;
-        if(j_y < orig_y + quart)
-            *y = orig_y + quart;
-        else if(j_y > orig_y + 3*quart)
-            *y = orig_y + 3*quart;
+        demi = echelle * NB_TILE_HAUTEUR / 2;
+        if(j_y < orig_y + demi)
+            *y = orig_y + demi;
+        else if(j_y > orig_y + dimensions->hauteur*echelle*NB_TILE_HAUTEUR - demi)
+            *y = orig_y + dimensions->hauteur*echelle*NB_TILE_HAUTEUR - demi;
         else
-            *x = j_x;
+            *y = j_y;
     }
 }
 
