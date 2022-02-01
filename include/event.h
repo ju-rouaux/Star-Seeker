@@ -2,7 +2,8 @@
 #define _JEU_EVENTS_
 
 #include <SDL2/SDL.h>
+#include <joueur.h>
 
-int handleEvents(SDL_Event event);
+int handleEvents(t_joueur * joueur);
 
 #endif

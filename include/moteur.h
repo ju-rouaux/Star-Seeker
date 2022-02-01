@@ -5,6 +5,9 @@
 #include <textures.h>
 //include vecteur.h
 
+#define NB_FPS 60
+#define TEMPS_POUR_CHAQUE_SECONDE (1000/NB_FPS)
+
 //Structure contenant toutes les données utiles au moteur de jeu
 /**
  * \struct t_moteur

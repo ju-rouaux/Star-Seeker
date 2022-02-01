@@ -13,6 +13,7 @@
 #include <camera.h>
 #include <niveau.h>
 #include <window.h>
+#include <moteur.h>
 
 
 /**
