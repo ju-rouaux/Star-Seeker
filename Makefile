@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -g
 LDFLAGS = -I./include -Llib -lSDL2main -lSDL2
 
 # Parametres du makefile
-APPNAME = ./bin/event
+APPNAME = ./bin/deplacement
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
