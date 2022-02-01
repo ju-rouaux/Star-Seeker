@@ -13,8 +13,9 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
-#include <generation_niveau.h>
 
+#include <generation_niveau.h>
+#include <outils.h>
 
 /**
  * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
@@ -24,7 +25,7 @@
  * 
  * \return VRAI seulement si le fichier a été créé correctement.
 */
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char fileName[20]){
+static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const char fileName[20]){
 
     FILE * f = fopen(fileName, "w");
 
@@ -251,7 +252,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
  * 
  * \return La seed correspondant au mot.
  */
-static int seed_depuis_mot(char * mot){
+static int seed_depuis_mot(const char * mot){
 
     int seed = 0;
 
