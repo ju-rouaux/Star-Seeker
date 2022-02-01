@@ -31,7 +31,7 @@ static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], 
     for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
         for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
 
-                fprintf(f, "%d ", niv[i][j]);            
+                fprintf(f, "%3d ", niv[i][j]);            
         }
         fprintf(f, "\n");
     }
@@ -159,7 +159,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             niv[i][j] = VIDE;
 
     
-    niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = 1;
+    niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
 
 
     
@@ -220,9 +220,7 @@ static int seed_depuis_mot(char * mot){
 
 void creer_niveau(char * nom_fichier, char * nom_planete){
 
-    unsigned int seed = 564;
-
-
+    unsigned int seed = seed_depuis_mot(nom_planete);
 
     srand(seed);
 
