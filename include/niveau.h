@@ -1,61 +1,75 @@
-/**
- * \struct t_obstacle
- * \brief Structure représentant une salle
-*/
-
 #ifndef _JEU_NIVEAU_
 #define _JEU_NIVEAU_
 
-/*
-    Memo structure de salle
 
-    Une salle contient un identifiant et les 4 salles vers
-    lesquelles elle dirige. Une porte NULL n'est pas affichée.
-
-    Deux salles avec le même identifiant génèrent une unique salle, elles sont
-    reliées entre elles mais la comparaison de leur identifiant permet d'en faire qu'une.
-
-    Pour lier les salles, on regarde toute la matrice. Si une salle du
-    dessus ou d'à gauche est non nulle, on relie les deux salles.
-*/
-
-
-#define NOMBRE_DE_PORTES 4 //D'une salle, une par coté
+#define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
+#define NB_TILE_LARGEUR 15 /**< Surface au sol en largeur */
+#define NB_TILE_HAUTEUR 9 /**< Surface au sol en hauteur */
 
 /**
  * \enum e_porte
- * \brief Position d'une porte
+ * \brief Position d'une porte dans une salle.
 */
-typedef enum {
+typedef enum
+{
     UP, RIGHT, DOWN, LEFT
 } e_porte;
 
 
 /**
+ * \struct t_dimensions_salle
+ * \brief Informations sur le nombre de sous-salles formant la salle.
+ * 
+ * La salle d'origine désigne la salle la plus en haut à gauche du groupe.
+ */
+typedef struct
+{
+    int i; /**< Coordonnée en hauteur, de la salle d'origine dans la matrice niveau */
+    int j; /**< Coordonnée en largeur, de la salle d'origine dans la matrice niveau */
+
+    int largeur; /**< Largeur de la salle */
+    int hauteur; /**< Hauteur de la salle */
+
+    int nombre; /**< Nombre de sous-salles (utile pour la libération de la mémoire)*/
+} t_dimensions_salle;
+
+
+/**
  * \struct t_salle
- * \brief Structure représentant une salle et ses liaisons
+ * \brief Structure représentant une salle et les salles qui lui sont liées.
+ * 
+ * Une salle est un rectangle, mais peut être associée à d'autres salles pour former des 
+ * salles aux formes plus complexes. Plusieurs sous-salles formant une même salle complexe 
+ * portent le même id_salle et pointent sur la même structure dimensions.
 */
-typedef struct s_salle{
-    int complete; /** Booléen, vrai si la salle est complétée (plus de monstres) */
-    struct s_salle * portes[NOMBRE_DE_PORTES]; /** Salles auxquelles sont reliées notre salle */
-    int id_salle; /** Manière d'identifier si plusieurs salles forment une même salle */
-    //t_monstre ** (liste de monstres)
-    //t_obstacle ** (liste d'obstacles)
+typedef struct s_salle
+{
+    int complete; /**< Booléen, vrai si la salle est complétée (plus de monstres) */
+
+    struct s_salle * portes[NOMBRE_DE_PORTES]; /**< Salles reliées à notre salle */
+    int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
+    
+    t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
+    
+    //t_monstre ** (matrice de monstres)
+    //t_obstacle ** (matrice d'obstacles)
 } t_salle;
 
 
 /**
  * \struct t_niveau
- * \brief Structure représentant une matrice de salles
+ * \brief Structure représentant une matrice de salles, c'est à dire un niveau.
 */
-typedef struct {
+typedef struct
+{
     t_salle ** salles; 
-    int h; /** Largeur du niveau */
-    int l; /** Hauteur du niveau */
+    int h; /**< Largeur du niveau (dimensions de la matrice en i) */
+    int l; /**< Hauteur du niveau (dimensions de la matrice en j) */
 } t_niveau;
 
 
 t_niveau * chargerNiveau(FILE * fichier);
 void detruireNiveau(t_niveau ** niveau);
 
-#endif
+
+#endif //_JEU_NIVEAU_
