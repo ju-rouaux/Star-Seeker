@@ -1,20 +1,24 @@
 /**
- * \file algo_generation_niveau.c
+ * \file generation_niveau.c
  * 
- * \brief Test de création de génération aléatoire de niveau (planète)
+ * \brief Génération d'un niveau : l'agencement des salles et leurs ids
  *
- * \author camille
+ * \author Camille
  *  
  */
 
 
 #include <generation_niveau.h>
 
+
+/**
+ *  Écrit un fichier qui contient toutes les informations nécessaires à un niveau.
+ * 
+ * \param niv La matrice du niveau
+ * \param name Le nom du fichier de sortie
+*/
+
 static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], char name[20]){
-    //Écrit un fichier *.niv qui contient toutes les informations nécessaires à un niveau.
-
-
-
 
     FILE * f = fopen(name, "w");
 
