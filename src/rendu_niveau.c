@@ -197,7 +197,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, int x, int y,
 //Fonction temporaire affichant le niveau
 //Elle devra appeler les salles chargées pour les afficher.
 //
-int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
+int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, int j_x, int j_y)
 {
     int resultat = 0;
     int id_desire1 = 2;
@@ -215,8 +215,8 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
                 if(niveau->salles[i*niveau->l +j]->id_salle == niveau->salle_chargee->id_salle)
                 {
                     if(i == niveau->salles[i*niveau->l + j]->dimensions->i && j == niveau->salles[i*niveau->l + j]->dimensions->j)
-                        updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, 0, 0);
-                    printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
+                        updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, j_x, j_y);
+                    //printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
                     //resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*2, i*NB_TILE_HAUTEUR*2, 2);
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, camera->echelle);
                 }

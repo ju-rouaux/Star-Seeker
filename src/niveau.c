@@ -358,6 +358,6 @@ void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
             niveau->salle_chargee = niveau->salle_chargee->portes[UP];
 
     }
-
+    
     
 }

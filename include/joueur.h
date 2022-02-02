@@ -2,7 +2,7 @@
 #define _MOVE_PLAYER_
 
 
-#define PROPORTION_JOUEUR 0.8 /**< Taille du joueur par rapport à la taille  d'une tile */
+#define PROPORTION_JOUEUR 1.6 /**< Taille du joueur par rapport à la taille  d'une tile */
 
 /**
  * \struct move 

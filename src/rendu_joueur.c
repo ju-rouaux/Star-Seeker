@@ -17,8 +17,8 @@ int dessinerJoueur(t_moteur * moteur, t_joueur * joueur, t_camera * camera)
     destination.h = camera->echelle * PROPORTION_JOUEUR;
     destination.w = camera->echelle * PROPORTION_JOUEUR;
 
-    destination.x = joueur->position->x - camera->x;
-    destination.y = joueur->position->y - camera->y;
+    destination.x = joueur->position->x - camera->x - destination.w / 2;
+    destination.y = joueur->position->y - camera->y - 3*destination.h/ 4;
 
     return SDL_RenderCopy(moteur->renderer, moteur->textures->player, NULL, &destination);
 }

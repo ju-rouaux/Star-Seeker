@@ -46,10 +46,10 @@ int main(int argc, char * argv[])
         //rendu niveau
         //rendu joueur
         updatePositionJoueur(joueur, camera->echelle);
-        printf("%i %i\n", joueur->position->x, joueur->position->y);
         updateNiveau(niveau, joueur, camera->echelle);
+        printf("id salle : %i\n", niveau->salle_chargee->id_salle);
         SDL_RenderClear(moteur->renderer);
-        afficherNiveau(moteur, niveau, camera);
+        afficherNiveau(moteur, niveau, camera, joueur->position->x, joueur->position->y);
         dessinerJoueur(moteur, joueur, camera);
         
         SDL_RenderPresent(moteur->renderer);

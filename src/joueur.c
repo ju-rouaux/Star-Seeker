@@ -101,7 +101,7 @@ t_joueur * creerJoueur(int x, int y)
         return NULL;
     }
 
-    joueur->vitesse = 0.1;
+    joueur->vitesse = 0.18;
     
     return joueur;
 }
