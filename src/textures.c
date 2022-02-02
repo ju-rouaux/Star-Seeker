@@ -50,24 +50,22 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
 
-/*
+
     //Player
-    surface = SDL_LoadBMP("./img/player.bmp");
+    surface = SDL_LoadBMP("./img/personnage.bmp");
     if(surface == NULL)
     {
-        printf("Impossible de charger la surface player.bmp : %s\n", SDL_GetError());
+        printf("Impossible de charger la surface personnage.bmp : %s\n", SDL_GetError());
         return NULL;
     }
-    textures->map = SDL_CreateTextureFromSurface(renderer, surface);
+    textures->player = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    if(textures->map == NULL)
+    if(textures->player == NULL)
     {
-        printf("Impossible de charger la texture de player.bmp : %s\n", SDL_GetError());
+        printf("Impossible de charger la texture de personnage.bmp : %s\n", SDL_GetError());
         return NULL;
     }
     surface = NULL;
-
-*/
 
     return textures;
 }

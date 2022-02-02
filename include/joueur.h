@@ -1,6 +1,9 @@
 #ifndef _MOVE_PLAYER_
 #define _MOVE_PLAYER_
 
+
+#define PROPORTION_JOUEUR 0.8 /**< Taille du joueur par rapport à la taille  d'une tile */
+
 /**
  * \struct move 
  * \brief Objet contenenant toutes les coordonées du joueur ainsi que l'etat des fleches pour son deplacement
@@ -43,7 +46,7 @@ typedef struct
 {
     t_position * position;
     t_player_flags * flags;
-    float vitesse; /**< Exprimée en blocs par seconde */
+    float vitesse; /**< Exprimée sans unité */
     //Autres données comme les pv, expererience...
 } t_joueur;
 
@@ -52,4 +55,6 @@ void refresh_keys(SDL_Event * keyboard, move * player);
 void initialize_keys(move * player);
 t_joueur * creerJoueur(int x, int y);
 void detruireJoueur(t_joueur ** joueur);
+void updatePositionJoueur(t_joueur * joueur, int echelle);
+
 #endif

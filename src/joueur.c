@@ -101,7 +101,7 @@ t_joueur * creerJoueur(int x, int y)
         return NULL;
     }
 
-    joueur->vitesse = 0.5;
+    joueur->vitesse = 0.1;
     
     return joueur;
 }
@@ -127,10 +127,11 @@ void detruireJoueur(t_joueur ** joueur)
  * 
  * 
  */
-void updatePositionJoueur(t_joueur * joueur)
+void updatePositionJoueur(t_joueur * joueur, int echelle)
 {
-    joueur->position->x = joueur->vitesse/NB_FPS * (joueur->flags->to_right - joueur->flags->to_left);
-    joueur->position->y = joueur->vitesse/NB_FPS * (joueur->flags->to_down - joueur->flags->to_up);
+    float distance = joueur->vitesse * echelle;
+    joueur->position->x += distance * (joueur->flags->to_right - joueur->flags->to_left);
+    joueur->position->y += distance * (joueur->flags->to_down - joueur->flags->to_up);
 }
 
 /**
@@ -142,7 +143,7 @@ void updatePositionJoueur(t_joueur * joueur)
  * \return move retourne la structure du joueur
  */
 
-
+/*
 move move_player(SDL_Event * keyboard, move * player) {
     refresh_keys(keyboard, player);
     if (player -> arrow_down == 1) {
@@ -167,7 +168,7 @@ move move_player(SDL_Event * keyboard, move * player) {
 
     return *player;
 
-}
+}*/
 
 /**
  * \brief Sert a avoir les informations des fleches (Appuyée ou non) pour le deplacement du joueur

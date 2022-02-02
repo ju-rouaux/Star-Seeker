@@ -1,14 +1,16 @@
 /**
  * \file
- * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
+ * \brief Module de chargement d'un niveau en structure interprétable pour le jeu, et de lancement du jeu.
  * 
  * \author Julien
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <moteur.h>
 #include <niveau.h>
-
+#include <joueur.h>
+#include <camera.h>
 
 //A faire
 //static void chargerMonstres();
@@ -214,6 +216,8 @@ t_niveau * chargerNiveau(FILE * fichier)
     niveau->l = largeur;
     niveau->h = hauteur;
 
+    niveau->salle_chargee = NULL;
+
     niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur); //Allouer l'array de pointeurs
     if(niveau->salles == NULL)
     {
@@ -232,7 +236,6 @@ t_niveau * chargerNiveau(FILE * fichier)
 
             if(id_salle == 0) //S'il n'y a pas de salle
                niveau->salles[i*largeur + j] = NULL;
-
             else
             {
                 salleCourante = creerSalle(id_salle);
@@ -243,6 +246,9 @@ t_niveau * chargerNiveau(FILE * fichier)
                 }
                 //chargerMonstres();
                 //chargerObstacles();
+                
+                if(id_salle == -1 && niveau->salle_chargee == NULL) //Si c'est la salle où l'on commence
+                    niveau->salle_chargee = salleCourante;
 
                 niveau->salles[i*largeur + j] = salleCourante;
                 salleCourante = NULL;
@@ -273,4 +279,85 @@ void detruireNiveau(t_niveau ** niveau)
     }
 
     *niveau = NULL;
+}
+
+/**
+ * \brief Lance un niveau en le chargeant et en y plaçant le joueur
+ * 
+ * 
+ */
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle)
+{
+    t_joueur * joueur;
+    t_niveau * niveau = chargerNiveau(fichier);
+    int x, y;
+    if(niveau == NULL)
+    {
+        printf("Le niveau n'a pas pu être lancé\n");
+        return -1;
+    }
+
+    x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*echelle; //Origine de la salle
+    y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*echelle; 
+
+    joueur = creerJoueur(x, y);
+    if(joueur == NULL)
+    {
+        printf("Le niveau n'a pas pu être lancé\n");
+        return -1;
+    }
+
+    *retour_niveau = niveau;
+    *retour_joueur = joueur;
+
+    return 0;
+}
+
+//Des opérations supplémentaires (notamment animations) peuvent être réalisées avant la destruction
+void arreterNiveau(t_niveau ** niveau, t_joueur ** joueur)
+{
+    detruireJoueur(joueur);
+    detruireNiveau(niveau);
+}
+
+/**
+ * Updates level's data based on the current situation (player position, entity gone, ...)
+ * 
+ */
+void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
+{
+    int limite_cote_gauche = niveau->salle_chargee->dimensions->j*echelle*NB_TILE_LARGEUR;
+    int limite_cote_droit = niveau->salle_chargee->dimensions->j*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
+    int limite_cote_haut = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR;
+    int limite_cote_bas = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
+
+    if(joueur->position->x > limite_cote_droit) //Dépassement à droite
+    {
+
+        if(niveau->salle_chargee->portes[RIGHT] != NULL)
+            niveau->salle_chargee = niveau->salle_chargee->portes[RIGHT];
+    }
+
+    else if(joueur->position->x < limite_cote_gauche) //Dépassement à gauche
+    {
+
+        if(niveau->salle_chargee->portes[LEFT] != NULL)
+            niveau->salle_chargee = niveau->salle_chargee->portes[LEFT];
+    }
+
+    else if(joueur->position->y > limite_cote_bas) //Dépassement en bas
+    {
+        if(niveau->salle_chargee->portes[DOWN] != NULL)
+
+            niveau->salle_chargee = niveau->salle_chargee->portes[DOWN];
+    }
+
+    else if(joueur->position->y < limite_cote_haut) //Dépassement en haut
+    {
+        if(niveau->salle_chargee->portes[UP] != NULL)
+            niveau->salle_chargee = niveau->salle_chargee->portes[UP];
+
+    }
+
+    
 }

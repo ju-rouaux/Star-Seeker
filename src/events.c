@@ -17,8 +17,8 @@
 
 int handleEvents(t_joueur * joueur) {
 
-    const char * key_code, * key_name; /**nom de la touche azerty, qwerty*/
-    int mouse_x, mouse_y; /**Coordonnées du curseur*/
+    //const char * key_code, * key_name; /**nom de la touche azerty, qwerty*/
+    //int mouse_x, mouse_y; /**Coordonnées du curseur*/
     int scrolling; /**Boléen, 1 si on scrolle vers le haut, 0 si on scrolle vers le bas*/
 
     SDL_Event event;
@@ -80,7 +80,7 @@ int handleEvents(t_joueur * joueur) {
                 };
                 break;
             case SDL_MOUSEMOTION:
-                mouse_x = event.button.x, mouse_y = event.button.y; /**Recupere les coordonées x et y relative a la fenetre*/
+                //mouse_x = event.button.x, mouse_y = event.button.y; /**Recupere les coordonées x et y relative a la fenetre*/
                 //printf("\nMouse has moved : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
                 break;
             case SDL_MOUSEWHEEL:

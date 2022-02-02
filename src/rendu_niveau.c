@@ -212,11 +212,11 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera)
         for(int j = 0; j < niveau->l; j++)
         {
             if(niveau->salles[i*niveau->l + j] != NULL)
-                if(niveau->salles[i*niveau->l +j]->id_salle == id_desire1)
+                if(niveau->salles[i*niveau->l +j]->id_salle == niveau->salle_chargee->id_salle)
                 {
                     if(i == niveau->salles[i*niveau->l + j]->dimensions->i && j == niveau->salles[i*niveau->l + j]->dimensions->j)
                         updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, 0, 0);
-                    //printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
+                    printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
                     //resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*2, i*NB_TILE_HAUTEUR*2, 2);
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, camera->echelle);
                 }

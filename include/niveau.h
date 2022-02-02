@@ -1,6 +1,8 @@
 #ifndef _JEU_NIVEAU_
 #define _JEU_NIVEAU_
 
+#include <joueur.h>
+#include <moteur.h>
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
 #define NB_TILE_LARGEUR 15 /**< Surface au sol en largeur */
@@ -65,11 +67,16 @@ typedef struct
     t_salle ** salles; 
     int h; /**< Largeur du niveau (dimensions de la matrice en i) */
     int l; /**< Hauteur du niveau (dimensions de la matrice en j) */
+
+    t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
+
 } t_niveau;
 
 
 t_niveau * chargerNiveau(FILE * fichier);
 void detruireNiveau(t_niveau ** niveau);
-
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle);
+void arreterNiveau(t_niveau ** niveau, t_joueur ** joueur);
+void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle);
 
 #endif //_JEU_NIVEAU_
