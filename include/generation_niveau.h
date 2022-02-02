@@ -1,3 +1,6 @@
+#ifndef _JEU_GENERATION_NIVEAU_
+#define _JEU_GENERATION_NIVEAU_
+
 /**
  * \file algo_generation_niveau.c
  * 
@@ -40,3 +43,4 @@
 
 void creer_niveau(const char * nom_fichier, const char * nom_planete);
 
+#endif
