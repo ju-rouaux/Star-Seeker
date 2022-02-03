@@ -300,7 +300,7 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t
     x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*echelle; //Origine de la salle
     y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*echelle; 
 
-    joueur = creerJoueur(x, y);
+    joueur = creerJoueur(x/echelle/10, y/echelle/10);
     if(joueur == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");

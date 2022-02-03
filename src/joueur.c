@@ -101,7 +101,7 @@ t_joueur * creerJoueur(int x, int y)
         return NULL;
     }
 
-    joueur->vitesse = 0.18;
+    joueur->vitesse = 0.5;
     
     return joueur;
 }
@@ -129,7 +129,7 @@ void detruireJoueur(t_joueur ** joueur)
  */
 void updatePositionJoueur(t_joueur * joueur, int echelle)
 {
-    float distance = joueur->vitesse * echelle;
+    float distance = joueur->vitesse;/* * echelle;*/
     joueur->position->x += distance * (joueur->flags->to_right - joueur->flags->to_left);
     joueur->position->y += distance * (joueur->flags->to_down - joueur->flags->to_up);
 }
