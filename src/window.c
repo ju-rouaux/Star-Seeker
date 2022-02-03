@@ -40,6 +40,8 @@ int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
         return -2;
     }
 
+    SDL_SetWindowMinimumSize(*window, 640, 370);
+
     return 0;
 }
 
