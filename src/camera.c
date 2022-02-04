@@ -95,9 +95,11 @@ void detruireCamera(t_camera ** camera)
  * \param j_y Position en y du joueur relative au niveau
  * \param echelle Echelle du niveau
  */
-static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y, int echelle)
+static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y, float echelle)
 {
     int demi; //Largeur ou longueur d'une demi salle
+    j_x *= echelle,
+    j_y *= echelle;
 
     if(dimensions == NULL || (dimensions->largeur == 1))
     {
@@ -111,7 +113,10 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
         else if(j_x > orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi)
             *x = orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi;
         else
+        {
+            printf("yo\n");
             *x = j_x;
+        }
     }
 
     if(dimensions == NULL || (dimensions->hauteur == 1))
@@ -140,7 +145,7 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
  */
-void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
+void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y)
 {
     calculerPosCamera(&camera->x, &camera->y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
     
@@ -163,7 +168,7 @@ void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int 
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
  */
-void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y)
+void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y)
 {
     calculerPosCamera(&camera->futur_x, &camera->futur_y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
     

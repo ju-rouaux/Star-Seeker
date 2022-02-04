@@ -17,7 +17,7 @@
  * 
  * 
  */
-t_position * creerPosition(int x, int y)
+t_position * creerPosition(float x, float y)
 {
     t_position * position = malloc(sizeof(t_position));
     if(position == NULL)
@@ -75,7 +75,7 @@ void detruirePlayerFlags(t_player_flags ** flags)
  * 
  * 
  */
-t_joueur * creerJoueur(int x, int y)
+t_joueur * creerJoueur(float x, float y)
 {
     t_joueur * joueur = malloc(sizeof(t_joueur));
     if(joueur == NULL)
@@ -101,7 +101,7 @@ t_joueur * creerJoueur(int x, int y)
         return NULL;
     }
 
-    joueur->vitesse = 1 ;
+    joueur->vitesse = 0.15;
     
     return joueur;
 }

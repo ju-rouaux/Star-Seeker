@@ -34,8 +34,8 @@ typedef struct
  */
 typedef struct
 {
-    int x;
-    int y;
+    float x;
+    float y;
 } t_position;
 
 /**
@@ -53,7 +53,8 @@ typedef struct
 move move_player(SDL_Event * keyboard, move * player);
 void refresh_keys(SDL_Event * keyboard, move * player);
 void initialize_keys(move * player);
-t_joueur * creerJoueur(int x, int y);
+
+t_joueur * creerJoueur(float x, float y);
 void detruireJoueur(t_joueur ** joueur);
 void updatePositionJoueur(t_joueur * joueur, int echelle);
 

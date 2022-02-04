@@ -47,7 +47,6 @@ int main(int argc, char * argv[])
         //rendu joueur
         updatePositionJoueur(joueur, camera->echelle);
         updateNiveau(niveau, joueur, camera->echelle);
-        printf("niveau (%i/%i) ", niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*camera->echelle, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*camera->echelle);
         SDL_RenderClear(moteur->renderer);
         afficherNiveau(moteur, niveau, camera, joueur->position->x, joueur->position->y);
         dessinerJoueur(moteur, joueur, camera);

@@ -330,29 +330,29 @@ void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
     int limite_cote_droit = niveau->salle_chargee->dimensions->j*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
     int limite_cote_haut = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR;
     int limite_cote_bas = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
-
-    if(joueur->position->x > limite_cote_droit) //Dépassement à droite
+    printf("%i %i %i %i / %f %f\n",limite_cote_gauche, limite_cote_bas, limite_cote_droit, limite_cote_haut, joueur->position->x*echelle, joueur->position->y*echelle);
+    if(joueur->position->x*echelle > limite_cote_droit) //Dépassement à droite
     {
 
         if(niveau->salle_chargee->portes[RIGHT] != NULL)
             niveau->salle_chargee = niveau->salle_chargee->portes[RIGHT];
     }
 
-    else if(joueur->position->x < limite_cote_gauche) //Dépassement à gauche
+    else if(joueur->position->x*echelle < limite_cote_gauche) //Dépassement à gauche
     {
 
         if(niveau->salle_chargee->portes[LEFT] != NULL)
             niveau->salle_chargee = niveau->salle_chargee->portes[LEFT];
     }
 
-    else if(joueur->position->y > limite_cote_bas) //Dépassement en bas
+    else if(joueur->position->y*echelle > limite_cote_bas) //Dépassement en bas
     {
         if(niveau->salle_chargee->portes[DOWN] != NULL)
 
             niveau->salle_chargee = niveau->salle_chargee->portes[DOWN];
     }
 
-    else if(joueur->position->y < limite_cote_haut) //Dépassement en haut
+    else if(joueur->position->y*echelle < limite_cote_haut) //Dépassement en haut
     {
         if(niveau->salle_chargee->portes[UP] != NULL)
             niveau->salle_chargee = niveau->salle_chargee->portes[UP];

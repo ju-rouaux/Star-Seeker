@@ -22,8 +22,8 @@ void updateScale(SDL_Window * window, t_camera * camera);
 t_camera * creerCamera(SDL_Window * window, int x, int y);
 void detruireCamera(t_camera ** camera);
 
-void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y);
-void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, int j_x, int j_y);
+void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y);
+void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y);
 
 int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y);
 
