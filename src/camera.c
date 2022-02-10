@@ -113,10 +113,7 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
         else if(j_x > orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi)
             *x = orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi;
         else
-        {
-            printf("yo\n");
             *x = j_x;
-        }
     }
 
     if(dimensions == NULL || (dimensions->hauteur == 1))

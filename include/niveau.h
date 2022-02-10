@@ -1,12 +1,13 @@
 #ifndef _JEU_NIVEAU_
 #define _JEU_NIVEAU_
 
+#include <SDL2/SDL.h>
 #include <joueur.h>
 #include <moteur.h>
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
-#define NB_TILE_LARGEUR 15 /**< Surface au sol en largeur */
-#define NB_TILE_HAUTEUR 9 /**< Surface au sol en hauteur */
+#define NB_TILE_LARGEUR 13 /**< Surface au sol en largeur */
+#define NB_TILE_HAUTEUR 7 /**< Surface au sol en hauteur */
 
 /**
  * \enum e_porte
@@ -53,6 +54,9 @@ typedef struct s_salle
     
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
     
+    SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
+    int taille_collisions; /**< Taille du tableau de collisions */
+
     //t_monstre ** (matrice de monstres)
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;
@@ -69,14 +73,16 @@ typedef struct
     int l; /**< Hauteur du niveau (dimensions de la matrice en j) */
 
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
-
+    int i_charge;
+    int j_charge;
+    
 } t_niveau;
 
 
-t_niveau * chargerNiveau(FILE * fichier);
+t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b);
 void detruireNiveau(t_niveau ** niveau);
 int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle);
-void arreterNiveau(t_niveau ** niveau, t_joueur ** joueur);
+void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle);
 
 #endif //_JEU_NIVEAU_

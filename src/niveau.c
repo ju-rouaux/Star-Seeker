@@ -187,13 +187,17 @@ static void detruireSalle(t_salle ** salle)
 
 
 /**
- * \brief Charge le niveau dans une structure exploitable pour le jeu.
+ * \brief Charge le niveau dans une structure exploitable pour le jeu et retourne à
+ * travers les paramètres les couleurs du thème du niveau.
  * 
  * \param fichier Fichier depuis lequel charger le niveau (flux)
+ * \param r Nuance de rouge du rendu du niveau
+ * \param g Nuance de vert du rendu du niveau
+ * \param b Nuance de bleu du rendu du niveau
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-t_niveau * chargerNiveau(FILE * fichier)
+t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
 {
     //Dimensions du niveau
     int largeur;
@@ -210,6 +214,9 @@ t_niveau * chargerNiveau(FILE * fichier)
         printf("Impossible d'allouer la mémoire d'un niveau.\n");
         return NULL;
     }
+
+    //Lecture des couleurs du niveau
+    fscanf(fichier, "%i %i %i", r, g, b);
 
     //Lecture de la taille du niveau
     fscanf(fichier, "%i %i", &largeur, &hauteur);
@@ -257,6 +264,8 @@ t_niveau * chargerNiveau(FILE * fichier)
     }
 
     lierSalles(niveau);
+    niveau->i_charge = niveau->salle_chargee->dimensions->i;
+    niveau->j_charge = niveau->salle_chargee->dimensions->j;
 
     return niveau;
 }
@@ -282,20 +291,26 @@ void detruireNiveau(t_niveau ** niveau)
 }
 
 /**
- * \brief Lance un niveau en le chargeant et en y plaçant le joueur
+ * \brief Lance un niveau en le chargeant et en y plaçant le joueur.
+ * 
+ * Les couleurs du niveau sont aussi chargées
  * 
  * 
  */
 int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle)
 {
+    int r, g, b;
     t_joueur * joueur;
-    t_niveau * niveau = chargerNiveau(fichier);
+    t_niveau * niveau = chargerNiveau(fichier, &r, &g, &b);
     int x, y;
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
         return -1;
     }
+
+    if(SDL_SetTextureColorMod(moteur->textures->map, r, g, b) != 0)
+        printf("Note : la couleur du niveau n'a pas pu être chargé\n");
 
     x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*echelle; //Origine de la salle
     y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*echelle; 
@@ -313,51 +328,75 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t
     return 0;
 }
 
-//Des opérations supplémentaires (notamment animations) peuvent être réalisées avant la destruction
-void arreterNiveau(t_niveau ** niveau, t_joueur ** joueur)
+/**
+ * \brief Libère la mémoire allouée pour le niveau. Actuellement cette fonction est identique à void detruireNiveau(t_niveau **niveau).
+ * 
+ * Opération à réaliser lorsque l'on quitte un niveau.
+ * Des opérations supplémentaires (notamment animations) peuvent être réalisées avant la destruction.
+ * 
+ * \param niveau Le niveau à fermer
+ */
+void arreterNiveau(t_niveau ** niveau)
 {
-    detruireJoueur(joueur);
+    //D'autres opérations ici si nécéssaire
+
+
     detruireNiveau(niveau);
 }
 
 /**
- * Updates level's data based on the current situation (player position, entity gone, ...)
+ * \brief Actualise la salle chargée du niveau selon l'activité du joueur
+ * (lorsqu'il change de salle par exemple).
  * 
+ * Calcule les coordonnées des bords de la salle et change la salle courante du niveau si le joueur
+ * dépasse ces limites.
+ * 
+ * \param niveau Le niveau chargé
+ * \param joueur Le joueur
+ * \param echelle L'échelle du rendu
  */
 void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
 {
-    int limite_cote_gauche = niveau->salle_chargee->dimensions->j*echelle*NB_TILE_LARGEUR;
-    int limite_cote_droit = niveau->salle_chargee->dimensions->j*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
-    int limite_cote_haut = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR;
-    int limite_cote_bas = niveau->salle_chargee->dimensions->i*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
-    printf("%i %i %i %i / %f %f\n",limite_cote_gauche, limite_cote_bas, limite_cote_droit, limite_cote_haut, joueur->position->x*echelle, joueur->position->y*echelle);
+    int limite_cote_gauche = niveau->j_charge*echelle*NB_TILE_LARGEUR;
+    int limite_cote_droit = niveau->j_charge*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
+    int limite_cote_haut = niveau->i_charge*echelle*NB_TILE_HAUTEUR;
+    int limite_cote_bas = niveau->i_charge*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
+
     if(joueur->position->x*echelle > limite_cote_droit) //Dépassement à droite
     {
 
         if(niveau->salle_chargee->portes[RIGHT] != NULL)
+        {
             niveau->salle_chargee = niveau->salle_chargee->portes[RIGHT];
+            (niveau->j_charge)++;
+        }
     }
 
     else if(joueur->position->x*echelle < limite_cote_gauche) //Dépassement à gauche
     {
 
         if(niveau->salle_chargee->portes[LEFT] != NULL)
+        {
             niveau->salle_chargee = niveau->salle_chargee->portes[LEFT];
+            (niveau->j_charge)--;
+        }
     }
 
     else if(joueur->position->y*echelle > limite_cote_bas) //Dépassement en bas
     {
         if(niveau->salle_chargee->portes[DOWN] != NULL)
-
+        {
             niveau->salle_chargee = niveau->salle_chargee->portes[DOWN];
+            (niveau->i_charge)++;
+        }
     }
 
     else if(joueur->position->y*echelle < limite_cote_haut) //Dépassement en haut
     {
         if(niveau->salle_chargee->portes[UP] != NULL)
+        {
             niveau->salle_chargee = niveau->salle_chargee->portes[UP];
-
-    }
-    
-    
+            (niveau->i_charge)--;
+        }
+    }      
 }

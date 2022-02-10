@@ -61,7 +61,7 @@ int main(int argc, char * argv[])
         // inputs : printf("%i %i %i %i\n", joueur->flags->to_up, joueur->flags->to_down, joueur->flags->to_left, joueur->flags->to_right);
     }
 
-    arreterNiveau(&niveau, &joueur);
+    arreterNiveau(&niveau);
     detruireCamera(&camera);
     detruireMoteur(&moteur);
 
