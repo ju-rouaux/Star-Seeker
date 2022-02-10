@@ -25,7 +25,7 @@
  * 
  * \return VRAI seulement si le fichier a été créé correctement.
 */
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const char fileName[20]){
+static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const t_couleurRVB * couleur, const char fileName[20]){
 
     FILE * f = fopen(fileName, "w");
 
@@ -34,6 +34,8 @@ static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], 
 
 
     fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
+
+    fprintf(f, "%d %d %d \n", couleur->rouge, couleur->vert, couleur->bleu);
 
     for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
         for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
@@ -265,6 +267,28 @@ static int seed_depuis_mot(const char * mot){
 }
 
 
+
+/**
+* \brief génère une couleur aléatoire en évitant les nuances de gris.
+*
+* \param couleur La structure de retour
+*/
+void couleur_aleatoire(t_couleurRVB * couleur){
+
+
+    couleur->rouge = rand() % 255;
+    couleur->vert = rand() % 255;
+    
+    if (couleur->rouge % 2)
+        couleur->bleu = 255 - couleur->rouge;
+    else
+        couleur->bleu = 255 - couleur->vert;
+
+
+}
+
+
+
 /**
  * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
  * 
@@ -273,19 +297,23 @@ static int seed_depuis_mot(const char * mot){
  */
 void creer_niveau(const char * nom_fichier, const char * nom_planete){
 
+    //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
-
     srand(seed);
 
-    
+
+    //Création de la map
     int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
-
- 
-
     init_niveau(niv);
-
     identificationSalles(niv);
 
-    ecrire_fichier_niv(niv, nom_fichier);
+
+    //Couleur
+    t_couleurRVB * couleur = malloc(sizeof(t_couleurRVB));
+    couleur_aleatoire(couleur);
+
+
+    //Écriture
+    ecrire_fichier_niv(niv, couleur, nom_fichier);
 
 }
