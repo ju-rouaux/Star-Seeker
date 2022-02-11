@@ -9,6 +9,8 @@
 #define _MODULE_LISTE_
 
 
+#define ERREUR -1
+
 /**
  * \brief Structure representant un element de la liste
  * 
@@ -61,5 +63,8 @@ void clear_liste(liste_t * l);
 
 /** Suppresion d'un element a un index donné */
 int remove_by_index(liste_t * l, int index);
-
+/** Recuperer la valeur d'un element grace a index donné*/
+int list_get_value(liste_t * l,int index);
+/**Verifie que la liste n'est pas vide*/
+int list_empty(liste_t * l);
 #endif
