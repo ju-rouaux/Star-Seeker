@@ -3,12 +3,10 @@
 
 #include <SDL2/SDL.h>
 #include <textures.h>
-//include vecteur.h
 
 #define NB_FPS 60
-#define TEMPS_POUR_CHAQUE_SECONDE (1000/NB_FPS)
+#define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
-//Structure contenant toutes les données utiles au moteur de jeu
 /**
  * \struct t_moteur
  * \brief Objet contenant les données nécéssaires au rendu du jeu

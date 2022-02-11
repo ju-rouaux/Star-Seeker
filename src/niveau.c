@@ -2,7 +2,7 @@
  * \file
  * \brief Module de chargement d'un niveau en structure interprétable pour le jeu, et de lancement du jeu.
  * 
- * \author Julien
+ * \author Julien Rouaux
  */
 
 #include <stdio.h>

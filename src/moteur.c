@@ -3,7 +3,7 @@
  * \brief Module de chargement d'une fenêtre, du renderer, des textures, 
  * et les retournes dans une structure.
  * 
- * \author Julien 
+ * \author Julien Rouaux
  */
 
 #include <stdio.h>

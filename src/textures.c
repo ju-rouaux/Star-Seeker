@@ -2,7 +2,7 @@
  * \file
  * \brief Module de chargement de textures et d'identification de ces dernières
  * 
- * \author Julien
+ * \author Julien Rouaux
  */
 
 #include <stdio.h>

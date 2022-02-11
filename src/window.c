@@ -1,7 +1,7 @@
 /**
  * \file
  * \brief Module de création de la fenêtre du jeu et son rendu
- * \author Julien
+ * \author Julien Rouaux
 */
 
 #include <stdio.h>

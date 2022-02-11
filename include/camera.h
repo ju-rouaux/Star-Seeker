@@ -25,7 +25,7 @@ void detruireCamera(t_camera ** camera);
 void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y);
 void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y);
 
-int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y);
+//int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y);
 
 
 #endif //_JEU_CAMERA_

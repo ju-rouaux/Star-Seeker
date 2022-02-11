@@ -177,6 +177,10 @@ void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions
 }
 
 
+/*
+
+PAS UTILISABLE, C'EST L'EBAUCHE D'UNE IDEE
+
 //Vrai tant que l'animation est en cours
 //duree en secondes
 //Cette fonction doit être améliorée pour calculer sa vitesse elle même
@@ -212,6 +216,6 @@ int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** av
         avancer_y = NULL;
         return 0;
     }
-*/
+
     return 1;
-}
+}*/

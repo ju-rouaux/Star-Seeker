@@ -3,7 +3,7 @@
  * 
  *
  * \brief Module de gestion de deplacement du joueur
- * \author Guillaume
+ * \author Guillaume et Julien Rouaux
  */
 
 #include <stdio.h>
@@ -203,12 +203,13 @@ void refresh_keys(SDL_Event * keyboard, move * player) {
 }
 */
 
+
 /**
  * \brief Fonction servant a reset les informations concernant les fleches dans la strcuture joueur
  * 
  * \param player pointeur sur le joueur appartenant a la structure move
  */
-
+/*
 void initialize_keys(move * player) {
 
     player -> arrow_down = 0;
@@ -216,4 +217,4 @@ void initialize_keys(move * player) {
     player -> arrow_right = 0;
     player -> arrow_up = 0;
 
-}
+}*/

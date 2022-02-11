@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \brief Module de rendu du joueur
+ * 
+ * \author Julien Rouaux
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -9,6 +16,11 @@
 /**
  * \brief Dessine le joueur à ses coordonnées
  * 
+ * \param moteur Structure moteur du jeu
+ * \param joueur Structure du joueur actuel
+ * \param camera Structure de la caméra actuelle
+ * 
+ * \return 0 si succès, sinon une valeur négative (SDL_Error() pour connaitre l'erreur)
  */
 int dessinerJoueur(t_moteur * moteur, t_joueur * joueur, t_camera * camera)
 {
