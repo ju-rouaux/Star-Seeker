@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
-#include <camera.h>
 #include <niveau.h>
+#include <camera.h>
 #include <window.h>
 #include <moteur.h>
 
@@ -198,7 +198,7 @@ int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** av
         *avancer_y = malloc(sizeof(int));
         **avancer_y = (camera->futur_y - camera->y) / (NB_FPS * duree); //Distance / nb de FPS alloué à la durée
     }
-/*
+
     camera->x += **avancer_x;
     camera->y += **avancer_y;
 

@@ -200,11 +200,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, int x, int y,
 int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, float j_x, float j_y)
 {
     int resultat = 0;
-    int id_desire1 = 2;
-    int id_desire2 = 25;
     updateScale(moteur->window, camera);
-    int * avancer_x = NULL;
-    int * avancer_y = NULL;
 
     //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
     for(int i = 0; i < niveau->h; i++)
@@ -221,7 +217,8 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, floa
                     }
                     //printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, camera->echelle);
-
+                    if(resultat != 0)
+                        return resultat;
                 }
         }
     }
