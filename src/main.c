@@ -5,7 +5,7 @@
 #include "liste.h"
 
 int main() {
-    liste_t MaListe;
+ liste_t MaListe;
 
     init_liste( & MaListe);
 
@@ -16,7 +16,7 @@ int main() {
 
     display_liste(MaListe);
     printf("\n");
-    remove_by_index( & MaListe, 2);
+    printf("\nec liste : %d\n",list_get_value(&MaListe,1));
     printf("\n");
     display_liste(MaListe);
     printf("\n");
