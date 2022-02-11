@@ -1,8 +1,8 @@
 #ifndef _JEU_NIVEAU_
 #define _JEU_NIVEAU_
 
+#include <stdio.h>
 #include <SDL2/SDL.h>
-#include <joueur.h>
 #include <moteur.h>
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
@@ -81,8 +81,8 @@ typedef struct
 
 t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b);
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle);
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, int echelle);
 void arreterNiveau(t_niveau ** niveau);
-void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle);
+void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 
 #endif //_JEU_NIVEAU_

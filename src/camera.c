@@ -10,10 +10,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <moteur.h>
 #include <niveau.h>
 #include <camera.h>
-#include <window.h>
-#include <moteur.h>
 
 
 /**

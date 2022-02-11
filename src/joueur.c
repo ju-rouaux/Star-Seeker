@@ -7,44 +7,37 @@
  */
 
 #include <stdio.h>
-
+#include <stdlib.h>
 #include <SDL2/SDL.h>
-#include <moteur.h>
+#include <entite.h>
 #include <joueur.h>
-#include <camera.h>
+#include <animation.h>
 
 /**
+ * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
  * 
  * 
  */
-t_position * creerPosition(float x, float y)
+static void updatePositionJoueur(t_joueur * joueur)
 {
-    t_position * position = malloc(sizeof(t_position));
-    if(position == NULL)
-    {
-        printf("Impossible d'allouer la mémoire pour t_position\n");
-        return NULL;
-    }
-
-    position->x = x;
-    position->y = y;
-
-    return position;
+    float distance = joueur->vitesse;
+    joueur->x += distance * (joueur->flags->to_right - joueur->flags->to_left);
+    joueur->y += distance * (joueur->flags->to_down - joueur->flags->to_up);
 }
 
 /**
+ * \brief Méthode appelée à chaque frame, permet de définir le comportement du joueur
+ * 
  * 
  * 
  */
-void detruirePosition(t_position ** position)
+static void updateJoueur(t_joueur * joueur, unsigned int temps)
 {
-    if(*position != NULL)
-        free(*position);
-    *position = NULL;
+    updatePositionJoueur(joueur);
+    //Animation...
 }
 
-
-t_player_flags * creerPlayerFlags()
+static t_player_flags * creerPlayerFlags()
 {
     t_player_flags * flags = malloc(sizeof(t_player_flags));
     if(flags == NULL)
@@ -63,7 +56,7 @@ t_player_flags * creerPlayerFlags()
 }
 
 
-void detruirePlayerFlags(t_player_flags ** flags)
+static void detruirePlayerFlags(t_player_flags ** flags)
 {
     if(*flags != NULL)
         free(*flags);
@@ -75,7 +68,7 @@ void detruirePlayerFlags(t_player_flags ** flags)
  * 
  * 
  */
-t_joueur * creerJoueur(float x, float y)
+t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 {
     t_joueur * joueur = malloc(sizeof(t_joueur));
     if(joueur == NULL)
@@ -84,24 +77,36 @@ t_joueur * creerJoueur(float x, float y)
         return NULL;
     }
 
-    joueur->position = creerPosition(x, y);
-    if(joueur->position == NULL)
-    {
-        printf("Le joueur n'a pas pu être créé\n");
-        free(joueur);
-        return NULL;
-    }
-
     joueur->flags = creerPlayerFlags();
     if(joueur->flags == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
-        detruirePosition(&joueur->position);
         free(joueur);
         return NULL;
     }
 
+    joueur->animation = creerAnimation(0.2);
+    if(joueur->animation == NULL)
+    {
+        printf("Le joueur n'a pas pu être créé\n");
+        detruirePlayerFlags(&joueur->flags);
+        free(joueur);
+        return NULL;
+    }
+
+    joueur->x = x;
+    joueur->y = y;
     joueur->vitesse = 0.15;
+    joueur->pv = 100;
+
+    joueur->texture = apparence;
+    joueur->taille = PROPORTION_JOUEUR;
+    joueur->nb_textures = 3;
+    joueur->partie_texture_courrante = 0;
+    
+    joueur->type = E_JOUEUR;
+
+    joueur->update = (void (*)(t_entite*, unsigned int)) updateJoueur;
     
     return joueur;
 }
@@ -114,107 +119,10 @@ void detruireJoueur(t_joueur ** joueur)
 {
     if(*joueur != NULL)
     {
-        detruirePosition(&(*joueur)->position);
         detruirePlayerFlags(&(*joueur)->flags);
+        detruireAnimation(&(*joueur)->animation);
         free(*joueur);
     }
     *joueur = NULL;
 }
 
-
-/**
- * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
- * 
- * 
- */
-void updatePositionJoueur(t_joueur * joueur, int echelle)
-{
-    float distance = joueur->vitesse;/* * echelle;*/
-    joueur->position->x += distance * (joueur->flags->to_right - joueur->flags->to_left);
-    joueur->position->y += distance * (joueur->flags->to_down - joueur->flags->to_up);
-}
-
-/**
- * \brief modifie les coordonées du joueur dans un structure et renvoie la structure
- * 
- * 
- * \param keyboard pointeur sur la liste d'evenements
- * \param player pointeur sur le joueur appartenant a une structure
- * \return move retourne la structure du joueur
- */
-
-/*
-move move_player(SDL_Event * keyboard, move * player) {
-    refresh_keys(keyboard, player);
-    if (player -> arrow_down == 1) {
-        player -> y -= 1;
-        initialize_keys(player);
-    }
-
-    if (player -> arrow_left == 1) {
-        player -> x -= 1;
-        initialize_keys(player);
-    }
-
-    if (player -> arrow_right == 1) {
-        player -> x += 1;
-        initialize_keys(player);
-    }
-
-    if (player -> arrow_up == 1) {
-        player -> y += 1;
-        initialize_keys(player);
-    }
-
-    return *player;
-
-}*/
-
-/**
- * \brief Sert a avoir les informations des fleches (Appuyée ou non) pour le deplacement du joueur
- * 
- * \param keyboard pointeur sur la liste d'evenements
- * \param player pointeur sur le joueur appartenant a la structure move
- *
- */
-/*
-void refresh_keys(SDL_Event * keyboard, move * player) {
-
-    while (SDL_PollEvent(keyboard)) {
-        switch (keyboard -> type) {
-        case SDL_KEYDOWN: 
-            switch (keyboard -> key.keysym.sym) {
-            case SDLK_UP:
-                player -> arrow_up = 1;
-                break;
-            case SDLK_DOWN:
-                player -> arrow_down = 1;
-                break;
-            case SDLK_LEFT:
-                player -> arrow_left = 1;
-                break;
-            case SDLK_RIGHT:
-                player -> arrow_right = 1;
-                break;
-            }
-        }
-    }
-
-}
-*/
-
-
-/**
- * \brief Fonction servant a reset les informations concernant les fleches dans la strcuture joueur
- * 
- * \param player pointeur sur le joueur appartenant a la structure move
- */
-/*
-void initialize_keys(move * player) {
-
-    player -> arrow_down = 0;
-    player -> arrow_left = 0;
-    player -> arrow_right = 0;
-    player -> arrow_up = 0;
-
-}*/

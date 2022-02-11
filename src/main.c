@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
-#include <niveau.h>
-#include <rendu_niveau.h>
+#include <camera.h>
 #include <event.h>
+#include <niveau.h>
 #include <joueur.h>
-#include <rendu_joueur.h>
+#include <rendu_niveau.h>
+#include <entite.h>
+//#include <rendu_joueur.h>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 int main(int argc, char * argv[])
 {
@@ -33,8 +35,14 @@ int main(int argc, char * argv[])
     }
     camera = creerCamera(moteur->window, 0, 0);
 
-    if(lancerNiveau(fichier, moteur, &niveau, &joueur, camera->echelle) != 0) return EXIT_FAILURE;
-    updateCamera(camera, niveau->salle_chargee->dimensions, niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*camera->echelle, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*camera->echelle, joueur->position->x, joueur->position->y);
+    if(lancerNiveau(fichier, moteur, &niveau, camera->echelle) != 0) return EXIT_FAILURE;
+    joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR, moteur->textures->player);
+    if(joueur == NULL)
+    {
+        printf("Le niveau n'a pas pu être lancé\n");
+        return -1;
+    }
+    updateCamera(camera, niveau->salle_chargee->dimensions, niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*camera->echelle, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*camera->echelle, joueur->x, joueur->y);
 
     while(handleEvents(joueur) != 1)
     {
@@ -45,12 +53,12 @@ int main(int argc, char * argv[])
         //si collision remttre joueur au meme endroit
         //rendu niveau
         //rendu joueur
-        updatePositionJoueur(joueur, camera->echelle);
-        updateNiveau(niveau, joueur, camera->echelle);
+        joueur->update((t_entite*) joueur, debutBoucle);
+        updateNiveau(niveau, joueur->x, joueur->y,camera->echelle);
         SDL_RenderClear(moteur->renderer);
-        afficherNiveau(moteur, niveau, camera, joueur->position->x, joueur->position->y);
-        dessinerJoueur(moteur, joueur, camera);
-        
+        afficherNiveau(moteur, niveau, camera, joueur->x, joueur->y);
+        dessinerEntite(moteur, (t_entite*) joueur, camera, 0);
+
         SDL_RenderPresent(moteur->renderer);
 
         //Réguler FPS

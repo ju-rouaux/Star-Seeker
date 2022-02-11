@@ -1,6 +1,7 @@
 #ifndef _JEU_CAMERA_
 #define _JEU_CAMERA_
 
+#include <SDL2/SDL.h>
 #include <niveau.h>
 
 typedef struct

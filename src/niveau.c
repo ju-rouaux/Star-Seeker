@@ -9,8 +9,6 @@
 #include <stdlib.h>
 #include <moteur.h>
 #include <niveau.h>
-#include <joueur.h>
-#include <camera.h>
 
 //A faire
 //static void chargerMonstres();
@@ -297,12 +295,12 @@ void detruireNiveau(t_niveau ** niveau)
  * 
  * 
  */
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t_joueur ** retour_joueur, int echelle)
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, int echelle)
 {
     int r, g, b;
-    t_joueur * joueur;
+
     t_niveau * niveau = chargerNiveau(fichier, &r, &g, &b);
-    int x, y;
+
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
@@ -312,18 +310,7 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, t
     if(SDL_SetTextureColorMod(moteur->textures->map, r, g, b) != 0)
         printf("Note : la couleur du niveau n'a pas pu être chargé\n");
 
-    x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*echelle; //Origine de la salle
-    y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*echelle; 
-
-    joueur = creerJoueur(x/echelle, y/echelle);
-    if(joueur == NULL)
-    {
-        printf("Le niveau n'a pas pu être lancé\n");
-        return -1;
-    }
-
     *retour_niveau = niveau;
-    *retour_joueur = joueur;
 
     return 0;
 }
@@ -355,14 +342,14 @@ void arreterNiveau(t_niveau ** niveau)
  * \param joueur Le joueur
  * \param echelle L'échelle du rendu
  */
-void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
+void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
 {
     int limite_cote_gauche = niveau->j_charge*echelle*NB_TILE_LARGEUR;
     int limite_cote_droit = niveau->j_charge*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
     int limite_cote_haut = niveau->i_charge*echelle*NB_TILE_HAUTEUR;
     int limite_cote_bas = niveau->i_charge*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
 
-    if(joueur->position->x*echelle > limite_cote_droit) //Dépassement à droite
+    if(j_x*echelle > limite_cote_droit) //Dépassement à droite
     {
 
         if(niveau->salle_chargee->portes[RIGHT] != NULL)
@@ -372,7 +359,7 @@ void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
         }
     }
 
-    else if(joueur->position->x*echelle < limite_cote_gauche) //Dépassement à gauche
+    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche
     {
 
         if(niveau->salle_chargee->portes[LEFT] != NULL)
@@ -382,7 +369,7 @@ void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
         }
     }
 
-    else if(joueur->position->y*echelle > limite_cote_bas) //Dépassement en bas
+    else if(j_y*echelle > limite_cote_bas) //Dépassement en bas
     {
         if(niveau->salle_chargee->portes[DOWN] != NULL)
         {
@@ -391,7 +378,7 @@ void updateNiveau(t_niveau * niveau, t_joueur * joueur, int echelle)
         }
     }
 
-    else if(joueur->position->y*echelle < limite_cote_haut) //Dépassement en haut
+    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut
     {
         if(niveau->salle_chargee->portes[UP] != NULL)
         {
