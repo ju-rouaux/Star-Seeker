@@ -177,3 +177,44 @@ int remove_by_index(liste_t * l, int index) {
     return res;
 
 }
+
+/**
+*\brief Vérifie que la liste n'est pas vide
+*
+*\param l liste
+*\return 0 si la liste est vide
+*/
+int list_empty(liste_t * l){
+
+  if (l -> premier == NULL && l -> dernier == NULL)
+    return 1;
+  else return 0;
+
+}
+
+/**
+*\brief retourne la valeur d'un element donné par un index dans la liste
+*
+*\param l liste
+*\param index index d'un element
+*\return la valeur du premier 
+*/
+int list_get_value(liste_t * l,int index)
+{
+     int res = -1; //valeur de retour
+    elem_t * ec = l->premier;
+
+    if (index + 1 == 0) {
+        res =  ec->valeur;
+    }
+
+    for (int i = 1; i < index-1; i++) {
+        if (ec->suivant == NULL) {
+            return -1;
+        }
+        ec = ec->suivant;
+    }
+    res = ec->valeur;
+
+    return res;
+}
