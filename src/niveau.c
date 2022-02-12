@@ -295,7 +295,7 @@ void detruireNiveau(t_niveau ** niveau)
  * 
  * 
  */
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, int echelle)
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau)
 {
     int r, g, b;
 

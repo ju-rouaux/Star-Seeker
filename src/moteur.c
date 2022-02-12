@@ -11,12 +11,13 @@
 #include <moteur.h>
 #include <window.h>
 #include <textures.h>
+#include <camera.h>
 
 
 /**
  * \brief Charge une fenêtre, un rendu, et les textures. 
  * 
- * \return Structure contenant le pointeur sur window, sur renderer et des textures,
+ * \return Structure contenant le pointeur sur window, sur renderer, les textures, et la caméra
  * NULL si echec.
  */
 t_moteur * chargerMoteur()
@@ -47,6 +48,16 @@ t_moteur * chargerMoteur()
         return NULL;
     }
 
+    moteur->camera = creerCamera(moteur->window, 0, 0);
+    if(moteur->camera == NULL)
+    {
+        printf("Moteur non chargé\n");
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+
     return moteur;
 }
 
@@ -61,6 +72,7 @@ void detruireMoteur(t_moteur ** moteur)
 {
     if(*moteur != NULL)
     {
+        detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
     }

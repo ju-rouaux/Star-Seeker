@@ -11,7 +11,6 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
-#include <niveau.h>
 #include <camera.h>
 
 
@@ -87,20 +86,21 @@ void detruireCamera(t_camera ** camera)
  * 
  * \param x Retour de la position en x
  * \param y Retour de la position en y
- * \param dimensions Nombre de sous-salles contenues dans la salle
+ * \param largeur Nombre de sous-salles contenues dans la salle en largeur
+ * \param hauteur Nombre de sous-salles contenues dans la salle en hauteur
  * \param orig_x Coordonnées d'origine de la salle en x (à l'échelle)
  * \param orig_y Coordonnées d'origine de la salle en y (à l'échelle)
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
  * \param echelle Echelle du niveau
  */
-static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y, float echelle)
+static void calculerPosCamera(int * x, int * y, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y, float echelle)
 {
     int demi; //Largeur ou longueur d'une demi salle
     j_x *= echelle,
     j_y *= echelle;
 
-    if(dimensions == NULL || (dimensions->largeur == 1))
+    if(largeur == 1)
     {
         *x = orig_x + (echelle*NB_TILE_LARGEUR) / 2;
     }
@@ -109,21 +109,21 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
         demi = echelle * NB_TILE_LARGEUR / 2;
         if(j_x < orig_x + demi)
             *x = orig_x + demi;
-        else if(j_x > orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi)
-            *x = orig_x + dimensions->largeur*echelle*NB_TILE_LARGEUR - demi;
+        else if(j_x > orig_x + largeur*echelle*NB_TILE_LARGEUR - demi)
+            *x = orig_x + largeur*echelle*NB_TILE_LARGEUR - demi;
         else
             *x = j_x;
     }
 
-    if(dimensions == NULL || (dimensions->hauteur == 1))
+    if(hauteur == 1)
         *y = orig_y + (echelle*NB_TILE_HAUTEUR) / 2;
     else
     {
         demi = echelle * NB_TILE_HAUTEUR / 2;
         if(j_y < orig_y + demi)
             *y = orig_y + demi;
-        else if(j_y > orig_y + dimensions->hauteur*echelle*NB_TILE_HAUTEUR - demi)
-            *y = orig_y + dimensions->hauteur*echelle*NB_TILE_HAUTEUR - demi;
+        else if(j_y > orig_y + hauteur*echelle*NB_TILE_HAUTEUR - demi)
+            *y = orig_y + hauteur*echelle*NB_TILE_HAUTEUR - demi;
         else
             *y = j_y;
     }
@@ -135,15 +135,16 @@ static void calculerPosCamera(int * x, int * y, const t_dimensions_salle * dimen
  * de la position du joueur. Le sujet de la caméra sera placé au centre.
  * 
  * \param camera Camera à actualiser
- * \param dimensions Nombre de sous-salles contenues dans la salle
+ * \param largeur Nombre de sous-salles contenues dans la salle en largeur
+ * \param hauteur Nombre de sous-salles contenues dans la salle en hauteur
  * \param orig_x Coordonnées d'origine de la salle en x (à l'échelle)
  * \param orig_y Coordonnées d'origine de la salle en y (à l'échelle)
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
  */
-void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y)
+void updateCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)
 {
-    calculerPosCamera(&camera->x, &camera->y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->x, &camera->y, largeur, hauteur, orig_x, orig_y, j_x, j_y, camera->echelle);
     
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
@@ -158,15 +159,16 @@ void updateCamera(t_camera * camera, const t_dimensions_salle * dimensions, int 
  * de la position du joueur. Le sujet de la caméra sera placé au centre.
  * 
  * \param camera Camera à actualiser
- * \param dimensions Nombre de sous-salles contenues dans la salle
+ * \param largeur Nombre de sous-salles contenues dans la salle en largeur
+ * \param hauteur Nombre de sous-salles contenues dans la salle en hauteur
  * \param orig_x Coordonnées d'origine de la salle en x (à l'échelle)
  * \param orig_y Coordonnées d'origine de la salle en y (à l'échelle)
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
  */
-void updateFutureCamera(t_camera * camera, const t_dimensions_salle * dimensions, int orig_x, int orig_y, float j_x, float j_y)
+void updateFutureCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)
 {
-    calculerPosCamera(&camera->futur_x, &camera->futur_y, dimensions, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->futur_x, &camera->futur_y, largeur, hauteur, orig_x, orig_y, j_x, j_y, camera->echelle);
     
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre

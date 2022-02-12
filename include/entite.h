@@ -2,7 +2,6 @@
 #define _JEU_ENTITE_
 
 #include <moteur.h>
-#include <camera.h>
 #include <animation.h>
 
 typedef enum
@@ -16,6 +15,6 @@ struct s_entite
     #include <attributs_entites.h>
 } ;
 
-int dessinerEntite(t_moteur * moteur, t_entite * entite, t_camera * camera, int texture_ligne);
+int dessinerEntite(t_moteur * moteur, t_entite * entite, int texture_ligne);
 
 #endif

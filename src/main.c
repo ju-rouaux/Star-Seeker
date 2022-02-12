@@ -13,7 +13,6 @@
 int main(int argc, char * argv[])
 {
     t_moteur * moteur = NULL;
-    t_camera * camera = NULL;
     t_niveau * niveau = NULL;
     t_joueur * joueur = NULL;
     
@@ -26,23 +25,21 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur();
-    camera = creerCamera(moteur->window, 0,0);
     FILE * fichier = fopen("./test/allure_d'un_niveau.txt", "r");
     if(fichier == NULL)
     {
         printf("mince");
         return EXIT_FAILURE;
     }
-    camera = creerCamera(moteur->window, 0, 0);
 
-    if(lancerNiveau(fichier, moteur, &niveau, camera->echelle) != 0) return EXIT_FAILURE;
+    if(lancerNiveau(fichier, moteur, &niveau) != 0) return EXIT_FAILURE;
     joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR, moteur->textures->player);
     if(joueur == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
         return -1;
     }
-    updateCamera(camera, niveau->salle_chargee->dimensions, niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*camera->echelle, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*camera->echelle, joueur->x, joueur->y);
+    updateCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR*moteur->camera->echelle, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR*moteur->camera->echelle, joueur->x, joueur->y);
 
     while(handleEvents(joueur) != 1)
     {
@@ -54,10 +51,10 @@ int main(int argc, char * argv[])
         //rendu niveau
         //rendu joueur
         joueur->update((t_entite*) joueur, debutBoucle);
-        updateNiveau(niveau, joueur->x, joueur->y,camera->echelle);
+        updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
         SDL_RenderClear(moteur->renderer);
-        afficherNiveau(moteur, niveau, camera, joueur->x, joueur->y);
-        dessinerEntite(moteur, (t_entite*) joueur, camera, 0);
+        afficherNiveau(moteur, niveau, joueur->x, joueur->y);
+        dessinerEntite(moteur, (t_entite*) joueur, 0);
 
         SDL_RenderPresent(moteur->renderer);
 
@@ -70,7 +67,6 @@ int main(int argc, char * argv[])
     }
 
     arreterNiveau(&niveau);
-    detruireCamera(&camera);
     detruireMoteur(&moteur);
 
     SDL_Quit();
