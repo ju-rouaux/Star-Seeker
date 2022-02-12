@@ -98,16 +98,16 @@ int handleEvents(t_joueur * joueur) {
                 switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_W: //Z
-                        joueur->flags->to_up = 1;
+                        joueur->flags->to_up = joueur->flags->to_down + 1;
                         break;
                     case SDL_SCANCODE_A: //Q
-                        joueur->flags->to_left = 1;
+                        joueur->flags->to_left = joueur->flags->to_right + 1;
                         break;
                     case SDL_SCANCODE_S: //S
-                        joueur->flags->to_down = 1;
+                        joueur->flags->to_down = joueur->flags->to_up + 1;
                         break;
                     case SDL_SCANCODE_D: //D
-                        joueur->flags->to_right = 1;
+                        joueur->flags->to_right = joueur->flags->to_left + 1;
                         break;
                     
                     default:

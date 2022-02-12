@@ -197,10 +197,11 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, int x, int y,
 //Fonction temporaire affichant le niveau
 //Elle devra appeler les salles chargées pour les afficher.
 //
-int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, float j_x, float j_y)
+int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
 {
     int resultat = 0;
-    updateScale(moteur->window, camera);
+    t_camera * camera = moteur->camera;
+    updateScale(moteur->window, moteur->camera);
 
     //Calculer camera et ainsi calculer coordonnées origine du niveau relatives caméra
     for(int i = 0; i < niveau->h; i++)
@@ -213,7 +214,7 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, floa
                     if(i == niveau->salles[i*niveau->l + j]->dimensions->i && j == niveau->salles[i*niveau->l + j]->dimensions->j)
                     {
 
-                        updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, j_x, j_y);
+                        updateCamera(camera, niveau->salles[i*niveau->l + j]->dimensions->largeur, niveau->salles[i*niveau->l + j]->dimensions->hauteur, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle, j_x, j_y);
                     }
                     //printf("%i %i %i %i %i\n", camera->x, camera->y, camera->echelle, j*NB_TILE_LARGEUR*camera->echelle, i*NB_TILE_HAUTEUR*camera->echelle);
                     resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR*camera->echelle - camera->x, i*NB_TILE_HAUTEUR*camera->echelle - camera->y, camera->echelle);

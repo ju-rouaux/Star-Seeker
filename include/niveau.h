@@ -5,10 +5,6 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 
-#define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
-#define NB_TILE_LARGEUR 13 /**< Surface au sol en largeur */
-#define NB_TILE_HAUTEUR 7 /**< Surface au sol en hauteur */
-
 /**
  * \enum e_porte
  * \brief Position d'une porte dans une salle.
@@ -81,7 +77,7 @@ typedef struct
 
 t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b);
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau, int echelle);
+int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau);
 void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 

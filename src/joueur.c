@@ -14,15 +14,53 @@
 #include <animation.h>
 
 /**
- * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
+ * 
  * 
  * 
  */
-static void updatePositionJoueur(t_joueur * joueur)
+static void animerJoueur(t_joueur * joueur, int vecteur_x, int vecteur_y, int code_animation)
+{
+    int id_animation;
+
+    if(!vecteur_x && !vecteur_y) //Inactif
+        id_animation = 0;
+    else
+    {
+        if(vecteur_x && !vecteur_y) //Haut ou bas
+            id_animation = vecteur_x > 0 ? 3 : 7;
+        else if(!vecteur_x && vecteur_y) //Droite ou gauche
+            id_animation = vecteur_y > 0 ? 5 : 1;
+        else
+        {
+            if(vecteur_x > 0)
+                id_animation = vecteur_y > 0 ? 4 : 2;
+            else
+                id_animation = vecteur_y > 0 ? 6 : 8;
+        }
+    }
+
+    id_animation += code_animation;
+}
+
+
+/**
+ * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
+ * 
+ * \return La direction du joueur (0 si inactif, sinon entre 1 et 8 en partant du haut et en tournant dans le sens des aiguilles d'une montre)
+ */
+static void updatePositionJoueur(t_joueur * joueur, int * vecteur_x, int * vecteur_y)
 {
     float distance = joueur->vitesse;
-    joueur->x += distance * (joueur->flags->to_right - joueur->flags->to_left);
-    joueur->y += distance * (joueur->flags->to_down - joueur->flags->to_up);
+    int direction_x = joueur->flags->to_right == joueur->flags->to_left ? 0 : (joueur->flags->to_right > joueur->flags->to_left ? 1 : -1);
+    int direction_y = joueur->flags->to_down == joueur->flags->to_up ? 0 : (joueur->flags->to_down > joueur->flags->to_up ? 1 : -1);
+    
+    joueur->x += distance * direction_x;
+    joueur->y += distance * direction_y;
+
+    if(vecteur_x != NULL)
+        *vecteur_x = direction_x;
+    if(vecteur_y != NULL)
+        *vecteur_y = direction_y;
 }
 
 /**
@@ -33,8 +71,9 @@ static void updatePositionJoueur(t_joueur * joueur)
  */
 static void updateJoueur(t_joueur * joueur, unsigned int temps)
 {
-    updatePositionJoueur(joueur);
-    //Animation...
+    int vecteur_x, vecteur_y;
+    updatePositionJoueur(joueur, &vecteur_x, &vecteur_y);
+    
 }
 
 static t_player_flags * creerPlayerFlags()

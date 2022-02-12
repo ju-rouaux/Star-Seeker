@@ -3,9 +3,8 @@
 
 #include <moteur.h>
 #include <niveau.h>
-#include <camera.h>
 
-int afficherNiveau(t_moteur * moteur, t_niveau * niveau, t_camera * camera, float j_x, float j_y);
+int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y);
 
 #endif
 
