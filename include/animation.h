@@ -8,12 +8,12 @@
  */
 typedef struct
 {
-    float vitesse; /**< Temps en secondes avant l'image suivante */
+    int vitesse; /**< Temps en milisecondes avant l'image suivante */
     unsigned int dernier_update; /**< Temps qu'il était au changement de la frame courante */
     
 } t_animation;
 
-t_animation * creerAnimation(float vitesse);
+t_animation * creerAnimation(int vitesse);
 void detruireAnimation(t_animation ** animation);
 
 #endif

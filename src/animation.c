@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <animation.h>
 
-t_animation * creerAnimation(float vitesse)
+t_animation * creerAnimation(int vitesse)
 {
     t_animation * animation = malloc(sizeof(t_animation));
     if(animation == NULL)

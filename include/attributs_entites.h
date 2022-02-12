@@ -7,4 +7,4 @@ float taille; //1 = taille d'un bloc
 int partie_texture_courrante;
 int nb_textures; //Nombre de texture max sur une ligne du tileset
 t_animation * animation;
-void (*update)(t_entite *, unsigned int); //Fonction appelée à chaque frame
+void (*update)(t_moteur *, t_entite *, unsigned int); //Fonction appelée à chaque frame

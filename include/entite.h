@@ -16,5 +16,6 @@ struct s_entite
 } ;
 
 int dessinerEntite(t_moteur * moteur, t_entite * entite, int texture_ligne);
+void textureSuivante(t_entite * entite);
 
 #endif

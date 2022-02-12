@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <moteur.h>
 #include <entite.h>
 #include <joueur.h>
 #include <animation.h>
@@ -16,9 +17,9 @@
 /**
  * 
  * 
- * 
+ * code 0 idle, 1 attaque epee, 2 projectile
  */
-static void animerJoueur(t_joueur * joueur, int vecteur_x, int vecteur_y, int code_animation)
+static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
 {
     int id_animation;
 
@@ -39,7 +40,9 @@ static void animerJoueur(t_joueur * joueur, int vecteur_x, int vecteur_y, int co
         }
     }
 
-    id_animation += code_animation;
+    id_animation += code_animation*10;
+
+    return id_animation;
 }
 
 
@@ -69,11 +72,18 @@ static void updatePositionJoueur(t_joueur * joueur, int * vecteur_x, int * vecte
  * 
  * 
  */
-static void updateJoueur(t_joueur * joueur, unsigned int temps)
+static void updateJoueur(t_moteur * moteur, t_joueur * joueur, unsigned int temps)
 {
     int vecteur_x, vecteur_y;
     updatePositionJoueur(joueur, &vecteur_x, &vecteur_y);
     
+    if(temps > joueur->animation->dernier_update + joueur->animation->vitesse)
+    {
+        textureSuivante((t_entite*) joueur);
+        joueur->animation->dernier_update = temps;
+    }
+    
+    dessinerEntite(moteur, (t_entite*) joueur,  animationJoueur(vecteur_x, vecteur_y, 0));
 }
 
 static t_player_flags * creerPlayerFlags()
@@ -124,7 +134,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(0.2);
+    joueur->animation = creerAnimation(50);
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -145,7 +155,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     
     joueur->type = E_JOUEUR;
 
-    joueur->update = (void (*)(t_entite*, unsigned int)) updateJoueur;
+    joueur->update = (void (*)(t_moteur*, t_entite*, unsigned int)) updateJoueur;
     
     return joueur;
 }

@@ -50,11 +50,10 @@ int main(int argc, char * argv[])
         //si collision remttre joueur au meme endroit
         //rendu niveau
         //rendu joueur
-        joueur->update((t_entite*) joueur, debutBoucle);
         updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
         SDL_RenderClear(moteur->renderer);
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);
-        dessinerEntite(moteur, (t_entite*) joueur, 0);
+        joueur->update(moteur, (t_entite*) joueur, debutBoucle);
 
         SDL_RenderPresent(moteur->renderer);
 
