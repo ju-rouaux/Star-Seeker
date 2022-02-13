@@ -22,9 +22,10 @@ typedef struct
     SDL_Renderer * renderer;
     t_textures * textures;
     t_camera * camera;
+    unsigned int temps;
 } t_moteur;
 
-t_moteur * chargerMoteur();
+t_moteur * chargerMoteur(unsigned int temps);
 void detruireMoteur(t_moteur ** moteur);
 
 #endif // _JEU_MOTEUR_

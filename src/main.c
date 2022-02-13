@@ -16,7 +16,7 @@ int main(int argc, char * argv[])
     t_niveau * niveau = NULL;
     t_joueur * joueur = NULL;
     
-    int debutBoucle, tempsEcoule;
+    int tempsEcoule;
 
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
@@ -24,7 +24,7 @@ int main(int argc, char * argv[])
         return EXIT_FAILURE;
     }
 
-    moteur = chargerMoteur();
+    moteur = chargerMoteur(SDL_GetTicks());
     FILE * fichier = fopen("./test/allure_d'un_niveau.txt", "r");
     if(fichier == NULL)
     {
@@ -43,22 +43,22 @@ int main(int argc, char * argv[])
 
     while(handleEvents(joueur) != 1)
     {
-        debutBoucle = SDL_GetTicks();
+        moteur->temps = SDL_GetTicks();
         //Logic here
         //deplacer joueur
         //check position par rapport ancien rendu
         //si collision remttre joueur au meme endroit
         //rendu niveau
         //rendu joueur
-        updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
         SDL_RenderClear(moteur->renderer);
+        joueur->update(moteur, (t_entite*) joueur);
+        updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);
-        joueur->update(moteur, (t_entite*) joueur, debutBoucle);
-
+        joueur->dessiner(moteur, (t_entite*) joueur);
         SDL_RenderPresent(moteur->renderer);
 
         //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - debutBoucle;
+        tempsEcoule = SDL_GetTicks() - moteur->temps;
         if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
             SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
         

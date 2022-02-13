@@ -20,7 +20,7 @@
  * \return Structure contenant le pointeur sur window, sur renderer, les textures, et la caméra
  * NULL si echec.
  */
-t_moteur * chargerMoteur()
+t_moteur * chargerMoteur(unsigned int temps)
 {
     int retour; //Retour de code erreur
 
@@ -57,6 +57,8 @@ t_moteur * chargerMoteur()
         free(moteur);
         return NULL;
     }
+
+    moteur->temps = temps;
 
     return moteur;
 }

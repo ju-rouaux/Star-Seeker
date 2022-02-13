@@ -72,18 +72,13 @@ static void updatePositionJoueur(t_joueur * joueur, int * vecteur_x, int * vecte
  * 
  * 
  */
-static void updateJoueur(t_moteur * moteur, t_joueur * joueur, unsigned int temps)
+static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
-    int vecteur_x, vecteur_y;
-    updatePositionJoueur(joueur, &vecteur_x, &vecteur_y);
+    updatePositionJoueur(joueur, &joueur->direction_vx, &joueur->direction_vy);
     
-    if(temps > joueur->animation->dernier_update + joueur->animation->vitesse)
-    {
-        textureSuivante((t_entite*) joueur);
-        joueur->animation->dernier_update = temps;
-    }
+    joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, 0);
     
-    dessinerEntite(moteur, (t_entite*) joueur,  animationJoueur(vecteur_x, vecteur_y, 0));
+    return 0;
 }
 
 static t_player_flags * creerPlayerFlags()
@@ -99,7 +94,6 @@ static t_player_flags * creerPlayerFlags()
     flags->to_up = 0;
     flags->to_left = 0;
     flags->to_right = 0;
-
 
     return flags;
 }
@@ -134,7 +128,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(50);
+    joueur->animation = creerAnimation(50, 3, 9);
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -146,16 +140,16 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->x = x;
     joueur->y = y;
     joueur->vitesse = 0.15;
-    joueur->pv = 100;
+    joueur->type = E_JOUEUR;
 
     joueur->texture = apparence;
     joueur->taille = PROPORTION_JOUEUR;
-    joueur->nb_textures = 3;
-    joueur->partie_texture_courrante = 0;
-    
-    joueur->type = E_JOUEUR;
+    joueur->id_animation = 0; //idle
 
-    joueur->update = (void (*)(t_moteur*, t_entite*, unsigned int)) updateJoueur;
+    joueur->update = (int (*)(t_moteur*, t_entite*)) updateJoueur;
+    joueur->dessiner = (int (*)(t_moteur *, t_entite *)) dessinerEntite;
+
+    joueur->pv = 100;
     
     return joueur;
 }
