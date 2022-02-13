@@ -1,7 +1,7 @@
 /**
  * \file
  * \brief Module de calcul de position de caméra pour savoir où
- * dessiner les éléments sur la fenêtre
+ * dessiner les éléments sur la fenêtre.
  * 
  * \author Julien Rouaux
  */

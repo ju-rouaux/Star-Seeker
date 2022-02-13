@@ -58,6 +58,7 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
+    moteur->temps_precedent = temps;
     moteur->temps = temps;
 
     return moteur;

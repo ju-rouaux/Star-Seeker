@@ -1,3 +1,10 @@
+/**
+ * \file
+ * \brief Module facilitant la gestion des animations
+ * 
+ * \author Julien Rouaux
+ */
+
 #ifndef _JEU_ANIMATION_
 #define _JEU_ANIMATION_
 
@@ -8,7 +15,7 @@
 typedef struct
 {
     int vitesse; /**< Temps en milisecondes avant l'image suivante */
-    unsigned int dernier_update; /**< Temps qu'il était au changement de la frame courante */
+    unsigned int dernier_update; /**< Temps qu'il était au moment du changement de la frame courante */
     int nb_textures; /** Nombre d'images sur une ligne du tileset */
     int indice_texture; /** Indice de l'image active de l'animation courante */
     int id_max; /** Nombre de lignes du tileset (pour des mesures du prévention) */

@@ -51,9 +51,10 @@ static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
  * 
  * \return La direction du joueur (0 si inactif, sinon entre 1 et 8 en partant du haut et en tournant dans le sens des aiguilles d'une montre)
  */
-static void updatePositionJoueur(t_joueur * joueur, int * vecteur_x, int * vecteur_y)
+static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned int temps_precedent, int * vecteur_x, int * vecteur_y)
 {
-    float distance = joueur->vitesse;
+    float distance = joueur->vitesse * (temps - temps_precedent) / 1000;
+
     int direction_x = joueur->flags->to_right == joueur->flags->to_left ? 0 : (joueur->flags->to_right > joueur->flags->to_left ? 1 : -1);
     int direction_y = joueur->flags->to_down == joueur->flags->to_up ? 0 : (joueur->flags->to_down > joueur->flags->to_up ? 1 : -1);
     
@@ -74,7 +75,7 @@ static void updatePositionJoueur(t_joueur * joueur, int * vecteur_x, int * vecte
  */
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
-    updatePositionJoueur(joueur, &joueur->direction_vx, &joueur->direction_vy);
+    updatePositionJoueur(joueur, moteur->temps, moteur->temps_precedent, &joueur->direction_vx, &joueur->direction_vy);
     
     joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, 0);
     
@@ -139,7 +140,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 
     joueur->x = x;
     joueur->y = y;
-    joueur->vitesse = 0.15;
+    joueur->vitesse = 6.5;
     joueur->type = E_JOUEUR;
 
     joueur->texture = apparence;

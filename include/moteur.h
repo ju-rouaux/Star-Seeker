@@ -5,7 +5,7 @@
 #include <textures.h>
 #include <camera.h>
 
-#define NB_FPS 60
+#define NB_FPS 120
 #define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
@@ -23,6 +23,7 @@ typedef struct
     t_textures * textures;
     t_camera * camera;
     unsigned int temps;
+    unsigned int temps_precedent;
 } t_moteur;
 
 t_moteur * chargerMoteur(unsigned int temps);

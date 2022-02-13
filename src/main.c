@@ -43,6 +43,7 @@ int main(int argc, char * argv[])
 
     while(handleEvents(joueur) != 1)
     {
+        moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();
         //Logic here
         //deplacer joueur
@@ -61,8 +62,6 @@ int main(int argc, char * argv[])
         tempsEcoule = SDL_GetTicks() - moteur->temps;
         if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
             SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
-        
-        // inputs : printf("%i %i %i %i\n", joueur->flags->to_up, joueur->flags->to_down, joueur->flags->to_left, joueur->flags->to_right);
     }
 
     arreterNiveau(&niveau);
