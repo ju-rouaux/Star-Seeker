@@ -261,9 +261,16 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
         }
     }
 
+    if(niveau->salle_chargee == NULL)
+    {
+        printf("Impossible de trouver le départ du niveau.\n");
+        return NULL;
+    }
+    
     lierSalles(niveau);
     niveau->i_charge = niveau->salle_chargee->dimensions->i;
     niveau->j_charge = niveau->salle_chargee->dimensions->j;
+
 
     return niveau;
 }
