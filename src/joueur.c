@@ -3,7 +3,7 @@
  * 
  *
  * \brief Module de gestion de deplacement du joueur
- * \author Guillaume et Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 #include <stdio.h>
@@ -11,8 +11,8 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
-#include <joueur.h>
 #include <animation.h>
+#include <joueur.h>
 
 /**
  * 

@@ -1,12 +1,6 @@
-/**
- * \file
- * \brief Module facilitant la gestion des animations
- * 
- * \author Julien Rouaux
- */
-
 #ifndef _JEU_ANIMATION_
 #define _JEU_ANIMATION_
+
 
 /**
  * \brief Structure contenant les données nécéssaires
@@ -20,6 +14,7 @@ typedef struct
     int indice_texture; /** Indice de l'image active de l'animation courante */
     int id_max; /** Nombre de lignes du tileset (pour des mesures du prévention) */
 } t_animation;
+
 
 t_animation * creerAnimation(int vitesse, int nb_textures, int id_max);
 void detruireAnimation(t_animation ** animation);

@@ -5,7 +5,7 @@
 #include <textures.h>
 #include <camera.h>
 
-#define NB_FPS 120
+#define NB_FPS 60
 #define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
 #define NB_FRAME_POUR_ANIMATION 60 /**< Le temps que mets le jeu à changer de salle */

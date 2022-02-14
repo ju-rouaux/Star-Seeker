@@ -1,6 +1,10 @@
 /**
- * \file
- * \brief Module facilitant la gestion des animations
+ * \file animation.c
+ * 
+ * \brief Module facilitant la gestion des animations.
+ * 
+ * Ce module utilise les configurations données dans la structure t_animation pour
+ * se charger d'animer une texture avec updateAnimation.
  * 
  * \author Julien Rouaux
  */

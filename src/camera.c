@@ -1,5 +1,6 @@
 /**
- * \file
+ * \file camera.c
+ * 
  * \brief Module de calcul de position de caméra pour savoir où
  * dessiner les éléments sur la fenêtre.
  * 
@@ -96,18 +97,18 @@ void detruireCamera(t_camera ** camera)
  */
 static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y, float echelle)
 {
-    int demi; //Largeur ou longueur d'une demi salle
+    float demi; //Largeur ou longueur d'une demi salle
 
     orig_x *= NB_TILE_LARGEUR;
     orig_y *= NB_TILE_HAUTEUR;
 
     if(largeur == 1)
     {
-        *x = orig_x + NB_TILE_LARGEUR / 2;
+        *x = orig_x + NB_TILE_LARGEUR / 2.0;
     }
     else
     {
-        demi = NB_TILE_LARGEUR / 2;
+        demi = NB_TILE_LARGEUR / 2.0;
         if(j_x < orig_x + demi)
             *x = orig_x + demi;
         else if(j_x > orig_x + largeur*NB_TILE_LARGEUR - demi)
@@ -117,10 +118,10 @@ static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, in
     }
 
     if(hauteur == 1)
-        *y = orig_y + NB_TILE_HAUTEUR / 2;
+        *y = orig_y + NB_TILE_HAUTEUR / 2.0;
     else
     {
-        demi = NB_TILE_HAUTEUR / 2;
+        demi = NB_TILE_HAUTEUR / 2.0;
         if(j_y < orig_y + demi)
             *y = orig_y + demi;
         else if(j_y > orig_y + hauteur*NB_TILE_HAUTEUR - demi)
@@ -150,8 +151,8 @@ void updateCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int o
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
     //accueille l'origine de la caméra.
-    //camera->x = camera->x - camera->window_width / 2 / camera->echelle;
-    //camera->y = camera->y - camera->window_height / 2 / camera->echelle;
+    camera->x = camera->x - (float)camera->window_width / 2 / camera->echelle;
+    camera->y = camera->y - (float)camera->window_height / 2 / camera->echelle;
 }
 
 
@@ -174,8 +175,8 @@ void updateFutureCamera(t_camera * camera, int largeur, int hauteur, int orig_x,
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
     //accueille l'origine de la caméra.
-    camera->futur_x = camera->futur_x - camera->window_width / 2;
-    camera->futur_y = camera->futur_y - camera->window_height / 2;
+    camera->futur_x = camera->futur_x - (float)camera->window_width / 2 / camera->echelle;
+    camera->futur_y = camera->futur_y - (float)camera->window_height / 2 / camera->echelle;
 }
 
 
