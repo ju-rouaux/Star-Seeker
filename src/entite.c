@@ -19,8 +19,8 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
     destination.h = moteur->camera->echelle * entite->taille;
     destination.w = moteur->camera->echelle * entite->taille;
     
-    destination.x = entite->x*moteur->camera->echelle - moteur->camera->x - destination.w / 2;
-    destination.y = entite->y*moteur->camera->echelle - moteur->camera->y - 3*destination.h/ 4;
+    destination.x = entite->x*moteur->camera->echelle - moteur->camera->x*moteur->camera->echelle - destination.w / 2;
+    destination.y = entite->y*moteur->camera->echelle - moteur->camera->y*moteur->camera->echelle - 3*destination.h/ 4;
 
     if(entite->animation != NULL) //Si l'entité est animé
         updateAnimation(entite->animation, moteur->temps);

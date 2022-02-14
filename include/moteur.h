@@ -8,6 +8,10 @@
 #define NB_FPS 120
 #define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
+#define NB_FRAME_POUR_ANIMATION 60 /**< Le temps que mets le jeu à changer de salle */
+#define DUREE_TRANSITION 1000
+#define VITESSE_TRANSITION 10 /** Vitesse d'une transition exprimée en tile par secondes */
+
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
 #define NB_TILE_LARGEUR 13 /**< Surface au sol en largeur */
 #define NB_TILE_HAUTEUR 7 /**< Surface au sol en hauteur */

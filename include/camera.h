@@ -13,10 +13,10 @@
 
 typedef struct
 {
-    int x; /**< Position en x du centre de la caméra par rapport au niveau */
-    int y; /**< Position en y du centre de la caméra par rapport au niveau */
-    int futur_x; /**< Stockage d'une future position de la caméra en x pour la gestion d'animation */
-    int futur_y; /**< Stockage d'une future position de la caméra en y pour la gestion d'animation */
+    float x; /**< Position en x du centre de la caméra par rapport au niveau */
+    float y; /**< Position en y du centre de la caméra par rapport au niveau */
+    float futur_x; /**< Stockage d'une future position de la caméra en x pour la gestion d'animation */
+    float futur_y; /**< Stockage d'une future position de la caméra en y pour la gestion d'animation */
 
     int echelle; /**< Echelle du jeu, c'est à dire la taille des éléments */
 
@@ -27,7 +27,7 @@ typedef struct
 
 void updateScale(SDL_Window * window, t_camera * camera);
 
-t_camera * creerCamera(SDL_Window * window, int x, int y);
+t_camera * creerCamera(SDL_Window * window, float x, float y);
 void detruireCamera(t_camera ** camera);
 
 void updateCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y);
