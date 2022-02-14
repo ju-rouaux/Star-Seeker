@@ -91,7 +91,7 @@ int main(int argc, char * argv[])
                 //Rafraichir rendu
                 SDL_RenderClear(moteur->renderer);
                 afficherNiveau(moteur, niveau, joueur->x, joueur->y);
-                joueur->id_animation = 0; //Réinitialiser l'animation courante pour éviter de voir le joueur se déplacer dans le vide
+               
                 joueur->dessiner(moteur, (t_entite*) joueur);
                 //Dessiner entités ici
 

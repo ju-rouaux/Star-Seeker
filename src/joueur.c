@@ -17,31 +17,33 @@
 /**
  * 
  * 
- * code 0 idle, 1 attaque epee, 2 projectile
+ * code 0 idle, 1 marche, 2 attaque epee, 3 projectile
  */
 static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
 {
     int id_animation;
 
-    if(!vecteur_x && !vecteur_y) //Inactif
-        id_animation = 0;
+    //Calculer direction
+    if(!vecteur_x && !vecteur_y) //Si vecteur nul, personage idle vers l'avant
+        id_animation = 4;
     else
     {
-        if(vecteur_x && !vecteur_y) //Haut ou bas
-            id_animation = vecteur_x > 0 ? 3 : 7;
-        else if(!vecteur_x && vecteur_y) //Droite ou gauche
-            id_animation = vecteur_y > 0 ? 5 : 1;
-        else
+        if(vecteur_x && !vecteur_y) //Droite ou gauche 
+            id_animation = vecteur_x > 0 ? 2 : 6;
+        else if(!vecteur_x && vecteur_y) //Haut ou bas
+            id_animation = vecteur_y > 0 ? 4 : 0;
+        else //Diagonales
         {
             if(vecteur_x > 0)
-                id_animation = vecteur_y > 0 ? 4 : 2;
+                id_animation = vecteur_y > 0 ? 3 : 1;
             else
-                id_animation = vecteur_y > 0 ? 6 : 8;
+                id_animation = vecteur_y > 0 ? 5 : 7;
         }
     }
 
-    id_animation += code_animation*10;
-
+    //Calculer animation
+    id_animation = 2*id_animation + code_animation;
+    
     return id_animation;
 }
 
@@ -49,7 +51,7 @@ static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
 /**
  * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
  * 
- * \return La direction du joueur (0 si inactif, sinon entre 1 et 8 en partant du haut et en tournant dans le sens des aiguilles d'une montre)
+ * \return La direction du joueur dans un vecteur. Ce vecteur est inchangé si le joueur est inactif.
  */
 static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned int temps_precedent, int * vecteur_x, int * vecteur_y)
 {
@@ -61,10 +63,13 @@ static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned
     joueur->x += distance * direction_x;
     joueur->y += distance * direction_y;
 
-    if(vecteur_x != NULL)
-        *vecteur_x = direction_x;
-    if(vecteur_y != NULL)
-        *vecteur_y = direction_y;
+    if(direction_x || direction_y) //Si le joueur se dirige dans une direction, actualiser les vecteurs
+    {
+        if(vecteur_x != NULL)
+                *vecteur_x = direction_x;
+        if(vecteur_y != NULL)
+                *vecteur_y = direction_y;
+    }
 }
 
 /**
@@ -75,9 +80,17 @@ static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned
  */
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
+    int etat = 0;
     updatePositionJoueur(joueur, moteur->temps, moteur->temps_precedent, &joueur->direction_vx, &joueur->direction_vy);
     
-    joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, 0);
+    //Déterminer l'état du joueur
+    if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
+        etat = 1;
+    //if(attaque....) 
+
+    joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
+
+    printf("id anim : %i %i\n", joueur->id_animation, etat);
     
     return 0;
 }
@@ -129,7 +142,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(50, 3, 9);
+    joueur->animation = creerAnimation(50, 4, 15);
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -140,6 +153,8 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 
     joueur->x = x;
     joueur->y = y;
+    joueur->direction_vx = 0;
+    joueur->direction_vy = 0;
     joueur->vitesse = 6.5;
     joueur->type = E_JOUEUR;
 
@@ -151,7 +166,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->dessiner = (int (*)(t_moteur *, t_entite *)) dessinerEntite;
 
     joueur->pv = 100;
-    
+
     return joueur;
 }
 
