@@ -89,8 +89,6 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     //if(attaque....) 
 
     joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
-
-    printf("id anim : %i %i\n", joueur->id_animation, etat);
     
     return 0;
 }
