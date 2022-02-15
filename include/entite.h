@@ -7,7 +7,7 @@
 typedef enum
 {
     E_JOUEUR, E_MONSTRE, E_PROJECTILE
-}t_type_entite;
+}e_type_entite;
 
 typedef struct s_entite t_entite;
 struct s_entite

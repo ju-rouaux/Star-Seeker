@@ -37,6 +37,10 @@ void updateScale(SDL_Window * window, t_camera * camera)
     
     else //Si la largeur est petite, on se base sur cette dimension
         camera->echelle = l / (NB_TILE_LARGEUR + 3);
+
+    //Prévenir une échelle qui vaut 0 pour éviter nombreux problèmes de calculs (notamment des divisions par 0)
+    if(camera->echelle == 0)
+        camera->echelle = 1;
 }
 
 
