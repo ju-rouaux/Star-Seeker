@@ -1,70 +1,36 @@
-/**
- * \file liste.h
- * \author Guillaume
- * \brief Module de gestion de liste
- * 
- * 
- */
-#ifndef _MODULE_LISTE_
-#define _MODULE_LISTE_
+
+//Equivalent ifdef
+#pragma once
+
+#include <stdlib.h>
+#include <stdio.h>
 
 
-#define ERREUR -1
-
-/**
- * \brief Structure representant un element de la liste
- * 
- */
-typedef struct elem_s
-{
-    int valeur;
-    struct elem_s * precedent;
-    struct elem_s * suivant;
-}elem_t;
+typedef struct my_node {
+    struct my_node *next;
+    struct my_node *prev;
+    void *data;
+} node_t;
 
 
-/**
- * \brief Structure d'accès à la liste
- * 
- */
-typedef struct {
-    elem_t * premier;
-    elem_t * dernier;
-}
-liste_t;
+node_t *my_move_next_node(node_t *node);
 
-/**  Initialisation de la liste. */
+node_t *my_move_x_next_node(node_t *node, int nb);
 
-void init_liste(liste_t * l);
+node_t *my_move_prev_node(node_t *node);
 
-/**  Ajout d'une valeur en fin de liste. */
+node_t *my_move_x_prev_node(node_t *node, int nb);
 
-void pushback_liste(liste_t * l, int val);
+void *my_rm_node(node_t **node);
 
-/**  Ajout d'une valeur en début de liste. */
+node_t *my_add_node_next(node_t *node, void *data);
 
-void pushfront_liste(liste_t * l, int val);
+node_t *my_insert_node_next(node_t *node, void *data);
 
-/**  Retrait d'une valeur en fin de liste. */
+node_t *my_add_node_prev(node_t *node, void *data);
 
-int popback_liste(liste_t * l);
+node_t *my_swap_node(node_t *node);
 
-/**  Retrait d'une valeur en début de liste. */
+//tests
 
-int popfront_liste(liste_t * l);
-
-/**  Affichage de la liste. */
-
-void display_liste(liste_t l);
-
-/**  Suppression de tous les éléments de la liste */
-
-void clear_liste(liste_t * l);
-
-/** Suppresion d'un element a un index donné */
-int remove_by_index(liste_t * l, int index);
-/** Recuperer la valeur d'un element grace a index donné*/
-int list_get_value(liste_t * l,int index);
-/**Verifie que la liste n'est pas vide*/
-int list_empty(liste_t * l);
-#endif
+int node_tests(void);

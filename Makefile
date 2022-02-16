@@ -24,7 +24,7 @@ all: $(APPNAME)
 
 # Compile
 $(APPNAME): $(OBJ)
-	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS) -g
 	@echo Tout les fichiers objets ont bien ete generes
 
 # Construit les fichiers .o avec les .h
