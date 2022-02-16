@@ -45,7 +45,7 @@ int main(int argc, char * argv[])
         moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();
         SDL_RenderClear(moteur->renderer);
-        
+        updateScale(moteur->window, moteur->camera);
         //Logic here
         //Actualiser joueur (et tester collisions)
         joueur->update(moteur, (t_entite*) joueur);
