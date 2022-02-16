@@ -13,7 +13,7 @@ typedef struct
     int to_left;
     int to_right;
 
-} t_player_flags;
+} t_joueur_flags;
 
 /**
  * \struct t_joueur
@@ -21,8 +21,8 @@ typedef struct
  */
 typedef struct
 {
-    #include <attributs_personnage.h>
-    t_player_flags * flags;
+    #include <attributs_personnages.h>
+    t_joueur_flags * flags;
 
     //Autres données comme les pv, expererience...
 } t_joueur;

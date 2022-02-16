@@ -28,6 +28,9 @@ typedef struct
     t_camera * camera;
     unsigned int temps;
     unsigned int temps_precedent;
+
+    SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
+    int taille_collisions; /**< Taille du tableau de collisions */
 } t_moteur;
 
 t_moteur * chargerMoteur(unsigned int temps);

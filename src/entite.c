@@ -19,8 +19,9 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
     destination.h = moteur->camera->echelle * entite->taille;
     destination.w = moteur->camera->echelle * entite->taille;
     
-    destination.x = entite->x*moteur->camera->echelle - moteur->camera->x*moteur->camera->echelle - destination.w / 2;
-    destination.y = entite->y*moteur->camera->echelle - moteur->camera->y*moteur->camera->echelle - 3*destination.h/ 4;
+    //Ainsi les coordonnées des entités, se situent au centre en bas de l'image
+    destination.x = moteur->camera->echelle*(entite->x - moteur->camera->x) - destination.w / 2;
+    destination.y = moteur->camera->echelle*(entite->y - moteur->camera->y) - destination.h;
 
     if(entite->animation != NULL) //Si l'entité est animé
         updateAnimation(entite->animation, moteur->temps);
@@ -28,4 +29,45 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
     splitTexture(&source, entite->animation->indice_texture, entite->id_animation);
 
     return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &destination);
+}
+
+int deplacerEntite(t_moteur * moteur, t_entite * entite)
+{
+    SDL_Rect hitbox;
+    int i;
+    int collision = 0; //Faux
+    float distance = entite->vitesse * (moteur->temps - moteur->temps_precedent) / 1000;
+    float futur_x = entite->x + distance * entite->direction_vx;
+    float futur_y = entite->y + distance * entite->direction_vy;
+
+    //Taille de la hitbox
+    hitbox.w = entite->taille/3  * moteur->camera->echelle;
+    hitbox.h = entite->taille/3 * moteur->camera->echelle;
+
+
+    //Collision axe x
+    hitbox.x = moteur->camera->echelle * (futur_x - moteur->camera->x) - hitbox.w / 2;
+    hitbox.y = moteur->camera->echelle * (entite->y - moteur->camera->y) - hitbox.h;
+    i = 0;
+    while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
+        i++;
+
+    if(i != moteur->taille_collisions)
+        collision = 1; //Vrai
+    else
+        entite->x = futur_x;
+
+    //Collision axe y
+    hitbox.x = moteur->camera->echelle * (entite->x - moteur->camera->x) - hitbox.w / 3;
+    hitbox.y = moteur->camera->echelle * (futur_y - moteur->camera->y) - hitbox.h;
+    i = 0;
+    while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
+        i++;
+
+    if(i != moteur->taille_collisions)
+        collision = 1; //Vrai
+    else
+        entite->y = futur_y;
+
+    return collision;
 }

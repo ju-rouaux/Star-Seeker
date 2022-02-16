@@ -6,6 +6,9 @@ tandis que l'autre devient plus opaque
 Une un personnage possède une zone de marche pour la collision avec les murs et une hitbox pour les degats
 Un projectile possède une hitbox qui retourne ce qu'il a touché.
 Une arme aura une attackbox (zone qui fait des dégats), pour savoir à qui donner le coup d'épée par exemple
+-> finalement ces zones ne seront pas matérialisées mais directement calculées. La conséquence sera
+qu'elles seront identiques pour toutes les entités.
+-> Pour l'attackbox on aura un paramètre de portée facilement ajustable
 
 Collisions :
 -Boucle 1 -Avancer TOUT, et checker pour les PERSONNAGE les collisions avec les murs pour les remettre en place ; (besoin murs et entités)

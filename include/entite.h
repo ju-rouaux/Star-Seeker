@@ -16,5 +16,6 @@ struct s_entite
 } ;
 
 int dessinerEntite(t_moteur * moteur, t_entite * entite);
+int deplacerEntite(t_moteur * moteur, t_entite * entite);
 
 #endif

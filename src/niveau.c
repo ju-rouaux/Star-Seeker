@@ -271,7 +271,6 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
     niveau->i_charge = niveau->salle_chargee->dimensions->i;
     niveau->j_charge = niveau->salle_chargee->dimensions->j;
 
-
     return niveau;
 }
 

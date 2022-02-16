@@ -19,7 +19,7 @@
  * 
  * code 0 idle, 1 marche, 2 attaque epee, 3 projectile
  */
-static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
+static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation)
 {
     int id_animation;
 
@@ -47,22 +47,11 @@ static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
     return id_animation;
 }
 
-
-/**
- * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
- * 
- * \return La direction du joueur dans un vecteur. Ce vecteur est inchangé si le joueur est inactif.
- */
-static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned int temps_precedent, int * vecteur_x, int * vecteur_y)
+static void getDirectionJoueur(t_joueur_flags * flags, int * vecteur_x, int * vecteur_y)
 {
-    float distance = joueur->vitesse * (temps - temps_precedent) / 1000;
-
-    int direction_x = joueur->flags->to_right == joueur->flags->to_left ? 0 : (joueur->flags->to_right > joueur->flags->to_left ? 1 : -1);
-    int direction_y = joueur->flags->to_down == joueur->flags->to_up ? 0 : (joueur->flags->to_down > joueur->flags->to_up ? 1 : -1);
+    int direction_x = flags->to_right == flags->to_left ? 0 : (flags->to_right > flags->to_left ? 1 : -1);
+    int direction_y = flags->to_down == flags->to_up ? 0 : (flags->to_down > flags->to_up ? 1 : -1);
     
-    joueur->x += distance * direction_x;
-    joueur->y += distance * direction_y;
-
     if(direction_x || direction_y) //Si le joueur se dirige dans une direction, actualiser les vecteurs
     {
         if(vecteur_x != NULL)
@@ -71,6 +60,7 @@ static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned
                 *vecteur_y = direction_y;
     }
 }
+
 
 /**
  * \brief Méthode appelée à chaque frame, permet de définir le comportement du joueur
@@ -81,21 +71,22 @@ static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
     int etat = 0;
-    updatePositionJoueur(joueur, moteur->temps, moteur->temps_precedent, &joueur->direction_vx, &joueur->direction_vy);
-    
+    getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy);
+
     //Déterminer l'état du joueur
     if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
         etat = 1;
     //if(attaque....) 
 
-    joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
+    deplacerEntite(moteur, (t_entite*) joueur);
+    joueur->id_animation = getIdAnimationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
     
     return 0;
 }
 
-static t_player_flags * creerPlayerFlags()
+static t_joueur_flags * creerJoueurFlags()
 {
-    t_player_flags * flags = malloc(sizeof(t_player_flags));
+    t_joueur_flags * flags = malloc(sizeof(t_joueur_flags));
     if(flags == NULL)
     {
         printf("Impossible d'allouer la mémoire pour les flags du joueur\n");
@@ -111,7 +102,7 @@ static t_player_flags * creerPlayerFlags()
 }
 
 
-static void detruirePlayerFlags(t_player_flags ** flags)
+static void detruireJoueurFlags(t_joueur_flags ** flags)
 {
     if(*flags != NULL)
         free(*flags);
@@ -132,7 +123,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->flags = creerPlayerFlags();
+    joueur->flags = creerJoueurFlags();
     if(joueur->flags == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -144,7 +135,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
-        detruirePlayerFlags(&joueur->flags);
+        detruireJoueurFlags(&joueur->flags);
         free(joueur);
         return NULL;
     }
@@ -176,7 +167,7 @@ void detruireJoueur(t_joueur ** joueur)
 {
     if(*joueur != NULL)
     {
-        detruirePlayerFlags(&(*joueur)->flags);
+        detruireJoueurFlags(&(*joueur)->flags);
         detruireAnimation(&(*joueur)->animation);
         free(*joueur);
     }

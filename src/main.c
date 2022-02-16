@@ -32,7 +32,7 @@ int main(int argc, char * argv[])
     }
 
     if(lancerNiveau(fichier, moteur, &niveau) != 0) return EXIT_FAILURE;
-    joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR, moteur->textures->player);
+    joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + 5, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + 3, moteur->textures->player);
     if(joueur == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
@@ -64,6 +64,13 @@ int main(int argc, char * argv[])
 
             //Charger nouvelles entités ici
 
+            //Detruire anciennes collisions
+            if(moteur->collisions != NULL)
+            {
+                free(moteur->collisions);
+                moteur->collisions = NULL;
+                moteur->taille_collisions = 0;
+            }
 
             //Caluler future position
             updateFutureCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
@@ -113,6 +120,14 @@ int main(int argc, char * argv[])
         
         //Rendu niveau
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);
+
+
+        //Afficher collisions
+        if(moteur->collisions!=NULL)
+            for(int b = 0; b < moteur->taille_collisions; b++)
+                SDL_RenderDrawRect(moteur->renderer, &(moteur->collisions[b]));
+
+
         //rendu joueur
         joueur->dessiner(moteur, (t_entite*) joueur);
         //Rendu entités

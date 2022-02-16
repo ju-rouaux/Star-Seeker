@@ -24,7 +24,7 @@
  * 
  * \return 0 si succès, sinon faire un SDL_GetError() pour connaitre l'erreur.
  */
-static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y)
+static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y, SDL_Rect * collisions, int * indice_collision)
 {
     if(type == AUCUN)
         return 0;
@@ -37,6 +37,9 @@ static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y)
     destination.x = x * moteur->camera->echelle;
     destination.y = y * moteur->camera->echelle;
     
+    if(type == MUR && collisions != NULL && indice_collision != NULL)
+        collisions[(*indice_collision)++] = destination;
+
     tileNiveau(&source, type);
 
     return SDL_RenderCopy(moteur->renderer, moteur->textures->map, &source, &destination);
@@ -52,7 +55,7 @@ static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y)
  * 
  * \return 0 si tout va bien, sinon une valeur négative
  */
-static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, float y)
+static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, float y, SDL_Rect * collisions, int * indice_collision)
 {
     t_tile_type type = AUCUN;
     int i, j;
@@ -65,7 +68,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
     {
         for(j = 0; j < NB_TILE_LARGEUR; j++)
         {
-            if(dessinerTile(moteur, SOL, x + j, y + i) != 0)
+            if(dessinerTile(moteur, SOL, x + j, y + i, collisions, indice_collision) != 0)
             {
                 printf("Erreur lors de l'affichage d'une tile du sol : %s\n", SDL_GetError());
                 return -1;
@@ -95,7 +98,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
                 type = MUR;
                 
         }
-        if(dessinerTile(moteur, type, x + j, y + i) != 0)
+        if(dessinerTile(moteur, type, x + j, y + i, collisions, indice_collision) != 0)
         {
             printf("Erreur lors de l'affichage d'une tile du mur du haut : %s\n", SDL_GetError());
             return -1;
@@ -124,7 +127,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
                 type = MUR;
                 
         }
-        if(dessinerTile(moteur, type, x + j, y + i) != 0)
+        if(dessinerTile(moteur, type, x + j, y + i, collisions, indice_collision) != 0)
         {
             printf("Erreur lors de l'affichage d'une tile du mur du bas : %s\n", SDL_GetError());
             return -1;
@@ -152,7 +155,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
             else 
                 type = MUR;
                 
-            if(dessinerTile(moteur, type, x + j, y + i) != 0)
+            if(dessinerTile(moteur, type, x + j, y + i, collisions, indice_collision) != 0)
             {
                 printf("Erreur lors de l'affichage d'une tile du mur de gauche : %s\n", SDL_GetError());
                 return -1;
@@ -181,7 +184,7 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
             else
                 type = MUR;
                 
-            if(dessinerTile(moteur, type, x + j, y + i) != 0)
+            if(dessinerTile(moteur, type, x + j, y + i, collisions, indice_collision) != 0)
             {
                 printf("Erreur lors de l'affichage d'une tile du mur de droite : %s\n", SDL_GetError());
                 return -1;
@@ -201,6 +204,12 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
     int resultat = 0;
     t_camera * camera = moteur->camera;
 
+    if(moteur->collisions == NULL && niveau->salle_chargee && niveau->salle_chargee->dimensions) //Si les collisions ne sont pas chargées, c'est qu'on a changé de salle
+            //Fourchette large = nombre de sous salles * mur gauche et droit + mur haut et bas + coins * 2 car ils peuvent être déssinés 2 fois
+            moteur->collisions = malloc(sizeof(SDL_Rect) * niveau->salle_chargee->dimensions->nombre * (NB_TILE_LARGEUR*2 + NB_TILE_HAUTEUR*2 + 4*2) );
+
+    moteur->taille_collisions = 0;
+
     for(int i = 0; i < niveau->h; i++)
     {
         for(int j = 0; j < niveau->l; j++)
@@ -208,12 +217,13 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
             if(niveau->salles[i*niveau->l + j] != NULL)
                 if(niveau->salles[i*niveau->l +j]->id_salle == niveau->salle_chargee->id_salle)
                 {
-                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR - camera->x, i*NB_TILE_HAUTEUR - camera->y);
+                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR - camera->x, i*NB_TILE_HAUTEUR - camera->y, moteur->collisions, &(moteur->taille_collisions));
                     if(resultat != 0)
                         return resultat;
                 }
         }
     }
+
     
     return 0;
 }
