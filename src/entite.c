@@ -41,13 +41,12 @@ int deplacerEntite(t_moteur * moteur, t_entite * entite)
     float futur_y = entite->y + distance * entite->direction_vy;
 
     //Taille de la hitbox
-    hitbox.w = entite->taille/3  * moteur->camera->echelle;
-    hitbox.h = entite->taille/3 * moteur->camera->echelle;
-
+    hitbox.w = entite->taille/3 * moteur->camera->echelle;
+    hitbox.h = entite->taille/8 * moteur->camera->echelle;
 
     //Collision axe x
     hitbox.x = moteur->camera->echelle * (futur_x - moteur->camera->x) - hitbox.w / 2;
-    hitbox.y = moteur->camera->echelle * (entite->y - moteur->camera->y) - hitbox.h;
+    hitbox.y = moteur->camera->echelle * (entite->y - moteur->camera->y) - 3*hitbox.h / 4;
     i = 0;
     while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
         i++;
@@ -58,8 +57,8 @@ int deplacerEntite(t_moteur * moteur, t_entite * entite)
         entite->x = futur_x;
 
     //Collision axe y
-    hitbox.x = moteur->camera->echelle * (entite->x - moteur->camera->x) - hitbox.w / 3;
-    hitbox.y = moteur->camera->echelle * (futur_y - moteur->camera->y) - hitbox.h;
+    hitbox.x = moteur->camera->echelle * (entite->x - moteur->camera->x) - hitbox.w / 2;
+    hitbox.y = moteur->camera->echelle * (futur_y - moteur->camera->y) - 3*hitbox.h /4;
     i = 0;
     while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
         i++;

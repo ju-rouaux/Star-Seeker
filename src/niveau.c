@@ -355,7 +355,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
     int limite_cote_haut = niveau->i_charge*echelle*NB_TILE_HAUTEUR;
     int limite_cote_bas = niveau->i_charge*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
 
-    if(j_x*echelle > limite_cote_droit) //Dépassement à droite
+    if(j_x*echelle > limite_cote_droit) //Dépassement à droite avec un demi bloc de marge
     {
 
         if(niveau->salle_chargee->portes[RIGHT] != NULL)
@@ -365,7 +365,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche
+    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche avec un demi bloc de marge
     {
 
         if(niveau->salle_chargee->portes[LEFT] != NULL)
@@ -375,7 +375,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_y*echelle > limite_cote_bas) //Dépassement en bas
+    if(j_y*echelle > limite_cote_bas) //Dépassement en bas avec un demi bloc de marge
     {
         if(niveau->salle_chargee->portes[DOWN] != NULL)
         {
@@ -384,7 +384,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut
+    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut avec un demi bloc de marge
     {
         if(niveau->salle_chargee->portes[UP] != NULL)
         {

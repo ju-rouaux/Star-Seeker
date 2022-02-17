@@ -122,11 +122,12 @@ int main(int argc, char * argv[])
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);
 
 
-        //Afficher collisions
+        //Afficher collisions DEBUG
+        
         if(moteur->collisions!=NULL)
             for(int b = 0; b < moteur->taille_collisions; b++)
                 SDL_RenderDrawRect(moteur->renderer, &(moteur->collisions[b]));
-
+        
 
         //rendu joueur
         joueur->dessiner(moteur, (t_entite*) joueur);
