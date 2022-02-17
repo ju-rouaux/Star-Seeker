@@ -4,7 +4,7 @@
  * \brief Module de gestion de liste
  */
 
-#include "liste.h"
+#include <liste.h>
 
 void init_liste(t_liste* l){
 // Crée la liste constituée du seul drapeau

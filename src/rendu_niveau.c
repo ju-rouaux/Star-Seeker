@@ -1,5 +1,6 @@
 /**
- * \file
+ * \file rendu_niveau.c
+ * 
  * \brief Module d'affichage d'un niveau
  * 
  * \author Julien Rouaux
@@ -10,6 +11,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
+#include <textures.h> //t_tile_type
 #include <niveau.h>
 #include <rendu_niveau.h>
 
@@ -21,10 +23,12 @@
  * \param type Apparence du carré
  * \param x Position en largeur de la fenêtre de l'origine de la tile
  * \param y Position en hauteur de la fenêtre de l'origine de la tile
+ * \param collisions Tableau des collisions du niveau
+ * \param indice_collision Indice de la prochaine place libre au tableau des collisions
  * 
  * \return 0 si succès, sinon faire un SDL_GetError() pour connaitre l'erreur.
  */
-static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y, SDL_Rect * collisions, int * indice_collision)
+static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y, SDL_Rect collisions[], int * indice_collision)
 {
     if(type == AUCUN)
         return 0;
@@ -32,10 +36,10 @@ static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y, S
     SDL_Rect source; //Partie de du tileset à afficher
     SDL_Rect destination; //Position dans la fenetre où afficher
     
-    destination.h = moteur->camera->echelle;
-    destination.w = moteur->camera->echelle;
-    destination.x = x * moteur->camera->echelle;
-    destination.y = y * moteur->camera->echelle;
+    destination.h = moteur->echelle;
+    destination.w = moteur->echelle;
+    destination.x = x * moteur->echelle;
+    destination.y = y * moteur->echelle;
     
     if(type == MUR && collisions != NULL && indice_collision != NULL)
         collisions[(*indice_collision)++] = destination;
@@ -52,10 +56,12 @@ static int dessinerTile(t_moteur * moteur, t_tile_type type, float x, float y, S
  * \param salle Salle à afficher
  * \param x Position en largeur de la fenêtre de l'origine de la salle
  * \param y Position en hauteur de la fenêtre de l'origine de la salle
+ * \param collisions Tableau des collisions du niveau
+ * \param indice_collision Indice de la prochaine place libre au tableau des collisions
  * 
  * \return 0 si tout va bien, sinon une valeur négative
  */
-static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, float y, SDL_Rect * collisions, int * indice_collision)
+static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, float y, SDL_Rect collisions[], int * indice_collision)
 {
     t_tile_type type = AUCUN;
     int i, j;
@@ -197,8 +203,6 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
 
 
 //Fonction temporaire affichant le niveau
-//Elle devra appeler les salles chargées pour les afficher.
-//
 int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
 {
     int resultat = 0;

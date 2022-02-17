@@ -38,14 +38,14 @@ int main(int argc, char * argv[])
         printf("Le niveau n'a pas pu être lancé\n");
         return -1;
     }
-    updateCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+    updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
     int id_salle_courante;
     while(handleEvents(joueur) != 1)
     {
         moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();
         SDL_RenderClear(moteur->renderer);
-        updateScale(moteur->window, moteur->camera);
+        updateEchelle(moteur);
         //Logic here
         //Actualiser joueur (et tester collisions)
         joueur->update(moteur, (t_entite*) joueur);
@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
         ///...
         //Actualiser niveau
         id_salle_courante = niveau->salle_chargee->id_salle;
-        updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
+        updateNiveau(niveau, joueur->x, joueur->y,moteur->echelle);
         
         //Si on change de niveau -> animation
         if(id_salle_courante != niveau->salle_chargee->id_salle) //Animation changement de salle à mettre dans une fonction à l'avenir
@@ -73,7 +73,7 @@ int main(int argc, char * argv[])
             }
 
             //Caluler future position
-            updateFutureCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+            updateFutureCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
         
             //Animer
             while(moteur->camera->x != moteur->camera->futur_x || moteur->camera->y != moteur->camera->futur_y)
@@ -116,7 +116,7 @@ int main(int argc, char * argv[])
         }     
         
         //Actualiser caméra
-        updateCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+        updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
         
         //Rendu niveau
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);

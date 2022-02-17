@@ -20,7 +20,7 @@
  * Les champs de cette structure ne sont pas destinés à être changés
  * après l'appel de la fonction de création.
  */
-typedef struct
+typedef struct s_animation
 {
     int vitesse; /**< Temps en milisecondes avant le passage à l'image suivante */
     int nb_textures; /** Nombre d'images sur une ligne du tileset */
@@ -34,4 +34,4 @@ void updateAnimation(t_animation * animation, unsigned int temps);
 t_animation * creerAnimation(int vitesse, int nb_textures, int id_max);
 void detruireAnimation(t_animation ** animation);
 
-#endif
+#endif //_JEU_ANIMATION_

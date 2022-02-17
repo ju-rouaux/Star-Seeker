@@ -1,6 +1,6 @@
 /**
- * \file
- * \brief Module de chargement d'un niveau en structure interprétable pour le jeu, et de lancement du jeu.
+ * \file niveau.c
+ * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
  * 
  * \author Julien Rouaux
  */
@@ -13,7 +13,6 @@
 //A faire
 //static void chargerMonstres();
 //static void chargerObstacles();
-//static void chargerSalle(); //Appelle les 2 précédentes
 
 
 /**
