@@ -160,7 +160,7 @@ static void detruireJoueurFlags(t_joueur_flags ** flags)
  * 
  * \return Le pointeur joueur, NULL si echec.
  */
-t_joueur * creerJoueur(float x, float y, const SDL_Texture * apparence)
+t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 {
     t_joueur * joueur = malloc(sizeof(t_joueur));
     if(joueur == NULL)
