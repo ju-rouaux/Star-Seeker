@@ -44,7 +44,7 @@ typedef struct
 } t_joueur;
 
 
-t_joueur * creerJoueur(float x, float y, const SDL_Texture * apparence);
+t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence);
 void detruireJoueur(t_joueur ** joueur);
 
 
