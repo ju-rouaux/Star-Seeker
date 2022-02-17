@@ -41,9 +41,9 @@ void valeur_elt(t_liste * l, void ** v) {
         *v = l->ec->valeur;
 }
 
-void modif_elt(t_liste * l, void * v) {
+void modif_elt(t_liste * l, void ** v) {
     if (!hors_liste(l))
-        l->ec->valeur = v;
+        l->ec->valeur = *v;
 }
 
 void oter_elt(t_liste * l) {

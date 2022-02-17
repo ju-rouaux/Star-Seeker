@@ -32,7 +32,7 @@ void suivant(t_liste * l);
 
 void valeur_elt(t_liste * l, void ** v);
 
-void modif_elt(t_liste * l, void * v);
+void modif_elt(t_liste * l, void ** v);
 
 void oter_elt(t_liste * l);
 
