@@ -1,3 +1,9 @@
+/**
+ * \file liste.c
+ * \author Guillaume Richard
+ * \brief Module de gestion de liste
+ */
+
 #include "liste.h"
 
 void init_liste(t_liste* l){
