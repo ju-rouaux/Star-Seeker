@@ -1,70 +1,43 @@
-/**
- * \file liste.h
- * \author Guillaume
- * \brief Module de gestion de liste
- * 
- * 
- */
-#ifndef _MODULE_LISTE_
-#define _MODULE_LISTE_
+#pragma once
 
+#include <stdio.h>
+#include<stdlib.h>
 
-#define ERREUR -1
+typedef struct element {
+    void * valeur ;
+    struct element* pred ;
+    struct element* succ ;
+} t_element;
 
-/**
- * \brief Structure representant un element de la liste
- * 
- */
-typedef struct elem_s
-{
-    int valeur;
-    struct elem_s * precedent;
-    struct elem_s * suivant;
-}elem_t;
-
-
-/**
- * \brief Structure d'accès à la liste
- * 
- */
 typedef struct {
-    elem_t * premier;
-    elem_t * dernier;
-}
-liste_t;
+    t_element * drapeau;
+    t_element * ec;
+} t_liste ;
 
-/**  Initialisation de la liste. */
+void init_liste(t_liste* l);
 
-void init_liste(liste_t * l);
+int liste_vide(t_liste * l);
 
-/**  Ajout d'une valeur en fin de liste. */
+int liste_vide(t_liste * l);
 
-void pushback_liste(liste_t * l, int val);
+int hors_liste(t_liste * l);
 
-/**  Ajout d'une valeur en début de liste. */
+void en_tete(t_liste * l);
 
-void pushfront_liste(liste_t * l, int val);
+void en_queue(t_liste * l);
 
-/**  Retrait d'une valeur en fin de liste. */
+void precedent(t_liste * l);
 
-int popback_liste(liste_t * l);
+void suivant(t_liste * l);
 
-/**  Retrait d'une valeur en début de liste. */
+void valeur_elt(t_liste * l, void ** v);
 
-int popfront_liste(liste_t * l);
+void modif_elt(t_liste * l, void ** v);
 
-/**  Affichage de la liste. */
+void oter_elt(t_liste * l);
 
-void display_liste(liste_t l);
+void ajout_droit(t_liste * l, void * v);
 
-/**  Suppression de tous les éléments de la liste */
+void ajout_gauche(t_liste * l, void * v);
 
-void clear_liste(liste_t * l);
-
-/** Suppresion d'un element a un index donné */
-int remove_by_index(liste_t * l, int index);
-/** Recuperer la valeur d'un element grace a index donné*/
-int list_get_value(liste_t * l,int index);
-/**Verifie que la liste n'est pas vide*/
-int list_empty(liste_t * l);
-#endif
+void affichage_liste(t_liste * l);

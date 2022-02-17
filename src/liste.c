@@ -1,220 +1,114 @@
 /**
  * \file liste.c
- * \author Guillaume
+ * \author Guillaume Richard
  * \brief Module de gestion de liste
- * 
  */
-
-#include <stdio.h>
-
-#include<stdlib.h>
 
 #include "liste.h"
 
-/**
- * \brief Initialise la liste
- * 
- * \param l liste 
- */
-void init_liste(liste_t * l) {
-    l -> premier = NULL;
-    l -> dernier = NULL;
+void init_liste(t_liste* l){
+// Crée la liste constituée du seul drapeau
+    l->drapeau = malloc(sizeof(t_element));
+    l->drapeau -> pred = l->drapeau;
+    l->drapeau -> succ = l->drapeau;
+    l->ec = l->drapeau;
 }
 
-
-/**
- * \brief Ajout d'une valeur en fin de liste
- * 
- * \param l une liste
- * \param val une valeur a ajouter
- */
-void pushback_liste(liste_t * l, int val) {
-    elem_t * nouv = malloc(sizeof(elem_t));
-
-    if (!nouv) exit(EXIT_FAILURE);
-
-    nouv -> valeur = val;
-    nouv ->precedent = l->dernier;
-    nouv -> suivant = NULL;
-
-    if (l -> dernier) 
-        l -> dernier -> suivant = nouv;
-    else 
-        l -> premier = nouv;
-
-    l -> dernier = nouv;
+int liste_vide(t_liste * l){
+    return (l->drapeau->succ == l->drapeau) ;
 }
 
-
-/**
- * \brief Ajout d'une valeur en debut de liste
- * 
- * \param l une liste
- * \param val une valeur a ajouter
- */
-void pushfront_liste(liste_t * l, int val) {
-    elem_t * nouv = malloc(sizeof(elem_t));
-
-    if (!nouv) exit(EXIT_FAILURE);
-
-    nouv -> valeur = val;
-    nouv -> suivant = l -> premier;
-    nouv -> precedent = NULL;
-
-    if (l -> premier) 
-        l -> premier -> precedent = nouv;
-    else 
-        l -> dernier = nouv;
-
-    l -> premier = nouv;
+int hors_liste(t_liste * l){
+    return (l->ec == l->drapeau) ;
 }
 
-
-/**
- * \brief Supprime une valeur en fin de liste.
- * 
- * \param l une liste
- */
-int popback_liste(liste_t * l) {
-    int val;
-    elem_t * tmp = l -> dernier;
-
-    if (!tmp) return -1;
-    
-    val = tmp -> valeur;
-    l -> dernier = tmp -> precedent;
-    if (l -> dernier)  
-        l -> dernier -> suivant = NULL;
-    else 
-        l -> premier = NULL;
-    
-    free(tmp);
-    return val;
+void en_tete(t_liste * l){
+    if (!liste_vide(l))
+        l->ec = l->drapeau->succ;
 }
 
-
-/**
- * \brief Supprime une valeur en début de liste.
- * 
- * \param l une liste
- */
-int popfront_liste(liste_t * l) {
-    int val;
-    elem_t * tmp = l -> premier;
-    if (!tmp) return -1;
-    val = tmp -> valeur;
-    l -> premier = tmp -> suivant;
-    if (l -> premier) l -> premier -> precedent = NULL;
-    else l -> dernier = NULL;
-    free(tmp);
-    return val;
+void en_queue(t_liste * l){
+    if (!liste_vide(l))
+        l->ec = l->drapeau->pred ;
 }
 
-/**
- * \brief Affiche la liste
- * 
- * \param l une liste
- */
-void display_liste(liste_t l) {
-    elem_t * pelem = l.premier;
-    while (pelem) {
-        printf("%d\n", pelem -> valeur);
-        pelem = pelem -> suivant;
+void precedent(t_liste * l){
+    if (!hors_liste(l))
+        l->ec = l->ec->pred;
+}
+
+void suivant(t_liste * l) {
+    if (!hors_liste(l))
+        l->ec = l->ec->succ;
+}
+
+void valeur_elt(t_liste * l, void ** v) {
+    if (!hors_liste(l))
+        *v = l->ec->valeur;
+}
+
+void modif_elt(t_liste * l, void ** v) {
+    if (!hors_liste(l))
+        l->ec->valeur = *v;
+}
+
+void oter_elt(t_liste * l) {
+    if (!hors_liste(l)) {
+        t_element * p;
+
+        (l -> ec -> pred) -> succ = l -> ec -> succ;
+        (l -> ec -> succ) -> pred = l -> ec -> pred;
+        p = l -> ec;
+        precedent(l);
+        free(p);
+    }
+}
+
+void ajout_droit(t_liste * l, void * v) {
+    if (liste_vide(l) || !hors_liste(l)) {
+        t_element * nouv;
+
+        nouv = (t_element * ) malloc(sizeof(t_element));
+        nouv -> valeur = v;
+        nouv -> pred = l -> ec;
+        nouv -> succ = l -> ec -> succ;
+        //Mise a jour des chainages des voisins
+        (l -> ec -> succ) -> pred = nouv;
+        l -> ec -> succ = nouv;
+        //On se positionne sur le nouvel ?lement
+        l -> ec = nouv;
+    }
+}
+
+void ajout_gauche(t_liste * l, void * v) {
+    if (liste_vide(l) || !hors_liste(l)) {
+        t_element * nouv;
+
+        nouv = malloc(sizeof(t_element));
+        nouv -> valeur = v;
+        nouv -> pred = l -> ec -> pred;
+        nouv -> succ = l -> ec;
+        //Mise a jour des chainages des voisins
+        (l -> ec -> pred) -> succ = nouv;
+        l -> ec -> pred = nouv;
+        //On se positionne sur le nouvel element
+        l -> ec = nouv;
     }
 }
 
 
-/**
- * \brief Supprime toutes les valeurs dans la liste
- * 
- * \param l une liste
- */
-void clear_liste(liste_t * l) {
-    elem_t * tmp;
-    elem_t * pelem = l -> premier;
-    while (pelem) {
-        tmp = pelem;
-        pelem = pelem -> suivant;
-        free(tmp);
+void affichage_liste(t_liste * l) {
+    void * tmp;
+    if (liste_vide(l))
+        printf("Liste Vide");
+    else {
+        en_tete(l);
+        printf("Affichage de la liste : \n");
+            while (!hors_liste(l)) {
+                valeur_elt(l, &tmp);
+                printf("%s ", (char *) tmp);
+                suivant(l);
+            }
+        printf("\n");
     }
-    l -> premier = NULL;
-    l -> dernier = NULL;
-}
-
-
-/**
- * \brief Supprime un element de la liste a un index donné
- * 
- * \param l liste 
- * \param index index
- */
- 
-int remove_by_index(liste_t * l, int index) {
-    int res = -1; //valeur de retour
-    elem_t * ec = l->premier;
-    elem_t * temp_liste = NULL;
-
-    if (index + 1 == 0) {
-        return popfront_liste(l);
-    }
-
-    for (int i = 1; i < index-1; i++) {
-        if (ec->suivant == NULL) {
-            return -1;
-        }
-        ec = ec->suivant;
-    }
-
-    if (ec->suivant == NULL) {
-        return -1;
-    }
-
-    temp_liste = ec->suivant;
-    res = temp_liste->valeur;
-    ec->suivant = temp_liste->suivant;
-    free(temp_liste);
-
-    return res;
-
-}
-
-/**
-*\brief Vérifie que la liste n'est pas vide
-*
-*\param l liste
-*\return 0 si la liste est vide
-*/
-int list_empty(liste_t * l){
-
-  if (l -> premier == NULL && l -> dernier == NULL)
-    return 1;
-  else return 0;
-
-}
-
-/**
-*\brief retourne la valeur d'un element donné par un index dans la liste
-*
-*\param l liste
-*\param index index d'un element
-*\return la valeur du premier 
-*/
-int list_get_value(liste_t * l,int index)
-{
-     int res = -1; //valeur de retour
-    elem_t * ec = l->premier;
-
-    if (index + 1 == 0) {
-        res =  ec->valeur;
-    }
-
-    for (int i = 1; i < index-1; i++) {
-        if (ec->suivant == NULL) {
-            return -1;
-        }
-        ec = ec->suivant;
-    }
-    res = ec->valeur;
-
-    return res;
 }
