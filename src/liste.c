@@ -36,12 +36,12 @@ void suivant(t_liste * l) {
         l->ec = l->ec->succ;
 }
 
-void valeur_elt(t_liste * l, int * v) {
+void valeur_elt(t_liste * l, void ** v) {
     if (!hors_liste(l))
         *v = l->ec->valeur;
 }
 
-void modif_elt(t_liste * l, int v) {
+void modif_elt(t_liste * l, void * v) {
     if (!hors_liste(l))
         l->ec->valeur = v;
 }
@@ -58,7 +58,7 @@ void oter_elt(t_liste * l) {
     }
 }
 
-void ajout_droit(t_liste * l, int v) {
+void ajout_droit(t_liste * l, void * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
 
@@ -74,7 +74,7 @@ void ajout_droit(t_liste * l, int v) {
     }
 }
 
-void ajout_gauche(t_liste * l, int v) {
+void ajout_gauche(t_liste * l, void * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
 
@@ -92,7 +92,7 @@ void ajout_gauche(t_liste * l, int v) {
 
 
 void affichage_liste(t_liste * l) {
-    int tmp;
+    void * tmp;
     if (liste_vide(l))
         printf("Liste Vide");
     else {
@@ -100,7 +100,7 @@ void affichage_liste(t_liste * l) {
         printf("Affichage de la liste : \n");
             while (!hors_liste(l)) {
                 valeur_elt(l, &tmp);
-                printf("%d ", tmp);
+                printf("%s ", (char *) tmp);
                 suivant(l);
             }
         printf("\n");

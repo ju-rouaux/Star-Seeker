@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-typedef struct element {int valeur ;
+typedef struct element {
+    void * valeur ;
     struct element* pred ;
     struct element* succ ;
 } t_element;
@@ -29,15 +30,14 @@ void precedent(t_liste * l);
 
 void suivant(t_liste * l);
 
-void valeur_elt(t_liste * l, int * v);
+void valeur_elt(t_liste * l, void ** v);
 
-void modif_elt(t_liste * l, int v);
+void modif_elt(t_liste * l, void * v);
 
 void oter_elt(t_liste * l);
 
-void ajout_droit(t_liste * l, int v);
+void ajout_droit(t_liste * l, void * v);
 
-void ajout_gauche(t_liste * l, int v);
-
+void ajout_gauche(t_liste * l, void * v);
 
 void affichage_liste(t_liste * l);

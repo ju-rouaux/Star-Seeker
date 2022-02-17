@@ -12,16 +12,16 @@ int main() {
 
     init_liste(liste);
 
-    ajout_droit(liste, 0);
-    ajout_droit(liste, 1);
-    ajout_gauche(liste,-1);
-    ajout_gauche(liste,-2);
-    ajout_droit(liste,5);
-    en_tete(liste);
-    oter_elt(liste);
+    ajout_droit(liste, "test1");
+    ajout_droit(liste, "test2");
+    ajout_gauche(liste,"-test1");
+    ajout_gauche(liste,"-test2");
+    ajout_droit(liste,"test3");
+    // en_tete(liste);
+    // oter_elt(liste);
 
-    en_queue(liste);
-    oter_elt(liste);
+    // en_queue(liste);
+    // oter_elt(liste);
 
     affichage_liste(liste);
 
