@@ -10,5 +10,4 @@ float taille; /**< Taille de l'entité proportionnellement à une tile */
 t_animation * animation; /**< L'animation de l'entité */
 int id_animation; /**< L'animation active sur l'entité */
 
-int (*update)(t_moteur *, t_entite *); /**< Actualise les données sur l'entité, retourne -1 si l'entité doit être détruit */
-int (*dessiner)(t_moteur *, t_entite *); /**< Affiche l'entité sur l'écran */
+int (*update)(t_moteur *, t_entite *); /**< Actualise les données sur l'entité, retourne -1 si l'entité doit être détruite */

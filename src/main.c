@@ -99,7 +99,7 @@ int main(int argc, char * argv[])
                 SDL_RenderClear(moteur->renderer);
                 afficherNiveau(moteur, niveau, joueur->x, joueur->y);
                
-                joueur->dessiner(moteur, (t_entite*) joueur);
+                dessinerEntite(moteur, (t_entite*) joueur);
                 //Dessiner entités ici
 
                 SDL_RenderPresent(moteur->renderer);
@@ -130,7 +130,7 @@ int main(int argc, char * argv[])
         
 
         //rendu joueur
-        joueur->dessiner(moteur, (t_entite*) joueur);
+        dessinerEntite(moteur, (t_entite*) joueur);
         //Rendu entités
         //...
 

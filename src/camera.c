@@ -97,9 +97,8 @@ void detruireCamera(t_camera ** camera)
  * \param orig_y Coordonnées d'origine de la salle en y
  * \param j_x Position en x du joueur relative au niveau
  * \param j_y Position en y du joueur relative au niveau
- * \param echelle Echelle du niveau
  */
-static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y, float echelle)
+static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)
 {
     float demi; //Largeur ou longueur d'une demi salle
 
@@ -150,7 +149,7 @@ static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, in
  */
 void updateCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)
 {
-    calculerPosCamera(&camera->x, &camera->y, largeur, hauteur, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->x, &camera->y, largeur, hauteur, orig_x, orig_y, j_x, j_y);
     
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
@@ -174,7 +173,7 @@ void updateCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int o
  */
 void updateFutureCamera(t_camera * camera, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)
 {
-    calculerPosCamera(&camera->futur_x, &camera->futur_y, largeur, hauteur, orig_x, orig_y, j_x, j_y, camera->echelle);
+    calculerPosCamera(&camera->futur_x, &camera->futur_y, largeur, hauteur, orig_x, orig_y, j_x, j_y);
     
     //Maintenant que l'origine de la caméra est placée au bon endroit,
     //faire se déplacer l'origine de telle sorte à ce que le centre de la fenetre
@@ -182,47 +181,3 @@ void updateFutureCamera(t_camera * camera, int largeur, int hauteur, int orig_x,
     camera->futur_x = camera->futur_x - (float)camera->window_width / 2 / camera->echelle;
     camera->futur_y = camera->futur_y - (float)camera->window_height / 2 / camera->echelle;
 }
-
-
-/*
-
-PAS UTILISABLE, C'EST L'EBAUCHE D'UNE IDEE
-
-//Vrai tant que l'animation est en cours
-//duree en secondes
-//Cette fonction doit être améliorée pour calculer sa vitesse elle même
-//Si avancer NULL, calculer combien avancer et informer le calcul. sinon avancer de ce qui est indiqué
-//Cette fonction n'est pas encore prête
-int transitionCamera(t_camera * camera, float duree, int ** avancer_x, int ** avancer_y)
-{
-    if(avancer_x == NULL)
-    {
-        *avancer_x = malloc(sizeof(int));
-        **avancer_x = (camera->futur_x - camera->x) / (NB_FPS * duree); //Distance / nb de FPS alloué à la durée
-    }
-    if(avancer_y == NULL)
-    {
-        *avancer_y = malloc(sizeof(int));
-        **avancer_y = (camera->futur_y - camera->y) / (NB_FPS * duree); //Distance / nb de FPS alloué à la durée
-    }
-
-    camera->x += **avancer_x;
-    camera->y += **avancer_y;
-
-    //Si on est suffisamment près de la destination, y aller directement.
-    //On admet que si un des axes est arrivé, l'autre l'est aussi
-    if(abs(camera->futur_x - camera->x) < abs(**avancer_x) || abs(camera->futur_y - camera->y) < abs(**avancer_y))
-    {
-        camera->x = camera->futur_x;
-        camera->y = camera->futur_y;
-        camera->futur_x = 0;
-        camera->futur_y = 0;
-        free(*avancer_x);
-        free(*avancer_y);
-        avancer_x = NULL;
-        avancer_y = NULL;
-        return 0;
-    }
-
-    return 1;
-}*/

@@ -154,7 +154,6 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->id_animation = 0; //idle
 
     joueur->update = (int (*)(t_moteur*, t_entite*)) updateJoueur;
-    joueur->dessiner = (int (*)(t_moteur *, t_entite *)) dessinerEntite;
 
     joueur->pv = 100;
 

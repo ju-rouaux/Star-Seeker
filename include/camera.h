@@ -1,3 +1,12 @@
+/**
+ * \file camera.c
+ * 
+ * \brief Module de calcul de position de caméra pour savoir où
+ * dessiner les éléments sur la fenêtre.
+ * 
+ * \author Julien Rouaux
+ */
+
 #ifndef _JEU_CAMERA_
 #define _JEU_CAMERA_
 
