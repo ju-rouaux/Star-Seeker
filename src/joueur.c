@@ -47,7 +47,7 @@ static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation
     return id_animation;
 }
 
-static void getDirectionJoueur(t_joueur_flags * flags, int * vecteur_x, int * vecteur_y)
+static void getDirectionJoueur(t_joueur_flags * flags, float * vecteur_x, float * vecteur_y)
 {
     int direction_x = flags->to_right == flags->to_left ? 0 : (flags->to_right > flags->to_left ? 1 : -1);
     int direction_y = flags->to_down == flags->to_up ? 0 : (flags->to_down > flags->to_up ? 1 : -1);
@@ -72,7 +72,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
     int etat = 0;
     getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy);
-
+    
     //Déterminer l'état du joueur
     if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
     {
@@ -81,7 +81,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     }
     //if(attaque....) 
 
-    joueur->id_animation = getIdAnimationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
+    joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
     
     return 0;
 }

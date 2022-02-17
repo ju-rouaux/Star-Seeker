@@ -2,6 +2,7 @@
 #include <moteur.h>
 #include <entite.h>
 #include <animation.h>
+#include <math.h>
 
 /**
  * \brief Dessine l'entité à ses coordonnées, tout en gérant son animation s'il en possède une
@@ -37,8 +38,8 @@ int deplacerEntite(t_moteur * moteur, t_entite * entite)
     int i;
     int collision = 0; //Faux
     float distance = entite->vitesse * (moteur->temps - moteur->temps_precedent) / 1000;
-    float futur_x = entite->x + distance * entite->direction_vx;
-    float futur_y = entite->y + distance * entite->direction_vy;
+    float futur_x = entite->x + distance * (entite->direction_vx / sqrt(pow(entite->direction_vx, 2) + pow(entite->direction_vy, 2))); //Normalisation du vecteur direction en divisant par sqrt(x^2 + y^2)
+    float futur_y = entite->y + distance * (entite->direction_vy / sqrt(pow(entite->direction_vx, 2) + pow(entite->direction_vy, 2)));
 
     //Taille de la hitbox
     hitbox.w = entite->taille/3 * moteur->camera->echelle;

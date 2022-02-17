@@ -1,7 +1,7 @@
 float x; /**< Position en abscisse sur le niveau */
 float y; /**< Position en ordonné sur le niveau */
-int direction_vx; /**< Vecteur direction de l'entité en x */
-int direction_vy; /**< Vecteur direction de l'entité en y */
+float direction_vx; /**< Vecteur direction de l'entité en x */
+float direction_vy; /**< Vecteur direction de l'entité en y */
 float vitesse; /**< Vitesse exprimée en tile par secondes */
 e_type_entite type; /**< Type de l'entité */
 
