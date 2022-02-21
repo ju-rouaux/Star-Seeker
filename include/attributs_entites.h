@@ -11,3 +11,4 @@ t_animation * animation; /**< L'animation de l'entité */
 int id_animation; /**< L'animation active sur l'entité */
 
 int (*update)(t_moteur *, t_entite *); /**< Actualise les données sur l'entité, retourne -1 si l'entité doit être détruite */
+int (*detruire)(t_entite*); /**< Destruction de l'entité */

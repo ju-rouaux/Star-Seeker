@@ -14,6 +14,27 @@
 //static void chargerMonstres();
 //static void chargerObstacles();
 
+/**
+ * Le fichier renseignant la position des ennemis renseignent l'identifiant de la salle.
+ * Si le fichier renseigne plusieurs fois le même identifiant de salle, cela signifie que
+ * les données qui suivent sont désignées à la prochaine sous salle de la salle.
+ */
+static void chargerEnnemis(FILE * fichier, t_salle * salle)
+{
+    int id_salle;
+
+    //Lecture de l'id de la salle concernée
+    
+    
+
+    for(int i = 0; i < NB_TILE_HAUTEUR; i++)
+    {
+        for(int j = 0; j < NB_TILE_LARGEUR; j++)
+        {
+
+        }
+    }
+}
 
 /**
  * \brief Génère une structure dimensions de salle.

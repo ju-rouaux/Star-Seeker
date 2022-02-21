@@ -11,6 +11,7 @@
 
 #include <stdio.h> //type FILE
 #include <moteur.h>
+#include <entite.h>
 
 
 /**
@@ -58,7 +59,8 @@ typedef struct s_salle
     
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
 
-    //t_monstre ** (matrice de monstres)
+    t_entite * ennemis[NB_TILE_HAUTEUR][NB_TILE_LARGEUR]; /**< Matrice des entités (monstres) qui existent dans la salle */
+    
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;
 
@@ -70,8 +72,8 @@ typedef struct s_salle
 typedef struct
 {
     t_salle ** salles; 
-    int h; /**< Largeur du niveau (dimensions de la matrice en i) */
-    int l; /**< Hauteur du niveau (dimensions de la matrice en j) */
+    int h; /**< Hauteur du niveau (dimensions de la matrice en i) */
+    int l; /**< Largeur du niveau (dimensions de la matrice en j) */
 
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
     int i_charge;

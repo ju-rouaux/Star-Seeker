@@ -16,6 +16,7 @@
 #include <textures.h> //Pour découper une texture
 #include <animation.h>
 #include <entite.h>
+#include <liste.h>
 
 
 /**
@@ -103,4 +104,25 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
         entite->y = futur_y;
 
     return collision;
+}
+
+
+void chargerEntite(t_entite * entite, t_liste * liste)
+{
+    en_queue(liste);
+    ajout_droit(liste, entite);
+}
+
+void libererEntite(t_liste * liste)
+{
+    t_entite * entite_courant;
+    en_queue(liste);
+    while(!liste_vide(liste))
+    {
+        //Sauvegarder
+        
+        //Detruire
+        valeur_elt(liste, &entite_courant);
+        entite_courant->detruire(entite_courant);
+    }
 }
