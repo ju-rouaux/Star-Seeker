@@ -104,9 +104,12 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     //Déterminer l'état du joueur
     if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
     {
+        joueur->animation->vitesse = 50;
         deplacerEntite(moteur, (t_entite*) joueur);
         etat = 1;
     }
+    else
+        joueur->animation->vitesse = 250;
     //if(attaque....) 
 
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
