@@ -1,11 +1,10 @@
 /**
- * \file joueur.c
+ *\file player.c 
  * 
- * \brief Module de gestion du joueur.
- * 
- * \author Julien Rouaux
+ *
+ * \brief Module de gestion de deplacement du joueur
+ * \author Julien Rouaux & Guillaume Richard
  */
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,23 +14,12 @@
 #include <animation.h>
 #include <joueur.h>
 
-
 /**
- * \brief Calcule l'animation à joueur selon l'orientation du joueur.
  * 
- * Les codes pour code_animation sont les suivants :
- *      -0 : innactif
- *      -1 : marche
- *      -2 : attaque épée
- *      -3 : projectile
  * 
- * \param vecteur_x Orientation du joueur en x
- * \param vecteur_y Orientation du joueur en y
- * \param code_animation Spécification de l'animation désirée
- * 
- * \return L'identifiant de l'animation à jouer.
+ * code 0 idle, 1 marche, 2 attaque epee, 3 projectile
  */
-static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation)
+static int animationJoueur(int vecteur_x, int vecteur_y, int code_animation)
 {
     int id_animation;
 
@@ -61,21 +49,21 @@ static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation
 
 
 /**
- * \brief Remplissage du vecteur selon l'orientation du joueur donné par ses flags.
+ * \brief Avance le joueur de "vitesse / FPS" pixels dans la direction indiquée par ses flags
  * 
- * \param flags Les flags du joueur
- * \param vecteur_x Retour du vecteur en x
- * \param vecteur_y Retour du vecteur en y
+ * \return La direction du joueur dans un vecteur. Ce vecteur est inchangé si le joueur est inactif.
  */
-static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y)
+static void updatePositionJoueur(t_joueur * joueur, unsigned int temps, unsigned int temps_precedent, int * vecteur_x, int * vecteur_y)
 {
-    //Conversion des flags en vecteur
-    int direction_x = flags->to_right == flags->to_left ? 0 : (flags->to_right > flags->to_left ? 1 : -1);
-    int direction_y = flags->to_down == flags->to_up ? 0 : (flags->to_down > flags->to_up ? 1 : -1);
+    float distance = joueur->vitesse * (temps - temps_precedent) / 1000;
+
+    int direction_x = joueur->flags->to_right == joueur->flags->to_left ? 0 : (joueur->flags->to_right > joueur->flags->to_left ? 1 : -1);
+    int direction_y = joueur->flags->to_down == joueur->flags->to_up ? 0 : (joueur->flags->to_down > joueur->flags->to_up ? 1 : -1);
     
-    //Seulement si le joueur se dirige dans une direction, actualiser les vecteurs.
-    //Ainsi le joueur restera dans sa dernière direction s'il ne bouge pas.
-    if(direction_x || direction_y)
+    joueur->x += distance * direction_x;
+    joueur->y += distance * direction_y;
+
+    if(direction_x || direction_y) //Si le joueur se dirige dans une direction, actualiser les vecteurs
     {
         if(vecteur_x != NULL)
                 *vecteur_x = direction_x;
@@ -84,45 +72,30 @@ static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, 
     }
 }
 
-
 /**
- * \brief Méthode appelée à chaque frame, actualisant le joueur.
+ * \brief Méthode appelée à chaque frame, permet de définir le comportement du joueur
  * 
- * Permet de redéfinir les champs de la structure du joueur selon le contexte de la partie.
- * Cette fonction ne dessine pas le joueur.
  * 
- * \param moteur Le moteur du jeu
- * \param joueur Le joueur
  * 
- * \return Un code indiquant un éventuel état du joueur, uniquement 0 pour l'instant.
  */
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
     int etat = 0;
-    getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy);
+    updatePositionJoueur(joueur, moteur->temps, moteur->temps_precedent, &joueur->direction_vx, &joueur->direction_vy);
     
     //Déterminer l'état du joueur
     if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
-    {
-        deplacerEntite(moteur, (t_entite*) joueur);
         etat = 1;
-    }
     //if(attaque....) 
 
-    joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
+    joueur->id_animation = animationJoueur(joueur->direction_vx, joueur->direction_vy, etat);
     
     return 0;
 }
 
-
-/**
- * \brief Génère une structure t_joueur_flags.
- * 
- * \return Le pointeur t_joueur_flags, NULL si échec.
- */
-static t_joueur_flags * creerJoueurFlags()
+static t_player_flags * creerPlayerFlags()
 {
-    t_joueur_flags * flags = malloc(sizeof(t_joueur_flags));
+    t_player_flags * flags = malloc(sizeof(t_player_flags));
     if(flags == NULL)
     {
         printf("Impossible d'allouer la mémoire pour les flags du joueur\n");
@@ -138,12 +111,7 @@ static t_joueur_flags * creerJoueurFlags()
 }
 
 
-/**
- * \brief Libère la mémoire allouée aux flags et mets le pointeur à NULL.
-
- * \param flags L'adresse du pointeur flags
- */
-static void detruireJoueurFlags(t_joueur_flags ** flags)
+static void detruirePlayerFlags(t_player_flags ** flags)
 {
     if(*flags != NULL)
         free(*flags);
@@ -152,13 +120,8 @@ static void detruireJoueurFlags(t_joueur_flags ** flags)
 
 
 /**
- * \brief Génère une structure joueur.
  * 
- * \param x Position du joueur en x
- * \param y Position du joueur en y
- * \param apparence Texture du joueur
  * 
- * \return Le pointeur joueur, NULL si echec.
  */
 t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 {
@@ -169,7 +132,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->flags = creerJoueurFlags();
+    joueur->flags = creerPlayerFlags();
     if(joueur->flags == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -177,11 +140,11 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(50, 4, 15); //Changer les paramètres d'animation si on ajoute des animations
+    joueur->animation = creerAnimation(50, 4, 15);
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
-        detruireJoueurFlags(&joueur->flags);
+        detruirePlayerFlags(&joueur->flags);
         free(joueur);
         return NULL;
     }
@@ -190,7 +153,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->y = y;
     joueur->direction_vx = 0;
     joueur->direction_vy = 0;
-    joueur->vitesse = VITESSE_JOUEUR_DEFAULT;
+    joueur->vitesse = 6.5;
     joueur->type = E_JOUEUR;
 
     joueur->texture = apparence;
@@ -198,25 +161,25 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->id_animation = 0; //idle
 
     joueur->update = (int (*)(t_moteur*, t_entite*)) updateJoueur;
+    joueur->dessiner = (int (*)(t_moteur *, t_entite *)) dessinerEntite;
 
     joueur->pv = 100;
 
     return joueur;
 }
 
-
 /**
- * \brief Libère la mémoire allouée au joueur et mets son pointeur à NULL.
-
- * \param joueur L'adresse du pointeur joueur
+ * 
+ * 
  */
 void detruireJoueur(t_joueur ** joueur)
 {
     if(*joueur != NULL)
     {
+        detruirePlayerFlags(&(*joueur)->flags);
         detruireAnimation(&(*joueur)->animation);
-        detruireJoueurFlags(&(*joueur)->flags);
         free(*joueur);
     }
     *joueur = NULL;
 }
+

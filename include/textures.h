@@ -1,12 +1,3 @@
-/**
- * \file textures.h
- * 
- * \brief Module de chargement de textures. Propose aussi quelques outils relatifs aux
- * terxtures.
- * 
- * \author Julien Rouaux
- */
-
 #ifndef _JEU_TEXTURES_
 #define _JEU_TEXTURES_
 
@@ -14,16 +5,14 @@
 
 #define TAILLE_TILE 16
 
-
-/**
- * \enum t_tile_type
- * \brief Identifiants des tiles d'un niveau
- */
+/*
+    CE FICHIER CONTIENT AUSSI LES ENUMERATIONS NECESSAIRES
+    A L'IDENTIFICATION D'UNE TILE DANS UN TILESET
+*/
 typedef enum
 {
     AUCUN, SOL, MUR, PORTE_BAS, PORTE_DROITE, PORTE_HAUT, PORTE_GAUCHE
 } t_tile_type;
-
 
 /**
  * \struct t_textures
@@ -35,11 +24,9 @@ typedef struct
     SDL_Texture * player;
 } t_textures;
 
-
 t_textures * chargerTextures(SDL_Renderer * renderer);
 void detruireTextures(t_textures ** textures);
 void splitTexture(SDL_Rect * rectangle, int x, int y);
 void tileNiveau(SDL_Rect * rectangle, t_tile_type type);
-
 
 #endif //_JEU_TEXTURES_

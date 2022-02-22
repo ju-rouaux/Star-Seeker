@@ -1,18 +1,14 @@
 /**
- * \file textures.c
- * 
- * \brief Module de chargement de textures. Propose aussi quelques outils relatifs aux
- * terxtures.
+ * \file
+ * \brief Module de chargement de textures et d'identification de ces dernières
  * 
  * \author Julien Rouaux
  */
-
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <textures.h>
-
 
 /**
  * \brief Charge les textures du jeu
@@ -74,7 +70,6 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     return textures;
 }
 
-
 /**
  * \brief Libère la mémoire allouée pour les textures et mets son 
  * pointeur à NULL.
@@ -95,7 +90,10 @@ void detruireTextures(t_textures ** textures)
 }
 
 /**
- * \brief Outil permettant de découper une tileset et récupérer une partie de la texture.
+ * \brief Permet de découper une tileset et récupérer une partie de la texture.
+ * 
+ * Les cas simples sont traités par des fonctions de plus haut niveau,
+ * mais lorsqu'il s'agit d'animations, cette fonction pourrait s'avérer utile.
  * 
  * \param rectangle Rectangle où stocker le résultat de calcul
  * \param x Position en x de la tile désirée
@@ -108,7 +106,6 @@ void splitTexture(SDL_Rect * rectangle, int x, int y)
     rectangle->h = TAILLE_TILE;
     rectangle->w = TAILLE_TILE;
 }
-
 
 /**
  * \brief Permet de récupérer la bonne partie du tileset de niveau en fonction

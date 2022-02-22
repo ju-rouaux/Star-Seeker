@@ -1,11 +1,3 @@
-/**
- * \file window.h
- * 
- * \brief Module de création de la fenêtre du jeu et son rendu
- * 
- * \author Julien Rouaux
-*/
-
 #ifndef _JEU_WINDOW_
 #define _JEU_WINDOW_
 

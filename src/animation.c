@@ -9,14 +9,12 @@
  * \author Julien Rouaux
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <animation.h>
 
-
 /**
- * \brief Actualise l'animation si nécéssaire selon la configuration de la structure.
+ * \brief Actualise l'animation si nécéssaire
  * 
  * \param animation L'animation à actualiser
  * \param temps Le temps actuel du jeu
@@ -28,9 +26,9 @@ void updateAnimation(t_animation * animation, unsigned int temps)
         if(temps > animation->dernier_update + animation->vitesse) //Si on a avancé de "vitesse" dans le temps, passer à l'image suivante
         {
             (animation->indice_texture)++;
-            if(animation->indice_texture >= animation->nb_textures) //Reboucler si nécéssaire
+            if(animation->indice_texture >= animation->nb_textures)
                 animation->indice_texture = 0;
-            animation->dernier_update = temps; //Enregistrer le temps 
+            animation->dernier_update = temps;
         }
     }
 }
@@ -41,9 +39,9 @@ void updateAnimation(t_animation * animation, unsigned int temps)
  * 
  * \param vitesse Temps en milisecondes avant le passage à la frame suivante de l'animation
  * \param nb_textures Nombre de frames différentes d'une animation
- * \param id_max Identifiant d'animation le plus élevé
+ * \param id_max Identifiant de l'animation la plus élevée
  * 
- * \return La structure animation ou NULL si échec.
+ * \return La structure ou NULL si échec.
  */
 t_animation * creerAnimation(int vitesse, int nb_textures, int id_max)
 {
@@ -66,7 +64,7 @@ t_animation * creerAnimation(int vitesse, int nb_textures, int id_max)
 
 
 /**
- * \brief Détruit une structure animation et mets son pointeur à NULL.
+ * \brief Détruit une structure animation et mets le pointeur à NULL.
  * 
  * \param animation L'adresse du pointeur animation
  */

@@ -1,17 +1,9 @@
-/**
- * \file niveau.h
- * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
- * 
- * \author Julien Rouaux
- */
-
-
 #ifndef _JEU_NIVEAU_
 #define _JEU_NIVEAU_
 
-#include <stdio.h> //type FILE
+#include <stdio.h>
+#include <SDL2/SDL.h>
 #include <moteur.h>
-
 
 /**
  * \enum e_porte
@@ -57,6 +49,9 @@ typedef struct s_salle
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
     
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
+    
+    SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
+    int taille_collisions; /**< Taille du tableau de collisions */
 
     //t_monstre ** (matrice de monstres)
     //t_obstacle ** (matrice d'obstacles)
@@ -76,6 +71,7 @@ typedef struct
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
     int i_charge;
     int j_charge;
+    
 } t_niveau;
 
 
@@ -84,6 +80,5 @@ void detruireNiveau(t_niveau ** niveau);
 int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau);
 void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
-
 
 #endif //_JEU_NIVEAU_
