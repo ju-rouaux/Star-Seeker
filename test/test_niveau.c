@@ -1,8 +1,6 @@
 /**
  * \file
- * \brief Fichier ayant permis de tester de chargement de niveau en l'affichant dans le terminal.
- * 
- * CE FICHIER N'EST PLUS A JOUR
+ * \brief Fichier de test de chargement de niveau en l'affichant dans le terminal
  * 
  * \author Julien
  */
@@ -65,7 +63,7 @@ int main(void)
         return 1;
     }
 
-    t_niveau * niveau = chargerNiveau(fichier, NULL, NULL, NULL);
+    t_niveau * niveau = chargerNiveau(fichier);
     if(niveau == NULL)
         printf("Niveau non récupéré");
     else

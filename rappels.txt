@@ -1,17 +1,27 @@
+Déplacement des const NB_TILE_LARGEUR et HAUTEUR dans camera.
+Le module caméra se charge maintenant de récupérer l'échelle.
+La fonction afficher salle prend désormais paramètre scale.
+L'échelle se récupère désormais via un champ de la structure caméra.
+Elle s'actualise avec updateScale
+
+problématique : enregister la future position de la caméra tout en
+gardant la position courante
+
+Rendre le contenu de la fonction update camera plus générique
+pour calculer une future position par exemple
+
+Window.h contient le nombre de limitation de FPS
+
 Sur isaac les sols sont liés, ce qui a pour effet de placer le joueur déjà
 au bon endroit quand il entre dans une salle. L'ancienne salle passe transparente
 tandis que l'autre devient plus opaque
 
+Changer de salle va être bloquant, pas besoin de compter les frames
 
-Une un personnage possède une zone de marche pour la collision avec les murs et une hitbox pour les degats
-Un projectile possède une hitbox qui retourne ce qu'il a touché.
-Une arme aura une attackbox (zone qui fait des dégats), pour savoir à qui donner le coup d'épée par exemple
--> finalement ces zones ne seront pas matérialisées mais directement calculées. La conséquence sera
-qu'elles seront identiques pour toutes les entités.
--> Pour l'attackbox on aura un paramètre de portée facilement ajustable
+Quand on passe dans une salle
+    -Charger nouvelle salle
+    -Actualiser future position caméra
+    -Animation camera
 
-Collisions :
--Boucle 1 -Avancer TOUT, et checker pour les PERSONNAGE les collisions avec les murs pour les remettre en place ; (besoin murs et entités)
--Boucle 2 -Verifier ce que touche les projectiles, si mur détruire et si personnage faire prendre degats ; (besoin murs et entités)
-	  -Vérifier ce que touche les attackbox des armes et donner les degats en conséquence ; (besoin entités)
-
+TODO : le code de la caméra en général est à tester, maintenant il faut charger les dimensiosn
+de salle
