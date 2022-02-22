@@ -203,16 +203,17 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
 
 
 //Fonction temporaire affichant le niveau
-int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
+int afficherNiveau(t_moteur * moteur, float j_x, float j_y)
 {
     int resultat = 0;
     t_camera * camera = moteur->camera;
+    t_niveau * niveau = moteur->niveau_charge;
 
-    if(moteur->collisions == NULL && niveau->salle_chargee && niveau->salle_chargee->dimensions) //Si les collisions ne sont pas chargées, c'est qu'on a changé de salle
+    if(niveau->collisions == NULL && niveau->salle_chargee && niveau->salle_chargee->dimensions) //Si les collisions ne sont pas chargées, c'est qu'on a changé de salle
             //Fourchette large = nombre de sous salles * mur gauche et droit + mur haut et bas + coins * 2 car ils peuvent être déssinés 2 fois
-            moteur->collisions = malloc(sizeof(SDL_Rect) * niveau->salle_chargee->dimensions->nombre * (NB_TILE_LARGEUR*2 + NB_TILE_HAUTEUR*2 + 4*2) );
+            niveau->collisions = malloc(sizeof(SDL_Rect) * niveau->salle_chargee->dimensions->nombre * (NB_TILE_LARGEUR*2 + NB_TILE_HAUTEUR*2 + 4*2) );
 
-    moteur->taille_collisions = 0;
+    niveau->taille_collisions = 0;
 
     for(int i = 0; i < niveau->h; i++)
     {
@@ -221,7 +222,7 @@ int afficherNiveau(t_moteur * moteur, t_niveau * niveau, float j_x, float j_y)
             if(niveau->salles[i*niveau->l + j] != NULL)
                 if(niveau->salles[i*niveau->l +j]->id_salle == niveau->salle_chargee->id_salle)
                 {
-                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR - camera->x, i*NB_TILE_HAUTEUR - camera->y, moteur->collisions, &(moteur->taille_collisions));
+                    resultat = afficherSalle(moteur, niveau->salles[i*niveau->l + j], j*NB_TILE_LARGEUR - camera->x, i*NB_TILE_HAUTEUR - camera->y, niveau->collisions, &(niveau->taille_collisions));
                     if(resultat != 0)
                         return resultat;
                 }

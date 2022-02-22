@@ -10,6 +10,7 @@
 #define _JEU_NIVEAU_
 
 #include <stdio.h> //type FILE
+#include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
 
@@ -69,7 +70,7 @@ typedef struct s_salle
  * \struct t_niveau
  * \brief Structure représentant une matrice de salles, c'est à dire un niveau.
 */
-typedef struct
+typedef struct s_niveau
 {
     t_salle ** salles; 
     int h; /**< Hauteur du niveau (dimensions de la matrice en i) */
@@ -78,12 +79,15 @@ typedef struct
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
     int i_charge;
     int j_charge;
+
+    SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
+    int taille_collisions; /**< Taille du tableau de collisions */
 } t_niveau;
 
 
 t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b);
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau);
+int lancerNiveau(FILE * fichier, t_moteur * moteur);
 void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 

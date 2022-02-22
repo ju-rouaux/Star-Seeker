@@ -14,27 +14,6 @@
 //static void chargerMonstres();
 //static void chargerObstacles();
 
-/**
- * Le fichier renseignant la position des ennemis renseignent l'identifiant de la salle.
- * Si le fichier renseigne plusieurs fois le même identifiant de salle, cela signifie que
- * les données qui suivent sont désignées à la prochaine sous salle de la salle.
- */
-static void chargerEnnemis(FILE * fichier, t_salle * salle)
-{
-    int id_salle;
-
-    //Lecture de l'id de la salle concernée
-    
-    
-
-    for(int i = 0; i < NB_TILE_HAUTEUR; i++)
-    {
-        for(int j = 0; j < NB_TILE_LARGEUR; j++)
-        {
-
-        }
-    }
-}
 
 /**
  * \brief Génère une structure dimensions de salle.
@@ -291,6 +270,9 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
     niveau->i_charge = niveau->salle_chargee->dimensions->i;
     niveau->j_charge = niveau->salle_chargee->dimensions->j;
 
+    niveau->collisions = NULL;
+    niveau->taille_collisions = 0;
+
     return niveau;
 }
 
@@ -315,13 +297,13 @@ void detruireNiveau(t_niveau ** niveau)
 }
 
 /**
- * \brief Lance un niveau en le chargeant et en y plaçant le joueur.
+ * \brief Lance un niveau
  * 
  * Les couleurs du niveau sont aussi chargées
  * 
  * 
  */
-int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau)
+int lancerNiveau(FILE * fichier, t_moteur * moteur)
 {
     int r, g, b;
 
@@ -336,7 +318,7 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur, t_niveau ** retour_niveau)
     if(SDL_SetTextureColorMod(moteur->textures->map, r, g, b) != 0)
         printf("Note : la couleur du niveau n'a pas pu être chargé\n");
 
-    *retour_niveau = niveau;
+    moteur->niveau_charge = niveau;
 
     return 0;
 }

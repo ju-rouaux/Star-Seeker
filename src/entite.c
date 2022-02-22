@@ -17,6 +17,7 @@
 #include <animation.h>
 #include <entite.h>
 #include <liste.h>
+#include <niveau.h>
 
 
 /**
@@ -83,10 +84,10 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
     hitbox.x = moteur->echelle * (futur_x - moteur->camera->x) - hitbox.w / 2;
     hitbox.y = moteur->echelle * (entite->y - moteur->camera->y) - 9*hitbox.h/10;
     i = 0;
-    while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
+    while(i < moteur->niveau_charge->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->niveau_charge->collisions[i]))
         i++;
 
-    if(i != moteur->taille_collisions)
+    if(i != moteur->niveau_charge->taille_collisions)
         collision = 1; //Vrai
     else
         entite->x = futur_x;
@@ -95,34 +96,13 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
     hitbox.x = moteur->echelle * (entite->x - moteur->camera->x) - hitbox.w / 2;
     hitbox.y = moteur->echelle * (futur_y - moteur->camera->y) - 9*hitbox.h/10;
     i = 0;
-    while(i < moteur->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->collisions[i]))
+    while(i < moteur->niveau_charge->taille_collisions && !SDL_HasIntersection(&hitbox,&moteur->niveau_charge->collisions[i]))
         i++;
 
-    if(i != moteur->taille_collisions)
+    if(i != moteur->niveau_charge->taille_collisions)
         collision = 1; //Vrai
     else
         entite->y = futur_y;
 
     return collision;
-}
-
-
-void chargerEntite(t_entite * entite, t_liste * liste)
-{
-    en_queue(liste);
-    ajout_droit(liste, entite);
-}
-
-void libererEntite(t_liste * liste)
-{
-    t_entite * entite_courant;
-    en_queue(liste);
-    while(!liste_vide(liste))
-    {
-        //Sauvegarder
-        
-        //Detruire
-        valeur_elt(liste, &entite_courant);
-        entite_courant->detruire(entite_courant);
-    }
 }

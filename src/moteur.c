@@ -63,9 +63,6 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->temps_precedent = temps;
     moteur->temps = temps;
 
-    moteur->collisions = NULL;
-    moteur->taille_collisions = 0;
-
     moteur->echelle = 0;
     updateEchelle(moteur);
 
@@ -86,8 +83,6 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
-        if((*moteur)->collisions != NULL)
-            free((*moteur)->collisions);
     }
     free(*moteur);
     *moteur = NULL;

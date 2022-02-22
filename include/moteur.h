@@ -24,6 +24,7 @@
 #define NB_TILE_LARGEUR 13 /**< Surface au sol en largeur */
 #define NB_TILE_HAUTEUR 7 /**< Surface au sol en hauteur */
 
+typedef struct s_niveau t_niveau; 
 
 /**
  * \struct t_moteur
@@ -35,12 +36,11 @@ typedef struct s_moteur
     SDL_Window * window;
     SDL_Renderer * renderer;
     t_textures * textures;
-    unsigned int temps;
-    unsigned int temps_precedent;
+    unsigned int temps; /**< Temps au début d'une frame */
+    unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
-    t_camera * camera;
-    SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
-    int taille_collisions; /**< Taille du tableau de collisions */
+    t_camera * camera; /** Caméra du jeu */
+    t_niveau * niveau_charge; /** Niveau actuellement chargé */
     int echelle; /**< Echelle du jeu, c'est à dire la taille des éléments */
 
     int window_width; /**< Largeur de la fenêtre */
