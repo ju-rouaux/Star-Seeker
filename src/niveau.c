@@ -1,6 +1,6 @@
 /**
- * \file
- * \brief Module de chargement d'un niveau en structure interprétable pour le jeu, et de lancement du jeu.
+ * \file niveau.c
+ * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
  * 
  * \author Julien Rouaux
  */
@@ -13,8 +13,28 @@
 //A faire
 //static void chargerMonstres();
 //static void chargerObstacles();
-//static void chargerSalle(); //Appelle les 2 précédentes
 
+/**
+ * Le fichier renseignant la position des ennemis renseignent l'identifiant de la salle.
+ * Si le fichier renseigne plusieurs fois le même identifiant de salle, cela signifie que
+ * les données qui suivent sont désignées à la prochaine sous salle de la salle.
+ */
+static void chargerEnnemis(FILE * fichier, t_salle * salle)
+{
+    int id_salle;
+
+    //Lecture de l'id de la salle concernée
+    
+    
+
+    for(int i = 0; i < NB_TILE_HAUTEUR; i++)
+    {
+        for(int j = 0; j < NB_TILE_LARGEUR; j++)
+        {
+
+        }
+    }
+}
 
 /**
  * \brief Génère une structure dimensions de salle.
@@ -261,6 +281,12 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
         }
     }
 
+    if(niveau->salle_chargee == NULL)
+    {
+        printf("Impossible de trouver le départ du niveau.\n");
+        return NULL;
+    }
+    
     lierSalles(niveau);
     niveau->i_charge = niveau->salle_chargee->dimensions->i;
     niveau->j_charge = niveau->salle_chargee->dimensions->j;
@@ -349,7 +375,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
     int limite_cote_haut = niveau->i_charge*echelle*NB_TILE_HAUTEUR;
     int limite_cote_bas = niveau->i_charge*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
 
-    if(j_x*echelle > limite_cote_droit) //Dépassement à droite
+    if(j_x*echelle > limite_cote_droit) //Dépassement à droite avec un demi bloc de marge
     {
 
         if(niveau->salle_chargee->portes[RIGHT] != NULL)
@@ -359,7 +385,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche
+    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche avec un demi bloc de marge
     {
 
         if(niveau->salle_chargee->portes[LEFT] != NULL)
@@ -369,7 +395,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_y*echelle > limite_cote_bas) //Dépassement en bas
+    if(j_y*echelle > limite_cote_bas) //Dépassement en bas avec un demi bloc de marge
     {
         if(niveau->salle_chargee->portes[DOWN] != NULL)
         {
@@ -378,7 +404,7 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
         }
     }
 
-    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut
+    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut avec un demi bloc de marge
     {
         if(niveau->salle_chargee->portes[UP] != NULL)
         {

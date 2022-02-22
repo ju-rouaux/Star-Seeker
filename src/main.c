@@ -32,20 +32,20 @@ int main(int argc, char * argv[])
     }
 
     if(lancerNiveau(fichier, moteur, &niveau) != 0) return EXIT_FAILURE;
-    joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR, moteur->textures->player);
+    joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + 5, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + 3, moteur->textures->player);
     if(joueur == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
         return -1;
     }
-    updateCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+    updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
     int id_salle_courante;
     while(handleEvents(joueur) != 1)
     {
         moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();
         SDL_RenderClear(moteur->renderer);
-        
+        updateEchelle(moteur);
         //Logic here
         //Actualiser joueur (et tester collisions)
         joueur->update(moteur, (t_entite*) joueur);
@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
         ///...
         //Actualiser niveau
         id_salle_courante = niveau->salle_chargee->id_salle;
-        updateNiveau(niveau, joueur->x, joueur->y,moteur->camera->echelle);
+        updateNiveau(niveau, joueur->x, joueur->y,moteur->echelle);
         
         //Si on change de niveau -> animation
         if(id_salle_courante != niveau->salle_chargee->id_salle) //Animation changement de salle à mettre dans une fonction à l'avenir
@@ -64,9 +64,16 @@ int main(int argc, char * argv[])
 
             //Charger nouvelles entités ici
 
+            //Detruire anciennes collisions
+            if(moteur->collisions != NULL)
+            {
+                free(moteur->collisions);
+                moteur->collisions = NULL;
+                moteur->taille_collisions = 0;
+            }
 
             //Caluler future position
-            updateFutureCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+            updateFutureCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
         
             //Animer
             while(moteur->camera->x != moteur->camera->futur_x || moteur->camera->y != moteur->camera->futur_y)
@@ -92,7 +99,7 @@ int main(int argc, char * argv[])
                 SDL_RenderClear(moteur->renderer);
                 afficherNiveau(moteur, niveau, joueur->x, joueur->y);
                
-                joueur->dessiner(moteur, (t_entite*) joueur);
+                dessinerEntite(moteur, (t_entite*) joueur);
                 //Dessiner entités ici
 
                 SDL_RenderPresent(moteur->renderer);
@@ -109,12 +116,21 @@ int main(int argc, char * argv[])
         }     
         
         //Actualiser caméra
-        updateCamera(moteur->camera, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+        updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
         
         //Rendu niveau
         afficherNiveau(moteur, niveau, joueur->x, joueur->y);
+
+
+        //Afficher collisions DEBUG
+        
+        if(moteur->collisions!=NULL)
+            for(int b = 0; b < moteur->taille_collisions; b++)
+                SDL_RenderDrawRect(moteur->renderer, &(moteur->collisions[b]));
+        
+
         //rendu joueur
-        joueur->dessiner(moteur, (t_entite*) joueur);
+        dessinerEntite(moteur, (t_entite*) joueur);
         //Rendu entités
         //...
 
