@@ -1,3 +1,2 @@
 #include <attributs_entites.h>
-int pv;
-//attaque_equipee;
+int pv; /**< Points de vie */
