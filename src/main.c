@@ -1,67 +1,34 @@
-#include <stdlib.h>
+#include <sauvegarde.h>
 
-#include <stdio.h>
-<<<<<<< HEAD
-
-#include "liste.h"
-
-
-int main() {
-
-
-    t_liste * liste = malloc(sizeof(t_liste));
-
-    init_liste(liste);
-
-    ajout_droit(liste, "test1");
-    ajout_droit(liste, "test2");
-    ajout_gauche(liste,"-test1");
-    ajout_gauche(liste,"-test2");
-    ajout_droit(liste,"test3");
-    // en_tete(liste);
-    // oter_elt(liste);
-
-    // en_queue(liste);
-    // oter_elt(liste);
-
-    affichage_liste(liste);
-
-=======
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <window.h>
-#include <generation_niveau.h>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-int main(int argc, char * argv[])
+void main ()
 {
 
+    t_salle * sallein = malloc(sizeof(t_salle));
+    t_dimensions_salle * dimension = malloc(sizeof(t_dimensions_salle));
 
-    
-    char * nom_planete = "bloblop";
-    creer_niveau("test15.niv", nom_planete);
-
-
+    t_salle salleout;
 
 
+    sallein->complete = 1;
+    sallein->dimensions = dimension;
+    sallein->dimensions->hauteur = 20;
+    sallein->dimensions->i = 10;
+    sallein->dimensions->j = 10;
+    sallein->dimensions->largeur = 20;
+    sallein->dimensions->nombre = 5;
+    sallein->id_salle = 1;
+//  sallein->portes[0].
 
 
-
-    SDL_Window * window = NULL;
-    SDL_Renderer * renderer = NULL;
-    
-    if(SDL_Init(SDL_INIT_VIDEO) != 0)
-    {
-        printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
-        return EXIT_FAILURE;
-    }
+    char * filename = "save.txt";
 
 
-    creerFenetreEtRendu(&window, &renderer);
-    SDL_Delay(5000);
-    detruireFenetreEtRendu(&window, &renderer);
+    write_file_struct_salle(filename,sallein);
+    salleout = *read_file_struct_salle(filename);
 
+    printf("\nsallein->complete = %d, \nsallein->dimensions->hauteur = %d, \nsallein->dimensions->i = %d, \nsallein->dimensions->j = %d, \nsallein->dimensions->largeur = %d, \nsallein->dimensions->nombre = %d, \nsallein->id_salle = %d",sallein->complete, sallein->dimensions->hauteur, sallein->dimensions->i, sallein->dimensions->j, sallein->dimensions->largeur, sallein->dimensions->nombre, sallein->id_salle);
+    // printf("id_salle = %d, complete = %d, chaine = %s",salleout.id_salle,salleout.complete,salleout.str);
 
-    SDL_Quit();
->>>>>>> bae4312dad1b27397a5e9a7f6b7f0757aa4364bb
     return 0;
+
 }
