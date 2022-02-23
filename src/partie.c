@@ -99,11 +99,11 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 
 
         //Afficher collisions DEBUG
-        
+        /*
         if(moteur->niveau_charge->collisions!=NULL)
             for(int b = 0; b < moteur->niveau_charge->taille_collisions; b++)
                 SDL_RenderDrawRect(moteur->renderer, &(moteur->niveau_charge->collisions[b]));
-        
+        */
 
         //rendu joueur
         dessinerEntite(moteur, (t_entite*) joueur);

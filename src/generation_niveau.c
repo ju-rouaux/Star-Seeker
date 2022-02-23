@@ -16,7 +16,6 @@
 #include <generation_niveau.h>
 #include <outils.h>
 
-
 /**
  * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
  * 
