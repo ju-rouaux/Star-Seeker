@@ -8,7 +8,8 @@
 #include <joueur.h>
 #include <rendu_niveau.h>
 #include <entite.h>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+#include <sauvegarde.h>
+
 static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 {
     t_niveau * niveau = NULL;
@@ -134,8 +135,9 @@ int nouvellePartie()
 int chargerPartie(t_moteur * moteur)
 {
     t_niveau * niveau;
-    t_joueur * joueur;
-    
+    t_joueur * joueur,*tmp;
+
+
     /** Ici reposera le module de chargement de guillaume*/
     FILE * fichier = fopen("./test/allure_d'un_niveau.txt", "r");
     if(fichier == NULL)
@@ -143,21 +145,30 @@ int chargerPartie(t_moteur * moteur)
         printf("mince");
         return -1;
     }
-    if(lancerNiveau(fichier, moteur) != 0) 
+    if(lancerNiveau(fichier, moteur) != 0)
         return -1;
 
     niveau = moteur->niveau_charge;
-
     joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + 5, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + 3, moteur->textures->player);
-    if(joueur == NULL)
-    {
-        printf("Le niveau n'a pas pu être lancé\n");
-        return -1;
+    if(file_empty("save.txt") == 0){
+        printf("File empty");
+            if(joueur == NULL)
+            {
+                printf("Le niveau n'a pas pu être lancé\n");
+                return -1;
+            }
+    }else{
+        printf("File not empty -- loading player");
+        tmp = malloc(sizeof(t_joueur));
+        joueur = read_file_player("save.txt",tmp);
     }
 
+
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
-    
+
+    printf("\npos x : %f : pos y : %f",joueur->x,joueur->y);
     jouerNiveau(moteur, joueur);
+    write_file_player("save.txt",joueur);
     arreterNiveau(&moteur->niveau_charge);
     moteur->niveau_charge = NULL;
     return 0;
