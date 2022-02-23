@@ -37,9 +37,9 @@ typedef struct
 /**
  * \struct t_salle
  * \brief Structure représentant une salle et les salles qui lui sont liées.
- * 
- * Une salle est un rectangle, mais peut être associée à d'autres salles pour former des 
- * salles aux formes plus complexes. Plusieurs sous-salles formant une même salle complexe 
+ *
+ * Une salle est un rectangle, mais peut être associée à d'autres salles pour former des
+ * salles aux formes plus complexes. Plusieurs sous-salles formant une même salle complexe
  * portent le même id_salle et pointent sur la même structure dimensions.
 */
 typedef struct s_salle
@@ -48,9 +48,9 @@ typedef struct s_salle
 
     struct s_salle * portes[NOMBRE_DE_PORTES]; /**< Salles reliées à notre salle */
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
-    
+
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
-    
+
     //t_monstre ** (matrice de monstres)
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;

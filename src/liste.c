@@ -1,7 +1,7 @@
 /**
  * \file liste.c
  * \author Guillaume Richard
- * \brief Module de gestion de liste
+ * \brief Module de gestion de liste en void *
  */
 
 #include "liste.h"
@@ -14,44 +14,87 @@ void init_liste(t_liste* l){
     l->ec = l->drapeau;
 }
 
+/**
+ * \brief Booleen, vrai si la liste est vide
+ * \param l une liste
+ * \return int booleen 1 : vrai, 0 : faux
+ */
 int liste_vide(t_liste * l){
     return (l->drapeau->succ == l->drapeau) ;
 }
 
+/**
+ * \brief Booleen, l'element courant est hors liste
+ * \param l une liste
+ * \return int booleen 1 : vrai, 0 : faux
+ */
 int hors_liste(t_liste * l){
     return (l->ec == l->drapeau) ;
 }
 
+/**
+ * \brief Met l'element courant au premier element de la liste
+ * \param l une liste
+ */
 void en_tete(t_liste * l){
     if (!liste_vide(l))
         l->ec = l->drapeau->succ;
 }
 
+/**
+ * \brief Met l'element courant au dernier element de la liste
+ * \param l une liste
+ */
 void en_queue(t_liste * l){
     if (!liste_vide(l))
         l->ec = l->drapeau->pred ;
 }
 
+/**
+ * \brief Met l'element courant a l'element juste avant l'element courant
+ * \param l une liste
+ */
 void precedent(t_liste * l){
     if (!hors_liste(l))
         l->ec = l->ec->pred;
 }
 
+/**
+ * \brief Met l'element courant a l'element juste apres l'element courant
+ * \param l une liste
+ */
 void suivant(t_liste * l) {
     if (!hors_liste(l))
         l->ec = l->ec->succ;
 }
 
+/**
+ * \brief Recupere la valeur de l'element de la liste et l'assigne a v
+ * 
+ * \param l une liste
+ * \param v une valeur
+ */
 void valeur_elt(t_liste * l, void ** v) {
     if (!hors_liste(l))
         *v = l->ec->valeur;
 }
 
+/**
+ * \brief Modifie la valeur de l'element de la liste a la valeur v
+ * 
+ * \param l une liste
+ * \param v une valeur
+ */
 void modif_elt(t_liste * l, void ** v) {
     if (!hors_liste(l))
         l->ec->valeur = *v;
 }
 
+/**
+ * \brief Supprime l'element de la liste a l'endroit ou est l'ec
+ * 
+ * \param l une liste
+ */
 void oter_elt(t_liste * l) {
     if (!hors_liste(l)) {
         t_element * p;
@@ -64,6 +107,12 @@ void oter_elt(t_liste * l) {
     }
 }
 
+/**
+ * \brief Ajoute a droite de l'element courant une valeur v
+ * 
+ * \param l une liste
+ * \param v une valeur
+ */
 void ajout_droit(t_liste * l, void * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
@@ -80,6 +129,12 @@ void ajout_droit(t_liste * l, void * v) {
     }
 }
 
+/**
+ * \brief Ajoute a gauche de l'element courant une valeur v
+ * 
+ * \param l une liste
+ * \param v une valeur
+ */
 void ajout_gauche(t_liste * l, void * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
@@ -96,7 +151,11 @@ void ajout_gauche(t_liste * l, void * v) {
     }
 }
 
-
+/**
+ * \brief Sert a afficher la liste
+ * 
+ * \param l une liste
+ */
 void affichage_liste(t_liste * l) {
     void * tmp;
     if (liste_vide(l))
