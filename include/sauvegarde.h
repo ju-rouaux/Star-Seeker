@@ -9,7 +9,7 @@
 
 
 void write_file_player(const char * filename, t_joueur * joueur);
-t_joueur * read_file_player(const char * filename, t_joueur * joueur);
+int read_file_player(const char * filename, t_joueur * joueur);
 int file_empty(const char * filename);
 
 

@@ -150,30 +150,26 @@ int chargerPartie(t_moteur * moteur)
 
     niveau = moteur->niveau_charge;
     joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + 5, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + 3, moteur->textures->player);
-    printf("Affichage stats joueur apres creation");
-    print_struct_player(joueur);
-
-    if(file_empty("save.txt") == 0){
-        printf("\nFile empty");
-            if(joueur == NULL)
+    if(joueur == NULL)
             {
                 printf("Le niveau n'a pas pu être lancé\n");
                 return -1;
             }
+    
+    if(file_empty("save") == 0){
+        printf("\nFile empty");
+            
     }else{
         printf("\nFile not empty -- loading player");
-        joueur = read_file_player("save.txt",tmp);
+        read_file_player("save",joueur);
     }
 
-
+    //print_struct_player(joueur);
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
-
-    printf("\n\nAffichage stats joueur apres lecture fichier ou non\n");
-    print_struct_player(joueur);
 
     jouerNiveau(moteur, joueur);
 
-    write_file_player("save.txt",joueur);
+    write_file_player("save",joueur);
 
     arreterNiveau(&moteur->niveau_charge);
     moteur->niveau_charge = NULL;
