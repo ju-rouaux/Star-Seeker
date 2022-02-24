@@ -135,7 +135,7 @@ int nouvellePartie()
 int chargerPartie(t_moteur * moteur)
 {
     t_niveau * niveau;
-    t_joueur * joueur,*tmp;
+    t_joueur * joueur, * tmp = malloc(sizeof(t_joueur));
 
 
     /** Ici reposera le module de chargement de guillaume*/
@@ -150,25 +150,31 @@ int chargerPartie(t_moteur * moteur)
 
     niveau = moteur->niveau_charge;
     joueur = creerJoueur(niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + 5, niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + 3, moteur->textures->player);
+    printf("Affichage stats joueur apres creation");
+    print_struct_player(joueur);
+
     if(file_empty("save.txt") == 0){
-        printf("File empty");
+        printf("\nFile empty");
             if(joueur == NULL)
             {
                 printf("Le niveau n'a pas pu être lancé\n");
                 return -1;
             }
     }else{
-        printf("File not empty -- loading player");
-        tmp = malloc(sizeof(t_joueur));
+        printf("\nFile not empty -- loading player");
         joueur = read_file_player("save.txt",tmp);
     }
 
 
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
 
-    printf("\npos x : %f : pos y : %f",joueur->x,joueur->y);
+    printf("\n\nAffichage stats joueur apres lecture fichier ou non\n");
+    print_struct_player(joueur);
+
     jouerNiveau(moteur, joueur);
+
     write_file_player("save.txt",joueur);
+
     arreterNiveau(&moteur->niveau_charge);
     moteur->niveau_charge = NULL;
     return 0;
