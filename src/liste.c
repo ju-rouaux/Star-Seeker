@@ -1,9 +1,10 @@
 /**
  * \file liste.c
  * \author Guillaume Richard
- * \brief Module de gestion de liste en void *
+ * \brief Module de gestion de liste en t_entite *
  */
 
+#include <entite.h>
 #include <liste.h>
 
 void init_liste(t_liste* l){
@@ -74,7 +75,7 @@ void suivant(t_liste * l) {
  * \param l une liste
  * \param v une valeur
  */
-void valeur_elt(t_liste * l, void ** v) {
+void valeur_elt(t_liste * l, t_entite ** v) {
     if (!hors_liste(l))
         *v = l->ec->valeur;
 }
@@ -85,7 +86,7 @@ void valeur_elt(t_liste * l, void ** v) {
  * \param l une liste
  * \param v une valeur
  */
-void modif_elt(t_liste * l, void ** v) {
+void modif_elt(t_liste * l, t_entite ** v) {
     if (!hors_liste(l))
         l->ec->valeur = *v;
 }
@@ -113,7 +114,7 @@ void oter_elt(t_liste * l) {
  * \param l une liste
  * \param v une valeur
  */
-void ajout_droit(t_liste * l, void * v) {
+void ajout_droit(t_liste * l, t_entite * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
 
@@ -135,7 +136,7 @@ void ajout_droit(t_liste * l, void * v) {
  * \param l une liste
  * \param v une valeur
  */
-void ajout_gauche(t_liste * l, void * v) {
+void ajout_gauche(t_liste * l, t_entite * v) {
     if (liste_vide(l) || !hors_liste(l)) {
         t_element * nouv;
 
@@ -148,26 +149,5 @@ void ajout_gauche(t_liste * l, void * v) {
         l -> ec -> pred = nouv;
         //On se positionne sur le nouvel element
         l -> ec = nouv;
-    }
-}
-
-/**
- * \brief Sert a afficher la liste
- * 
- * \param l une liste
- */
-void affichage_liste(t_liste * l) {
-    void * tmp;
-    if (liste_vide(l))
-        printf("Liste Vide");
-    else {
-        en_tete(l);
-        printf("Affichage de la liste : \n");
-            while (!hors_liste(l)) {
-                valeur_elt(l, &tmp);
-                printf("%s ", (char *) tmp);
-                suivant(l);
-            }
-        printf("\n");
     }
 }
