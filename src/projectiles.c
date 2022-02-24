@@ -159,6 +159,11 @@ t_projectile * creerProjectile(e_type_projectile type, float x, float y, float d
     projectile->type = E_PROJECTILE;
     projectile->texture = texture;
 
+    projectile->hitbox.h = 0;
+    projectile->hitbox.w = 0;
+    projectile->hitbox.x = 0;
+    projectile->hitbox.y = 0;
+
     projectile->detruire = (void (*)(t_entite**)) detruireProjectile;
 
     return projectile;

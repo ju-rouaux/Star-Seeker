@@ -31,15 +31,14 @@
 int dessinerEntite(t_moteur * moteur, t_entite * entite)
 {
     int indice_texture = 0;
-    SDL_Rect destination;
     SDL_Rect source;
 
-    destination.h = moteur->echelle * entite->taille;
-    destination.w = moteur->echelle * entite->taille;
+    entite->hitbox.h = moteur->echelle * entite->taille;
+    entite->hitbox.w = moteur->echelle * entite->taille;
     
     //Ainsi l'entité apparait avec le point de ses coordonnées au centre en bas de l'image
-    destination.x = moteur->echelle*(entite->x - moteur->camera->x) - destination.w / 2;
-    destination.y = moteur->echelle*(entite->y - moteur->camera->y) - destination.h;
+    entite->hitbox.x = moteur->echelle*(entite->x - moteur->camera->x) - entite->hitbox.w / 2;
+    entite->hitbox.y = moteur->echelle*(entite->y - moteur->camera->y) - entite->hitbox.h;
 
     if(entite->animation != NULL) //Si l'entité est animé
     {
@@ -49,7 +48,7 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
 
     splitTexture(&source, indice_texture, entite->id_animation);
 
-    return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &destination);
+    return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &entite->hitbox);
 }
 
 

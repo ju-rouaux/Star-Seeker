@@ -235,6 +235,11 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 
     joueur->pv = 100;
 
+    joueur->hitbox.h = 0;
+    joueur->hitbox.w = 0;
+    joueur->hitbox.x = 0;
+    joueur->hitbox.y = 0;
+
     return joueur;
 }
 
