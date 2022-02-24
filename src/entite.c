@@ -92,7 +92,7 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
         i++;
 
     if(i != moteur->niveau_charge->taille_collisions)
-        collision = 1; //Vrai
+        collision = -1; //Vrai
     else
         entite->x = futur_x;
 
@@ -104,7 +104,7 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
         i++;
 
     if(i != moteur->niveau_charge->taille_collisions)
-        collision = 1; //Vrai
+        collision = -1; //Vrai
     else
         entite->y = futur_y;
 

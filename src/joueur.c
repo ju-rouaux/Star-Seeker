@@ -116,7 +116,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     
     if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
     {
-        t_projectile * balle = creerProjectile(BOULE_FEU, joueur->x, joueur->y, joueur->direction_vx, joueur->direction_vy, E_MONSTRE, moteur->textures->projectiles);
+        t_projectile * balle = creerProjectile(BALLE, joueur->x, joueur->y, joueur->direction_vx, joueur->direction_vy, E_MONSTRE, moteur->textures->projectiles);
         en_queue(moteur->niveau_charge->liste_entites);
         if(balle != NULL)
             ajout_droit(moteur->niveau_charge->liste_entites, (t_entite*) balle);
