@@ -110,6 +110,9 @@ int handleEvents(t_joueur * joueur) {
                         joueur->flags->to_right = joueur->flags->to_left + 1;
                         break;
                     
+                    case SDL_SCANCODE_L: //L !!! Temporaire
+                        joueur->flags->shooting = 1;
+                    
                     default:
                         break;
                 }
@@ -128,6 +131,9 @@ int handleEvents(t_joueur * joueur) {
                         break;
                     case SDL_SCANCODE_D: //D
                         joueur->flags->to_right = 0;
+
+                    case SDL_SCANCODE_L: //L !!! Temporaire
+                        joueur->flags->shooting = 0;
                         break;
                     
                     default:

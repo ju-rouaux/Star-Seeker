@@ -15,3 +15,6 @@ Collisions :
 -Boucle 2 -Verifier ce que touche les projectiles, si mur détruire et si personnage faire prendre degats ; (besoin murs et entités)
 	  -Vérifier ce que touche les attackbox des armes et donner les degats en conséquence ; (besoin entités)
 
+NOTER QUAND UN CHAMP DE STRUCTURE EST OPTIONNEL COMME ANIMATION
+ATTENTION LES ENTITES PEUVENT PRENDRE LES PORTES, IL EST IMPOSSIBLE DE TUER UN MONSTRE
+QUI S'ECHAPPE CAR IL SERA QUAND MEME CHARGE HORS DE LA SALLE SI ON LA QUITTE

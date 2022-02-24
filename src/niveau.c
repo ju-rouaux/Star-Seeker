@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
+#include <entite.h>
+#include <liste.h>
 #include <niveau.h>
 
 //A faire
@@ -45,13 +47,14 @@ static t_dimensions_salle * creerDimensions(int i, int j)
 /**
  * \brief Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL.
  * 
- * C'est à dire si le champ nombre vaut 0.
+ * C'est à dire si le champ nombre vaut 0. Ce champ est décrémenté à chaque appel de la fonction.
  * 
  * \param dimensions L'adresse du pointeur de la dimension
  */
 static void detruireDimensions(t_dimensions_salle ** dimensions)
 {
-    if(*dimensions != NULL && (*dimensions)->nombre == 0)
+    ((*dimensions)->nombre)--; //Nombre vaut 0 si c'est la dernière salle pointant vers cet objet
+    if(*dimensions != NULL && (*dimensions)->nombre <= 0)
         free(*dimensions);
 
     *dimensions = NULL;
@@ -157,9 +160,12 @@ static t_salle * creerSalle(int id_salle)
     for(int i = 0; i < NOMBRE_DE_PORTES; i++)
         salle->portes[i] = NULL;
 
-    salle->complete = 0;
     salle->id_salle = id_salle;
     salle->dimensions = NULL;
+
+    for(int i = 0; i < NB_TILE_HAUTEUR; i++)
+        for(int j = 0; j < NB_TILE_LARGEUR; j++)
+            salle->entites[i][j] = NULL;
 
     return salle;
 }
@@ -168,15 +174,22 @@ static t_salle * creerSalle(int id_salle)
 /**
  * \brief Libère la mémoire allouée pour une salle et mets son pointeur à NULL. 
  * 
+ * Détruit aussi ses entités.
+ * 
  * \param salle L'adresse du pointeur de la salle
  */
 static void detruireSalle(t_salle ** salle)
 {
     if(*salle != NULL)
     {
-        ((*salle)->dimensions->nombre)--; //Nombre vaut ainsi 0 si c'est la dernière salle
         detruireDimensions(&(*salle)->dimensions);
-        free((*salle)->dimensions);
+
+        //Detruire les entités contenues dans la salle
+        for(int i = 0; i < NB_TILE_HAUTEUR; i++)
+            for(int j = 0; j < NB_TILE_LARGEUR; j++)
+                if((*salle)->entites[i][j] != NULL)
+                    (*salle)->entites[i][j]->detruire((t_entite**)(*salle)->entites[i][j]);
+
         free(*salle);
     }
     *salle = NULL;
@@ -204,8 +217,9 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
     int id_salle;
 
     t_salle * salleCourante = NULL;
-    t_niveau * niveau = malloc(sizeof(t_niveau));
 
+    //Allouer structure niveau
+    t_niveau * niveau = malloc(sizeof(t_niveau));
     if(niveau == NULL)
     {
         printf("Impossible d'allouer la mémoire d'un niveau.\n");
@@ -220,21 +234,33 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
     niveau->l = largeur;
     niveau->h = hauteur;
 
-    niveau->salle_chargee = NULL;
-
-    niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur); //Allouer l'array de pointeurs
+    //Allouer matrice des salles
+    niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur);
     if(niveau->salles == NULL)
     {
         printf("Impossible d'allouer la mémoire pour la matrice de salle.\n");
+        free(niveau);
         return NULL;
     }
+    
+    //Allouer la liste des entités "vivantes"
+    niveau->liste_entites = malloc(sizeof(t_liste));
+    if(niveau->liste_entites == NULL)
+    {
+        printf("Impossible d'allouer la mémoire pour la liste des entités\n");
+        free(niveau->salles);
+        free(niveau);
+        return NULL;
+    }
+    init_liste(niveau->liste_entites);
+
+    niveau->salle_chargee = NULL; //Salle de départ
 
     for(int i = 0; i < hauteur; i++)
     {
         for(int j = 0; j < largeur; j++)
         {
             fscanf(fichier, "%i", &id_salle);
-
             if(feof(fichier)) //Si on est déjà à la fin du fichier, ne rien charger de particulier
                 id_salle = 0;
 
@@ -245,6 +271,7 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
                 salleCourante = creerSalle(id_salle);
                 if(salleCourante == NULL)
                 {
+                    //Fuite de mémoire ici
                     printf("Impossible de charger le niveau.\n");
                     return NULL;
                 }
@@ -262,6 +289,7 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
 
     if(niveau->salle_chargee == NULL)
     {
+        //Fuite de mémoire ici
         printf("Impossible de trouver le départ du niveau.\n");
         return NULL;
     }
@@ -290,6 +318,7 @@ void detruireNiveau(t_niveau ** niveau)
                 if((*niveau)->salles[i*(*niveau)->l + j] != NULL)
                     detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]);
         free((*niveau)->salles);
+        free((*niveau)->liste_entites); // !!! Detruire liste entité plus proprement
         free(*niveau);
     }
 
@@ -308,10 +337,10 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur)
     int r, g, b;
 
     t_niveau * niveau = chargerNiveau(fichier, &r, &g, &b);
-
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
+        moteur->niveau_charge = NULL;
         return -1;
     }
 

@@ -30,6 +30,7 @@
  */
 int dessinerEntite(t_moteur * moteur, t_entite * entite)
 {
+    int indice_texture = 0;
     SDL_Rect destination;
     SDL_Rect source;
 
@@ -41,9 +42,12 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
     destination.y = moteur->echelle*(entite->y - moteur->camera->y) - destination.h;
 
     if(entite->animation != NULL) //Si l'entité est animé
+    {
         updateAnimation(entite->animation, moteur->temps);
+        indice_texture = entite->animation->indice_texture;
+    }
 
-    splitTexture(&source, entite->animation->indice_texture, entite->id_animation);
+    splitTexture(&source, indice_texture, entite->id_animation);
 
     return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &destination);
 }
