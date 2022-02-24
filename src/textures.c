@@ -71,6 +71,22 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
+    //Projectiles
+    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface projectiles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->projectiles = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->projectiles == NULL)
+    {
+        printf("Impossible de charger la texture de projectiles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
     return textures;
 }
 

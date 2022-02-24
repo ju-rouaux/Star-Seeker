@@ -8,16 +8,24 @@
 #include <joueur.h>
 #include <rendu_niveau.h>
 #include <entite.h>
-#include <sauvegarde.h>
+#include <liste.h>
 
+//debug
+#include <projectiles.h>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 {
-    t_niveau * niveau = NULL;
-    niveau = moteur->niveau_charge;
+    t_niveau * niveau = moteur->niveau_charge;
+    t_liste * liste_entites = niveau->liste_entites;
+    t_entite * entite_courante;
     
     int tempsEcoule;
-
     int id_salle_courante;
+
+    //t_projectile * proj = creerProjectile(BALLE, 0, 0, 0, 0, E_MONSTRE, moteur->textures->projectiles);
+    //ajout_droit(liste_entites, (t_entite*) proj);
+    //printf("cible : %i, x : %f, y : %f, vx : %f, vy : %f, dureevie : %i, vitesse : %f", proj->cible, proj->x, proj->y, proj->direction_vx, proj->direction_vy, proj->duree_de_vie, proj->vitesse);
+    //detruireProjectile(&proj);
     
     while(handleEvents(joueur) != 1)
     {
@@ -25,14 +33,37 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
         moteur->temps = SDL_GetTicks();
         SDL_RenderClear(moteur->renderer);
         updateEchelle(moteur);
-        //Logic here
-        //Actualiser joueur (et tester collisions)
-        joueur->update(moteur, (t_entite*) joueur);
-        //Actualiser liste entités
+
+        //Actualiser l'état des entités
+        joueur->update(moteur, (t_entite*) joueur); //Joueur
+        if(!liste_vide(liste_entites)) //Liste
+        {
+            en_tete(liste_entites);
+            while(!hors_liste(liste_entites))
+            {
+                valeur_elt(liste_entites, &entite_courante);
+                if(entite_courante != NULL)
+                {
+                    if(entite_courante->update(moteur, entite_courante) == -1)
+                    {
+                        entite_courante->detruire((t_entite**) &entite_courante);
+                        oter_elt(liste_entites);
+                    }
+                }
+                else
+                    oter_elt(liste_entites);
+                suivant(liste_entites);
+                entite_courante = NULL;
+            }
+        }
+
+        //Faire subir les dégâts 
         ///...
+
+
         //Actualiser niveau
         id_salle_courante = niveau->salle_chargee->id_salle;
-        updateNiveau(niveau, joueur->x, joueur->y,moteur->echelle);
+        updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
         
         //Si on change de niveau -> animation
         if(id_salle_courante != niveau->salle_chargee->id_salle) //Animation changement de salle à mettre dans une fonction à l'avenir
@@ -40,6 +71,15 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             int direction_x, direction_y;
 
             //Actualiser la liste des entités vivantes
+            en_queue(liste_entites);
+            while(!liste_vide(liste_entites))    //Destruction
+                oter_elt(liste_entites);
+
+            //Chargement des nouvelles
+            for(int i = 0; i < NB_TILE_HAUTEUR; i++)
+                for(int j = 0; j < NB_TILE_LARGEUR; j++)
+                    if(niveau->salle_chargee->entites[i][j] != NULL)
+                        ajout_droit(liste_entites, niveau->salle_chargee->entites[i][j]);
 
             //Detruire anciennes collisions
             if(moteur->niveau_charge->collisions != NULL)
@@ -76,8 +116,22 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 SDL_RenderClear(moteur->renderer);
                 afficherNiveau(moteur, joueur->x, joueur->y);
                
+                //Dessiner entités
                 dessinerEntite(moteur, (t_entite*) joueur);
-                //Dessiner entités ici
+                if(!liste_vide(liste_entites))
+                {
+                    en_tete(liste_entites);
+                    while(!hors_liste(liste_entites))
+                    {
+                        valeur_elt(liste_entites, &entite_courante);
+                        if(entite_courante != NULL)
+                            dessinerEntite(moteur, entite_courante);
+                        else
+                            oter_elt(liste_entites);
+                        suivant(liste_entites);
+                        entite_courante = NULL;
+                    }
+                }
 
                 SDL_RenderPresent(moteur->renderer);
 
@@ -108,8 +162,22 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 
         //rendu joueur
         dessinerEntite(moteur, (t_entite*) joueur);
-        //Rendu entités
-        //...
+        //Dessiner entités
+        if(!liste_vide(liste_entites))
+        {
+            en_tete(liste_entites);
+            while(!hors_liste(liste_entites))
+            {
+                valeur_elt(liste_entites, &entite_courante);
+                if(entite_courante != NULL)
+                    dessinerEntite(moteur, entite_courante);
+                else
+                    oter_elt(liste_entites);
+                suivant(liste_entites);
+                entite_courante = NULL;
+            }
+        }
+        
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);

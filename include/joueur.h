@@ -27,6 +27,9 @@ typedef struct
     int to_down;
     int to_left;
     int to_right;
+
+    //Temporaire
+    int shooting;
     //Attaque, dash, ...
 } t_joueur_flags;
 

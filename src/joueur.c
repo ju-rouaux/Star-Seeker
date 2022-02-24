@@ -11,8 +11,11 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
+#include <niveau.h>
 #include <entite.h>
 #include <animation.h>
+#include <liste.h>
+#include <projectiles.h>
 #include <joueur.h>
 
 
@@ -110,7 +113,15 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     }
     else
         joueur->animation->vitesse = 250;
-    //if(attaque....)
+    
+    if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
+    {
+        t_projectile * balle = creerProjectile(BALLE, joueur->x, joueur->y, joueur->direction_vx, joueur->direction_vy, E_MONSTRE, moteur->textures->projectiles);
+        en_queue(moteur->niveau_charge->liste_entites);
+        if(balle != NULL)
+            ajout_droit(moteur->niveau_charge->liste_entites, (t_entite*) balle);
+    }
+    
 
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
 
@@ -137,6 +148,8 @@ static t_joueur_flags * creerJoueurFlags()
     flags->to_left = 0;
     flags->to_right = 0;
 
+    flags->shooting = 0; // !!! Temporaire
+
     return flags;
 }
 
@@ -151,6 +164,23 @@ static void detruireJoueurFlags(t_joueur_flags ** flags)
     if(*flags != NULL)
         free(*flags);
     *flags = NULL;
+}
+
+
+/**
+ * \brief Libère la mémoire allouée au joueur et mets son pointeur à NULL.
+
+ * \param joueur L'adresse du pointeur joueur
+ */
+void detruireJoueur(t_joueur ** joueur)
+{
+    if(*joueur != NULL)
+    {
+        detruireAnimation(&(*joueur)->animation);
+        detruireJoueurFlags(&(*joueur)->flags);
+        free(*joueur);
+    }
+    *joueur = NULL;
 }
 
 
@@ -201,25 +231,10 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->id_animation = 0; //idle
 
     joueur->update = (int (*)(t_moteur*, t_entite*)) updateJoueur;
+    joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
     joueur->pv = 100;
 
     return joueur;
 }
 
-
-/**
- * \brief Libère la mémoire allouée au joueur et mets son pointeur à NULL.
-
- * \param joueur L'adresse du pointeur joueur
- */
-void detruireJoueur(t_joueur ** joueur)
-{
-    if(*joueur != NULL)
-    {
-        detruireAnimation(&(*joueur)->animation);
-        detruireJoueurFlags(&(*joueur)->flags);
-        free(*joueur);
-    }
-    *joueur = NULL;
-}

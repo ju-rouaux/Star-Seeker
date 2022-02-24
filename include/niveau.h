@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
+#include <liste.h>
 
 
 /**
@@ -53,14 +54,12 @@ typedef struct
 */
 typedef struct s_salle
 {
-    int complete; /**< Booléen, vrai si la salle est complétée (plus de monstres) */
-
     struct s_salle * portes[NOMBRE_DE_PORTES]; /**< Salles reliées à notre salle */
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
 
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
 
-    t_entite * ennemis[NB_TILE_HAUTEUR][NB_TILE_LARGEUR]; /**< Matrice des entités (monstres) qui existent dans la salle */
+    t_entite * entites[NB_TILE_HAUTEUR][NB_TILE_LARGEUR]; /**< Matrice des entités qui existent dans la salle */
     
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;
@@ -77,8 +76,10 @@ typedef struct s_niveau
     int l; /**< Largeur du niveau (dimensions de la matrice en j) */
 
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
-    int i_charge;
-    int j_charge;
+    int i_charge; /** Position en i dans la matrice de salle de la salle chargée (utile à updateNiveau) */
+    int j_charge; /** Position en j dans la matrice de salle de la salle chargée (utile à updateNiveau) */
+
+    t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
 
     SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
     int taille_collisions; /**< Taille du tableau de collisions */

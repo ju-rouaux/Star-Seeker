@@ -39,6 +39,9 @@ void updateAnimation(t_animation * animation, unsigned int temps)
 /**
  * \brief Génère une structure permettant d'animer un objet.
  * 
+ * Il est possible qu'une entité ne possède pas d'animation (pointeur NULL). Dans ce
+ * cas le champ id_animation permet de sélectionner la bonne partie de la texture.
+ * 
  * \param vitesse Temps en milisecondes avant le passage à la frame suivante de l'animation
  * \param nb_textures Nombre de frames différentes d'une animation
  * \param id_max Identifiant d'animation le plus élevé

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <entite.h>
 
 typedef struct element {
-    void * valeur ;
+    t_entite * valeur ;
     struct element* pred ;
     struct element* succ ;
 } t_element;
@@ -18,8 +19,6 @@ void init_liste(t_liste* l);
 
 int liste_vide(t_liste * l);
 
-int liste_vide(t_liste * l);
-
 int hors_liste(t_liste * l);
 
 void en_tete(t_liste * l);
@@ -30,14 +29,12 @@ void precedent(t_liste * l);
 
 void suivant(t_liste * l);
 
-void valeur_elt(t_liste * l, void ** v);
+void valeur_elt(t_liste * l, t_entite ** v);
 
-void modif_elt(t_liste * l, void ** v);
+void modif_elt(t_liste * l, t_entite ** v);
 
 void oter_elt(t_liste * l);
 
-void ajout_droit(t_liste * l, void * v);
+void ajout_droit(t_liste * l, t_entite * v);
 
-void ajout_gauche(t_liste * l, void * v);
-
-void affichage_liste(t_liste * l);
+void ajout_gauche(t_liste * l, t_entite * v);
