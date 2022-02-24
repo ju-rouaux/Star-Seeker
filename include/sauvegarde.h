@@ -8,9 +8,9 @@
 #include <animation.h>
 
 
-void write_file_player(const char * filename, t_joueur * joueur);
+void write_file(const char * filename, void * input,const unsigned long size);
 int read_file_player(const char * filename, t_joueur * joueur);
 int file_empty(const char * filename);
 
 
-void print_struct_player(t_joueur *joueur);
+void print_struct_player(const t_joueur * tmp);

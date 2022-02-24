@@ -6,8 +6,9 @@
  *
  * \param filename nom de fichier de sauvegarde
  * \param input strcuture a sauvegarder
+ * \param size taille a allouer(sizeof)
  */
-void write_file_player(const char * filename, t_joueur * input){
+void write_file_player(const char * filename, void * input,const unsigned long size){
 
     FILE *outfile;
 
@@ -20,7 +21,7 @@ void write_file_player(const char * filename, t_joueur * input){
     }
 
     // write struct to file
-    if(fwrite (input, sizeof(t_joueur), 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1
+    if(fwrite (input, size, 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1
         printf("contents to file written successfully !\n");
     else
         printf("error writing file !\n");
@@ -71,7 +72,7 @@ int read_file_player(const char * filename, t_joueur * joueur){
  *
  * \param tmp joueur
  */
-void print_struct_player(t_joueur * tmp){
+void print_struct_player(const t_joueur * tmp){
     printf("\n\nAffichage de la structure joueur\n\n");
     printf("\npos x : %f , pos y : %f",tmp->x,tmp->y);
     printf("\npv : %d",tmp->pv);
@@ -97,9 +98,9 @@ void print_struct_player(t_joueur * tmp){
 
 /**
  * \brief Verifie si le fichier existe et s'il est pas vide
- * 
+ *
  * \param filename nom du fichier
- * \return int boolen 0 : si vide ou n'existe pas, >1 s'il existe 
+ * \return int boolen 0 : si vide ou n'existe pas, >1 s'il existe
  */
 int file_empty(const char* filename)
 {
