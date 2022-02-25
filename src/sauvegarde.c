@@ -8,17 +8,16 @@
  * \param input strcuture a sauvegarder
  * \param size taille a allouer(sizeof)
  */
-void write_file_player(const char * filename, void * input,const unsigned long size){
+void write_file_player(const char * filename, void * input,size_t size){
 
     FILE *outfile;
 
     outfile = fopen (filename, "wb");
     if (outfile == NULL)
-    {
-        fprintf(stderr, "\nError opened file\n");
-        fprintf(stderr,"Program stopping ...");
         exit (1);
-    }
+    fclose(outfile);
+
+    outfile = fopen (filename, "ab");
 
     // write struct to file
     if(fwrite (input, size, 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1

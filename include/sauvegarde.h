@@ -8,7 +8,7 @@
 #include <animation.h>
 
 
-void write_file(const char * filename, void * input,const unsigned long size);
+void write_file_player(const char * filename, void * input,size_t size);
 int read_file_player(const char * filename, t_joueur * joueur);
 int file_empty(const char * filename);
 
