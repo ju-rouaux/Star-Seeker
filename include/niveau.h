@@ -59,7 +59,8 @@ typedef struct s_salle
 
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
 
-    t_entite * entites[NB_TILE_HAUTEUR][NB_TILE_LARGEUR]; /**< Matrice des entités qui existent dans la salle */
+    t_entite ** entites; /**< Entités générés avec la salle */
+    int nb_entite; /**< Nombre des entités générés avec la salle */
     
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;

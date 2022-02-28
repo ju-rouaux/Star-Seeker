@@ -176,9 +176,8 @@ void detruireJoueur(t_joueur ** joueur)
 {
     if(*joueur != NULL)
     {
-        detruireAnimation(&(*joueur)->animation);
         detruireJoueurFlags(&(*joueur)->flags);
-        free(*joueur);
+        detruireEntite((t_entite**) joueur);
     }
     *joueur = NULL;
 }
@@ -195,12 +194,15 @@ void detruireJoueur(t_joueur ** joueur)
  */
 t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 {
-    t_joueur * joueur = malloc(sizeof(t_joueur));
+    t_entite * entite = creerEntite(x, y, apparence);
+    t_joueur * joueur = realloc(entite, sizeof(t_joueur));
     if(joueur == NULL)
     {
         printf("Impossible d'allouer la mémoire pour joueur\n");
+        detruireEntite(&entite);
         return NULL;
     }
+    entite = NULL;
 
     joueur->flags = creerJoueurFlags();
     if(joueur->flags == NULL)
@@ -219,14 +221,9 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->x = x;
-    joueur->y = y;
-    joueur->direction_vx = 0;
-    joueur->direction_vy = 0;
     joueur->vitesse = VITESSE_JOUEUR_DEFAULT;
     joueur->type = E_JOUEUR;
 
-    joueur->texture = apparence;
     joueur->taille = PROPORTION_JOUEUR;
     joueur->id_animation = 0; //idle
 
@@ -234,11 +231,6 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
     joueur->pv = 100;
-
-    joueur->hitbox.h = 0;
-    joueur->hitbox.w = 0;
-    joueur->hitbox.x = 0;
-    joueur->hitbox.y = 0;
 
     return joueur;
 }

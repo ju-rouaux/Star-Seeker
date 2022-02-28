@@ -162,10 +162,9 @@ static t_salle * creerSalle(int id_salle)
 
     salle->id_salle = id_salle;
     salle->dimensions = NULL;
-
-    for(int i = 0; i < NB_TILE_HAUTEUR; i++)
-        for(int j = 0; j < NB_TILE_LARGEUR; j++)
-            salle->entites[i][j] = NULL;
+    
+    salle->entites = NULL;
+    salle->nb_entite = 0;
 
     return salle;
 }
@@ -185,10 +184,10 @@ static void detruireSalle(t_salle ** salle)
         detruireDimensions(&(*salle)->dimensions);
 
         //Detruire les entités contenues dans la salle
-        for(int i = 0; i < NB_TILE_HAUTEUR; i++)
-            for(int j = 0; j < NB_TILE_LARGEUR; j++)
-                if((*salle)->entites[i][j] != NULL)
-                    (*salle)->entites[i][j]->detruire((t_entite**)(*salle)->entites[i][j]);
+        if((*salle)->entites != NULL)
+            for(int i = 0; i < (*salle)->nb_entite; i++)
+                if((*salle)->entites[i] != NULL && (*salle)->entites[i]->detruire != NULL)
+                    (*salle)->entites[i]->detruire(&(*salle)->entites[i]);
 
         free(*salle);
     }

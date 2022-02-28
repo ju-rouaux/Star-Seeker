@@ -76,10 +76,9 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 oter_elt(liste_entites);
 
             //Chargement des nouvelles
-            for(int i = 0; i < NB_TILE_HAUTEUR; i++)
-                for(int j = 0; j < NB_TILE_LARGEUR; j++)
-                    if(niveau->salle_chargee->entites[i][j] != NULL)
-                        ajout_droit(liste_entites, niveau->salle_chargee->entites[i][j]);
+            for(int i = 0; i < niveau->salle_chargee->nb_entite; i++)
+                if(niveau->salle_chargee->entites[i] != NULL)
+                    ajout_droit(liste_entites, niveau->salle_chargee->entites[i]);
 
             //Detruire anciennes collisions
             if(moteur->niveau_charge->collisions != NULL)

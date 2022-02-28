@@ -109,3 +109,66 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
 
     return collision;
 }
+
+/**
+ * \brief Détruit une entité générique et mets sont pointeur à NULL.
+ * 
+ * Cette fonction détruit aussi l'animation si l'entité en a une.
+ * 
+ * \param entite L'adresse du pointeur sur l'entité
+ */
+void detruireEntite(t_entite ** entite)
+{
+    if(entite != NULL)
+    {
+        if((*entite)->animation != NULL)
+            detruireAnimation(&(*entite)->animation);
+        free(*entite);
+    }
+    *entite = NULL;
+}
+
+
+/**
+ * \brief Génère une entité générique.
+ * 
+ * Cette fonction est principalement utile pour créer une entité qui hérite
+ * des attributs de cette structure. 
+ * 
+ * \param x Position en x de l'entité
+ * \param y Position en y de l'entité
+ * \param texture Apparence de l'entité
+ * 
+ * \return L'adresse de l'entité créée.
+ */
+t_entite * creerEntite(float x, float y, SDL_Texture * texture)
+{
+    t_entite * entite = malloc(sizeof(t_entite));
+    if(entite == NULL)
+    {
+        printf("Impossible d'allouer la mémoire pour entité\n");
+        return NULL;
+    }
+    
+    entite->x = x;
+    entite->y = y;
+    entite->direction_vx = 0;
+    entite->direction_vy = 0;
+    entite->vitesse = 0;
+    entite->type = AUCUN;
+
+    entite->hitbox.h = 0;
+    entite->hitbox.w = 0;
+    entite->hitbox.x = 0;
+    entite->hitbox.y = 0;
+
+    entite->texture = texture;
+    entite->taille = 1;
+    entite->animation = NULL;
+    entite->id_animation = 0;
+
+    entite->update = dessinerEntite;
+    entite->detruire = detruireEntite;
+
+    return entite;
+}

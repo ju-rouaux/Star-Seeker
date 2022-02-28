@@ -100,9 +100,7 @@ void detruireProjectile(t_projectile ** projectile)
 {
     if(*projectile != NULL)
     {
-        if((*projectile)->animation != NULL)
-            detruireAnimation(&(*projectile)->animation);
-        free(*projectile);
+        detruireEntite((t_entite**) projectile);
     }
     *projectile = NULL;
 }
@@ -124,9 +122,14 @@ void detruireProjectile(t_projectile ** projectile)
 t_projectile * creerProjectile(e_type_projectile type, float x, float y, float direction_vx, float direction_vy, e_type_entite cible, SDL_Texture * texture)
 {
     int retour = 0; //Retour de fonction pour gérer les cas d'erreur
-    t_projectile * projectile = malloc(sizeof(t_projectile));
+    t_entite * entite = creerEntite(x, y, texture);
+    t_projectile * projectile = realloc(entite, sizeof(t_projectile));
     if(projectile == NULL)
+    {
+        detruireEntite(&entite);
         return NULL;
+    }
+    entite = NULL;
 
     //Données spécifiques au projectile
     switch (type)
@@ -151,20 +154,13 @@ t_projectile * creerProjectile(e_type_projectile type, float x, float y, float d
     }
 
     //Données communes au projectile
-    projectile->x = x;
-    projectile->y = y;
     projectile->direction_vx = direction_vx;
     projectile->direction_vy = direction_vy;
-    projectile->cible = cible;
     projectile->type = E_PROJECTILE;
-    projectile->texture = texture;
-
-    projectile->hitbox.h = 0;
-    projectile->hitbox.w = 0;
-    projectile->hitbox.x = 0;
-    projectile->hitbox.y = 0;
 
     projectile->detruire = (void (*)(t_entite**)) detruireProjectile;
+
+    projectile->cible = cible;
 
     return projectile;
 }

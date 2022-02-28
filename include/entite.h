@@ -12,6 +12,7 @@
 #ifndef _JEU_ENTITE_
 #define _JEU_ENTITE_
 
+#include <SDL2/SDL.h> //SDL_Rect
 #include <moteur.h>
 #include <animation.h> //Pour le champ animation d'attributs entites
 //typedef struct s_animation t_animation;
@@ -23,7 +24,7 @@
  */
 typedef enum
 {
-    E_JOUEUR, E_MONSTRE, E_PROJECTILE
+    E_AUCUN, E_JOUEUR, E_MONSTRE, E_PROJECTILE
 }e_type_entite;
 
 
@@ -40,6 +41,8 @@ struct s_entite
 
 int dessinerEntite(t_moteur * moteur, t_entite * entite);
 int deplacerEntite(const t_moteur * moteur, t_entite * entite);
+t_entite * creerEntite(float x, float y, SDL_Texture * texture);
+void detruireEntite(t_entite ** entite);
 
 
 #endif //_JEU_ENTITE_
