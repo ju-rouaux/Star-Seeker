@@ -17,6 +17,7 @@
 #include <liste.h>
 #include <projectiles.h>
 #include <joueur.h>
+#include <attaque.h>
 
 
 /**
@@ -231,6 +232,8 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
     joueur->pv = 100;
+
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
 
     return joueur;
 }

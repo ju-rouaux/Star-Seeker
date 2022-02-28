@@ -12,7 +12,6 @@
 
 #include <SDL2/SDL.h>
 #include <entite.h>
-#include <type_deplacement.h>
 
 
 /**

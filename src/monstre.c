@@ -1,7 +1,12 @@
+/**
+ * 
+ * 
+ * 
+ * 
+ */
+
 #include <stdio.h>
 #include <monstre.h>
-
-
 
 
 t_monstre * creerMonstre(float x, float y, float taille, SDL_Texture * apparence)
