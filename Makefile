@@ -15,7 +15,7 @@ SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
 RM = rm
-DELOBJ = $(OBJ)
+DELOBJ = ./obj/*.o
 
 ########################################################################
 
@@ -25,6 +25,7 @@ all: $(APPNAME)
 #Test algo génération
 algogen: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ obj/test_niveau.o $(LDFLAGS)
+
 # Compile
 $(APPNAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
