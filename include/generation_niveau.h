@@ -37,6 +37,20 @@
 #define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
 
 
+//Structure qui stocke une couleur décomposée en RVB. 
+//Chaque int est compris entre 0 et 255 inclus.
+typedef struct {
+
+    int rouge;
+    int vert;
+    int bleu;
+
+} t_couleurRVB;
+
+
+
+
+
 
 void creer_niveau(const char * nom_fichier, const char * nom_planete);
-
+void couleur_aleatoire(t_couleurRVB * couleur);
