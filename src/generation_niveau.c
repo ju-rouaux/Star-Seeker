@@ -17,40 +17,6 @@
 #include <generation_niveau.h>
 #include <outils.h>
 
-/**
- * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
- * 
- * \param niv La matrice du niveau
- * \param fileName Le nom du fichier de sortie
- * 
- * \return VRAI seulement si le fichier a été créé correctement.
-*/
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const t_couleurRVB * couleur, const char fileName[20]){
-
-    FILE * f = fopen(fileName, "w");
-
-    if(f == NULL)
-        return 0;
-
-
-    fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
-
-    fprintf(f, "%d %d %d \n", couleur->rouge, couleur->vert, couleur->bleu);
-
-    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
-        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-
-                fprintf(f, "%3d ", niv[i][j]);            
-        }
-        fprintf(f, "\n");
-    }
-            
-
-    fclose(f);
-    return 1;
-
-
-}
 
 
 /**
@@ -114,8 +80,6 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
 
     return cpt_salles;
 }
-
-
 
 
 
@@ -289,6 +253,12 @@ void couleur_aleatoire(t_couleurRVB * couleur){
 
 
 
+void detruire_niveau(niveau_informations_t * niveau){
+
+    free(niveau);
+}
+
+
 /**
  * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
  * 
@@ -303,17 +273,22 @@ void creer_niveau(const char * nom_fichier, const char * nom_planete){
 
 
     //Création de la map
-    int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
-    init_niveau(niv);
-    identificationSalles(niv);
+
+    niveau_informations_t * niveau = malloc(sizeof(niveau_informations_t));
+    init_niveau(niveau->matrice);
+    identificationSalles(niveau->matrice);
 
 
     //Couleur
     t_couleurRVB * couleur = malloc(sizeof(t_couleurRVB));
     couleur_aleatoire(couleur);
+    niveau->rouge = couleur->rouge;
+    niveau->vert = couleur->vert;
+    niveau->bleu = couleur->bleu;
+    free(couleur);
 
+    niveau->hauteur = HAUTEUR_NIVEAU_MAX;
+    niveau->longueur = LONGUEUR_NIVEAU_MAX;
 
-    //Écriture
-    ecrire_fichier_niv(niv, couleur, nom_fichier);
 
 }
