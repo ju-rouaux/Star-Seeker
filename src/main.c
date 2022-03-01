@@ -9,9 +9,20 @@ int main(int argc, char * argv[])
 
 
     
-    char * nom_planete = "bloblop";
-    creer_niveau("test15.niv", nom_planete);
+    t_couleurRVB * couleur = malloc(sizeof(t_couleurRVB));
 
+    for (int i = 0; i < 20; i++){
+        couleur_aleatoire(couleur);
+
+        printf("%d %d %d \n", couleur->rouge, couleur->vert, couleur->bleu);
+    
+    }
+
+    
+    /*
+    char * nom_planete = "ziofefez";
+
+    creer_niveau("test.niv", nom_planete);
 
 
 
@@ -27,12 +38,14 @@ int main(int argc, char * argv[])
         return EXIT_FAILURE;
     }
 
-
+    
     creerFenetreEtRendu(&window, &renderer);
     SDL_Delay(5000);
     detruireFenetreEtRendu(&window, &renderer);
-
-
+    
     SDL_Quit();
+
+    */
+
     return 0;
 }

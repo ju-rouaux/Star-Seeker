@@ -77,7 +77,6 @@ static void detruireDimensions(t_dimensions_salle ** dimensions)
 static int lierSalles(t_niveau * niveau)
 {   
     t_salle * salle_courante = NULL;
-    int id_courant;
     int liee = 0; //Vrai si la salle courante a été liée
 
     for(int i = 0; i < niveau->h; i++)
@@ -88,7 +87,6 @@ static int lierSalles(t_niveau * niveau)
 
             if(salle_courante != NULL) //Si la salle courante existe
             {
-                id_courant = salle_courante->id_salle;
                 if( i > 0 && //Pour éviter de sortir du haut de la matrice
                     niveau->salles[(i-1)*niveau->l + j] != NULL) //Si la salle du dessus existe
                 {

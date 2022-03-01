@@ -17,38 +17,6 @@
 #include <generation_niveau.h>
 #include <outils.h>
 
-/**
- * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
- * 
- * \param niv La matrice du niveau
- * \param fileName Le nom du fichier de sortie
- * 
- * \return VRAI seulement si le fichier a été créé correctement.
-*/
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const char fileName[20]){
-
-    FILE * f = fopen(fileName, "w");
-
-    if(f == NULL)
-        return 0;
-
-
-    fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
-
-    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
-        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-
-                fprintf(f, "%3d ", niv[i][j]);            
-        }
-        fprintf(f, "\n");
-    }
-            
-
-    fclose(f);
-    return 1;
-
-
-}
 
 
 /**
@@ -112,8 +80,6 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
 
     return cpt_salles;
 }
-
-
 
 
 
@@ -265,6 +231,34 @@ static int seed_depuis_mot(const char * mot){
 }
 
 
+
+/**
+* \brief génère une couleur aléatoire en évitant les nuances de gris.
+*
+* \param couleur La structure de retour
+*/
+void couleur_aleatoire(t_couleurRVB * couleur){
+
+
+    couleur->rouge = rand() % 255;
+    couleur->vert = rand() % 255;
+    
+    if (couleur->rouge % 2)
+        couleur->bleu = 255 - couleur->rouge;
+    else
+        couleur->bleu = 255 - couleur->vert;
+
+
+}
+
+
+
+void detruire_niveau(niveau_informations_t * niveau){
+
+    free(niveau);
+}
+
+
 /**
  * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
  * 
@@ -273,19 +267,28 @@ static int seed_depuis_mot(const char * mot){
  */
 void creer_niveau(const char * nom_fichier, const char * nom_planete){
 
+    //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
-
     srand(seed);
 
-    
-    int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
- 
+    //Création de la map
 
-    init_niveau(niv);
+    niveau_informations_t * niveau = malloc(sizeof(niveau_informations_t));
+    init_niveau(niveau->matrice);
+    identificationSalles(niveau->matrice);
 
-    identificationSalles(niv);
 
-    ecrire_fichier_niv(niv, nom_fichier);
+    //Couleur
+    t_couleurRVB * couleur = malloc(sizeof(t_couleurRVB));
+    couleur_aleatoire(couleur);
+    niveau->rouge = couleur->rouge;
+    niveau->vert = couleur->vert;
+    niveau->bleu = couleur->bleu;
+    free(couleur);
+
+    niveau->hauteur = HAUTEUR_NIVEAU_MAX;
+    niveau->longueur = LONGUEUR_NIVEAU_MAX;
+
 
 }
