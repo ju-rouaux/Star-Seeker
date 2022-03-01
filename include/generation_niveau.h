@@ -44,7 +44,6 @@
  * Chaque int est compris entre 0 et 255 inclus.
 */
 typedef struct {
-<<<<<<< HEAD
 
     int rouge;
     int vert;
@@ -70,40 +69,9 @@ typedef struct {
 
     int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
-=======
-
-    int rouge;
-    int vert;
-    int bleu;
-
-} t_couleurRVB;
-
-
-/**
- * \struct niveau_base_t  
- *
- * \brief Toutes les informations relatives au stockage d'un niveau
- * 
- */
-typedef struct {
-
-    int hauteur;
-    int longueur;
-
-    int rouge;
-    int vert;
-    int bleu;
-
-    int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
-
->>>>>>> 4b3923e60360e4e54b6f1b9ec8d33f87927a2635
 } niveau_informations_t;
 
 
 
-void creer_niveau(const char * nom_fichier, const char * nom_planete);
-<<<<<<< HEAD
+niveau_informations_t * creer_niveau(const char * nom_fichier, const char * nom_planete);
 void couleur_aleatoire(t_couleurRVB * couleur);
-=======
-void couleur_aleatoire(t_couleurRVB * couleur);
->>>>>>> 4b3923e60360e4e54b6f1b9ec8d33f87927a2635

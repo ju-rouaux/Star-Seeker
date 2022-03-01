@@ -203,10 +203,16 @@ int chargerPartie(t_moteur * moteur)
 {
     t_niveau * niveau;
     t_joueur * joueur;
-
+    niveau_informations_t * niveau_cam = malloc(sizeof(niveau_informations_t));
 
     /** Ici reposera le module de chargement de guillaume*/
     FILE * fichier = fopen("./test/allure_d'un_niveau.txt", "r");
+
+    char * nom_planete = "ziofefez";
+
+    niveau_cam = creer_niveau("test.niv", nom_planete);
+
+
     if(fichier == NULL)
     {
         printf("mince");
@@ -223,22 +229,38 @@ int chargerPartie(t_moteur * moteur)
                 return -1;
             }
 
-    if(file_empty("save") == 0){
-        printf("\nFile empty");
+    if(file_empty("save_joueur") == 0)
+        printf("\nFile empty, no save for player");
+    else{
+        printf("\nFile not empty -- loading player");
+        read_file_player("save_joueur",joueur);
+        print_struct_player(joueur);
+    }
+
+    if(file_empty("save_niveau") == 0){
+        printf("\nFile empty, no save for level");
 
     }else{
-        printf("\nFile not empty -- loading player");
-        read_file_player("save",joueur);
+        printf("\nFile not empty -- loading level");
+        read_file_niveau("save_niveau",niveau_cam);
+        print_struct_niveau(niveau_cam);
     }
+
 
     //print_struct_player(joueur);
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
 
     jouerNiveau(moteur, joueur);
 
-    write_file_player("save",joueur, sizeof(t_joueur));
+    rename("save_joueur","save_joueur.old");
+    rename("save_niveau","save_niveau.old");
+
+    save_current_game("save_joueur",joueur, sizeof(t_joueur));
+    print_struct_niveau(niveau_cam);
+    save_current_game("save_niveau",niveau_cam, sizeof(niveau_informations_t));
 
     arreterNiveau(&moteur->niveau_charge);
     moteur->niveau_charge = NULL;
+
     return 0;
 }

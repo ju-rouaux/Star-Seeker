@@ -1,5 +1,26 @@
 #include <sauvegarde.h>
 
+static FILE * openFile_create_write(char *filename){
+
+    FILE * outfile;
+
+    outfile = fopen (filename, "ab+");
+    if (outfile == NULL)
+        return;
+
+    return outfile;
+}
+
+
+static FILE * openFile_read(char *filename){
+
+    FILE * outfile;
+
+    outfile = fopen (filename, "rb");
+    if (outfile == NULL)
+        return;
+    return outfile;
+}
 
 /**
  * \brief Ecrit dans un fichier en binaire l'etat des la structure t_salle
@@ -8,16 +29,8 @@
  * \param input strcuture a sauvegarder
  * \param size taille a allouer(sizeof)
  */
-void write_file(const char * filename, void * input,size_t size){
-
-    FILE *outfile;
-
-    outfile = fopen (filename, "wb");
-    if (outfile == NULL)
-        exit (1);
-    fclose(outfile);
-
-    outfile = fopen (filename, "ab");
+void save_current_game(char * filename, void * input,size_t size){
+    FILE * outfile = openFile_create_write(filename);
 
     // write struct to file
     if(fwrite (input, size, 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1
@@ -28,7 +41,6 @@ void write_file(const char * filename, void * input,size_t size){
 
     // close file
     fclose (outfile);
-
 }
 
 /**
@@ -37,17 +49,16 @@ void write_file(const char * filename, void * input,size_t size){
  * \param filename nom de fichier de sauvegarde
  * \return t_salle* la structure lu dans le fichier
  */
-int read_file_player(const char * filename, t_joueur * joueur){
-    FILE *infile;
+int read_file_player(char * filename, t_joueur * joueur){
+    FILE *infile = openFile_read(filename);
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
 
-    // Open person.dat for reading
-    infile = fopen (filename, "rb");
+
     if (infile == NULL)
     {
-        fprintf(stderr, "\nError opening file\n");
-        exit (1);
+        fprintf(stderr, "\nError opening file Player\n");
+        return -1;
     }
     // read file contents till end of file
     while(fread(tmp, sizeof(t_joueur), 1, infile))
@@ -59,6 +70,32 @@ int read_file_player(const char * filename, t_joueur * joueur){
     joueur->direction_vx = tmp->direction_vx;
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
+
+    fclose (infile);
+    return 0;
+
+}
+
+
+int read_file_niveau(char * filename, niveau_informations_t * niveau){
+    FILE *infile;
+
+    niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
+
+    infile = fopen (filename, "rb");
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file Level\n");
+        return -1;
+    }
+    // read file contents till end of file
+    while(fread(tmp , sizeof(niveau_informations_t), 1, infile))
+    // while(fread(tmp->flags, sizeof(t_joueur_flags), 1, infile))
+    // while(fread(tmp->animation, sizeof(t_animation), 1, infile))
+
+    niveau->longueur = tmp->longueur;
+    niveau->hauteur = tmp->hauteur;
+    **niveau->matrice = **tmp->matrice;
 
     fclose (infile);
     return 0;
@@ -92,6 +129,21 @@ void print_struct_player(const t_joueur * tmp){
     printf("\nIndice tetxure : %d",tmp->animation->indice_texture);
     printf("\nNb texture : %d ",tmp->animation->nb_textures);
     printf("\nVitesse : %d\n",tmp->animation->vitesse);
+
+}
+
+void print_struct_niveau(const niveau_informations_t * tmp){
+    printf("\n\nAffichage de la structure joueur\n\n");
+    printf("\nhauteur %d, longueur %d",tmp->hauteur,tmp->longueur);
+
+    printf("\n\n Affichage Matrice \n\n");
+
+    for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++ ){
+        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j ++){
+            printf("%d\t", tmp->matrice[i][j]);
+        }
+        printf("\n");
+    }
 
 }
 
