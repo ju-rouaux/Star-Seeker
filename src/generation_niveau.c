@@ -118,9 +118,9 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
 /**
  * \brief Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne.
- *  
+ *
  * \param niv La matrice du niveau
- *  
+ *
  */
 static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
@@ -135,11 +135,11 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
                 //Probable ajout d'une extension de salle depuis la salle du haut 
                 if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i][j-1] != VIDE)
                     niv[i][j] = niv[i][j-1];
-                
+
                 //Probable ajout d'une extension de salle depuis la salle de gauche
                 else if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i-1][j] != VIDE)
                     niv[i][j] = niv[i-1][j];
-                
+
                 else 
                     niv[i][j] = id++;
 
@@ -164,14 +164,9 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++)
             niv[i][j] = VIDE;
 
-    
     niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
 
-
-    
-
-    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;    
-   
+    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;
     int nbSalles = 1;
 
     while(nbSalles < nbMaxSalles){
@@ -180,7 +175,6 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         int salle = 0;
         int i, j;
 
-        
         int chancesSalle[9] = {CHANCE_GEN_SALLE_0_VOISINE_LIBRE, CHANCE_GEN_SALLE_1_VOISINE_LIBRE, CHANCE_GEN_SALLE_2_VOISINES_LIBRES, CHANCE_GEN_SALLE_3_VOISINES_LIBRES, CHANCE_GEN_SALLE_4_VOISINES_LIBRES, CHANCE_GEN_SALLE_5_VOISINES_LIBRES, CHANCE_GEN_SALLE_6_VOISINES_LIBRES, CHANCE_GEN_SALLE_7_VOISINES_LIBRES, CHANCE_GEN_SALLE_8_VOISINES_LIBRES};
 
         while(salle == 0){
@@ -189,22 +183,12 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             i = rand() % LONGUEUR_NIVEAU_MAX;
             j = rand() % HAUTEUR_NIVEAU_MAX;
 
-           
-
             if (niv[i][j] != VIDE){
-
-
 
                 if(de(100) < chancesSalle[nb_salles_adjacentes_dispo(niv, i, j, 1)] && nb_salles_adjacentes_dispo(niv, i, j, 0) > 0)
                     salle = 1;
-
-
             }
-
-           
         }
-
-       
         nbSalles += ajout_salle_adjacente(niv, i, j);
 
     }

@@ -8,7 +8,7 @@
  * \param input strcuture a sauvegarder
  * \param size taille a allouer(sizeof)
  */
-void write_file_player(const char * filename, void * input,size_t size){
+void write_file(const char * filename, void * input,size_t size){
 
     FILE *outfile;
 

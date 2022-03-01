@@ -10,6 +10,7 @@
 #include <entite.h>
 #include <liste.h>
 #include <sauvegarde.h>
+#include <generation_niveau.h>
 
 //debug
 #include <projectiles.h>

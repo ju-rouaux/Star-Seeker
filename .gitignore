@@ -2,4 +2,9 @@
 /lib/
 /include/SDL2/
 /bin/
+<<<<<<< HEAD
 /obj/
+=======
+/obj/
+/doc/
+>>>>>>> 4b3923e60360e4e54b6f1b9ec8d33f87927a2635
