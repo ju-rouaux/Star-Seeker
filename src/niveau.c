@@ -186,7 +186,7 @@ static void detruireSalle(t_salle ** salle)
         //Detruire les entités contenues dans la salle
         if((*salle)->entites != NULL)
             for(int i = 0; i < (*salle)->nb_entite; i++)
-                if((*salle)->entites[i] != NULL && (*salle)->entites[i]->detruire != NULL)
+                if((*salle)->entites[i] != NULL)
                     (*salle)->entites[i]->detruire(&(*salle)->entites[i]);
 
         free(*salle);

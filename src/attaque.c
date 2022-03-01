@@ -7,7 +7,7 @@
 //Nouvelle attaque vrai si le personnage désire attaquer de nouveau
 int executerAttaque(t_joueur * personnage, int temps_ecoule, int nouvelle_attaque)
 {
-
+    return 0;
 }
 
 static void attaque_tir_demo(t_attaque_tir * attaque)
@@ -25,7 +25,7 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
     switch (nouvelle_attaque)
     {
     case DEMO:
-        attaque_demo(attaque);
+        attaque_tir_demo(attaque);
         break;
     
     default:
