@@ -1,6 +1,3 @@
-#ifndef _JEU_GENERATION_NIVEAU_
-#define _JEU_GENERATION_NIVEAU_
-
 /**
  * \file algo_generation_niveau.c
  * 
@@ -10,6 +7,7 @@
  *  
  */
 
+#pragma once
 
 
 #define LONGUEUR_NIVEAU_MAX 25
@@ -40,7 +38,40 @@
 #define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
 
 
+/**
+ * \struct t_couleurRVB
+ * \brief Structure qui stocke une couleur décomposée en RVB. 
+ * Chaque int est compris entre 0 et 255 inclus.
+*/
+typedef struct {
+
+    int rouge;
+    int vert;
+    int bleu;
+
+} t_couleurRVB;
+
+
+/**
+ * \struct niveau_base_t  
+ *
+ * \brief Toutes les informations relatives au stockage d'un niveau
+ * 
+ */
+typedef struct {
+
+    int hauteur;
+    int longueur;
+
+    int rouge;
+    int vert;
+    int bleu;
+
+    int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
+
+} niveau_informations_t;
+
+
 
 void creer_niveau(const char * nom_fichier, const char * nom_planete);
-
-#endif
+void couleur_aleatoire(t_couleurRVB * couleur);
