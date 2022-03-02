@@ -15,7 +15,7 @@
 #include <moteur.h>
 #include <entite.h>
 #include <liste.h>
-
+#include <generation_niveau.h>
 
 /**
  * \enum e_porte
@@ -88,9 +88,8 @@ typedef struct s_niveau
 } t_niveau;
 
 
-t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b);
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(FILE * fichier, t_moteur * moteur);
+int lancerNiveau(t_moteur * moteur, niveau_informations_t * info);
 void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 

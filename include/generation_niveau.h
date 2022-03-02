@@ -1,6 +1,3 @@
-#ifndef _JEU_GENERATION_NIVEAU_
-#define _JEU_GENERATION_NIVEAU_
-
 /**
  * \file generation_niveau.h
  * 
@@ -75,8 +72,6 @@ typedef struct {
     int bleu;
 
     int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
-
-
 
     //Positions des salles
 

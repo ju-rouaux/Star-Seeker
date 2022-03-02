@@ -10,6 +10,7 @@
 #include <moteur.h>
 #include <entite.h>
 #include <liste.h>
+#include <generation_niveau.h>
 #include <niveau.h>
 
 //A faire
@@ -206,11 +207,11 @@ static void detruireSalle(t_salle ** salle)
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
+static t_niveau * chargerNiveau(niveau_informations_t * info)
 {
     //Dimensions du niveau
-    int largeur;
-    int hauteur;
+    int largeur = info->longueur;
+    int hauteur = info->hauteur;
 
     //Identifiant de salle
     int id_salle;
@@ -225,11 +226,6 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
         return NULL;
     }
 
-    //Lecture des couleurs du niveau
-    fscanf(fichier, "%i %i %i", r, g, b);
-
-    //Lecture de la taille du niveau
-    fscanf(fichier, "%i %i", &largeur, &hauteur);
     niveau->l = largeur;
     niveau->h = hauteur;
 
@@ -259,9 +255,7 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
     {
         for(int j = 0; j < largeur; j++)
         {
-            fscanf(fichier, "%i", &id_salle);
-            if(feof(fichier)) //Si on est déjà à la fin du fichier, ne rien charger de particulier
-                id_salle = 0;
+            id_salle = info->matrice[i][j];
 
             if(id_salle == 0) //S'il n'y a pas de salle
                niveau->salles[i*largeur + j] = NULL;
@@ -277,7 +271,7 @@ t_niveau * chargerNiveau(FILE * fichier, int * r, int * g, int * b)
                 //chargerMonstres();
                 //chargerObstacles();
                 
-                if(id_salle == -1 && niveau->salle_chargee == NULL) //Si c'est la salle où l'on commence
+                if(info->i_dep == i && info->j_dep == j) //Si c'est la salle où l'on commence
                     niveau->salle_chargee = salleCourante;
 
                 niveau->salles[i*largeur + j] = salleCourante;
@@ -331,11 +325,9 @@ void detruireNiveau(t_niveau ** niveau)
  * 
  * 
  */
-int lancerNiveau(FILE * fichier, t_moteur * moteur)
+int lancerNiveau(t_moteur * moteur, niveau_informations_t * info)
 {
-    int r, g, b;
-
-    t_niveau * niveau = chargerNiveau(fichier, &r, &g, &b);
+    t_niveau * niveau = chargerNiveau(info);
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
@@ -343,7 +335,7 @@ int lancerNiveau(FILE * fichier, t_moteur * moteur)
         return -1;
     }
 
-    if(SDL_SetTextureColorMod(moteur->textures->map, r, g, b) != 0)
+    if(SDL_SetTextureColorMod(moteur->textures->map, info->rouge, info->vert, info->bleu) != 0)
         printf("Note : la couleur du niveau n'a pas pu être chargé\n");
 
     moteur->niveau_charge = niveau;
