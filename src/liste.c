@@ -1,7 +1,7 @@
 /**
  * \file liste.c
  * \author Guillaume Richard
- * \brief Module de gestion de liste en t_entite *
+ * \brief Module de gestion de liste en t_entite
  */
 
 #include <entite.h>
@@ -70,10 +70,7 @@ void suivant(t_liste * l) {
 }
 
 /**
- * \brief Recupere la valeur de l'element de la liste et l'assigne a v
- * 
- * \param l une liste
- * \param v une valeur
+ * \brief Recupere la valeur de l'element de la liste et _entite *
  */
 void valeur_elt(t_liste * l, t_entite ** v) {
     if (!hors_liste(l))

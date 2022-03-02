@@ -242,7 +242,7 @@ int chargerPartie(t_moteur * moteur)
 
     }else{
         printf("\nFile not empty -- loading level");
-        read_file_niveau("save_niveau",niveau_cam);
+        //read_file_niveau("save_niveau",niveau_cam);
         print_struct_niveau(niveau_cam);
     }
 

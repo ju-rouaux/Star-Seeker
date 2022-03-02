@@ -1,36 +1,49 @@
+/**
+ * \file sauvegarde.c
+ * \author Guillaume
+ * \brief Sauvegarde l'etat actuel de certains objets dans un fichier.
+ * Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.
+ */
+
 #include <sauvegarde.h>
 
-static FILE * openFile_create_write(char *filename){
+/**
+ * \brief Ouvre un fichier en ajout
+ * 
+ * \param filename nom du fichier
+ * \return FILE* Flux du fichier
+ */
+static FILE * openFile_write(char *filename){
 
-    FILE * outfile;
+    FILE * file;
 
-    outfile = fopen (filename, "ab+");
-    if (outfile == NULL)
-        return;
-
-    return outfile;
+    file = fopen (filename, "ab+");
+    return file;
 }
 
-
+/**
+ * \brief ouvre un fichier en lecture
+ * 
+ * \param filename nom du fichier
+ * \return FILE* Flux du fichier
+ */
 static FILE * openFile_read(char *filename){
 
     FILE * outfile;
 
     outfile = fopen (filename, "rb");
-    if (outfile == NULL)
-        return;
     return outfile;
 }
 
 /**
- * \brief Ecrit dans un fichier en binaire l'etat des la structure t_salle
- *
- * \param filename nom de fichier de sauvegarde
- * \param input strcuture a sauvegarder
- * \param size taille a allouer(sizeof)
+ * \brief Sauvegarde l'etat actuel du jeu dans un fichier binaire
+ * 
+ * \param filename nom du fichier
+ * \param input objet a sauvegarder
+ * \param size taille de l'objet a sauvegarder
  */
 void save_current_game(char * filename, void * input,size_t size){
-    FILE * outfile = openFile_create_write(filename);
+    FILE * outfile = openFile_write(filename);
 
     // write struct to file
     if(fwrite (input, size, 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1
@@ -44,26 +57,23 @@ void save_current_game(char * filename, void * input,size_t size){
 }
 
 /**
- * \brief Lis dans un fichier en binaire l'etat des la structure t_salle
- *
- * \param filename nom de fichier de sauvegarde
- * \return t_salle* la structure lu dans le fichier
+ * \brief Lis la sauvegarde dans le fichier binaire et met a jour la strcture t_joueur
+ * 
+ * \param filename nom du fichier
+ * \param joueur structure du joueur a charger depuis la sauvegarde
+ * \return int boolen
  */
 int read_file_player(char * filename, t_joueur * joueur){
     FILE *infile = openFile_read(filename);
+    if (infile == NULL)
+    {
+        fprintf(stderr, "\nError opening file Level\n");
+        return -1;
+    }
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
 
-
-    if (infile == NULL)
-    {
-        fprintf(stderr, "\nError opening file Player\n");
-        return -1;
-    }
-    // read file contents till end of file
     while(fread(tmp, sizeof(t_joueur), 1, infile))
-    // while(fread(tmp->flags, sizeof(t_joueur_flags), 1, infile))
-    // while(fread(tmp->animation, sizeof(t_animation), 1, infile))
 
     joueur->x = tmp->x;
     joueur->y = tmp->y;
@@ -76,29 +86,28 @@ int read_file_player(char * filename, t_joueur * joueur){
 
 }
 
-
-int read_file_niveau(char * filename, niveau_informations_t * niveau){
+/**
+ * \brief  Lis la sauvegarde dans le fichier binaire et met a jour la strcture niveau_informations_t
+ * 
+ * \param filename nom du fichier
+ * \param niveau structure du niveau a charger depuis la sauvegarde
+ * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
+ */
+niveau_informations_t * read_file_niveau(char * filename, niveau_informations_t * niveau){
     FILE *infile;
-
-    niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
-
     infile = fopen (filename, "rb");
     if (infile == NULL)
     {
         fprintf(stderr, "\nError opening file Level\n");
-        return -1;
+        return NULL;
     }
-    // read file contents till end of file
-    while(fread(tmp , sizeof(niveau_informations_t), 1, infile))
-    // while(fread(tmp->flags, sizeof(t_joueur_flags), 1, infile))
-    // while(fread(tmp->animation, sizeof(t_animation), 1, infile))
 
-    niveau->longueur = tmp->longueur;
-    niveau->hauteur = tmp->hauteur;
-    **niveau->matrice = **tmp->matrice;
+    niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
+
+    while(fread(tmp , sizeof(niveau_informations_t), 1, infile))
 
     fclose (infile);
-    return 0;
+    return tmp;
 
 }
 
@@ -132,6 +141,11 @@ void print_struct_player(const t_joueur * tmp){
 
 }
 
+/**
+ * \brief Affiche toutes les informations de la strcuture du niveau
+ * 
+ * \param tmp niveau
+ */
 void print_struct_niveau(const niveau_informations_t * tmp){
     printf("\n\nAffichage de la structure joueur\n\n");
     printf("\nhauteur %d, longueur %d",tmp->hauteur,tmp->longueur);
