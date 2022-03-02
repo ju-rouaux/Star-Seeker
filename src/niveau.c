@@ -1,19 +1,21 @@
 /**
- * \file
+ * \file niveau.c
  * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
  * 
- * \author Julien
+ * \author Julien Rouaux
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <moteur.h>
+#include <entite.h>
+#include <liste.h>
+#include <generation_niveau.h>
 #include <niveau.h>
-
 
 //A faire
 //static void chargerMonstres();
 //static void chargerObstacles();
-//static void chargerSalle(); //Appelle les 2 précédentes
 
 
 /**
@@ -46,13 +48,14 @@ static t_dimensions_salle * creerDimensions(int i, int j)
 /**
  * \brief Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL.
  * 
- * C'est à dire si le champ nombre vaut 0.
+ * C'est à dire si le champ nombre vaut 0. Ce champ est décrémenté à chaque appel de la fonction.
  * 
  * \param dimensions L'adresse du pointeur de la dimension
  */
 static void detruireDimensions(t_dimensions_salle ** dimensions)
 {
-    if(*dimensions != NULL && (*dimensions)->nombre == 0)
+    ((*dimensions)->nombre)--; //Nombre vaut 0 si c'est la dernière salle pointant vers cet objet
+    if(*dimensions != NULL && (*dimensions)->nombre <= 0)
         free(*dimensions);
 
     *dimensions = NULL;
@@ -158,9 +161,11 @@ static t_salle * creerSalle(int id_salle)
     for(int i = 0; i < NOMBRE_DE_PORTES; i++)
         salle->portes[i] = NULL;
 
-    salle->complete = 0;
     salle->id_salle = id_salle;
     salle->dimensions = NULL;
+    
+    salle->entites = NULL;
+    salle->nb_entite = 0;
 
     return salle;
 }
@@ -169,15 +174,22 @@ static t_salle * creerSalle(int id_salle)
 /**
  * \brief Libère la mémoire allouée pour une salle et mets son pointeur à NULL. 
  * 
+ * Détruit aussi ses entités.
+ * 
  * \param salle L'adresse du pointeur de la salle
  */
 static void detruireSalle(t_salle ** salle)
 {
     if(*salle != NULL)
     {
-        ((*salle)->dimensions->nombre)--; //Nombre vaut ainsi 0 si c'est la dernière salle
         detruireDimensions(&(*salle)->dimensions);
-        free((*salle)->dimensions);
+
+        //Detruire les entités contenues dans la salle
+        if((*salle)->entites != NULL)
+            for(int i = 0; i < (*salle)->nb_entite; i++)
+                if((*salle)->entites[i] != NULL)
+                    (*salle)->entites[i]->detruire(&(*salle)->entites[i]);
+
         free(*salle);
     }
     *salle = NULL;
@@ -185,64 +197,82 @@ static void detruireSalle(t_salle ** salle)
 
 
 /**
- * \brief Charge le niveau dans une structure exploitable pour le jeu.
+ * \brief Charge le niveau dans une structure exploitable pour le jeu et retourne à
+ * travers les paramètres les couleurs du thème du niveau.
  * 
  * \param fichier Fichier depuis lequel charger le niveau (flux)
+ * \param r Nuance de rouge du rendu du niveau
+ * \param g Nuance de vert du rendu du niveau
+ * \param b Nuance de bleu du rendu du niveau
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-t_niveau * chargerNiveau(FILE * fichier)
+static t_niveau * chargerNiveau(niveau_informations_t * info)
 {
     //Dimensions du niveau
-    int largeur;
-    int hauteur;
+    int largeur = info->longueur;
+    int hauteur = info->hauteur;
 
     //Identifiant de salle
     int id_salle;
 
     t_salle * salleCourante = NULL;
-    t_niveau * niveau = malloc(sizeof(t_niveau));
 
+    //Allouer structure niveau
+    t_niveau * niveau = malloc(sizeof(t_niveau));
     if(niveau == NULL)
     {
         printf("Impossible d'allouer la mémoire d'un niveau.\n");
         return NULL;
     }
 
-    //Lecture de la taille du niveau
-    fscanf(fichier, "%i %i", &largeur, &hauteur);
     niveau->l = largeur;
     niveau->h = hauteur;
 
-    niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur); //Allouer l'array de pointeurs
+    //Allouer matrice des salles
+    niveau->salles = malloc(sizeof(t_salle*)*hauteur*largeur);
     if(niveau->salles == NULL)
     {
         printf("Impossible d'allouer la mémoire pour la matrice de salle.\n");
+        free(niveau);
         return NULL;
     }
+    
+    //Allouer la liste des entités "vivantes"
+    niveau->liste_entites = malloc(sizeof(t_liste));
+    if(niveau->liste_entites == NULL)
+    {
+        printf("Impossible d'allouer la mémoire pour la liste des entités\n");
+        free(niveau->salles);
+        free(niveau);
+        return NULL;
+    }
+    init_liste(niveau->liste_entites);
+
+    niveau->salle_chargee = NULL; //Salle de départ
 
     for(int i = 0; i < hauteur; i++)
     {
         for(int j = 0; j < largeur; j++)
         {
-            fscanf(fichier, "%i", &id_salle);
-
-            if(feof(fichier)) //Si on est déjà à la fin du fichier, ne rien charger de particulier
-                id_salle = 0;
+            id_salle = info->matrice[i][j];
 
             if(id_salle == 0) //S'il n'y a pas de salle
                niveau->salles[i*largeur + j] = NULL;
-
             else
             {
                 salleCourante = creerSalle(id_salle);
                 if(salleCourante == NULL)
                 {
+                    //Fuite de mémoire ici
                     printf("Impossible de charger le niveau.\n");
                     return NULL;
                 }
                 //chargerMonstres();
                 //chargerObstacles();
+                
+                if(info->i_dep == i && info->j_dep == j) //Si c'est la salle où l'on commence
+                    niveau->salle_chargee = salleCourante;
 
                 niveau->salles[i*largeur + j] = salleCourante;
                 salleCourante = NULL;
@@ -250,7 +280,19 @@ t_niveau * chargerNiveau(FILE * fichier)
         }
     }
 
+    if(niveau->salle_chargee == NULL)
+    {
+        //Fuite de mémoire ici
+        printf("Impossible de trouver le départ du niveau.\n");
+        return NULL;
+    }
+    
     lierSalles(niveau);
+    niveau->i_charge = info->i_dep;
+    niveau->j_charge = info->j_dep;
+
+    niveau->collisions = NULL;
+    niveau->taille_collisions = 0;
 
     return niveau;
 }
@@ -269,8 +311,107 @@ void detruireNiveau(t_niveau ** niveau)
                 if((*niveau)->salles[i*(*niveau)->l + j] != NULL)
                     detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]);
         free((*niveau)->salles);
+        free((*niveau)->liste_entites); // !!! Detruire liste entité plus proprement
         free(*niveau);
     }
 
     *niveau = NULL;
+}
+
+/**
+ * \brief Lance un niveau
+ * 
+ * Les couleurs du niveau sont aussi chargées
+ * 
+ * 
+ */
+int lancerNiveau(t_moteur * moteur, niveau_informations_t * info)
+{
+    t_niveau * niveau = chargerNiveau(info);
+    if(niveau == NULL)
+    {
+        printf("Le niveau n'a pas pu être lancé\n");
+        moteur->niveau_charge = NULL;
+        return -1;
+    }
+
+    if(SDL_SetTextureColorMod(moteur->textures->map, info->rouge, info->vert, info->bleu) != 0)
+        printf("Note : la couleur du niveau n'a pas pu être chargé\n");
+
+    moteur->niveau_charge = niveau;
+
+    return 0;
+}
+
+/**
+ * \brief Libère la mémoire allouée pour le niveau. Actuellement cette fonction est identique à void detruireNiveau(t_niveau **niveau).
+ * 
+ * Opération à réaliser lorsque l'on quitte un niveau.
+ * Des opérations supplémentaires (notamment animations) peuvent être réalisées avant la destruction.
+ * 
+ * \param niveau Le niveau à fermer
+ */
+void arreterNiveau(t_niveau ** niveau)
+{
+    //D'autres opérations ici si nécéssaire
+
+
+    detruireNiveau(niveau);
+}
+
+/**
+ * \brief Actualise la salle chargée du niveau selon l'activité du joueur
+ * (lorsqu'il change de salle par exemple).
+ * 
+ * Calcule les coordonnées des bords de la salle et change la salle courante du niveau si le joueur
+ * dépasse ces limites.
+ * 
+ * \param niveau Le niveau chargé
+ * \param joueur Le joueur
+ * \param echelle L'échelle du rendu
+ */
+void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
+{
+    int limite_cote_gauche = niveau->j_charge*echelle*NB_TILE_LARGEUR;
+    int limite_cote_droit = niveau->j_charge*echelle*NB_TILE_LARGEUR + NB_TILE_LARGEUR*echelle;
+    int limite_cote_haut = niveau->i_charge*echelle*NB_TILE_HAUTEUR;
+    int limite_cote_bas = niveau->i_charge*echelle*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR*echelle;
+
+    if(j_x*echelle > limite_cote_droit) //Dépassement à droite avec un demi bloc de marge
+    {
+
+        if(niveau->salle_chargee->portes[RIGHT] != NULL)
+        {
+            niveau->salle_chargee = niveau->salle_chargee->portes[RIGHT];
+            (niveau->j_charge)++;
+        }
+    }
+
+    else if(j_x*echelle < limite_cote_gauche) //Dépassement à gauche avec un demi bloc de marge
+    {
+
+        if(niveau->salle_chargee->portes[LEFT] != NULL)
+        {
+            niveau->salle_chargee = niveau->salle_chargee->portes[LEFT];
+            (niveau->j_charge)--;
+        }
+    }
+
+    if(j_y*echelle > limite_cote_bas) //Dépassement en bas avec un demi bloc de marge
+    {
+        if(niveau->salle_chargee->portes[DOWN] != NULL)
+        {
+            niveau->salle_chargee = niveau->salle_chargee->portes[DOWN];
+            (niveau->i_charge)++;
+        }
+    }
+
+    else if(j_y*echelle < limite_cote_haut) //Dépassement en haut avec un demi bloc de marge
+    {
+        if(niveau->salle_chargee->portes[UP] != NULL)
+        {
+            niveau->salle_chargee = niveau->salle_chargee->portes[UP];
+            (niveau->i_charge)--;
+        }
+    }      
 }

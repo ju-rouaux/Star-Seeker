@@ -1,14 +1,18 @@
 /**
- * \file
- * \brief Module de chargement de textures et d'identification de ces dernières
+ * \file textures.c
  * 
- * \author Julien
+ * \brief Module de chargement de textures. Propose aussi quelques outils relatifs aux
+ * terxtures.
+ * 
+ * \author Julien Rouaux
  */
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <textures.h>
+
 
 /**
  * \brief Charge les textures du jeu
@@ -50,27 +54,42 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
 
-/*
+
     //Player
-    surface = SDL_LoadBMP("./img/player.bmp");
+    surface = SDL_LoadBMP("./img/personnage.bmp");
     if(surface == NULL)
     {
-        printf("Impossible de charger la surface player.bmp : %s\n", SDL_GetError());
+        printf("Impossible de charger la surface personnage.bmp : %s\n", SDL_GetError());
         return NULL;
     }
-    textures->map = SDL_CreateTextureFromSurface(renderer, surface);
+    textures->player = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    if(textures->map == NULL)
+    if(textures->player == NULL)
     {
-        printf("Impossible de charger la texture de player.bmp : %s\n", SDL_GetError());
+        printf("Impossible de charger la texture de personnage.bmp : %s\n", SDL_GetError());
         return NULL;
     }
     surface = NULL;
 
-*/
+    //Projectiles
+    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface projectiles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->projectiles = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->projectiles == NULL)
+    {
+        printf("Impossible de charger la texture de projectiles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
 
     return textures;
 }
+
 
 /**
  * \brief Libère la mémoire allouée pour les textures et mets son 
@@ -89,4 +108,55 @@ void detruireTextures(t_textures ** textures)
         free(*textures);
     }
     *textures = NULL;
+}
+
+/**
+ * \brief Outil permettant de découper une tileset et récupérer une partie de la texture.
+ * 
+ * \param rectangle Rectangle où stocker le résultat de calcul
+ * \param x Position en x de la tile désirée
+ * \param y Position en y de la tile désirée
+ */
+void splitTexture(SDL_Rect * rectangle, int x, int y)
+{
+    rectangle->x = x * TAILLE_TILE;
+    rectangle->y = y * TAILLE_TILE;
+    rectangle->h = TAILLE_TILE;
+    rectangle->w = TAILLE_TILE;
+}
+
+
+/**
+ * \brief Permet de récupérer la bonne partie du tileset de niveau en fonction
+ * du type de tile désiré.
+ * 
+ * \param rectangle Rectangle où stocker le résultat de calcul
+ * \param type Type de tile désiré
+ */
+void tileNiveau(SDL_Rect * rectangle, t_tile_type type)
+{
+    switch (type)
+    {
+    case SOL:
+        splitTexture(rectangle, 0,0);
+        break;
+    case MUR:
+        splitTexture(rectangle, 1,0);
+        break;
+    case PORTE_HAUT:
+        splitTexture(rectangle, 2,0);
+        break;
+    case PORTE_GAUCHE:
+        splitTexture(rectangle, 3,0);
+        break;
+    case PORTE_BAS:
+        splitTexture(rectangle, 4,0);
+        break;
+    case PORTE_DROITE:
+        splitTexture(rectangle, 5,0);
+        break;
+    default: //texture par défaut
+        splitTexture(rectangle, 0,0);
+        break;
+    }
 }

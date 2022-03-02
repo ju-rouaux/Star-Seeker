@@ -1,10 +1,10 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lm
 
 # Parametres du makefile
-APPNAME = ./bin/generation_niveau
+APPNAME = ./bin/save
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj

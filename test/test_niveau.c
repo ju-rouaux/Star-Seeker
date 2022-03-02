@@ -1,6 +1,8 @@
 /**
  * \file
- * \brief Fichier de test de chargement de niveau en l'affichant dans le terminal
+ * \brief Fichier ayant permis de tester de chargement de niveau en l'affichant dans le terminal.
+ * 
+ * CE FICHIER N'EST PLUS A JOUR
  * 
  * \author Julien
  */
@@ -10,7 +12,7 @@
 
 //gcc .\src\niveau.c .\test\test_niveau.c -o .\bin\test_niveau -Iinclude
 
-void afficherNiveau(const t_niveau * niveau)
+void afficher(const t_niveau * niveau)
 {
     t_salle * salle_courante;
     for(int i = 0; i < (niveau->h)*2; i++)
@@ -63,13 +65,13 @@ int main(void)
         return 1;
     }
 
-    t_niveau * niveau = chargerNiveau(fichier);
+    t_niveau * niveau = chargerNiveau(fichier, NULL, NULL, NULL);
     if(niveau == NULL)
         printf("Niveau non récupéré");
     else
     {
         printf("affichage...\n");
-        afficherNiveau(niveau);
+        afficher(niveau);
         detruireNiveau(&niveau);
     }
 

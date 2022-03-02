@@ -3,9 +3,10 @@
  * 
  * \brief Génération d'un niveau : l'agencement des salles et leurs ids
  *
- * \author Camille
+ * \author Camille REMOUÉ
  *  
  */
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,38 +18,6 @@
 #include <generation_niveau.h>
 #include <outils.h>
 
-/**
- * \brief Écrit (ou écrase) un fichier qui contient toutes les informations nécessaires à un niveau.
- * 
- * \param niv La matrice du niveau
- * \param fileName Le nom du fichier de sortie
- * 
- * \return VRAI seulement si le fichier a été créé correctement.
-*/
-static int ecrire_fichier_niv(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], const char fileName[20]){
-
-    FILE * f = fopen(fileName, "w");
-
-    if(f == NULL)
-        return 0;
-
-
-    fprintf(f, "%d %d \n", LONGUEUR_NIVEAU_MAX, HAUTEUR_NIVEAU_MAX); 
-
-    for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
-        for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
-
-                fprintf(f, "%3d ", niv[i][j]);            
-        }
-        fprintf(f, "\n");
-    }
-            
-
-    fclose(f);
-    return 1;
-
-
-}
 
 
 /**
@@ -115,8 +84,6 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
 
 
 
-
-
 /**
  * 
  * \brief Crée une salle adjacente à un côté aléatoire de (i, j).
@@ -152,9 +119,9 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
 /**
  * \brief Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne.
- *  
+ *
  * \param niv La matrice du niveau
- *  
+ *
  */
 static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
@@ -169,11 +136,11 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
                 //Probable ajout d'une extension de salle depuis la salle du haut 
                 if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i][j-1] != VIDE)
                     niv[i][j] = niv[i][j-1];
-                
+
                 //Probable ajout d'une extension de salle depuis la salle de gauche
                 else if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i-1][j] != VIDE)
                     niv[i][j] = niv[i-1][j];
-                
+
                 else 
                     niv[i][j] = id++;
 
@@ -184,6 +151,31 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
     }
 }
+
+
+
+/**
+ * \brief Attribue à i_fin et j_fin les coordonnées de la salle finale du niveau
+ *  
+ * \param i_fin
+ * \param j_fin 
+ *  
+ */
+static void definir_coordonnees_salle_de_fin(const int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int * i_fin, int * j_fin){
+
+    *i_fin = LONGUEUR_NIVEAU_MAX/2;
+    *j_fin = HAUTEUR_NIVEAU_MAX/2;
+
+    while(*i_fin != LONGUEUR_NIVEAU_MAX/2 && *j_fin != HAUTEUR_NIVEAU_MAX/2 && niv[*i_fin ][*j_fin] == VIDE){
+
+        *i_fin = rand() % LONGUEUR_NIVEAU_MAX;
+        *j_fin = rand() % HAUTEUR_NIVEAU_MAX;
+
+    }
+
+
+}
+
 
 
 /**
@@ -199,13 +191,11 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             niv[i][j] = VIDE;
 
     
+
+    // SALLE DE DÉBUT
     niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
 
-
-    
-
-    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;    
-   
+    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;
     int nbSalles = 1;
 
     while(nbSalles < nbMaxSalles){
@@ -214,7 +204,6 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         int salle = 0;
         int i, j;
 
-        
         int chancesSalle[9] = {CHANCE_GEN_SALLE_0_VOISINE_LIBRE, CHANCE_GEN_SALLE_1_VOISINE_LIBRE, CHANCE_GEN_SALLE_2_VOISINES_LIBRES, CHANCE_GEN_SALLE_3_VOISINES_LIBRES, CHANCE_GEN_SALLE_4_VOISINES_LIBRES, CHANCE_GEN_SALLE_5_VOISINES_LIBRES, CHANCE_GEN_SALLE_6_VOISINES_LIBRES, CHANCE_GEN_SALLE_7_VOISINES_LIBRES, CHANCE_GEN_SALLE_8_VOISINES_LIBRES};
 
         while(salle == 0){
@@ -223,22 +212,12 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             i = rand() % LONGUEUR_NIVEAU_MAX;
             j = rand() % HAUTEUR_NIVEAU_MAX;
 
-           
-
             if (niv[i][j] != VIDE){
-
-
 
                 if(de(100) < chancesSalle[nb_salles_adjacentes_dispo(niv, i, j, 1)] && nb_salles_adjacentes_dispo(niv, i, j, 0) > 0)
                     salle = 1;
-
-
             }
-
-           
         }
-
-       
         nbSalles += ajout_salle_adjacente(niv, i, j);
 
     }
@@ -265,27 +244,72 @@ static int seed_depuis_mot(const char * mot){
 }
 
 
+
 /**
- * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
+* \brief génère une couleur aléatoire en évitant les nuances de gris.
+*
+* \param couleur La structure de retour
+*/
+static void couleur_aleatoire(t_couleurRVB * couleur){
+
+
+    couleur->rouge = rand() % 255;
+    couleur->vert = rand() % 255;
+    
+    if (couleur->rouge % 2)
+        couleur->bleu = 255 - couleur->rouge;
+    else
+        couleur->bleu = 255 - couleur->vert;
+
+
+}
+
+
+
+void detruire_niveau_info(niveau_informations_t ** niveau){
+    if(*niveau != NULL)
+        free(*niveau);
+    *niveau = NULL;
+}
+
+
+/**
+ * \brief Fonction principale : crée le niveau et l'écrit dans une structure
  * 
- * \param nom_fichier Nom du fichier de sortie
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
  */
-void creer_niveau(const char * nom_fichier, const char * nom_planete){
+niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
+    //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
-
     srand(seed);
 
+
+    //Création de la map
+
+    niveau_informations_t * niveau = malloc(sizeof(niveau_informations_t));
+    init_niveau(niveau->matrice);
+    identificationSalles(niveau->matrice);
+
+
+    //Couleur
+    t_couleurRVB * couleur = malloc(sizeof(t_couleurRVB));
+    couleur_aleatoire(couleur);
+    niveau->rouge = couleur->rouge;
+    niveau->vert = couleur->vert;
+    niveau->bleu = couleur->bleu;
+    free(couleur);
+
+
+    niveau->hauteur = HAUTEUR_NIVEAU_MAX;
+    niveau->longueur = LONGUEUR_NIVEAU_MAX;
     
-    int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
- 
+    niveau->i_dep = LONGUEUR_NIVEAU_MAX/2;
+    niveau->j_dep = HAUTEUR_NIVEAU_MAX/2;
 
-    init_niveau(niv);
+    definir_coordonnees_salle_de_fin(niveau->matrice, &(niveau->i_dep), &(niveau->j_dep));
+    
 
-    identificationSalles(niv);
-
-    ecrire_fichier_niv(niv, nom_fichier);
-
+    return niveau;
 }

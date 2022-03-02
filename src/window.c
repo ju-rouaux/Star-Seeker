@@ -1,20 +1,24 @@
 /**
- * \file
+ * \file window.c
+ * 
  * \brief Module de création de la fenêtre du jeu et son rendu
- * \author Julien
+ * 
+ * \author Julien Rouaux
 */
+
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
+
 /**
- * Génère une fenêtre et son rendu, pour les mettre dans 
+ * \brief Génère une fenêtre et son rendu, pour les mettre dans 
  * les pointeurs donnés en paramètre.
  * 
  * \param window L'adresse du pointeur de fenêtre
  * \param renderer L'adresse du pointeur de rendu
  * 
- * \return 0 si tout s'est bien passé, sinon une valeur négative
+ * \return 0 si tout s'est bien passé, sinon une valeur négative.
 */
 int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
 {
@@ -40,11 +44,14 @@ int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
         return -2;
     }
 
+    SDL_SetWindowMinimumSize(*window, 640, 370);
+
     return 0;
 }
 
+
 /**
- * Libère la mémoire allouée pour la fenêtre et son rendu, et met les
+ * \brief Libère la mémoire allouée pour la fenêtre et son rendu, et met les
  * pointeurs à NULL.
  * 
  * \param window L'adresse du pointeur de fenêtre
