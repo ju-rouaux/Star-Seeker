@@ -1,4 +1,13 @@
-#pragma once
+/**
+ * \file liste.h
+ * 
+ * \brief Module de gestion d'une liste.
+ * 
+ * \author Guillaume Richard
+ */
+
+#ifndef _JEU_LISTE_
+#define _JEU_LISTE_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,3 +47,5 @@ void oter_elt(t_liste * l);
 void ajout_droit(t_liste * l, t_entite * v);
 
 void ajout_gauche(t_liste * l, t_entite * v);
+
+#endif //_JEU_LISTE_

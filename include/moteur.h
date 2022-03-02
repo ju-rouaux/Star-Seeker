@@ -15,10 +15,10 @@
 #include <textures.h>
 #include <camera.h>
 
-#define NB_FPS 60
+#define NB_FPS 60 /**< Nombre de frames par secondes du jeu */
 #define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
-#define VITESSE_TRANSITION 10 /** Vitesse d'une transition exprimée en tile par secondes */
+#define VITESSE_TRANSITION 10 /**< Vitesse d'une transition exprimée en tile par secondes */
 
 #define NOMBRE_DE_PORTES 4 /**< Nombre de portes d'une salle (une par mur) */
 #define NB_TILE_LARGEUR 13 /**< Surface au sol en largeur */

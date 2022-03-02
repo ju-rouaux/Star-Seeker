@@ -1,5 +1,6 @@
 /**
  * \file niveau.h
+ * 
  * \brief Module de chargement d'un niveau en structure interprétable pour le jeu.
  * 
  * \author Julien Rouaux
