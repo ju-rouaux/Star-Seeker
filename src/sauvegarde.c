@@ -51,7 +51,7 @@ static FILE * openFile_read(char *filename){
  * \param input objet a sauvegarder
  * \param size taille de l'objet a sauvegarder
  */
-int save_current_game(char * filename, void * input,size_t size){
+static int save_current_game(char * filename, void * input,size_t size){
     FILE * outfile = openFile_write(filename);
 
     // write struct to file
@@ -73,7 +73,7 @@ int save_current_game(char * filename, void * input,size_t size){
  * \param joueur structure du joueur a charger depuis la sauvegarde
  * \return int boolen
  */
-int read_file_player(char * filename, t_joueur * joueur){
+static int read_file_player(char * filename, t_joueur * joueur){
     FILE *infile = openFile_read(filename);
     if (infile == NULL)
     {
@@ -104,7 +104,7 @@ int read_file_player(char * filename, t_joueur * joueur){
  * \param niveau structure du niveau a charger depuis la sauvegarde
  * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
  */
-niveau_informations_t * read_file_niveau(char * filename){
+static niveau_informations_t * read_file_niveau(char * filename){
     FILE *infile = openFile_read(filename);
     if (infile == NULL){
         fprintf(stderr, "Error opening file Level\n");
@@ -124,7 +124,8 @@ niveau_informations_t * read_file_niveau(char * filename){
  *
  * \param tmp joueur
  */
-void print_struct_player(const t_joueur * tmp){
+/*
+static void print_struct_player(const t_joueur * tmp){
     printf("\n\nAffichage de la structure joueur\n\n");
     printf("\npos x : %f , pos y : %f",tmp->x,tmp->y);
     printf("\npv : %d",tmp->pv);
@@ -147,13 +148,15 @@ void print_struct_player(const t_joueur * tmp){
     printf("\nVitesse : %d\n",tmp->animation->vitesse);
 
 }
+*/
 
 /**
  * \brief Affiche toutes les informations de la strcuture du niveau
  * 
  * \param tmp niveau
  */
-void print_struct_niveau(const niveau_informations_t * tmp){
+/*
+static void print_struct_niveau(const niveau_informations_t * tmp){
     printf("\n\nAffichage de la structure joueur\n\n");
     printf("\nhauteur %d, longueur %d",tmp->hauteur,tmp->longueur);
 
@@ -167,6 +170,7 @@ void print_struct_niveau(const niveau_informations_t * tmp){
     }
 
 }
+*/
 
 /**
  * \brief Verifie si le fichier existe et s'il est pas vide
@@ -174,7 +178,7 @@ void print_struct_niveau(const niveau_informations_t * tmp){
  * \param filename nom du fichier
  * \return int boolen 0 : si vide ou n'existe pas, >1 s'il existe
  */
-int file_empty(const char* filename)
+static int file_empty(const char* filename)
 {
     FILE *file = fopen(filename, "r");
 
