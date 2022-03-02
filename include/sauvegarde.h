@@ -16,8 +16,8 @@
 #include <animation.h>
 #include <generation_niveau.h>
 
-#define filename_joueur "save_joueur"
-#define filename_niveau "save_niveau"
+#define filename_joueur "./save/save_joueur"
+#define filename_niveau "./save/save_niveau"
 
 
 int save_current_game(char * filename, void * input,size_t size);

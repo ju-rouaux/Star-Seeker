@@ -226,7 +226,7 @@ int chargerPartie(t_moteur * moteur)
                 return -1;
             }
     if(chargerSauvegarde(joueur,&niveau_cam) == -1){
-        niveau_cam = creer_niveau("test.niv", nom_planete);
+        niveau_cam = creer_niveau(nom_planete);
     }
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
 
