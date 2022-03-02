@@ -21,7 +21,6 @@ int main(int argc, char * argv[])
     
     detruireMoteur(&moteur);
 
-    SDL_Quit();
     return 0;
 
 }
