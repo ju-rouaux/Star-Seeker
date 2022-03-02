@@ -4,6 +4,7 @@
 #include <moteur.h>
 #include <partie.h>
 #include <generation_niveau.h>
+#include <menu.h>
 
 int main(int argc, char * argv[])
 {
@@ -17,8 +18,10 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-
+    chargerMenu(moteur);
+    SDL_Delay(2000);
     chargerPartie(moteur, 1);
+    
 
     detruireMoteur(&moteur);
 
