@@ -7,8 +7,6 @@
  *  
  */
 
-
-
 #ifndef _JEU_GENERATION_NIVEAU_
 #define _JEU_GENERATION_NIVEAU_
 
@@ -83,9 +81,7 @@ typedef struct {
 } niveau_informations_t;
 
 
-
-niveau_informations_t * creer_niveau(const char * nom_planete);
-void couleur_aleatoire(t_couleurRVB * couleur);
-
+niveau_informations_t * creer_niveau_info(const char * nom_planete);
+void detruire_niveau_info(niveau_informations_t ** niveau);
 
 #endif // _JEU_GENERATION_NIVEAU

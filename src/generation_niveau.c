@@ -14,6 +14,7 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
+
 #include <generation_niveau.h>
 #include <outils.h>
 
@@ -118,9 +119,9 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 
 /**
  * \brief Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne.
- *  
+ *
  * \param niv La matrice du niveau
- *  
+ *
  */
 static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
 
@@ -135,11 +136,11 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
                 //Probable ajout d'une extension de salle depuis la salle du haut 
                 if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i][j-1] != VIDE)
                     niv[i][j] = niv[i][j-1];
-                
+
                 //Probable ajout d'une extension de salle depuis la salle de gauche
                 else if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i-1][j] != VIDE)
                     niv[i][j] = niv[i-1][j];
-                
+
                 else 
                     niv[i][j] = id++;
 
@@ -194,11 +195,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
     // SALLE DE DÉBUT
     niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
 
-
-    
-
-    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;    
-   
+    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;
     int nbSalles = 1;
 
     while(nbSalles < nbMaxSalles){
@@ -207,7 +204,6 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         int salle = 0;
         int i, j;
 
-        
         int chancesSalle[9] = {CHANCE_GEN_SALLE_0_VOISINE_LIBRE, CHANCE_GEN_SALLE_1_VOISINE_LIBRE, CHANCE_GEN_SALLE_2_VOISINES_LIBRES, CHANCE_GEN_SALLE_3_VOISINES_LIBRES, CHANCE_GEN_SALLE_4_VOISINES_LIBRES, CHANCE_GEN_SALLE_5_VOISINES_LIBRES, CHANCE_GEN_SALLE_6_VOISINES_LIBRES, CHANCE_GEN_SALLE_7_VOISINES_LIBRES, CHANCE_GEN_SALLE_8_VOISINES_LIBRES};
 
         while(salle == 0){
@@ -216,22 +212,12 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             i = rand() % LONGUEUR_NIVEAU_MAX;
             j = rand() % HAUTEUR_NIVEAU_MAX;
 
-           
-
             if (niv[i][j] != VIDE){
-
-
 
                 if(de(100) < chancesSalle[nb_salles_adjacentes_dispo(niv, i, j, 1)] && nb_salles_adjacentes_dispo(niv, i, j, 0) > 0)
                     salle = 1;
-
-
             }
-
-           
         }
-
-       
         nbSalles += ajout_salle_adjacente(niv, i, j);
 
     }
@@ -264,7 +250,7 @@ static int seed_depuis_mot(const char * mot){
 *
 * \param couleur La structure de retour
 */
-void couleur_aleatoire(t_couleurRVB * couleur){
+static void couleur_aleatoire(t_couleurRVB * couleur){
 
 
     couleur->rouge = rand() % 255;
@@ -280,9 +266,10 @@ void couleur_aleatoire(t_couleurRVB * couleur){
 
 
 
-void detruire_niveau(niveau_informations_t * niveau){
-
-    free(niveau);
+void detruire_niveau_info(niveau_informations_t ** niveau){
+    if(*niveau != NULL)
+        free(*niveau);
+    *niveau = NULL;
 }
 
 
@@ -291,7 +278,7 @@ void detruire_niveau(niveau_informations_t * niveau){
  * 
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
  */
-niveau_informations_t * creer_niveau(const char * nom_planete){
+niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
@@ -325,6 +312,4 @@ niveau_informations_t * creer_niveau(const char * nom_planete){
     
 
     return niveau;
-
-
 }

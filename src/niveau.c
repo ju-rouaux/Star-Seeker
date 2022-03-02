@@ -288,8 +288,8 @@ static t_niveau * chargerNiveau(niveau_informations_t * info)
     }
     
     lierSalles(niveau);
-    niveau->i_charge = niveau->salle_chargee->dimensions->i;
-    niveau->j_charge = niveau->salle_chargee->dimensions->j;
+    niveau->i_charge = info->i_dep;
+    niveau->j_charge = info->j_dep;
 
     niveau->collisions = NULL;
     niveau->taille_collisions = 0;

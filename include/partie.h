@@ -7,4 +7,4 @@
  */
 
 #include <moteur.h>
-int chargerPartie(t_moteur * moteur);
+int chargerPartie(t_moteur * moteur, int nouvelle_partie);
