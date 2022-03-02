@@ -73,6 +73,15 @@ typedef struct {
 
     int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
+
+
+    //Positions des salles
+
+    int i_dep;
+    int j_dep;
+    int i_fin;
+    int j_fin;
+
 } niveau_informations_t;
 
 
