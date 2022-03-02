@@ -7,6 +7,7 @@
  *  
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -260,12 +261,11 @@ void detruire_niveau(niveau_informations_t * niveau){
 
 
 /**
- * \brief Fonction principale : crée le niveau et l'écrit dans un fichier
+ * \brief Fonction principale : crée le niveau et l'écrit dans une structure
  * 
- * \param nom_fichier Nom du fichier de sortie
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
  */
-void creer_niveau(const char * nom_fichier, const char * nom_planete){
+niveau_informations_t * creer_niveau(const char * nom_planete){
 
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
@@ -289,6 +289,8 @@ void creer_niveau(const char * nom_fichier, const char * nom_planete){
 
     niveau->hauteur = HAUTEUR_NIVEAU_MAX;
     niveau->longueur = LONGUEUR_NIVEAU_MAX;
+
+    return niveau;
 
 
 }

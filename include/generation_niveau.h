@@ -1,12 +1,5 @@
-/**
- * \file algo_generation_niveau.c
- * 
- * \brief Test de création de génération aléatoire de niveau (planète)
- *
- * \author camille
- *  
- */
-
+#ifndef _JEU_GENERATION_NIVEAU_
+#define _JEU_GENERATION_NIVEAU_
 
 
 #define LONGUEUR_NIVEAU_MAX 25
@@ -72,5 +65,8 @@ typedef struct {
 
 
 
-void creer_niveau(const char * nom_fichier, const char * nom_planete);
+niveau_informations_t * creer_niveau(const char * nom_fichier, const char * nom_planete);
 void couleur_aleatoire(t_couleurRVB * couleur);
+
+
+#endif // _JEU_GENERATION_NIVEAU
