@@ -152,6 +152,31 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
 }
 
 
+
+/**
+ * \brief Attribue à i_fin et j_fin les coordonnées de la salle finale du niveau
+ *  
+ * \param i_fin
+ * \param j_fin 
+ *  
+ */
+static void definir_coordonnees_salle_de_fin(const int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int * i_fin, int * j_fin){
+
+    *i_fin = LONGUEUR_NIVEAU_MAX/2;
+    *j_fin = HAUTEUR_NIVEAU_MAX/2;
+
+    while(*i_fin != LONGUEUR_NIVEAU_MAX/2 && *j_fin != HAUTEUR_NIVEAU_MAX/2 && niv[*i_fin ][*j_fin] == VIDE){
+
+        *i_fin = rand() % LONGUEUR_NIVEAU_MAX;
+        *j_fin = rand() % HAUTEUR_NIVEAU_MAX;
+
+    }
+
+
+}
+
+
+
 /**
  * \brief initialise la matrice avec un niveau aléatoirement généré
  * 
@@ -165,6 +190,8 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
             niv[i][j] = VIDE;
 
     
+
+    // SALLE DE DÉBUT
     niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
 
 
@@ -286,8 +313,16 @@ niveau_informations_t * creer_niveau(const char * nom_planete){
     niveau->bleu = couleur->bleu;
     free(couleur);
 
+
     niveau->hauteur = HAUTEUR_NIVEAU_MAX;
     niveau->longueur = LONGUEUR_NIVEAU_MAX;
+    
+
+    niveau->i_dep = LONGUEUR_NIVEAU_MAX/2;
+    niveau->j_dep = HAUTEUR_NIVEAU_MAX/2;
+
+    definir_coordonnees_salle_de_fin(niveau->matrice, &(niveau->i_dep), &(niveau->j_dep));
+    
 
     return niveau;
 
