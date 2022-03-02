@@ -6,6 +6,17 @@
  */
 
 #include <sauvegarde.h>
+/**
+ * \brief Ecrase le fichier de sauvegarde actuel
+ * 
+ * \param filename nom de fichier
+ */
+static void openFile_write_new(char * filename){
+    FILE * file;
+    file = fopen (filename, "wb");
+    fclose (file);
+}
+
 
 /**
  * \brief Ouvre un fichier en ajout
@@ -16,7 +27,6 @@
 static FILE * openFile_write(char *filename){
 
     FILE * file;
-
     file = fopen (filename, "ab+");
     return file;
 }
@@ -29,10 +39,9 @@ static FILE * openFile_write(char *filename){
  */
 static FILE * openFile_read(char *filename){
 
-    FILE * outfile;
-
-    outfile = fopen (filename, "rb");
-    return outfile;
+    FILE * infile;
+    infile = fopen (filename, "rb");
+    return infile;
 }
 
 /**
@@ -42,18 +51,19 @@ static FILE * openFile_read(char *filename){
  * \param input objet a sauvegarder
  * \param size taille de l'objet a sauvegarder
  */
-void save_current_game(char * filename, void * input,size_t size){
+int save_current_game(char * filename, void * input,size_t size){
     FILE * outfile = openFile_write(filename);
 
     // write struct to file
-    if(fwrite (input, size, 1, outfile) == 1 )//&& fwrite (input->flags, sizeof(t_joueur_flags), 1, outfile) == 1 && fwrite (input->animation, sizeof(t_animation), 1, outfile) == 1) // && fwrite (input->animation, sizeof(t_joueur), 1, outfile) == 1
+    if(fwrite (input, size, 1, outfile) == 1 )
         printf("contents to file written successfully !\n");
-    else
+    else{
         printf("error writing file !\n");
+        return -1;
+    }
 
-
-    // close file
     fclose (outfile);
+    return 0;
 }
 
 /**
@@ -73,7 +83,7 @@ int read_file_player(char * filename, t_joueur * joueur){
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
 
-    while(fread(tmp, sizeof(t_joueur), 1, infile))
+    fread(tmp, sizeof(t_joueur), 1, infile);
 
     joueur->x = tmp->x;
     joueur->y = tmp->y;
@@ -82,6 +92,7 @@ int read_file_player(char * filename, t_joueur * joueur){
     joueur->vitesse = tmp->vitesse;
 
     fclose (infile);
+    free(tmp);
     return 0;
 
 }
@@ -93,22 +104,18 @@ int read_file_player(char * filename, t_joueur * joueur){
  * \param niveau structure du niveau a charger depuis la sauvegarde
  * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
  */
-niveau_informations_t * read_file_niveau(char * filename, niveau_informations_t * niveau){
-    FILE *infile;
-    infile = fopen (filename, "rb");
-    if (infile == NULL)
-    {
+niveau_informations_t * read_file_niveau(char * filename){
+    FILE *infile = openFile_read(filename);
+    if (infile == NULL){
         fprintf(stderr, "\nError opening file Level\n");
         return NULL;
     }
 
     niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
-
-    while(fread(tmp , sizeof(niveau_informations_t), 1, infile))
+    fread(tmp , sizeof(niveau_informations_t), 1, infile);
 
     fclose (infile);
     return tmp;
-
 }
 
 
@@ -179,4 +186,51 @@ int file_empty(const char* filename)
     fclose(file);
 
     return size;
+}
+
+/**
+ * \brief Fonction de chargement du niveau et du joueur
+ * 
+ * \param joueur joueur
+ * \param niveau niveau
+ * \return int boolen
+ */
+int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau){
+
+    if(file_empty(filename_joueur) == 0){
+        printf("\nFile empty, no save for player");
+        return -1;
+    }else{
+        printf("\nFile not empty -- loading player");
+        read_file_player(filename_joueur,joueur);
+        // print_struct_player(joueur);
+    }
+
+    if(file_empty(filename_niveau) == 0){
+        printf("\nFile empty, no save for level");
+        return -1;
+    }else{
+        printf("\nFile not empty -- loading level");
+        (*niveau) = read_file_niveau(filename_niveau);
+        // print_struct_niveau(*niveau);
+    }
+    return 0;
+}
+
+int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau){
+
+    openFile_write_new(filename_joueur);
+    openFile_write_new(filename_niveau);
+
+    if(save_current_game(filename_joueur,joueur, sizeof(t_joueur))== -1){
+        printf("Erreur de sauvegarde du joueur\n");
+        return -1;
+    }
+
+    if(save_current_game(filename_niveau,niveau, sizeof(niveau_informations_t))){ 
+        printf("Erreur de sauvegarde du joueur\n");
+        return -1;
+    }
+
+    return 0;
 }
