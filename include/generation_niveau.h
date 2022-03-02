@@ -1,14 +1,18 @@
 /**
- * \file algo_generation_niveau.c
+ * \file generation_niveau.h
  * 
- * \brief Test de création de génération aléatoire de niveau (planète)
+ * \brief Librairie de generation.c
  *
- * \author camille
+ * \author Camille REMOUÉ
  *  
  */
 
 #pragma once
  
+
+#ifndef _JEU_GENERATION_NIVEAU_
+#define _JEU_GENERATION_NIVEAU_
+
 
 #define LONGUEUR_NIVEAU_MAX 25
 #define HAUTEUR_NIVEAU_MAX 25
@@ -19,6 +23,7 @@
 
 //Pourcentages de génération des salles
 #define POURCENTAGE_DE_SALLES_GLOBAL 20
+
 
 #define CHANCE_GEN_SALLE_8_VOISINES_LIBRES 100
 #define CHANCE_GEN_SALLE_7_VOISINES_LIBRES 70
@@ -69,6 +74,10 @@ typedef struct {
 
     int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
 
+
+
+    //Positions des salles
+
     int i_dep;
     int j_dep;
     int i_fin;
@@ -78,5 +87,8 @@ typedef struct {
 
 
 
-niveau_informations_t * creer_niveau(const char * nom_fichier, const char * nom_planete);
+niveau_informations_t * creer_niveau(const char * nom_planete);
 void couleur_aleatoire(t_couleurRVB * couleur);
+
+
+#endif // _JEU_GENERATION_NIVEAU
