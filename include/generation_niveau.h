@@ -1,3 +1,14 @@
+/**
+ * \file generation_niveau.h
+ * 
+ * \brief Librairie de generation.c
+ *
+ * \author Camille REMOUÉ
+ *  
+ */
+
+
+
 #ifndef _JEU_GENERATION_NIVEAU_
 #define _JEU_GENERATION_NIVEAU_
 
@@ -11,6 +22,7 @@
 
 //Pourcentages de génération des salles
 #define POURCENTAGE_DE_SALLES_GLOBAL 20
+
 
 #define CHANCE_GEN_SALLE_8_VOISINES_LIBRES 100
 #define CHANCE_GEN_SALLE_7_VOISINES_LIBRES 70
@@ -65,7 +77,7 @@ typedef struct {
 
 
 
-niveau_informations_t * creer_niveau(const char * nom_fichier, const char * nom_planete);
+niveau_informations_t * creer_niveau(const char * nom_planete);
 void couleur_aleatoire(t_couleurRVB * couleur);
 
 

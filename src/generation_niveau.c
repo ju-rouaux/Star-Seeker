@@ -3,7 +3,7 @@
  * 
  * \brief Génération d'un niveau : l'agencement des salles et leurs ids
  *
- * \author Camille
+ * \author Camille REMOUÉ
  *  
  */
 
