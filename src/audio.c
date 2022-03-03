@@ -9,3 +9,10 @@
 
 
 
+void jouer(char * nom_fichier){
+
+
+
+
+    
+}

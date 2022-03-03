@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <partie.h>
@@ -16,11 +17,31 @@ int main(int argc, char * argv[])
         return EXIT_FAILURE;
     }
 
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1){
+
+        printf("Erreur d'initialisation de SDL MIXER : %s\n", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+
+    // Tests audio
+
+    Mix_Music * mus_main_theme;
+
+    mus_main_theme = Mix_LoadMUS("audio/main_menu_V0.mp3");
+
+    Mix_PlayMusic(mus_main_theme, -1);
+
+
     moteur = chargerMoteur(SDL_GetTicks());
 
     chargerPartie(moteur, 1);
 
     detruireMoteur(&moteur);
+
+    Mix_FreeMusic(mus_main_theme);
+
+    Mix_CloseAudio();
 
     return 0;
 
