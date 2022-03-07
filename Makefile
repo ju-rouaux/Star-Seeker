@@ -1,7 +1,7 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lm
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
 
 # Parametres du makefile
 APPNAME = ./bin/save
