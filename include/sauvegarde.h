@@ -13,7 +13,6 @@
 #include <SDL2/SDL.h>
 #include <joueur.h>
 #include <entite.h>
-#include <animation.h>
 #include <generation_niveau.h>
 
 #define filename_joueur "./save/save_joueur.save"

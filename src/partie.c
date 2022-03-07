@@ -197,12 +197,19 @@ int nouvellePartie()
 //Negatif si erreur
 int chargerPartie(t_moteur * moteur, int nouvelle_partie)
 {
+
     t_niveau * niveau = NULL;
     t_joueur * joueur = NULL;
     niveau_informations_t * info = NULL;
     char * nom_planete = "ksdhfsdjoi";
+    int code_chargement; //Code erreur possiblement envoyé par la fonction de chargement 
 
-
+    if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
+    {
+        printf("Le joueur a demandé d'écraser sa sauvegarde, mais relance sa partie. Suppression de sauvegarde annulée.\n");
+        moteur->parametres.reset_sauvegarde_joueur == FAUX;
+    }
+    
     //Créer le joueur
     joueur = creerJoueur(0, 0, moteur->textures->player);
     if(joueur == NULL)
@@ -233,6 +240,7 @@ int chargerPartie(t_moteur * moteur, int nouvelle_partie)
     }
     else
     {
+        code_chargement = chargerSauvegarde(joueur,&info);
         if(chargerSauvegarde(joueur,&info) != 0)
         {
             printf("Impossible de charger la sauvegarde\n");

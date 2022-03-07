@@ -66,6 +66,9 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
+    moteur->parametres.reset_sauvegarde_joueur = FAUX;
+    moteur->parametres.volume_audio = 100;
+
     return moteur;
 }
 

@@ -197,7 +197,7 @@ static int file_empty(const char* filename)
  * 
  * \param joueur joueur
  * \param niveau niveau (NULL si l'on ne souhaite pas charger le niveau)
- * \return 0 si succès, valeur négative si echec.
+ * \return 0 si succès, -1 si le joueur n'a pas de sauvegarde, -2 si la sauvegarde du niveau est vide
  */
 int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau){
 
@@ -214,7 +214,7 @@ int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau){
     {
         if(file_empty(filename_niveau) == 0){
             printf("File empty, no save for level\n");
-            return -1;
+            return -2;
         }else{
             printf("File not empty -- loading level\n");
             (*niveau) = read_file_niveau(filename_niveau);
