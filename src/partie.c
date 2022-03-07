@@ -188,11 +188,60 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 }
 
 
-int nouvellePartie()
+
+//Génère tous les niveaux et la quete, et sauvegarde ça...
+//Prend en param le nobmre de iveaux, et l'adresse d'une matrice d'informations pour le retour
+int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos)
 {
+    int i;
+    niveau_informations_t ** infos = malloc(sizeof(niveau_informations_t*)*nb_niveaux);
+    if(infos == NULL)
+    {
+        printf("Impossible d'allouer la mémoire pour les infos du niveau\n");
+        return -1;
+    }
+    
+    for(i = 0; i < nb_niveaux; i++)
+    {
+        //Générer un nom de niveau ici
+
+        infos[i] = creer_niveau_info("coucou");
+
+        if(infos[i] == NULL)
+        {
+            printf("Echec lors de la génération d'une partie.\n");
+            //Nettoyage mémoire
+            i--;
+            while(i >= 0)
+            {
+                detruire_niveau_info(&infos[i]);
+                i--;
+            }
+            return -1;
+        }
+    }
+    
+    (*adr_infos) = infos;
+}
+
+//Dans l'idéal le nombre de niveau doit être calculé dans cette fonction
+int nouvellePartie(int nb_niveaux)
+{
+    niveau_informations_t ** infos;
+    int retour;
+
+    retour = genererPartie(nb_niveaux, &infos);
+    if(retour != 0)
+    {
+        printf("Impossible de créer une nouvelle partie\n");
+        return -1;
+    }
+
+    //Ici sauvegarder les niveaux
 
     return 0;
 }
+
 
 //Negatif si erreur
 int chargerPartie(t_moteur * moteur, int nouvelle_partie)
@@ -209,7 +258,7 @@ int chargerPartie(t_moteur * moteur, int nouvelle_partie)
         printf("Le joueur a demandé d'écraser sa sauvegarde, mais relance sa partie. Suppression de sauvegarde annulée.\n");
         moteur->parametres.reset_sauvegarde_joueur == FAUX;
     }
-    
+
     //Créer le joueur
     joueur = creerJoueur(0, 0, moteur->textures->player);
     if(joueur == NULL)
