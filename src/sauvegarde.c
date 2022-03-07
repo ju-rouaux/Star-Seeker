@@ -50,6 +50,8 @@ static FILE * openFile_read(char *filename){
  * \param filename nom du fichier
  * \param input objet a sauvegarder
  * \param size taille de l'objet a sauvegarder
+ * 
+ * \return 0 si succès, valeur négative si echec.
  */
 static int save_current_game(char * filename, void * input,size_t size){
     FILE * outfile = openFile_write(filename);
@@ -97,26 +99,6 @@ static int read_file_player(char * filename, t_joueur * joueur){
 
 }
 
-/**
- * \brief  Lis la sauvegarde dans le fichier binaire et met a jour la strcture niveau_informations_t
- * 
- * \param filename nom du fichier
- * \param niveau structure du niveau a charger depuis la sauvegarde
- * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
- */
-static niveau_informations_t * read_file_niveau(char * filename){
-    FILE *infile = openFile_read(filename);
-    if (infile == NULL){
-        fprintf(stderr, "Error opening file Level\n");
-        return NULL;
-    }
-
-    niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
-    fread(tmp , sizeof(niveau_informations_t), 1, infile);
-
-    fclose (infile);
-    return tmp;
-}
 
 
 /**
@@ -223,6 +205,85 @@ int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau){
     }
     return 0;
 }
+
+
+/**
+ * \brief  Lis la sauvegarde dans le fichier binaire et met a jour la strcture niveau_informations_t
+ * 
+ * \param filename nom du fichier
+ * \param niveau structure du niveau a charger depuis la sauvegarde
+ * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
+ */
+static niveau_informations_t * chargerInfosNiveaux(FILE * fichier)
+{
+    int nb_niveaux;
+    niveau_informations_t * tmp = NULL;
+    if(fread(&nb_niveaux, sizeof(int), 1, fichier) != 1)
+    {
+        printf("Erreur lors de la lecture de la sauvegarde\n");
+        return -1;
+    }
+
+    tmp  = malloc(sizeof(niveau_informations_t)*nb_niveaux);
+    if(tmp == NULL)
+    {
+
+    }
+    fread(tmp , sizeof(niveau_informations_t), 1, infile);
+
+    fclose (infile);
+    return tmp;
+}
+
+
+/**
+ * 
+ * 
+ * 
+ */
+int sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux)
+{
+    if(fwrite(&nb_niveaux, sizeof(int), 1, fichier) != 1)
+    {
+        printf("Erreur lors de la sauvegarde des informations sur les niveaux\n");
+        return -1;
+    }
+    for(int i = 0; i < nb_niveaux; i++)
+        if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1)
+        {
+            printf("Erreur lors de la sauvegarde des informations sur les niveaux\n");
+            return -2;
+        }
+    return 0;
+}
+
+
+/**
+ * 
+ * 
+ * 
+ * 
+ */
+int sauvegarderPartie(niveau_informations_t ** niveaux, int nb_niveaux)
+{
+    FILE * fichier = fopen(filename_niveau, "wb");
+    
+    if(sauvegarderInfosNiveaux(fichier, niveaux, nb_niveaux) != 0)
+    {
+        return -1;
+    }
+
+    //Ici sauvegarder entités des salles
+}
+
+
+
+int sauvegarderJoueur(t_joueur * joueur)
+{
+    
+
+}
+
 
 int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau){
 

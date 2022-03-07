@@ -239,6 +239,9 @@ int nouvellePartie(int nb_niveaux)
 
     //Ici sauvegarder les niveaux
 
+
+
+
     return 0;
 }
 
