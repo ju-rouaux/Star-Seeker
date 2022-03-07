@@ -1,8 +1,9 @@
 /**
- * \file sauvegarde.h
- * \author Guillaume
- * \brief Sauvegarde l'etat actuel de certains objets dans un fichier.
- * Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.
+ * \file sauvegarde.c
+ * 
+ * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
+ * 
+ * \author Guillaume Richard & Julien Rouaux
  */
 
 #ifndef _JEU_SAUVEGARDE_
