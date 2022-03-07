@@ -10,7 +10,6 @@ int main(int argc, char * argv[])
 {
     
     t_moteur * moteur = NULL;
-    t_menu * menu = NULL;
 
      if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
@@ -19,7 +18,7 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    menu = chargerMenu(moteur);
+    chargerMenu(moteur);
     SDL_Delay(5000);
     chargerPartie(moteur, 1);
     
