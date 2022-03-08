@@ -12,20 +12,23 @@
 // OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Verifie si le fichier existe et s'il n'est pas vide.
+ * \brief Verifie si le fichier existe et s'il est pas vide
  *
- * \param file flux du fichier
- * 
- * \return la taille du fichier, donc 0 si vide ou inexistant
+ * \param filename nom du fichier
+ * \return int boolen 0 : si vide ou n'existe pas, la taille du ficheir s'il existe
  */
-static int file_empty(FILE * file)
+static int tailleFichier(const char* filename)
 {
+    FILE *file = fopen(filename, "r");
+
     if(file == NULL)
         return 0;
 
     fseek(file, 0, SEEK_END);
+    int size = ftell(file);
+    fclose(file);
 
-    return ftell(file);
+    return size;
 }
 
 // SAUVEGARDE JOUEUR ---------------------------------------------------------------------------------------------
@@ -33,41 +36,33 @@ static int file_empty(FILE * file)
 /**
  * \brief Charge le joueur de ses données de sauvegarde.
  * 
- * Lis la sauvegarde dans le fichier binaire et met a jour la structure t_joueur
+ * Lis la sauvegarde dans le fichier binaire et met à jour la structure t_joueur.
  * 
- * \param joueur structure du joueur a charger depuis la sauvegarde
+ * \param joueur joueur à charger depuis la sauvegarde
  * 
- * \return 0 si succès, valeur négative si echec.
+ * \return SUCCESS ou la nature de l'erreur.
  */
-int chargerJoueur(t_joueur * joueur)
+err_save chargerJoueur(t_joueur * joueur)
 {
+    if(tailleFichier(filename_joueur) == 0)
+        return NO_FILE;
+    
     FILE * fichier = fopen(filename_joueur, "rb");
     if (fichier == NULL)
-    {
-        fprintf(stderr, "Error opening file for player\n");
-        return -1;
-    }
-    if(file_empty(fichier) == 0)
-    {
-        printf("Fichier de sauvegarde du joueur vide\n");
-        fclose(fichier);
-        return -1;
-    }
+        return FOPEN_FAIL;
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
     if(tmp == NULL)
     {
-        printf("L'allocation de mémoire temporaire pour le chargement du joueur a échoué\n");
         fclose(fichier);
-        return -1;
+        return MALLOC_FAIL;
     }
 
     if(fread(tmp, sizeof(t_joueur), 1, fichier) != 1)
     {
-        printf("Erreur lors de la lecture du fichier du joueur\n");
         free(tmp);
         fclose(fichier);
-        return -1;
+        return READ_OR_WRITE_FAIL;
     }
 
     joueur->x = tmp->x;
@@ -79,131 +74,157 @@ int chargerJoueur(t_joueur * joueur)
     free(tmp);
     fclose (fichier);
 
-    return 0;
+    return SUCCESS;
 }
 
 /**
+ * \brief Sauverde le joueur dans son fichier.
  * 
+ * \param joueur joueur à sauvegarder
  * 
- * 
- * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-int sauvegarderJoueur(t_joueur * joueur)
+err_save sauvegarderJoueur(t_joueur * joueur)
 {
     FILE * fichier = fopen(filename_joueur, "wb");
     if(fichier == NULL)
-    {
-        printf("Erreur lors de l'ouverture du fichier de sauvegarde du joueur\n");
-        return -1;
-    }
+        return FOPEN_FAIL;
 
     if(fwrite(joueur, sizeof(t_joueur), 1, fichier) != 1)
     {
-        printf("Erreur lors de l'écriture des donnees du joueur\n");
         fclose(fichier);
-        return -1;
+        return READ_OR_WRITE_FAIL;
     }
 
     fclose(fichier);
+
+    return SUCCESS;
 }
 
 // SAUVEGARDE PARTIE ---------------------------------------------------------------------------------------------
 
 /**
- *
- * Remplie les champs en param
+ * \brief Charge les informations relatives à la structure des niveaux. Les données sont
+ * remplies dans les pointeurs donnés en paramètre.
  * 
+ * \param fichier Le fichier contenant les données
+ * \param infos_niveaux Retour de la matrice des structures de donnée de niveau
+ * \param nb_niveaux Retour du nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge Retour du niveau qui était chargé précédemment
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-static int chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux)
+static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
     niveau_informations_t ** tmp = NULL;
+
+    if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
     if(fread(nb_niveaux, sizeof(int), 1, fichier) != 1)
-    {
-        printf("Erreur lors de la lecture de la sauvegarde\n");
-        return -1;
-    }
+        return READ_OR_WRITE_FAIL;
 
     tmp  = malloc(sizeof(niveau_informations_t)*(*nb_niveaux));
     if(tmp == NULL)
-    {
-        printf("Impossible d'allouer la mémoire pour le chargement de la sauvegarde\n");
-        return -1;
-    }
+        return MALLOC_FAIL;
+
     for(int i = 0; i < (*nb_niveaux); i++)
     {
         if(fread(tmp[i] , sizeof(niveau_informations_t), 1, fichier) != 1)
         {
-            printf("Erreur lors de la lecture de la sauvegarde\n");
             free(tmp);
-            return -1;
+            return READ_OR_WRITE_FAIL;
         }
     }
 
     (*infos_niveaux) = tmp;
 
-    return 0;
+    return SUCCESS;
 }
 
 
 /**
+ * \brief Sauvegarde les informations relatives à la structure des niveaux.
  * 
+ * \param fichier Le fichier contenant les données
+ * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param nb_niveaux Le nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
  * 
- * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-static int sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux)
+static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    if(fwrite(&indice_niveau_charge, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
     if(fwrite(&nb_niveaux, sizeof(int), 1, fichier) != 1)
-    {
-        printf("Erreur lors de la sauvegarde des informations sur les niveaux\n");
-        return -1;
-    }
+        return READ_OR_WRITE_FAIL;
+
     for(int i = 0; i < nb_niveaux; i++)
         if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1)
-        {
-            printf("Erreur lors de la sauvegarde des informations sur les niveaux\n");
-            return -2;
-        }
-    return 0;
+            return READ_OR_WRITE_FAIL;
+
+    return SUCCESS;
 }
 
 
 /**
+ * \brief Sauvegarde les informations relatives à la partie
  * 
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
  * 
+ * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param nb_niveaux Le nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
  * 
- * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-int sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux)
+err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "wb");
     if(fichier == NULL)
-    {
-        printf("Erreur lors de l'ouverture du fichier de sauvegarde de la partie\n");
-        return -1;
-    }
+        return FOPEN_FAIL;
 
-    if(sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux) != 0)
+    retour = sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
+    if(retour != SUCCESS)
     {
         fclose(fichier);
-        return -2;
+        return retour;
     }
 
-    //Ici sauvegarder entités des salles
+    //Ici traitements futurs
 
     fclose(fichier);
-    return 0;
+    return SUCCESS;
 }
 
-int chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux)
+/**
+ * \brief Charge les informations relatives à la partie
+ * 
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * 
+ * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
+ * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'adresse de l'indice du niveau qui est actuellement chargé
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
+    err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "rb");
-    if(chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux) != 0)
-    {
-        printf("Erreur lors du chargement\n");
-        return -1;
-    }
+    if(fichier == NULL)
+        return FOPEN_FAIL;
 
-    return 0;
+    retour = chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
+    if(retour != SUCCESS)
+        return retour;
+
+    //Ici traitements futurs
+
+    return SUCCESS;
 }
 
 
