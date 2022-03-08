@@ -7,7 +7,6 @@
 #include <SDL2/SDL_ttf.h>
 
 
-#define NB_CHOIX 2
 int chargerMenu(t_moteur * moteur);
 
 
