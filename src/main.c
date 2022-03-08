@@ -35,7 +35,8 @@ int main(int argc, char * argv[])
     chargerPartie(moteur, param);
 
     detruireMoteur(&moteur);
-
+    
+    SDL_Quit();
     return 0;
 
 }

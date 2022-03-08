@@ -19,7 +19,9 @@
 #define filename_joueur "./save/save_joueur.save"
 #define filename_niveau "./save/save_niveau.save"
 
-int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau);
-int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau);
+int sauvegarderPartie(niveau_informations_t ** niveaux, int nb_niveaux);
+int sauvegarderJoueur(t_joueur * joueur);
+int chargerJoueur(t_joueur * joueur);
+int chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux);
 
 #endif //_JEU_SAUVEGARDE_

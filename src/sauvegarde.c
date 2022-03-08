@@ -9,35 +9,37 @@
 
 #include <sauvegarde.h>
 
+// OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Verifie si le fichier existe et s'il est pas vide
+ * \brief Verifie si le fichier existe et s'il n'est pas vide.
  *
- * \param filename nom du fichier
- * \return int boolen 0 : si vide ou n'existe pas, la taille du ficheir s'il existe
+ * \param file flux du fichier
+ * 
+ * \return la taille du fichier, donc 0 si vide ou inexistant
  */
-static int file_empty(const char* filename)
+static int file_empty(FILE * file)
 {
-    FILE *file = fopen(filename, "r");
-
     if(file == NULL)
         return 0;
 
     fseek(file, 0, SEEK_END);
-    int size = ftell(file);
-    fclose(file);
 
-    return size;
+    return ftell(file);
 }
 
+// SAUVEGARDE JOUEUR ---------------------------------------------------------------------------------------------
+
 /**
- * \brief Lis la sauvegarde dans le fichier binaire et met a jour la strcture t_joueur
+ * \brief Charge le joueur de ses données de sauvegarde.
  * 
- * \param filename nom du fichier
+ * Lis la sauvegarde dans le fichier binaire et met a jour la structure t_joueur
+ * 
  * \param joueur structure du joueur a charger depuis la sauvegarde
- * \return int boolen
+ * 
+ * \return 0 si succès, valeur négative si echec.
  */
-static int chargerJoueur(t_joueur * joueur)
+int chargerJoueur(t_joueur * joueur)
 {
     FILE * fichier = fopen(filename_joueur, "rb");
     if (fichier == NULL)
@@ -45,17 +47,26 @@ static int chargerJoueur(t_joueur * joueur)
         fprintf(stderr, "Error opening file for player\n");
         return -1;
     }
+    if(file_empty(fichier) == 0)
+    {
+        printf("Fichier de sauvegarde du joueur vide\n");
+        fclose(fichier);
+        return -1;
+    }
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
     if(tmp == NULL)
     {
-        printf("Une allocation de mémoire temporaire pour le chargement du joueur a échoué\n");
+        printf("L'allocation de mémoire temporaire pour le chargement du joueur a échoué\n");
+        fclose(fichier);
         return -1;
     }
 
     if(fread(tmp, sizeof(t_joueur), 1, fichier) != 1)
     {
         printf("Erreur lors de la lecture du fichier du joueur\n");
+        free(tmp);
+        fclose(fichier);
         return -1;
     }
 
@@ -66,46 +77,71 @@ static int chargerJoueur(t_joueur * joueur)
     joueur->vitesse = tmp->vitesse;
 
     free(tmp);
-
     fclose (fichier);
+
     return 0;
 }
 
-
 /**
- * \brief  Lis la sauvegarde dans le fichier binaire et met a jour la strcture niveau_informations_t
  * 
- * \param filename nom du fichier
- * \param niveau structure du niveau a charger depuis la sauvegarde
- * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
+ * 
+ * 
+ * 
  */
-static niveau_informations_t * chargerInfosNiveaux(FILE * fichier)
+int sauvegarderJoueur(t_joueur * joueur)
 {
-    int nb_niveaux;
-    niveau_informations_t ** tmp = NULL;
-    if(fread(&nb_niveaux, sizeof(int), 1, fichier) != 1)
+    FILE * fichier = fopen(filename_joueur, "wb");
+    if(fichier == NULL)
     {
-        printf("Erreur lors de la lecture de la sauvegarde\n");
-        return NULL;
+        printf("Erreur lors de l'ouverture du fichier de sauvegarde du joueur\n");
+        return -1;
     }
 
-    tmp  = malloc(sizeof(niveau_informations_t)*nb_niveaux);
+    if(fwrite(joueur, sizeof(t_joueur), 1, fichier) != 1)
+    {
+        printf("Erreur lors de l'écriture des donnees du joueur\n");
+        fclose(fichier);
+        return -1;
+    }
+
+    fclose(fichier);
+}
+
+// SAUVEGARDE PARTIE ---------------------------------------------------------------------------------------------
+
+/**
+ *
+ * Remplie les champs en param
+ * 
+ */
+static int chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux)
+{
+    niveau_informations_t ** tmp = NULL;
+    if(fread(nb_niveaux, sizeof(int), 1, fichier) != 1)
+    {
+        printf("Erreur lors de la lecture de la sauvegarde\n");
+        return -1;
+    }
+
+    tmp  = malloc(sizeof(niveau_informations_t)*(*nb_niveaux));
     if(tmp == NULL)
     {
         printf("Impossible d'allouer la mémoire pour le chargement de la sauvegarde\n");
-        return NULL;
+        return -1;
     }
-    for(int i = 0; i < nb_niveaux; i++)
+    for(int i = 0; i < (*nb_niveaux); i++)
     {
         if(fread(tmp[i] , sizeof(niveau_informations_t), 1, fichier) != 1)
         {
             printf("Erreur lors de la lecture de la sauvegarde\n");
             free(tmp);
-            return NULL;
+            return -1;
         }
     }
 
-    return tmp;
+    (*infos_niveaux) = tmp;
+
+    return 0;
 }
 
 
@@ -114,7 +150,7 @@ static niveau_informations_t * chargerInfosNiveaux(FILE * fichier)
  * 
  * 
  */
-int sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux)
+static int sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux)
 {
     if(fwrite(&nb_niveaux, sizeof(int), 1, fichier) != 1)
     {
@@ -137,7 +173,7 @@ int sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, in
  * 
  * 
  */
-int sauvegarderPartie(niveau_informations_t ** niveaux, int nb_niveaux)
+int sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux)
 {
     FILE * fichier = fopen(filename_niveau, "wb");
     if(fichier == NULL)
@@ -146,43 +182,32 @@ int sauvegarderPartie(niveau_informations_t ** niveaux, int nb_niveaux)
         return -1;
     }
 
-    if(sauvegarderInfosNiveaux(fichier, niveaux, nb_niveaux) != 0)
+    if(sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux) != 0)
     {
+        fclose(fichier);
         return -2;
     }
 
     //Ici sauvegarder entités des salles
+
+    fclose(fichier);
+    return 0;
 }
 
-
-
-int sauvegarderJoueur(t_joueur * joueur)
+int chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux)
 {
-    FILE * fichier = fopen(filename_joueur, "wb");
-    if(fichier == NULL)
+    FILE * fichier = fopen(filename_niveau, "rb");
+    if(chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux) != 0)
     {
-        printf("Erreur lors de l'ouverture du fichier de sauvegarde du joueur\n");
-        return -1;
-    }
-
-}
-
-
-int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau){
-
-    if(save_current_game(filename_joueur,joueur, sizeof(t_joueur)) != 0){
-        printf("Erreur de sauvegarde du joueur\n");
-        return -1;
-    }
-
-    if(save_current_game(filename_niveau,niveau, sizeof(niveau_informations_t))){ 
-        printf("Erreur de sauvegarde du joueur\n");
+        printf("Erreur lors du chargement\n");
         return -1;
     }
 
     return 0;
 }
 
+
+// DEBUG ---------------------------------------------------------------------------------------------
 
 /**
  * \brief Affiche toutes les informations de la strcuture joueur
