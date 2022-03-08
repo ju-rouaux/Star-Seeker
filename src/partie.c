@@ -188,6 +188,26 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 }
 
 
+static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
+{
+    t_niveau * niveau = moteur->niveau_charge;
+    
+    //Jeu en cours
+    updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+    jouerNiveau(moteur, joueur);
+
+    //Fin de du jeu
+    infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
+    infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
+    sauvegarderJoueur(joueur);
+    sauvegarderPartie(infos_niveaux, nb_niveaux, indice_niveau_charge);
+
+    for(int i = 0; i < nb_niveaux; i++)
+        detruire_niveau_info(&infos_niveaux[i]);
+    free(infos_niveaux);
+    detruireJoueur(&joueur);
+    arreterNiveau(&moteur->niveau_charge);
+}
 
 //Génère tous les niveaux et la quete, et sauvegarde ça...
 //Prend en param le nobmre de iveaux, et l'adresse d'une matrice d'informations pour le retour
@@ -209,7 +229,7 @@ int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos)
 
         if(infos[i] == NULL)
         {
-            printf("Echec lors de la génération d'une partie.\n");
+            printf("Echec lors de la génération d'un niveau.\n");
             //Nettoyage mémoire
             i--;
             while(i >= 0)
@@ -224,27 +244,94 @@ int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos)
     (*adr_infos) = infos;
 }
 
+
 //Dans l'idéal le nombre de niveau doit être calculé dans cette fonction
-int nouvellePartie(int nb_niveaux)
+int nouvellePartie(t_moteur * moteur, int nb_niveaux)
 {
     niveau_informations_t ** infos;
+    t_joueur * joueur = NULL;
     int retour;
 
+    //S'occuper du niveau
     retour = genererPartie(nb_niveaux, &infos);
     if(retour != 0)
     {
-        printf("Impossible de créer une nouvelle partie\n");
+        printf("Impossible de générer une nouvelle partie\n");
         return -1;
     }
 
-    //Ici sauvegarder les niveaux
-    
+    //S'occuper du joueur
+    joueur = creerJoueur(0, 0, moteur->textures->player);
+    if(joueur == NULL)
+    {
+        printf("Le niveau n'a pas pu être chargé\n");
+        for(int i = 0; i < nb_niveaux; i++)
+            detruire_niveau_info(&infos[i]);
+        free(infos);
+        return -1;
+    }
+    if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
+    {   //Ecraser joueur
+        sauvegarderJoueur(joueur);
+        printf("Sauvegarde écrasée.\n");
+        moteur->parametres.reset_sauvegarde_joueur == FAUX;
+    }
+    else
+    {   //Charger joueur
+        if(chargerJoueur(joueur) != 0)
+        {
+            printf("Le niveau n'a pas pu être chargé\n");
+            for(int i = 0; i < nb_niveaux; i++)
+                detruire_niveau_info(&infos[i]);
+            free(infos);
+            detruireJoueur(&joueur);
+            return -1;
+        }
+    }
 
+    //Sauvegarde de la partie générée
+    sauvegarderPartie(infos, nb_niveaux, 0);
 
-
-    return 0;
+    return jouerPartie(moteur, joueur, infos, nb_niveaux, 0);
 }
 
+int lancerPartie(t_moteur * moteur)
+{
+    t_niveau * niveau = NULL;
+    t_joueur * joueur = NULL;
+    niveau_informations_t * info = NULL;
+    int code_chargement; //Code erreur possiblement envoyé par la fonction de chargement 
+
+    if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
+    {
+        printf("Le joueur a demandé d'écraser sa sauvegarde, mais relance sa partie. Suppression de sauvegarde annulée.\n");
+        moteur->parametres.reset_sauvegarde_joueur == FAUX;
+    }
+    
+    //Créer le joueur
+    joueur = creerJoueur(0, 0, moteur->textures->player);
+    if(joueur == NULL)
+    {
+        printf("Le niveau n'a pas pu être chargé\n");
+        return -1;
+    }
+
+    code_chargement = chargerSauvegarde(joueur,&info);
+    if(chargerSauvegarde(joueur,&info) != 0)
+    {
+        printf("Impossible de charger la sauvegarde\n");
+        detruireJoueur(&joueur);
+        return -1;
+    }
+    if(info != NULL && lancerNiveau(moteur, info) != 0)
+    {
+        detruireJoueur(&joueur);
+        detruire_niveau_info(&info);
+        return -1;
+    }
+    niveau = moteur->niveau_charge;
+
+}
 
 //Negatif si erreur
 int chargerPartie(t_moteur * moteur, int nouvelle_partie)
@@ -311,7 +398,6 @@ int chargerPartie(t_moteur * moteur, int nouvelle_partie)
     //Jeu en cours
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
     jouerNiveau(moteur, joueur);
-
 
     //Fin de du jeu
     info->i_dep = niveau->i_charge;
