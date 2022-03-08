@@ -23,11 +23,12 @@
 static void create_rectangle(t_moteur * moteur,char *text, TTF_Font *font, SDL_Texture **texture){
 
     SDL_Surface *surface;
-    SDL_Color textColor = {255, 255, 255, 0};
+    SDL_Color textColor = {255, 0, 255, 0};
 
     surface = TTF_RenderText_Solid(font, text, textColor);
     *texture = SDL_CreateTextureFromSurface(moteur->renderer, surface);
     SDL_FreeSurface(surface);
+
 }
 
 static int update_texture(t_moteur * moteur, SDL_Rect * rect, SDL_Texture * texture, int rect_x, int rect_y){
@@ -40,13 +41,13 @@ static int update_texture(t_moteur * moteur, SDL_Rect * rect, SDL_Texture * text
         printf("Erreur lors de la mise en couleur d'un bouton\n");
         return -1;
     }
+
     if(SDL_RenderDrawRect(moteur->renderer,rect)==1){
         printf("Erreur lors de l'affichage d'un bouton\n");
         return -1;
     }
 
     SDL_RenderCopy(moteur->renderer, texture, NULL, rect);
-    
     return 0;
 }
 
@@ -164,6 +165,7 @@ int chargerMenu(t_moteur * moteur){
 
     initialiserMenu(moteur,nouvelle_partie,continuer,options,quitter,texture_nouvelle_partie,texture_continuer,texture_options,texture_quitter);
     while(handleEvents_menu()==0){
+        SDL_SetRenderDrawColor(moteur->renderer,0,0,0,255);
         SDL_RenderClear(moteur->renderer);
         update_texture(moteur,&nouvelle_partie,texture_nouvelle_partie,moteur->window_width /4 ,moteur->window_height *0.20);
         update_texture(moteur,&continuer,texture_continuer,moteur->window_width /4 ,moteur->window_height *0.4);
