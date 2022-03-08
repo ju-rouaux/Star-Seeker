@@ -68,7 +68,7 @@ static int update_texture(t_moteur * moteur, SDL_Rect * rect, SDL_Texture * text
  * \param texture_quitter 
  * \return int 
  */
-static int initialiserMenu(t_moteur * moteur, SDL_Rect nouvelle_partie,SDL_Rect continuer,SDL_Rect options,SDL_Rect quitter,SDL_Texture *texture_nouvelle_partie,SDL_Texture*texture_continuer,SDL_Texture*texture_options,SDL_Texture*texture_quitter){
+static int initialiserMenu(t_moteur * moteur, SDL_Rect nouvelle_partie,SDL_Rect continuer,SDL_Rect options,SDL_Rect quitter,SDL_Texture **texture_nouvelle_partie,SDL_Texture**texture_continuer,SDL_Texture**texture_options,SDL_Texture**texture_quitter){
 
     TTF_Font *font = TTF_OpenFont("/info/etu/l2info/s204416/Bureau/Star-Seeker/OpenSans-Regular.ttf", 20);
 
