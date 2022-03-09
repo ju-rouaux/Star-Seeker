@@ -5,11 +5,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <menu.h>
 
-#define B_NOUVELLE_GALAXIE "Nouvelle Galaxie"
+#define B_VOLUME "Mute audio"
+#define B_KEYMAP "Keymap"
 #define B_RETOUR "Retour"
 
-int charger_menuNouvellePartie(t_moteur * moteur);
+int charger_menuOptions(t_moteur * moteur);
 
 
 

@@ -6,7 +6,7 @@
 #include <window.h>
 #include <moteur.h>
 #include <menu.h>
-#include <menu_nouv_partie.h>
+#include <menu_options.h>
 
 /**
  * \brief Met a jour la texture d'un bouton
@@ -119,13 +119,13 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bo
                     case SDL_BUTTON_LEFT: /**Bouton gauche*/
                         if(((mouse_x >= nouvelle_partie->rect.x) && (mouse_x <= (nouvelle_partie->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= nouvelle_partie->rect.y) && (mouse_y <= (nouvelle_partie->rect.y + moteur->echelle * 2)))){
                             printf("Nouvelle Partie\n");
-                            charger_menuNouvellePartie(moteur);
                         }
                         if(((mouse_x >= charger_partie->rect.x) && (mouse_x <= (charger_partie->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= charger_partie->rect.y) && (mouse_y <= (charger_partie->rect.y + moteur->echelle * 2)))){
                             printf("Charger Partie");
                         }
                         if(((mouse_x >= options->rect.x)&& (mouse_x <= (options->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= options->rect.y) && (mouse_y <= (options->rect.y + moteur->echelle * 2)))){
                             printf("Options");
+                            charger_menuOptions(moteur);
                         }
                         if(((mouse_x >= quitter->rect.x) && (mouse_x <= (quitter->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= quitter->rect.y) && mouse_y <= (quitter->rect.y + moteur->echelle * 2))){
                             printf("Quitter");
