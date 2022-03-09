@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
+#include <audio.h>
 #include <window.h>
 #include <textures.h>
 #include <camera.h>

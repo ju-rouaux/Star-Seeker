@@ -3,6 +3,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
+#include <audio.h>
 #include <partie.h>
 #include <generation_niveau.h>
 
@@ -24,14 +25,7 @@ int main(int argc, char * argv[])
     }
 
 
-    // Tests audio
-
-    Mix_Music * mus_main_theme;
-
-    mus_main_theme = Mix_LoadMUS("audio/main_menu_V0.mp3");
-
-    Mix_PlayMusic(mus_main_theme, -1);
-
+    chargerAudio();
 
     moteur = chargerMoteur(SDL_GetTicks());
 
@@ -39,9 +33,8 @@ int main(int argc, char * argv[])
 
     detruireMoteur(&moteur);
 
-    Mix_FreeMusic(mus_main_theme);
 
-    Mix_CloseAudio();
+    detruireAudio(musiques, bruitages);
 
     return 0;
 

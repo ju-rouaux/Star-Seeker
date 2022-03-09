@@ -24,6 +24,22 @@
 
 
 
+typedef struct{
+
+    Mix_Music * boiling;
+    Mix_Music * treasure;
+
+} t_bruitages;
+
+
+typedef struct{
+
+    Mix_Music * menu_principal;
+
+
+} t_musiques;
+
+
 
 
 #endif // _JEU_AUDIO_
