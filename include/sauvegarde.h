@@ -13,11 +13,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <joueur.h>
-#include <entite.h>
 #include <generation_niveau.h>
-
-#define filename_joueur "./save/save_joueur.save"
-#define filename_niveau "./save/save_niveau.save"
 
 typedef enum
 {
@@ -26,7 +22,7 @@ typedef enum
 
 err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge);
 err_save sauvegarderJoueur(t_joueur * joueur);
-err_save chargerJoueur(t_joueur * joueur);
-err_save chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge);
+err_save chargerSaveJoueur(t_joueur * joueur);
+err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge);
 
 #endif //_JEU_SAUVEGARDE_

@@ -9,13 +9,17 @@
 
 #include <sauvegarde.h>
 
+#define filename_joueur "./save/save_joueur.save"
+#define filename_niveau "./save/save_niveau.save"
+
 // OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Verifie si le fichier existe et s'il est pas vide
+ * \brief Retourne la taille d'une fichier, utile pour savoir s'il est vide ou s'il existe.
  *
  * \param filename nom du fichier
- * \return int boolen 0 : si vide ou n'existe pas, la taille du ficheir s'il existe
+ * 
+ * \return La taille du fichier.
  */
 static int tailleFichier(const char* filename)
 {
@@ -42,7 +46,7 @@ static int tailleFichier(const char* filename)
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save chargerJoueur(t_joueur * joueur)
+err_save chargerSaveJoueur(t_joueur * joueur)
 {
     if(tailleFichier(filename_joueur) == 0)
         return NO_FILE;
@@ -116,7 +120,8 @@ err_save sauvegarderJoueur(t_joueur * joueur)
  */
 static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
-    niveau_informations_t ** tmp = NULL;
+    niveau_informations_t * tmp = NULL;
+    niveau_informations_t ** infos = NULL;
 
     if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
@@ -124,20 +129,28 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
     if(fread(nb_niveaux, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
 
-    tmp  = malloc(sizeof(niveau_informations_t)*(*nb_niveaux));
-    if(tmp == NULL)
+    infos  = malloc(sizeof(niveau_informations_t*)*(*nb_niveaux));
+    if(infos == NULL)
         return MALLOC_FAIL;
 
     for(int i = 0; i < (*nb_niveaux); i++)
     {
-        if(fread(tmp[i] , sizeof(niveau_informations_t), 1, fichier) != 1)
+        tmp  = malloc(sizeof(niveau_informations_t));
+        if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1)
         {
-            free(tmp);
+            i--;
+            while(i >= 0)
+            {
+                detruire_niveau_info(&infos[i]);
+                i--;
+            }
+            free(infos);
             return READ_OR_WRITE_FAIL;
         }
+        infos[i] = tmp;
     }
 
-    (*infos_niveaux) = tmp;
+    (*infos_niveaux) = infos;
 
     return SUCCESS;
 }
@@ -211,7 +224,7 @@ err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveau
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
+err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
     err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "rb");
