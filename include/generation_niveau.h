@@ -83,5 +83,6 @@ typedef struct {
 
 niveau_informations_t * creer_niveau_info(const char * nom_planete);
 void detruire_niveau_info(niveau_informations_t ** niveau);
+int seed_depuis_mot(const char * mot);
 
 #endif // _JEU_GENERATION_NIVEAU
