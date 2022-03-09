@@ -207,7 +207,7 @@ static void detruireSalle(t_salle ** salle)
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-static t_niveau * chargerNiveau(niveau_informations_t * info)
+static t_niveau * chargerSalles(niveau_informations_t * info)
 {
     //Dimensions du niveau
     int largeur = info->longueur;
@@ -310,6 +310,9 @@ void detruireNiveau(t_niveau ** niveau)
             for(int j = 0; j < (*niveau)->l; j++)
                 if((*niveau)->salles[i*(*niveau)->l + j] != NULL)
                     detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]);
+                    
+        if((*niveau)->collisions != NULL)
+            free((*niveau)->collisions);
         free((*niveau)->salles);
         free((*niveau)->liste_entites); // !!! Detruire liste entité plus proprement
         free(*niveau);
@@ -325,9 +328,9 @@ void detruireNiveau(t_niveau ** niveau)
  * 
  * 
  */
-int lancerNiveau(t_moteur * moteur, niveau_informations_t * info)
+int chargerNiveau(t_moteur * moteur, niveau_informations_t * info)
 {
-    t_niveau * niveau = chargerNiveau(info);
+    t_niveau * niveau = chargerSalles(info);
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");
