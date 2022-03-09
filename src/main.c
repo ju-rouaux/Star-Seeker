@@ -20,7 +20,6 @@ void resetSauvegardeJoueur(t_moteur * moteur)
 
 int main(int argc, char * argv[])
 {
-    int param = 1;
     t_moteur * moteur = NULL;
 
      if(SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -30,9 +29,10 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    if(argc == 2)
-        param = argv[1];
-    chargerPartie(moteur, param);
+    moteur->parametres.reset_sauvegarde_joueur = FAUX;
+
+    nouvellePartie(moteur, 2);
+    //chargerPartie(moteur);
 
     detruireMoteur(&moteur);
     
