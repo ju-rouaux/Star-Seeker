@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -101,7 +102,7 @@ void detruireBouton(t_bouton ** menu){
  * \param charger_partie structure pour le bouton charger_partie
  * \param options structure pour le bouton options
  * \param quitter structure pour le bouton quitter
- * \return int vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
+ * \return int 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
  */
 static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bouton * charger_partie, t_bouton * options,t_bouton * quitter){
 
@@ -117,22 +118,16 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bo
                 switch (e.button.button)
                 {
                     case SDL_BUTTON_LEFT: /**Bouton gauche*/
-                        if(((mouse_x >= nouvelle_partie->rect.x) && (mouse_x <= (nouvelle_partie->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= nouvelle_partie->rect.y) && (mouse_y <= (nouvelle_partie->rect.y + moteur->echelle * 2)))){
-                            printf("Nouvelle Partie\n");
-                        }
-                        if(((mouse_x >= charger_partie->rect.x) && (mouse_x <= (charger_partie->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= charger_partie->rect.y) && (mouse_y <= (charger_partie->rect.y + moteur->echelle * 2)))){
-                            printf("Charger Partie");
-                        }
-                        if(((mouse_x >= options->rect.x)&& (mouse_x <= (options->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= options->rect.y) && (mouse_y <= (options->rect.y + moteur->echelle * 2)))){
-                            printf("Options");
-                            charger_menuOptions(moteur);
-                        }
-                        if(((mouse_x >= quitter->rect.x) && (mouse_x <= (quitter->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= quitter->rect.y) && mouse_y <= (quitter->rect.y + moteur->echelle * 2))){
-                            printf("Quitter");
-                        return 1;
-                        }
+                        if(((mouse_x >= nouvelle_partie->rect.x) && (mouse_x <= (nouvelle_partie->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= nouvelle_partie->rect.y) && (mouse_y <= (nouvelle_partie->rect.y + moteur->echelle * 2))))
+                            return 2;
+                        if(((mouse_x >= charger_partie->rect.x) && (mouse_x <= (charger_partie->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= charger_partie->rect.y) && (mouse_y <= (charger_partie->rect.y + moteur->echelle * 2))))
+                            return 3;
+                        if(((mouse_x >= options->rect.x)&& (mouse_x <= (options->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= options->rect.y) && (mouse_y <= (options->rect.y + moteur->echelle * 2))))
+                            return 4;
+                        if(((mouse_x >= quitter->rect.x) && (mouse_x <= (quitter->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= quitter->rect.y) && mouse_y <= (quitter->rect.y + moteur->echelle * 2)))
+                        return 5;
                         break;
-                    default:printf("Erreur souris\n");
+                    default:return -1;
                 };
                 break;
         case SDL_MOUSEMOTION :
@@ -179,8 +174,10 @@ int chargerMenu(t_moteur * moteur){
     options = initialiserBouton(moteur,B_OPTIONS);
     quitter = initialiserBouton(moteur,B_QUITTER);
 
+    int temp = 0;
 
-    while(handleEvents_menu(moteur,nouvelle_partie,charger_partie,options,quitter)==0){
+
+    while(temp == 0){
         if(SDL_SetRenderDrawColor(moteur->renderer,0,0,0,255) !=0){
             printf("Erreur lors du SDL_SetRenderDrawColor dans le menu");
             return -1;
@@ -207,11 +204,52 @@ int chargerMenu(t_moteur * moteur){
         }
         updateEchelle(moteur);
         SDL_RenderPresent(moteur->renderer);
+        temp = handleEvents_menu(moteur,nouvelle_partie,charger_partie,options,quitter);
+
+
+        switch(temp){
+            case 0 : break;
+            case 1 : 
+            case -1 : {
+                printf("Erreur (default)");
+                detruireBouton(&nouvelle_partie);
+                detruireBouton(&charger_partie);
+                detruireBouton(&options);
+                detruireBouton(&quitter);
+                return -1;
+            }
+            case 5 : {
+                printf("Quitter");
+                detruireBouton(&nouvelle_partie);
+                detruireBouton(&charger_partie);
+                detruireBouton(&options);
+                detruireBouton(&quitter);
+                break;
+            }
+            case 2 : printf("Nouvelle Partie\n");break;
+            case 3 : printf("Charger Partie\n");break;
+            case 4 :{
+                printf("Options\n");
+                detruireBouton(&nouvelle_partie);
+                detruireBouton(&charger_partie);
+                detruireBouton(&options);
+                detruireBouton(&quitter);
+                charger_menuOptions(moteur);
+                break;
+            }
+            default :{
+                printf("Erreur, menu inconnu");
+                detruireBouton(&nouvelle_partie);
+                detruireBouton(&charger_partie);
+                detruireBouton(&options);
+                detruireBouton(&quitter);
+                return -1;
+            }
+    }
 
     }
-    detruireBouton(&nouvelle_partie);
-    detruireBouton(&charger_partie);
-    detruireBouton(&options);
-    detruireBouton(&quitter);
+
+    
+
     return 0;
 }

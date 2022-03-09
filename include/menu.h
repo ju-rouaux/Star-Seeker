@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <moteur.h>
+#include <string.h>
 
 #define B_NOUVELLE_PARTIE "Nouvelle Partie"
 #define B_CHARGER_PARTIE "Charger Partie"
