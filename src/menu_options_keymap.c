@@ -178,7 +178,7 @@ int charger_menuOptions_keymap(t_moteur * moteur){
                 charger_menuOptions(moteur);
                 break;
             }
-            case 2 : printf("Map up\n");temp = 0;break;
+            case 2 : printf("Map up\n");SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT,"En Attente de la touche","Appuyer sur la touche que vous voulez",moteur->window);temp = 0;break;
             case 3 : printf("Map down\n");temp = 0;break;
             case 4 : printf("Map right\n");temp = 0;break;
             case 5 : printf("Map left\n");temp = 0;break;
