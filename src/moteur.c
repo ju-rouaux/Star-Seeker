@@ -94,7 +94,7 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
-        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages)
+        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages);
     }
     free(*moteur);
     *moteur = NULL;

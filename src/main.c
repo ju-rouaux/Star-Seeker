@@ -18,9 +18,10 @@ int main(int argc, char * argv[])
         return EXIT_FAILURE;
     }
 
+
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1){
 
-        printf("Erreur d'initialisation de SDL MIXER : %s\n", SDL_GetError());
+        printf("Erreur d'initialisation de SDL MIXER : %s\n", Mix_GetError());
         return EXIT_FAILURE;
     }
 
