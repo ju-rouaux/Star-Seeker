@@ -61,6 +61,16 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
+    if(chargerAudio(&moteur->musiques, &moteur->bruitages) != 0)
+    {
+        printf("Moteur non chargé\n");
+        detruireCamera(&moteur->camera);
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+
     moteur->temps_precedent = temps;
     moteur->temps = temps;
 
@@ -84,6 +94,7 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
+        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages)
     }
     free(*moteur);
     *moteur = NULL;

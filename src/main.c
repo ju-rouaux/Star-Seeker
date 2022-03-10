@@ -25,16 +25,12 @@ int main(int argc, char * argv[])
     }
 
 
-    chargerAudio();
-
     moteur = chargerMoteur(SDL_GetTicks());
 
     chargerPartie(moteur, 1);
 
     detruireMoteur(&moteur);
 
-
-    detruireAudio(musiques, bruitages);
 
     return 0;
 

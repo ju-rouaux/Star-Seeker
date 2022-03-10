@@ -39,7 +39,7 @@ typedef struct{
 
 } t_musiques;
 
-
-
+int chargerAudio(t_musiques ** musiques, t_bruitages ** bruitages);
+void detruireAudio(t_musiques ** m, t_bruitages ** b);
 
 #endif // _JEU_AUDIO_

@@ -13,6 +13,7 @@
 
 #include <SDL2/SDL.h>
 #include <textures.h>
+#include <audio.h>
 #include <camera.h>
 
 #define NB_FPS 60 /**< Nombre de frames par secondes du jeu */
@@ -36,6 +37,8 @@ typedef struct s_moteur
     SDL_Window * window;
     SDL_Renderer * renderer;
     t_textures * textures;
+    t_bruitages * bruitages;
+    t_musiques * musiques;
     unsigned int temps; /**< Temps au début d'une frame */
     unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
