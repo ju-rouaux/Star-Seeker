@@ -200,7 +200,7 @@ int chargerPartie(t_moteur * moteur, int nouvelle_partie)
     t_niveau * niveau = NULL;
     t_joueur * joueur = NULL;
     niveau_informations_t * info = NULL;
-    char * nom_planete = "iguane";
+    char * nom_planete = "allan";
 
 
     //Créer le joueur
