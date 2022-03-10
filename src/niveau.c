@@ -310,11 +310,10 @@ void detruireNiveau(t_niveau ** niveau)
             for(int j = 0; j < (*niveau)->l; j++)
                 if((*niveau)->salles[i*(*niveau)->l + j] != NULL)
                     detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]);
-                    
-        if((*niveau)->collisions != NULL)
-            free((*niveau)->collisions);
+
+        free((*niveau)->collisions);
         free((*niveau)->salles);
-        free((*niveau)->liste_entites); // !!! Detruire liste entité plus proprement
+        detruire_liste(&(*niveau)->liste_entites);
         free(*niveau);
     }
 

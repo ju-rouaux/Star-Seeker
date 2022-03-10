@@ -24,9 +24,12 @@ typedef struct {
     t_element * ec;
 } t_liste ;
 
+
 void init_liste(t_liste* l);
 
 int liste_vide(t_liste * l);
+
+void detruire_liste(t_liste ** l);
 
 int hors_liste(t_liste * l);
 
