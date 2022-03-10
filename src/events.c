@@ -9,6 +9,7 @@
 #include <SDL2/SDL.h>
 #include <joueur.h>
 #include <menu.h>
+#include <moteur.h>
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
@@ -16,7 +17,7 @@
  * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
  */
 
-int handleEvents(t_joueur * joueur) {
+int handleEvents(t_joueur * joueur, t_moteur * moteur) {
 
     //const char * key_code, * key_name; /**nom de la touche azerty, qwerty*/
     //int mouse_x, mouse_y; /**Coordonnées du curseur*/
@@ -114,6 +115,8 @@ int handleEvents(t_joueur * joueur) {
                     
                     case SDL_SCANCODE_L: //L !!! Temporaire
                         joueur->flags->shooting = 1;
+                    case SDL_SCANCODE_ESCAPE: //ESC
+                        chargerMenu(moteur);
                     
                     default:
                         break;

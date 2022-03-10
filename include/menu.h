@@ -6,6 +6,7 @@
 #include <moteur.h>
 #include <string.h>
 
+#define NB_B_MENU 4
 #define B_NOUVELLE_PARTIE "Nouvelle Partie"
 #define B_CHARGER_PARTIE "Charger Partie"
 #define B_OPTIONS "Options"
@@ -21,8 +22,7 @@ typedef struct s_bouton{
 
 int chargerMenu(t_moteur * moteur);
 int update_texture(t_moteur * moteur, t_bouton * bouton,int rect_x, int rect_y, const char * char_bouton);
-t_bouton * initialiserBouton(t_moteur * moteur, char * bouton);
-void detruireBouton(t_bouton ** menu);
+void detruireBoutons(t_bouton *** boutons, int nb_boutons);
 
 
 

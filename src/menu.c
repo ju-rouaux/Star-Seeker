@@ -47,37 +47,53 @@ int update_texture(t_moteur * moteur, t_bouton * bouton,int rect_x, int rect_y, 
  * \param bouton strcture d'un bouton
  * \return t_bouton* la structure du bouton initialisé
  */
-t_bouton * initialiserBouton(t_moteur * moteur, char * bouton){
+static t_bouton ** initialiserBoutons(t_moteur * moteur){
 
-    t_bouton * menu = malloc(sizeof(t_bouton));
-    if(menu == NULL){
-        printf("Impossible d'allouer la mémoire pour la strcture menu (Nouvelle Partie)\n");
+    t_bouton ** boutons = malloc(sizeof(t_bouton*) * NB_B_MENU);
+    char nom[NB_B_MENU][17] = {B_NOUVELLE_PARTIE,B_CHARGER_PARTIE,B_OPTIONS,B_QUITTER};
+
+    if(*boutons == NULL){
+        printf("Impossible d'allouer la mémoire pour le tableau de boutonl\n");
         return NULL;
     }
 
-    SDL_Surface *surface;
-    SDL_Color textColor = {255, 255, 255, 0};
 
-    TTF_Font *font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);
+    for(int i =0; i < NB_B_MENU;i++){
+        boutons[i] = malloc(sizeof(t_bouton));
 
-    if (font == NULL) {
-        fprintf(stderr, "error: font not found\n");
-        return NULL;
+        if(boutons[i] == NULL){
+            printf("Impossible d'allouer la mémoire pour le bouton[%d] dans le menu principal\n", i);
+            while(i >= 0){
+
+            }
+            return NULL;
+        }
+
+        SDL_Surface *surface;
+        SDL_Color textColor = {255, 255, 255, 0};
+
+        TTF_Font *font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);
+
+        if (font == NULL) {
+            fprintf(stderr, "error: font not found\n");
+            return NULL;
+        }
+
+        boutons[i]->rect.x = 0;
+        boutons[i]->rect.y = 0;
+        boutons[i]->rect.h = 0;
+        boutons[i]->rect.w = 0;
+
+        surface = TTF_RenderText_Solid(font, nom[i], textColor);
+        boutons[i]->texture = SDL_CreateTextureFromSurface(moteur->renderer, surface);
+        SDL_FreeSurface(surface);
+        SDL_SetTextureColorMod(boutons[i]->texture,0,0,255);
+
+        TTF_CloseFont(font);
     }
 
-    menu->rect.x = 0;
-    menu->rect.y = 0;
-    menu->rect.h = 0;
-    menu->rect.w = 0;
 
-    surface = TTF_RenderText_Solid(font, bouton, textColor);
-    menu->texture = SDL_CreateTextureFromSurface(moteur->renderer, surface);
-    SDL_FreeSurface(surface);
-    SDL_SetTextureColorMod(menu->texture,0,0,255);
-
-    TTF_CloseFont(font);
-
-    return menu;
+    return boutons;
 }
 
 
@@ -86,10 +102,19 @@ t_bouton * initialiserBouton(t_moteur * moteur, char * bouton){
  * 
  * \param menu adresse de la structure d'un bouton
  */
-void detruireBouton(t_bouton ** menu){
-    SDL_DestroyTexture((*menu)->texture);
-    free(*menu);
-    *menu = NULL;
+void detruireBoutons(t_bouton *** boutons, int nb_boutons){
+
+    if(*boutons != NULL)
+    {
+        for(int i=0; i < nb_boutons;i++){
+            if((*boutons)[i]!=NULL){
+                SDL_DestroyTexture((*boutons)[i]->texture);
+                free((*boutons)[i]);
+            }
+        }
+        free(*boutons);
+    }
+    *boutons = NULL;
 }
 
 
@@ -104,7 +129,7 @@ void detruireBouton(t_bouton ** menu){
  * \param quitter structure pour le bouton quitter
  * \return int 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
  */
-static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bouton * charger_partie, t_bouton * options,t_bouton * quitter){
+static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons){
 
     int mouse_x, mouse_y; /**Coordonnées du curseur*/
     SDL_Event e;
@@ -118,13 +143,13 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bo
                 switch (e.button.button)
                 {
                     case SDL_BUTTON_LEFT: /**Bouton gauche*/
-                        if(((mouse_x >= nouvelle_partie->rect.x) && (mouse_x <= (nouvelle_partie->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= nouvelle_partie->rect.y) && (mouse_y <= (nouvelle_partie->rect.y + moteur->echelle * 2))))
+                        if(((mouse_x >= boutons[0]->rect.x) && (mouse_x <= (boutons[0]->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= boutons[0]->rect.y) && (mouse_y <= (boutons[0]->rect.y + moteur->echelle * 2))))
                             return 2;
-                        if(((mouse_x >= charger_partie->rect.x) && (mouse_x <= (charger_partie->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= charger_partie->rect.y) && (mouse_y <= (charger_partie->rect.y + moteur->echelle * 2))))
+                        if(((mouse_x >= boutons[1]->rect.x) && (mouse_x <= (boutons[1]->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= boutons[1]->rect.y) && (mouse_y <= (boutons[1]->rect.y + moteur->echelle * 2))))
                             return 3;
-                        if(((mouse_x >= options->rect.x)&& (mouse_x <= (options->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= options->rect.y) && (mouse_y <= (options->rect.y + moteur->echelle * 2))))
+                        if(((mouse_x >= boutons[2]->rect.x)&& (mouse_x <= (boutons[2]->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= boutons[2]->rect.y) && (mouse_y <= (boutons[2]->rect.y + moteur->echelle * 2))))
                             return 4;
-                        if(((mouse_x >= quitter->rect.x) && (mouse_x <= (quitter->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= quitter->rect.y) && mouse_y <= (quitter->rect.y + moteur->echelle * 2)))
+                        if(((mouse_x >= boutons[3]->rect.x) && (mouse_x <= (boutons[3]->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= boutons[3]->rect.y) && mouse_y <= (boutons[3]->rect.y + moteur->echelle * 2)))
                         return 5;
                         break;
                     default:return -1;
@@ -134,21 +159,21 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bo
             /**Recupere les coordonées x et y relative a la fenetre*/
             // printf("\nMouse has moved : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
 
-             if(((mouse_x >= nouvelle_partie->rect.x) && (mouse_x <= (nouvelle_partie->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= nouvelle_partie->rect.y) && (mouse_y <= (nouvelle_partie->rect.y + moteur->echelle * 2))))
-                SDL_SetTextureColorMod(nouvelle_partie->texture,255,0,0);
-            else SDL_SetTextureColorMod(nouvelle_partie->texture,0,0,255);
+             if(((mouse_x >= boutons[0]->rect.x) && (mouse_x <= (boutons[0]->rect.x  + moteur->echelle * (strlen(B_NOUVELLE_PARTIE)/2.5))))&&((mouse_y >= boutons[0]->rect.y) && (mouse_y <= (boutons[0]->rect.y + moteur->echelle * 2))))
+                SDL_SetTextureColorMod(boutons[0]->texture,255,0,0);
+            else SDL_SetTextureColorMod(boutons[0]->texture,0,0,255);
 
-            if(((mouse_x >= charger_partie->rect.x) && (mouse_x <= (charger_partie->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= charger_partie->rect.y) && (mouse_y <= (charger_partie->rect.y + moteur->echelle * 2))))
-                SDL_SetTextureColorMod(charger_partie->texture,255,0,0);
-            else SDL_SetTextureColorMod(charger_partie->texture,0,0,255);
+            if(((mouse_x >= boutons[1]->rect.x) && (mouse_x <= (boutons[1]->rect.x + moteur->echelle * (strlen(B_CHARGER_PARTIE)/2.5))))&&((mouse_y >= boutons[1]->rect.y) && (mouse_y <= (boutons[1]->rect.y + moteur->echelle * 2))))
+                SDL_SetTextureColorMod(boutons[1]->texture,255,0,0);
+            else SDL_SetTextureColorMod(boutons[1]->texture,0,0,255);
 
-            if(((mouse_x >= options->rect.x)&& (mouse_x <= (options->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= options->rect.y) && (mouse_y <= (options->rect.y + moteur->echelle * 2))))
-                SDL_SetTextureColorMod(options->texture,255,0,0);
-            else SDL_SetTextureColorMod(options->texture,0,0,255);
+            if(((mouse_x >= boutons[2]->rect.x)&& (mouse_x <= (boutons[2]->rect.x + moteur->echelle * (strlen(B_OPTIONS)/2.5))))&&((mouse_y >= boutons[2]->rect.y) && (mouse_y <= (boutons[2]->rect.y + moteur->echelle * 2))))
+                SDL_SetTextureColorMod(boutons[2]->texture,255,0,0);
+            else SDL_SetTextureColorMod(boutons[2]->texture,0,0,255);
 
-            if(((mouse_x >= quitter->rect.x) && (mouse_x <= (quitter->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= quitter->rect.y) && mouse_y <= (quitter->rect.y + moteur->echelle * 2)))
-                SDL_SetTextureColorMod(quitter->texture,255,0,0);
-            else SDL_SetTextureColorMod(quitter->texture,0,0,255);
+            if(((mouse_x >= boutons[3]->rect.x) && (mouse_x <= (boutons[3]->rect.x + moteur->echelle * (strlen(B_QUITTER)/2.5))))&&((mouse_y >= boutons[3]->rect.y) && mouse_y <= (boutons[3]->rect.y + moteur->echelle * 2)))
+                SDL_SetTextureColorMod(boutons[3]->texture,255,0,0);
+            else SDL_SetTextureColorMod(boutons[3]->texture,0,0,255);
 
         break;
         }
@@ -164,15 +189,9 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton * nouvelle_partie, t_bo
  */
 int chargerMenu(t_moteur * moteur){
 
-    t_bouton * nouvelle_partie = NULL;
-    t_bouton * charger_partie = NULL;
-    t_bouton * options = NULL;
-    t_bouton * quitter = NULL;
+    t_bouton ** boutons = NULL;
 
-    nouvelle_partie = initialiserBouton(moteur,B_NOUVELLE_PARTIE);
-    charger_partie = initialiserBouton(moteur,B_CHARGER_PARTIE);
-    options = initialiserBouton(moteur,B_OPTIONS);
-    quitter = initialiserBouton(moteur,B_QUITTER);
+    boutons = initialiserBoutons(moteur);
 
     int temp = 0;
 
@@ -186,70 +205,56 @@ int chargerMenu(t_moteur * moteur){
             printf("Erreur lors du SDL_RenderClear dans le menu");
             return -1;
         }
-        if(update_texture(moteur,nouvelle_partie,moteur->window_width /4 ,moteur->window_height *0.08,B_NOUVELLE_PARTIE ) != 0){
+        if(update_texture(moteur,boutons[0],moteur->window_width /4 ,moteur->window_height *0.08,B_NOUVELLE_PARTIE ) != 0){
             printf("Erreur lors de la mise a jour des textures pour le bouton \"Nouvelle Partie\" dans le menu\n");
             return -1;
         }
-        if(update_texture(moteur,charger_partie,moteur->window_width /4 ,moteur->window_height *0.30,B_CHARGER_PARTIE) != 0){
+        if(update_texture(moteur,boutons[1],moteur->window_width /4 ,moteur->window_height *0.30,B_CHARGER_PARTIE) != 0){
             printf("Erreur lors de la mise a jour des textures pour le bouton \"Charger Partie\" dans le menu\n");
             return -1;
         }
-        if(update_texture(moteur,options,moteur->window_width /4 ,moteur->window_height *0.53,B_OPTIONS) != 0){
+        if(update_texture(moteur,boutons[2],moteur->window_width /4 ,moteur->window_height *0.53,B_OPTIONS) != 0){
             printf("Erreur lors de la mise a jour des textures pour le bouton \"Options\" dans le menu\n");
             return -1;
         }
-        if(update_texture(moteur,quitter,moteur->window_width /4 ,moteur->window_height *0.75,B_QUITTER) != 0){
+        if(update_texture(moteur,boutons[3],moteur->window_width /4 ,moteur->window_height *0.75,B_QUITTER) != 0){
             printf("Erreur lors de la mise a jour des textures pour le bouton \"Quitter\" dans le menu\n");
             return -1;
         }
         updateEchelle(moteur);
         SDL_RenderPresent(moteur->renderer);
-        temp = handleEvents_menu(moteur,nouvelle_partie,charger_partie,options,quitter);
+        temp = handleEvents_menu(moteur,boutons);
+
 
 
         switch(temp){
             case 0 : break;
-            case 1 : 
+            case 1 :
             case -1 : {
                 printf("Erreur (default)");
-                detruireBouton(&nouvelle_partie);
-                detruireBouton(&charger_partie);
-                detruireBouton(&options);
-                detruireBouton(&quitter);
+                detruireBoutons(&boutons,NB_B_MENU);
                 return -1;
             }
             case 5 : {
                 printf("Quitter");
-                detruireBouton(&nouvelle_partie);
-                detruireBouton(&charger_partie);
-                detruireBouton(&options);
-                detruireBouton(&quitter);
+              detruireBoutons(&boutons,NB_B_MENU);
                 break;
             }
             case 2 : printf("Nouvelle Partie\n");break;
             case 3 : printf("Charger Partie\n");break;
             case 4 :{
                 printf("Options\n");
-                detruireBouton(&nouvelle_partie);
-                detruireBouton(&charger_partie);
-                detruireBouton(&options);
-                detruireBouton(&quitter);
+                detruireBoutons(&boutons,NB_B_MENU);
                 charger_menuOptions(moteur);
                 break;
             }
             default :{
                 printf("Erreur, menu inconnu");
-                detruireBouton(&nouvelle_partie);
-                detruireBouton(&charger_partie);
-                detruireBouton(&options);
-                detruireBouton(&quitter);
+                detruireBoutons(&boutons,NB_B_MENU);
                 return -1;
             }
-    }
+        }
 
     }
-
-    
-
     return 0;
 }

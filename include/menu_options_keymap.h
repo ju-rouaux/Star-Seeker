@@ -7,11 +7,14 @@
 #include <SDL2/SDL_ttf.h>
 #include <menu.h>
 
+#define NB_B_MENU_OPTIONS_KEYMAP 6
+
 #define B_LEFT "Gauche"
 #define B_RIGHT "Droite"
 #define B_DOWN "Bas"
 #define B_UP "Haut"
 #define B_PROJECTILE "Projectile"
+#define TEST {"bnouton1", "bouton2"}
 
 int charger_menuOptions_keymap(t_moteur * moteur);
 

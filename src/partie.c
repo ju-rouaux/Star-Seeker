@@ -26,7 +26,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
     //printf("cible : %i, x : %f, y : %f, vx : %f, vy : %f, dureevie : %i, vitesse : %f", proj->cible, proj->x, proj->y, proj->direction_vx, proj->direction_vy, proj->duree_de_vie, proj->vitesse);
     //detruireProjectile(&proj);
 
-    while(handleEvents(joueur) != 1)
+    while(handleEvents(joueur,moteur) != 1)
     {
         moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();

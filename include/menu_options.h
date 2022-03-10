@@ -7,6 +7,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <menu.h>
 
+#define NB_B_MENU_OPTIONS 3
 #define B_VOLUME "Mute audio"
 #define B_KEYMAP "Keymap"
 #define B_RETOUR "Retour"

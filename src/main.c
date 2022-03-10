@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    chargerMenu(moteur);
+    // chargerMenu(moteur);
     chargerPartie(moteur, 1);
 
     detruireMoteur(&moteur);
