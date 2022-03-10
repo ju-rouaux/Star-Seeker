@@ -112,12 +112,10 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                     case SDL_SCANCODE_D: //D
                         joueur->flags->to_right = joueur->flags->to_left + 1;
                         break;
-                    
                     case SDL_SCANCODE_L: //L !!! Temporaire
                         joueur->flags->shooting = 1;
                     case SDL_SCANCODE_ESCAPE: //ESC
                         chargerMenu(moteur);
-                    
                     default:
                         break;
                 }
