@@ -123,7 +123,7 @@ char * creer_nom_galaxie(int taille_mot){
 }
 
 
-int creer_noms_planetes(char * nom_galaxie, int nombre, char ** noms_planetes){
+int creer_noms_planetes(char * nom_galaxie, int nombre, char * noms_planetes[]){
 
     srand(seed_depuis_mot(nom_galaxie));
 
@@ -131,7 +131,7 @@ int creer_noms_planetes(char * nom_galaxie, int nombre, char ** noms_planetes){
 
     for (int i = 0; i < nombre; i++){
 
-        (**noms_planetes + i) = creer_nom_galaxie(rand() % 6 + 3);
+        noms_planetes[i] = creer_nom_galaxie(rand() % 6 + 3);
 
     }
 

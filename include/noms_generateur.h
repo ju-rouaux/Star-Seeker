@@ -10,4 +10,4 @@
 
 
 char * creer_nom_galaxie(int taille_mot);
-int creer_noms_planetes(char * nom_galaxie, int nombre);
+int creer_noms_planetes(char * nom_galaxie, int nombre, char * noms_planetes[]);
