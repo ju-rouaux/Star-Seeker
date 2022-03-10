@@ -42,6 +42,7 @@ typedef struct
     int nb_salves; /** Nombre de salves */
     int nb_proj_salve; /** Nombre de projectiles par salves */
     int tir_interval; /** Temps en ms entre le tir de chaque salve */
+    float etalement; /** Angle exprimé en radiant représentant le niveau d'étalement d'une salve de projectiles (ignoré lorsqu'une salve ne contient qu'un projectile) */
 
     //Variables pour l'exécution
 

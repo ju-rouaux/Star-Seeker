@@ -12,29 +12,87 @@
 #include <projectiles.h>
 #include <attaque.h>
 #include <liste.h>
+#include <math.h>
 
 static void attaque_tir_demo(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BALLE;
     attaque->cooldown = 1000;
-    attaque->nb_salves = 5;
-    attaque->nb_proj_salve = 1;
+    attaque->nb_salves = 3;
+    attaque->nb_proj_salve = 3;
     attaque->tir_interval = 100;
+    attaque->etalement = 0.349066;
 }
 
 static void tirer(t_moteur * moteur, t_personnage * personnage)
 {
     t_attaque_tir * attaque = &personnage->attaque_tir_equipee;
-    for(int i = 0; i < attaque->nb_proj_salve; i++)
+    t_projectile * projectile;
+
+    if(attaque->nb_proj_salve > 1)
     {
-        t_projectile * projectile = creerProjectile(attaque->type_projectile, 
+        float angle_proj;
+
+        //Norme du vecteur direction
+        float norme_vect_dirct = sqrt( pow(personnage->direction_vx, 2) + pow(personnage->direction_vy, 2) );
+
+        //Angle en radian du vecteur direction par rapport à l'axe x
+        float angle_vect_dirct = acos(personnage->direction_vx / norme_vect_dirct);
+
+        //Une unité, angle d'un projectile par rapport à l'axe x, si nombre de proj impaire : retirer 1 car ce projectile sera placé sur l'axe de direction
+        float unit_angle_proj = attaque->etalement / (attaque->nb_proj_salve % 2 ? attaque->nb_proj_salve - 1 : attaque->nb_proj_salve);
+        
+        //Partie au dessus de l'axe direction
+        for(int i = 0; i < attaque->nb_proj_salve / 2; i++)
+        { 
+            //Se décaler de i fois l'angle unité par rapport au vecteur direction (si il est positif par rapport à y, ajouter la différence avc l'axe x, sinon soustraire)
+            angle_proj = (i+1) * unit_angle_proj + (personnage->direction_vy > 0 ? angle_vect_dirct : -angle_vect_dirct);
+
+            projectile = creerProjectile(attaque->type_projectile, 
+                                    personnage->x, personnage->y, 
+                                    cos(angle_proj), sin(angle_proj), 
+                                    !personnage->type, //Le type de personnage opposé à celui actuel
+                                    moteur->textures->projectiles);
+            ajout_droit(moteur->liste_entites, projectile);
+        }
+
+        //Projectile au centre si nombre de proj impaire
+        if(attaque->nb_proj_salve % 2)
+        {
+            projectile = creerProjectile(attaque->type_projectile, 
+                                        personnage->x, personnage->y, 
+                                        personnage->direction_vx, personnage->direction_vy, 
+                                        !personnage->type, //Le type de personnage opposé à celui actuel
+                                        moteur->textures->projectiles);
+            ajout_droit(moteur->liste_entites, projectile);
+        }
+
+        //Partie en dessous de l'axe direction
+        for(int i = 0; i < attaque->nb_proj_salve / 2; i++)
+        { 
+            //Se décaler de i fois l'angle unité par rapport au vecteur direction (si il est positif par rapport à y, ajouter la différence avc l'axe x, sinon soustraire)
+            angle_proj = -(i+1) * unit_angle_proj - (personnage->direction_vy < 0 ? angle_vect_dirct : -angle_vect_dirct);
+
+            projectile = creerProjectile(attaque->type_projectile, 
+                                    personnage->x, personnage->y, 
+                                    cos(angle_proj), sin(angle_proj), 
+                                    !personnage->type, //Le type de personnage opposé à celui actuel
+                                    moteur->textures->projectiles);
+            ajout_droit(moteur->liste_entites, projectile);
+        }
+    }
+    
+    else //Simple tir
+    {
+        projectile = creerProjectile(attaque->type_projectile, 
                                     personnage->x, personnage->y, 
                                     personnage->direction_vx, personnage->direction_vy, 
                                     !personnage->type, //Le type de personnage opposé à celui actuel
                                     moteur->textures->projectiles);
-        ajout_gauche(moteur->liste_entites, projectile);
-        suivant(moteur->liste_entites);
+        ajout_droit(moteur->liste_entites, projectile);
     }
+
+    
 }
 
 //Changer le type en personnage quand ce sera pret
