@@ -6,164 +6,176 @@
  */
 
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <string.h>
+
 #include <SDL2/SDL.h>
+
 #include <SDL2/SDL_image.h>
+
 #include <SDL2/SDL_ttf.h>
+
 #include <window.h>
+
 #include <moteur.h>
+
 #include <menu.h>
+
 #include <menu_options.h>
 
 /**
- * \brief Fonction d'appel pour la mise a jour des differentes textures
+ * \brief Met a jour la texture de chacun des boutons passé en paramètre
  * 
  * \param moteur moteur du jeu
- * \param boutons tableau de bouton
- * \return 0 si succès; negatif si echec
+ * \param boutons tableau de boutons
+ * \param nb_boutons nombre de boutons
+ * \return 0 si succès, negatif si echec 
  */
-static int update_Menu(t_moteur * moteur, t_bouton ** boutons){
+int maj_TextureMenu(t_moteur * moteur, t_bouton ** boutons, int nb_boutons) {
 
-    if(SDL_SetRenderDrawColor(moteur->renderer,0,0,0,255) !=0){
+    if (SDL_SetRenderDrawColor(moteur -> renderer, 0, 0, 0, 255) != 0) {
         printf("Erreur lors du SDL_SetRenderDrawColor dans le menu");
-        return -1;
+        return -1;//Retourne cas d'erreur
     }
-    if(SDL_RenderClear(moteur->renderer)!=0){
+    if (SDL_RenderClear(moteur -> renderer) != 0) {
         printf("Erreur lors du SDL_RenderClear dans le menu");
-        return -1;
+        return -1;//Retourne cas d'erreur
     }
-    if(update_texture(moteur,boutons[0],moteur->window_width /4 ,moteur->window_height *0.08) != 0){
-        printf("Erreur lors de la mise a jour des textures pour le bouton \"Nouvelle Partie\" dans le menu\n");
-        return -1;
-    }
-    if(update_texture(moteur,boutons[1],moteur->window_width /4 ,moteur->window_height *0.30) != 0){
-        printf("Erreur lors de la mise a jour des textures pour le bouton \"Charger Partie\" dans le menu\n");
-        return -1;
-    }
-    if(update_texture(moteur,boutons[2],moteur->window_width /4 ,moteur->window_height *0.53) != 0){
-        printf("Erreur lors de la mise a jour des textures pour le bouton \"Options\" dans le menu\n");
-        return -1;
-    }
-    if(update_texture(moteur,boutons[3],moteur->window_width /4 ,moteur->window_height *0.75) != 0){
-        printf("Erreur lors de la mise a jour des textures pour le bouton \"Quitter\" dans le menu\n");
-        return -1;
-    }
-    updateEchelle(moteur);
-    SDL_RenderPresent(moteur->renderer);
 
-    return 0;
-
+    for (int i = 0; i < nb_boutons; i++) {
+        if (nb_boutons > 4) {
+            if (i < (nb_boutons / 2)) //On divise par 2 le nombre de boutons pour les mettres sur 2 colonnes et on met la premiere moité sur une premiere colonne
+            {
+                if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 5, moteur -> window_height * (float)(i + 0.2) / ((nb_boutons + 1) / 2)) != 0) {
+                    printf("Erreur update texture bouton\n");
+                    return -1;//Retourne cas d'erreur
+                }
+            } else if (i >= (nb_boutons / 2)) //on repartie la deuxieme moitié des boutons sur la 2eme colonne
+            {
+                if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 2, moteur -> window_height * (float)(i + 0.2 - (nb_boutons / 2)) / ((nb_boutons + 1) / 2)) != 0) {
+                    printf("Erreur update texture bouton\n");
+                    return -1;//Retourne cas d'erreur
+                }
+            }
+        } else if (nb_boutons <= 4) //Si il y a peu de bouton, on les mets tous sur une meme colonne
+        {
+            if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 4, moteur -> window_height * (float)(i + 0.5) / (nb_boutons + 0.5)) != 0) {
+                printf("Erreur update texture bouton\n");
+                return -1;//Retourne cas d'erreur
+            }
+        }
+    }
+    updateEchelle(moteur);//on met a jour l'echelle
+    SDL_RenderPresent(moteur -> renderer);
+    return 0;//Retourne cas de succès
 }
-
 
 /**
  * \brief Met a jour la texture d'un bouton
  * 
  * \param moteur structure du moteur
  * \param bouton structure d'un bouton
- * \param rect_x coordonées x en haut a gauche du rectangle (origine du rectangle en x)
- * \param rect_y coordonées y en haut a gauche du rectangle (origine du rectangle en y)
- * \param char_bouton Nom du bouton
+ * \param rect_x coordonées x en haut a gauche du bouton (origine du rectangle en x)
+ * \param rect_y coordonées y en haut a gauche du bouton (origine du rectangle en y)
  * \return int 0 si succès, negatif si echec
  */
-int update_texture(t_moteur * moteur, t_bouton * bouton,int rect_x, int rect_y){
+int update_textureBouton(t_moteur * moteur, t_bouton * bouton, int rect_x, int rect_y) {
 
-    bouton->rect.x = rect_x - (bouton->longueur*10);
-    bouton->rect.y = rect_y;
-    bouton->rect.w = moteur->echelle * (bouton->longueur/2.5);
-    bouton->rect.h = moteur->echelle * 2;
+    bouton -> rect.x = rect_x - (bouton -> longueur * 10); //Maj des coordonnées x du bouton
+    bouton -> rect.y = rect_y;//Maj des coordonnées x du bouton
+    bouton -> rect.w = moteur -> echelle * (bouton -> longueur / 2.5); //Maj de la longeur du bouton selon l'echelle
+    bouton -> rect.h = moteur -> echelle * 2;//Maj de la largeur du bouton selon l'echelle
 
-    if(SDL_RenderDrawRect(moteur->renderer,&bouton->rect)!=0){
+    if (SDL_RenderDrawRect(moteur -> renderer, & bouton -> rect) != 0) {
         printf("Erreur lors de l'affichage d'un bouton\n");
-        return -1;
+        return -1;//Retourne cas d'erreur'
     }
 
-    if(SDL_RenderCopy(moteur->renderer, bouton->texture, NULL, &bouton->rect)!=0){
+    if (SDL_RenderCopy(moteur -> renderer, bouton -> texture, NULL, & bouton -> rect) != 0) {
         printf("Erreur du SDL_RenderCopy dans le menu\n");
-        return -1;
+        return -1;//Retourne cas d'erreur'
     }
-    return 0;
+    return 0;//Retourne cas de succès
 }
-
 
 /**
  * \brief Initalise un bouton en allouant la memoire et en initialisant ses données
  * 
  * \param moteur structure du moteur
+ * \param nb_boutons nombre de boutons
+ * \param nom_boutons tableau de nom des différents boutons
  * \return tableau de boutons initialisés
  */
-t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_boutons[][TAILLE_MAX]){
+t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_boutons[][TAILLE_MAX]) {
 
-    t_bouton ** boutons = malloc(sizeof(t_bouton*) * nb_boutons);
+    t_bouton ** boutons = malloc(sizeof(t_bouton * ) * nb_boutons); //Allocation dynamique selon le nombre de boutons
 
-    if(*boutons == NULL){
+    if ( * boutons == NULL) {
         printf("Impossible d'allouer la mémoire pour le tableau de boutonl\n");
-        return NULL;
+        return NULL;//Retourne cas d'erreur
     }
 
-
-    for(int i =0; i < nb_boutons;i++){
+    for (int i = 0; i < nb_boutons; i++) {//Parcours de tout les boutons
         boutons[i] = malloc(sizeof(t_bouton));
 
-        if(boutons[i] == NULL){
+        if (boutons[i] == NULL) {
             printf("Impossible d'allouer la mémoire pour le bouton[%d] dans le menu principal\n", i);
-            while(i >= 0){
-
-            }
             return NULL;
         }
 
-        SDL_Surface *surface;
-        SDL_Color textColor = {255, 255, 255, 0};
+        SDL_Surface * surface;
+        SDL_Color textColor = { //defenition de la couleur d'origine du texte
+            255,
+            255,
+            255,
+            0
+        };
 
-        TTF_Font *font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);
+        TTF_Font * font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
 
         if (font == NULL) {
             fprintf(stderr, "error: font not found\n");
             return NULL;
         }
 
-        boutons[i]->rect.x = 0;
-        boutons[i]->rect.y = 0;
-        boutons[i]->rect.h = 0;
-        boutons[i]->rect.w = 0;
-        boutons[i]->longueur = strlen(nom_boutons[i]);
+        boutons[i] -> rect.x = 0; //Initialisation des valeurs a 0
+        boutons[i] -> rect.y = 0;
+        boutons[i] -> rect.h = 0;
+        boutons[i] -> rect.w = 0;
+        boutons[i] -> longueur = strlen(nom_boutons[i]);//Initialisation de la longeur selon le nombre de lettres
 
         surface = TTF_RenderText_Solid(font, nom_boutons[i], textColor);
-        boutons[i]->texture = SDL_CreateTextureFromSurface(moteur->renderer, surface);
-        SDL_FreeSurface(surface);
-        SDL_SetTextureColorMod(boutons[i]->texture,0,0,255);
+        boutons[i] -> texture = SDL_CreateTextureFromSurface(moteur -> renderer, surface);
+        SDL_FreeSurface(surface);//Destruction de la surface
+        SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
 
         TTF_CloseFont(font);
     }
 
-
-    return boutons;
+    return boutons;//retourne le tableau de boutons
 }
-
 
 /**
  * \brief Libère la memoire allouée par la structure d'un boutons, met son pointeur a NULL et libere la texture du bouton
  * 
- * \param boutons tableau de bouton
+ * \param boutons adresse du tableau de boutons
  * \param nb_boutons nombre de boutons
  */
-void detruireBoutons(t_bouton *** boutons, int nb_boutons){
+void detruireBoutons(t_bouton *** boutons, int nb_boutons) {
 
-    if(*boutons != NULL)
-    {
-        for(int i=0; i < nb_boutons;i++){
-            if((*boutons)[i]!=NULL){
-                SDL_DestroyTexture((*boutons)[i]->texture);
-                free((*boutons)[i]);
+    if ( * boutons != NULL) {
+        for (int i = 0; i < nb_boutons; i++) {//parcours des boutons
+            if (( * boutons)[i] != NULL) {
+                SDL_DestroyTexture(( * boutons)[i] -> texture);//Desctruction de la texture
+                free(( * boutons)[i]);//liberation de la memoire
             }
         }
-        free(*boutons);
+        free( * boutons);
     }
-    *boutons = NULL;
+    * boutons = NULL;//Mise a NULL 
 }
-
 
 /**
  * \brief Gere les evenements pour le menu
@@ -173,35 +185,37 @@ void detruireBoutons(t_bouton *** boutons, int nb_boutons){
  * \param boutons tableau de boutons
  * \return int 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
  */
-static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons){
+static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
 
     int mouse_x, mouse_y; /**Coordonnées du curseur*/
     SDL_Event e;
 
-    while(SDL_PollEvent(&e)){
-        mouse_x = e.button.x, mouse_y = e.button.y;
-        switch (e.type){
-            case SDL_QUIT:
-                return 1;
-            case SDL_MOUSEBUTTONDOWN :
-                switch (e.button.button)
-                {
-                    case SDL_BUTTON_LEFT:
-                        for(int i = 0; i < NB_B_MENU ; i++){
-                            if(((mouse_x >= boutons[i]->rect.x) && (mouse_x <= (boutons[i]->rect.x  + moteur->echelle * (boutons[i]->longueur/2.5))))&&((mouse_y >= boutons[i]->rect.y) && (mouse_y <= (boutons[i]->rect.y + moteur->echelle * 2))))
-                                return i + 2;
-                        }
-                        break;
-                    default:return -1;
-                }break;
-            case SDL_MOUSEMOTION : {
-
-                for(int  i = 0; i < NB_B_MENU ; i++){
-                    if(((mouse_x >= boutons[i]->rect.x) && (mouse_x <= (boutons[i]->rect.x  + moteur->echelle * (boutons[i]->longueur/2.5))))&&((mouse_y >= boutons[i]->rect.y) && (mouse_y <= (boutons[i]->rect.y + moteur->echelle * 2))))
-                        SDL_SetTextureColorMod(boutons[i]->texture,255,0,0);
-                    else SDL_SetTextureColorMod(boutons[i]->texture,0,0,255);
+    while (SDL_PollEvent( & e)) {
+        mouse_x = e.button.x, mouse_y = e.button.y; /*Mise a jour de la position du curseur*/
+        switch (e.type) {
+        case SDL_QUIT:
+            return 1;
+        case SDL_MOUSEBUTTONDOWN:
+            switch (e.button.button) {
+            case SDL_BUTTON_LEFT:
+                for (int i = 0; i < NB_B_MENU; i++) {
+                    if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2))))
+                        return i + 2;
                 }
-            }break;
+                break;
+            default:
+                return -1;
+            }
+            break;
+        case SDL_MOUSEMOTION: {
+
+            for (int i = 0; i < NB_B_MENU; i++) {
+                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2))))
+                    SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
+                else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
+            }
+        }
+        break;
 
         }
     }
@@ -214,55 +228,59 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons){
  * \param moteur Structure du moteur
  * \return int 0 si succès, negatif si echec
  */
-int chargerMenu(t_moteur * moteur){
+int chargerMenu(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
     char nom_boutons[NB_B_MENU][TAILLE_MAX] = NOMS_B_MENU;
 
-    boutons = initialiserBoutons(moteur,NB_B_MENU,nom_boutons);
+    boutons = initialiserBoutons(moteur, NB_B_MENU, nom_boutons);
 
-    if(boutons == NULL){
+    if (boutons == NULL) {
         printf("Erreur allocation memoire boutons\n");
         return -1;
     }
 
     int temp = 0;
 
+    while (temp == 0) {
 
-    while(temp == 0){
-
-        if(update_Menu(moteur,boutons)!=0){
+        if (maj_TextureMenu(moteur, boutons, NB_B_MENU) != 0) {
             printf("Erreur lors de l'update dans le menu principal");
             return -1;
         }
-        temp = handleEvents_menu(moteur,boutons);
+        temp = handleEvents_menu(moteur, boutons);
 
-        switch(temp){
-            case 0 : break;
-            case 1 :
-            case -1 : {
-                printf("Erreur (default)");
-                detruireBoutons(&boutons,NB_B_MENU);
-                return -1;
-            }
-            case 2 : printf("Nouvelle Partie\n");break;
-            case 3 : printf("Charger Partie\n");break;
-            case 4 :{
-                printf("Options\n");
-                detruireBoutons(&boutons,NB_B_MENU);
-                chargerMenu_Options(moteur);
-                break;
-            }
-            case 5 : {
-                printf("Quitter");
-                detruireBoutons(&boutons,NB_B_MENU);
-                break;
-            }
-            default :{
-                printf("Erreur, menu inconnu");
-                detruireBoutons(&boutons,NB_B_MENU);
-                return -1;
-            }
+        switch (temp) {
+        case 0:
+            break;
+        case 1:
+        case -1: {
+            printf("Erreur (default)");
+            detruireBoutons( & boutons, NB_B_MENU);
+            return -1;
+        }
+        case 2:
+            printf("Nouvelle Partie\n");
+            break;
+        case 3:
+            printf("Charger Partie\n");
+            break;
+        case 4: {
+            printf("Options\n");
+            detruireBoutons( & boutons, NB_B_MENU);
+            chargerMenu_Options(moteur);
+            break;
+        }
+        case 5: {
+            printf("Quitter");
+            detruireBoutons( & boutons, NB_B_MENU);
+            break;
+        }
+        default: {
+            printf("Erreur, menu inconnu");
+            detruireBoutons( & boutons, NB_B_MENU);
+            return -1;
+        }
         }
     }
     return 0;
