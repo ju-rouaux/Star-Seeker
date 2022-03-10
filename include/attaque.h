@@ -18,8 +18,10 @@
 #ifndef _JEU_ATTAQUE_
 #define _JEU_ATTAQUE_
 
+#include <moteur.h>
 #include <projectiles.h>
 
+typedef struct s_personnage t_personnage; //Pour les prototypes de fonction
 
 typedef enum
 {
@@ -36,10 +38,10 @@ typedef struct
     //Définition de l'attaque de tir
 
     e_type_projectile type_projectile;
-    int cooldown; /** Temps avant de pouvoir réutiliser l'attaque */
+    int cooldown; /** Temps en ms avant de pouvoir réutiliser l'attaque */
     int nb_salves; /** Nombre de salves */
     int nb_proj_salve; /** Nombre de projectiles par salves */
-    int tir_interval; /** Temps entre le tir de chaque salve */
+    int tir_interval; /** Temps en ms entre le tir de chaque salve */
 
     //Variables pour l'exécution
 
@@ -61,5 +63,6 @@ typedef struct
 } t_attaque_corps;
 
 void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque);
+void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaque_desiree);
 
 #endif //_JEU_ATTAQUE_

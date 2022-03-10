@@ -115,14 +115,17 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else
         joueur->animation->vitesse = 250;
     
+    updateAttaqueTir(moteur, joueur, joueur->flags->shooting);
+    /*
     if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
     {
         t_projectile * balle = creerProjectile(BALLE, joueur->x, joueur->y, joueur->direction_vx, joueur->direction_vy, E_MONSTRE, moteur->textures->projectiles);
-        en_queue(moteur->niveau_charge->liste_entites);
+        en_queue(moteur->liste_entites);
         if(balle != NULL)
-            ajout_droit(moteur->niveau_charge->liste_entites, (t_entite*) balle);
+            ajout_droit(moteur->liste_entites, (t_entite*) balle);
+        
     }
-    
+    */
 
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
 

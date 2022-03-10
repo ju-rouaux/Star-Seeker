@@ -16,7 +16,6 @@
 #include <textures.h> //Pour découper une texture
 #include <animation.h>
 #include <entite.h>
-#include <liste.h>
 #include <niveau.h>
 
 
