@@ -23,6 +23,7 @@
 #define TAILLE_MAX 17
 
 #define NB_B_MENU 4
+#define LARGEUR(i) (boutons[i]->largeur)
 
 #define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Options","Quitter"}
 

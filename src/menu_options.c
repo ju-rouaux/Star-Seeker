@@ -76,10 +76,10 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
  */
 int chargerMenu_Options(t_moteur * moteur) {
 
-    t_bouton ** boutons = NULL;
+    t_bouton ** boutons = NULL; //tableau de bouton
     char noms_boutons[NB_B_MENU_OPTIONS][TAILLE_MAX] = NOMS_B_MENU_OPTIONS;
 
-    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS, noms_boutons);
+    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS, noms_boutons); //initialisation du tableau de boutons et allocation de la memoire necessaire
 
     if (boutons == NULL) {
         printf("Erreur allocation memoire boutons options\n");
@@ -90,15 +90,15 @@ int chargerMenu_Options(t_moteur * moteur) {
 
     while (temp == 0) {
 
-        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS) != 0) {
+        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS) != 0) {//mise a jour des textures 
             printf("Erreur lors de l'update dans le menu options");
             return -1;
         }
 
         temp = handleEvents_options(moteur, boutons);
 
-        switch (temp) {
-        case 0:
+        switch (temp) {//Selon le resultat de l'event
+        case 0: //pour rester sur le menu actuel (on ne fait rien)
             break;
         case 1:
         case -1: {
@@ -108,7 +108,7 @@ int chargerMenu_Options(t_moteur * moteur) {
         }
         case 2: {
             printf("Muet (on/off)\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         }
         case 3: {

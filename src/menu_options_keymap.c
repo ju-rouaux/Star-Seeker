@@ -53,7 +53,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
                         if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2)))) {
                             while (SDL_WaitEvent( & e) && e.type != SDL_KEYDOWN) {
                                 key = e.key.keysym.scancode;
-                                maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);
+                                maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);//mise a jour des textures 
                             }
                             SDL_SetTextureColorMod(boutons[i] -> texture, 8, 125, 0);
                             return (i + 2);
@@ -87,10 +87,10 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
  */
 int chargerMenu_Options_keymap(t_moteur * moteur) {
 
-    t_bouton ** boutons = NULL;
+    t_bouton ** boutons = NULL;//tableau de bouton
     char nom_boutons[NB_B_MENU_OPTIONS_KEYMAP][TAILLE_MAX] = NOMS_B_MENU_OPTIONS_KEYMAP;
 
-    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS_KEYMAP, nom_boutons);
+    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS_KEYMAP, nom_boutons);//initialisation du tableau de boutons et allocation de la memoire necessaire
 
     if (boutons == NULL) {
         printf("Erreur allocation memoire boutons menu keymap\n");
@@ -101,7 +101,7 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
 
     while (temp == 0) {
 
-        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP) != 0) {
+        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP) != 0) {//mise a jour des textures 
             printf("Erreur lors de l'update dans le menu options keymap");
             return -1;
         }
@@ -119,23 +119,23 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
         }
         case 2:
             printf("Map up\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         case 3:
             printf("Map down\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         case 4:
             printf("Map right\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         case 5:
             printf("Map left\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         case 6:
             printf("Map projectile\n");
-            temp = 0;
+            temp = 0;//pour rester sur le menu actuel
             break;
         case 7: {
             printf("Retour\n");

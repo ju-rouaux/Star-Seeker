@@ -47,20 +47,20 @@ int maj_TextureMenu(t_moteur * moteur, t_bouton ** boutons, int nb_boutons) {
     for (int i = 0; i < nb_boutons; i++) {
         if (nb_boutons > 4) {
             if (i < (nb_boutons / 2)) //On divise par 2 le nombre de boutons pour les mettres sur 2 colonnes et on met la premiere moité sur une premiere colonne
-            {
+            {                                                                                                      //utiliser pour definir l'espacement entre les boutons
                 if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 5, moteur -> window_height * (float)(i + 0.2) / ((nb_boutons + 1) / 2)) != 0) {
-                    printf("Erreur update texture bouton\n");
+                    printf("Erreur update texture bouton\n");                                                       //i + cste pour commencer a i !=0 et 
                     return -1;//Retourne cas d'erreur
                 }
             } else if (i >= (nb_boutons / 2)) //on repartie la deuxieme moitié des boutons sur la 2eme colonne
-            {
+    {                                                                                                               //utiliser pour definir l'espacement entre les boutons
                 if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 2, moteur -> window_height * (float)(i + 0.2 - (nb_boutons / 2)) / ((nb_boutons + 1) / 2)) != 0) {
                     printf("Erreur update texture bouton\n");
                     return -1;//Retourne cas d'erreur
                 }
             }
         } else if (nb_boutons <= 4) //Si il y a peu de bouton, on les mets tous sur une meme colonne
-        {
+        {                                                                                                       //utiliser pour definir l'espacement entre les boutons
             if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 4, moteur -> window_height * (float)(i + 0.5) / (nb_boutons + 0.5)) != 0) {
                 printf("Erreur update texture bouton\n");
                 return -1;//Retourne cas d'erreur
