@@ -1,12 +1,3 @@
-/*
-
-
-    EN DEVELOPPEMENT
-
-
-
-*/
-
 /**
  * \file attaque.h
  * 
@@ -64,6 +55,6 @@ typedef struct
 } t_attaque_corps;
 
 void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque);
-void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaque_desiree);
+void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaquer);
 
 #endif //_JEU_ATTAQUE_

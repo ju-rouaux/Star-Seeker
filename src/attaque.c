@@ -1,33 +1,54 @@
-/*
-
-
-    EN DEVELOPPEMENT
-
-
-
-*/
+/**
+ * \file attaque.h
+ * 
+ * \brief Module gérant les attaques des personnages
+ * 
+ * \author Julien Rouaux
+ */
 
 #include <moteur.h>
 #include <personnage.h>
 #include <projectiles.h>
-#include <attaque.h>
 #include <liste.h>
 #include <math.h>
+#include <attaque.h>
 
-static void attaque_tir_demo(t_attaque_tir * attaque)
+// -----------------------
+
+//Liste des attaques disponibles
+#include <definitions/definitions_attaques_tir.h>
+
+// -----------------------
+
+
+/**
+ * \brief Ajoute un projectile à la liste sans perturber son fonctionnement.
+ * 
+ * \param liste La liste où ajouter le projectile
+ * \param projectile Le projectile à ajouter
+ */
+static void ajouter_proj_liste(t_liste * liste, t_projectile * projectile)
 {
-    attaque->type_projectile = BALLE;
-    attaque->cooldown = 1000;
-    attaque->nb_salves = 3;
-    attaque->nb_proj_salve = 3;
-    attaque->tir_interval = 100;
-    attaque->etalement = 0.349066;
+    if(projectile != NULL)
+    {
+        ajout_gauche(liste, (t_entite*) projectile);
+        suivant(liste);
+        if(hors_liste(liste))
+            en_queue(liste);
+    }
 }
 
+
+/**
+ * \brief Génère autant de projectiles définis dans l'attaque du personnage.
+ * 
+ * \param moteur Le moteur du jeu
+ * \param personnage Le personnage exécutant l'attaque
+ */
 static void tirer(t_moteur * moteur, t_personnage * personnage)
 {
     t_attaque_tir * attaque = &personnage->attaque_tir_equipee;
-    t_projectile * projectile;
+    t_projectile * projectile = NULL;
 
     if(attaque->nb_proj_salve > 1)
     {
@@ -53,7 +74,8 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
                                     cos(angle_proj), sin(angle_proj), 
                                     !personnage->type, //Le type de personnage opposé à celui actuel
                                     moteur->textures->projectiles);
-            ajout_droit(moteur->liste_entites, projectile);
+            ajouter_proj_liste(moteur->liste_entites, projectile);
+            projectile = NULL;
         }
 
         //Projectile au centre si nombre de proj impaire
@@ -64,7 +86,8 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
                                         personnage->direction_vx, personnage->direction_vy, 
                                         !personnage->type, //Le type de personnage opposé à celui actuel
                                         moteur->textures->projectiles);
-            ajout_droit(moteur->liste_entites, projectile);
+            ajouter_proj_liste(moteur->liste_entites, projectile);
+            projectile = NULL;
         }
 
         //Partie en dessous de l'axe direction
@@ -78,7 +101,8 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
                                     cos(angle_proj), sin(angle_proj), 
                                     !personnage->type, //Le type de personnage opposé à celui actuel
                                     moteur->textures->projectiles);
-            ajout_droit(moteur->liste_entites, projectile);
+            ajouter_proj_liste(moteur->liste_entites, projectile);
+            projectile = NULL;
         }
     }
     
@@ -89,23 +113,30 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
                                     personnage->direction_vx, personnage->direction_vy, 
                                     !personnage->type, //Le type de personnage opposé à celui actuel
                                     moteur->textures->projectiles);
-        ajout_droit(moteur->liste_entites, projectile);
+        ajouter_proj_liste(moteur->liste_entites, projectile);
+        projectile = NULL;
     }
-
-    
 }
 
-//Changer le type en personnage quand ce sera pret
-//return vrai si l'attaque a pu etre executee
-//Nouvelle attaque vrai si le personnage désire attaquer de nouveau
-void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaque_desiree)
+
+/**
+ * \brief Cette fonction devant être appelée à chaque actualisation d'un personnage permet à une attaque de
+ * continuer de s'exécuter si elle dure dans le temps, ou bien de lancer une attaque si int attaquer est vrai.
+ * 
+ * Si attaquer est vrai, mais que le cooldown de l'attaque n'est pas terminé, l'attaque ne sera pas réalisée.
+ * 
+ * \param moteur Le moteur du jeu
+ * \param personnage Le personnage réalisant l'attaque
+ * \param attaquer Vrai si le personnage désire lancer une nouvelle attaque
+ */
+void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaquer)
 {
     /* Execution de l'attaque */
     t_attaque_tir * attaque = &personnage->attaque_tir_equipee;
 
     //Temps quand l'attaque sera terminée
     int temps_fin = attaque->temps_debut_attaque + attaque->cooldown;
-    if(attaque_desiree && temps_fin < moteur->temps) //Permettre l'attaque si autorisé
+    if(attaquer && temps_fin < moteur->temps) //Permettre l'attaque si autorisé
     {
         attaque->temps_debut_attaque = moteur->temps;
         attaque->nb_salves_restantes = attaque->nb_salves;
@@ -122,22 +153,4 @@ void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaque_
             tirer(moteur, personnage);
         }
     }
-}
-
-
-
-
-void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
-{
-    switch (nouvelle_attaque)
-    {
-    case DEMO:
-        attaque_tir_demo(attaque);
-        break;
-    
-    default:
-        break;
-    }
-    attaque->nb_salves_restantes = 0;
-    attaque->temps_debut_attaque = 0;
 }
