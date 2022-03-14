@@ -115,7 +115,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else
         joueur->animation->vitesse = 250;
     
-    updateAttaqueTir(moteur, joueur, joueur->flags->shooting);
+    updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
     /*
     if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
     {
