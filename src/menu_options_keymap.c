@@ -51,7 +51,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
                     if (i != NB_B_MENU_OPTIONS_KEYMAP - 1) { // Cas particulier pour le bouton retour
                         if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR)))) {
                             while (SDL_WaitEvent( & e) && e.type != SDL_KEYDOWN) {
-                                key = e.key.keysym.scancode;
+                                *key = e.key.keysym.scancode;
                                 maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);//mise a jour des textures 
                             }
                             SDL_SetTextureColorMod(boutons[i] -> texture, 8, 125, 0);
@@ -127,48 +127,53 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
         temp = handleEvents_options_keymap(moteur, boutons, &key);
 
         switch (temp) {
-        case 0:
-            break;
-        case 1:
-        case -1: {
-            printf("Erreur (default)\n");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
-            detruireTexte(&rect_titre,texture_titre);
-            return -1;
-        }
-        case 2:
-            printf("Map up\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
-        case 3:
-            printf("Map down\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
-        case 4:
-            printf("Map right\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
-        case 5:
-            printf("Map left\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
-        case 6:
-            printf("Map projectile\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
-        case 7: {
-            printf("Retour\n");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
-            detruireTexte(&rect_titre,texture_titre);
-            chargerMenu_Options(moteur);
-            break;
-        }
-        default: {
-            printf("Erreur, menu inconnu\n");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
-            detruireTexte(&rect_titre,texture_titre);
-            return -1;
-        }
+            case 0:
+                break;
+            case 1:
+            case -1: {
+                printf("Erreur (default)\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+                detruireTexte(&rect_titre,texture_titre);
+                return -1;
+            }
+            case 2:
+                printf("Map up\n");
+                printf("Key mapped for up : %d\n",key);
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 3:
+                printf("Map down\n");
+                printf("Key mapped for down : %d\n",key);
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 4:
+                printf("Map right\n");
+                printf("Key mapped for right : %d\n",key);
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 5:
+                printf("Map left\n");
+                printf("Key mapped for left : %d\n",key);
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 6:
+                printf("Map projectile\n");
+                printf("Key mapped for projectile : %d\n",key);
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 7: {
+                printf("Retour\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+                detruireTexte(&rect_titre,texture_titre);
+                chargerMenu_Options(moteur);
+                break;
+            }
+            default: {
+                printf("Erreur, menu inconnu\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+                detruireTexte(&rect_titre,texture_titre);
+                return -1;
+            }
         }
     updateEchelle(moteur);//on met a jour l'echelle
     SDL_RenderPresent(moteur -> renderer);
