@@ -14,7 +14,6 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
-#include <liste.h>
 #include <generation_niveau.h>
 
 /**
@@ -80,8 +79,6 @@ typedef struct s_niveau
     t_salle * salle_chargee; /**<  Salle ou sous salle où se situe le joueur */
     int i_charge; /** Position en i dans la matrice de salle de la salle chargée (utile à updateNiveau) */
     int j_charge; /** Position en j dans la matrice de salle de la salle chargée (utile à updateNiveau) */
-
-    t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
 
     SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
     int taille_collisions; /**< Taille du tableau de collisions */

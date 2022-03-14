@@ -10,6 +10,7 @@
 #define _JEU_PERSONNAGE_
 
 #include <entite.h>
+#include <attaque.h>
 
 /**
  * \struct t_personnage

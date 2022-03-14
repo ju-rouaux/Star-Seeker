@@ -33,7 +33,7 @@
 static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 {
     t_niveau * niveau = moteur->niveau_charge;
-    t_liste * liste_entites = niveau->liste_entites;
+    t_liste * liste_entites = moteur->liste_entites;
     t_entite * entite_courante;
 
     int tempsEcoule;
@@ -53,10 +53,10 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
         updateEchelle(moteur);
 
         //Actualiser l'état des entités
+        en_tete(liste_entites);
         joueur->update(moteur, (t_entite*) joueur); //Joueur
         if(!liste_vide(liste_entites)) //Liste
         {
-            en_tete(liste_entites);
             while(!hors_liste(liste_entites))
             {
                 valeur_elt(liste_entites, &entite_courante);
@@ -94,6 +94,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 oter_elt(liste_entites);
 
             //Chargement des nouvelles
+            en_tete(liste_entites);
             for(int i = 0; i < niveau->salle_chargee->nb_entite; i++)
                 if(niveau->salle_chargee->entites[i] != NULL)
                     ajout_droit(liste_entites, niveau->salle_chargee->entites[i]);

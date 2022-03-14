@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <moteur.h>
 #include <entite.h>
-#include <liste.h>
 #include <generation_niveau.h>
 #include <niveau.h>
 
@@ -237,17 +236,6 @@ static t_niveau * chargerSalles(niveau_informations_t * info)
         free(niveau);
         return NULL;
     }
-    
-    //Allouer la liste des entités "vivantes"
-    niveau->liste_entites = malloc(sizeof(t_liste));
-    if(niveau->liste_entites == NULL)
-    {
-        printf("Impossible d'allouer la mémoire pour la liste des entités\n");
-        free(niveau->salles);
-        free(niveau);
-        return NULL;
-    }
-    init_liste(niveau->liste_entites);
 
     niveau->salle_chargee = NULL; //Salle de départ
 
@@ -313,7 +301,6 @@ void detruireNiveau(t_niveau ** niveau)
 
         free((*niveau)->collisions);
         free((*niveau)->salles);
-        detruire_liste(&(*niveau)->liste_entites);
         free(*niveau);
     }
 

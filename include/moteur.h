@@ -15,6 +15,8 @@
 #include <textures.h>
 #include <camera.h>
 
+typedef struct s_liste t_liste;
+
 #define NB_FPS 60 /**< Nombre de frames par secondes du jeu */
 #define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)
 
@@ -59,6 +61,7 @@ typedef struct s_moteur
 
     t_camera * camera; /** Caméra du jeu */
     t_niveau * niveau_charge; /** Niveau actuellement chargé */
+    t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
     int echelle; /**< Echelle du jeu, c'est à dire la taille des éléments */
 
     int window_width; /**< Largeur de la fenêtre */
