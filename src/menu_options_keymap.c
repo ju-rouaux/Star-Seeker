@@ -50,7 +50,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
 
                 for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
                     if (i != NB_B_MENU_OPTIONS_KEYMAP - 1) { // Cas particulier pour le bouton retour
-                        if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2)))) {
+                        if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR)))) {
                             while (SDL_WaitEvent( & e) && e.type != SDL_KEYDOWN) {
                                 key = e.key.keysym.scancode;
                                 maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);//mise a jour des textures 
@@ -69,7 +69,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
 
         case SDL_MOUSEMOTION:
             for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
-                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2))))
+                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }

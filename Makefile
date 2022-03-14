@@ -14,12 +14,17 @@ OBJDIR = ./obj
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
+# UNIX-based OS variables & settings
 RM = rm
-DELOBJ = ./obj/*.o
+DELOBJ = $(OBJ)
+# Windows OS variables & settings
+DEL = del
+EXE = .exe
+WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
-all: $(APPNAME)
+comp: $(APPNAME)
 	@echo Compilation reussie
 
 #Test algo génération
@@ -35,12 +40,15 @@ $(APPNAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
 
-
-
-
-# Supprime tout les fichiers objets et l'executable (.o et exe)
+################### Cleaning rules for Unix-based OS ###################
+# Cleans complete project
 .PHONY: clean
 clean:
-	$(RM) $(DELOBJ) $(APPNAME)
-	@echo Nettoyage de tout les fichiers generes reussi
+	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+
+#################### Cleaning rules for Windows OS #####################
+# Cleans complete project
+.PHONY: cleanw
+cleanw:
+	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
 

@@ -23,7 +23,8 @@
 #define TAILLE_MAX 17
 
 #define NB_B_MENU 4
-#define LARGEUR(i) (boutons[i]->largeur)
+#define B_LARGEUR 2.5
+#define B_LONGUEUR 1
 
 #define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Options","Quitter"}
 
@@ -32,8 +33,9 @@ typedef struct s_bouton {
     SDL_Texture * texture;
     SDL_Rect rect;
     int longueur;
-}
-t_bouton;
+}t_bouton;
+
+
 
 int chargerMenu(t_moteur * moteur);
 t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_boutons[][TAILLE_MAX]);

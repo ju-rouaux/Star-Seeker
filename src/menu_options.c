@@ -45,7 +45,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
             case SDL_BUTTON_LEFT:
                 /**Bouton gauche*/
                 for (int i = 0; i < NB_B_MENU_OPTIONS; i++) {
-                    if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2))))
+                    if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
                         return i + 2;
                 }
                 break;
@@ -57,7 +57,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
         case SDL_MOUSEMOTION:
 
             for (int i = 0; i < NB_B_MENU_OPTIONS; i++) {
-                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / 2.5)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * 2))))
+                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
