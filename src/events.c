@@ -112,7 +112,12 @@ int handleEvents(t_joueur * joueur) {
                     
                     case SDL_SCANCODE_L: //L !!! Temporaire
                         joueur->flags->shooting = 1;
-                        break;                     
+                        break;         
+
+                    case SDL_SCANCODE_TAB: //TAB
+                        joueur->flags->map_showing = 1;
+                        break;    
+
                     case SDL_SCANCODE_O: //O !!! Temporaire
                         return -88;
                         break;
@@ -141,6 +146,9 @@ int handleEvents(t_joueur * joueur) {
                     case SDL_SCANCODE_L: //L !!! Temporaire
                         joueur->flags->shooting = 0;
                         break;
+                    case SDL_SCANCODE_TAB: //TAB
+                        joueur->flags->map_showing = 0;
+                        break;  
                     
                     default:
                         break;

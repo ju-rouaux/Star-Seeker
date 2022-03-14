@@ -20,6 +20,7 @@
 #include <liste.h>
 #include <sauvegarde.h>
 #include <generation_niveau.h>
+#include <overlay.h>
 
 
 /**
@@ -30,7 +31,7 @@
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau)
 {
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
@@ -194,6 +195,15 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
         }
 
 
+
+        if(joueur->flags->map_showing){
+
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+            
+
+        }
+
+
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
 
@@ -204,7 +214,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
     }
 
 
-    return sortie;;
+    return sortie;
 }
 
 
@@ -238,7 +248,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
     int sortie = 0;
     while(sortie != -1)
     {
-        sortie = jouerNiveau(moteur, joueur);
+        sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]);
         if(sortie == -88 && indice_niveau_charge > 0)
         {
             infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
@@ -254,6 +264,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
             joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
             joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
         }
+
         if(sortie == -99 && indice_niveau_charge < nb_niveaux-1)
         {
             infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;

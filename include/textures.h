@@ -25,6 +25,18 @@ typedef enum
 } t_tile_type;
 
 
+
+/**
+ * \enum t_tile_map_type
+ * \brief Identifiants des tiles des salles sur la map
+ */
+typedef enum
+{
+    SALLE, SALLE_COURANTE
+} t_tile_map_type;
+
+
+
 /**
  * \struct t_textures
  * \brief Contient toutes les textures du jeu
@@ -34,6 +46,8 @@ typedef struct
     SDL_Texture * map;
     SDL_Texture * player;
     SDL_Texture * projectiles;
+    SDL_Texture * overlay;
+
 } t_textures;
 
 
