@@ -14,6 +14,10 @@
 #include <entite.h>
 #include <attaque.h>
 
+typedef enum
+{
+    STATIQUE
+} e_deplacement_monstre;
 
 /**
  * \struct t_joueur
@@ -23,12 +27,7 @@ typedef struct s_monstre t_monstre;
 struct s_monstre
 {
     #include <attributs_personnages.h>
-
-    //Attaque équipée...
-
-    //Méthode de déplacement équipée
-    void (*deplacement)(t_monstre *, float, float);
-    int cpt_deplacement; //Compteur pouvant être utilisé par le déplacement
+    e_deplacement_monstre deplacement;
 };
 
 
