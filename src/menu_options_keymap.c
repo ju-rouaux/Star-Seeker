@@ -29,11 +29,10 @@
  * \param boutons tableau de boutons des options
  * \return 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
  */
-static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
+static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SDL_Scancode * key) {
 
     int mouse_x, mouse_y;
     SDL_Event e;
-    SDL_Scancode key;
 
     while (SDL_PollEvent( & e)) {
         mouse_x = e.button.x, mouse_y = e.button.y;
@@ -86,27 +85,46 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons) {
  * \return int 0 si succes, negatif si echec
  */
 int chargerMenu_Options_keymap(t_moteur * moteur) {
+    
+    SDL_Scancode key;
 
-    t_bouton ** boutons = NULL;//tableau de bouton
+    t_bouton ** boutons = NULL;
+
     char nom_boutons[NB_B_MENU_OPTIONS_KEYMAP][TAILLE_MAX] = NOMS_B_MENU_OPTIONS_KEYMAP;
 
-    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS_KEYMAP, nom_boutons);//initialisation du tableau de boutons et allocation de la memoire necessaire
+    boutons = initialiserBoutons(moteur, NB_B_MENU_OPTIONS_KEYMAP, nom_boutons);
 
     if (boutons == NULL) {
-        printf("Erreur allocation memoire boutons menu keymap\n");
+        printf("Erreur allocation memoire boutons\n");
+        return -1;
+    }
+
+    SDL_Texture * texture_titre = NULL;
+    SDL_Rect * rect_titre = NULL;
+    rect_titre = initialiserTexte(moteur,&texture_titre,"Star Seeker");
+
+    if(rect_titre == NULL){
+        printf("Erreur allocation Texte titre\n");
         return -1;
     }
 
     int temp = 0;
 
     while (temp == 0) {
-
-        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP) != 0) {//mise a jour des textures 
-            printf("Erreur lors de l'update dans le menu options keymap");
+        if (SDL_RenderClear(moteur -> renderer) != 0) {
+            printf("Erreur lors du SDL_RenderClear dans le menu");
+            return -1;//Retourne cas d'erreur
+        }
+        if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP) != 0 ) {
+            printf("Erreur lors de l'update dans le menu principal");
+            return -1;
+        }
+        if (maj_TextureTexte(moteur, rect_titre,&texture_titre,180,30,"Star Seeker") != 0) {
+            printf("Erreur lors de l'update dans le menu principal");
             return -1;
         }
 
-        temp = handleEvents_options_keymap(moteur, boutons);
+        temp = handleEvents_options_keymap(moteur, boutons, &key);
 
         switch (temp) {
         case 0:
@@ -115,6 +133,7 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
         case -1: {
             printf("Erreur (default)\n");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+            detruireTexte(&rect_titre,texture_titre);
             return -1;
         }
         case 2:
@@ -140,15 +159,19 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
         case 7: {
             printf("Retour\n");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+            detruireTexte(&rect_titre,texture_titre);
             chargerMenu_Options(moteur);
             break;
         }
         default: {
             printf("Erreur, menu inconnu\n");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+            detruireTexte(&rect_titre,texture_titre);
             return -1;
         }
         }
+    updateEchelle(moteur);//on met a jour l'echelle
+    SDL_RenderPresent(moteur -> renderer);
     }
     return 0;
 }
