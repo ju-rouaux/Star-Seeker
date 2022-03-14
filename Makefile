@@ -24,7 +24,7 @@ WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
-comp: $(APPNAME)
+all: $(APPNAME)
 	@echo Compilation reussie
 
 #Test algo génération
@@ -51,4 +51,3 @@ clean:
 .PHONY: cleanw
 cleanw:
 	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
-

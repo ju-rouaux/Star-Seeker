@@ -301,7 +301,7 @@ int chargerMenu(t_moteur * moteur) {
             printf("Erreur lors de l'update dans le menu principal");
             return -1;
         }
-        temp = handleEvents_menu(moteur, boutons);
+        temp = handleEvents_menu(moteur, boutons); 
 
         switch (temp) {
         case 0:
