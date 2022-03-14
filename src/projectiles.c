@@ -75,7 +75,7 @@ static int proj_balle(t_projectile * projectile)
  */
 static int proj_boule_feu(t_projectile * projectile)
 {
-    projectile->animation = creerAnimation(1000, 2, NB_PROJECTILES_DIFFERENTS);
+    projectile->animation = creerAnimation(1000, 2);
     if(projectile->animation == NULL)
         return -1;
     projectile->id_animation = 1;

@@ -216,7 +216,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(50, 4, 15); //Changer les paramètres d'animation si on ajoute des animations
+    joueur->animation = creerAnimation(50, 4); //Changer les paramètres d'animation si on ajoute des animations
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
