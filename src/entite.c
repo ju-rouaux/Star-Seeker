@@ -166,7 +166,8 @@ t_entite * creerEntite(float x, float y, SDL_Texture * texture)
     entite->animation = NULL;
     entite->id_animation = 0;
 
-    entite->update = dessinerEntite;
+    entite->update = NULL;
+    entite->dessiner = dessinerEntite;
     entite->detruire = detruireEntite;
 
     return entite;

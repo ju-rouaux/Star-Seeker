@@ -34,6 +34,8 @@ typedef struct
     SDL_Texture * map;
     SDL_Texture * player;
     SDL_Texture * projectiles;
+    SDL_Texture * monstres_haut;
+    SDL_Texture * monstres_bas;
 } t_textures;
 
 

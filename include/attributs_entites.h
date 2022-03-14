@@ -12,5 +12,6 @@ float taille; /**< Taille de l'entité proportionnellement à une tile (1 par d�
 t_animation * animation; /**< L'animation de l'entité (NULL par défaut)*/
 int id_animation; /**< L'animation active sur l'entité (ligne du tileset si pas d'animaion, 0 par défaut) */
 
-int (*update)(t_moteur *, t_entite *); /**< Actualise les données sur l'entité, retourne -1 si l'entité doit être détruite (dessinerEntite par défaut) */
+int (*update)(t_moteur *, t_entite *); /**< Actualise les données sur l'entité, retourne -1 si l'entité doit être détruite (NULL par défaut) */
+int (*dessiner)(t_moteur *, t_entite *); /**< Dessine l'entité sur l'écran (desinnerEntite par défaut) */
 void (*detruire)(t_entite**); /**< Destruction de l'entité (detruireEntite par défaut) */

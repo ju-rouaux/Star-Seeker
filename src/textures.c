@@ -87,6 +87,38 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
+    //Corps monstres
+    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface monstres_haut.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->monstres_haut = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->monstres_haut == NULL)
+    {
+        printf("Impossible de charger la texture de monstres_haut.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Pattes monstres
+    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface monstres_bas.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->monstres_bas = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->monstres_bas == NULL)
+    {
+        printf("Impossible de charger la texture de monstres_bas.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
     return textures;
 }
 

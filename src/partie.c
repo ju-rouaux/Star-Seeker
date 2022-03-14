@@ -60,7 +60,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             while(!hors_liste(liste_entites))
             {
                 valeur_elt(liste_entites, &entite_courante);
-                if(entite_courante != NULL)
+                if(entite_courante != NULL && entite_courante->update != NULL)
                 {
                     if(entite_courante->update(moteur, entite_courante) == -1)
                     {
@@ -143,7 +143,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                     {
                         valeur_elt(liste_entites, &entite_courante);
                         if(entite_courante != NULL)
-                            dessinerEntite(moteur, entite_courante);
+                            entite_courante->dessiner(moteur, entite_courante);
                         else
                             oter_elt(liste_entites);
                         suivant(liste_entites);
@@ -185,7 +185,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             {
                 valeur_elt(liste_entites, &entite_courante);
                 if(entite_courante != NULL)
-                    dessinerEntite(moteur, entite_courante);
+                    entite_courante->dessiner(moteur, entite_courante);
                 else
                     oter_elt(liste_entites);
                 suivant(liste_entites);
