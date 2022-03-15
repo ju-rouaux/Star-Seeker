@@ -57,19 +57,22 @@ void detruireAudio(t_musiques ** m, t_bruitages ** b){
 
 
     /* MUSIQUES */
+    if(*m != NULL)
+    {
+        Mix_FreeMusic((*m) -> menu_principal);
+        free(*m);
+    }
 
-    Mix_FreeMusic((*m) -> menu_principal);
-    
+    *m = NULL;
 
     /* BRUITAGES */
-
-    Mix_FreeMusic((*b) -> boiling);
-    Mix_FreeMusic((*b) -> treasure);
-
-
-    Mix_CloseAudio();
-
-
+    if(*b != NULL)
+    {
+        Mix_FreeMusic((*b) -> boiling);
+        Mix_FreeMusic((*b) -> treasure);
+        free(*b);
+    }
+    *b = NULL;
 }
 
 

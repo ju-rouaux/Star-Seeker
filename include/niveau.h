@@ -14,7 +14,6 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
-#include <liste.h>
 #include <generation_niveau.h>
 
 /**
@@ -81,15 +80,13 @@ typedef struct s_niveau
     int i_charge; /** Position en i dans la matrice de salle de la salle chargée (utile à updateNiveau) */
     int j_charge; /** Position en j dans la matrice de salle de la salle chargée (utile à updateNiveau) */
 
-    t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
-
     SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
     int taille_collisions; /**< Taille du tableau de collisions */
 } t_niveau;
 
 
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(t_moteur * moteur, niveau_informations_t * info);
+int chargerNiveau(t_moteur * moteur, niveau_informations_t * info);
 void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 

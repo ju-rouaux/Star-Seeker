@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <moteur.h>
 #include <entite.h>
-#include <liste.h>
 #include <generation_niveau.h>
 #include <niveau.h>
 
@@ -207,7 +206,7 @@ static void detruireSalle(t_salle ** salle)
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
-static t_niveau * chargerNiveau(niveau_informations_t * info)
+static t_niveau * chargerSalles(niveau_informations_t * info)
 {
     //Dimensions du niveau
     int largeur = info->longueur;
@@ -237,17 +236,6 @@ static t_niveau * chargerNiveau(niveau_informations_t * info)
         free(niveau);
         return NULL;
     }
-    
-    //Allouer la liste des entités "vivantes"
-    niveau->liste_entites = malloc(sizeof(t_liste));
-    if(niveau->liste_entites == NULL)
-    {
-        printf("Impossible d'allouer la mémoire pour la liste des entités\n");
-        free(niveau->salles);
-        free(niveau);
-        return NULL;
-    }
-    init_liste(niveau->liste_entites);
 
     niveau->salle_chargee = NULL; //Salle de départ
 
@@ -310,8 +298,9 @@ void detruireNiveau(t_niveau ** niveau)
             for(int j = 0; j < (*niveau)->l; j++)
                 if((*niveau)->salles[i*(*niveau)->l + j] != NULL)
                     detruireSalle(&(*niveau)->salles[i*(*niveau)->l + j]);
+
+        free((*niveau)->collisions);
         free((*niveau)->salles);
-        free((*niveau)->liste_entites); // !!! Detruire liste entité plus proprement
         free(*niveau);
     }
 
@@ -325,9 +314,9 @@ void detruireNiveau(t_niveau ** niveau)
  * 
  * 
  */
-int lancerNiveau(t_moteur * moteur, niveau_informations_t * info)
+int chargerNiveau(t_moteur * moteur, niveau_informations_t * info)
 {
-    t_niveau * niveau = chargerNiveau(info);
+    t_niveau * niveau = chargerSalles(info);
     if(niveau == NULL)
     {
         printf("Le niveau n'a pas pu être lancé\n");

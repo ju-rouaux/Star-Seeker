@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -g
 LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lm -lSDL2_mixer
 
 # Parametres du makefile
-APPNAME = ./bin/save
+APPNAME = ./bin/test
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj

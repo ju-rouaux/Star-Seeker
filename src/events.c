@@ -27,7 +27,7 @@ int handleEvents(t_joueur * joueur) {
         switch (event.type)
         {
             case SDL_QUIT:
-                return 1;
+                return -1;
             
             /**gestion de la souris*/
             /**Si un des boutons de la souris est appuyé*/
@@ -112,7 +112,13 @@ int handleEvents(t_joueur * joueur) {
                     
                     case SDL_SCANCODE_L: //L !!! Temporaire
                         joueur->flags->shooting = 1;
-                    
+                        break;                     
+                    case SDL_SCANCODE_O: //O !!! Temporaire
+                        return -88;
+                        break;
+                    case SDL_SCANCODE_P: //P !!! Temporaire
+                        return -99;
+                        break;
                     default:
                         break;
                 }
