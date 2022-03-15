@@ -12,7 +12,7 @@
 int update_texturePlanetes(t_moteur * moteur, t_planetes * planetes, int num,int nb_planetes){
 
     planetes->rect.x = (num / (nb_planetes + 2));
-    planetes->rect.y = moteur -> echelle * cos((num + nb_planetes)/(nb_planetes +1));
+    planetes->rect.y = moteur -> echelle * cos((num + nb_planetes)/(nb_planetes +1)) + 1;
     planetes->rect.w = moteur -> echelle * 2;
     planetes->rect.h = moteur -> echelle * 2;
 
@@ -109,7 +109,7 @@ void detruirePlanetes(t_planetes *** planetes, int nb_planetes) {
 }
 
 
-static int handleEvents_menu(t_moteur * moteur, t_planetes ** planetes, int nb_planetes) {
+static int handleEvents_menu(t_moteur * moteur, t_planetes ** planetes, int nb_planetes, int r,int g, int b) {
 
     int mouse_x, mouse_y; /**Coordonnées du curseur*/
     SDL_Event e;
@@ -136,7 +136,7 @@ static int handleEvents_menu(t_moteur * moteur, t_planetes ** planetes, int nb_p
             for (int i = 0; i < nb_planetes; i++) {
                 if (((mouse_x >= planetes[i] -> rect.x) && (mouse_x <= (planetes[i] -> rect.x + moteur -> echelle * 5))) && ((mouse_y >= planetes[i] -> rect.y) && (mouse_y <= (planetes[i] -> rect.y + moteur -> echelle * 2))))
                     SDL_SetTextureColorMod(planetes[i] -> texture, 255, 0, 0);
-                else SDL_SetTextureColorMod(planetes[i] -> texture, 0, 0, 255);
+                else SDL_SetTextureColorMod(planetes[i] -> texture, r, g, b);
             }
         }
         break;
@@ -169,7 +169,7 @@ int chargerMenu_planetes(t_moteur * moteur, int nb_planetes, int r, int g, int b
             return -1;
         }
 
-        temp = handleEvents_menu(moteur, planetes, nb_planetes);
+        temp = handleEvents_menu(moteur, planetes, nb_planetes, 255,255,0);
 
         switch (temp) {
             case 0:
@@ -181,7 +181,6 @@ int chargerMenu_planetes(t_moteur * moteur, int nb_planetes, int r, int g, int b
                 return -1;
             }
             case 2:
-                printf("Nouvelle Partie\n");
                 break;
             case 3:
                 printf("Charger Partie\n");
