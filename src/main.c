@@ -36,12 +36,15 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    // chargerMenu(moteur);
-    nouvellePartie(moteur, 2);
+    chargerMenu(moteur);
+    //nouvellePartie(moteur, 2);
     //chargerPartie(moteur);
 
+
     detruireMoteur(&moteur);
+
     TTF_Quit();
+    
     SDL_Quit();
     return 0;
 
