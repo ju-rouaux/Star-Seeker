@@ -233,7 +233,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
         joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
         joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
     }
-    
+
     //Jeu en cours
     int sortie = 0;
     while(sortie != -1)

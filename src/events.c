@@ -98,22 +98,20 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
 
             //Gestion du clavier
             case SDL_KEYDOWN:
+
+                if(moteur->parametres.key_up == event.key.keysym.scancode)
+                            joueur->flags->to_up = joueur->flags->to_down + 1;
+                else if(moteur->parametres.key_left == event.key.keysym.scancode)
+                            joueur->flags->to_left = joueur->flags->to_right + 1;
+                else if (moteur->parametres.key_down == event.key.keysym.scancode)
+                            joueur->flags->to_down = joueur->flags->to_up + 1;
+                else if  (moteur->parametres.key_right == event.key.keysym.scancode)
+                        joueur->flags->to_right = joueur->flags->to_left + 1;
+                else if  (moteur->parametres.key_projectile == event.key.keysym.scancode)
+                        joueur->flags->shooting = 1;
+
                 switch (event.key.keysym.scancode)
                 {
-                    case moteur->parametres.key_up: //Z
-                        joueur->flags->to_up = joueur->flags->to_down + 1;
-                        break;
-                    case moteur->parametres.key_down: //Q
-                        joueur->flags->to_left = joueur->flags->to_right + 1;
-                        break;
-                    case moteur->parametres.key_right: //S
-                        joueur->flags->to_down = joueur->flags->to_up + 1;
-                        break;
-                    case moteur->parametres.key_left: //D
-                        joueur->flags->to_right = joueur->flags->to_left + 1;
-                        break;
-                    case moteur->parametres.key_projectile: //L !!! Temporaire
-                        joueur->flags->shooting = 1;
                     case SDL_SCANCODE_ESCAPE: //ESC
                         chargerMenu(moteur);
                         break;
@@ -127,28 +125,19 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                         break;
                 }
                 break;
-            case SDL_KEYUP: /*touche relachée*/
-                switch (event.key.keysym.scancode)
-                {
-                    case SDL_SCANCODE_W: //Z
-                        joueur->flags->to_up = 0;
-                        break;
-                    case SDL_SCANCODE_A: //Q
-                        joueur->flags->to_left = 0;
-                        break;
-                    case SDL_SCANCODE_S: //S
-                        joueur->flags->to_down = 0;
-                        break;
-                    case SDL_SCANCODE_D: //D
-                        joueur->flags->to_right = 0;
 
-                    case SDL_SCANCODE_L: //L !!! Temporaire
+            case SDL_KEYUP: /*touche relachée*/
+
+                if(moteur->parametres.key_up == event.key.keysym.scancode)
+                        joueur->flags->to_up = 0;
+                else if(moteur->parametres.key_left == event.key.keysym.scancode)
+                        joueur->flags->to_left = 0;
+                else if (moteur->parametres.key_down == event.key.keysym.scancode)
+                        joueur->flags->to_down = 0;
+                else if (moteur->parametres.key_right == event.key.keysym.scancode)
+                        joueur->flags->to_right = 0;
+                else if (moteur->parametres.key_projectile == event.key.keysym.scancode)
                         joueur->flags->shooting = 0;
-                        break;
-                    
-                    default:
-                        break;
-                }
                 break;
 
 

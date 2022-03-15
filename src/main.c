@@ -5,6 +5,7 @@
 #include <partie.h>
 #include <generation_niveau.h>
 #include <menu.h>
+#include <menu_planetes.h>
 
 
 /**
@@ -36,8 +37,9 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    chargerMenu(moteur);
-    //nouvellePartie(moteur, 2);
+    chargerMenu_planetes(moteur,5,255,255,255);
+    //chargerMenu(moteur);
+    // nouvellePartie(moteur, 2);
     //chargerPartie(moteur);
 
 

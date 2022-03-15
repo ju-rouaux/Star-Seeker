@@ -23,7 +23,8 @@
 
 #include <menu.h>
 
-#include <menu_options.h>
+#include <partie.h>
+
 
 /**
  * \brief Met a jour la texture de chacun des boutons passé en paramètre
@@ -316,6 +317,7 @@ int chargerMenu(t_moteur * moteur) {
         return -1;
     }
 
+
     int temp = 0;
 
     while (temp == 0) {
@@ -348,11 +350,13 @@ int chargerMenu(t_moteur * moteur) {
                 printf("Nouvelle Partie\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
+                nouvellePartie(moteur, 2);
                 break;
             case 3:
                 printf("Charger Partie\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
+                chargerPartie(moteur);
                 break;
             case 4: {
                 printf("Options\n");

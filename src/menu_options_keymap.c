@@ -50,12 +50,12 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
                 for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
                     if (i != NB_B_MENU_OPTIONS_KEYMAP - 1) { // Cas particulier pour le bouton retour
                         if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR)))) {
-                            while (SDL_WaitEvent( & e) && e.type != SDL_KEYDOWN) {
-                                // *key = e.key.keysym.scancode;
-                                *key_code = SDL_GetScancodeFromKey(e.key.keysym.scancode);
+                            while (SDL_WaitEvent( &e) && e.type != SDL_KEYUP ) {
+                                if(e.type == SDL_KEYDOWN)
+                                    *key_code = e.key.keysym.scancode; //on recupere la valeur de la touche appuyée
                                 maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);//mise a jour des textures 
                             }
-                            SDL_SetTextureColorMod(boutons[i] -> texture, 8, 125, 0);
+                            SDL_SetTextureColorMod(boutons[i] -> texture, 8, 125, 0);//On definit le bouton en vert
                             return (i + 2);
                         }
                     } else return i + 2;
@@ -87,7 +87,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
  */
 int chargerMenu_Options_keymap(t_moteur * moteur) {
     
-    SDL_Scancode key_temp;
+    SDL_Scancode key_temp = -1;
 
     t_bouton ** boutons = NULL;
 
@@ -139,27 +139,27 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
             }
             case 2:
                 printf("Key mapped for up : %d\n",key_temp);
-                moteur->parametres.key_up = &key_temp;
+                moteur->parametres.key_up = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 3:
-                printf("Key mapped for down : %d\n",key_temp);
-                moteur->parametres.key_down = &key_temp;
+                printf("Key mapped down : %d\n",moteur->parametres.key_down);
+                moteur->parametres.key_down = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 4:
                 printf("Key mapped for right : %d\n",key_temp);
-                moteur->parametres.key_right = &key_temp;
+                moteur->parametres.key_right = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 5:
                 printf("Key mapped for left : %d\n",key_temp);
-                moteur->parametres.key_left = &key_temp;
+                moteur->parametres.key_left = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 6:
                 printf("Key mapped for projectile : %d\n",key_temp);
-                moteur->parametres.key_projectile = &key_temp;
+                moteur->parametres.key_projectile = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 7: {
