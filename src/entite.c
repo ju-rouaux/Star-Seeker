@@ -84,8 +84,6 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
         futur_x = entite->x + distance * (entite->direction_vx / normalisation);
         futur_y = entite->y + distance * (entite->direction_vy / normalisation);
     }
-
-    printf("fu x %f / fu y %f \n", futur_x, futur_y);
     
     //Définir la taille de la hitbox
     SDL_Rect hitbox; //Zone aux pieds de l'entité, aire où il entre en collision avec le mur

@@ -33,9 +33,8 @@ int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joue
     monstre->direction_vy = pos_joueur_y - monstre->y;
 
     updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
-    printf("AVANT : %f %f ", monstre->direction_vx, monstre->direction_vy);
     deplacerEntite(moteur, monstre);
-    printf("APRES : %f %f\n", monstre->direction_vx, monstre->direction_vy);
+
     return 0;
 }
 
