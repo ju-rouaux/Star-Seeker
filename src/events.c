@@ -63,7 +63,7 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                 };
                 break;
 
-             /*Si un des boutons de la souris est relaché*/
+            /*Si un des boutons de la souris est relaché*/
             case SDL_MOUSEBUTTONUP:
                 switch (event.button.button)
                 {
