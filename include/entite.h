@@ -42,6 +42,7 @@ struct s_entite
 
 int dessinerEntite(t_moteur * moteur, t_entite * entite);
 int deplacerEntite(const t_moteur * moteur, t_entite * entite);
+void ajouterEntiteListe(t_liste * liste, t_entite * entite);
 t_entite * creerEntite(float x, float y, SDL_Texture * texture);
 void detruireEntite(t_entite ** entite);
 

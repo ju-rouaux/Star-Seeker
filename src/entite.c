@@ -117,6 +117,26 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
     return collision;
 }
 
+
+/**
+ * \brief Ajoute une entité à la liste sans perturber son fonctionnement.
+ * 
+ * \param liste La liste où ajouter l'entité
+ * \param entite L'entité à ajouter
+ */
+void ajouterEntiteListe(t_liste * liste, t_entite * entite)
+{
+    if(entite != NULL)
+    {
+        ajout_gauche(liste, entite);
+        suivant(liste);
+        if(hors_liste(liste))
+            en_queue(liste);
+    }
+}
+
+
+
 /**
  * \brief Détruit une entité générique et mets sont pointeur à NULL.
  * 

@@ -33,7 +33,7 @@ int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joue
     monstre->direction_vy = pos_joueur_y - monstre->y;
 
     updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
-    deplacerEntite(moteur, monstre);
+    deplacerEntite(moteur, (t_entite*) monstre);
 
     return 0;
 }
@@ -43,11 +43,11 @@ int dessinerMonstre(t_moteur * moteur, t_monstre * monstre)
     int id_animation = monstre->id_animation; //Sauvegarde de l'id animation
 
     monstre->texture = moteur->textures->monstres_bas;
-    dessinerEntite(moteur, monstre);
+    dessinerEntite(moteur, (t_entite*) monstre);
 
     monstre->id_animation = monstre->deplacement; //Utiliser la valeur de la méthdoe de déplacement pour avoir la bonne animation
     monstre->texture = moteur->textures->monstres_haut;
-    dessinerEntite(moteur, monstre);
+    dessinerEntite(moteur, (t_entite*) monstre);
 
     monstre->id_animation = id_animation; //Remettre l'id animation de base
     
@@ -60,10 +60,10 @@ static int (*getDeplacement(e_deplacement_monstre deplacement))(t_moteur *, t_en
     switch (deplacement)
     {
     case STATIQUE:
-        return updateMonstreStatique;
+        return (int (*)(t_moteur *, t_entite *, float, float)) updateMonstreStatique;
     
     default:
-        return updateMonstreStatique;
+        return (int (*)(t_moteur *, t_entite *, float, float)) updateMonstreStatique;
     }
 }
 
@@ -100,7 +100,7 @@ t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, 
     monstre->pv = pv;
 
     monstre->update = getDeplacement(deplacement);
-    monstre->dessiner = dessinerMonstre;
+    monstre->dessiner = (int (*)(t_moteur*, t_entite*)) dessinerMonstre;
 
     return monstre;
 }

@@ -6,6 +6,7 @@
  * \author Julien Rouaux
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
@@ -15,80 +16,34 @@
 #include <projectiles.h>
 
 
-#define NB_PROJECTILES_DIFFERENTS 1 //Pour l'id max d'animation
+// ----------------------- Définition -----------------------
+
+//Liste des projectiles disponibles
+#include <definitions/definitions_projectiles.h>
 
 
-/** 
- * \brief Fonction générique de projectile lui donnant une trajectoire en ligne
- * à vitesste constante.
+/**
+ * \brief Actualise les champs de la structure projectile vers les paramètres décrits par le type.
  * 
- * \param moteur Le moteur du jeu
  * \param projectile Le projectile à actualiser
- * 
- * \return -1 si le projectile doit être détruit.
+ * \param nouvelle_attaque La description désirée 
  */
-static int updateProjectile(t_moteur * moteur, t_projectile * projectile)
+int chargerProjectile(t_projectile * projectile, e_type_projectile type)
 {
-    //Si l'on souhaite on peut faire des fonctions spécifiques à un projectile,
-    //par exemple pour lui donner une trajectoire courbée en variant sa direction
-    projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie 
-    if(projectile->duree_de_vie <= 0)
+    switch (type)
+    {
+    case BALLE:
+        return proj_balle(projectile);
+    case BOULE_FEU:
+        return proj_boule_feu(projectile);
+    default:
+        printf("Type projectile inconnu, annulation...\n");
         return -1;
-
-    return deplacerEntite(moteur, (t_entite*) projectile);
+    }
 }
 
 
-/**
- * \brief Fonction de spécialisation d'un projectile pour sa création.
- * 
- * Ce projectile est de petite taille mais rapide.
- * 
- * \param projectile Le projectile venant d'être créé
- * 
- * \return 0 si succès, une valeur négative si echec.
- */
-static int proj_balle(t_projectile * projectile)
-{
-    projectile->animation = NULL; //Pas d'animation
-    projectile->id_animation = 0;
-
-    projectile->taille = 0.4;
-    projectile->vitesse = 4;
-    projectile->dommages = 20;
-    projectile->duree_de_vie = 1500;
-
-    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
-
-    return 0;
-}
-
-
-/**
- * \brief Fonction de spécialisation d'un projectile pour sa création.
- * 
- * Ce projectile est de grande taille mais lent.
- * 
- * \param projectile Le projectile venant d'être créé
- * 
- * \return 0 si succès, une valeur négative si echec.
- */
-static int proj_boule_feu(t_projectile * projectile)
-{
-    projectile->animation = creerAnimation(1000, 2);
-    if(projectile->animation == NULL)
-        return -1;
-    projectile->id_animation = 1;
-
-    projectile->taille = 0.7;
-    projectile->vitesse = 2;
-    projectile->dommages = 30;
-    projectile->duree_de_vie = 3000;
-
-    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
-
-    return 0;
-}
+// ----------------------- Fonctionnement -----------------------
 
 
 /**
@@ -132,20 +87,7 @@ t_projectile * creerProjectile(e_type_projectile type, float x, float y, float d
     entite = NULL;
 
     //Données spécifiques au projectile
-    switch (type)
-    {
-    case BALLE:
-        retour = proj_balle(projectile);
-        break;
-    case BOULE_FEU:
-        retour = proj_boule_feu(projectile);
-        break;
-    default:
-        printf("Type projectile inconnu, annulation...\n");
-        free(projectile);
-        return NULL;
-        break;
-    }
+    retour = chargerProjectile(projectile, type);
 
     if(retour != 0)
     {
