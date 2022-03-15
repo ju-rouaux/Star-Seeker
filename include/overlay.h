@@ -19,7 +19,7 @@
 #include <moteur.h>
 #include <generation_niveau.h>
 
-void dessiner_tile_map(t_moteur * moteur, t_tile_map_type type, float x, float y);
+void dessiner_tile_map(t_moteur * moteur, int type, float x, float y);
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle);
 
 

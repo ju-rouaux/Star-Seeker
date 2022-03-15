@@ -27,17 +27,6 @@ typedef enum
 
 
 /**
- * \enum t_tile_map_type
- * \brief Identifiants des tiles des salles sur la map
- */
-typedef enum
-{
-    SALLE, SALLE_COURANTE
-} t_tile_map_type;
-
-
-
-/**
  * \struct t_textures
  * \brief Contient toutes les textures du jeu
  */
@@ -53,7 +42,7 @@ typedef struct
 
 t_textures * chargerTextures(SDL_Renderer * renderer);
 void detruireTextures(t_textures ** textures);
-void splitTexture(SDL_Rect * rectangle, int x, int y);
+void splitTexture(SDL_Rect * rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY);
 void tileNiveau(SDL_Rect * rectangle, t_tile_type type);
 
 
