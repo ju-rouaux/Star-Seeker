@@ -45,7 +45,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
     //detruireProjectile(&proj);
     int sortie = 0;
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
-    while((sortie = handleEvents(joueur)) == 0)
+    while((sortie = handleEvents(joueur, moteur)) == 0)
     {
         moteur->temps_precedent = moteur->temps;
         moteur->temps = SDL_GetTicks();

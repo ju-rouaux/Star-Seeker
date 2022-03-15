@@ -100,19 +100,19 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
             case SDL_KEYDOWN:
                 switch (event.key.keysym.scancode)
                 {
-                    case SDL_SCANCODE_W: //Z
+                    case moteur->parametres.key_up: //Z
                         joueur->flags->to_up = joueur->flags->to_down + 1;
                         break;
-                    case SDL_SCANCODE_A: //Q
+                    case moteur->parametres.key_down: //Q
                         joueur->flags->to_left = joueur->flags->to_right + 1;
                         break;
-                    case SDL_SCANCODE_S: //S
+                    case moteur->parametres.key_right: //S
                         joueur->flags->to_down = joueur->flags->to_up + 1;
                         break;
-                    case SDL_SCANCODE_D: //D
+                    case moteur->parametres.key_left: //D
                         joueur->flags->to_right = joueur->flags->to_left + 1;
                         break;
-                    case SDL_SCANCODE_L: //L !!! Temporaire
+                    case moteur->parametres.key_projectile: //L !!! Temporaire
                         joueur->flags->shooting = 1;
                     case SDL_SCANCODE_ESCAPE: //ESC
                         chargerMenu(moteur);

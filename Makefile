@@ -1,10 +1,10 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lm
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
 
 # Parametres du makefile
-APPNAME = ./bin/test
+APPNAME = ./bin/save
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
