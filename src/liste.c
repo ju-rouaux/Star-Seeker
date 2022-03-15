@@ -7,6 +7,7 @@
 #include <entite.h>
 #include <liste.h>
 
+
 void init_liste(t_liste* l){
 // Crée la liste constituée du seul drapeau
     l->drapeau = malloc(sizeof(t_element));
@@ -22,6 +23,26 @@ void init_liste(t_liste* l){
  */
 int liste_vide(t_liste * l){
     return (l->drapeau->succ == l->drapeau) ;
+}
+
+/**
+ * 
+ * 
+ * 
+ */
+void detruire_liste(t_liste ** l)
+{
+    if(*l != NULL)
+    {
+        en_queue(*l);
+
+        while(!liste_vide(*l))
+            oter_elt(*l);
+
+        free((*l)->drapeau);
+        free(*l);
+    }
+    *l = NULL;
 }
 
 /**
