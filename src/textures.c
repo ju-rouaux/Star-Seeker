@@ -95,7 +95,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
         printf("Impossible de charger la surface overlay.bmp : %s\n", SDL_GetError());
         return NULL;
     }
-    textures->projectiles = SDL_CreateTextureFromSurface(renderer, surface);
+    textures->overlay = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
     if(textures->overlay == NULL)
     {

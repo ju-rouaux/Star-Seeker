@@ -80,6 +80,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
         ///...
 
 
+
         //Actualiser niveau
         id_salle_courante = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
@@ -194,13 +195,9 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
             }
         }
 
-
-
-        if(joueur->flags->map_showing){
-
+  
+        if(joueur->flags->map_showing == 1){
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
-            
-
         }
 
 
