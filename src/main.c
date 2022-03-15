@@ -6,9 +6,21 @@
 #include <generation_niveau.h>
 #include <menu.h>
 
+
+/**
+ * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
+ * sa partie.
+ * 
+ * \param moteur Le moteur du jeu
+ */
+void resetSauvegardeJoueur(t_moteur * moteur)
+{
+    //Afficher un menu d'avertissement
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
+}
+
 int main(int argc, char * argv[])
 {
-
     t_moteur * moteur = NULL;
 
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -23,11 +35,17 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
+    moteur->parametres.reset_sauvegarde_joueur = FAUX;
     chargerMenu(moteur);
-    // chargerPartie(moteur, 1);
+    nouvellePartie(moteur, 2);
+    //chargerPartie(moteur);
+
+
+    detruireMoteur(&moteur);
 
     detruireMoteur(&moteur);
     TTF_Quit();
+    
     SDL_Quit();
     return 0;
 

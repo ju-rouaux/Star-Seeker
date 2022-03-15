@@ -26,6 +26,24 @@
 
 typedef struct s_niveau t_niveau; 
 
+
+typedef enum
+{
+    FAUX, VRAI
+} t_bool_param;
+
+
+/**
+ * \struct t_parametres
+ * \brief Structure contenant les paramètres techniques du jeu pouvant être changés par le joueur.
+ */
+typedef struct
+{
+    t_bool_param reset_sauvegarde_joueur; /**< Vrai si le jeu doit écraser la sauvegarde du joueur au lancement de la partie */
+    int volume_audio; //(ou volume musique puis volume sons)
+
+} t_parametres;
+
 /**
  * \struct t_moteur
  * \brief Objet contenant les données nécéssaires au rendu du jeu, aussi
@@ -45,6 +63,8 @@ typedef struct s_moteur
 
     int window_width; /**< Largeur de la fenêtre */
     int window_height; /**< Hauteur de la fenêtre */
+
+    t_parametres parametres;
 } t_moteur;
 
 

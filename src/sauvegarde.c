@@ -1,89 +1,69 @@
 /**
  * \file sauvegarde.c
- * \author Guillaume
- * \brief Sauvegarde l'etat actuel de certains objets dans un fichier.
- * Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.
+ * 
+ * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
+ * 
+ * \author Guillaume Richard & Julien Rouaux
  */
+
 
 #include <sauvegarde.h>
+
+// OUTILS ---------------------------------------------------------------------------------------------
+
 /**
- * \brief Ecrase le fichier de sauvegarde actuel
- * 
- * \param filename nom de fichier
+ * \brief Verifie si le fichier existe et s'il est pas vide
+ *
+ * \param filename nom du fichier
+ * \return int boolen 0 : si vide ou n'existe pas, la taille du ficheir s'il existe
  */
-static void openFile_write_new(char * filename){
-    FILE * file;
-    file = fopen (filename, "wb");
-    fclose (file);
+static int tailleFichier(const char* filename)
+{
+    FILE *file = fopen(filename, "r");
+
+    if(file == NULL)
+        return 0;
+
+    fseek(file, 0, SEEK_END);
+    int size = ftell(file);
+    fclose(file);
+
+    return size;
 }
 
+// SAUVEGARDE JOUEUR ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Ouvre un fichier en ajout
+ * \brief Charge le joueur de ses données de sauvegarde.
  * 
- * \param filename nom du fichier
- * \return FILE* Flux du fichier
- */
-static FILE * openFile_write(char *filename){
-
-    FILE * file;
-    file = fopen (filename, "ab+");
-    return file;
-}
-
-/**
- * \brief ouvre un fichier en lecture
+ * Lis la sauvegarde dans le fichier binaire et met à jour la structure t_joueur.
  * 
- * \param filename nom du fichier
- * \return FILE* Flux du fichier
- */
-static FILE * openFile_read(char *filename){
-
-    FILE * infile;
-    infile = fopen (filename, "rb");
-    return infile;
-}
-
-/**
- * \brief Sauvegarde l'etat actuel du jeu dans un fichier binaire
+ * \param joueur joueur à charger depuis la sauvegarde
  * 
- * \param filename nom du fichier
- * \param input objet a sauvegarder
- * \param size taille de l'objet a sauvegarder
+ * \return SUCCESS ou la nature de l'erreur.
  */
-static int save_current_game(char * filename, void * input,size_t size){
-    FILE * outfile = openFile_write(filename);
-
-    // write struct to file
-    if(fwrite (input, size, 1, outfile) == 1 )
-        printf("contents to file written successfully !\n");
-    else{
-        printf("error writing file !\n");
-        return -1;
-    }
-
-    fclose (outfile);
-    return 0;
-}
-
-/**
- * \brief Lis la sauvegarde dans le fichier binaire et met a jour la strcture t_joueur
- * 
- * \param filename nom du fichier
- * \param joueur structure du joueur a charger depuis la sauvegarde
- * \return int boolen
- */
-static int read_file_player(char * filename, t_joueur * joueur){
-    FILE *infile = openFile_read(filename);
-    if (infile == NULL)
-    {
-        fprintf(stderr, "Error opening file Level\n");
-        return -1;
-    }
+err_save chargerJoueur(t_joueur * joueur)
+{
+    if(tailleFichier(filename_joueur) == 0)
+        return NO_FILE;
+    
+    FILE * fichier = fopen(filename_joueur, "rb");
+    if (fichier == NULL)
+        return FOPEN_FAIL;
 
     t_joueur * tmp = malloc(sizeof(t_joueur));
+    if(tmp == NULL)
+    {
+        fclose(fichier);
+        return MALLOC_FAIL;
+    }
 
-    fread(tmp, sizeof(t_joueur), 1, infile);
+    if(fread(tmp, sizeof(t_joueur), 1, fichier) != 1)
+    {
+        free(tmp);
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
 
     joueur->x = tmp->x;
     joueur->y = tmp->y;
@@ -91,33 +71,164 @@ static int read_file_player(char * filename, t_joueur * joueur){
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
 
-    fclose (infile);
     free(tmp);
-    return 0;
+    fclose (fichier);
 
+    return SUCCESS;
 }
 
 /**
- * \brief  Lis la sauvegarde dans le fichier binaire et met a jour la strcture niveau_informations_t
+ * \brief Sauverde le joueur dans son fichier.
  * 
- * \param filename nom du fichier
- * \param niveau structure du niveau a charger depuis la sauvegarde
- * \return niveau_informations_t* la strcture du niveau remplie par la sauvegarde
+ * \param joueur joueur à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-static niveau_informations_t * read_file_niveau(char * filename){
-    FILE *infile = openFile_read(filename);
-    if (infile == NULL){
-        fprintf(stderr, "Error opening file Level\n");
-        return NULL;
+err_save sauvegarderJoueur(t_joueur * joueur)
+{
+    FILE * fichier = fopen(filename_joueur, "wb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fwrite(joueur, sizeof(t_joueur), 1, fichier) != 1)
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
     }
 
-    niveau_informations_t * tmp = malloc(sizeof(niveau_informations_t));
-    fread(tmp , sizeof(niveau_informations_t), 1, infile);
+    fclose(fichier);
 
-    fclose (infile);
-    return tmp;
+    return SUCCESS;
 }
 
+// SAUVEGARDE PARTIE ---------------------------------------------------------------------------------------------
+
+/**
+ * \brief Charge les informations relatives à la structure des niveaux. Les données sont
+ * remplies dans les pointeurs donnés en paramètre.
+ * 
+ * \param fichier Le fichier contenant les données
+ * \param infos_niveaux Retour de la matrice des structures de donnée de niveau
+ * \param nb_niveaux Retour du nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge Retour du niveau qui était chargé précédemment
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
+{
+    niveau_informations_t ** tmp = NULL;
+
+    if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    if(fread(nb_niveaux, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    tmp  = malloc(sizeof(niveau_informations_t)*(*nb_niveaux));
+    if(tmp == NULL)
+        return MALLOC_FAIL;
+
+    for(int i = 0; i < (*nb_niveaux); i++)
+    {
+        if(fread(tmp[i] , sizeof(niveau_informations_t), 1, fichier) != 1)
+        {
+            free(tmp);
+            return READ_OR_WRITE_FAIL;
+        }
+    }
+
+    (*infos_niveaux) = tmp;
+
+    return SUCCESS;
+}
+
+
+/**
+ * \brief Sauvegarde les informations relatives à la structure des niveaux.
+ * 
+ * \param fichier Le fichier contenant les données
+ * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param nb_niveaux Le nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux, int indice_niveau_charge)
+{
+    if(fwrite(&indice_niveau_charge, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    if(fwrite(&nb_niveaux, sizeof(int), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    for(int i = 0; i < nb_niveaux; i++)
+        if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1)
+            return READ_OR_WRITE_FAIL;
+
+    return SUCCESS;
+}
+
+
+/**
+ * \brief Sauvegarde les informations relatives à la partie
+ * 
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * 
+ * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param nb_niveaux Le nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
+{
+    err_save retour = SAVE_ERROR;
+    FILE * fichier = fopen(filename_niveau, "wb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    retour = sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
+    if(retour != SUCCESS)
+    {
+        fclose(fichier);
+        return retour;
+    }
+
+    //Ici traitements futurs
+
+    fclose(fichier);
+    return SUCCESS;
+}
+
+/**
+ * \brief Charge les informations relatives à la partie
+ * 
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * 
+ * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
+ * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
+ * \param indice_niveau_charge L'adresse de l'indice du niveau qui est actuellement chargé
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
+{
+    err_save retour = SAVE_ERROR;
+    FILE * fichier = fopen(filename_niveau, "rb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    retour = chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
+    if(retour != SUCCESS)
+        return retour;
+
+    //Ici traitements futurs
+
+    return SUCCESS;
+}
+
+
+// DEBUG ---------------------------------------------------------------------------------------------
 
 /**
  * \brief Affiche toutes les informations de la strcuture joueur
@@ -171,73 +282,3 @@ static void print_struct_niveau(const niveau_informations_t * tmp){
 
 }
 */
-
-/**
- * \brief Verifie si le fichier existe et s'il est pas vide
- *
- * \param filename nom du fichier
- * \return int boolen 0 : si vide ou n'existe pas, >1 s'il existe
- */
-static int file_empty(const char* filename)
-{
-    FILE *file = fopen(filename, "r");
-
-    if(file == NULL)
-        return 0;
-
-    fseek(file, 0, SEEK_END);
-    int size = ftell(file);
-    fclose(file);
-
-    return size;
-}
-
-/**
- * \brief Fonction de chargement du niveau et du joueur
- * 
- * \param joueur joueur
- * \param niveau niveau (NULL si l'on ne souhaite pas charger le niveau)
- * \return 0 si succès, valeur négative si echec.
- */
-int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau){
-
-    if(file_empty(filename_joueur) == 0){
-        printf("File empty, no save for player\n");
-        return -1;
-    }else{
-        printf("File not empty -- loading player\n");
-        read_file_player(filename_joueur,joueur);
-        // print_struct_player(joueur);
-    }
-
-    if(niveau != NULL)
-    {
-        if(file_empty(filename_niveau) == 0){
-            printf("File empty, no save for level\n");
-            return -1;
-        }else{
-            printf("File not empty -- loading level\n");
-            (*niveau) = read_file_niveau(filename_niveau);
-            // print_struct_niveau(*niveau);
-        }
-    }
-    return 0;
-}
-
-int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau){
-
-    openFile_write_new(filename_joueur);
-    openFile_write_new(filename_niveau);
-
-    if(save_current_game(filename_joueur,joueur, sizeof(t_joueur)) != 0){
-        printf("Erreur de sauvegarde du joueur\n");
-        return -1;
-    }
-
-    if(save_current_game(filename_niveau,niveau, sizeof(niveau_informations_t))){ 
-        printf("Erreur de sauvegarde du joueur\n");
-        return -1;
-    }
-
-    return 0;
-}

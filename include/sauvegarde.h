@@ -1,8 +1,9 @@
 /**
- * \file sauvegarde.h
- * \author Guillaume
- * \brief Sauvegarde l'etat actuel de certains objets dans un fichier.
- * Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.
+ * \file sauvegarde.c
+ * 
+ * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
+ * 
+ * \author Guillaume Richard & Julien Rouaux
  */
 
 #ifndef _JEU_SAUVEGARDE_
@@ -13,13 +14,19 @@
 #include <SDL2/SDL.h>
 #include <joueur.h>
 #include <entite.h>
-#include <animation.h>
 #include <generation_niveau.h>
 
 #define filename_joueur "./save/save_joueur.save"
 #define filename_niveau "./save/save_niveau.save"
 
-int chargerSauvegarde(t_joueur * joueur, niveau_informations_t ** niveau);
-int sauvegarder(t_joueur * joueur, niveau_informations_t * niveau);
+typedef enum
+{
+    NO_FILE = -5, MALLOC_FAIL = -4, READ_OR_WRITE_FAIL = -3, FOPEN_FAIL = -2, SAVE_ERROR = -1, SUCCESS = 0
+} err_save;
+
+err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge);
+err_save sauvegarderJoueur(t_joueur * joueur);
+err_save chargerJoueur(t_joueur * joueur);
+err_save chargerPartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge);
 
 #endif //_JEU_SAUVEGARDE_
