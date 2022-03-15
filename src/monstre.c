@@ -6,14 +6,36 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 #include <monstre.h>
 #include <outils.h>
 
-int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre)
+int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
 {
     if(monstre->pv <= 0)
         return -1;
-    updateAttaqueTir(moteur, (t_personnage*) monstre, de(50) == 50);
+    
+    monstre->direction_vx = pos_joueur_x - monstre->x;
+    monstre->direction_vy = pos_joueur_y - monstre->y;
+
+    updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
+    
+    return 0;
+
+}
+
+int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
+{
+    if(monstre->pv <= 0)
+        return -1;
+    
+    monstre->direction_vx = pos_joueur_x - monstre->x;
+    monstre->direction_vy = pos_joueur_y - monstre->y;
+
+    updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
+    printf("AVANT : %f %f ", monstre->direction_vx, monstre->direction_vy);
+    deplacerEntite(moteur, monstre);
+    printf("APRES : %f %f\n", monstre->direction_vx, monstre->direction_vy);
     return 0;
 }
 
@@ -33,7 +55,8 @@ int dessinerMonstre(t_moteur * moteur, t_monstre * monstre)
     return 0;
 }
 
-static int (*getDeplacement(e_deplacement_monstre deplacement))(t_moteur*, t_entite*)
+static int (*getDeplacement(e_deplacement_monstre deplacement))(t_moteur *, t_entite *, float, float)
+
 {
     switch (deplacement)
     {

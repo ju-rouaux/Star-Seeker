@@ -124,6 +124,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
  * continuer de s'exécuter si elle dure dans le temps, ou bien de lancer une attaque si int attaquer est vrai.
  * 
  * Si attaquer est vrai, mais que le cooldown de l'attaque n'est pas terminé, l'attaque ne sera pas réalisée.
+ * La direction de l'attaque est la même que la direction du personnage !!!!
  * 
  * \param moteur Le moteur du jeu
  * \param personnage Le personnage réalisant l'attaque

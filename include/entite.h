@@ -15,6 +15,7 @@
 #include <SDL2/SDL.h> //SDL_Rect
 #include <moteur.h>
 #include <animation.h> //Pour le champ animation d'attributs entites
+#include <liste.h>
 //typedef struct s_animation t_animation;
 
 

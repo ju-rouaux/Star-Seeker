@@ -58,7 +58,7 @@ static int proj_balle(t_projectile * projectile)
     projectile->dommages = 20;
     projectile->duree_de_vie = 1500;
 
-    projectile->update = (int (*)(t_moteur*, t_entite*)) updateProjectile;
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
     return 0;
 }
@@ -85,7 +85,7 @@ static int proj_boule_feu(t_projectile * projectile)
     projectile->dommages = 30;
     projectile->duree_de_vie = 3000;
 
-    projectile->update = (int (*)(t_moteur*, t_entite*)) updateProjectile;
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
     return 0;
 }

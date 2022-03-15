@@ -54,7 +54,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 
         //Actualiser l'état des entités
         en_tete(liste_entites);
-        joueur->update(moteur, (t_entite*) joueur); //Joueur
+        joueur->update(moteur, (t_entite*) joueur, joueur->x, joueur->y); //Joueur
         if(!liste_vide(liste_entites)) //Liste
         {
             while(!hors_liste(liste_entites))
@@ -62,7 +62,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 valeur_elt(liste_entites, &entite_courante);
                 if(entite_courante != NULL && entite_courante->update != NULL)
                 {
-                    if(entite_courante->update(moteur, entite_courante) == -1)
+                    if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);

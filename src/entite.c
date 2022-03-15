@@ -66,6 +66,9 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
  */
 int deplacerEntite(const t_moteur * moteur, t_entite * entite)
 {
+    if(entite->vitesse == 0)
+        return 0;
+        
     int i; //Variable pour parcourir le tableau des collisions
     int collision = 0; //Faux, vrai si une collision occure 
     
@@ -74,8 +77,15 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
     
     //Normalisation du vecteur direction en divisant par sqrt(x^2 + y^2)
     float normalisation = sqrt(pow(entite->direction_vx, 2) + pow(entite->direction_vy, 2));
-    float futur_x = entite->x + distance * (entite->direction_vx / normalisation);
-    float futur_y = entite->y + distance * (entite->direction_vy / normalisation);
+    float futur_x = entite->x;
+    float futur_y = entite->y;
+    if(normalisation != 0)
+    {
+        futur_x = entite->x + distance * (entite->direction_vx / normalisation);
+        futur_y = entite->y + distance * (entite->direction_vy / normalisation);
+    }
+
+    printf("fu x %f / fu y %f \n", futur_x, futur_y);
     
     //Définir la taille de la hitbox
     SDL_Rect hitbox; //Zone aux pieds de l'entité, aire où il entre en collision avec le mur

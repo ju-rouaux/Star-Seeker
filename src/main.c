@@ -29,7 +29,7 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    moteur->parametres.reset_sauvegarde_joueur = FAUX;
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
 
     nouvellePartie(moteur, 2);
     //chargerPartie(moteur);

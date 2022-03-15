@@ -30,5 +30,6 @@ struct s_monstre
     e_deplacement_monstre deplacement;
 };
 
+t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, e_nom_attaque type_attaque, e_deplacement_monstre deplacement);
 
 #endif //_JEU_MONSTRE_
