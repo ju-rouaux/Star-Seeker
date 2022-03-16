@@ -14,7 +14,7 @@
 
 typedef enum
 {
-    BALLE, BOULE_FEU
+    BALLE, BOULE_FEU, SNIPER, PLS
 } e_type_projectile;
 
 /**

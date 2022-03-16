@@ -45,4 +45,26 @@ static void attaque_tir_demo(t_attaque_tir * attaque)
 }
 
 
+static void attaque_tir_sniper(t_attaque_tir * attaque)
+{
+    attaque->type_projectile = SNIPER;
+    attaque->cooldown = 2000;
+    attaque->nb_salves = 1;
+    attaque->nb_proj_salve = 1;
+    attaque->tir_interval = 100;
+    attaque->etalement = 0.349066;
+}
+
+static void attaque_tir_pls(t_attaque_tir * attaque)
+{
+    attaque->type_projectile = PLS;
+    attaque->cooldown = 2000;
+    attaque->nb_salves = 2;
+    attaque->nb_proj_salve = 25;
+    attaque->tir_interval = 150;
+    attaque->etalement = 6.28318530718;
+}
+
+
+
 #endif //JEU_DEF_ATTAQUE_TIR_

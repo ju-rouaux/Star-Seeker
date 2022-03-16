@@ -129,6 +129,41 @@ static int proj_boule_feu(t_projectile * projectile)
 }
 
 
+ 
+static int proj_sniper(t_projectile * projectile)
+{
+    projectile->animation = creerAnimation(1000, 2);
+    if(projectile->animation == NULL)
+        return -1;
+    projectile->id_animation = 1;
+
+    projectile->taille = 0.3;
+    projectile->vitesse = 10;
+    projectile->dommages = 50;
+    projectile->duree_de_vie = 5000;
+
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
+
+    return 0;
+}
+
+static int proj_pls(t_projectile * projectile)
+{
+    projectile->animation = creerAnimation(1000, 2);
+    if(projectile->animation == NULL)
+        return -1;
+    projectile->id_animation = 1;
+
+    projectile->taille = 0.6;
+    projectile->vitesse = 5;
+    projectile->dommages = 15;
+    projectile->duree_de_vie = 300;
+
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
+
+    return 0;
+}
+
 
 
 #endif //_JEU_DEF_PROJECTILE_
