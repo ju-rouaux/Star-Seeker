@@ -34,10 +34,10 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
 {
     switch (nouvelle_attaque)
     {
-    case SNIPE:
+    case A_SNIPER:
         attaque_tir_sniper(attaque);
         break;
-    case DETRESSE:
+    case A_PLS:
         attaque_tir_pls(attaque);
         break;
     case DEMO:
