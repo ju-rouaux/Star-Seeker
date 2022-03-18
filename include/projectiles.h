@@ -14,7 +14,7 @@
 
 typedef enum
 {
-    BALLE, BOULE_FEU, BOULET, SHURIKEN, SABRE
+    BALLE, BOULE_FEU, BOULET, SHURIKEN, SABRE, LASER
 } e_type_projectile;
 
 /**

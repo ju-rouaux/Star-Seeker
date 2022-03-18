@@ -42,6 +42,8 @@ int chargerProjectile(t_projectile * projectile, e_type_projectile type)
         return proj_shuriken(projectile);
     case SABRE:
         return proj_sabre(projectile);
+    case LASER:
+        return proj_laser(projectile);
     default:
         printf("Type projectile inconnu, annulation...\n");
         return -1;
