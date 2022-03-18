@@ -153,6 +153,10 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                     }
                 }
 
+                if(joueur->flags->map_showing == 1){
+                    dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+                }
+
                 SDL_RenderPresent(moteur->renderer);
 
                 //Réguler FPS
@@ -322,7 +326,7 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos)
     {
         //Générer un nom de niveau ici
 
-        infos[i] = creer_niveau_info("coucou");
+        infos[i] = creer_niveau_info("kikikoukou");
         if(infos[i] == NULL)
         {
             printf("NULL\n");

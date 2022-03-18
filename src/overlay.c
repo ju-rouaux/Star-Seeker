@@ -61,6 +61,8 @@ int type_salle_map(int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int x, 
 
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle){
 
+    SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
+
     for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
 
         for(int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
@@ -68,9 +70,16 @@ void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int id
             if(infosNiveau->matrice[j][i] != VIDE){
 
 
+                if(infosNiveau->matrice[j][i] == idSalle){
+                    SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
+                }
+
                 int type = type_salle_map(infosNiveau->matrice, j, i);
                 dessiner_tile_map(moteur, type, i - LONGUEUR_NIVEAU_MAX/2, j - HAUTEUR_NIVEAU_MAX/2);
 
+                if(infosNiveau->matrice[j][i] == idSalle){
+                    SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
+                }
 
             }
 
