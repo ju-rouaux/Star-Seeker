@@ -1,7 +1,7 @@
 /**
  * \file generateur_nom_planete
  * 
- * \brief Générateur de nom de planète aléatoire
+ * \brief Générateur de nom de planète et de galaxie aléatoire
  *
  * \author camille
  *  
@@ -11,9 +11,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <outils.h>
 #include <noms_generateur.h>
 #include <generation_niveau.h>
 
+
+
+/**
+ * \brief Prend une lettre en entrée, et renvoie une autre lettre qui "sonne bien" pour former un mot
+ * 
+ * \param chances la matrice de fréquences de chaque lettre après chaque autre dans le dictionnaire
+ * \param c1 la lettre précédente
+ * \return la lettre qui va suivre c1
+ */
 static char lettre_suivante(int chances[26][26], char c1){
 
     
@@ -43,7 +53,15 @@ static char lettre_suivante(int chances[26][26], char c1){
 
 
 
-char * creer_nom_galaxie(int taille_mot){
+
+
+/**
+ * \brief Crée un nom semblable au français et à l'anglais aléatoirement
+ * 
+ * \param taille_mot Nombre de lettres du nom généré
+ * \return le nom généré
+ */
+char * creer_nom(int taille_mot){
 
      int chances[26][26] = {
 
@@ -123,20 +141,20 @@ char * creer_nom_galaxie(int taille_mot){
 }
 
 
-int creer_noms_planetes(char * nom_galaxie, int nombre, char * noms_planetes[]){
+/**
+ * \brief Crée un nom semblable au français et à l'anglais aléatoirement
+ * 
+ * \param taille_mot Nombre de lettres du nom généré
+ */
+void creer_noms_planetes(char * nom_galaxie, int nombre, char noms_planetes[][10]){
 
     srand(seed_depuis_mot(nom_galaxie));
 
-    *noms_planetes = malloc((sizeof(char) + 1) * nombre);
-
     for (int i = 0; i < nombre; i++){
 
-        noms_planetes[i] = creer_nom_galaxie(rand() % 6 + 3);
+        (noms_planetes[i][0]) = *creer_nom(de(7) + 2);
 
     }
 
-
-
-    return 0;    
 
 }

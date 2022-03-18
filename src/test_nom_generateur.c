@@ -14,7 +14,13 @@ void test_nom_planete(int taille_mot){
 
 
 
-        printf("%s \n", creer_nom_galaxie(taille_mot));
+        printf("%s \n", creer_nom(taille_mot));
     }
+
+
+    int nb = 10;
+    char noms_planetes[nb][10];
+    
+    creer_noms_planetes("zizi", nb, noms_planetes);
 
 }
