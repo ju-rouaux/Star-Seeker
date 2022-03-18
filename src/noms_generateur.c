@@ -142,9 +142,11 @@ char * creer_nom(int taille_mot){
 
 
 /**
- * \brief Crée un nom semblable au français et à l'anglais aléatoirement
+ * \brief Crée des noms de planètes à partir d'une seed (nom de galaxie)
  * 
- * \param taille_mot Nombre de lettres du nom généré
+ * \param nombre le nombre de noms à générer
+ * \param nom_galaxie nom qui va générer la seed
+ * \param noms_planetes tableau des noms des planètes
  */
 void creer_noms_planetes(char * nom_galaxie, int nombre, char noms_planetes[][10]){
 
