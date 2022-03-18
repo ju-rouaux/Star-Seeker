@@ -36,7 +36,7 @@
 
 static void attaque_tir_demo(t_attaque_tir * attaque)
 {
-    attaque->type_projectile = BALLE;
+    attaque->type_projectile =P_BALLE;
     attaque->cooldown = 1000;
     attaque->nb_salves = 3;
     attaque->nb_proj_salve = 3;
@@ -47,7 +47,7 @@ static void attaque_tir_demo(t_attaque_tir * attaque)
 
 static void attaque_tir_sniper(t_attaque_tir * attaque)
 {
-    attaque->type_projectile = SNIPER;
+    attaque->type_projectile = P_SNIPER;
     attaque->cooldown = 2000;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 1;
@@ -57,7 +57,7 @@ static void attaque_tir_sniper(t_attaque_tir * attaque)
 
 static void attaque_tir_pls(t_attaque_tir * attaque)
 {
-    attaque->type_projectile = PLS;
+    attaque->type_projectile = P_PLS;
     attaque->cooldown = 2000;
     attaque->nb_salves = 2;
     attaque->nb_proj_salve = 25;
