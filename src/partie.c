@@ -20,7 +20,8 @@
 #include <liste.h>
 #include <sauvegarde.h>
 #include <generation_niveau.h>
-
+#include <noms_generateur.h>
+#include <outils.h>
 
 /**
  * \brief Phase de gameplay principale.
@@ -315,21 +316,39 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
  * 
  * \return 0 si succès, une valeur négative si echec.
  */
-static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos)
+static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nomGalaxie)
 {
     int i;
+    char * noms_planetes[MAX_NOM_NIVEAU] = malloc(sizeof(noms_planetes) * nb_niveaux);
+    if(noms_planetes == NULL)
+    {
+        printf("Impossible d'allouer la mémoire pour les noms des niveaux\n");
+        return -1;
+    }
+
     niveau_informations_t ** infos = malloc(sizeof(niveau_informations_t*)*nb_niveaux);
     if(infos == NULL)
     {
-        printf("Impossible d'allouer la mémoire pour les infos du niveau\n");
+        printf("Impossible d'allouer la mémoire pour les infos des niveaux\n");
+        free(noms_planetes);
         return -1;
     }
     
+    //Générer un nom de partie et le nom des niveaux
+    *nomGalaxie = NULL;
+    *nomGalaxie = creer_nom(5 + de(5));
+    if(nomGalaxie == NULL)
+    {
+        free(infos);
+        free(noms_planetes);
+        return -1;
+    }
+    creer_noms_planetes(*nomGalaxie, nb_niveaux, noms_planetes);
+
     for(i = 0; i < nb_niveaux; i++)
     {
-        //Générer un nom de niveau ici
 
-        infos[i] = creer_niveau_info("coucou");
+        infos[i] = creer_niveau_info(noms_planetes[i*MAX_NOM_NIVEAU]);
         if(infos[i] == NULL)
         {
             printf("NULL\n");
@@ -370,9 +389,9 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
     niveau_informations_t ** infos;
     t_joueur * joueur = NULL;
     int retour;
-
+    char * nomGalaxie;
     //S'occuper du niveau
-    retour = genererPartie(nb_niveaux, &infos);
+    retour = genererPartie(nb_niveaux, &infos, &nomGalaxie);
     if(retour != 0)
     {
         printf("Impossible de générer une nouvelle partie\n");
