@@ -231,7 +231,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
  * 
  * \return La seed correspondant au mot.
  */
-static int seed_depuis_mot(const char * mot){
+int seed_depuis_mot(const char * mot){
 
     int seed = 0;
 
