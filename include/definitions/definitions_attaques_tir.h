@@ -32,11 +32,13 @@
 
 #include <attaque.h>
 
+#define PI 3.14159265359
+
 
 
 static void attaque_tir_demo(t_attaque_tir * attaque)
 {
-    attaque->type_projectile =P_BALLE;
+    attaque->type_projectile = BALLE;
     attaque->cooldown = 1000;
     attaque->nb_salves = 3;
     attaque->nb_proj_salve = 3;
@@ -47,7 +49,7 @@ static void attaque_tir_demo(t_attaque_tir * attaque)
 
 static void attaque_tir_sniper(t_attaque_tir * attaque)
 {
-    attaque->type_projectile = P_SNIPER;
+    attaque->type_projectile = BOULET;
     attaque->cooldown = 2000;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 1;
@@ -55,14 +57,24 @@ static void attaque_tir_sniper(t_attaque_tir * attaque)
     attaque->etalement = 0.349066;
 }
 
-static void attaque_tir_pls(t_attaque_tir * attaque)
+static void attaque_tir_360_shuriken(t_attaque_tir * attaque)
 {
-    attaque->type_projectile = P_PLS;
+    attaque->type_projectile = SHURIKEN;
     attaque->cooldown = 2000;
     attaque->nb_salves = 2;
-    attaque->nb_proj_salve = 25;
-    attaque->tir_interval = 150;
-    attaque->etalement = 6.28318530718;
+    attaque->nb_proj_salve = 17;
+    attaque->tir_interval = 300;
+    attaque->etalement = 2*PI;
+}
+
+static void attaque_tir_sabre(t_attaque_tir * attaque)
+{
+    attaque->type_projectile = SABRE;
+    attaque->cooldown = 1000;
+    attaque->nb_salves = 1;
+    attaque->nb_proj_salve =1;
+    attaque->tir_interval = 300;
+    attaque->etalement = PI/4;
 }
 
 

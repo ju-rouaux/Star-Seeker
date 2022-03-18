@@ -32,14 +32,16 @@ int chargerProjectile(t_projectile * projectile, e_type_projectile type)
 {
     switch (type)
     {
-    case P_BALLE:
+    case BALLE:
         return proj_balle(projectile);
-    case P_BOULE_FEU:
+    case BOULE_FEU:
         return proj_boule_feu(projectile);
-    case P_SNIPER:
-        return proj_sniper(projectile);
-    case P_PLS:
-        return proj_pls(projectile);
+    case BOULET:
+        return proj_boule_metal(projectile);
+    case SHURIKEN:
+        return proj_shuriken(projectile);
+    case SABRE:
+        return proj_sabre(projectile);
     default:
         printf("Type projectile inconnu, annulation...\n");
         return -1;

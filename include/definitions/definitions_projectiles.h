@@ -75,6 +75,18 @@ static int updateProjectile(t_moteur * moteur, t_projectile * projectile)
     return deplacerEntite(moteur, (t_entite*) projectile);
 }
 
+static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * projectile)
+{
+    projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie 
+    if(projectile->duree_de_vie == 1100/2)
+        projectile->direction_vx = - projectile->direction_vx;
+    if(projectile->duree_de_vie <= 0)
+        return -1;
+    if(deplacerEntite(moteur, (t_entite*) projectile) == -1)
+        projectile->direction_vx = - projectile->direction_vx;
+    return deplacerEntite(moteur, (t_entite*) projectile);
+}
+
 
 
 
@@ -129,41 +141,70 @@ static int proj_boule_feu(t_projectile * projectile)
 }
 
 
- 
-static int proj_sniper(t_projectile * projectile)
+/**
+ * \brief Rend un projectile tres rapide, avec une tres longue portée
+ * \param projectile Le projectile
+ * \return 0 si succès, une valeur négative si echec.
+ */
+static int proj_boule_metal(t_projectile * projectile)
 {
-    projectile->animation = creerAnimation(1000, 2);
-    if(projectile->animation == NULL)
-        return -1;
-    projectile->id_animation = 1;
+    projectile->animation = NULL; //Pas d'animation
+    projectile->id_animation = 3;
 
-    projectile->taille = 0.3;
-    projectile->vitesse = 10;
-    projectile->dommages = 50;
-    projectile->duree_de_vie = 5000;
+    projectile->taille = 0.5;
+    projectile->vitesse = 12;
+    projectile->dommages = 55;
+    projectile->duree_de_vie = 2500;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
     return 0;
 }
 
-static int proj_pls(t_projectile * projectile)
+/**
+ * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \param projectile Le projectile
+ * \return 0 si succès, une valeur négative si echec.
+ */
+static int proj_shuriken(t_projectile * projectile)
 {
-    projectile->animation = creerAnimation(1000, 2);
+    projectile->animation = creerAnimation(200, 2);
     if(projectile->animation == NULL)
         return -1;
-    projectile->id_animation = 1;
+    projectile->id_animation = 2;
 
     projectile->taille = 0.6;
-    projectile->vitesse = 5;
+    projectile->vitesse = 6;
     projectile->dommages = 15;
-    projectile->duree_de_vie = 300;
+    projectile->duree_de_vie = 250;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
     return 0;
 }
 
+
+/**
+ * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \param projectile Le projectile
+ * \return 0 si succès, une valeur négative si echec.
+ */
+static int proj_sabre(t_projectile * projectile)
+{
+    projectile->animation = creerAnimation(75, 2);
+    if(projectile->animation == NULL)
+        return -1;
+    projectile->id_animation = 4;
+
+    projectile->taille = 1;
+    projectile->vitesse = 6;
+    projectile->dommages = 30;
+    projectile->duree_de_vie = 1100;
+
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
+
+    return 0;
+}
 
 
 #endif //_JEU_DEF_PROJECTILE_
