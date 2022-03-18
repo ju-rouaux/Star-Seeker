@@ -11,6 +11,9 @@
 
 #include <SDL2/SDL.h>
 #include <entite.h>
+#include <liste.h>
+
+ struct s_joueur;
 
 typedef enum
 {
@@ -30,6 +33,7 @@ struct s_projectile
     int duree_de_vie; /**< Temps en milisecondes avant l'auto-destruction du projectile */
 } ;
 
+int faireDegats(t_projectile * projectile, struct s_joueur * joueur, t_liste * liste);
 t_projectile * creerProjectile(e_type_projectile type, float x, float y, float direction_vx, float direction_vy, e_type_entite cible, SDL_Texture * texture);
 void detruireProjectile(t_projectile ** projectile);
 

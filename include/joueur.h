@@ -40,7 +40,7 @@ typedef struct
  * \struct t_joueur
  * \brief Structure modélisant le joueur, hérite des attributs d'entité et de personnage.
  */
-typedef struct
+typedef struct s_joueur
 {
     #include <attributs_personnages.h>
     t_joueur_flags * flags;

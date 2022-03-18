@@ -12,7 +12,9 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
-#include <animation.h>
+#include <personnage.h>
+#include <joueur.h>
+#include <liste.h>
 #include <projectiles.h>
 
 
@@ -44,6 +46,50 @@ int chargerProjectile(t_projectile * projectile, e_type_projectile type)
 
 
 // ----------------------- Fonctionnement -----------------------
+
+
+/**
+ * \brief Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur
+ * à la recherche d'une cible avec laquelle le projectile pourrait être en collision.
+ * 
+ * \param projectile Le projectile cherchant une cible
+ * \param joueur Le joueur
+ * \param liste La liste des entités
+ * 
+ * \return -1 si collision avec une entité, sinon 0.
+ */
+int faireDegats(t_projectile * projectile, t_joueur * joueur, t_liste * liste)
+{
+    //Sauvegarde de la tête de la liste, pour la remettre à cet endroit à la fin de la fonction
+    t_element * sauvElementCourant = liste->ec; 
+    t_personnage * monstre;
+    
+    //Si joueur est cible
+    if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &joueur->hitbox))
+    {
+        joueur->pv -= projectile->dommages;
+        return -1;
+    }
+    else //Si le reste est cible
+    {
+        en_tete(liste);
+        while(!hors_liste(liste))
+        {
+            valeur_elt(liste, (t_entite**) &monstre);
+            if(monstre->type == E_MONSTRE && projectile->cible == E_MONSTRE && SDL_HasIntersection(&projectile->hitbox, &monstre->hitbox))
+            {
+                monstre->pv -= projectile->dommages;
+                liste->ec = sauvElementCourant; //Replacer la tête de la liste
+                return -1;
+            }
+            suivant(liste);
+        }
+    }
+
+    liste->ec = sauvElementCourant; //Replacer la tête de la liste
+
+    return 0;
+}
 
 
 /**

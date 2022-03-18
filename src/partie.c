@@ -75,8 +75,22 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             }
         }
 
-        //Faire subir les dégâts
-        ///...
+        //Faire subir les dégâts par les projectiles
+        en_tete(liste_entites);
+        if(!liste_vide(liste_entites))
+        {
+            while(!hors_liste(liste_entites))
+            {
+                valeur_elt(liste_entites, &entite_courante);
+                if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
+                {
+                    if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
+                        oter_elt(liste_entites);
+                }
+                suivant(liste_entites);
+                entite_courante = NULL;
+            }
+        }
 
 
         //Actualiser niveau
@@ -193,6 +207,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             }
         }
 
+        printf("PV j : %i \n", joueur->pv);
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);

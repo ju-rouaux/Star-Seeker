@@ -51,8 +51,8 @@
 #ifndef _JEU_DEF_PROJECTILE_
 #define _JEU_DEF_PROJECTILE_
 
-
 #include <projectiles.h>
+#include <animation.h>
 
 
 //--------- Fonctions de comportement ---------
