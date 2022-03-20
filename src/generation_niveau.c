@@ -15,8 +15,9 @@
 #include <string.h>
 #include <ctype.h>
 
-#include <generation_niveau.h>
+#include <generation_entites.h>
 #include <outils.h>
+#include <generation_niveau.h>
 
 
 
@@ -280,6 +281,8 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
  */
 niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
+    int indice_difficulte = 1; //!!! A CALCULER
+
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
     srand(seed);
@@ -310,6 +313,20 @@ niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
     definir_coordonnees_salle_de_fin(niveau->matrice, &(niveau->i_dep), &(niveau->j_dep));
     
+    for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++)
+    {
+        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++)
+        {
+            if(niveau->matrice[i][j] == 0)
+            {
+                niveau->liste_entites[i][j].nb_entites = 0;
+                niveau->liste_entites[i][j].entites = NULL;
+            }
+            else
+                genererEntites(indice_difficulte, j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, &niveau->liste_entites[i][j].entites, &niveau->liste_entites[i][j].nb_entites);
+        }
+        //putchar('\n');
+    }
 
     return niveau;
 }

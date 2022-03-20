@@ -15,6 +15,7 @@
 #include <event.h>
 #include <niveau.h>
 #include <joueur.h>
+#include <monstre.h>
 #include <rendu_niveau.h>
 #include <entite.h>
 #include <liste.h>
@@ -38,7 +39,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
     t_entite * entite_courante;
 
     int tempsEcoule;
-    int id_salle_courante;
+    int id_salle_avant;
 
     //t_projectile * proj = creerProjectile(BALLE, 0, 0, 0, 0, E_MONSTRE, moteur->textures->projectiles);
     //ajout_droit(liste_entites, (t_entite*) proj);
@@ -95,11 +96,11 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
 
 
         //Actualiser niveau
-        id_salle_courante = niveau->salle_chargee->id_salle;
+        id_salle_avant = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
 
         //Si on change de niveau -> animation
-        if(id_salle_courante != niveau->salle_chargee->id_salle) //Animation changement de salle à mettre dans une fonction à l'avenir
+        if(id_salle_avant != niveau->salle_chargee->id_salle) //Animation changement de salle à mettre dans une fonction à l'avenir
         {
             int direction_x, direction_y;
 
@@ -108,11 +109,18 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
             while(!liste_vide(liste_entites))    //Destruction
                 oter_elt(liste_entites);
 
+
             //Chargement des nouvelles
             en_tete(liste_entites);
-            for(int i = 0; i < niveau->salle_chargee->nb_entite; i++)
-                if(niveau->salle_chargee->entites[i] != NULL)
-                    ajout_droit(liste_entites, niveau->salle_chargee->entites[i]);
+            for(int i = 0; i < niveau->h; i++)
+                for(int j = 0; j < niveau->l; j++)
+                    //Si les salles sont du nouvel identifiant
+                    if(niveau->salles[i*niveau->l + j] != NULL  && niveau->salles[i*niveau->l + j]->id_salle == niveau->salle_chargee->id_salle &&
+                    niveau->salles[i*niveau->l + j]->entites != NULL && niveau->salles[i*niveau->l + j]->nb_entite > 0)
+                        for(int k = 0; k <  niveau->salles[i*niveau->l + j]->nb_entite; k++) //Ajouter les entités
+                            ajouterEntiteListe(liste_entites,  niveau->salles[i*niveau->l + j]->entites[k]);
+
+
 
             //Detruire anciennes collisions
             if(moteur->niveau_charge->collisions != NULL)
@@ -207,8 +215,6 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 entite_courante = NULL;
             }
         }
-
-        printf("PV j : %i \n", joueur->pv);
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
@@ -319,41 +325,34 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
 static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nomGalaxie)
 {
     int i;
-    char * noms_planetes[MAX_NOM_NIVEAU] = malloc(sizeof(noms_planetes) * nb_niveaux);
-    if(noms_planetes == NULL)
-    {
-        printf("Impossible d'allouer la mémoire pour les noms des niveaux\n");
-        return -1;
-    }
-
+    
     niveau_informations_t ** infos = malloc(sizeof(niveau_informations_t*)*nb_niveaux);
     if(infos == NULL)
     {
         printf("Impossible d'allouer la mémoire pour les infos des niveaux\n");
-        free(noms_planetes);
         return -1;
     }
+
     
     //Générer un nom de partie et le nom des niveaux
-    *nomGalaxie = NULL;
-    *nomGalaxie = creer_nom(5 + de(5));
-    if(nomGalaxie == NULL)
+    char * nom_galaxie = creer_nom(5 + de(5));
+    if(nom_galaxie == NULL)
+        return -1;
+
+    char ** noms_planetes = creer_noms_planetes(nom_galaxie, nb_niveaux);
+    if(noms_planetes == NULL)
     {
+        printf("Impossible de générer une partie\n");
+        free(nom_galaxie);
         free(infos);
-        free(noms_planetes);
         return -1;
     }
-    creer_noms_planetes(*nomGalaxie, nb_niveaux, noms_planetes);
+
 
     for(i = 0; i < nb_niveaux; i++)
     {
+        infos[i] = creer_niveau_info(noms_planetes[i]);
 
-        infos[i] = creer_niveau_info(noms_planetes[i*MAX_NOM_NIVEAU]);
-        if(infos[i] == NULL)
-        {
-            printf("NULL\n");
-        }
-        
         if(infos[i] == NULL)
         {
             printf("Echec lors de la génération d'un niveau.\n");
@@ -362,6 +361,9 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
             while(i >= 0)
             {
                 detruire_niveau_info(&infos[i]);
+                detruireNomsPlanetes(&noms_planetes, nb_niveaux);
+                free(nom_galaxie);
+                free(infos);
                 i--;
             }
             return -1;

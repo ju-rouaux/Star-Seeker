@@ -148,7 +148,7 @@ static int lierSalles(t_niveau * niveau)
  * 
  * \return Le pointeur de la salle créée, NULL si échec.
  */
-static t_salle * creerSalle(int id_salle)
+static t_salle * creerSalle(int id_salle, t_entite ** entites, int nb_entite)
 {
     t_salle * salle = malloc(sizeof(t_salle));
     if(salle == NULL)
@@ -163,8 +163,8 @@ static t_salle * creerSalle(int id_salle)
     salle->id_salle = id_salle;
     salle->dimensions = NULL;
     
-    salle->entites = NULL;
-    salle->nb_entite = 0;
+    salle->entites = entites;
+    salle->nb_entite = nb_entite;
 
     return salle;
 }
@@ -249,10 +249,10 @@ static t_niveau * chargerSalles(niveau_informations_t * info)
                niveau->salles[i*largeur + j] = NULL;
             else
             {
-                salleCourante = creerSalle(id_salle);
+                salleCourante = creerSalle(id_salle, info->liste_entites[i][j].entites, info->liste_entites[i][j].nb_entites);
                 if(salleCourante == NULL)
                 {
-                    //Fuite de mémoire ici
+                    // !!! Fuite de mémoire ici
                     printf("Impossible de charger le niveau.\n");
                     return NULL;
                 }

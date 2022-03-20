@@ -4,7 +4,6 @@
  * \brief Générateur de nom de planète et de galaxie aléatoire
  *
  * \author camille
- *  
  */
 
 #include <stdio.h>
@@ -19,15 +18,15 @@
 
 
 /**
- * \brief Prend une lettre en entrée, et renvoie une autre lettre qui "sonne bien" pour former un mot
+ * \brief Prend une lettre en entrée, et renvoie une autre lettre qui "sonne bien" pour former un mot.
  * 
  * \param chances la matrice de fréquences de chaque lettre après chaque autre dans le dictionnaire
  * \param c1 la lettre précédente
- * \return la lettre qui va suivre c1
+ * 
+ * \return la lettre qui va suivre c1.
  */
-static char lettre_suivante(int chances[26][26], char c1){
-
-    
+static char lettre_suivante(int chances[26][26], char c1)
+{
     int cptTotal = 0;
 
     //Comptage du nombre total d'occurences de la lettre c1 (donc en position "caractère précédent") dans la matrice chance
@@ -35,11 +34,8 @@ static char lettre_suivante(int chances[26][26], char c1){
         cptTotal += chances[c1 - 'a'][i];
 
 
-    
-
     int suiv = rand() % cptTotal;
 
-    
     char c2 = 'a';  //caractère suivant 
     suiv -= chances[c1 - 'a'][0];
 
@@ -48,21 +44,19 @@ static char lettre_suivante(int chances[26][26], char c1){
         suiv -= chances[c1 - 'a'][c2 - 'a'];    
     }
 
-
     return c2;
 }
 
 
-
-
-
 /**
- * \brief Crée un nom semblable au français et à l'anglais aléatoirement
+ * \brief Crée un nom semblable au français et à l'anglais aléatoirement.
  * 
  * \param taille_mot Nombre de lettres du nom généré
+ * 
  * \return le nom généré
  */
-char * creer_nom(int taille_mot){
+char * creer_nom(int taille_mot)
+{
 
      int chances[26][26] = {
 
@@ -122,7 +116,7 @@ char * creer_nom(int taille_mot){
     char * mot = malloc(sizeof(char) * taille_mot);
     if(mot == NULL)
     {
-        printf("Fail allocation mémoire pour générer un nom");
+        printf("Fail allocation mémoire pour générer un nom\n");
         return NULL;
     }
 
@@ -142,8 +136,28 @@ char * creer_nom(int taille_mot){
 
     *(mot + i) = '\0';
 
-
     return mot;
+}
+
+
+/**
+ * \brief Détruit la mémoire allouée pour le tableau de chaines de noms de planètes.
+ * 
+ * \param noms_planetes L'adresse du tableau de chaines à libérer
+ * \param nombre Le nombre de chaines du tableau
+ */
+void detruireNomsPlanetes(char *** noms_planetes, int nombre)
+{
+    if(*noms_planetes != NULL)
+    {
+        for(int i = 0; i < nombre; i++)
+        {
+            free((*noms_planetes)[i]);
+            (*noms_planetes)[i] = NULL;
+        }
+        free(*noms_planetes);
+    }
+    *noms_planetes = NULL;
 }
 
 
@@ -154,15 +168,38 @@ char * creer_nom(int taille_mot){
  * \param nom_galaxie nom qui va générer la seed
  * \param noms_planetes tableau des noms des planètes
  */
-void creer_noms_planetes(char * nom_galaxie, int nombre, char noms_planetes[][MAX_NOM_NIVEAU]){
-    
-    srand(seed_depuis_mot(nom_galaxie));
-
-    for (int i = 0; i < nombre; i++){
-
-        strcpy(noms_planetes[i], creer_nom(de(7) + 2));
-
+char ** creer_noms_planetes(char * nom_galaxie, int nombre)
+{
+    if(nom_galaxie == NULL)
+    {
+        printf("Nom de galaxie inexistante\n");
+        return NULL;
     }
 
+    char ** noms_planetes = malloc(sizeof(char*) * nombre);
+    if(noms_planetes == NULL)
+    {
+        printf("Erreur allocation nom_planètes\n");
+        return NULL;
+    }
 
+    srand(seed_depuis_mot(nom_galaxie));
+
+    for (int i = 0; i < nombre; i++)
+    {
+        noms_planetes[i] = creer_nom(de(7) + 2);
+        if(noms_planetes[i] == NULL)
+        {
+            printf("Noms planètes non générés\n");
+            i--;
+            while(i >= 0)
+            {
+                free(noms_planetes[i]);
+                i--;
+            }
+            return NULL;
+        }
+    }
+
+    return noms_planetes;
 }

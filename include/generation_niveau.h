@@ -7,12 +7,14 @@
  *  
  */
 
+#include <entite.h>
+
 #ifndef _JEU_GENERATION_NIVEAU_
 #define _JEU_GENERATION_NIVEAU_
 
 
-#define LONGUEUR_NIVEAU_MAX 25
-#define HAUTEUR_NIVEAU_MAX 25
+#define LONGUEUR_NIVEAU_MAX 5
+#define HAUTEUR_NIVEAU_MAX 5
 
 //Cases du niveau
 #define VIDE 0
@@ -55,6 +57,17 @@ typedef struct {
 
 
 /**
+ * \struct t_info_entites
+ * \brief Liste des entités présentes dans une salle
+ */
+typedef struct
+{
+    int nb_entites; /**< Le nombre d'entités de la liste */
+    t_entite ** entites; /**< La liste des entités */
+} t_info_entites;
+
+
+/**
  * \struct niveau_base_t  
  *
  * \brief Toutes les informations relatives au stockage d'un niveau
@@ -69,14 +82,16 @@ typedef struct {
     int vert;
     int bleu;
 
-    int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
+    int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX];
+    t_info_entites liste_entites[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX]; /**< Liste des entités présentes dans le niveau */
 
-    //Positions des salles
+    //Positions des salles de départ et de fin
 
     int i_dep;
     int j_dep;
     int i_fin;
     int j_fin;
+
 
 } niveau_informations_t;
 

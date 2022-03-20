@@ -72,7 +72,7 @@ typedef struct s_salle
 */
 typedef struct s_niveau
 {
-    t_salle ** salles; 
+    t_salle ** salles; /**< Matrice des salles du niveau */ 
     int h; /**< Hauteur du niveau (dimensions de la matrice en i) */
     int l; /**< Largeur du niveau (dimensions de la matrice en j) */
 

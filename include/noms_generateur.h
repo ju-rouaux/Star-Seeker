@@ -15,6 +15,7 @@
 #define MAX_NOM_NIVEAU 10
 
 char * creer_nom(int taille_mot);
-void creer_noms_planetes(char * nom_galaxie, int nombre, char noms_planetes[][MAX_NOM_NIVEAU]);
+char ** creer_noms_planetes(char * nom_galaxie, int nombre);
+void detruireNomsPlanetes(char *** noms_planetes, int nombre);
 
 #endif
