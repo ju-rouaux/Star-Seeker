@@ -58,9 +58,6 @@ typedef struct s_salle
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
 
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
-
-    t_entite ** entites; /**< Entités générés avec la salle */
-    int nb_entite; /**< Nombre des entités générés avec la salle */
     
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;

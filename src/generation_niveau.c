@@ -316,17 +316,13 @@ niveau_informations_t * creer_niveau_info(const char * nom_planete){
     for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++)
     {
         for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++)
-        {
-            if(niveau->matrice[i][j] == 0)
-            {
-                niveau->liste_entites[i][j].nb_entites = 0;
-                niveau->liste_entites[i][j].entites = NULL;
-            }
-            else
-                genererEntites(indice_difficulte, j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, &niveau->liste_entites[i][j].entites, &niveau->liste_entites[i][j].nb_entites);
-        }
-        //putchar('\n');
+            printf("%3i ", niveau->matrice[i][j]);
+        putchar('\n');
     }
+
+    niveau->liste_infos_entites = NULL;
+    niveau->nb_infos_entite = 0;
+    genererEntites(indice_difficulte, (int*) niveau->matrice, HAUTEUR_NIVEAU_MAX, LONGUEUR_NIVEAU_MAX, &niveau->liste_infos_entites, &niveau->nb_infos_entite);
 
     return niveau;
 }

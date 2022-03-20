@@ -94,6 +94,7 @@ t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, 
     monstre->deplacement = deplacement;
 
     monstre->type = E_MONSTRE;
+    monstre->nom_attaque = type_attaque;
 
     monstre->vitesse = vitesse;
     monstre->taille = taille;

@@ -23,6 +23,57 @@
 #include <generation_niveau.h>
 #include <noms_generateur.h>
 #include <outils.h>
+#include <generation_entites.h>
+
+
+/**
+ * \brief Vide la liste de ses entités et fait le tri de ce qui doit être sauvegardé.
+ * 
+ * Cette fonction séléctionne les entités restantes de la salle pour les écrire dans les données du niveau.
+ * Les projectiles sont ainsi oubliés.
+ * 
+ * 
+ * FONCTION A FAIRE
+ * 
+ */
+void viderEntites(t_liste * liste_entites, t_info_entites ** info_entites, int nb_info_entites, int id_salle_avant)
+{
+    t_entite * entite_courante;
+
+    //Sauvegarder les données de l'ancienne salle
+    for(int i = 0; i < nb_info_entites; i++)
+    {
+        if(info_entites[i]->id_salle == id_salle_avant) //Si on a bien accès aux données de l'ancienne salle, les écraser par les nouvelles
+        {
+            int cpt = 0; //Compteur
+            en_tete(liste_entites);
+            while(!hors_liste(liste_entites))
+            {
+                valeur_elt(liste_entites, &entite_courante);
+                if(entite_courante != NULL && entite_courante->type != E_PROJECTILE) //Ne pas sauvegarder les projectiles
+                    info_entites[i]->entites[cpt++] = entite_courante;
+
+                entite_courante = NULL;
+                suivant(liste_entites);
+            }
+            info_entites[i]->nb_entites = cpt; //On ne devrait jamais dépasser le nombre d'entités qui étaient alloués de base
+        }
+    }
+    
+
+    //Detruire le reste des entités de la liste
+    en_queue(liste_entites);
+    while(!liste_vide(liste_entites))
+    {
+        valeur_elt(liste_entites, &entite_courante);
+        if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
+            entite_courante->detruire((t_entite**) &entite_courante);
+
+        oter_elt(liste_entites);
+        entite_courante = NULL;
+    }
+}
+
 
 /**
  * \brief Phase de gameplay principale.
@@ -32,7 +83,7 @@
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites)
 {
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
@@ -47,6 +98,20 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
     //detruireProjectile(&proj);
     int sortie = 0;
     updateCamera(moteur, niveau->salle_chargee->dimensions->largeur, niveau->salle_chargee->dimensions->hauteur, niveau->salle_chargee->dimensions->j, niveau->salle_chargee->dimensions->i, joueur->x, joueur->y);
+    
+    //Charger les données de la nouvelle salle
+    en_tete(liste_entites);
+    for(int i = 0; i < nb_info_entites; i++)
+        if(info_entites[i]->id_salle == niveau->salle_chargee->id_salle)
+        {
+            printf("charger...\n");
+            for(int j = 0; j < info_entites[i]->nb_entites; j++)
+            {
+                printf("entite %f %f | %i entites\n", info_entites[i]->entites[j]->x, info_entites[i]->entites[j]->y, info_entites[i]->nb_entites);
+                ajouterEntiteListe(liste_entites, info_entites[i]->entites[j]);
+            }
+        }
+    
     while((sortie = handleEvents(joueur)) == 0)
     {
         moteur->temps_precedent = moteur->temps;
@@ -70,9 +135,10 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                         oter_elt(liste_entites);
                     }
                 }
+                if(hors_liste(liste_entites))
+                    en_tete(liste_entites);
                 else
-                    oter_elt(liste_entites);
-                suivant(liste_entites);
+                    suivant(liste_entites);
                 entite_courante = NULL;
             }
         }
@@ -87,9 +153,15 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
                 if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
                 {
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
+                    {
+                        entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
+                    }
                 }
-                suivant(liste_entites);
+                if(hors_liste(liste_entites))
+                    en_tete(liste_entites);
+                else
+                    suivant(liste_entites);
                 entite_courante = NULL;
             }
         }
@@ -104,22 +176,52 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur)
         {
             int direction_x, direction_y;
 
-            //Actualiser la liste des entités vivantes
+            //Sauvegarder les données de l'ancienne salle
+            for(int i = 0; i < nb_info_entites; i++)
+            {
+                if(info_entites[i]->id_salle == id_salle_avant) //Si on a bien accès aux données de l'ancienne salle, les écraser par les nouvelles
+                {
+                    int cpt = 0; //Compteur
+                    en_tete(liste_entites);
+                    while(!hors_liste(liste_entites))
+                    {
+                        valeur_elt(liste_entites, &entite_courante);
+                        if(entite_courante != NULL && entite_courante->type != E_PROJECTILE) //Ne pas sauvegarder les projectiles
+                            info_entites[i]->entites[cpt++] = entite_courante;
+
+                        entite_courante = NULL;
+                        suivant(liste_entites);
+                    }
+                    info_entites[i]->nb_entites = cpt; //On ne devrait jamais dépasser le nombre d'entités qui étaient alloués de base
+                }
+            }
+          
+
+            //Detruire le reste des entités de la liste
             en_queue(liste_entites);
-            while(!liste_vide(liste_entites))    //Destruction
+            while(!liste_vide(liste_entites))
+            {
+                valeur_elt(liste_entites, &entite_courante);
+                if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
+                    entite_courante->detruire((t_entite**) &entite_courante);
+
                 oter_elt(liste_entites);
+                entite_courante = NULL;
+            }
 
 
-            //Chargement des nouvelles
+            //Charger les données de la nouvelle salle
             en_tete(liste_entites);
-            for(int i = 0; i < niveau->h; i++)
-                for(int j = 0; j < niveau->l; j++)
-                    //Si les salles sont du nouvel identifiant
-                    if(niveau->salles[i*niveau->l + j] != NULL  && niveau->salles[i*niveau->l + j]->id_salle == niveau->salle_chargee->id_salle &&
-                    niveau->salles[i*niveau->l + j]->entites != NULL && niveau->salles[i*niveau->l + j]->nb_entite > 0)
-                        for(int k = 0; k <  niveau->salles[i*niveau->l + j]->nb_entite; k++) //Ajouter les entités
-                            ajouterEntiteListe(liste_entites,  niveau->salles[i*niveau->l + j]->entites[k]);
-
+            for(int i = 0; i < nb_info_entites; i++)
+                if(info_entites[i]->id_salle == niveau->salle_chargee->id_salle)
+                {
+                    printf("charger...\n");
+                    for(int j = 0; j < info_entites[i]->nb_entites; j++)
+                    {
+                        printf("entite %f %f | %i entites\n", info_entites[i]->entites[j]->x, info_entites[i]->entites[j]->y, info_entites[i]->nb_entites);
+                        ajouterEntiteListe(liste_entites, info_entites[i]->entites[j]);
+                    }
+                }
 
 
             //Detruire anciennes collisions
@@ -260,7 +362,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
     int sortie = 0;
     while(sortie != -1)
     {
-        sortie = jouerNiveau(moteur, joueur);
+        sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite);
         if(sortie == -88 && indice_niveau_charge > 0)
         {
             infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;

@@ -148,7 +148,7 @@ static int lierSalles(t_niveau * niveau)
  * 
  * \return Le pointeur de la salle créée, NULL si échec.
  */
-static t_salle * creerSalle(int id_salle, t_entite ** entites, int nb_entite)
+static t_salle * creerSalle(int id_salle)
 {
     t_salle * salle = malloc(sizeof(t_salle));
     if(salle == NULL)
@@ -162,9 +162,6 @@ static t_salle * creerSalle(int id_salle, t_entite ** entites, int nb_entite)
 
     salle->id_salle = id_salle;
     salle->dimensions = NULL;
-    
-    salle->entites = entites;
-    salle->nb_entite = nb_entite;
 
     return salle;
 }
@@ -182,13 +179,6 @@ static void detruireSalle(t_salle ** salle)
     if(*salle != NULL)
     {
         detruireDimensions(&(*salle)->dimensions);
-
-        //Detruire les entités contenues dans la salle
-        if((*salle)->entites != NULL)
-            for(int i = 0; i < (*salle)->nb_entite; i++)
-                if((*salle)->entites[i] != NULL)
-                    (*salle)->entites[i]->detruire(&(*salle)->entites[i]);
-
         free(*salle);
     }
     *salle = NULL;
@@ -196,13 +186,9 @@ static void detruireSalle(t_salle ** salle)
 
 
 /**
- * \brief Charge le niveau dans une structure exploitable pour le jeu et retourne à
- * travers les paramètres les couleurs du thème du niveau.
+ * \brief Charge le niveau dans une structure exploitable pour le jeu.
  * 
- * \param fichier Fichier depuis lequel charger le niveau (flux)
- * \param r Nuance de rouge du rendu du niveau
- * \param g Nuance de vert du rendu du niveau
- * \param b Nuance de bleu du rendu du niveau
+ * \param info Les données sur la structure du niveau
  * 
  * \return Le pointeur du niveau chargé, NULL si echec du chargement.
  */
@@ -249,15 +235,13 @@ static t_niveau * chargerSalles(niveau_informations_t * info)
                niveau->salles[i*largeur + j] = NULL;
             else
             {
-                salleCourante = creerSalle(id_salle, info->liste_entites[i][j].entites, info->liste_entites[i][j].nb_entites);
+                salleCourante = creerSalle(id_salle);
                 if(salleCourante == NULL)
                 {
                     // !!! Fuite de mémoire ici
                     printf("Impossible de charger le niveau.\n");
                     return NULL;
                 }
-                //chargerMonstres();
-                //chargerObstacles();
                 
                 if(info->i_dep == i && info->j_dep == j) //Si c'est la salle où l'on commence
                     niveau->salle_chargee = salleCourante;
@@ -308,9 +292,7 @@ void detruireNiveau(t_niveau ** niveau)
 }
 
 /**
- * \brief Lance un niveau
- * 
- * Les couleurs du niveau sont aussi chargées
+ * \brief Lance un niveau s couleurs du niveau sont aussi chargées
  * 
  * 
  */

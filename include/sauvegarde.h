@@ -14,6 +14,7 @@
 #include <SDL2/SDL.h>
 #include <joueur.h>
 #include <generation_niveau.h>
+#include <monstre.h>
 
 typedef enum
 {

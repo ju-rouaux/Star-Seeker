@@ -8,6 +8,17 @@
 
 #include <entite.h>
 
-int genererEntites(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites);
+/**
+ * \struct t_info_entites
+ * \brief Liste des entités présentes dans une salle
+ */
+typedef struct
+{
+    int id_salle; /**< Id de la salle propriétaire de ces données */
+    int nb_entites; /**< Le nombre d'entités de la liste */
+    t_entite ** entites; /**< La liste des entités */
+} t_info_entites;
+
+int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos);
 
 #endif //_JEU_GENERATION_ENTITES_

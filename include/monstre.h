@@ -28,6 +28,7 @@ struct s_monstre
 {
     #include <attributs_personnages.h>
     e_deplacement_monstre deplacement;
+    e_nom_attaque nom_attaque;
 };
 
 t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, e_nom_attaque type_attaque, e_deplacement_monstre deplacement);
