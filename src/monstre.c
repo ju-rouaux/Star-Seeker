@@ -40,16 +40,13 @@ int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joue
 
 int dessinerMonstre(t_moteur * moteur, t_monstre * monstre)
 {
-    int id_animation = monstre->id_animation; //Sauvegarde de l'id animation
-
+    monstre->id_animation = monstre->deplacement; //Utiliser la valeur de la méthode de déplacement pour avoir la bonne animation
     monstre->texture = moteur->textures->monstres_bas;
     dessinerEntite(moteur, (t_entite*) monstre);
 
-    monstre->id_animation = monstre->deplacement; //Utiliser la valeur de la méthdoe de déplacement pour avoir la bonne animation
+    monstre->id_animation = monstre->nom_attaque; //Utiliser la valeur de la méthode d'attaque pour avoir la bonne animation
     monstre->texture = moteur->textures->monstres_haut;
-    dessinerEntite(moteur, (t_entite*) monstre);
-
-    monstre->id_animation = id_animation; //Remettre l'id animation de base
+    dessinerEntite(moteur, (t_entite*) monstre);    
     
     return 0;
 }
