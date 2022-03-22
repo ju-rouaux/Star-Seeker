@@ -224,26 +224,26 @@ static int proj_sabre(t_projectile * projectile)
 }
 
 
-/**
- * \brief Rend un projectile rapide mais avec un tres courte portée
- * \param projectile Le projectile
- * \return 0 si succès, une valeur négative si echec.
- */
-static int proj_laser(t_projectile * projectile)
-{
-    projectile->animation = creerAnimation(75, 2);
-    if(projectile->animation == NULL)
-        return -1;
-    projectile->id_animation = 5;
+// /**
+//  * \brief Rend un projectile rapide mais avec un tres courte portée
+//  * \param projectile Le projectile
+//  * \return 0 si succès, une valeur négative si echec.
+//  */
+// static int proj_laser(t_projectile * projectile)
+// {
+//     projectile->animation = creerAnimation(75, 2);
+//     if(projectile->animation == NULL)
+//         return -1;
+//     projectile->id_animation = 5;
 
-    projectile->taille = 1;
-    projectile->vitesse = 12;
-    projectile->dommages = 30;
-    projectile->duree_de_vie = 3000;
+//     projectile->taille = 1;
+//     projectile->vitesse = 12;
+//     projectile->dommages = 30;
+//     projectile->duree_de_vie = 3000;
 
-    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_RetourProj;
+//     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_RetourProj;
 
-    return 0;
-}
+//     return 0;
+// }
 
 #endif //_JEU_DEF_PROJECTILE_
