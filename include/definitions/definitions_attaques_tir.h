@@ -81,7 +81,7 @@ static void attaque_tir_sabre(t_attaque_tir * attaque)
 static void attaque_laser(t_attaque_tir * attaque)
 {
     attaque->type_projectile = LASER;
-    attaque->cooldown = 50;
+    attaque->cooldown = 0;
     attaque->nb_salves = 20;
     attaque->nb_proj_salve =1;
     attaque->tir_interval = 0;
