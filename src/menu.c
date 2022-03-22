@@ -5,25 +5,9 @@
  * 
  */
 
-#include <stdio.h>
-
-#include <stdlib.h>
-
-#include <string.h>
-
-#include <SDL2/SDL.h>
-
-#include <SDL2/SDL_image.h>
-
-#include <SDL2/SDL_ttf.h>
-
-#include <window.h>
-
-#include <moteur.h>
+#include <partie.h>
 
 #include <menu.h>
-
-#include <partie.h>
 
 
 /**
@@ -128,7 +112,7 @@ t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_bouto
             0
         };
 
-        TTF_Font * font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+        TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
 
         if (font == NULL) {
             fprintf(stderr, "error: font not found\n");
@@ -182,11 +166,12 @@ void detruireBoutons(t_bouton *** boutons, int nb_boutons) {
  */
 static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
 
-    int mouse_x, mouse_y; /**Coordonnées du curseur*/
+    SDL_Point mouse;
     SDL_Event e;
 
     while (SDL_PollEvent( & e)) {
-        mouse_x = e.button.x, mouse_y = e.button.y; /*Mise a jour de la position du curseur*/
+        mouse.x = e.button.x;
+        mouse.y = e.button.y;
         switch (e.type) {
         case SDL_QUIT:
             return 1;
@@ -194,7 +179,7 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
             switch (e.button.button) {
             case SDL_BUTTON_LEFT:
                 for (int i = 0; i < NB_B_MENU; i++) {
-                    if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
+                    if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                         return i + 2;
                 }
                 break;
@@ -205,7 +190,7 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
         case SDL_MOUSEMOTION: {
 
             for (int i = 0; i < NB_B_MENU; i++) {
-                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
+                 if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
@@ -233,7 +218,7 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
         0
     };
 
-    TTF_Font * font = TTF_OpenFont("./PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+    TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
 
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
@@ -295,7 +280,7 @@ void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
  * \param moteur Structure du moteur
  * \return int 0 si succès, negatif si echec
  */
-int chargerMenu(t_moteur * moteur) {
+e_menu chargerMenu(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
 
@@ -323,52 +308,45 @@ int chargerMenu(t_moteur * moteur) {
     while (temp == 0) {
         if (SDL_RenderClear(moteur -> renderer) != 0) {
             printf("Erreur lors du SDL_RenderClear dans le menu");
-            return -1;//Retourne cas d'erreur
+            return ERROR_MENU_TEXTURE;//Retourne cas d'erreur
         }
         if (maj_TextureMenu(moteur, boutons, NB_B_MENU) != 0 ) {
             printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            return ERROR_MENU_TEXTURE;
         }
         if (maj_TextureTexte(moteur, rect_titre,&texture_titre,180,30,"Star Seeker") != 0) {
             printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            return ERROR_MENU_TEXTURE;
         }
 
         temp = handleEvents_menu(moteur, boutons);
 
         switch (temp) {
             case 0:
-                break;
-            case 1:
-            case 5:
-            case -1: {
-                detruireBoutons( & boutons, NB_B_MENU);
-                detruireTexte(&rect_titre,texture_titre);
-                return -1;
-            }
+                break; // on ne fait rien
             case 2:
                 printf("Nouvelle Partie\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                nouvellePartie(moteur, 2);
+                return M_JEU;
                 break;
             case 3:
                 printf("Charger Partie\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                chargerPartie(moteur);
+                return M_CHARGER;
                 break;
             case 4: {
                 printf("Options\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                chargerMenu_Options(moteur);
+                return M_OPTIONS;
             }
             default: {
                 printf("Erreur, menu inconnu");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                return -1;
+                return ERROR_MENU;
             }
         }
     

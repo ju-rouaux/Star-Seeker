@@ -5,21 +5,7 @@
  * 
  */
 
-#include <stdio.h>
-
-#include <stdlib.h>
-
-#include <SDL2/SDL.h>
-
-#include <SDL2/SDL_image.h>
-
-#include <SDL2/SDL_ttf.h>
-
-#include <window.h>
-
-#include <moteur.h>
-
-#include <menu.h>
+#include <menu_options_keymap.h>
 
 
 /**
@@ -31,11 +17,12 @@
  */
 static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SDL_Scancode * key_code) {
 
-    int mouse_x, mouse_y;
+    SDL_Point mouse;
     SDL_Event e;
 
     while (SDL_PollEvent( & e)) {
-        mouse_x = e.button.x, mouse_y = e.button.y;
+        mouse.x = e.button.x;
+        mouse.y = e.button.y;
         switch (e.type) {
 
         case SDL_QUIT:
@@ -49,7 +36,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
 
                 for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
                     if (i != NB_B_MENU_OPTIONS_KEYMAP - 1) { // Cas particulier pour le bouton retour
-                        if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR)))) {
+                        if (SDL_PointInRect(&mouse,&boutons[i]->rect)) {
                             while (SDL_WaitEvent( &e) && e.type != SDL_KEYUP ) {
                                 if(e.type == SDL_KEYDOWN)
                                     *key_code = e.key.keysym.scancode; //on recupere la valeur de la touche appuyée
@@ -69,7 +56,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
 
         case SDL_MOUSEMOTION:
             for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
-                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
+                if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
@@ -85,7 +72,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
  * \param moteur structure moteur
  * \return int 0 si succes, negatif si echec
  */
-int chargerMenu_Options_keymap(t_moteur * moteur) {
+e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
     
     SDL_Scancode key_temp = -1;
 
@@ -114,15 +101,15 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
     while (temp == 0) {
         if (SDL_RenderClear(moteur -> renderer) != 0) {
             printf("Erreur lors du SDL_RenderClear dans le menu");
-            return -1;//Retourne cas d'erreur
+            return ERROR_MENU_TEXTURE;//Retourne cas d'erreur
         }
         if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP) != 0 ) {
-            printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            // printf("Erreur lors de l'update dans le menu principal");
+            return ERROR_MENU_TEXTURE;
         }
         if (maj_TextureTexte(moteur, rect_titre,&texture_titre,180,30,"Star Seeker") != 0) {
-            printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            // printf("Erreur lors de l'update dans le menu principal");
+            return ERROR_MENU_TEXTURE;
         }
 
         temp = handleEvents_options_keymap(moteur, boutons, &key_temp);
@@ -135,7 +122,7 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
                 printf("Erreur (default)\n");
                 detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
                 detruireTexte(&rect_titre,texture_titre);
-                return -1;
+                return ERROR_MENU;
             }
             case 2:
                 printf("Key mapped for up : %d\n",key_temp);
@@ -164,16 +151,14 @@ int chargerMenu_Options_keymap(t_moteur * moteur) {
                 break;
             case 7: {
                 printf("Retour\n");
-                detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
-                detruireTexte(&rect_titre,texture_titre);
-                chargerMenu_Options(moteur);
+               return M_OPTIONS;
                 break;
             }
             default: {
                 printf("Erreur, menu inconnu\n");
                 detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
                 detruireTexte(&rect_titre,texture_titre);
-                return -1;
+                return ERROR_MENU;
             }
         }
     updateEchelle(moteur);//on met a jour l'echelle

@@ -5,21 +5,7 @@
  * 
  */
 
-#include <stdio.h>
-
-#include <stdlib.h>
-
-#include <SDL2/SDL.h>
-
-#include <SDL2/SDL_image.h>
-
-#include <SDL2/SDL_ttf.h>
-
-#include <window.h>
-
-#include <moteur.h>
-
-#include <menu.h>
+#include <menu_options.h>
 
 
 /**
@@ -31,11 +17,12 @@
  */
 static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
 
-    int mouse_x, mouse_y;
+    SDL_Point mouse;
     SDL_Event e;
 
     while (SDL_PollEvent( & e)) {
-        mouse_x = e.button.x, mouse_y = e.button.y;
+        mouse.x = e.button.x;
+        mouse.y = e.button.y;
         switch (e.type) {
         case SDL_QUIT:
             return 1;
@@ -45,7 +32,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
             case SDL_BUTTON_LEFT:
                 /**Bouton gauche*/
                 for (int i = 0; i < NB_B_MENU_OPTIONS; i++) {
-                    if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
+                    if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                         return i + 2;
                 }
                 break;
@@ -57,7 +44,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
         case SDL_MOUSEMOTION:
 
             for (int i = 0; i < NB_B_MENU_OPTIONS; i++) {
-                if (((mouse_x >= boutons[i] -> rect.x) && (mouse_x <= (boutons[i] -> rect.x + moteur -> echelle * (boutons[i] -> longueur / B_LARGEUR)))) && ((mouse_y >= boutons[i] -> rect.y) && (mouse_y <= (boutons[i] -> rect.y + moteur -> echelle * B_LONGUEUR))))
+                if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
@@ -74,7 +61,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
  * \param moteur moteur
  * \return int 0 si succès, 1 si echec
  */
-int chargerMenu_Options(t_moteur * moteur) {
+e_menu chargerMenu_Options(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
 
@@ -101,15 +88,15 @@ int chargerMenu_Options(t_moteur * moteur) {
     while (temp == 0) {
         if (SDL_RenderClear(moteur -> renderer) != 0) {
             printf("Erreur lors du SDL_RenderClear dans le menu");
-            return -1;//Retourne cas d'erreur
+            return ERROR_MENU_TEXTURE;//Retourne cas d'erreur
         }
         if (maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS) != 0 ) {
             printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            return ERROR_MENU_TEXTURE;
         }
         if (maj_TextureTexte(moteur, rect_titre,&texture_titre,180,30,"Star Seeker") != 0) {
             printf("Erreur lors de l'update dans le menu principal");
-            return -1;
+            return ERROR_MENU_TEXTURE;
         }
 
         temp = handleEvents_options(moteur, boutons);
@@ -117,37 +104,29 @@ int chargerMenu_Options(t_moteur * moteur) {
         switch (temp) {//Selon le resultat de l'event
         case 0: //pour rester sur le menu actuel (on ne fait rien)
             break;
-        case 1:
-        case -1: {
-            printf("Erreur (default)");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
-            detruireTexte(&rect_titre,texture_titre);
-            return -1;
-        }
         case 2: {
             printf("Muet (on/off)\n");
             temp = 0;//pour rester sur le menu actuel
             break;
         }
-        case 3: {
+        case 3: 
             printf("Keymap\n");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
             detruireTexte(&rect_titre,texture_titre);
-            chargerMenu_Options_keymap(moteur);
+            return M_KEYMAP;
             break;
-        }
         case 4: {
             printf("Retour\n");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
             detruireTexte(&rect_titre,texture_titre);
-            chargerMenu(moteur);
+            return M_PRINCIPAL;
             break;
         }
         default: {
             printf("Erreur, menu inconnu");
             detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
             detruireTexte(&rect_titre,texture_titre);
-            return -1;
+            return ERROR_MENU;
         }
         }
          updateEchelle(moteur);//on met a jour l'echelle

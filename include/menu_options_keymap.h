@@ -8,20 +8,12 @@
 #ifndef _JEU_MENU_OPTIONS_KEYMAP_
 #define _JEU_MENU_OPTIONS_KEYMAP_
 
-#include <moteur.h>
-
-#include <SDL2/SDL.h>
-
-#include <SDL2/SDL_image.h>
-
-#include <SDL2/SDL_ttf.h>
 
 #include <menu.h>
 
 #define NB_B_MENU_OPTIONS_KEYMAP 6
-
 #define NOMS_B_MENU_OPTIONS_KEYMAP {"Haut","Bas","Droite","Gauche","Projectile","Retour"}
 
-int chargerMenu_Options_keymap(t_moteur * moteur);
+e_menu chargerMenu_Options_keymap(t_moteur * moteur);
 
 #endif //_JEU_MENU_OPTIONS_KEYMAP_
