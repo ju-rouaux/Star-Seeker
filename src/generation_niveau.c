@@ -266,10 +266,23 @@ static void couleur_aleatoire(t_couleurRVB * couleur){
 }
 
 
-
+/**
+ * \brief Libère la mémoire allouée à une information de niveau.
+ * 
+ * \param niveau L'adresse de la structure à libérer
+ */
 void detruire_niveau_info(niveau_informations_t ** niveau){
     if(*niveau != NULL)
+    {
+        if((*niveau)->liste_infos_entites != NULL)
+        {
+            for(int i = 0; i < (*niveau)->nb_infos_entite; i++)
+                detruireInfosEntites(&((*niveau)->liste_infos_entites[i]));
+
+            free((*niveau)->liste_infos_entites);
+        }
         free(*niveau);
+    }
     *niveau = NULL;
 }
 

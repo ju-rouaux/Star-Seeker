@@ -7,7 +7,13 @@
 #include <monstre.h>
 #include <generation_niveau.h>
 
-int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
+/**
+ * 
+ * 
+ * 
+ * 
+ */
+static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
 {   
     //générer un nombre d'entité selon difficulté
     *nb_entites = 1;
@@ -22,7 +28,37 @@ int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_sa
     return 0;
 }
 
+/**
+ * 
+ * 
+ * 
+ * 
+ */
+void detruireInfosEntites(t_info_entites ** infos)
+{
+    if(*infos != NULL)
+    {
+        if((*infos)->entites != NULL)
+        {
+            for(int i = 0; i < (*infos)->nb_entites; i++)
+            {  
+                if((*infos)->entites[i] != NULL)
+                    detruireEntite(&((*infos)->entites[i]));
+                (*infos)->entites[i] = NULL;
+            }
+            free((*infos)->entites);
+            (*infos)->entites = NULL;
+        }
+        free(*infos);
+    }
+    *infos = NULL;
+}
 
+/**
+ * 
+ * 
+ * 
+ */
 int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos)
 {
     int nb_infos = 0;
@@ -53,7 +89,10 @@ int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat,
                         if(genererEntitesSalle(indice_difficulte, j*NB_TILE_LARGEUR, i*NB_TILE_HAUTEUR, &infos[k]->entites, &infos[k]->nb_entites) == 0)
                             nb_infos++;
                         else
+                        {
                             free(infos[k]);
+                            infos[k] = NULL;
+                        }
                     }
                 }
                 else //Trouvé
@@ -79,13 +118,5 @@ int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat,
     *infos_entites = infos;
     *nombre_infos = nb_infos;
 
-    putchar('\n');
-    printf("%i infos\n", nb_infos);
-    for(int i = 0; i < nb_infos; i++)
-    {
-        for(int j = 0; j < infos[i]->nb_entites; j++)
-        printf("(%f %f) ", infos[i]->entites[j]->x, infos[i]->entites[j]->y);
-    }
-    putchar('\n');
     return 0;
 }

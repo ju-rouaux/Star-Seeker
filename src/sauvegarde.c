@@ -170,7 +170,7 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
                     monstre_temp = malloc(sizeof(t_monstre));
                     if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1) //Lecture infos niveaux
                         return READ_OR_WRITE_FAIL;
-                    tmp->liste_infos_entites[j]->entites[k] = creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
+                    tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
                     free(monstre_temp);
                     break;
                 
