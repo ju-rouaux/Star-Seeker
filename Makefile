@@ -1,7 +1,7 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lm
+LDFLAGS = -I./include -lmingw32 -Llib -lSDL2main -lSDL2 
 
 # Parametres du makefile
 APPNAME = ./bin/test
