@@ -59,7 +59,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
  * \brief Charge le sous menu des options
  *
  * \param moteur moteur
- * \return int 0 si succès, 1 si echec
+ * \return code de sortie personnalisé selon l'evenement
  */
 e_menu chargerMenu_Options(t_moteur * moteur) {
 
@@ -71,7 +71,7 @@ e_menu chargerMenu_Options(t_moteur * moteur) {
 
     if (boutons == NULL) {
         printf("Erreur allocation memoire boutons\n");
-        return -1;
+        return ERROR_MENU;
     }
 
     SDL_Texture * texture_titre = NULL;
@@ -80,7 +80,7 @@ e_menu chargerMenu_Options(t_moteur * moteur) {
 
     if(rect_titre == NULL){
         printf("Erreur allocation Texte titre\n");
-        return -1;
+        return ERROR_MENU;
     }
 
     int temp = 0;
@@ -102,35 +102,35 @@ e_menu chargerMenu_Options(t_moteur * moteur) {
         temp = handleEvents_options(moteur, boutons);
 
         switch (temp) {//Selon le resultat de l'event
-        case 0: //pour rester sur le menu actuel (on ne fait rien)
-            break;
-        case 2: {
-            printf("Muet (on/off)\n");
-            temp = 0;//pour rester sur le menu actuel
-            break;
+            case 0: //pour rester sur le menu actuel (on ne fait rien)
+                break;
+            case 2: {
+                printf("Muet (on/off)\n");
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            }
+            case 3: 
+                printf("Keymap\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
+                detruireTexte(&rect_titre,texture_titre);
+                return M_KEYMAP;
+                break;
+            case 4: {
+                printf("Retour\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
+                detruireTexte(&rect_titre,texture_titre);
+                return M_PRINCIPAL;
+                break;
+            }
+            default: {
+                printf("Erreur, menu inconnu");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
+                detruireTexte(&rect_titre,texture_titre);
+                return ERROR_MENU;
+            }
         }
-        case 3: 
-            printf("Keymap\n");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
-            detruireTexte(&rect_titre,texture_titre);
-            return M_KEYMAP;
-            break;
-        case 4: {
-            printf("Retour\n");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
-            detruireTexte(&rect_titre,texture_titre);
-            return M_PRINCIPAL;
-            break;
-        }
-        default: {
-            printf("Erreur, menu inconnu");
-            detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
-            detruireTexte(&rect_titre,texture_titre);
-            return ERROR_MENU;
-        }
-        }
-         updateEchelle(moteur);//on met a jour l'echelle
+        updateEchelle(moteur);//on met a jour l'echelle
         SDL_RenderPresent(moteur -> renderer);
     }
-    return 0;
+    return M_PRINCIPAL;
 }

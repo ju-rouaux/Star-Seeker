@@ -178,7 +178,7 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
             return 1;
         case SDL_MOUSEBUTTONDOWN:
             switch (e.button.button) {
-            case SDL_BUTTON_LEFT:
+            case SDL_BUTTON_LEFT: // Si clic gauche
                 for (int i = 0; i < NB_B_MENU; i++) {
                     if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                         return i + 2;
@@ -188,10 +188,10 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
                 return -1;
             }
             break;
-        case SDL_MOUSEMOTION: {
-
+        case SDL_MOUSEMOTION: //Si la souris bouge
+        {
             for (int i = 0; i < NB_B_MENU; i++) {
-                 if (SDL_PointInRect(&mouse,&boutons[i]->rect))
+                if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
@@ -248,8 +248,8 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
 }
 
 /**
- * \brief 
- * 
+ * \brief Met a jour la texture du texte
+ *
  * \param moteur moteur du jeu
  * \param rect rectangle du texte
  * \param texture texture du texte
@@ -302,7 +302,7 @@ void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
  * \brief Charge le menu (Rectangles, police)
  * 
  * \param moteur Structure du moteur
- * \return cas d'erreur ou d'echec du type enum e_menu
+ * \return code de sortie personnalisé selon l'evenement
  */
 e_menu chargerMenu(t_moteur * moteur) {
 
@@ -379,7 +379,7 @@ e_menu chargerMenu(t_moteur * moteur) {
                 return ERROR_MENU;
             }
         }
-    
+
     updateEchelle(moteur);//on met a jour l'echelle
     SDL_RenderPresent(moteur -> renderer);
     }

@@ -70,7 +70,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
  * \brief Charge tout les boutons / fonctionnalités du sous menu pour les keymap
  * 
  * \param moteur structure moteur
- * \return int 0 si succes, negatif si echec
+ * \return code de sortie personnalisé selon l'evenement
  */
 e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
     
@@ -84,7 +84,7 @@ e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
 
     if (boutons == NULL) {
         printf("Erreur allocation memoire boutons\n");
-        return -1;
+        return ERROR_MENU;
     }
 
     SDL_Texture * texture_titre = NULL;
@@ -93,7 +93,7 @@ e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
 
     if(rect_titre == NULL){
         printf("Erreur allocation Texte titre\n");
-        return -1;
+        return ERROR_MENU;
     }
 
     int temp = 0;
@@ -166,5 +166,5 @@ e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
     updateEchelle(moteur);//on met a jour l'echelle
     SDL_RenderPresent(moteur -> renderer);
     }
-    return 0;
+    return M_OPTIONS;
 }
