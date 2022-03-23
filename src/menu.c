@@ -112,7 +112,7 @@ t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_bouto
             0
         };
 
-        TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+        TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);//Definition de la police d'ecriture
 
         if (font == NULL) {
             fprintf(stderr, "error: font not found\n");
@@ -217,9 +217,9 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
         255,
         0
     };
-
-    TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
-
+    //Premiere police d'ecriture utilisée
+    //TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+    TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
         return NULL;
@@ -266,10 +266,10 @@ int maj_TextureTexte(t_moteur * moteur,SDL_Rect * rect, SDL_Texture ** texture,i
 
 void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
     SDL_DestroyTexture(texture);//Desctruction de la texture
-    if(*rect != NULL){
-    free(*rect);
+    if(rect != NULL){
+    free(rect);
     }
-    *rect = NULL;//Mise a NULL 
+    rect = NULL;//Mise a NULL 
 }
 
 
