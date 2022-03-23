@@ -112,9 +112,10 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
 
                 switch (event.key.keysym.scancode)
                 {
-                    // case SDL_SCANCODE_ESCAPE: //ESC
-                    //     chargerMenu(moteur);
-                    //     break;
+                   /* A comment. */
+                    case SDL_SCANCODE_ESCAPE: //ESC
+                        chargerMenu(moteur);
+                        break;
                     case SDL_SCANCODE_O: //O !!! Temporaire
                         return -88;
                         break;

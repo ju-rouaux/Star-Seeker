@@ -10,7 +10,6 @@
 #include <menu_options.h>
 #include <menu_options_keymap.h>
 
-
 /**
  * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
  * sa partie.
@@ -41,6 +40,8 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
+    
+
     while(code != M_QUITTER){
         switch(code){
             case M_PRINCIPAL : code = chargerMenu(moteur);break;
@@ -48,6 +49,7 @@ int main(int argc, char * argv[])
             case M_CHARGER : code = chargerPartie(moteur);break;
             case M_OPTIONS : code = chargerMenu_Options(moteur);break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
+           // case M_QUITTER : code =
             case ERROR_MENU : return ERROR_MENU; break;
             case ERROR_MENU_TEXTURE : return ERROR_MENU_TEXTURE;break;
             default : return ERROR_MENU;
