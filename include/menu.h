@@ -31,7 +31,7 @@
 #define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Options","Quitter"}
 
 
-typedef enum {ERROR_MENU_TEXTURE = -2,ERROR_MENU, M_PRINCIPAL = 1, M_JEU,M_CHARGER,M_OPTIONS, M_KEYMAP, M_RETOUR, M_QUITTER} e_menu;
+typedef enum {ERROR_MENU_TEXTURE = -2,ERROR_MENU, M_PRINCIPAL = 1, M_JEU,M_CHARGER,M_OPTIONS, M_KEYMAP, M_QUITTER} e_menu;
 
 typedef struct s_bouton {
     SDL_Texture * texture;

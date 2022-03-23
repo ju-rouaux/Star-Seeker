@@ -151,7 +151,9 @@ e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
                 break;
             case 7: {
                 printf("Retour\n");
-               return M_OPTIONS;
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
+                detruireTexte(&rect_titre,texture_titre);
+                return M_OPTIONS;
                 break;
             }
             default: {
