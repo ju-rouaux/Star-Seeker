@@ -15,6 +15,7 @@
 #include <window.h>
 #include <textures.h>
 #include <camera.h>
+#include <liste.h>
 
 
 /**
@@ -60,11 +61,25 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
+    //Allouer la liste des entités "vivantes"
+    moteur->liste_entites = malloc(sizeof(t_liste));
+    if(moteur->liste_entites == NULL)
+    {
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+    init_liste(moteur->liste_entites);
+
     moteur->temps_precedent = temps;
     moteur->temps = temps;
 
     moteur->echelle = 0;
     updateEchelle(moteur);
+
+    moteur->parametres.reset_sauvegarde_joueur = FAUX;
+    moteur->parametres.volume_audio = 100;
 
     return moteur;
 }
@@ -83,6 +98,7 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
+        detruire_liste(&(*moteur)->liste_entites);
     }
     free(*moteur);
     *moteur = NULL;

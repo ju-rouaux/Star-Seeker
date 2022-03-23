@@ -44,11 +44,10 @@ void updateAnimation(t_animation * animation, unsigned int temps)
  * 
  * \param vitesse Temps en milisecondes avant le passage à la frame suivante de l'animation
  * \param nb_textures Nombre de frames différentes d'une animation
- * \param id_max Identifiant d'animation le plus élevé
  * 
  * \return La structure animation ou NULL si échec.
  */
-t_animation * creerAnimation(int vitesse, int nb_textures, int id_max)
+t_animation * creerAnimation(int vitesse, int nb_textures)
 {
     t_animation * animation = malloc(sizeof(t_animation));
     if(animation == NULL)
@@ -59,7 +58,6 @@ t_animation * creerAnimation(int vitesse, int nb_textures, int id_max)
 
     animation->vitesse = vitesse;
     animation->nb_textures = nb_textures;
-    animation->id_max = id_max;
 
     animation->indice_texture = 0;
     animation->dernier_update = 0;

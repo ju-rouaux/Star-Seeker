@@ -14,7 +14,6 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <entite.h>
-#include <liste.h>
 #include <generation_niveau.h>
 
 /**
@@ -59,9 +58,6 @@ typedef struct s_salle
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
 
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
-
-    t_entite ** entites; /**< Entités générés avec la salle */
-    int nb_entite; /**< Nombre des entités générés avec la salle */
     
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;
@@ -73,7 +69,7 @@ typedef struct s_salle
 */
 typedef struct s_niveau
 {
-    t_salle ** salles; 
+    t_salle ** salles; /**< Matrice des salles du niveau */ 
     int h; /**< Hauteur du niveau (dimensions de la matrice en i) */
     int l; /**< Largeur du niveau (dimensions de la matrice en j) */
 
@@ -81,16 +77,13 @@ typedef struct s_niveau
     int i_charge; /** Position en i dans la matrice de salle de la salle chargée (utile à updateNiveau) */
     int j_charge; /** Position en j dans la matrice de salle de la salle chargée (utile à updateNiveau) */
 
-    t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
-
     SDL_Rect * collisions; /**< Tableau des zones non accessibles au joueur  */
     int taille_collisions; /**< Taille du tableau de collisions */
 } t_niveau;
 
 
 void detruireNiveau(t_niveau ** niveau);
-int lancerNiveau(t_moteur * moteur, niveau_informations_t * info);
-void arreterNiveau(t_niveau ** niveau);
+int chargerNiveau(t_moteur * moteur, niveau_informations_t * info);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 
 

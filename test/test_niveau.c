@@ -65,7 +65,7 @@ int main(void)
         return 1;
     }
 
-    t_niveau * niveau = chargerNiveau(fichier, NULL, NULL, NULL);
+    t_niveau * niveau = chargerSalles(fichier, NULL, NULL, NULL);
     if(niveau == NULL)
         printf("Niveau non récupéré");
     else

@@ -11,7 +11,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <entite.h>
+
+typedef struct s_entite t_entite;
 
 typedef struct element {
     t_entite * valeur ;
@@ -19,14 +20,18 @@ typedef struct element {
     struct element* succ ;
 } t_element;
 
-typedef struct {
+typedef struct s_liste t_liste;
+struct s_liste{
     t_element * drapeau;
     t_element * ec;
-} t_liste ;
+} ;
+
 
 void init_liste(t_liste* l);
 
 int liste_vide(t_liste * l);
+
+void detruire_liste(t_liste ** l);
 
 int hors_liste(t_liste * l);
 

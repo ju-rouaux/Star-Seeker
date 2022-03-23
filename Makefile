@@ -1,7 +1,7 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lm
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
 
 # Parametres du makefile
 APPNAME = ./bin/save
@@ -14,8 +14,13 @@ OBJDIR = ./obj
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
+# UNIX-based OS variables & settings
 RM = rm
-DELOBJ = ./obj/*.o
+DELOBJ = $(OBJ)
+# Windows OS variables & settings
+DEL = del
+EXE = .exe
+WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
@@ -35,12 +40,14 @@ $(APPNAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
 
-
-
-
-# Supprime tout les fichiers objets et l'executable (.o et exe)
+################### Cleaning rules for Unix-based OS ###################
+# Cleans complete project
 .PHONY: clean
 clean:
-	$(RM) $(DELOBJ) $(APPNAME)
-	@echo Nettoyage de tout les fichiers generes reussi
+	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
 
+#################### Cleaning rules for Windows OS #####################
+# Cleans complete project
+.PHONY: cleanw
+cleanw:
+	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)

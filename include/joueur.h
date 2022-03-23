@@ -33,6 +33,12 @@ typedef struct
     //Temporaire
     int shooting;
     //Attaque, dash, ...
+
+
+    //Overlay
+    int map_showing;
+    int interaction;
+
 } t_joueur_flags;
 
 
@@ -40,14 +46,12 @@ typedef struct
  * \struct t_joueur
  * \brief Structure modélisant le joueur, hérite des attributs d'entité et de personnage.
  */
-typedef struct
+typedef struct s_joueur
 {
     #include <attributs_personnages.h>
     t_joueur_flags * flags;
 
     //Autres données comme l'expererience, l'inventaire...
-    t_attaque_tir attaque_tir_equipee;
-    //t_attaque_corps attaque_corps_equipee;
 } t_joueur;
 
 

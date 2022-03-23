@@ -5,23 +5,38 @@
 #include <partie.h>
 #include <generation_niveau.h>
 
+
+/**
+ * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
+ * sa partie.
+ * 
+ * \param moteur Le moteur du jeu
+ */
+void resetSauvegardeJoueur(t_moteur * moteur)
+{
+    //Afficher un menu d'avertissement
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
+}
+
 int main(int argc, char * argv[])
 {
-    
     t_moteur * moteur = NULL;
 
-     if(SDL_Init(SDL_INIT_VIDEO) != 0)
+    if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
         printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
 
-    chargerPartie(moteur, 1);
+    nouvellePartie(moteur, 5);
+    //chargerPartie(moteur);
 
     detruireMoteur(&moteur);
-
+    
+    SDL_Quit();
     return 0;
 
 }
