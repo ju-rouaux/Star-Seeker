@@ -1,6 +1,9 @@
 /**
+ * \file generation_entites.c
  * 
+ * \brief Module générant les entités des salles d'un niveau.
  * 
+ * \author Julien Rouaux
  */
 
 #ifndef _JEU_GENERATION_ENTITES_
