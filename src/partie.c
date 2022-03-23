@@ -283,7 +283,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
     detruireJoueur(&joueur);
     arreterNiveau(&moteur->niveau_charge);
 
-    return 0;
+    return 7;
 }
 
 

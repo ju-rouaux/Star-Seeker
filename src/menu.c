@@ -162,7 +162,7 @@ void detruireBoutons(t_bouton *** boutons, int nb_boutons) {
  * 
  * \param moteur strcture moteur
  * \param boutons tableau de boutons
- * \return int 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
+ * \return 0 si succes, 1 si l'utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé
  */
 static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
 
@@ -202,7 +202,14 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
     return 0;
 }
 
-
+/**
+ * \brief Initalise un rectangle pour du texte en allouant la memoire et en l'initialise
+ * 
+ * \param moteur moteur du jeu
+ * \param texture texture 
+ * \param texte texte a afficher
+ * \return SDL_Rect* 
+ */
 SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * texte){
 
     SDL_Surface * surface;
@@ -239,7 +246,17 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
     return rect;
 }
 
-
+/**
+ * \brief 
+ * 
+ * \param moteur moteur du jeu
+ * \param rect rectangle du texte
+ * \param texture texture du texte
+ * \param rect_x coordonnées x du rect
+ * \param rect_y coordonnées y du rect
+ * \param texte texte a afficher
+ * \return 0 si succès, negatif si echec
+ */
 int maj_TextureTexte(t_moteur * moteur,SDL_Rect * rect, SDL_Texture ** texture,int rect_x, int rect_y, char * texte){
 
     if (SDL_SetRenderDrawColor(moteur -> renderer, 0, 0, 0, 255) != 0) {
@@ -264,12 +281,18 @@ int maj_TextureTexte(t_moteur * moteur,SDL_Rect * rect, SDL_Texture ** texture,i
     return 0;//Retourne cas de succès
 }
 
+/**
+ * \brief Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a NULL et libere la texture de ce dernier
+ * 
+ * \param rect Adresse du rectangle
+ * \param texture texture utilisée
+ */
 void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
     SDL_DestroyTexture(texture);//Desctruction de la texture
-    if(rect != NULL){
-    free(rect);
+    if(*rect != NULL){
+    free(*rect);
     }
-    rect = NULL;//Mise a NULL 
+    *rect = NULL;//Mise a NULL 
 }
 
 
@@ -278,7 +301,7 @@ void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
  * \brief Charge le menu (Rectangles, police)
  * 
  * \param moteur Structure du moteur
- * \return int 0 si succès, negatif si echec
+ * \return cas d'erreur ou d'echec du type enum e_menu
  */
 e_menu chargerMenu(t_moteur * moteur) {
 
@@ -290,7 +313,7 @@ e_menu chargerMenu(t_moteur * moteur) {
 
     if (boutons == NULL) {
         printf("Erreur allocation memoire boutons\n");
-        return -1;
+        return ERROR_MENU;
     }
 
     SDL_Texture * texture_titre = NULL;
@@ -299,7 +322,7 @@ e_menu chargerMenu(t_moteur * moteur) {
 
     if(rect_titre == NULL){
         printf("Erreur allocation Texte titre\n");
-        return -1;
+        return ERROR_MENU;
     }
 
 
@@ -359,5 +382,5 @@ e_menu chargerMenu(t_moteur * moteur) {
     updateEchelle(moteur);//on met a jour l'echelle
     SDL_RenderPresent(moteur -> renderer);
     }
-    return 0;
+    return ERROR_MENU;
 }
