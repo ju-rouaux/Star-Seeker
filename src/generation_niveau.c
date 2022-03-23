@@ -297,7 +297,7 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
  */
 niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
-    int indice_difficulte = 1; //!!! A CALCULER
+    int indice_difficulte = 2; //!!! A CALCULER
 
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);

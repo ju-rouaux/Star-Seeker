@@ -14,6 +14,8 @@
 
 typedef struct s_personnage t_personnage; //Pour les prototypes de fonction
 
+#define NB_ATTAQUE 4
+
 typedef enum
 {
     DEMO, SNIPER, A_360, SABRE_LASER, LASER_CONTINU
