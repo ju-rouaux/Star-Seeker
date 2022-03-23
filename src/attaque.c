@@ -34,13 +34,20 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
 {
     switch (nouvelle_attaque)
     {
-
-
+    case SNIPER:
+        attaque_tir_sniper(attaque);
+        break;
+    case A_360:
+        attaque_tir_360_shuriken(attaque);
+        break;
+    case SABRE_LASER:
+        attaque_tir_sabre(attaque);
+        break;
+    //case LASER_CONTINU:
+    //    attaque_laser(attaque);
     case DEMO:
         attaque_tir_demo(attaque);
         break;
-    
-
     default:
         break;
     }
