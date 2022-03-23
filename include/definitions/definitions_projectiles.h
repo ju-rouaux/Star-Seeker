@@ -214,7 +214,7 @@ static int proj_sabre(t_projectile * projectile)
     projectile->id_animation = 4;
 
     projectile->taille = 1;
-    projectile->vitesse = 12;
+    projectile->vitesse = 14;
     projectile->dommages = 30;
     projectile->duree_de_vie = 3000;
 

@@ -224,7 +224,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
     chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
-    while((code_sortie = handleEvents(joueur)) == NIVEAU_CONTINUER)
+    while((code_sortie = handleEvents(joueur,moteur)) == NIVEAU_CONTINUER)
     {
         //Traitements de début de boucle
         moteur->temps_precedent = moteur->temps;
@@ -415,7 +415,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
     free(infos_niveaux);
     detruireJoueur(&joueur);
 
-    return 6;
+    return 1;
 }
 
 

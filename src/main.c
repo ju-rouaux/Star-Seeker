@@ -39,14 +39,12 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-<<<<<<< HEAD
-    moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
 
     while(code != M_QUITTER){
         switch(code){
             case M_PRINCIPAL : code = chargerMenu(moteur);break;
-            case M_JEU : code = nouvellePartie(moteur, 2); break;
+            case M_JEU : code = nouvellePartie(moteur, 5); break;
             case M_CHARGER : code = chargerPartie(moteur);break;
             case M_OPTIONS : code = chargerMenu_Options(moteur);break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
@@ -57,11 +55,6 @@ int main(int argc, char * argv[])
         }
     }
     // nouvellePartie(moteur, 5);
-=======
-    moteur->parametres.reset_sauvegarde_joueur = VRAI;
-
-    nouvellePartie(moteur, 5);
->>>>>>> origin/monstres
     //chargerPartie(moteur);
 
 

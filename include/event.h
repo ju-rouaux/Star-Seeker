@@ -13,6 +13,6 @@ typedef enum
     NIVEAU_QUITTER = -1, NIVEAU_CONTINUER = 0, NIVEAU_SUIVANT, NIVEAU_PRECEDENT
 } e_code_sortie;
 
-int handleEvents(t_joueur * joueur);
+int handleEvents(t_joueur * joueur, t_moteur * moteur);
 
 #endif

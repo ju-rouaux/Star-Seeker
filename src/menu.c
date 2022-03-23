@@ -374,7 +374,6 @@ e_menu chargerMenu(t_moteur * moteur) {
             }
             default: {
                 printf("Erreur, menu inconnu");
-                printf("temp = %d\n",temp);
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
                 return ERROR_MENU;
