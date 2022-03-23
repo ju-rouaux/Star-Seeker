@@ -39,7 +39,6 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    moteur->parametres.reset_sauvegarde_joueur = VRAI;
 
     while(code != M_QUITTER){
         switch(code){

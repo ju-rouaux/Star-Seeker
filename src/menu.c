@@ -27,7 +27,7 @@ int maj_TextureMenu(t_moteur * moteur, t_bouton ** boutons, int nb_boutons) {
     }
 
     for (int i = 0; i < nb_boutons; i++) {
-        if (nb_boutons > 4) {
+        if (nb_boutons > 5) {
             if (i < (nb_boutons / 2)) //On divise par 2 le nombre de boutons pour les mettres sur 2 colonnes et on met la premiere moité sur une premiere colonne
             {                                                                                                      //utiliser pour definir l'espacement entre les boutons
                 if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 5, moteur -> window_height * (float)(i + 1.2) / ((nb_boutons + 2.2) / 2)) != 0) {
@@ -41,7 +41,7 @@ int maj_TextureMenu(t_moteur * moteur, t_bouton ** boutons, int nb_boutons) {
                     return -1;//Retourne cas d'erreur
                 }
             }
-        } else if (nb_boutons <= 4) //Si il y a peu de bouton, on les mets tous sur une meme colonne
+        } else if (nb_boutons <= 5) //Si il y a peu de bouton, on les mets tous sur une meme colonne
         {                                                                                                       //utiliser pour definir l'espacement entre les boutons
             if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 4, moteur -> window_height * (float)(i + 1.7) / (nb_boutons + 2.2 )) != 0) {
                 printf("Erreur update texture bouton\n");
@@ -199,6 +199,10 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
         break;
 
         }
+        //Pour le bouton reset sauvegarde
+        if(moteur->parametres.reset_sauvegarde_joueur == VRAI){
+            SDL_SetTextureColorMod(boutons[2] -> texture, 255, 0, 0); //Si actif : vert
+        }else SDL_SetTextureColorMod(boutons[2] -> texture, 0, 0, 255);//sinon
     }
     return 0;
 }
@@ -360,13 +364,20 @@ e_menu chargerMenu(t_moteur * moteur) {
                 detruireTexte(&rect_titre,texture_titre);
                 return M_CHARGER;
                 break;
-            case 4: {
+            case 4:
+                printf("Toggle save\n");
+                if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
+                    moteur->parametres.reset_sauvegarde_joueur = FAUX;
+                else moteur->parametres.reset_sauvegarde_joueur = VRAI;
+                temp = 0;
+                break;
+            case 5: {
                 printf("Options\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
                 return M_OPTIONS;
             }
-            case 5 :{
+            case 6 :{
                 printf("Quitter\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
@@ -379,6 +390,8 @@ e_menu chargerMenu(t_moteur * moteur) {
                 return ERROR_MENU;
             }
         }
+
+        
 
     updateEchelle(moteur);//on met a jour l'echelle
     SDL_RenderPresent(moteur -> renderer);
