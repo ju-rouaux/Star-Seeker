@@ -25,7 +25,7 @@ void resetSauvegardeJoueur(t_moteur * moteur)
 int main(int argc, char * argv[])
 {
     t_moteur * moteur = NULL;
-    e_menu code = 1;
+    e_code_main code = 1;
 
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
@@ -41,27 +41,24 @@ int main(int argc, char * argv[])
     moteur = chargerMoteur(SDL_GetTicks());
     moteur->parametres.reset_sauvegarde_joueur = VRAI;
 
-    while(code != M_QUITTER){
-        switch(code){
-            case M_PRINCIPAL : code = chargerMenu(moteur);break;
+    while(code != JEU_QUITTER){
+        switch(code)
+        {
+            case M_PRINCIPAL : code = chargerMenu(moteur); break;
             case M_JEU : code = nouvellePartie(moteur, 5); break;
-            case M_CHARGER : code = chargerPartie(moteur);break;
-            case M_OPTIONS : code = chargerMenu_Options(moteur);break;
+            case M_CHARGER : code = chargerPartie(moteur); break;
+            case M_OPTIONS : code = chargerMenu_Options(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
-           // case M_QUITTER : code =
-            case ERROR_MENU : return ERROR_MENU; break;
-            case ERROR_MENU_TEXTURE : return ERROR_MENU_TEXTURE;break;
-            default : return ERROR_MENU;
+
+            default : 
+                printf("Erreur menu (code %i)\n", code);
+                code = JEU_QUITTER;
         }
     }
-    // nouvellePartie(moteur, 5);
-    //chargerPartie(moteur);
-
 
     detruireMoteur(&moteur);
-
     TTF_Quit();
     SDL_Quit();
-    return 0;
 
+    return 0;
 }

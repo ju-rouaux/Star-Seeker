@@ -113,7 +113,8 @@ char * creer_nom(int taille_mot)
     /*Z*/     {349,      1,      0,      1,    247,      0,      0,      0,    558,      0,      0,     10,      2,      2,    823,      0,      0,      0,      4,      2,    111,      0,      4,      0,     41,     75}};
 
     
-    char * mot = malloc(sizeof(char) * taille_mot);
+    char * mot = malloc(sizeof(char) * (taille_mot+1));
+    
     if(mot == NULL)
     {
         printf("Fail allocation mémoire pour générer un nom\n");

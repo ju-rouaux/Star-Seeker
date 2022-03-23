@@ -26,6 +26,7 @@
 #include <outils.h>
 #include <generation_entites.h>
 #include <overlay.h>
+#include <main.h>
 
 
 
@@ -350,7 +351,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
 static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
 {
     t_niveau * niveau;
-    e_code_sortie code_sortie;
+    e_code_main code_sortie;
 
     do
     { 
@@ -396,14 +397,18 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
             }
             break;   
 
-        default: //Code inconnu ou code QUITTER_NIVEAU
-            printf("Quitter le niveau...\n");
-            code_sortie = NIVEAU_QUITTER;
+        case JEU_QUITTER:
+        case M_PRINCIPAL:
+            break;
+
+        default:
+            printf("Code inconnu\n");
+            code_sortie = M_PRINCIPAL;
             break;
         }
 
 
-    }while(code_sortie != NIVEAU_QUITTER);
+    }while(code_sortie != M_PRINCIPAL && code_sortie != JEU_QUITTER);
 
     //Fin de du jeu
     sauvegarderJoueur(joueur);
@@ -415,7 +420,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
     free(infos_niveaux);
     detruireJoueur(&joueur);
 
-    return 1;
+    return code_sortie;
 }
 
 

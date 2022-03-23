@@ -329,13 +329,6 @@ niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
     definir_coordonnees_salle_de_fin(niveau->matrice, &(niveau->i_dep), &(niveau->j_dep));
     
-    for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++)
-    {
-        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++)
-            printf("%3i ", niveau->matrice[i][j]);
-        putchar('\n');
-    }
-
     niveau->liste_infos_entites = NULL;
     niveau->nb_infos_entite = 0;
     genererEntites(indice_difficulte, (int*) niveau->matrice, HAUTEUR_NIVEAU_MAX, LONGUEUR_NIVEAU_MAX, &niveau->liste_infos_entites, &niveau->nb_infos_entite);

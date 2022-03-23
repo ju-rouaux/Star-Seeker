@@ -7,8 +7,6 @@
 
 #include <partie.h>
 #include <menu.h>
-#include <menu_options.h>
-#include <menu_options_keymap.h>
 
 
 /**
@@ -304,7 +302,7 @@ void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
  * \param moteur Structure du moteur
  * \return code de sortie personnalisé selon l'evenement
  */
-e_menu chargerMenu(t_moteur * moteur) {
+e_code_main chargerMenu(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
 
@@ -370,7 +368,7 @@ e_menu chargerMenu(t_moteur * moteur) {
                 printf("Quitter\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                return M_QUITTER;
+                return JEU_QUITTER;
             }
             default: {
                 printf("Erreur, menu inconnu");

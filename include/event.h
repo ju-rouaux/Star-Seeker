@@ -3,16 +3,8 @@
 
 #include <joueur.h>
 #include <moteur.h>
+#include <main.h>
 
-/**
- * \brief Codes retournés par la fonction handleEvents indiquant les différents
- * contextes de sortie d'un niveau.
- */
-typedef enum
-{
-    NIVEAU_QUITTER = -1, NIVEAU_CONTINUER = 0, NIVEAU_SUIVANT, NIVEAU_PRECEDENT
-} e_code_sortie;
-
-int handleEvents(t_joueur * joueur, t_moteur * moteur);
+e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur);
 
 #endif

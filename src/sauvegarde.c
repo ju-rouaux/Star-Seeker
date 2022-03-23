@@ -225,7 +225,7 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
                 switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
                 {
                 case E_MONSTRE:
-                    if(fwrite(niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                    if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
                         return READ_OR_WRITE_FAIL;
                     break;
                 
@@ -299,6 +299,8 @@ err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niv
     }
 
     //Ici traitements futurs
+
+    fclose(fichier);
 
     return SUCCESS;
 }

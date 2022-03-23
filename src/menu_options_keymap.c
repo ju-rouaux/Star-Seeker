@@ -72,7 +72,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
  * \param moteur structure moteur
  * \return code de sortie personnalisé selon l'evenement
  */
-e_menu chargerMenu_Options_keymap(t_moteur * moteur) {
+e_code_main chargerMenu_Options_keymap(t_moteur * moteur) {
     
     SDL_Scancode key_temp = -1;
 

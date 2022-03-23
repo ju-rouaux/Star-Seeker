@@ -61,7 +61,7 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
  * \param moteur moteur
  * \return code de sortie personnalisé selon l'evenement
  */
-e_menu chargerMenu_Options(t_moteur * moteur) {
+e_code_main chargerMenu_Options(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
 
