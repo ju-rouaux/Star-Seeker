@@ -20,7 +20,7 @@
 static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
 {
     //générer un nombre d'entité selon difficulté
-    *nb_entites = 1.5 * indice_difficulte;
+    *nb_entites = 0.3 * indice_difficulte;
 
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
