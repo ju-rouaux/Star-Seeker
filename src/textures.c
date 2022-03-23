@@ -36,7 +36,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     textures->player = NULL;
 
     //Map
-    surface = SDL_LoadBMP("./img/tileset_map.bmp");
+    surface = SDL_LoadBMP("./assets/img/tileset_map.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface tileset_map.bmp : %s\n", SDL_GetError());
@@ -56,7 +56,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
 
 
     //Player
-    surface = SDL_LoadBMP("./img/personnage.bmp");
+    surface = SDL_LoadBMP("./assets/img/personnage.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface personnage.bmp : %s\n", SDL_GetError());
@@ -72,7 +72,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Projectiles
-    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    surface = SDL_LoadBMP("./assets/img/projectiles.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface projectiles.bmp : %s\n", SDL_GetError());
@@ -88,7 +88,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Corps monstres
-    surface = SDL_LoadBMP("./img/monstres_haut.bmp");
+    surface = SDL_LoadBMP("./assets/img/monstres_haut.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface monstres_haut.bmp : %s\n", SDL_GetError());
@@ -104,7 +104,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Pattes monstres
-    surface = SDL_LoadBMP("./img/monstres_bas.bmp");
+    surface = SDL_LoadBMP("./assets/img/monstres_bas.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface monstres_bas.bmp : %s\n", SDL_GetError());
@@ -120,7 +120,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Overlay
-    surface = SDL_LoadBMP("./img/overlay.bmp");
+    surface = SDL_LoadBMP("./assets/img/overlay.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface overlay.bmp : %s\n", SDL_GetError());

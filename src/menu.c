@@ -113,7 +113,7 @@ t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_bouto
             0
         };
 
-        TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);//Definition de la police d'ecriture
+        TTF_Font * font = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", 1000);//Definition de la police d'ecriture
 
         if (font == NULL) {
             fprintf(stderr, "error: font not found\n");
@@ -226,8 +226,8 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
         0
     };
     //Premiere police d'ecriture utilisée
-    //TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
-    TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);
+    //TTF_Font * font = TTF_OpenFont("./assets/font/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+    TTF_Font * font = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", 1000);
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
         return NULL;
