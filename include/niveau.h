@@ -58,9 +58,6 @@ typedef struct s_salle
     int id_salle; /**< Manière d'identifier si plusieurs salles forment une même salle */
 
     t_dimensions_salle * dimensions; /**< Informations sur le groupe de salle de notre salle */
-
-    t_entite ** entites; /**< Entités générés avec la salle */
-    int nb_entite; /**< Nombre des entités générés avec la salle */
     
     //t_obstacle ** (matrice d'obstacles)
 } t_salle;
@@ -72,7 +69,7 @@ typedef struct s_salle
 */
 typedef struct s_niveau
 {
-    t_salle ** salles; 
+    t_salle ** salles; /**< Matrice des salles du niveau */ 
     int h; /**< Hauteur du niveau (dimensions de la matrice en i) */
     int l; /**< Largeur du niveau (dimensions de la matrice en j) */
 
@@ -87,7 +84,6 @@ typedef struct s_niveau
 
 void detruireNiveau(t_niveau ** niveau);
 int chargerNiveau(t_moteur * moteur, niveau_informations_t * info);
-void arreterNiveau(t_niveau ** niveau);
 void updateNiveau(t_niveau * niveau,float j_x, float j_y, int echelle);
 
 

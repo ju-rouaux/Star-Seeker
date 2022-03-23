@@ -8,8 +8,12 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <joueur.h>
+<<<<<<< HEAD
 #include <menu.h>
 #include <moteur.h>
+=======
+#include <event.h>
+>>>>>>> origin/monstres
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
@@ -29,7 +33,7 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
         switch (event.type)
         {
             case SDL_QUIT:
-                return -1;
+                return NIVEAU_QUITTER;
             
             /*gestion de la souris*/
             /*Si un des boutons de la souris est appuyé*/
@@ -116,11 +120,32 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                     case SDL_SCANCODE_ESCAPE: //ESC
                         chargerMenu(moteur);
                         break;
+<<<<<<< HEAD
+=======
+                    case SDL_SCANCODE_A: //Q
+                        joueur->flags->to_left = joueur->flags->to_right + 1;
+                        break;
+                    case SDL_SCANCODE_S: //S
+                        joueur->flags->to_down = joueur->flags->to_up + 1;
+                        break;
+                    case SDL_SCANCODE_D: //D
+                        joueur->flags->to_right = joueur->flags->to_left + 1;
+                        break;
+                    
+                    case SDL_SCANCODE_L: //L !!! Temporaire
+                        joueur->flags->shooting = 1;
+                        break;         
+
+                    case SDL_SCANCODE_TAB: //TAB
+                        joueur->flags->map_showing = 1;
+                        break;    
+
+>>>>>>> origin/monstres
                     case SDL_SCANCODE_O: //O !!! Temporaire
-                        return -88;
+                        return NIVEAU_PRECEDENT;
                         break;
                     case SDL_SCANCODE_P: //P !!! Temporaire
-                        return -99;
+                        return NIVEAU_SUIVANT;
                         break;
                     default:
                         break;
@@ -139,6 +164,17 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                         joueur->flags->to_right = 0;
                 else if (moteur->parametres.key_projectile == event.key.keysym.scancode)
                         joueur->flags->shooting = 0;
+<<<<<<< HEAD
+=======
+                        break;
+                    case SDL_SCANCODE_TAB: //TAB
+                        joueur->flags->map_showing = 0;
+                        break;  
+                    
+                    default:
+                        break;
+                }
+>>>>>>> origin/monstres
                 break;
 
 
@@ -162,5 +198,5 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                 break;
         }
     }
-    return 0;
+    return NIVEAU_CONTINUER;
 }
