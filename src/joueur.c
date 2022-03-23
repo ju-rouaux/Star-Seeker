@@ -116,14 +116,14 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     
     updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
     
-    if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
+    /*if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
     {
         t_monstre * monstre = creerMonstre(joueur->x, joueur->y, 2, 100, 2, DEMO, STATIQUE);
         en_queue(moteur->liste_entites);
         if(monstre != NULL)
             ajout_droit(moteur->liste_entites, (t_entite*) monstre);
         
-    }
+    }*/
     
 
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);

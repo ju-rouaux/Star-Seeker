@@ -129,7 +129,7 @@ static void renduEntites(t_moteur * moteur)
 
 
 /**
- * 
+ * \brief Libère et charge les entités 
  * 
  */
 void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, int id_ancienne_salle)
@@ -223,7 +223,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
     chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
-    while((code_sortie = handleEvents(joueur)) == 0)
+    while((code_sortie = handleEvents(joueur)) == NIVEAU_CONTINUER)
     {
         //Traitements de début de boucle
         moteur->temps_precedent = moteur->temps;
@@ -235,6 +235,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
     // ~~~ LOGIQUE
 
         // --- Actualiser l'état du joueur ---
+        en_tete(liste_entites);
         joueur->update(moteur, (t_entite*) joueur, joueur->x, joueur->y); //Joueur
 
         // --- Actualiser l'état des entités ---
@@ -342,67 +343,71 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
  */
 static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    t_niveau * niveau;
+    e_code_sortie code_sortie;
 
-    if(chargerNiveau(moteur, infos_niveaux[indice_niveau_charge]) != 0)
-    {
-        printf("Erreur lors du chargement du niveau\n");
-        return -1;
-    }
-    t_niveau * niveau = moteur->niveau_charge;
-    if(joueur->x == 0 && joueur->y == 0) //Si la sauvegarde du joueur est vierge, placer le joueur sur la map
-    {
-        joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
-        joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
-    }
-    
-    //Jeu en cours
-    int code_sortie = 0;
-    while(code_sortie != -1)
-    {
+    do
+    { 
+        //Charger le niveau  
+        if(chargerNiveau(moteur, infos_niveaux[indice_niveau_charge]) != 0)
+        {
+            printf("Erreur lors du chargement du niveau\n");
+            return -1;
+        }
+        niveau = moteur->niveau_charge;
+        if(joueur->x == 0 && joueur->y == 0) //Si la sauvegarde du joueur est vierge, placer le joueur sur la map
+        {
+            joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
+            joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
+        }
+
+        //Jouer le niveau
         code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite);
-        if(code_sortie == -88 && indice_niveau_charge > 0)
+    
+        //Fin du niveau
+        infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
+        infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
+        detruireNiveau(&niveau);
+
+        //Changer de niveau si souhaité
+        switch (code_sortie)
         {
-            infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
-            infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
-            detruireNiveau(&niveau);
-            indice_niveau_charge--;
-            if(chargerNiveau(moteur, infos_niveaux[indice_niveau_charge]) != 0)
+        case NIVEAU_SUIVANT:
+            if(indice_niveau_charge < nb_niveaux - 1)
             {
-                printf("Erreur lors du chargement du niveau\n");
-                return -1;
+                joueur->x = 0;
+                joueur->y = 0;
+                indice_niveau_charge++;
             }
-            niveau = moteur->niveau_charge;
-            joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
-            joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
-        }
-        if(code_sortie == -99 && indice_niveau_charge < nb_niveaux-1)
-        {
-            infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
-            infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
-            detruireNiveau(&niveau);
-            indice_niveau_charge++;
-            if(chargerNiveau(moteur, infos_niveaux[indice_niveau_charge]) != 0)
+            break;
+
+        case NIVEAU_PRECEDENT:
+            if(indice_niveau_charge > 0)
             {
-                printf("Erreur lors du chargement du niveau\n");
-                return -1;
+                joueur->x = 0;
+                joueur->y = 0;
+                indice_niveau_charge--;
             }
-            niveau = moteur->niveau_charge;
-            joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
-            joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
+            break;   
+
+        default: //Code inconnu ou code QUITTER_NIVEAU
+            printf("Quitter le niveau...\n");
+            code_sortie = NIVEAU_QUITTER;
+            break;
         }
-    }
+
+
+    }while(code_sortie != NIVEAU_QUITTER);
 
     //Fin de du jeu
-    infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
-    infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
     sauvegarderJoueur(joueur);
     sauvegarderPartie(infos_niveaux, nb_niveaux, indice_niveau_charge);
 
     for(int i = 0; i < nb_niveaux; i++)
         detruire_niveau_info(&infos_niveaux[i]);
+        
     free(infos_niveaux);
     detruireJoueur(&joueur);
-    arreterNiveau(&moteur->niveau_charge);
 
     return 0;
 }

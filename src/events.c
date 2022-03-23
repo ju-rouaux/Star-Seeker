@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <joueur.h>
+#include <event.h>
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
@@ -27,7 +28,7 @@ int handleEvents(t_joueur * joueur) {
         switch (event.type)
         {
             case SDL_QUIT:
-                return -1;
+                return NIVEAU_QUITTER;
             
             /**gestion de la souris*/
             /**Si un des boutons de la souris est appuyé*/
@@ -114,10 +115,10 @@ int handleEvents(t_joueur * joueur) {
                         joueur->flags->shooting = 1;
                         break;                     
                     case SDL_SCANCODE_O: //O !!! Temporaire
-                        return -88;
+                        return NIVEAU_PRECEDENT;
                         break;
                     case SDL_SCANCODE_P: //P !!! Temporaire
-                        return -99;
+                        return NIVEAU_SUIVANT;
                         break;
                     default:
                         break;
@@ -169,5 +170,5 @@ int handleEvents(t_joueur * joueur) {
                 break;
         }
     }
-    return 0;
+    return NIVEAU_CONTINUER;
 }

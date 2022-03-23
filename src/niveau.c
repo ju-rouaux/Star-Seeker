@@ -314,21 +314,6 @@ int chargerNiveau(t_moteur * moteur, niveau_informations_t * info)
     return 0;
 }
 
-/**
- * \brief Libère la mémoire allouée pour le niveau. Actuellement cette fonction est identique à void detruireNiveau(t_niveau **niveau).
- * 
- * Opération à réaliser lorsque l'on quitte un niveau.
- * Des opérations supplémentaires (notamment animations) peuvent être réalisées avant la destruction.
- * 
- * \param niveau Le niveau à fermer
- */
-void arreterNiveau(t_niveau ** niveau)
-{
-    //D'autres opérations ici si nécéssaire
-
-
-    detruireNiveau(niveau);
-}
 
 /**
  * \brief Actualise la salle chargée du niveau selon l'activité du joueur
