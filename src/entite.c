@@ -45,7 +45,7 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
         indice_texture = entite->animation->indice_texture;
     }
 
-    splitTexture(&source, indice_texture, entite->id_animation);
+    splitTexture(&source, indice_texture, entite->id_animation, 16,16, 16,16);
 
     return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &entite->hitbox);
 }

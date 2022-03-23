@@ -33,6 +33,12 @@ typedef struct
     //Temporaire
     int shooting;
     //Attaque, dash, ...
+
+
+    //Overlay
+    int map_showing;
+    int interaction;
+
 } t_joueur_flags;
 
 

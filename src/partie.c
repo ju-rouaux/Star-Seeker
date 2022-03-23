@@ -25,6 +25,7 @@
 #include <noms_generateur.h>
 #include <outils.h>
 #include <generation_entites.h>
+#include <overlay.h>
 
 
 
@@ -206,7 +207,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, niveau_informations_t * infos_niveau)
 {
     //Variables pour faciliter les appels
     t_niveau * niveau = moteur->niveau_charge;
@@ -306,6 +307,11 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
+  
+        if(joueur->flags->map_showing == 1){
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+        }
+
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
@@ -362,7 +368,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
         }
 
         //Jouer le niveau
-        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite);
+        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite, infos_niveaux[indice_niveau_charge]);
     
         //Fin du niveau
         infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;

@@ -28,7 +28,7 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
 
     //générer entités
     for(int i = 0; i < *nb_entites; i++)
-        (*liste_entites)[i] = (t_entite*) creerMonstre(x_orig_salle + 6, y_orig_salle + 4, 2, 2, 1.5, DEMO, STATIQUE);
+        (*liste_entites)[i] = (t_entite*) creerMonstre(x_orig_salle + 6, y_orig_salle + 4, 0, 2, 1.5, A_360, STATIQUE);
 
     return 0;
 }
