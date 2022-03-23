@@ -201,8 +201,8 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
         }
         //Pour le bouton reset sauvegarde
         if(moteur->parametres.reset_sauvegarde_joueur == VRAI){
-            SDL_SetTextureColorMod(boutons[2] -> texture, 255, 0, 0); //Si actif : vert
-        }else SDL_SetTextureColorMod(boutons[2] -> texture, 0, 0, 255);//sinon
+            SDL_SetTextureColorMod(boutons[2] -> texture, 255, 0, 0); //Si actif : rouge
+        }else SDL_SetTextureColorMod(boutons[2] -> texture, 0, 0, 255);//sinon reste en bleu
     }
     return 0;
 }
