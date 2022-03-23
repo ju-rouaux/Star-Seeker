@@ -1,23 +1,28 @@
+/**
+ * \file overlay.c
+ * 
+ * \brief Module de gestion de l'interface utilisateur in-game
+ * 
+ * 
+ * \author Camille Remoué
+ */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <textures.h> 
-#include <joueur.h>
-#include <moteur.h>
-#include <generation_niveau.h>
 #include <overlay.h>
 
 
-void tileMap(SDL_Rect * rectangle, int type){
 
-
-    splitTexture(rectangle, type,0, NB_TILE_HAUTEUR, NB_TILE_LARGEUR, 16,16);
-}
-
-
-
-void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
+/**
+ * \brief Dessine une tile de map à la position voulue
+ *  
+ * \param moteur nécessaire pour dessiner sur l'écran
+ * \param type Type de salle, voir la fonction type_salle_map()
+ * \param x Coordonnée de la salle à dessiner
+ * \param y Coordonnée de la salle à dessiner
+ *
+ *  
+ * \return un id de tile entre 0 et 15 
+ */
+static void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
         
     SDL_Rect source; //Partie de du tileset à affiche
     SDL_Rect destination; //Position dans la fenetre où afficher
@@ -29,7 +34,7 @@ void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
   
 
 
-    tileMap(&source, type);
+    splitTexture(&source, type,0, NB_TILE_HAUTEUR, NB_TILE_LARGEUR, 16,16);
 
     SDL_RenderCopy(moteur->renderer, moteur->textures->overlay, &source, &destination);
 
@@ -38,7 +43,17 @@ void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
 }
 
 
-int type_salle_map(int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int x, int y){
+/**
+ * \brief Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en haut et à gauche ? 
+ *  
+ * \param matrice Matrice des IDs des salles du niveau
+ * \param x Coordonnée de la salle dont le type doit être déterminé 
+ * \param y Coordonnée de la salle dont le type doit être déterminé 
+ *
+ *  
+ * \return un id de tile entre 0 et 15 
+ */
+static int type_salle_map(int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int x, int y){
 
     int type = 15;
     
@@ -58,7 +73,14 @@ int type_salle_map(int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int x, 
     return type;
 }
 
-
+/**
+ * \brief Dessine toute la map à l'écran
+ *  
+ * \param moteur Informations d'échelle et de taille d'écran
+ * \param infosNiveau Matrice du niveau et couleurs du niveau
+ * \param idSalle ID de la salle actuelle
+ *  
+ */
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle){
 
     SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
