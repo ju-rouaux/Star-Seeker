@@ -13,7 +13,7 @@
 #define _JEU_GENERATION_NIVEAU_
 
 
-#define LONGUEUR_NIVEAU_MAX 10
+#define LONGUEUR_NIVEAU_MAX 20
 #define HAUTEUR_NIVEAU_MAX 10
 
 //Cases du niveau
