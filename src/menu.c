@@ -342,6 +342,12 @@ e_menu chargerMenu(t_moteur * moteur) {
                 detruireTexte(&rect_titre,texture_titre);
                 return M_OPTIONS;
             }
+            case 5 :{
+                printf("Quitter\n");
+                detruireBoutons( & boutons, NB_B_MENU);
+                detruireTexte(&rect_titre,texture_titre);
+                return M_QUITTER;
+            }
             default: {
                 printf("Erreur, menu inconnu");
                 detruireBoutons( & boutons, NB_B_MENU);

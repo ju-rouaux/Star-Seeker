@@ -41,7 +41,7 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    while(1){
+    while(code != M_QUITTER){
         switch(code){
             case M_PRINCIPAL : code = chargerMenu(moteur);break;
             case M_JEU : nouvellePartie(moteur, 2); break;
