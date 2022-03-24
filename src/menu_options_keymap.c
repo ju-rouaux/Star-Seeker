@@ -37,12 +37,13 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
                 for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
                     if (i != NB_B_MENU_OPTIONS_KEYMAP - 1) { // Cas particulier pour le bouton retour
                         if (SDL_PointInRect(&mouse,&boutons[i]->rect)) {
-                            while (SDL_WaitEvent( &e) && e.type != SDL_KEYUP ) {
+                            while (SDL_WaitEvent(&e) && e.type != SDL_KEYUP ) {
                                 if(e.type == SDL_KEYDOWN)
                                     *key_code = e.key.keysym.scancode; //on recupere la valeur de la touche appuyée
                                 maj_TextureMenu(moteur, boutons, NB_B_MENU_OPTIONS_KEYMAP);//mise a jour des textures 
                             }
-                            SDL_SetTextureColorMod(boutons[i] -> texture, 8, 125, 0);//On definit le bouton en vert
+                            if(e.type == SDL_KEYUP)
+                                SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
                             return (i + 2);
                         }
                     } else return i + 2;
@@ -57,7 +58,7 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
         case SDL_MOUSEMOTION:
             for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
                 if (SDL_PointInRect(&mouse,&boutons[i]->rect))
-                    SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
+                    SDL_SetTextureColorMod(boutons[i] -> texture, 125, 255, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
             break;

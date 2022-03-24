@@ -54,8 +54,8 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
 
         //Pour le bouton reset sauvegarde
         if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME)
-            SDL_SetTextureColorMod(boutons[0] -> texture, 0, 255, 0); //Si actif : rouge
-        else SDL_SetTextureColorMod(boutons[0] -> texture,255 , 125, 0);//sinon reste en bleu
+            SDL_SetTextureColorMod(boutons[0] -> texture, 125, 255, 0); //Si actif : rouge
+        else SDL_SetTextureColorMod(boutons[0] -> texture, 255 , 125, 0);//sinon reste en bleu
     }
     return 0;
 }
