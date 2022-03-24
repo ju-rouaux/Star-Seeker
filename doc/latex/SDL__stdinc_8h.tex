@@ -1,0 +1,721 @@
+\hypertarget{SDL__stdinc_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+stdinc.h}
+\label{SDL__stdinc_8h}\index{include/SDL2/SDL\_stdinc.h@{include/SDL2/SDL\_stdinc.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$strings.\+h$>$}\newline
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include $<$alloca.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a3089718d0deba90af8aba1106e9d9eef}{\+\_\+\+SDL\+\_\+\+HAS\+\_\+\+BUILTIN}}(x)~0
+\item 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a56cfbf2e664506e5f4bb2e05997be8ae}{SDL\+\_\+arraysize}}(array)~(sizeof(array)/sizeof(array\mbox{[}0\mbox{]}))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac9d76e3a8ba6474d1714f13ca3c9d7e6}\label{SDL__stdinc_8h_ac9d76e3a8ba6474d1714f13ca3c9d7e6}} 
+\#define {\bfseries SDL\+\_\+\+TABLESIZE}(table)~\mbox{\hyperlink{SDL__stdinc_8h_a56cfbf2e664506e5f4bb2e05997be8ae}{SDL\+\_\+arraysize}}(table)
+\item 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a6450d7299f093c95c1bfa8186fa4c866}{SDL\+\_\+\+STRINGIFY\+\_\+\+ARG}}(arg)~\#arg
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Cast operators}\par
+{\em Use proper C++ casts when compiled as C++ to be compatible with the option -\/Wold-\/style-\/cast of GCC (and -\/Werror=old-\/style-\/cast in GCC 4.\+2 and above). }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9891f68858953b42cbc18e68a441e39d}\label{SDL__stdinc_8h_a9891f68858953b42cbc18e68a441e39d}} 
+\#define {\bfseries SDL\+\_\+reinterpret\+\_\+cast}(type,  expression)~((type)(expression))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a774ea048cf20bd5f86f31da56d2937ff}\label{SDL__stdinc_8h_a774ea048cf20bd5f86f31da56d2937ff}} 
+\#define {\bfseries SDL\+\_\+static\+\_\+cast}(type,  expression)~((type)(expression))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa1364dba66887966247b36f48e19ac62}\label{SDL__stdinc_8h_aa1364dba66887966247b36f48e19ac62}} 
+\#define {\bfseries SDL\+\_\+const\+\_\+cast}(type,  expression)~((type)(expression))
+\item 
+\#define {\bfseries SDL\+\_\+\+FOURCC}(A,  B,  C,  D)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Basic data types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9be4e10b2b4e72a2cce3ad88e9726cb9}\label{SDL__stdinc_8h_a9be4e10b2b4e72a2cce3ad88e9726cb9}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a9be4e10b2b4e72a2cce3ad88e9726cb9}{SDL\+\_\+\+MAX\+\_\+\+SINT8}}~((Sint8)0x7F)           /$\ast$ 127 $\ast$/
+\begin{DoxyCompactList}\small\item\em A signed 8-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_abfd092b0fd20283ed658d3d8f3071a5f}\label{SDL__stdinc_8h_abfd092b0fd20283ed658d3d8f3071a5f}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+SINT8}~((Sint8)($\sim$0x7F))        /$\ast$ -\/128 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af55b32a39296c1b24fce86273f390a47}\label{SDL__stdinc_8h_af55b32a39296c1b24fce86273f390a47}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_af55b32a39296c1b24fce86273f390a47}{SDL\+\_\+\+MAX\+\_\+\+UINT8}}~((Uint8)0x\+FF)           /$\ast$ 255 $\ast$/
+\begin{DoxyCompactList}\small\item\em An unsigned 8-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad65adf0e23d13d1c0506457266aed02c}\label{SDL__stdinc_8h_ad65adf0e23d13d1c0506457266aed02c}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+UINT8}~((Uint8)0x00)           /$\ast$ 0 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a3ff206679a193bde4af51987dd9cdbfb}\label{SDL__stdinc_8h_a3ff206679a193bde4af51987dd9cdbfb}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a3ff206679a193bde4af51987dd9cdbfb}{SDL\+\_\+\+MAX\+\_\+\+SINT16}}~((Sint16)0x7\+FFF)        /$\ast$ 32767 $\ast$/
+\begin{DoxyCompactList}\small\item\em A signed 16-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_abbfab63b77bb6390ca2746f854c56096}\label{SDL__stdinc_8h_abbfab63b77bb6390ca2746f854c56096}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+SINT16}~((Sint16)($\sim$0x7\+FFF))     /$\ast$ -\/32768 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a93b34777fdbdd6f60d50788cdd6e2a5b}\label{SDL__stdinc_8h_a93b34777fdbdd6f60d50788cdd6e2a5b}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a93b34777fdbdd6f60d50788cdd6e2a5b}{SDL\+\_\+\+MAX\+\_\+\+UINT16}}~((Uint16)0x\+FFFF)        /$\ast$ 65535 $\ast$/
+\begin{DoxyCompactList}\small\item\em An unsigned 16-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aeafdd0f5a8ec4a06405db952e7699028}\label{SDL__stdinc_8h_aeafdd0f5a8ec4a06405db952e7699028}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+UINT16}~((Uint16)0x0000)        /$\ast$ 0 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ace3c96991b704ef4ec9279dea218cf00}\label{SDL__stdinc_8h_ace3c96991b704ef4ec9279dea218cf00}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_ace3c96991b704ef4ec9279dea218cf00}{SDL\+\_\+\+MAX\+\_\+\+SINT32}}~((Sint32)0x7\+FFFFFFF)    /$\ast$ 2147483647 $\ast$/
+\begin{DoxyCompactList}\small\item\em A signed 32-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a621ee889cabf822a72f7c288b3403fb5}\label{SDL__stdinc_8h_a621ee889cabf822a72f7c288b3403fb5}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+SINT32}~((Sint32)($\sim$0x7\+FFFFFFF)) /$\ast$ -\/2147483648 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1851171ad859663d305344316a73bd22}\label{SDL__stdinc_8h_a1851171ad859663d305344316a73bd22}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a1851171ad859663d305344316a73bd22}{SDL\+\_\+\+MAX\+\_\+\+UINT32}}~((Uint32)0x\+FFFFFFFFu)   /$\ast$ 4294967295 $\ast$/
+\begin{DoxyCompactList}\small\item\em An unsigned 32-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae57f0b0003bf0776c608f65e1981a95d}\label{SDL__stdinc_8h_ae57f0b0003bf0776c608f65e1981a95d}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+UINT32}~((Uint32)0x00000000)    /$\ast$ 0 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a419073146b1419899f722f48690875b9}\label{SDL__stdinc_8h_a419073146b1419899f722f48690875b9}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a419073146b1419899f722f48690875b9}{SDL\+\_\+\+MAX\+\_\+\+SINT64}}~((Sint64)0x7\+FFFFFFFFFFFFFFFll)      /$\ast$ 9223372036854775807 $\ast$/
+\begin{DoxyCompactList}\small\item\em A signed 64-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_acfc724558552194368ad6abf50f0e84f}\label{SDL__stdinc_8h_acfc724558552194368ad6abf50f0e84f}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+SINT64}~((Sint64)($\sim$0x7\+FFFFFFFFFFFFFFFll))   /$\ast$ -\/9223372036854775808 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a794429d194ac2c07e8310fc7bad7d0ab}\label{SDL__stdinc_8h_a794429d194ac2c07e8310fc7bad7d0ab}} 
+\#define \mbox{\hyperlink{SDL__stdinc_8h_a794429d194ac2c07e8310fc7bad7d0ab}{SDL\+\_\+\+MAX\+\_\+\+UINT64}}~((Uint64)0x\+FFFFFFFFFFFFFFFFull)     /$\ast$ 18446744073709551615 $\ast$/
+\begin{DoxyCompactList}\small\item\em An unsigned 64-\/bit integer type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a44fa158b8a6074155a050ff4ba5a8292}\label{SDL__stdinc_8h_a44fa158b8a6074155a050ff4ba5a8292}} 
+\#define {\bfseries SDL\+\_\+\+MIN\+\_\+\+UINT64}~((Uint64)(0x0000000000000000ull))   /$\ast$ 0 $\ast$/
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aae47902b4a68b35b6b5a5733af74e99e}\label{SDL__stdinc_8h_aae47902b4a68b35b6b5a5733af74e99e}} 
+\#define {\bfseries SDL\+\_\+\+PRIs64}~\char`\"{}lld\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a595c1590a52d953f5c34859ff23b0d5c}\label{SDL__stdinc_8h_a595c1590a52d953f5c34859ff23b0d5c}} 
+\#define {\bfseries SDL\+\_\+\+PRIu64}~\char`\"{}llu\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ada61ee823d794777744d0b190e9cbb1f}\label{SDL__stdinc_8h_ada61ee823d794777744d0b190e9cbb1f}} 
+\#define {\bfseries SDL\+\_\+\+PRIx64}~\char`\"{}llx\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1d0d06015b59be929cbcd44a022ab69c}\label{SDL__stdinc_8h_a1d0d06015b59be929cbcd44a022ab69c}} 
+\#define {\bfseries SDL\+\_\+\+PRIX64}~\char`\"{}llX\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aff8263002d42c66ef04687cda86bc3d2}\label{SDL__stdinc_8h_aff8263002d42c66ef04687cda86bc3d2}} 
+\#define {\bfseries SDL\+\_\+\+PRIs32}~\char`\"{}d\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a02a9c84dfccf028f88101476c6cc4a9d}\label{SDL__stdinc_8h_a02a9c84dfccf028f88101476c6cc4a9d}} 
+\#define {\bfseries SDL\+\_\+\+PRIu32}~\char`\"{}u\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a5a269b805581a775264f7b179d9c33a8}\label{SDL__stdinc_8h_a5a269b805581a775264f7b179d9c33a8}} 
+\#define {\bfseries SDL\+\_\+\+PRIx32}~\char`\"{}x\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad805fd002d95f66e0f7414d0f0416fe6}\label{SDL__stdinc_8h_ad805fd002d95f66e0f7414d0f0416fe6}} 
+\#define {\bfseries SDL\+\_\+\+PRIX32}~\char`\"{}X\char`\"{}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a4a03aca91467efc1051ddb85c02385a2}\label{SDL__stdinc_8h_a4a03aca91467efc1051ddb85c02385a2}} 
+\#define {\bfseries SDL\+\_\+\+IN\+\_\+\+BYTECAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7c8c45cf712b53863edc008aa96f24b6}\label{SDL__stdinc_8h_a7c8c45cf712b53863edc008aa96f24b6}} 
+\#define {\bfseries SDL\+\_\+\+INOUT\+\_\+\+Z\+\_\+\+CAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af908e59c33d8212a2785d160ef322fb1}\label{SDL__stdinc_8h_af908e59c33d8212a2785d160ef322fb1}} 
+\#define {\bfseries SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a56add5577e642481fff247b14376b2de}\label{SDL__stdinc_8h_a56add5577e642481fff247b14376b2de}} 
+\#define {\bfseries SDL\+\_\+\+OUT\+\_\+\+CAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2f008605e9e07d875b5f037d470d4c2a}\label{SDL__stdinc_8h_a2f008605e9e07d875b5f037d470d4c2a}} 
+\#define {\bfseries SDL\+\_\+\+OUT\+\_\+\+BYTECAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_acf3bc9681b799ba3d31c03e9a548496d}\label{SDL__stdinc_8h_acf3bc9681b799ba3d31c03e9a548496d}} 
+\#define {\bfseries SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+BYTECAP}(x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ab13a729d2e3e2d1e1b3b2dc0bfb858eb}\label{SDL__stdinc_8h_ab13a729d2e3e2d1e1b3b2dc0bfb858eb}} 
+\#define {\bfseries SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a724eb3fcc488692f106d393193501514}\label{SDL__stdinc_8h_a724eb3fcc488692f106d393193501514}} 
+\#define {\bfseries SDL\+\_\+\+SCANF\+\_\+\+FORMAT\+\_\+\+STRING}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ab974676e45d9edeef6598d601d4fdd6a}\label{SDL__stdinc_8h_ab974676e45d9edeef6598d601d4fdd6a}} 
+\#define {\bfseries SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC}(fmtargnumber)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_acd540fbbc717339e1267b0a884baa66d}\label{SDL__stdinc_8h_acd540fbbc717339e1267b0a884baa66d}} 
+\#define {\bfseries SDL\+\_\+\+SCANF\+\_\+\+VARARG\+\_\+\+FUNC}(fmtargnumber)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aba1f23ae531b67b0455a2e254bdad09b}\label{SDL__stdinc_8h_aba1f23ae531b67b0455a2e254bdad09b}} 
+\#define {\bfseries SDL\+\_\+\+COMPILE\+\_\+\+TIME\+\_\+\+ASSERT}(name,  x)~       typedef int SDL\+\_\+compile\+\_\+time\+\_\+assert\+\_\+ \#\# name\mbox{[}(x) $\ast$ 2 -\/ 1\mbox{]}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a6c6778dd1ee11d2edce116271c822fbd}\label{SDL__stdinc_8h_a6c6778dd1ee11d2edce116271c822fbd}} 
+\#define {\bfseries SDL\+\_\+stack\+\_\+alloc}(type,  count)~(type$\ast$)alloca(sizeof(type)$\ast$(count))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aca62cdb628b52c2f1f2a3004ddf721ce}\label{SDL__stdinc_8h_aca62cdb628b52c2f1f2a3004ddf721ce}} 
+\#define {\bfseries SDL\+\_\+stack\+\_\+free}(data)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad93f0b2393a3aa89f9ce24ac2642744e}\label{SDL__stdinc_8h_ad93f0b2393a3aa89f9ce24ac2642744e}} 
+\#define {\bfseries SDL\+\_\+min}(x,  y)~(((x) $<$ (y)) ? (x) \+: (y))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae3ab6e7584a16c7217ca0a4622212b61}\label{SDL__stdinc_8h_ae3ab6e7584a16c7217ca0a4622212b61}} 
+\#define {\bfseries SDL\+\_\+max}(x,  y)~(((x) $>$ (y)) ? (x) \+: (y))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a0ab777838788966e7c70bb7df4fe60a0}\label{SDL__stdinc_8h_a0ab777838788966e7c70bb7df4fe60a0}} 
+\#define {\bfseries SDL\+\_\+clamp}(x,  a,  b)~(((x) $<$ (a)) ? (a) \+: (((x) $>$ (b)) ? (b) \+: (x)))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a16b9e31a9558e1cbc9e417b0f35a7b8a}\label{SDL__stdinc_8h_a16b9e31a9558e1cbc9e417b0f35a7b8a}} 
+\#define {\bfseries SDL\+\_\+zero}(x)~SDL\+\_\+memset(\&(x), 0, sizeof((x)))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a995406d407faf4cfa1ca9dd904672ab6}\label{SDL__stdinc_8h_a995406d407faf4cfa1ca9dd904672ab6}} 
+\#define {\bfseries SDL\+\_\+zerop}(x)~SDL\+\_\+memset((x), 0, sizeof($\ast$(x)))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1edc08d14c13f587b33d9e482035e3af}\label{SDL__stdinc_8h_a1edc08d14c13f587b33d9e482035e3af}} 
+\#define {\bfseries SDL\+\_\+zeroa}(x)~SDL\+\_\+memset((x), 0, sizeof((x)))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ada422bea61b05ed228c4f42e4aea2144}\label{SDL__stdinc_8h_ada422bea61b05ed228c4f42e4aea2144}} 
+\#define {\bfseries SDL\+\_\+\+ICONV\+\_\+\+ERROR}~(size\+\_\+t)-\/1
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a8147462b96bda427f0b41125e645b9ab}\label{SDL__stdinc_8h_a8147462b96bda427f0b41125e645b9ab}} 
+\#define {\bfseries SDL\+\_\+\+ICONV\+\_\+\+E2\+BIG}~(size\+\_\+t)-\/2
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_adc8b6997623c449e7ed53a605faa9eb0}\label{SDL__stdinc_8h_adc8b6997623c449e7ed53a605faa9eb0}} 
+\#define {\bfseries SDL\+\_\+\+ICONV\+\_\+\+EILSEQ}~(size\+\_\+t)-\/3
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a03d30a2857731df69d31ffa802424a9e}\label{SDL__stdinc_8h_a03d30a2857731df69d31ffa802424a9e}} 
+\#define {\bfseries SDL\+\_\+\+ICONV\+\_\+\+EINVAL}~(size\+\_\+t)-\/4
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a773e5f83e392495ad8abab8d71aa84c6}\label{SDL__stdinc_8h_a773e5f83e392495ad8abab8d71aa84c6}} 
+\#define {\bfseries SDL\+\_\+iconv\+\_\+utf8\+\_\+locale}(S)~\mbox{\hyperlink{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}{SDL\+\_\+iconv\+\_\+string}}(\char`\"{}\char`\"{}, \char`\"{}UTF-\/8\char`\"{}, S, SDL\+\_\+strlen(S)+1)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a59cd43c02306558671fe05c23284ab3b}\label{SDL__stdinc_8h_a59cd43c02306558671fe05c23284ab3b}} 
+\#define {\bfseries SDL\+\_\+iconv\+\_\+utf8\+\_\+ucs2}(S)~(Uint16 $\ast$)\mbox{\hyperlink{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}{SDL\+\_\+iconv\+\_\+string}}(\char`\"{}UCS-\/2-\/INTERNAL\char`\"{}, \char`\"{}UTF-\/8\char`\"{}, S, SDL\+\_\+strlen(S)+1)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_acdced7c8985d280d87e659f583a5479e}\label{SDL__stdinc_8h_acdced7c8985d280d87e659f583a5479e}} 
+\#define {\bfseries SDL\+\_\+iconv\+\_\+utf8\+\_\+ucs4}(S)~(Uint32 $\ast$)\mbox{\hyperlink{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}{SDL\+\_\+iconv\+\_\+string}}(\char`\"{}UCS-\/4-\/INTERNAL\char`\"{}, \char`\"{}UTF-\/8\char`\"{}, S, SDL\+\_\+strlen(S)+1)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afaf3cc7fc7c497cbd3f16ddcd85a8fb5}\label{SDL__stdinc_8h_afaf3cc7fc7c497cbd3f16ddcd85a8fb5}} 
+\#define {\bfseries SDL\+\_\+iconv\+\_\+wchar\+\_\+utf8}(S)~\mbox{\hyperlink{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}{SDL\+\_\+iconv\+\_\+string}}(\char`\"{}UTF-\/8\char`\"{}, \char`\"{}WCHAR\+\_\+T\char`\"{}, (char $\ast$)S, (SDL\+\_\+wcslen(S)+1)$\ast$sizeof(wchar\+\_\+t))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a8fca68df0f976765230fe589a7c7733b}\label{SDL__stdinc_8h_a8fca68df0f976765230fe589a7c7733b}} 
+enum {\bfseries SDL\+\_\+bool} \{ {\bfseries SDL\+\_\+\+FALSE} = 0
+, {\bfseries SDL\+\_\+\+TRUE} = 1
+ \}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a5fc98623306a32e69eaab63e89e1d138}\label{SDL__stdinc_8h_a5fc98623306a32e69eaab63e89e1d138}} 
+typedef int8\+\_\+t {\bfseries Sint8}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}\label{SDL__stdinc_8h_a2944638813a090aa23e62f4da842c3e2}} 
+typedef uint8\+\_\+t {\bfseries Uint8}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}\label{SDL__stdinc_8h_a9d0257032c0e146ab6121bf0122712f5}} 
+typedef int16\+\_\+t {\bfseries Sint16}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}\label{SDL__stdinc_8h_a31fcc0a076c9068668173ee26d33e42b}} 
+typedef uint16\+\_\+t {\bfseries Uint16}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7a90b941db9d4582e9ad7abb9940ff7e}\label{SDL__stdinc_8h_a7a90b941db9d4582e9ad7abb9940ff7e}} 
+typedef int32\+\_\+t {\bfseries Sint32}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}\label{SDL__stdinc_8h_add440eff171ea5f55cb00c4a9ab8672d}} 
+typedef uint32\+\_\+t {\bfseries Uint32}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2c1a61d5c466bb74680be0a8cc1b455d}\label{SDL__stdinc_8h_a2c1a61d5c466bb74680be0a8cc1b455d}} 
+typedef int64\+\_\+t {\bfseries Sint64}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac006cf2bd55a42a9cc8ae9f123aa7e13}\label{SDL__stdinc_8h_ac006cf2bd55a42a9cc8ae9f123aa7e13}} 
+typedef uint64\+\_\+t {\bfseries Uint64}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9c080fa72a520c3fb9cc547277d131b2}\label{SDL__stdinc_8h_a9c080fa72a520c3fb9cc547277d131b2}} 
+typedef void $\ast$(SDLCALL $\ast$ {\bfseries SDL\+\_\+malloc\+\_\+func}) (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a49ece773aefa50992c057d6bde28fece}\label{SDL__stdinc_8h_a49ece773aefa50992c057d6bde28fece}} 
+typedef void $\ast$(SDLCALL $\ast$ {\bfseries SDL\+\_\+calloc\+\_\+func}) (size\+\_\+t nmemb, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a28010cd6bfed0bdeab394f864cfc05bc}\label{SDL__stdinc_8h_a28010cd6bfed0bdeab394f864cfc05bc}} 
+typedef void $\ast$(SDLCALL $\ast$ {\bfseries SDL\+\_\+realloc\+\_\+func}) (void $\ast$mem, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a38b6aadadc8fa09f817ebbd0567b99fb}\label{SDL__stdinc_8h_a38b6aadadc8fa09f817ebbd0567b99fb}} 
+typedef void(SDLCALL $\ast$ {\bfseries SDL\+\_\+free\+\_\+func}) (void $\ast$mem)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a37ee875bea397030104764a92857ae79}\label{SDL__stdinc_8h_a37ee875bea397030104764a92857ae79}} 
+typedef struct \+\_\+\+SDL\+\_\+iconv\+\_\+t $\ast$ {\bfseries SDL\+\_\+iconv\+\_\+t}
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa0843b5fde7f958b8eea238304aa5b2d}\label{SDL__stdinc_8h_aa0843b5fde7f958b8eea238304aa5b2d}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+malloc} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aee91cc8889e6d920b9bb6970b0274c96}\label{SDL__stdinc_8h_aee91cc8889e6d920b9bb6970b0274c96}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+calloc} (size\+\_\+t nmemb, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a5123a34a3c99b29c423893aac78b4454}\label{SDL__stdinc_8h_a5123a34a3c99b29c423893aac78b4454}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+realloc} (void $\ast$mem, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a0e4ade894d550ada1fa19dc2d46e88b8}\label{SDL__stdinc_8h_a0e4ade894d550ada1fa19dc2d46e88b8}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+free} (void $\ast$mem)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__stdinc_8h_a91cba8a23ba5cae032f1def42a2add99}{SDL\+\_\+\+Get\+Memory\+Functions}} (SDL\+\_\+malloc\+\_\+func $\ast$malloc\+\_\+func, SDL\+\_\+calloc\+\_\+func $\ast$calloc\+\_\+func, SDL\+\_\+realloc\+\_\+func $\ast$realloc\+\_\+func, SDL\+\_\+free\+\_\+func $\ast$free\+\_\+func)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__stdinc_8h_ad846ee206051a2aebd439c66cd907f9a}{SDL\+\_\+\+Set\+Memory\+Functions}} (SDL\+\_\+malloc\+\_\+func malloc\+\_\+func, SDL\+\_\+calloc\+\_\+func calloc\+\_\+func, SDL\+\_\+realloc\+\_\+func realloc\+\_\+func, SDL\+\_\+free\+\_\+func free\+\_\+func)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__stdinc_8h_a853b94eb0e35bf92556807e23d445bc0}{SDL\+\_\+\+Get\+Num\+Allocations}} (void)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a16ef7a64cf619b95d337ed87cf73cbaa}\label{SDL__stdinc_8h_a16ef7a64cf619b95d337ed87cf73cbaa}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+getenv} (const char $\ast$name)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a82561dde7eb250ecb6fcbd3e3786d8b9}\label{SDL__stdinc_8h_a82561dde7eb250ecb6fcbd3e3786d8b9}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+setenv} (const char $\ast$name, const char $\ast$value, int overwrite)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae4e475d53a51a90992745186a20d1f01}\label{SDL__stdinc_8h_ae4e475d53a51a90992745186a20d1f01}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+qsort} (void $\ast$base, size\+\_\+t nmemb, size\+\_\+t size, int($\ast$compare)(const void $\ast$, const void $\ast$))
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_abc2986a4608bc9fd73df173d7619c096}\label{SDL__stdinc_8h_abc2986a4608bc9fd73df173d7619c096}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+abs} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a4f75af3d4d39b627ddc022c8ce61fba9}\label{SDL__stdinc_8h_a4f75af3d4d39b627ddc022c8ce61fba9}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isalpha} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a5c1cb8c02d932fa9bf5f3b694ace7da4}\label{SDL__stdinc_8h_a5c1cb8c02d932fa9bf5f3b694ace7da4}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isalnum} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad37f07937f3576aa3fa6e3e3874eb11c}\label{SDL__stdinc_8h_ad37f07937f3576aa3fa6e3e3874eb11c}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isblank} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af4efbd1fe6f0a088d61e2240bd7a6039}\label{SDL__stdinc_8h_af4efbd1fe6f0a088d61e2240bd7a6039}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+iscntrl} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a3e2b095edf06856900b16babe77809cf}\label{SDL__stdinc_8h_a3e2b095edf06856900b16babe77809cf}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isdigit} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7ea87924897c2645016630155ee1c81b}\label{SDL__stdinc_8h_a7ea87924897c2645016630155ee1c81b}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isxdigit} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a21ca32924f94078d4901d41f63356a49}\label{SDL__stdinc_8h_a21ca32924f94078d4901d41f63356a49}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+ispunct} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a345ef079d2b47f9cda08d383dde1ec65}\label{SDL__stdinc_8h_a345ef079d2b47f9cda08d383dde1ec65}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isspace} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a072cc40c790442b511b689a6429e12af}\label{SDL__stdinc_8h_a072cc40c790442b511b689a6429e12af}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isupper} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_addcc681a35613819350530840d2946de}\label{SDL__stdinc_8h_addcc681a35613819350530840d2946de}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+islower} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac38b553bf3bf3719f96a1d80016d0af8}\label{SDL__stdinc_8h_ac38b553bf3bf3719f96a1d80016d0af8}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isprint} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a81b295ab98aca63dfd55b025ce3cee84}\label{SDL__stdinc_8h_a81b295ab98aca63dfd55b025ce3cee84}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+isgraph} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a91fcc07ab87653a6c92ae1288c20a606}\label{SDL__stdinc_8h_a91fcc07ab87653a6c92ae1288c20a606}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+toupper} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af18a897c83986540d4caf4573775f199}\label{SDL__stdinc_8h_af18a897c83986540d4caf4573775f199}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+tolower} (int x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aad3433287a9ce5aafad039f4d064c3bd}\label{SDL__stdinc_8h_aad3433287a9ce5aafad039f4d064c3bd}} 
+DECLSPEC Uint32 SDLCALL {\bfseries SDL\+\_\+crc32} (Uint32 crc, const void $\ast$data, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa71450ffd083274ca708b348e6faf770}\label{SDL__stdinc_8h_aa71450ffd083274ca708b348e6faf770}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+memset} (SDL\+\_\+\+OUT\+\_\+\+BYTECAP(len) void $\ast$dst, int c, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a0f1cd3e844f8fac8e26ca1e2c2101956}\label{SDL__stdinc_8h_a0f1cd3e844f8fac8e26ca1e2c2101956}} 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE void {\bfseries SDL\+\_\+memset4} (void $\ast$dst, Uint32 val, size\+\_\+t dwords)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1b20f81edc207c5f77323d7b3e1b7ec3}\label{SDL__stdinc_8h_a1b20f81edc207c5f77323d7b3e1b7ec3}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+memcpy} (SDL\+\_\+\+OUT\+\_\+\+BYTECAP(len) void $\ast$dst, SDL\+\_\+\+IN\+\_\+\+BYTECAP(len) const void $\ast$src, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a65dc90519d616379cef5211f94d8d582}\label{SDL__stdinc_8h_a65dc90519d616379cef5211f94d8d582}} 
+DECLSPEC void $\ast$SDLCALL {\bfseries SDL\+\_\+memmove} (SDL\+\_\+\+OUT\+\_\+\+BYTECAP(len) void $\ast$dst, SDL\+\_\+\+IN\+\_\+\+BYTECAP(len) const void $\ast$src, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af8e26df545c29284291714410fa7731e}\label{SDL__stdinc_8h_af8e26df545c29284291714410fa7731e}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+memcmp} (const void $\ast$s1, const void $\ast$s2, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afddee3f5be8611a2956f21ea899ea6f1}\label{SDL__stdinc_8h_afddee3f5be8611a2956f21ea899ea6f1}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+wcslen} (const wchar\+\_\+t $\ast$wstr)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a611742b034af091bbf678150ede27a0f}\label{SDL__stdinc_8h_a611742b034af091bbf678150ede27a0f}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+wcslcpy} (SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP(maxlen) wchar\+\_\+t $\ast$dst, const wchar\+\_\+t $\ast$src, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9f29935903b98e66f3d69b336f741712}\label{SDL__stdinc_8h_a9f29935903b98e66f3d69b336f741712}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+wcslcat} (SDL\+\_\+\+INOUT\+\_\+\+Z\+\_\+\+CAP(maxlen) wchar\+\_\+t $\ast$dst, const wchar\+\_\+t $\ast$src, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afda64ff08e7a4ae3c3ee629e161197a5}\label{SDL__stdinc_8h_afda64ff08e7a4ae3c3ee629e161197a5}} 
+DECLSPEC wchar\+\_\+t $\ast$SDLCALL {\bfseries SDL\+\_\+wcsdup} (const wchar\+\_\+t $\ast$wstr)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a195adcd8e70057ac79b86c16551811d8}\label{SDL__stdinc_8h_a195adcd8e70057ac79b86c16551811d8}} 
+DECLSPEC wchar\+\_\+t $\ast$SDLCALL {\bfseries SDL\+\_\+wcsstr} (const wchar\+\_\+t $\ast$haystack, const wchar\+\_\+t $\ast$needle)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a42d3b826f86fc016f76c01dbdf96bce9}\label{SDL__stdinc_8h_a42d3b826f86fc016f76c01dbdf96bce9}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+wcscmp} (const wchar\+\_\+t $\ast$str1, const wchar\+\_\+t $\ast$str2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a215fcb7541fa8d2fd8d179160c752ede}\label{SDL__stdinc_8h_a215fcb7541fa8d2fd8d179160c752ede}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+wcsncmp} (const wchar\+\_\+t $\ast$str1, const wchar\+\_\+t $\ast$str2, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af4d3e5b558c9d819d6628abaa4412af6}\label{SDL__stdinc_8h_af4d3e5b558c9d819d6628abaa4412af6}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+wcscasecmp} (const wchar\+\_\+t $\ast$str1, const wchar\+\_\+t $\ast$str2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad9530d5e06c34dc152a52f209f327f32}\label{SDL__stdinc_8h_ad9530d5e06c34dc152a52f209f327f32}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+wcsncasecmp} (const wchar\+\_\+t $\ast$str1, const wchar\+\_\+t $\ast$str2, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac06c288c339beeecb6f32e5d2a9471c0}\label{SDL__stdinc_8h_ac06c288c339beeecb6f32e5d2a9471c0}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+strlen} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac362d85898cfb51e06e33399a7d3fd03}\label{SDL__stdinc_8h_ac362d85898cfb51e06e33399a7d3fd03}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+strlcpy} (SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP(maxlen) char $\ast$dst, const char $\ast$src, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a78f061725fa314e775a3978b916a5daa}\label{SDL__stdinc_8h_a78f061725fa314e775a3978b916a5daa}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+utf8strlcpy} (SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP(dst\+\_\+bytes) char $\ast$dst, const char $\ast$src, size\+\_\+t dst\+\_\+bytes)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a50d15493c8921df9a8c2c233703429c8}\label{SDL__stdinc_8h_a50d15493c8921df9a8c2c233703429c8}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+strlcat} (SDL\+\_\+\+INOUT\+\_\+\+Z\+\_\+\+CAP(maxlen) char $\ast$dst, const char $\ast$src, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aeb337dead7b2dc31849654621979292a}\label{SDL__stdinc_8h_aeb337dead7b2dc31849654621979292a}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strdup} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a66ee8c0675dd1397909c4c7860d9471a}\label{SDL__stdinc_8h_a66ee8c0675dd1397909c4c7860d9471a}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strrev} (char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac900d50174128e81e7e6f85013530fe7}\label{SDL__stdinc_8h_ac900d50174128e81e7e6f85013530fe7}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strupr} (char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aac4bb42a3f89248e7b93312ece293ff0}\label{SDL__stdinc_8h_aac4bb42a3f89248e7b93312ece293ff0}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strlwr} (char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a901b411bdc6d7431541f5271fa3d926b}\label{SDL__stdinc_8h_a901b411bdc6d7431541f5271fa3d926b}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strchr} (const char $\ast$str, int c)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a071f3ed1587203953f62ca28b86dcfcb}\label{SDL__stdinc_8h_a071f3ed1587203953f62ca28b86dcfcb}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strrchr} (const char $\ast$str, int c)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa50eca29c8736f5be661e5b26b718cb1}\label{SDL__stdinc_8h_aa50eca29c8736f5be661e5b26b718cb1}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strstr} (const char $\ast$haystack, const char $\ast$needle)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae42ff0f196d26f22f77aedaeb4bfc202}\label{SDL__stdinc_8h_ae42ff0f196d26f22f77aedaeb4bfc202}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+strtokr} (char $\ast$s1, const char $\ast$s2, char $\ast$$\ast$saveptr)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a8f0319c8cf55baa072e5caf1dc228286}\label{SDL__stdinc_8h_a8f0319c8cf55baa072e5caf1dc228286}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+utf8strlen} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a6c8b021577abfdc499332b956dc9fa20}\label{SDL__stdinc_8h_a6c8b021577abfdc499332b956dc9fa20}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+itoa} (int value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7a602ba1ed643263be5597e5566bc68d}\label{SDL__stdinc_8h_a7a602ba1ed643263be5597e5566bc68d}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+uitoa} (unsigned int value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac12a401d99ae1b59feaee53de3432299}\label{SDL__stdinc_8h_ac12a401d99ae1b59feaee53de3432299}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+ltoa} (long value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac9d64fc284b53cdc3f3df0a4638fce1e}\label{SDL__stdinc_8h_ac9d64fc284b53cdc3f3df0a4638fce1e}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+ultoa} (unsigned long value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a5383a6cf354ac43586f44a692e76c9ad}\label{SDL__stdinc_8h_a5383a6cf354ac43586f44a692e76c9ad}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+lltoa} (Sint64 value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aba1456131f3376e231027511dd60b157}\label{SDL__stdinc_8h_aba1456131f3376e231027511dd60b157}} 
+DECLSPEC char $\ast$SDLCALL {\bfseries SDL\+\_\+ulltoa} (Uint64 value, char $\ast$str, int radix)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a693141d8cd82c97ba5cb0f4bc42c96ae}\label{SDL__stdinc_8h_a693141d8cd82c97ba5cb0f4bc42c96ae}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+atoi} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7f36805f126b5712ab14d4b1da721a2b}\label{SDL__stdinc_8h_a7f36805f126b5712ab14d4b1da721a2b}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+atof} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa0674ed6bcaf8a0889dbbee89f4ac19c}\label{SDL__stdinc_8h_aa0674ed6bcaf8a0889dbbee89f4ac19c}} 
+DECLSPEC long SDLCALL {\bfseries SDL\+\_\+strtol} (const char $\ast$str, char $\ast$$\ast$endp, int base)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2b92ab8170e4df3252013d903b9d4051}\label{SDL__stdinc_8h_a2b92ab8170e4df3252013d903b9d4051}} 
+DECLSPEC unsigned long SDLCALL {\bfseries SDL\+\_\+strtoul} (const char $\ast$str, char $\ast$$\ast$endp, int base)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a4ebd07268af4cf8efe05f1eb28d9ba98}\label{SDL__stdinc_8h_a4ebd07268af4cf8efe05f1eb28d9ba98}} 
+DECLSPEC Sint64 SDLCALL {\bfseries SDL\+\_\+strtoll} (const char $\ast$str, char $\ast$$\ast$endp, int base)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aa893ab27b0d874a0d1eea7025937c006}\label{SDL__stdinc_8h_aa893ab27b0d874a0d1eea7025937c006}} 
+DECLSPEC Uint64 SDLCALL {\bfseries SDL\+\_\+strtoull} (const char $\ast$str, char $\ast$$\ast$endp, int base)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aebf098dbc1451c320b48e1760d090db9}\label{SDL__stdinc_8h_aebf098dbc1451c320b48e1760d090db9}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+strtod} (const char $\ast$str, char $\ast$$\ast$endp)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a37e18b9103f755d03cf4b0aedeb39fb8}\label{SDL__stdinc_8h_a37e18b9103f755d03cf4b0aedeb39fb8}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+strcmp} (const char $\ast$str1, const char $\ast$str2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a21287cfa7609bbc3d46ea10b20234389}\label{SDL__stdinc_8h_a21287cfa7609bbc3d46ea10b20234389}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+strncmp} (const char $\ast$str1, const char $\ast$str2, size\+\_\+t maxlen)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1de324579fee4225e390df0a7b485d17}\label{SDL__stdinc_8h_a1de324579fee4225e390df0a7b485d17}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+strcasecmp} (const char $\ast$str1, const char $\ast$str2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a51b84fa76ad53e7c3b17892d9982c526}\label{SDL__stdinc_8h_a51b84fa76ad53e7c3b17892d9982c526}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+strncasecmp} (const char $\ast$str1, const char $\ast$str2, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7b721b0e22698c8eb6efc5341003b582}\label{SDL__stdinc_8h_a7b721b0e22698c8eb6efc5341003b582}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+sscanf} (const char $\ast$text, SDL\+\_\+\+SCANF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+SCANF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aec25dc54f0de98ea8d970552f38d6365}\label{SDL__stdinc_8h_aec25dc54f0de98ea8d970552f38d6365}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+vsscanf} (const char $\ast$text, const char $\ast$fmt, va\+\_\+list ap)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_adcf2cbf4b55834f5727664425f80e6b5}\label{SDL__stdinc_8h_adcf2cbf4b55834f5727664425f80e6b5}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+snprintf} (SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP(maxlen) char $\ast$text, size\+\_\+t maxlen, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(3)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae9acdeeb54ccbab3bb53280052541bdd}\label{SDL__stdinc_8h_ae9acdeeb54ccbab3bb53280052541bdd}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+vsnprintf} (SDL\+\_\+\+OUT\+\_\+\+Z\+\_\+\+CAP(maxlen) char $\ast$text, size\+\_\+t maxlen, const char $\ast$fmt, va\+\_\+list ap)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae0f4ba2f23bda0b6928357130bb2daff}\label{SDL__stdinc_8h_ae0f4ba2f23bda0b6928357130bb2daff}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+asprintf} (char $\ast$$\ast$strp, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a8546e843a34f05e1fbcbe0d92762d7ad}\label{SDL__stdinc_8h_a8546e843a34f05e1fbcbe0d92762d7ad}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+vasprintf} (char $\ast$$\ast$strp, const char $\ast$fmt, va\+\_\+list ap)
+\item 
+DECLSPEC double SDLCALL \mbox{\hyperlink{SDL__stdinc_8h_aad4335bccd2da5d4cbc56227a00c5e6a}{SDL\+\_\+acos}} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a8df77f77cde849ce6507467289f9161e}\label{SDL__stdinc_8h_a8df77f77cde849ce6507467289f9161e}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+acosf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a1d20f8c07517e3edff66a483df394a4e}\label{SDL__stdinc_8h_a1d20f8c07517e3edff66a483df394a4e}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+asin} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a3a8db8cf7e449bb3d7f055ba02f5dbc5}\label{SDL__stdinc_8h_a3a8db8cf7e449bb3d7f055ba02f5dbc5}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+asinf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_af8123e938b403f372e38c9dcf0d532f1}\label{SDL__stdinc_8h_af8123e938b403f372e38c9dcf0d532f1}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+atan} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aacaab6901a2c37914157d5b000be9e4b}\label{SDL__stdinc_8h_aacaab6901a2c37914157d5b000be9e4b}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+atanf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a58e02d9393a57c2c2659fff9ae112d1a}\label{SDL__stdinc_8h_a58e02d9393a57c2c2659fff9ae112d1a}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+atan2} (double y, double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2e5048dc7ba12c1938c9d2cf1995eb69}\label{SDL__stdinc_8h_a2e5048dc7ba12c1938c9d2cf1995eb69}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+atan2f} (float y, float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a936588a2d12ce83c915d9a2441653370}\label{SDL__stdinc_8h_a936588a2d12ce83c915d9a2441653370}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+ceil} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ad6faeefa315255bc0df3ac8ca93691c1}\label{SDL__stdinc_8h_ad6faeefa315255bc0df3ac8ca93691c1}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+ceilf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a4171a3b97ac5cde52618cedd490be481}\label{SDL__stdinc_8h_a4171a3b97ac5cde52618cedd490be481}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+copysign} (double x, double y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a0e4028f1feef8764524f99950bb2f75f}\label{SDL__stdinc_8h_a0e4028f1feef8764524f99950bb2f75f}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+copysignf} (float x, float y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a188dec0f0bc8eabb58181656eaf41fd7}\label{SDL__stdinc_8h_a188dec0f0bc8eabb58181656eaf41fd7}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+cos} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a531f6b784d47ec6719c71e578bccc88d}\label{SDL__stdinc_8h_a531f6b784d47ec6719c71e578bccc88d}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+cosf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a79c55f7a1211b69d10dcfec65edfdb31}\label{SDL__stdinc_8h_a79c55f7a1211b69d10dcfec65edfdb31}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+exp} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a33e13d60f771d8bf8659bebc5b1150b3}\label{SDL__stdinc_8h_a33e13d60f771d8bf8659bebc5b1150b3}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+expf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ab3c294fac683198ba196e072bb181f02}\label{SDL__stdinc_8h_ab3c294fac683198ba196e072bb181f02}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+fabs} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a88bc179b571e1b81ef939918b853e85b}\label{SDL__stdinc_8h_a88bc179b571e1b81ef939918b853e85b}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+fabsf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aef4788340ec0d94db83efa78a985a633}\label{SDL__stdinc_8h_aef4788340ec0d94db83efa78a985a633}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+floor} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a7cf5c20a750cc7aefd9a33455bc2cc0e}\label{SDL__stdinc_8h_a7cf5c20a750cc7aefd9a33455bc2cc0e}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+floorf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afd309afc21b31ace3b0f433bbf5fa5f3}\label{SDL__stdinc_8h_afd309afc21b31ace3b0f433bbf5fa5f3}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+trunc} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afc7c83b503adc4a911f65fb215a2671b}\label{SDL__stdinc_8h_afc7c83b503adc4a911f65fb215a2671b}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+truncf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a6c56858af3e7a3acfc8d3d6099c2c3f6}\label{SDL__stdinc_8h_a6c56858af3e7a3acfc8d3d6099c2c3f6}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+fmod} (double x, double y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a24b8633bde27b05dae938f79ebbb3898}\label{SDL__stdinc_8h_a24b8633bde27b05dae938f79ebbb3898}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+fmodf} (float x, float y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a2b226b584a9922167301231d3c13bee2}\label{SDL__stdinc_8h_a2b226b584a9922167301231d3c13bee2}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+log} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9548171a530aeb28aa02f22b0263c390}\label{SDL__stdinc_8h_a9548171a530aeb28aa02f22b0263c390}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+logf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ae907373550fb1e22242aeb56fb5e86ec}\label{SDL__stdinc_8h_ae907373550fb1e22242aeb56fb5e86ec}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+log10} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a272cf573bc32004a674bdc78a7ce2104}\label{SDL__stdinc_8h_a272cf573bc32004a674bdc78a7ce2104}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+log10f} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a3d52f0185cf0e50a39d82d1c0d9033a0}\label{SDL__stdinc_8h_a3d52f0185cf0e50a39d82d1c0d9033a0}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+pow} (double x, double y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_adbd43da74ca37ced160f748a35a18e28}\label{SDL__stdinc_8h_adbd43da74ca37ced160f748a35a18e28}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+powf} (float x, float y)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a6f3a2f23d1d27e06de58b966253032fb}\label{SDL__stdinc_8h_a6f3a2f23d1d27e06de58b966253032fb}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+round} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aad53e9e761ce876c2eeecf8b511215f7}\label{SDL__stdinc_8h_aad53e9e761ce876c2eeecf8b511215f7}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+roundf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9e808d8450216055d1fb4ec2a5abbc3b}\label{SDL__stdinc_8h_a9e808d8450216055d1fb4ec2a5abbc3b}} 
+DECLSPEC long SDLCALL {\bfseries SDL\+\_\+lround} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a9309b62decdda5d9abdbed5a1afee7de}\label{SDL__stdinc_8h_a9309b62decdda5d9abdbed5a1afee7de}} 
+DECLSPEC long SDLCALL {\bfseries SDL\+\_\+lroundf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aadf9f772c77eaac69d873bdc894d8877}\label{SDL__stdinc_8h_aadf9f772c77eaac69d873bdc894d8877}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+scalbn} (double x, int n)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_ac2918cea7f1ad8c10c7ff7d0549f059b}\label{SDL__stdinc_8h_ac2918cea7f1ad8c10c7ff7d0549f059b}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+scalbnf} (float x, int n)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aea6fa73c9125ce7781b16964a12678fd}\label{SDL__stdinc_8h_aea6fa73c9125ce7781b16964a12678fd}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+sin} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a833d0eb1ac38643cc5e8f71f9231d3eb}\label{SDL__stdinc_8h_a833d0eb1ac38643cc5e8f71f9231d3eb}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+sinf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a89a212b3de74f13ce69fd5bea007df86}\label{SDL__stdinc_8h_a89a212b3de74f13ce69fd5bea007df86}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+sqrt} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aeaa64ed4e3d788ebcb7b7363eb66ff4f}\label{SDL__stdinc_8h_aeaa64ed4e3d788ebcb7b7363eb66ff4f}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+sqrtf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a4d52b941eca596f2f716425c777cb3fc}\label{SDL__stdinc_8h_a4d52b941eca596f2f716425c777cb3fc}} 
+DECLSPEC double SDLCALL {\bfseries SDL\+\_\+tan} (double x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_afe3ee9cc3fc388193f23d3e5c98197ab}\label{SDL__stdinc_8h_afe3ee9cc3fc388193f23d3e5c98197ab}} 
+DECLSPEC float SDLCALL {\bfseries SDL\+\_\+tanf} (float x)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a0ba254663bb7d4b49eaa414d4533c6b5}\label{SDL__stdinc_8h_a0ba254663bb7d4b49eaa414d4533c6b5}} 
+DECLSPEC SDL\+\_\+iconv\+\_\+t SDLCALL {\bfseries SDL\+\_\+iconv\+\_\+open} (const char $\ast$tocode, const char $\ast$fromcode)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a92eeaa95348c308ebd882ca85eccd684}\label{SDL__stdinc_8h_a92eeaa95348c308ebd882ca85eccd684}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+iconv\+\_\+close} (SDL\+\_\+iconv\+\_\+t cd)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_aeef39b9728425f231fc3e019ffa6c9ea}\label{SDL__stdinc_8h_aeef39b9728425f231fc3e019ffa6c9ea}} 
+DECLSPEC size\+\_\+t SDLCALL {\bfseries SDL\+\_\+iconv} (SDL\+\_\+iconv\+\_\+t cd, const char $\ast$$\ast$inbuf, size\+\_\+t $\ast$inbytesleft, char $\ast$$\ast$outbuf, size\+\_\+t $\ast$outbytesleft)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}{SDL\+\_\+iconv\+\_\+string}} (const char $\ast$tocode, const char $\ast$fromcode, const char $\ast$inbuf, size\+\_\+t inbytesleft)
+\item 
+\mbox{\Hypertarget{SDL__stdinc_8h_a067e1ad3a40d7f6741a105fdab0c63cf}\label{SDL__stdinc_8h_a067e1ad3a40d7f6741a105fdab0c63cf}} 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE void $\ast$ {\bfseries SDL\+\_\+memcpy4} (SDL\+\_\+\+OUT\+\_\+\+BYTECAP(dwords $\ast$4) void $\ast$dst, SDL\+\_\+\+IN\+\_\+\+BYTECAP(dwords $\ast$4) const void $\ast$src, size\+\_\+t dwords)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This is a general header that includes C language support. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__stdinc_8h_a3089718d0deba90af8aba1106e9d9eef}\label{SDL__stdinc_8h_a3089718d0deba90af8aba1106e9d9eef}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!\_SDL\_HAS\_BUILTIN@{\_SDL\_HAS\_BUILTIN}}
+\index{\_SDL\_HAS\_BUILTIN@{\_SDL\_HAS\_BUILTIN}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{\_SDL\_HAS\_BUILTIN}{\_SDL\_HAS\_BUILTIN}}
+{\footnotesize\ttfamily \#define \+\_\+\+SDL\+\_\+\+HAS\+\_\+\+BUILTIN(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~0}
+
+Check if the compiler supports a given builtin. Supported by virtually all clang versions and recent gcc. Use this instead of checking the clang version if possible. \mbox{\Hypertarget{SDL__stdinc_8h_a56cfbf2e664506e5f4bb2e05997be8ae}\label{SDL__stdinc_8h_a56cfbf2e664506e5f4bb2e05997be8ae}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_arraysize@{SDL\_arraysize}}
+\index{SDL\_arraysize@{SDL\_arraysize}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_arraysize}{SDL\_arraysize}}
+{\footnotesize\ttfamily \#define SDL\+\_\+arraysize(\begin{DoxyParamCaption}\item[{}]{array }\end{DoxyParamCaption})~(sizeof(array)/sizeof(array\mbox{[}0\mbox{]}))}
+
+The number of elements in an array. \mbox{\Hypertarget{SDL__stdinc_8h_af482df3379ebfd4c3cfe44e6e0db7628}\label{SDL__stdinc_8h_af482df3379ebfd4c3cfe44e6e0db7628}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_FOURCC@{SDL\_FOURCC}}
+\index{SDL\_FOURCC@{SDL\_FOURCC}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FOURCC}{SDL\_FOURCC}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+FOURCC(\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{B,  }\item[{}]{C,  }\item[{}]{D }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    ((SDL\_static\_cast(Uint32, SDL\_static\_cast(Uint8, (A))) << 0) | \(\backslash\)}
+\DoxyCodeLine{     (SDL\_static\_cast(Uint32, SDL\_static\_cast(Uint8, (B))) << 8) | \(\backslash\)}
+\DoxyCodeLine{     (SDL\_static\_cast(Uint32, SDL\_static\_cast(Uint8, (C))) << 16) | \(\backslash\)}
+\DoxyCodeLine{     (SDL\_static\_cast(Uint32, SDL\_static\_cast(Uint8, (D))) << 24))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__stdinc_8h_a6450d7299f093c95c1bfa8186fa4c866}\label{SDL__stdinc_8h_a6450d7299f093c95c1bfa8186fa4c866}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_STRINGIFY\_ARG@{SDL\_STRINGIFY\_ARG}}
+\index{SDL\_STRINGIFY\_ARG@{SDL\_STRINGIFY\_ARG}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_STRINGIFY\_ARG}{SDL\_STRINGIFY\_ARG}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+STRINGIFY\+\_\+\+ARG(\begin{DoxyParamCaption}\item[{}]{arg }\end{DoxyParamCaption})~\#arg}
+
+Macro useful for building other macros with strings in them
+
+e.\+g. \#define LOG\+\_\+\+ERROR(\+X) Output\+Debug\+String(SDL\+\_\+\+STRINGIFY\+\_\+\+ARG({\bfseries{FUNCTION}}) \char`\"{}\+: \char`\"{} X \char`\"{}\textbackslash{}n\char`\"{}) 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__stdinc_8h_aad4335bccd2da5d4cbc56227a00c5e6a}\label{SDL__stdinc_8h_aad4335bccd2da5d4cbc56227a00c5e6a}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_acos@{SDL\_acos}}
+\index{SDL\_acos@{SDL\_acos}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_acos()}{SDL\_acos()}}
+{\footnotesize\ttfamily DECLSPEC double SDLCALL SDL\+\_\+acos (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+Use this function to compute arc cosine of {\ttfamily x}.
+
+The definition of {\ttfamily y = acos(x)} is {\ttfamily x = cos(y)}.
+
+Domain\+: {\ttfamily -\/1 $<$= x $<$= 1}
+
+Range\+: {\ttfamily 0 $<$= y $<$= Pi}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & floating point value, in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+arc cosine of {\ttfamily x}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__stdinc_8h_a91cba8a23ba5cae032f1def42a2add99}\label{SDL__stdinc_8h_a91cba8a23ba5cae032f1def42a2add99}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_GetMemoryFunctions@{SDL\_GetMemoryFunctions}}
+\index{SDL\_GetMemoryFunctions@{SDL\_GetMemoryFunctions}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetMemoryFunctions()}{SDL\_GetMemoryFunctions()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Get\+Memory\+Functions (\begin{DoxyParamCaption}\item[{SDL\+\_\+malloc\+\_\+func $\ast$}]{malloc\+\_\+func,  }\item[{SDL\+\_\+calloc\+\_\+func $\ast$}]{calloc\+\_\+func,  }\item[{SDL\+\_\+realloc\+\_\+func $\ast$}]{realloc\+\_\+func,  }\item[{SDL\+\_\+free\+\_\+func $\ast$}]{free\+\_\+func }\end{DoxyParamCaption})}
+
+Get the current set of SDL memory functions
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__stdinc_8h_a853b94eb0e35bf92556807e23d445bc0}\label{SDL__stdinc_8h_a853b94eb0e35bf92556807e23d445bc0}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_GetNumAllocations@{SDL\_GetNumAllocations}}
+\index{SDL\_GetNumAllocations@{SDL\_GetNumAllocations}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetNumAllocations()}{SDL\_GetNumAllocations()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Num\+Allocations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of outstanding (unfreed) allocations
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}\label{SDL__stdinc_8h_a43f6bd27a2e52c2d9ca629cb1a150bfd}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_iconv\_string@{SDL\_iconv\_string}}
+\index{SDL\_iconv\_string@{SDL\_iconv\_string}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_iconv\_string()}{SDL\_iconv\_string()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+iconv\+\_\+string (\begin{DoxyParamCaption}\item[{const char $\ast$}]{tocode,  }\item[{const char $\ast$}]{fromcode,  }\item[{const char $\ast$}]{inbuf,  }\item[{size\+\_\+t}]{inbytesleft }\end{DoxyParamCaption})}
+
+This function converts a string between encodings in one pass, returning a string that must be freed with SDL\+\_\+free() or NULL on error.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__stdinc_8h_ad846ee206051a2aebd439c66cd907f9a}\label{SDL__stdinc_8h_ad846ee206051a2aebd439c66cd907f9a}} 
+\index{SDL\_stdinc.h@{SDL\_stdinc.h}!SDL\_SetMemoryFunctions@{SDL\_SetMemoryFunctions}}
+\index{SDL\_SetMemoryFunctions@{SDL\_SetMemoryFunctions}!SDL\_stdinc.h@{SDL\_stdinc.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetMemoryFunctions()}{SDL\_SetMemoryFunctions()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Memory\+Functions (\begin{DoxyParamCaption}\item[{SDL\+\_\+malloc\+\_\+func}]{malloc\+\_\+func,  }\item[{SDL\+\_\+calloc\+\_\+func}]{calloc\+\_\+func,  }\item[{SDL\+\_\+realloc\+\_\+func}]{realloc\+\_\+func,  }\item[{SDL\+\_\+free\+\_\+func}]{free\+\_\+func }\end{DoxyParamCaption})}
+
+Replace SDL\textquotesingle{}s memory allocation functions with a custom set
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7. 
+\end{DoxySince}

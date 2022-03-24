@@ -13,6 +13,6 @@
 #define NB_B_MENU_OPTIONS 3
 #define NOMS_B_MENU_OPTIONS {"Toggle volume","Keymap","Retour"}
 
-e_menu chargerMenu_Options(t_moteur * moteur);
+e_code_main chargerMenu_Options(t_moteur * moteur);
 
 #endif //_JEU_MENU_OPTIONS_

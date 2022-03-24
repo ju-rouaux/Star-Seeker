@@ -14,6 +14,7 @@
 
 
 /**
+ * \struct t_animation
  * \brief Structure contenant les données nécéssaires
  * à la réalisation d'une animation.
  * 

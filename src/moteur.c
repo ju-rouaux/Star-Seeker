@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
+#include <audio.h>
 #include <window.h>
 #include <textures.h>
 #include <camera.h>
@@ -76,15 +77,29 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    //Allouer la liste des entités "vivantes"
-    moteur->liste_entites = malloc(sizeof(t_liste));
-    if(moteur->liste_entites == NULL)
+    if(chargerAudio(MIX_MAX_VOLUME, &moteur->musiques, &moteur->bruitages) != 0)
     {
+        printf("Moteur non chargé\n");
+        detruireCamera(&moteur->camera);
         detruireTextures(&moteur->textures);
         detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
         free(moteur);
         return NULL;
     }
+
+    //Allouer la liste des entités "vivantes"
+    moteur->liste_entites = malloc(sizeof(t_liste));
+    if(moteur->liste_entites == NULL)
+    {
+        printf("Moteur non chargé\n");
+        detruireAudio(&moteur->musiques, &moteur->bruitages);
+        detruireCamera(&moteur->camera);
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+
     init_liste(moteur->liste_entites);
 
     moteur->temps_precedent = temps;
@@ -115,6 +130,7 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
+        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages);
         detruire_liste(&(*moteur)->liste_entites);
     }
     free(*moteur);

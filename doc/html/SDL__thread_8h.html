@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_thread.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_thread.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__error_8h_source.html">SDL_error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__atomic_8h_source.html">SDL_atomic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__mutex_8h_source.html">SDL_mutex.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__thread_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a97cd1dc60cea74b74273affb1a974db5"><td class="memItemLeft" align="right" valign="top"><a id="a97cd1dc60cea74b74273affb1a974db5"></a>
+typedef struct SDL_Thread&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_Thread</b></td></tr>
+<tr class="separator:a97cd1dc60cea74b74273affb1a974db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4db699531ce9f18f5a8547aa988b88e"><td class="memItemLeft" align="right" valign="top"><a id="ac4db699531ce9f18f5a8547aa988b88e"></a>
+typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_threadID</b></td></tr>
+<tr class="separator:ac4db699531ce9f18f5a8547aa988b88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ce005c35ad6ac377d6124db7296026"><td class="memItemLeft" align="right" valign="top"><a id="a07ce005c35ad6ac377d6124db7296026"></a>
+typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_TLSID</b></td></tr>
+<tr class="separator:a07ce005c35ad6ac377d6124db7296026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35d10c50423c326b20abea6a486f53e0"><td class="memItemLeft" align="right" valign="top">typedef int(SDLCALL *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#a35d10c50423c326b20abea6a486f53e0">SDL_ThreadFunction</a>) (void *data)</td></tr>
+<tr class="separator:a35d10c50423c326b20abea6a486f53e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:acce8dea56f6b307fadd2949b64e3ebda"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#acce8dea56f6b307fadd2949b64e3ebda">SDL_ThreadPriority</a> { <b>SDL_THREAD_PRIORITY_LOW</b>
+, <b>SDL_THREAD_PRIORITY_NORMAL</b>
+, <b>SDL_THREAD_PRIORITY_HIGH</b>
+, <b>SDL_THREAD_PRIORITY_TIME_CRITICAL</b>
+ }</td></tr>
+<tr class="separator:acce8dea56f6b307fadd2949b64e3ebda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aca3013d4f50e918b17d2721b37e59082"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_Thread *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread</a> (<a class="el" href="SDL__thread_8h.html#a35d10c50423c326b20abea6a486f53e0">SDL_ThreadFunction</a> fn, const char *name, void *data)</td></tr>
+<tr class="separator:aca3013d4f50e918b17d2721b37e59082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bee261cd43d1e25ba75a89fff9fe75d"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_Thread *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#a4bee261cd43d1e25ba75a89fff9fe75d">SDL_CreateThreadWithStackSize</a> (<a class="el" href="SDL__thread_8h.html#a35d10c50423c326b20abea6a486f53e0">SDL_ThreadFunction</a> fn, const char *name, const size_t stacksize, void *data)</td></tr>
+<tr class="separator:a4bee261cd43d1e25ba75a89fff9fe75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2ffa508d85379b355673d557e74d9f"><td class="memItemLeft" align="right" valign="top">DECLSPEC const char *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#abe2ffa508d85379b355673d557e74d9f">SDL_GetThreadName</a> (SDL_Thread *thread)</td></tr>
+<tr class="separator:abe2ffa508d85379b355673d557e74d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a341933eef1470789de20b05c1392b9ae"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_threadID SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#a341933eef1470789de20b05c1392b9ae">SDL_ThreadID</a> (void)</td></tr>
+<tr class="separator:a341933eef1470789de20b05c1392b9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf5d93ed5cb25ea59307472c62c66db"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_threadID SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#a0bf5d93ed5cb25ea59307472c62c66db">SDL_GetThreadID</a> (SDL_Thread *thread)</td></tr>
+<tr class="separator:a0bf5d93ed5cb25ea59307472c62c66db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4da9c0e6a6833bef9741344b09699d"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#adf4da9c0e6a6833bef9741344b09699d">SDL_SetThreadPriority</a> (<a class="el" href="SDL__thread_8h.html#acce8dea56f6b307fadd2949b64e3ebda">SDL_ThreadPriority</a> priority)</td></tr>
+<tr class="separator:adf4da9c0e6a6833bef9741344b09699d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac96743626ed21d2cdb0868a23cca9705"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread</a> (SDL_Thread *thread, int *status)</td></tr>
+<tr class="separator:ac96743626ed21d2cdb0868a23cca9705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90602c51ef5a62f26ed9931af484906"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#af90602c51ef5a62f26ed9931af484906">SDL_DetachThread</a> (SDL_Thread *thread)</td></tr>
+<tr class="separator:af90602c51ef5a62f26ed9931af484906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ed1ec8dec5b902da25b60da2b728fa"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_TLSID SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#ac7ed1ec8dec5b902da25b60da2b728fa">SDL_TLSCreate</a> (void)</td></tr>
+<tr class="separator:ac7ed1ec8dec5b902da25b60da2b728fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab519f8d89ea808f32fc139071e6207bb"><td class="memItemLeft" align="right" valign="top">DECLSPEC void *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#ab519f8d89ea808f32fc139071e6207bb">SDL_TLSGet</a> (SDL_TLSID id)</td></tr>
+<tr class="separator:ab519f8d89ea808f32fc139071e6207bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807c8306201205c7c3ac0cb34ac7cd77"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#a807c8306201205c7c3ac0cb34ac7cd77">SDL_TLSSet</a> (SDL_TLSID id, const void *value, void(SDLCALL *destructor)(void *))</td></tr>
+<tr class="separator:a807c8306201205c7c3ac0cb34ac7cd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addd72a8ba431ef92685bbc9c89c5c67c"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__thread_8h.html#addd72a8ba431ef92685bbc9c89c5c67c">SDL_TLSCleanup</a> (void)</td></tr>
+<tr class="separator:addd72a8ba431ef92685bbc9c89c5c67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Header for the SDL thread management routines. </p>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a35d10c50423c326b20abea6a486f53e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d10c50423c326b20abea6a486f53e0">&#9670;&nbsp;</a></span>SDL_ThreadFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(SDLCALL * SDL_ThreadFunction) (void *data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The function passed to <a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread()</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>what was passed as <code>data</code> to <a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread()</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a value that can be reported through <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a>. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="acce8dea56f6b307fadd2949b64e3ebda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce8dea56f6b307fadd2949b64e3ebda">&#9670;&nbsp;</a></span>SDL_ThreadPriority</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="SDL__thread_8h.html#acce8dea56f6b307fadd2949b64e3ebda">SDL_ThreadPriority</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The SDL thread priority.</p>
+<p >SDL will make system changes as necessary in order to apply the thread priority. Code which attempts to control thread state related to priority should be aware that calling SDL_SetThreadPriority may alter such state. SDL_HINT_THREAD_PRIORITY_POLICY can be used to control aspects of this behavior.</p>
+<dl class="section note"><dt>Note</dt><dd>On many systems you require special privileges to set high or time critical priority. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aca3013d4f50e918b17d2721b37e59082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca3013d4f50e918b17d2721b37e59082">&#9670;&nbsp;</a></span>SDL_CreateThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_Thread* SDLCALL SDL_CreateThread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__thread_8h.html#a35d10c50423c326b20abea6a486f53e0">SDL_ThreadFunction</a>&#160;</td>
+          <td class="paramname"><em>fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a new thread with a default stack size.</p>
+<p >This is equivalent to calling:</p>
+<div class="fragment"><div class="line"><a class="code" href="SDL__thread_8h.html#a4bee261cd43d1e25ba75a89fff9fe75d">SDL_CreateThreadWithStackSize</a>(fn, name, 0, data);</div>
+<div class="ttc" id="aSDL__thread_8h_html_a4bee261cd43d1e25ba75a89fff9fe75d"><div class="ttname"><a href="SDL__thread_8h.html#a4bee261cd43d1e25ba75a89fff9fe75d">SDL_CreateThreadWithStackSize</a></div><div class="ttdeci">DECLSPEC SDL_Thread *SDLCALL SDL_CreateThreadWithStackSize(SDL_ThreadFunction fn, const char *name, const size_t stacksize, void *data)</div></div>
+</div><!-- fragment --><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fn</td><td>the SDL_ThreadFunction function to call in the new thread </td></tr>
+    <tr><td class="paramname">name</td><td>the name of the thread </td></tr>
+    <tr><td class="paramname">data</td><td>a pointer that is passed to <code>fn</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>an opaque pointer to the new thread object on success, NULL if the new thread could not be created; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#a4bee261cd43d1e25ba75a89fff9fe75d">SDL_CreateThreadWithStackSize</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4bee261cd43d1e25ba75a89fff9fe75d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bee261cd43d1e25ba75a89fff9fe75d">&#9670;&nbsp;</a></span>SDL_CreateThreadWithStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_Thread* SDLCALL SDL_CreateThreadWithStackSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__thread_8h.html#a35d10c50423c326b20abea6a486f53e0">SDL_ThreadFunction</a>&#160;</td>
+          <td class="paramname"><em>fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>stacksize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a new thread with a specific stack size.</p>
+<p >SDL makes an attempt to report <code>name</code> to the system, so that debuggers can display it. Not all platforms support this.</p>
+<p >Thread naming is a little complicated: Most systems have very small limits for the string length (Haiku has 32 bytes, Linux currently has 16, Visual C++ 6.0 has <em>nine</em>!), and possibly other arbitrary rules. You'll have to see what happens with your system's debugger. The name should be UTF-8 (but using the naming limits of C identifiers is a better bet). There are no requirements for thread naming conventions, so long as the string is null-terminated UTF-8, but these guidelines are helpful in choosing a name:</p>
+<p ><a href="https://stackoverflow.com/questions/149932/naming-conventions-for-threads">https://stackoverflow.com/questions/149932/naming-conventions-for-threads</a></p>
+<p >If a system imposes requirements, SDL will try to munge the string for it (truncate, etc), but the original string contents will be available from <a class="el" href="SDL__thread_8h.html#abe2ffa508d85379b355673d557e74d9f">SDL_GetThreadName()</a>.</p>
+<p >The size (in bytes) of the new stack can be specified. Zero means "use the
+system default" which might be wildly different between platforms. x86 Linux generally defaults to eight megabytes, an embedded device might be a few kilobytes instead. You generally need to specify a stack that is a multiple of the system's page size (in many cases, this is 4 kilobytes, but check your system documentation).</p>
+<p >In SDL 2.1, stack size will be folded into the original SDL_CreateThread function, but for backwards compatibility, this is currently a separate function.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fn</td><td>the SDL_ThreadFunction function to call in the new thread </td></tr>
+    <tr><td class="paramname">name</td><td>the name of the thread </td></tr>
+    <tr><td class="paramname">stacksize</td><td>the size, in bytes, to allocate for the new thread stack. </td></tr>
+    <tr><td class="paramname">data</td><td>a pointer that is passed to <code>fn</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>an opaque pointer to the new thread object on success, NULL if the new thread could not be created; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread</a> </dd></dl>
+
+</div>
+</div>
+<a id="af90602c51ef5a62f26ed9931af484906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af90602c51ef5a62f26ed9931af484906">&#9670;&nbsp;</a></span>SDL_DetachThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_DetachThread </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Thread *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Let a thread clean up on exit without intervention.</p>
+<p >A thread may be "detached" to signify that it should not remain until another thread has called <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a> on it. Detaching a thread is useful for long-running threads that nothing needs to synchronize with or further manage. When a detached thread is done, it simply goes away.</p>
+<p >There is no way to recover the return code of a detached thread. If you need this, don't detach the thread and instead use <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a>.</p>
+<p >Once a thread is detached, you should usually assume the SDL_Thread isn't safe to reference again, as it will become invalid immediately upon the detached thread's exit, instead of remaining until someone has called <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a> to finally clean it up. As such, don't detach the same thread more than once.</p>
+<p >If a thread has already exited when passed to <a class="el" href="SDL__thread_8h.html#af90602c51ef5a62f26ed9931af484906">SDL_DetachThread()</a>, it will stop waiting for a call to <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a> and clean up immediately. It is not safe to detach a thread that might be used with <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a>.</p>
+<p >You may not call <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a> on a thread that has been detached. Use either that function or this one, but not both, or behavior is undefined.</p>
+<p >It is safe to pass NULL to this function; it is a no-op.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>the SDL_Thread pointer that was returned from the <a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread()</a> call that started this thread</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0bf5d93ed5cb25ea59307472c62c66db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf5d93ed5cb25ea59307472c62c66db">&#9670;&nbsp;</a></span>SDL_GetThreadID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_threadID SDLCALL SDL_GetThreadID </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Thread *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the thread identifier for the specified thread.</p>
+<p >This thread identifier is as reported by the underlying operating system. If SDL is running on a platform that does not support threads the return value will always be zero.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>the thread to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the ID of the specified thread, or the ID of the current thread if <code>thread</code> is NULL.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#a341933eef1470789de20b05c1392b9ae">SDL_ThreadID</a> </dd></dl>
+
+</div>
+</div>
+<a id="abe2ffa508d85379b355673d557e74d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2ffa508d85379b355673d557e74d9f">&#9670;&nbsp;</a></span>SDL_GetThreadName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC const char* SDLCALL SDL_GetThreadName </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Thread *&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the thread name as it was specified in <a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread()</a>.</p>
+<p >This is internal memory, not to be freed by the caller, and remains valid until the specified thread is cleaned up by <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>the thread to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to a UTF-8 string that names the specified thread, or NULL if it doesn't have a name.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread</a> </dd></dl>
+
+</div>
+</div>
+<a id="adf4da9c0e6a6833bef9741344b09699d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf4da9c0e6a6833bef9741344b09699d">&#9670;&nbsp;</a></span>SDL_SetThreadPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetThreadPriority </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__thread_8h.html#acce8dea56f6b307fadd2949b64e3ebda">SDL_ThreadPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the priority for the current thread.</p>
+<p >Note that some platforms will not let you alter the priority (or at least, promote the thread to a higher priority) at all, and some require you to be an administrator account. Be prepared for this to fail.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>the SDL_ThreadPriority to set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+<a id="a341933eef1470789de20b05c1392b9ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a341933eef1470789de20b05c1392b9ae">&#9670;&nbsp;</a></span>SDL_ThreadID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_threadID SDLCALL SDL_ThreadID </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the thread identifier for the current thread.</p>
+<p >This thread identifier is as reported by the underlying operating system. If SDL is running on a platform that does not support threads the return value will always be zero.</p>
+<p >This function also returns a valid thread ID when called from the main thread.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>the ID of the current thread.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#a0bf5d93ed5cb25ea59307472c62c66db">SDL_GetThreadID</a> </dd></dl>
+
+</div>
+</div>
+<a id="addd72a8ba431ef92685bbc9c89c5c67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addd72a8ba431ef92685bbc9c89c5c67c">&#9670;&nbsp;</a></span>SDL_TLSCleanup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_TLSCleanup </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Cleanup all TLS data for this thread.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.16. </dd></dl>
+
+</div>
+</div>
+<a id="ac7ed1ec8dec5b902da25b60da2b728fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ed1ec8dec5b902da25b60da2b728fa">&#9670;&nbsp;</a></span>SDL_TLSCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_TLSID SDLCALL SDL_TLSCreate </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a piece of thread-local storage.</p>
+<p >This creates an identifier that is globally visible to all threads but refers to data that is thread-specific.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>the newly created thread local storage identifier or 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#ab519f8d89ea808f32fc139071e6207bb">SDL_TLSGet</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#a807c8306201205c7c3ac0cb34ac7cd77">SDL_TLSSet</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab519f8d89ea808f32fc139071e6207bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab519f8d89ea808f32fc139071e6207bb">&#9670;&nbsp;</a></span>SDL_TLSGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void* SDLCALL SDL_TLSGet </td>
+          <td>(</td>
+          <td class="paramtype">SDL_TLSID&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the current thread's value associated with a thread local storage ID.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the thread local storage ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the value associated with the ID for the current thread or NULL if no value has been set; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#ac7ed1ec8dec5b902da25b60da2b728fa">SDL_TLSCreate</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#a807c8306201205c7c3ac0cb34ac7cd77">SDL_TLSSet</a> </dd></dl>
+
+</div>
+</div>
+<a id="a807c8306201205c7c3ac0cb34ac7cd77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807c8306201205c7c3ac0cb34ac7cd77">&#9670;&nbsp;</a></span>SDL_TLSSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_TLSSet </td>
+          <td>(</td>
+          <td class="paramtype">SDL_TLSID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(SDLCALL *destructor)(void *)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the current thread's value associated with a thread local storage ID.</p>
+<p >The function prototype for <code>destructor</code> is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> destructor(<span class="keywordtype">void</span> *value)</div>
+</div><!-- fragment --><p >where its parameter <code>value</code> is what was passed as <code>value</code> to <a class="el" href="SDL__thread_8h.html#a807c8306201205c7c3ac0cb34ac7cd77">SDL_TLSSet()</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the thread local storage ID </td></tr>
+    <tr><td class="paramname">value</td><td>the value to associate with the ID for the current thread </td></tr>
+    <tr><td class="paramname">destructor</td><td>a function called when the thread exits, to free the value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#ac7ed1ec8dec5b902da25b60da2b728fa">SDL_TLSCreate</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#ab519f8d89ea808f32fc139071e6207bb">SDL_TLSGet</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac96743626ed21d2cdb0868a23cca9705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac96743626ed21d2cdb0868a23cca9705">&#9670;&nbsp;</a></span>SDL_WaitThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_WaitThread </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Thread *&#160;</td>
+          <td class="paramname"><em>thread</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Wait for a thread to finish.</p>
+<p >Threads that haven't been detached will remain (as a "zombie") until this function cleans them up. Not doing so is a resource leak.</p>
+<p >Once a thread has been cleaned up through this function, the SDL_Thread that references it becomes invalid and should not be referenced again. As such, only one thread may call <a class="el" href="SDL__thread_8h.html#ac96743626ed21d2cdb0868a23cca9705">SDL_WaitThread()</a> on another.</p>
+<p >The return code for the thread function is placed in the area pointed to by <code>status</code>, if <code>status</code> is not NULL.</p>
+<p >You may not wait on a thread that has been used in a call to <a class="el" href="SDL__thread_8h.html#af90602c51ef5a62f26ed9931af484906">SDL_DetachThread()</a>. Use either that function or this one, but not both, or behavior is undefined.</p>
+<p >It is safe to pass a NULL thread to this function; it is a no-op.</p>
+<p >Note that the thread pointer is freed by this function and is not valid afterward.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thread</td><td>the SDL_Thread pointer that was returned from the <a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread()</a> call that started this thread </td></tr>
+    <tr><td class="paramname">status</td><td>pointer to an integer that will receive the value returned from the thread function by its 'return', or NULL to not receive such value back.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__thread_8h.html#aca3013d4f50e918b17d2721b37e59082">SDL_CreateThread</a> </dd>
+<dd>
+<a class="el" href="SDL__thread_8h.html#af90602c51ef5a62f26ed9931af484906">SDL_DetachThread</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

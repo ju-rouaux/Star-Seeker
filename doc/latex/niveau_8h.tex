@@ -1,0 +1,93 @@
+\hypertarget{niveau_8h}{}\doxysection{Référence du fichier include/niveau.h}
+\label{niveau_8h}\index{include/niveau.h@{include/niveau.h}}
+
+
+Module de chargement d\textquotesingle{}un niveau en structure interprétable pour le jeu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}}
+\begin{DoxyCompactList}\small\item\em Informations sur le nombre de sous-\/salles formant la salle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{niveau_8h_a713de59b76fcf0cc3b414183ab01d00c}\label{niveau_8h_a713de59b76fcf0cc3b414183ab01d00c}} 
+typedef struct s\+\_\+salle {\bfseries t\+\_\+salle}
+\item 
+\mbox{\Hypertarget{niveau_8h_a8021a643645b241cda0f63d81302b9c8}\label{niveau_8h_a8021a643645b241cda0f63d81302b9c8}} 
+typedef struct s\+\_\+niveau {\bfseries t\+\_\+niveau}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}\label{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}} 
+enum \mbox{\hyperlink{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}{e\+\_\+porte}} \{ {\bfseries UP}
+, {\bfseries RIGHT}
+, {\bfseries DOWN}
+, {\bfseries LEFT}
+ \}
+\begin{DoxyCompactList}\small\item\em Position d\textquotesingle{}une porte dans une salle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{niveau_8h_a863d645e21d3d98663cad01cfe6dd24a}{detruire\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{niveau_8h_a2aa88412eb1547b2bbaff8b3106cb780}\label{niveau_8h_a2aa88412eb1547b2bbaff8b3106cb780}} 
+int \mbox{\hyperlink{niveau_8h_a2aa88412eb1547b2bbaff8b3106cb780}{charger\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$info)
+\begin{DoxyCompactList}\small\item\em Lance un niveau s couleurs du niveau sont aussi chargées. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{niveau_8h_af6df4be5bf28ad11dafd0311b92abd3b}{update\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau, float j\+\_\+x, float j\+\_\+y, int echelle)
+\begin{DoxyCompactList}\small\item\em Actualise la salle chargée du niveau selon l\textquotesingle{}activité du joueur (lorsqu\textquotesingle{}il change de salle par exemple). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de chargement d\textquotesingle{}un niveau en structure interprétable pour le jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{niveau_8h_a863d645e21d3d98663cad01cfe6dd24a}\label{niveau_8h_a863d645e21d3d98663cad01cfe6dd24a}} 
+\index{niveau.h@{niveau.h}!detruireNiveau@{detruireNiveau}}
+\index{detruireNiveau@{detruireNiveau}!niveau.h@{niveau.h}}
+\doxysubsubsection{\texorpdfstring{detruireNiveau()}{detruireNiveau()}}
+{\footnotesize\ttfamily void detruire\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & L\textquotesingle{}adresse du pointeur du niveau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{niveau_8h_af6df4be5bf28ad11dafd0311b92abd3b}\label{niveau_8h_af6df4be5bf28ad11dafd0311b92abd3b}} 
+\index{niveau.h@{niveau.h}!updateNiveau@{updateNiveau}}
+\index{updateNiveau@{updateNiveau}!niveau.h@{niveau.h}}
+\doxysubsubsection{\texorpdfstring{updateNiveau()}{updateNiveau()}}
+{\footnotesize\ttfamily void update\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$}]{niveau,  }\item[{float}]{j\+\_\+x,  }\item[{float}]{j\+\_\+y,  }\item[{int}]{echelle }\end{DoxyParamCaption})}
+
+
+
+Actualise la salle chargée du niveau selon l\textquotesingle{}activité du joueur (lorsqu\textquotesingle{}il change de salle par exemple). 
+
+Calcule les coordonnées des bords de la salle et change la salle courante du niveau si le joueur dépasse ces limites.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & Le niveau chargé \\
+\hline
+{\em joueur} & Le joueur \\
+\hline
+{\em echelle} & L\textquotesingle{}échelle du rendu \\
+\hline
+\end{DoxyParams}

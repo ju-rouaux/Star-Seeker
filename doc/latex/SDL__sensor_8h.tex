@@ -1,0 +1,416 @@
+\hypertarget{SDL__sensor_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+sensor.h}
+\label{SDL__sensor_8h}\index{include/SDL2/SDL\_sensor.h@{include/SDL2/SDL\_sensor.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__sensor_8h_a577adbb3be3bab2814caf71e9995f177}{SDL\+\_\+\+STANDARD\+\_\+\+GRAVITY}}~9.\+80665f
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__sensor_8h_a33718f4ef5c3f4ea306ddecf3ae3e3ad}\label{SDL__sensor_8h_a33718f4ef5c3f4ea306ddecf3ae3e3ad}} 
+typedef struct \+\_\+\+SDL\+\_\+\+Sensor {\bfseries SDL\+\_\+\+Sensor}
+\item 
+typedef Sint32 \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} \{ \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa473fc0b4fcd77e59c39260888a0fb6ed}{SDL\+\_\+\+SENSOR\+\_\+\+INVALID}} = -\/1
+, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aaa657e6c2ff14bfd73ec9cacc940d433f}{SDL\+\_\+\+SENSOR\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aabb4f72e33919c7d6689ac33605fb3bc7}{SDL\+\_\+\+SENSOR\+\_\+\+ACCEL}}
+, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa6f5ff988acabc5ac39635976f1c1ac56}{SDL\+\_\+\+SENSOR\+\_\+\+GYRO}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a047fa18746e6ac5be4d20f6b7c481578}{SDL\+\_\+\+Lock\+Sensors}} (void)
+\item 
+\mbox{\Hypertarget{SDL__sensor_8h_a1cabc17ed80337c304b2f7719928e7db}\label{SDL__sensor_8h_a1cabc17ed80337c304b2f7719928e7db}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+Unlock\+Sensors} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a398fee521f652c9c51b8865ea0c2aa02}{SDL\+\_\+\+Num\+Sensors}} (void)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__sensor_8h_ae21bffaff2dc86b80e80272aefadd6a4}{SDL\+\_\+\+Sensor\+Get\+Device\+Name}} (int device\+\_\+index)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a2183f938cafa6fdd9363025c76502e61}{SDL\+\_\+\+Sensor\+Get\+Device\+Type}} (int device\+\_\+index)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a735c61476c9cff3db9499dc258096096}{SDL\+\_\+\+Sensor\+Get\+Device\+Non\+Portable\+Type}} (int device\+\_\+index)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}} SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a52d83f263e764e3fe77932bd748d34e8}{SDL\+\_\+\+Sensor\+Get\+Device\+Instance\+ID}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Sensor $\ast$SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a0cde1c9751f7b88c518aa2a88a4f6b2c}{SDL\+\_\+\+Sensor\+Open}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Sensor $\ast$SDLCALL \mbox{\hyperlink{SDL__sensor_8h_ad3630c5ba0ca6d1ec6f7bccd09246c5c}{SDL\+\_\+\+Sensor\+From\+Instance\+ID}} (\mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}} instance\+\_\+id)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__sensor_8h_afecccd2f9cb3d93c740c36929d88b9a3}{SDL\+\_\+\+Sensor\+Get\+Name}} (SDL\+\_\+\+Sensor $\ast$sensor)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a3d8e4d70062a1af56dea369a2a017907}{SDL\+\_\+\+Sensor\+Get\+Type}} (SDL\+\_\+\+Sensor $\ast$sensor)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a98fe8a0c2dbefb69f59f0a07edefc129}{SDL\+\_\+\+Sensor\+Get\+Non\+Portable\+Type}} (SDL\+\_\+\+Sensor $\ast$sensor)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}} SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a94c4aaff92e0421a52bfbb0a2ac0129f}{SDL\+\_\+\+Sensor\+Get\+Instance\+ID}} (SDL\+\_\+\+Sensor $\ast$sensor)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a22466ee6b7af791937ebf1f7b76ed56b}{SDL\+\_\+\+Sensor\+Get\+Data}} (SDL\+\_\+\+Sensor $\ast$sensor, float $\ast$data, int num\+\_\+values)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a4ff6e8813bb524a17f1d9b07d2a26005}{SDL\+\_\+\+Sensor\+Close}} (SDL\+\_\+\+Sensor $\ast$sensor)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__sensor_8h_a23afdba77827b8ad6c212eedce5c2069}{SDL\+\_\+\+Sensor\+Update}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL sensor event handling 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__sensor_8h_a577adbb3be3bab2814caf71e9995f177}\label{SDL__sensor_8h_a577adbb3be3bab2814caf71e9995f177}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_STANDARD\_GRAVITY@{SDL\_STANDARD\_GRAVITY}}
+\index{SDL\_STANDARD\_GRAVITY@{SDL\_STANDARD\_GRAVITY}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_STANDARD\_GRAVITY}{SDL\_STANDARD\_GRAVITY}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+STANDARD\+\_\+\+GRAVITY~9.\+80665f}
+
+Accelerometer sensor
+
+The accelerometer returns the current acceleration in SI meters per second squared. This measurement includes the force of gravity, so a device at rest will have an value of SDL\+\_\+\+STANDARD\+\_\+\+GRAVITY away from the center of the earth.
+
+values\mbox{[}0\mbox{]}\+: Acceleration on the x axis values\mbox{[}1\mbox{]}\+: Acceleration on the y axis values\mbox{[}2\mbox{]}\+: Acceleration on the z axis
+
+For phones held in portrait mode and game controllers held in front of you, the axes are defined as follows\+: -\/X ... +X \+: left ... right -\/Y ... +Y \+: bottom ... top -\/Z ... +Z \+: farther ... closer
+
+The axis data is not changed when the phone is rotated.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__video_8h_a6540db01a424ced1847376e583361ecb}{SDL\+\_\+\+Get\+Display\+Orientation()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}\label{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorID@{SDL\_SensorID}}
+\index{SDL\_SensorID@{SDL\_SensorID}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorID}{SDL\_SensorID}}
+{\footnotesize\ttfamily typedef Sint32 \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}}}
+
+This is a unique ID for a sensor for the time it is connected to the system, and is never reused for the lifetime of the application.
+
+The ID value starts at 0 and increments from there. The value -\/1 is an invalid ID. 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}\label{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorType@{SDL\_SensorType}}
+\index{SDL\_SensorType@{SDL\_SensorType}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorType}{SDL\_SensorType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SENSOR\_INVALID@{SDL\_SENSOR\_INVALID}!SDL\_sensor.h@{SDL\_sensor.h}}\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SENSOR\_INVALID@{SDL\_SENSOR\_INVALID}}}\mbox{\Hypertarget{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa473fc0b4fcd77e59c39260888a0fb6ed}\label{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa473fc0b4fcd77e59c39260888a0fb6ed}} 
+SDL\+\_\+\+SENSOR\+\_\+\+INVALID&Returned for an invalid sensor \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SENSOR\_UNKNOWN@{SDL\_SENSOR\_UNKNOWN}!SDL\_sensor.h@{SDL\_sensor.h}}\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SENSOR\_UNKNOWN@{SDL\_SENSOR\_UNKNOWN}}}\mbox{\Hypertarget{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aaa657e6c2ff14bfd73ec9cacc940d433f}\label{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aaa657e6c2ff14bfd73ec9cacc940d433f}} 
+SDL\+\_\+\+SENSOR\+\_\+\+UNKNOWN&Unknown sensor type \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SENSOR\_ACCEL@{SDL\_SENSOR\_ACCEL}!SDL\_sensor.h@{SDL\_sensor.h}}\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SENSOR\_ACCEL@{SDL\_SENSOR\_ACCEL}}}\mbox{\Hypertarget{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aabb4f72e33919c7d6689ac33605fb3bc7}\label{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aabb4f72e33919c7d6689ac33605fb3bc7}} 
+SDL\+\_\+\+SENSOR\+\_\+\+ACCEL&Accelerometer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SENSOR\_GYRO@{SDL\_SENSOR\_GYRO}!SDL\_sensor.h@{SDL\_sensor.h}}\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SENSOR\_GYRO@{SDL\_SENSOR\_GYRO}}}\mbox{\Hypertarget{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa6f5ff988acabc5ac39635976f1c1ac56}\label{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33aa6f5ff988acabc5ac39635976f1c1ac56}} 
+SDL\+\_\+\+SENSOR\+\_\+\+GYRO&Gyroscope \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__sensor_8h_a047fa18746e6ac5be4d20f6b7c481578}\label{SDL__sensor_8h_a047fa18746e6ac5be4d20f6b7c481578}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_LockSensors@{SDL\_LockSensors}}
+\index{SDL\_LockSensors@{SDL\_LockSensors}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockSensors()}{SDL\_LockSensors()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Lock\+Sensors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gyroscope sensor
+
+The gyroscope returns the current rate of rotation in radians per second. The rotation is positive in the counter-\/clockwise direction. That is, an observer looking from a positive location on one of the axes would see positive rotation on that axis when it appeared to be rotating counter-\/clockwise.
+
+values\mbox{[}0\mbox{]}\+: Angular speed around the x axis (pitch) values\mbox{[}1\mbox{]}\+: Angular speed around the y axis (yaw) values\mbox{[}2\mbox{]}\+: Angular speed around the z axis (roll)
+
+For phones held in portrait mode and game controllers held in front of you, the axes are defined as follows\+: -\/X ... +X \+: left ... right -\/Y ... +Y \+: bottom ... top -\/Z ... +Z \+: farther ... closer
+
+The axis data is not changed when the phone or controller is rotated.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__video_8h_a6540db01a424ced1847376e583361ecb}{SDL\+\_\+\+Get\+Display\+Orientation()}} Locking for multi-\/threaded access to the sensor API
+\end{DoxySeeAlso}
+If you are using the sensor API or handling events from multiple threads you should use these locking functions to protect access to the sensors.
+
+In particular, you are guaranteed that the sensor list won\textquotesingle{}t change, so the API functions that take a sensor index will be valid, and sensor events will not be delivered.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a398fee521f652c9c51b8865ea0c2aa02}\label{SDL__sensor_8h_a398fee521f652c9c51b8865ea0c2aa02}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_NumSensors@{SDL\_NumSensors}}
+\index{SDL\_NumSensors@{SDL\_NumSensors}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_NumSensors()}{SDL\_NumSensors()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Num\+Sensors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Count the number of sensors attached to the system right now.
+
+\begin{DoxyReturn}{Renvoie}
+the number of sensors detected.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a4ff6e8813bb524a17f1d9b07d2a26005}\label{SDL__sensor_8h_a4ff6e8813bb524a17f1d9b07d2a26005}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorClose@{SDL\_SensorClose}}
+\index{SDL\_SensorClose@{SDL\_SensorClose}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorClose()}{SDL\_SensorClose()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Sensor\+Close (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Close a sensor previously opened with \mbox{\hyperlink{SDL__sensor_8h_a0cde1c9751f7b88c518aa2a88a4f6b2c}{SDL\+\_\+\+Sensor\+Open()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object to close\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_ad3630c5ba0ca6d1ec6f7bccd09246c5c}\label{SDL__sensor_8h_ad3630c5ba0ca6d1ec6f7bccd09246c5c}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorFromInstanceID@{SDL\_SensorFromInstanceID}}
+\index{SDL\_SensorFromInstanceID@{SDL\_SensorFromInstanceID}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorFromInstanceID()}{SDL\_SensorFromInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Sensor$\ast$ SDLCALL SDL\+\_\+\+Sensor\+From\+Instance\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}}}]{instance\+\_\+id }\end{DoxyParamCaption})}
+
+Return the SDL\+\_\+\+Sensor associated with an instance id.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em instance\+\_\+id} & The sensor from instance id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Sensor object.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a22466ee6b7af791937ebf1f7b76ed56b}\label{SDL__sensor_8h_a22466ee6b7af791937ebf1f7b76ed56b}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetData@{SDL\_SensorGetData}}
+\index{SDL\_SensorGetData@{SDL\_SensorGetData}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetData()}{SDL\_SensorGetData()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sensor\+Get\+Data (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor,  }\item[{float $\ast$}]{data,  }\item[{int}]{num\+\_\+values }\end{DoxyParamCaption})}
+
+Get the current state of an opened sensor.
+
+The number of values and interpretation of the data is sensor dependent.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object to query \\
+\hline
+{\em data} & A pointer filled with the current sensor state \\
+\hline
+{\em num\+\_\+values} & The number of values to write to data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 or -\/1 if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a52d83f263e764e3fe77932bd748d34e8}\label{SDL__sensor_8h_a52d83f263e764e3fe77932bd748d34e8}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetDeviceInstanceID@{SDL\_SensorGetDeviceInstanceID}}
+\index{SDL\_SensorGetDeviceInstanceID@{SDL\_SensorGetDeviceInstanceID}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetDeviceInstanceID()}{SDL\_SensorGetDeviceInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}} SDLCALL SDL\+\_\+\+Sensor\+Get\+Device\+Instance\+ID (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the instance ID of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & The sensor to get instance id from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor instance ID, or -\/1 if {\ttfamily device\+\_\+index} is out of range.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_ae21bffaff2dc86b80e80272aefadd6a4}\label{SDL__sensor_8h_ae21bffaff2dc86b80e80272aefadd6a4}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetDeviceName@{SDL\_SensorGetDeviceName}}
+\index{SDL\_SensorGetDeviceName@{SDL\_SensorGetDeviceName}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetDeviceName()}{SDL\_SensorGetDeviceName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Sensor\+Get\+Device\+Name (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the implementation dependent name of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & The sensor to obtain name from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor name, or NULL if {\ttfamily device\+\_\+index} is out of range.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a735c61476c9cff3db9499dc258096096}\label{SDL__sensor_8h_a735c61476c9cff3db9499dc258096096}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetDeviceNonPortableType@{SDL\_SensorGetDeviceNonPortableType}}
+\index{SDL\_SensorGetDeviceNonPortableType@{SDL\_SensorGetDeviceNonPortableType}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetDeviceNonPortableType()}{SDL\_SensorGetDeviceNonPortableType()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sensor\+Get\+Device\+Non\+Portable\+Type (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the platform dependent type of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & The sensor to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor platform dependent type, or -\/1 if {\ttfamily device\+\_\+index} is out of range.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a2183f938cafa6fdd9363025c76502e61}\label{SDL__sensor_8h_a2183f938cafa6fdd9363025c76502e61}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetDeviceType@{SDL\_SensorGetDeviceType}}
+\index{SDL\_SensorGetDeviceType@{SDL\_SensorGetDeviceType}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetDeviceType()}{SDL\_SensorGetDeviceType()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} SDLCALL SDL\+\_\+\+Sensor\+Get\+Device\+Type (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the type of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & The sensor to get the type from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Sensor\+Type, or {\ttfamily SDL\+\_\+\+SENSOR\+\_\+\+INVALID} if {\ttfamily device\+\_\+index} is out of range.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a94c4aaff92e0421a52bfbb0a2ac0129f}\label{SDL__sensor_8h_a94c4aaff92e0421a52bfbb0a2ac0129f}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetInstanceID@{SDL\_SensorGetInstanceID}}
+\index{SDL\_SensorGetInstanceID@{SDL\_SensorGetInstanceID}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetInstanceID()}{SDL\_SensorGetInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a0cca37d0b39c2db41841f54308aee65b}{SDL\+\_\+\+Sensor\+ID}} SDLCALL SDL\+\_\+\+Sensor\+Get\+Instance\+ID (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Get the instance ID of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object to inspect \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor instance ID, or -\/1 if {\ttfamily sensor} is NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_afecccd2f9cb3d93c740c36929d88b9a3}\label{SDL__sensor_8h_afecccd2f9cb3d93c740c36929d88b9a3}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetName@{SDL\_SensorGetName}}
+\index{SDL\_SensorGetName@{SDL\_SensorGetName}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetName()}{SDL\_SensorGetName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Sensor\+Get\+Name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Get the implementation dependent name of a sensor
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor name, or NULL if {\ttfamily sensor} is NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a98fe8a0c2dbefb69f59f0a07edefc129}\label{SDL__sensor_8h_a98fe8a0c2dbefb69f59f0a07edefc129}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetNonPortableType@{SDL\_SensorGetNonPortableType}}
+\index{SDL\_SensorGetNonPortableType@{SDL\_SensorGetNonPortableType}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetNonPortableType()}{SDL\_SensorGetNonPortableType()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sensor\+Get\+Non\+Portable\+Type (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Get the platform dependent type of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object to inspect \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sensor platform dependent type, or -\/1 if {\ttfamily sensor} is NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a3d8e4d70062a1af56dea369a2a017907}\label{SDL__sensor_8h_a3d8e4d70062a1af56dea369a2a017907}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorGetType@{SDL\_SensorGetType}}
+\index{SDL\_SensorGetType@{SDL\_SensorGetType}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorGetType()}{SDL\_SensorGetType()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} SDLCALL SDL\+\_\+\+Sensor\+Get\+Type (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Sensor $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Get the type of a sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sensor} & The SDL\+\_\+\+Sensor object to inspect \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Sensor\+Type type, or {\ttfamily SDL\+\_\+\+SENSOR\+\_\+\+INVALID} if {\ttfamily sensor} is NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a0cde1c9751f7b88c518aa2a88a4f6b2c}\label{SDL__sensor_8h_a0cde1c9751f7b88c518aa2a88a4f6b2c}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorOpen@{SDL\_SensorOpen}}
+\index{SDL\_SensorOpen@{SDL\_SensorOpen}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorOpen()}{SDL\_SensorOpen()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Sensor$\ast$ SDLCALL SDL\+\_\+\+Sensor\+Open (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Open a sensor for use.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & The sensor to open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Sensor sensor object, or NULL if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__sensor_8h_a23afdba77827b8ad6c212eedce5c2069}\label{SDL__sensor_8h_a23afdba77827b8ad6c212eedce5c2069}} 
+\index{SDL\_sensor.h@{SDL\_sensor.h}!SDL\_SensorUpdate@{SDL\_SensorUpdate}}
+\index{SDL\_SensorUpdate@{SDL\_SensorUpdate}!SDL\_sensor.h@{SDL\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SensorUpdate()}{SDL\_SensorUpdate()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Sensor\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Update the current state of the open sensors.
+
+This is called automatically by the event loop if sensor events are enabled.
+
+This needs to be called from the thread that initialized the sensor subsystem.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}

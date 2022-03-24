@@ -11,6 +11,7 @@
 #include <menu.h>
 #include <moteur.h>
 #include <event.h>
+#include <main.h>
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
@@ -18,7 +19,7 @@
  * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
  */
 
-int handleEvents(t_joueur * joueur, t_moteur * moteur) {
+e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
 
     //const char * key_code, * key_name; /*nom de la touche azerty, qwerty*/
     //int mouse_x, mouse_y; /*Coordonnées du curseur*/
@@ -30,7 +31,7 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
         switch (event.type)
         {
             case SDL_QUIT:
-                return NIVEAU_QUITTER;
+                return JEU_QUITTER;
             
             /*gestion de la souris*/
             /*Si un des boutons de la souris est appuyé*/
@@ -115,13 +116,16 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                 {
                    /* A comment. */
                     case SDL_SCANCODE_ESCAPE: //ESC
-                        return 10;
+                        return M_PRINCIPAL;
                         break;
                     case SDL_SCANCODE_O: //O !!! Temporaire
                         return NIVEAU_PRECEDENT;
                         break;
                     case SDL_SCANCODE_P: //P !!! Temporaire
                         return NIVEAU_SUIVANT;
+                        break;
+                    case SDL_SCANCODE_TAB: //TAB
+                        joueur->flags->map_showing = 1;
                         break;
                     default:
                         break;
@@ -140,11 +144,14 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                         joueur->flags->to_right = 0;
                 else if (moteur->parametres.key_projectile == event.key.keysym.scancode)
                         joueur->flags->shooting = 0;
+                switch (event.key.keysym.scancode)
+                {
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_showing = 0;
                         break;
                     default:
                         break;
+                }
 
 
             //Gestion de la fenetre
@@ -152,16 +159,16 @@ int handleEvents(t_joueur * joueur, t_moteur * moteur) {
                 switch (event.window.event)
                 {
                     case SDL_WINDOWEVENT_SHOWN: /*Fenetre montrée*/
-                        printf("\nWindow shown");
+                        printf("Window shown\n");
                         break;
                     case SDL_WINDOWEVENT_HIDDEN: /*Fenetre cachée*/
-                        printf("\nWindow hidden");
+                        printf("Window hidden\n");
                         break;
                     case SDL_WINDOWEVENT_MAXIMIZED: /*Fenetre maximisée*/
-                        printf("\nWindow maximized");
+                        printf("Window maximized\n");
                         break;
                     case SDL_WINDOWEVENT_MINIMIZED: /**Fenetre minimisée*/
-                        printf("\nWindow minimized");
+                        printf("Window minimized\n");
                         break;
                 }
                 break;

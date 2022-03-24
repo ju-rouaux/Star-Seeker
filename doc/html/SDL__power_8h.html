@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_power.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_power.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__power_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:aa6d67208a8d30ececf84b158a2ab7eff"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7eff">SDL_PowerState</a> { <br />
+&#160;&#160;<a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7effa5c20e9c8a8c455a9ed9c66167ac2df61">SDL_POWERSTATE_UNKNOWN</a>
+, <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7effa864da7f4b32af694cb94c9ba58dab985">SDL_POWERSTATE_ON_BATTERY</a>
+, <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7effa03bcd1ca770f703d834d67756fdafbeb">SDL_POWERSTATE_NO_BATTERY</a>
+, <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7effa051d2e5681ad1647ff274ef17fc7ca1e">SDL_POWERSTATE_CHARGING</a>
+, <br />
+&#160;&#160;<a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7effa320ceff2db32f9bc2e1b8d644d1fb0b4">SDL_POWERSTATE_CHARGED</a>
+<br />
+ }</td></tr>
+<tr class="separator:aa6d67208a8d30ececf84b158a2ab7eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aed0dded691bb8ec94b119a90a1126049"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7eff">SDL_PowerState</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__power_8h.html#aed0dded691bb8ec94b119a90a1126049">SDL_GetPowerInfo</a> (int *secs, int *pct)</td></tr>
+<tr class="separator:aed0dded691bb8ec94b119a90a1126049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Header for the SDL power management routines. </p>
+</div><h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="aa6d67208a8d30ececf84b158a2ab7eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d67208a8d30ececf84b158a2ab7eff">&#9670;&nbsp;</a></span>SDL_PowerState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7eff">SDL_PowerState</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The basic state for the system's power supply. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="aa6d67208a8d30ececf84b158a2ab7effa5c20e9c8a8c455a9ed9c66167ac2df61"></a>SDL_POWERSTATE_UNKNOWN&#160;</td><td class="fielddoc"><p >cannot determine power status </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa6d67208a8d30ececf84b158a2ab7effa864da7f4b32af694cb94c9ba58dab985"></a>SDL_POWERSTATE_ON_BATTERY&#160;</td><td class="fielddoc"><p >Not plugged in, running on the battery </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa6d67208a8d30ececf84b158a2ab7effa03bcd1ca770f703d834d67756fdafbeb"></a>SDL_POWERSTATE_NO_BATTERY&#160;</td><td class="fielddoc"><p >Plugged in, no battery available </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa6d67208a8d30ececf84b158a2ab7effa051d2e5681ad1647ff274ef17fc7ca1e"></a>SDL_POWERSTATE_CHARGING&#160;</td><td class="fielddoc"><p >Plugged in, charging battery </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa6d67208a8d30ececf84b158a2ab7effa320ceff2db32f9bc2e1b8d644d1fb0b4"></a>SDL_POWERSTATE_CHARGED&#160;</td><td class="fielddoc"><p >Plugged in, battery charged </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aed0dded691bb8ec94b119a90a1126049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0dded691bb8ec94b119a90a1126049">&#9670;&nbsp;</a></span>SDL_GetPowerInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__power_8h.html#aa6d67208a8d30ececf84b158a2ab7eff">SDL_PowerState</a> SDLCALL SDL_GetPowerInfo </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>secs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>pct</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the current power supply details.</p>
+<p >You should never take a battery status as absolute truth. Batteries (especially failing batteries) are delicate hardware, and the values reported here are best estimates based on what that hardware reports. It's not uncommon for older batteries to lose stored power much faster than it reports, or completely drain when reporting it has 20 percent left, etc.</p>
+<p >Battery status can change at any time; if you are concerned with power state, you should call this function frequently, and perhaps ignore changes until they seem to be stable for a few seconds.</p>
+<p >It's possible a platform can only report battery percentage or time left but not both.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">secs</td><td>seconds of battery life left, you can pass a NULL here if you don't care, will return -1 if we can't determine a value, or we're not running on a battery </td></tr>
+    <tr><td class="paramname">pct</td><td>percentage of battery life left, between 0 and 100, you can pass a NULL here if you don't care, will return -1 if we can't determine a value, or we're not running on a battery </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>an SDL_PowerState enum representing the current battery state.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

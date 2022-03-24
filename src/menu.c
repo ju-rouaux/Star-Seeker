@@ -7,8 +7,6 @@
 
 #include <partie.h>
 #include <menu.h>
-#include <menu_options.h>
-#include <menu_options_keymap.h>
 
 
 /**
@@ -113,7 +111,7 @@ t_bouton ** initialiserBoutons(t_moteur * moteur, int nb_boutons, char nom_bouto
             0
         };
 
-        TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);//Definition de la police d'ecriture
+        TTF_Font * font = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", 1000);//Definition de la police d'ecriture
 
         if (font == NULL) {
             fprintf(stderr, "error: font not found\n");
@@ -230,8 +228,8 @@ SDL_Rect * initialiserTexte(t_moteur * moteur, SDL_Texture ** texture, char * te
         0
     };
     //Premiere police d'ecriture utilisée
-    //TTF_Font * font = TTF_OpenFont("./assets/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
-    TTF_Font * font = TTF_OpenFont("./assets/KidpixiesRegular-p0Z1.ttf", 1000);
+    //TTF_Font * font = TTF_OpenFont("./assets/font/PressStart2P-Regular.ttf", 1000);//Definition de la police d'ecriture
+    TTF_Font * font = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", 1000);
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
         return NULL;
@@ -308,7 +306,7 @@ void detruireTexte(SDL_Rect ** rect, SDL_Texture * texture){
  * \param moteur Structure du moteur
  * \return code de sortie personnalisé selon l'evenement
  */
-e_menu chargerMenu(t_moteur * moteur) {
+e_code_main chargerMenu(t_moteur * moteur) {
 
     t_bouton ** boutons = NULL;
 
@@ -352,6 +350,7 @@ e_menu chargerMenu(t_moteur * moteur) {
         switch (temp) {
             case 0:
                 break; // on ne fait rien
+            case 1: return JEU_QUITTER;
             case 2:
                 printf("Nouvelle Partie\n");
                 detruireBoutons( & boutons, NB_B_MENU);
@@ -381,7 +380,7 @@ e_menu chargerMenu(t_moteur * moteur) {
                 printf("Quitter\n");
                 detruireBoutons( & boutons, NB_B_MENU);
                 detruireTexte(&rect_titre,texture_titre);
-                return M_QUITTER;
+                return JEU_QUITTER;
             }
             default: {
                 printf("Erreur, menu inconnu");

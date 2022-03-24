@@ -1,0 +1,97 @@
+\hypertarget{SDL__filesystem_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+filesystem.h}
+\label{SDL__filesystem_8h}\index{include/SDL2/SDL\_filesystem.h@{include/SDL2/SDL\_filesystem.h}}
+
+
+Include file for filesystem SDL API functions.  
+
+
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__filesystem_8h_a752d42a2e7fbff1292b7e54593be37bc}{SDL\+\_\+\+Get\+Base\+Path}} (void)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__filesystem_8h_ab11eaf74d913eefb472475f0c8e312ce}{SDL\+\_\+\+Get\+Pref\+Path}} (const char $\ast$org, const char $\ast$app)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for filesystem SDL API functions. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__filesystem_8h_a752d42a2e7fbff1292b7e54593be37bc}\label{SDL__filesystem_8h_a752d42a2e7fbff1292b7e54593be37bc}} 
+\index{SDL\_filesystem.h@{SDL\_filesystem.h}!SDL\_GetBasePath@{SDL\_GetBasePath}}
+\index{SDL\_GetBasePath@{SDL\_GetBasePath}!SDL\_filesystem.h@{SDL\_filesystem.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetBasePath()}{SDL\_GetBasePath()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Get\+Base\+Path (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the directory where the application was run from.
+
+This is not necessarily a fast call, so you should call this once near startup and save the string if you need it.
+
+{\bfseries{Mac OS X and i\+OS Specific Functionality}}\+: If the application is in a \char`\"{}.\+app\char`\"{} bundle, this function returns the Resource directory (e.\+g. My\+App.\+app/\+Contents/\+Resources/). This behaviour can be overridden by adding a property to the Info.\+plist file. Adding a string key with the name SDL\+\_\+\+FILESYSTEM\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+TYPE with a supported value will change the behaviour.
+
+Supported values for the SDL\+\_\+\+FILESYSTEM\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+TYPE property (Given an application in /\+Applications/\+SDLApp/\+My\+App.app)\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily resource}\+: bundle resource directory (the default). For example\+: {\ttfamily /\+Applications/\+SDLApp/\+My\+App.app/\+Contents/\+Resources}
+\item {\ttfamily bundle}\+: the Bundle directory. For example\+: {\ttfamily /\+Applications/\+SDLApp/\+My\+App.app/}
+\item {\ttfamily parent}\+: the containing directory of the bundle. For example\+: {\ttfamily /\+Applications/\+SDLApp/}
+\end{DoxyItemize}
+
+The returned path is guaranteed to end with a path separator (\textquotesingle{}\textbackslash{}\textquotesingle{} on Windows, \textquotesingle{}/\textquotesingle{} on most other platforms).
+
+The pointer returned is owned by the caller. Please call SDL\+\_\+free() on the pointer when done with it.
+
+\begin{DoxyReturn}{Renvoie}
+an absolute path in UTF-\/8 encoding to the application data directory. NULL will be returned on error or when the platform doesn\textquotesingle{}t implement this functionality, call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+1.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__filesystem_8h_ab11eaf74d913eefb472475f0c8e312ce}{SDL\+\_\+\+Get\+Pref\+Path}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__filesystem_8h_ab11eaf74d913eefb472475f0c8e312ce}\label{SDL__filesystem_8h_ab11eaf74d913eefb472475f0c8e312ce}} 
+\index{SDL\_filesystem.h@{SDL\_filesystem.h}!SDL\_GetPrefPath@{SDL\_GetPrefPath}}
+\index{SDL\_GetPrefPath@{SDL\_GetPrefPath}!SDL\_filesystem.h@{SDL\_filesystem.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPrefPath()}{SDL\_GetPrefPath()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Get\+Pref\+Path (\begin{DoxyParamCaption}\item[{const char $\ast$}]{org,  }\item[{const char $\ast$}]{app }\end{DoxyParamCaption})}
+
+Get the user-\/and-\/app-\/specific path where files can be written.
+
+Get the \char`\"{}pref dir\char`\"{}. This is meant to be where users can write personal files (preferences and save games, etc) that are specific to your application. This directory is unique per user, per application.
+
+This function will decide the appropriate location in the native filesystem, create the directory if necessary, and return a string of the absolute path to the directory in UTF-\/8 encoding.
+
+On Windows, the string might look like\+:
+
+{\ttfamily C\+:\textbackslash{}\textbackslash{}Users\textbackslash{}\textbackslash{}bob\textbackslash{}\textbackslash{}App\+Data\textbackslash{}\textbackslash{}Roaming\textbackslash{}\textbackslash{}My Company\textbackslash{}\textbackslash{}My Program Name\textbackslash{}\textbackslash{}}
+
+On Linux, the string might look like\char`\"{}  $<$tt$>$/home/bob/.\+local/share/\+My Program Name/$<$/tt$>$  \+On Mac OS X, the string might look like\+:  $<$tt$>$/\+Users/bob/\+Library/\+Application Support/\+My Program Name/$<$/tt$>$  \+You should assume the path returned by this function is the only safe place to write files (and that SDL\+\_\+\+Get\+Base\+Path(), while it might be writable, or even the parent of the returned path, isn\textquotesingle{}t where you should be writing things).  \+Both the org and app strings may become part of a directory name, so please follow these rules\+:  -\/ Try to use the same org string ($<$em$>$including case-\/sensitivity$<$/em$>$) for all   your applications that use this function. -\/ Always use a unique app string for each one, and make sure it never   changes for an app once you\textquotesingle{}ve decided on it. -\/ Unicode characters are legal, as long as it\textquotesingle{}s UTF-\/8 encoded, but... -\/ ...\+only use letters, numbers, and spaces. Avoid punctuation like \char`\"{}Game Name 2\+: Bad Guy\textquotesingle{}s Revenge!\char`\"{} ... \char`\"{}Game Name 2"{} is sufficient.
+
+The returned path is guaranteed to end with a path separator (\textquotesingle{}\textbackslash{}\textquotesingle{} on Windows, \textquotesingle{}/\textquotesingle{} on most other platforms).
+
+The pointer returned is owned by the caller. Please call SDL\+\_\+free() on the pointer when done with it.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em org} & the name of your organization \\
+\hline
+{\em app} & the name of your application \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a UTF-\/8 string of the user directory in platform-\/dependent notation. NULL if there\textquotesingle{}s a problem (creating directory failed, etc.).
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+1.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__filesystem_8h_a752d42a2e7fbff1292b7e54593be37bc}{SDL\+\_\+\+Get\+Base\+Path}} 
+\end{DoxySeeAlso}

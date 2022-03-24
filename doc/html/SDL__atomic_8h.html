@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_atomic.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_atomic.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__platform_8h_source.html">SDL_platform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__atomic_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type representing an atomic integer value. It is a struct so people don't accidentally use numeric operations on it.  <a href="structSDL__atomic__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">SDL AtomicLock</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p ><a class="anchor" id="amgrpd7e348d61fe61536e787424b5d2866ed"></a>The atomic locks are efficient spinlocks using CPU instructions, but are vulnerable to starvation and can spin forever if a thread holding a lock has been terminated. For this reason you should minimize the code executed inside an atomic lock and never do expensive things like API or system calls while holding them.</p>
+<p >The atomic locks are not safe to lock recursively.</p>
+<p >Porting Note: The spin lock functions and type are required and can not be emulated because they are used in the atomic emulation code. </p>
+</td></tr>
+<tr class="memitem:a36d435d444dc115a5cc11fa7027576ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a36d435d444dc115a5cc11fa7027576ec">SDL_CompilerBarrier</a>()&#160;&#160;&#160;{ SDL_SpinLock _tmp = 0; <a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock</a>(&amp;_tmp); <a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock</a>(&amp;_tmp); }</td></tr>
+<tr class="separator:a36d435d444dc115a5cc11fa7027576ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a041cb5705236fe51b35cb3d59c1fbba7"><td class="memItemLeft" align="right" valign="top"><a id="a041cb5705236fe51b35cb3d59c1fbba7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_MemoryBarrierRelease</b>()&#160;&#160;&#160;<a class="el" href="SDL__atomic_8h.html#a36d435d444dc115a5cc11fa7027576ec">SDL_CompilerBarrier</a>()</td></tr>
+<tr class="separator:a041cb5705236fe51b35cb3d59c1fbba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33019d94c637a106218dde56b46a20a"><td class="memItemLeft" align="right" valign="top"><a id="aa33019d94c637a106218dde56b46a20a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_MemoryBarrierAcquire</b>()&#160;&#160;&#160;<a class="el" href="SDL__atomic_8h.html#a36d435d444dc115a5cc11fa7027576ec">SDL_CompilerBarrier</a>()</td></tr>
+<tr class="separator:aa33019d94c637a106218dde56b46a20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3b04a6ce4b6907bfb6e2ea4649ff64"><td class="memItemLeft" align="right" valign="top"><a id="a9c3b04a6ce4b6907bfb6e2ea4649ff64"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a9c3b04a6ce4b6907bfb6e2ea4649ff64">SDL_AtomicIncRef</a>(a)&#160;&#160;&#160;<a class="el" href="SDL__atomic_8h.html#a36cadfcf8e2bda1974fbce6afdc6d529">SDL_AtomicAdd</a>(a, 1)</td></tr>
+<tr class="memdesc:a9c3b04a6ce4b6907bfb6e2ea4649ff64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment an atomic variable used as a reference count. <br /></td></tr>
+<tr class="separator:a9c3b04a6ce4b6907bfb6e2ea4649ff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1602c33647cfdfa8ae49a2eef10341c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a1602c33647cfdfa8ae49a2eef10341c9">SDL_AtomicDecRef</a>(a)&#160;&#160;&#160;(<a class="el" href="SDL__atomic_8h.html#a36cadfcf8e2bda1974fbce6afdc6d529">SDL_AtomicAdd</a>(a, -1) == 1)</td></tr>
+<tr class="memdesc:a1602c33647cfdfa8ae49a2eef10341c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrement an atomic variable used as a reference count.  <a href="SDL__atomic_8h.html#a1602c33647cfdfa8ae49a2eef10341c9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1602c33647cfdfa8ae49a2eef10341c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59179ff8d21c65b9d9a544f3c2088e81"><td class="memItemLeft" align="right" valign="top"><a id="a59179ff8d21c65b9d9a544f3c2088e81"></a>
+typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_SpinLock</b></td></tr>
+<tr class="separator:a59179ff8d21c65b9d9a544f3c2088e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5410c5f832f0d862282cd65fc432fc0b"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a5410c5f832f0d862282cd65fc432fc0b">SDL_AtomicTryLock</a> (SDL_SpinLock *lock)</td></tr>
+<tr class="separator:a5410c5f832f0d862282cd65fc432fc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ecd72190ba8e5ed6ed78d5d1b36509"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock</a> (SDL_SpinLock *lock)</td></tr>
+<tr class="separator:a95ecd72190ba8e5ed6ed78d5d1b36509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb14c56b17347349ac2fb5300205bac"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock</a> (SDL_SpinLock *lock)</td></tr>
+<tr class="separator:a3fb14c56b17347349ac2fb5300205bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bec96c1fc632536952c309513a0258e"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a4bec96c1fc632536952c309513a0258e">SDL_MemoryBarrierReleaseFunction</a> (void)</td></tr>
+<tr class="separator:a4bec96c1fc632536952c309513a0258e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae911d7eb425a9e83fd34ab1303412cba"><td class="memItemLeft" align="right" valign="top"><a id="ae911d7eb425a9e83fd34ab1303412cba"></a>
+DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_MemoryBarrierAcquireFunction</b> (void)</td></tr>
+<tr class="separator:ae911d7eb425a9e83fd34ab1303412cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b90be91abb896260930d3908c0437b"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#ad6b90be91abb896260930d3908c0437b">SDL_AtomicCAS</a> (<a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *a, int oldval, int newval)</td></tr>
+<tr class="separator:ad6b90be91abb896260930d3908c0437b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b659308ebb16226d5c0cbf2188e51d"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a95b659308ebb16226d5c0cbf2188e51d">SDL_AtomicSet</a> (<a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *a, int v)</td></tr>
+<tr class="separator:a95b659308ebb16226d5c0cbf2188e51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a633c2661709f59c98f128f99aea36d96"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a633c2661709f59c98f128f99aea36d96">SDL_AtomicGet</a> (<a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *a)</td></tr>
+<tr class="separator:a633c2661709f59c98f128f99aea36d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36cadfcf8e2bda1974fbce6afdc6d529"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a36cadfcf8e2bda1974fbce6afdc6d529">SDL_AtomicAdd</a> (<a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *a, int v)</td></tr>
+<tr class="separator:a36cadfcf8e2bda1974fbce6afdc6d529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3070cf7f391b522e08595822c2f0eba"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#aa3070cf7f391b522e08595822c2f0eba">SDL_AtomicCASPtr</a> (void **a, void *oldval, void *newval)</td></tr>
+<tr class="separator:aa3070cf7f391b522e08595822c2f0eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cd69c02c71a64c2e509dc11a560d075"><td class="memItemLeft" align="right" valign="top">DECLSPEC void *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a8cd69c02c71a64c2e509dc11a560d075">SDL_AtomicSetPtr</a> (void **a, void *v)</td></tr>
+<tr class="separator:a8cd69c02c71a64c2e509dc11a560d075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e899ee0013f3fae67eedaa6bce8947"><td class="memItemLeft" align="right" valign="top">DECLSPEC void *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__atomic_8h.html#a46e899ee0013f3fae67eedaa6bce8947">SDL_AtomicGetPtr</a> (void **a)</td></tr>
+<tr class="separator:a46e899ee0013f3fae67eedaa6bce8947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Atomic operations.</p>
+<p >IMPORTANT: If you are not an expert in concurrent lockless programming, you should only be using the atomic lock and reference counting functions in this file. In all other cases you should be protecting your data structures with full mutexes.</p>
+<p >The list of "safe" functions to use are: <a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock()</a> <a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock()</a> <a class="el" href="SDL__atomic_8h.html#a9c3b04a6ce4b6907bfb6e2ea4649ff64" title="Increment an atomic variable used as a reference count.">SDL_AtomicIncRef()</a> <a class="el" href="SDL__atomic_8h.html#a1602c33647cfdfa8ae49a2eef10341c9" title="Decrement an atomic variable used as a reference count.">SDL_AtomicDecRef()</a></p>
+<p >Seriously, here be dragons! ^^^^^^^^^^^^^^^^^^^^^^^^^^^</p>
+<p >You can find out a little more about lockless programming and the subtle issues that can arise here: <a href="http://msdn.microsoft.com/en-us/library/ee418650%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ee418650%28v=vs.85%29.aspx</a></p>
+<p >There's also lots of good information here: <a href="http://www.1024cores.net/home/lock-free-algorithms">http://www.1024cores.net/home/lock-free-algorithms</a> <a href="http://preshing.com/">http://preshing.com/</a></p>
+<p >These operations may or may not actually be implemented using processor specific atomic operations. When possible they are implemented as true processor specific atomic operations. When that is not possible the are implemented using locks that <em>do</em> use the available atomic operations.</p>
+<p >All of the atomic operations that modify memory are full memory barriers. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a1602c33647cfdfa8ae49a2eef10341c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1602c33647cfdfa8ae49a2eef10341c9">&#9670;&nbsp;</a></span>SDL_AtomicDecRef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_AtomicDecRef</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="SDL__atomic_8h.html#a36cadfcf8e2bda1974fbce6afdc6d529">SDL_AtomicAdd</a>(a, -1) == 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decrement an atomic variable used as a reference count. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the variable reached zero after decrementing, SDL_FALSE otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a36d435d444dc115a5cc11fa7027576ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d435d444dc115a5cc11fa7027576ec">&#9670;&nbsp;</a></span>SDL_CompilerBarrier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_CompilerBarrier</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;{ SDL_SpinLock _tmp = 0; <a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock</a>(&amp;_tmp); <a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock</a>(&amp;_tmp); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The compiler barrier prevents the compiler from reordering reads and writes to globally visible variables across the call. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a36cadfcf8e2bda1974fbce6afdc6d529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36cadfcf8e2bda1974fbce6afdc6d529">&#9670;&nbsp;</a></span>SDL_AtomicAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_AtomicAdd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Add to an atomic variable.</p>
+<p >This function also acts as a full memory barrier.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to an <a class="el" href="structSDL__atomic__t.html" title="A type representing an atomic integer value. It is a struct so people don&#39;t accidentally use numeric ...">SDL_atomic_t</a> variable to be modified </td></tr>
+    <tr><td class="paramname">v</td><td>the desired value to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the previous value of the atomic variable.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a1602c33647cfdfa8ae49a2eef10341c9" title="Decrement an atomic variable used as a reference count.">SDL_AtomicDecRef</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a9c3b04a6ce4b6907bfb6e2ea4649ff64" title="Increment an atomic variable used as a reference count.">SDL_AtomicIncRef</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad6b90be91abb896260930d3908c0437b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b90be91abb896260930d3908c0437b">&#9670;&nbsp;</a></span>SDL_AtomicCAS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_AtomicCAS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>oldval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newval</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set an atomic variable to a new value if it is currently an old value.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to an <a class="el" href="structSDL__atomic__t.html" title="A type representing an atomic integer value. It is a struct so people don&#39;t accidentally use numeric ...">SDL_atomic_t</a> variable to be modified </td></tr>
+    <tr><td class="paramname">oldval</td><td>the old value </td></tr>
+    <tr><td class="paramname">newval</td><td>the new value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the atomic variable was set, SDL_FALSE otherwise.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#aa3070cf7f391b522e08595822c2f0eba">SDL_AtomicCASPtr</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a633c2661709f59c98f128f99aea36d96">SDL_AtomicGet</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a95b659308ebb16226d5c0cbf2188e51d">SDL_AtomicSet</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa3070cf7f391b522e08595822c2f0eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3070cf7f391b522e08595822c2f0eba">&#9670;&nbsp;</a></span>SDL_AtomicCASPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_AtomicCASPtr </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>oldval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>newval</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set a pointer to a new value if it is currently an old value.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to a pointer </td></tr>
+    <tr><td class="paramname">oldval</td><td>the old pointer value </td></tr>
+    <tr><td class="paramname">newval</td><td>the new pointer value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the pointer was set, SDL_FALSE otherwise.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#ad6b90be91abb896260930d3908c0437b">SDL_AtomicCAS</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a46e899ee0013f3fae67eedaa6bce8947">SDL_AtomicGetPtr</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a8cd69c02c71a64c2e509dc11a560d075">SDL_AtomicSetPtr</a> </dd></dl>
+
+</div>
+</div>
+<a id="a633c2661709f59c98f128f99aea36d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a633c2661709f59c98f128f99aea36d96">&#9670;&nbsp;</a></span>SDL_AtomicGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_AtomicGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the value of an atomic variable.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to an <a class="el" href="structSDL__atomic__t.html" title="A type representing an atomic integer value. It is a struct so people don&#39;t accidentally use numeric ...">SDL_atomic_t</a> variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the current value of an atomic variable.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a95b659308ebb16226d5c0cbf2188e51d">SDL_AtomicSet</a> </dd></dl>
+
+</div>
+</div>
+<a id="a46e899ee0013f3fae67eedaa6bce8947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46e899ee0013f3fae67eedaa6bce8947">&#9670;&nbsp;</a></span>SDL_AtomicGetPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void* SDLCALL SDL_AtomicGetPtr </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the value of a pointer atomically.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to a pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the current value of a pointer.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#aa3070cf7f391b522e08595822c2f0eba">SDL_AtomicCASPtr</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a8cd69c02c71a64c2e509dc11a560d075">SDL_AtomicSetPtr</a> </dd></dl>
+
+</div>
+</div>
+<a id="a95ecd72190ba8e5ed6ed78d5d1b36509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ecd72190ba8e5ed6ed78d5d1b36509">&#9670;&nbsp;</a></span>SDL_AtomicLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_AtomicLock </td>
+          <td>(</td>
+          <td class="paramtype">SDL_SpinLock *&#160;</td>
+          <td class="paramname"><em>lock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Lock a spin lock by setting it to a non-zero value.</p>
+<p ><em><b>Please note that spinlocks are dangerous if you don't know what you're doing. Please be careful using any sort of spinlock!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lock</td><td>a pointer to a lock variable</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a5410c5f832f0d862282cd65fc432fc0b">SDL_AtomicTryLock</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock</a> </dd></dl>
+
+</div>
+</div>
+<a id="a95b659308ebb16226d5c0cbf2188e51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b659308ebb16226d5c0cbf2188e51d">&#9670;&nbsp;</a></span>SDL_AtomicSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_AtomicSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__atomic__t.html">SDL_atomic_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set an atomic variable to a value.</p>
+<p >This function also acts as a full memory barrier.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to an <a class="el" href="structSDL__atomic__t.html" title="A type representing an atomic integer value. It is a struct so people don&#39;t accidentally use numeric ...">SDL_atomic_t</a> variable to be modified </td></tr>
+    <tr><td class="paramname">v</td><td>the desired value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the previous value of the atomic variable.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a633c2661709f59c98f128f99aea36d96">SDL_AtomicGet</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8cd69c02c71a64c2e509dc11a560d075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd69c02c71a64c2e509dc11a560d075">&#9670;&nbsp;</a></span>SDL_AtomicSetPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void* SDLCALL SDL_AtomicSetPtr </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set a pointer to a value atomically.</p>
+<p ><em><b>Note: If you don't know what this function is for, you shouldn't use it!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>a pointer to a pointer </td></tr>
+    <tr><td class="paramname">v</td><td>the desired pointer value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the previous value of the pointer.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.2.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#aa3070cf7f391b522e08595822c2f0eba">SDL_AtomicCASPtr</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a46e899ee0013f3fae67eedaa6bce8947">SDL_AtomicGetPtr</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5410c5f832f0d862282cd65fc432fc0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5410c5f832f0d862282cd65fc432fc0b">&#9670;&nbsp;</a></span>SDL_AtomicTryLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_AtomicTryLock </td>
+          <td>(</td>
+          <td class="paramtype">SDL_SpinLock *&#160;</td>
+          <td class="paramname"><em>lock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Try to lock a spin lock by setting it to a non-zero value.</p>
+<p ><em><b>Please note that spinlocks are dangerous if you don't know what you're doing. Please be careful using any sort of spinlock!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lock</td><td>a pointer to a lock variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the lock succeeded, SDL_FALSE if the lock is already held.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a3fb14c56b17347349ac2fb5300205bac">SDL_AtomicUnlock</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3fb14c56b17347349ac2fb5300205bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb14c56b17347349ac2fb5300205bac">&#9670;&nbsp;</a></span>SDL_AtomicUnlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_AtomicUnlock </td>
+          <td>(</td>
+          <td class="paramtype">SDL_SpinLock *&#160;</td>
+          <td class="paramname"><em>lock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unlock a spin lock by setting it to 0.</p>
+<p >Always returns immediately.</p>
+<p ><em><b>Please note that spinlocks are dangerous if you don't know what you're doing. Please be careful using any sort of spinlock!</b></em></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lock</td><td>a pointer to a lock variable</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__atomic_8h.html#a95ecd72190ba8e5ed6ed78d5d1b36509">SDL_AtomicLock</a> </dd>
+<dd>
+<a class="el" href="SDL__atomic_8h.html#a5410c5f832f0d862282cd65fc432fc0b">SDL_AtomicTryLock</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4bec96c1fc632536952c309513a0258e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bec96c1fc632536952c309513a0258e">&#9670;&nbsp;</a></span>SDL_MemoryBarrierReleaseFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_MemoryBarrierReleaseFunction </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Memory barriers are designed to prevent reads and writes from being reordered by the compiler and being seen out of order on multi-core CPUs.</p>
+<p >A typical pattern would be for thread A to write some data and a flag, and for thread B to read the flag and get the data. In this case you would insert a release barrier between writing the data and the flag, guaranteeing that the data write completes no later than the flag is written, and you would insert an acquire barrier between reading the flag and reading the data, to ensure that all the reads associated with the flag have completed.</p>
+<p >In this pattern you should always see a release barrier paired with an acquire barrier and you should gate the data reads/writes with a single flag variable.</p>
+<p >For more information on these semantics, take a look at the blog post: <a href="http://preshing.com/20120913/acquire-and-release-semantics">http://preshing.com/20120913/acquire-and-release-semantics</a></p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.6. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

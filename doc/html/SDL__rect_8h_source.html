@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/SDL2/SDL_rect.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SDL_rect.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SDL__rect_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Simple DirectMedia Layer</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C) 1997-2022 Sam Lantinga &lt;slouken@libsdl.org&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  This software is provided &#39;as-is&#39;, without any express or implied</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  warranty.  In no event will the authors be held liable for any damages</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  arising from the use of this software.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  Permission is granted to anyone to use this software for any purpose,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  including commercial applications, and to alter it and redistribute it</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  freely, subject to the following restrictions:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  1. The origin of this software must not be misrepresented; you must not</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">     claim that you wrote the original software. If you use this software</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">     in a product, an acknowledgment in the product documentation would be</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     appreciated but is not required.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  2. Altered source versions must be plainly marked as such, and must not be</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     misrepresented as being the original software.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  3. This notice may not be removed or altered from any source distribution.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef SDL_rect_h_</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SDL_rect_h_</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__stdinc_8h.html">SDL_stdinc.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__error_8h.html">SDL_error.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__pixels_8h.html">SDL_pixels.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__rwops_8h.html">SDL_rwops.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="begin__code_8h.html">begin_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/* Set up for C function definitions, even when using C++ */</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structSDL__Point.html">   48</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structSDL__Point.html">SDL_Point</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> x;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> y;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#aa8e5504e162ce2079402a96ab24464b0">   52</a></span>&#160;} <a class="code" href="SDL__rect_8h.html#aa8e5504e162ce2079402a96ab24464b0">SDL_Point</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structSDL__FPoint.html">   60</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structSDL__FPoint.html">SDL_FPoint</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">float</span> x;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">float</span> y;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#ad2d04905f83d62ade9d6e215e3ac9874">   64</a></span>&#160;} <a class="code" href="SDL__rect_8h.html#ad2d04905f83d62ade9d6e215e3ac9874">SDL_FPoint</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structSDL__Rect.html">   77</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structSDL__Rect.html">SDL_Rect</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> w, h;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a9e17b356ca55e6b653f4fe33c5357ed5">   81</a></span>&#160;} <a class="code" href="SDL__rect_8h.html#a9e17b356ca55e6b653f4fe33c5357ed5">SDL_Rect</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="structSDL__FRect.html">   87</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structSDL__FRect.html">SDL_FRect</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">float</span> x;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">float</span> y;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">float</span> w;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">float</span> h;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a9237dbcbeeba2308b0180aa51ec5ada5">   93</a></span>&#160;} <a class="code" href="SDL__rect_8h.html#a9237dbcbeeba2308b0180aa51ec5ada5">SDL_FRect</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a2f9708f2739ef234c34e6feda50b4d2c">   99</a></span>&#160;SDL_FORCE_INLINE SDL_bool <a class="code" href="SDL__rect_8h.html#a2f9708f2739ef234c34e6feda50b4d2c">SDL_PointInRect</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Point.html">SDL_Point</a> *p, <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> *r)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> ( (p-&gt;x &gt;= r-&gt;x) &amp;&amp; (p-&gt;x &lt; (r-&gt;x + r-&gt;w)) &amp;&amp;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;             (p-&gt;y &gt;= r-&gt;y) &amp;&amp; (p-&gt;y &lt; (r-&gt;y + r-&gt;h)) ) ? SDL_TRUE : SDL_FALSE;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#aac0e9b5d3f34baec6a2cde95bb01f49c">  108</a></span>&#160;SDL_FORCE_INLINE SDL_bool <a class="code" href="SDL__rect_8h.html#aac0e9b5d3f34baec6a2cde95bb01f49c">SDL_RectEmpty</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> *r)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> ((!r) || (r-&gt;w &lt;= 0) || (r-&gt;h &lt;= 0)) ? SDL_TRUE : SDL_FALSE;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a156979fd3561cf90b87741d11057262a">  116</a></span>&#160;SDL_FORCE_INLINE SDL_bool <a class="code" href="SDL__rect_8h.html#a156979fd3561cf90b87741d11057262a">SDL_RectEquals</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> *a, <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> *b)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> (a &amp;&amp; b &amp;&amp; (a-&gt;x == b-&gt;x) &amp;&amp; (a-&gt;y == b-&gt;y) &amp;&amp;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            (a-&gt;w == b-&gt;w) &amp;&amp; (a-&gt;h == b-&gt;h)) ? SDL_TRUE : SDL_FALSE;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a191ec0b069421d4a36304b475697e847">  135</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__rect_8h.html#a191ec0b069421d4a36304b475697e847">SDL_HasIntersection</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * A,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                                     <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * B);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#aff8e3dd3b1a25443cd7c8cf02a087290">  153</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__rect_8h.html#aff8e3dd3b1a25443cd7c8cf02a087290">SDL_IntersectRect</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * A,</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                                                   <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * B,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                                   <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * result);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#a659f2c25335202888408c95195823f9c">  167</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__rect_8h.html#a659f2c25335202888408c95195823f9c">SDL_UnionRect</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * A,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                                           <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * B,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                                           <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * result);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#afcbb58dbba760b9e6fdb4b5d1ece015c">  188</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__rect_8h.html#afcbb58dbba760b9e6fdb4b5d1ece015c">SDL_EnclosePoints</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Point.html">SDL_Point</a> * points,</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                                                   <span class="keywordtype">int</span> count,</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                                                   <span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * clip,</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                                   <a class="code" href="structSDL__Rect.html">SDL_Rect</a> * result);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="SDL__rect_8h.html#acdabdcbeb7b7083f94a092daa26ce069">  211</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__rect_8h.html#acdabdcbeb7b7083f94a092daa26ce069">SDL_IntersectRectAndLine</a>(<span class="keyword">const</span> <a class="code" href="structSDL__Rect.html">SDL_Rect</a> *</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                                                          rect, <span class="keywordtype">int</span> *X1,</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                                                          <span class="keywordtype">int</span> *Y1, <span class="keywordtype">int</span> *X2,</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                                                          <span class="keywordtype">int</span> *Y2);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">/* Ends C function definitions when using C++ */</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;}</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="close__code_8h.html">close_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SDL_rect_h_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">/* vi: set ts=4 sw=4 expandtab: */</span></div>
+<div class="ttc" id="aSDL__error_8h_html"><div class="ttname"><a href="SDL__error_8h.html">SDL_error.h</a></div></div>
+<div class="ttc" id="aSDL__pixels_8h_html"><div class="ttname"><a href="SDL__pixels_8h.html">SDL_pixels.h</a></div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a156979fd3561cf90b87741d11057262a"><div class="ttname"><a href="SDL__rect_8h.html#a156979fd3561cf90b87741d11057262a">SDL_RectEquals</a></div><div class="ttdeci">SDL_FORCE_INLINE SDL_bool SDL_RectEquals(const SDL_Rect *a, const SDL_Rect *b)</div><div class="ttdef"><b>Definition:</b> SDL_rect.h:116</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a191ec0b069421d4a36304b475697e847"><div class="ttname"><a href="SDL__rect_8h.html#a191ec0b069421d4a36304b475697e847">SDL_HasIntersection</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_HasIntersection(const SDL_Rect *A, const SDL_Rect *B)</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a2f9708f2739ef234c34e6feda50b4d2c"><div class="ttname"><a href="SDL__rect_8h.html#a2f9708f2739ef234c34e6feda50b4d2c">SDL_PointInRect</a></div><div class="ttdeci">SDL_FORCE_INLINE SDL_bool SDL_PointInRect(const SDL_Point *p, const SDL_Rect *r)</div><div class="ttdef"><b>Definition:</b> SDL_rect.h:99</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a659f2c25335202888408c95195823f9c"><div class="ttname"><a href="SDL__rect_8h.html#a659f2c25335202888408c95195823f9c">SDL_UnionRect</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_UnionRect(const SDL_Rect *A, const SDL_Rect *B, SDL_Rect *result)</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a9237dbcbeeba2308b0180aa51ec5ada5"><div class="ttname"><a href="SDL__rect_8h.html#a9237dbcbeeba2308b0180aa51ec5ada5">SDL_FRect</a></div><div class="ttdeci">struct SDL_FRect SDL_FRect</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_a9e17b356ca55e6b653f4fe33c5357ed5"><div class="ttname"><a href="SDL__rect_8h.html#a9e17b356ca55e6b653f4fe33c5357ed5">SDL_Rect</a></div><div class="ttdeci">struct SDL_Rect SDL_Rect</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_aa8e5504e162ce2079402a96ab24464b0"><div class="ttname"><a href="SDL__rect_8h.html#aa8e5504e162ce2079402a96ab24464b0">SDL_Point</a></div><div class="ttdeci">struct SDL_Point SDL_Point</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_aac0e9b5d3f34baec6a2cde95bb01f49c"><div class="ttname"><a href="SDL__rect_8h.html#aac0e9b5d3f34baec6a2cde95bb01f49c">SDL_RectEmpty</a></div><div class="ttdeci">SDL_FORCE_INLINE SDL_bool SDL_RectEmpty(const SDL_Rect *r)</div><div class="ttdef"><b>Definition:</b> SDL_rect.h:108</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_acdabdcbeb7b7083f94a092daa26ce069"><div class="ttname"><a href="SDL__rect_8h.html#acdabdcbeb7b7083f94a092daa26ce069">SDL_IntersectRectAndLine</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_IntersectRectAndLine(const SDL_Rect *rect, int *X1, int *Y1, int *X2, int *Y2)</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_ad2d04905f83d62ade9d6e215e3ac9874"><div class="ttname"><a href="SDL__rect_8h.html#ad2d04905f83d62ade9d6e215e3ac9874">SDL_FPoint</a></div><div class="ttdeci">struct SDL_FPoint SDL_FPoint</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_afcbb58dbba760b9e6fdb4b5d1ece015c"><div class="ttname"><a href="SDL__rect_8h.html#afcbb58dbba760b9e6fdb4b5d1ece015c">SDL_EnclosePoints</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_EnclosePoints(const SDL_Point *points, int count, const SDL_Rect *clip, SDL_Rect *result)</div></div>
+<div class="ttc" id="aSDL__rect_8h_html_aff8e3dd3b1a25443cd7c8cf02a087290"><div class="ttname"><a href="SDL__rect_8h.html#aff8e3dd3b1a25443cd7c8cf02a087290">SDL_IntersectRect</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_IntersectRect(const SDL_Rect *A, const SDL_Rect *B, SDL_Rect *result)</div></div>
+<div class="ttc" id="aSDL__rwops_8h_html"><div class="ttname"><a href="SDL__rwops_8h.html">SDL_rwops.h</a></div></div>
+<div class="ttc" id="aSDL__stdinc_8h_html"><div class="ttname"><a href="SDL__stdinc_8h.html">SDL_stdinc.h</a></div></div>
+<div class="ttc" id="abegin__code_8h_html"><div class="ttname"><a href="begin__code_8h.html">begin_code.h</a></div></div>
+<div class="ttc" id="aclose__code_8h_html"><div class="ttname"><a href="close__code_8h.html">close_code.h</a></div></div>
+<div class="ttc" id="astructSDL__FPoint_html"><div class="ttname"><a href="structSDL__FPoint.html">SDL_FPoint</a></div><div class="ttdef"><b>Definition:</b> SDL_rect.h:61</div></div>
+<div class="ttc" id="astructSDL__FRect_html"><div class="ttname"><a href="structSDL__FRect.html">SDL_FRect</a></div><div class="ttdef"><b>Definition:</b> SDL_rect.h:88</div></div>
+<div class="ttc" id="astructSDL__Point_html"><div class="ttname"><a href="structSDL__Point.html">SDL_Point</a></div><div class="ttdef"><b>Definition:</b> SDL_rect.h:49</div></div>
+<div class="ttc" id="astructSDL__Rect_html"><div class="ttname"><a href="structSDL__Rect.html">SDL_Rect</a></div><div class="ttdef"><b>Definition:</b> SDL_rect.h:78</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

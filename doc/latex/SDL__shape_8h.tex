@@ -1,0 +1,202 @@
+\hypertarget{SDL__shape_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+shape.h}
+\label{SDL__shape_8h}\index{include/SDL2/SDL\_shape.h@{include/SDL2/SDL\_shape.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+pixels.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rect.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+surface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionSDL__WindowShapeParams}{SDL\+\_\+\+Window\+Shape\+Params}}
+\begin{DoxyCompactList}\small\item\em A union containing parameters for shaped windows. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}}
+\begin{DoxyCompactList}\small\item\em A struct that tags the \mbox{\hyperlink{unionSDL__WindowShapeParams}{SDL\+\_\+\+Window\+Shape\+Params}} union with an enum describing the type of its contents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__shape_8h_a45e50a0ce349a4e200338d634fa73de5}\label{SDL__shape_8h_a45e50a0ce349a4e200338d634fa73de5}} 
+\#define {\bfseries SDL\+\_\+\+NONSHAPEABLE\+\_\+\+WINDOW}~-\/1
+\item 
+\mbox{\Hypertarget{SDL__shape_8h_a1cfaf1e1a560ef7f68f59f46a9a0b1fd}\label{SDL__shape_8h_a1cfaf1e1a560ef7f68f59f46a9a0b1fd}} 
+\#define {\bfseries SDL\+\_\+\+INVALID\+\_\+\+SHAPE\+\_\+\+ARGUMENT}~-\/2
+\item 
+\mbox{\Hypertarget{SDL__shape_8h_aa7306c8f1a1b87b398a9842383303232}\label{SDL__shape_8h_aa7306c8f1a1b87b398a9842383303232}} 
+\#define {\bfseries SDL\+\_\+\+WINDOW\+\_\+\+LACKS\+\_\+\+SHAPE}~-\/3
+\item 
+\mbox{\Hypertarget{SDL__shape_8h_af8e3c7bdeca58eb82cb8faed8d385cdc}\label{SDL__shape_8h_af8e3c7bdeca58eb82cb8faed8d385cdc}} 
+\#define {\bfseries SDL\+\_\+\+SHAPEMODEALPHA}(mode)~(mode == \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20aca1bc38c9b5179cbed0e9e176cd84d9e}{Shape\+Mode\+Default}} $\vert$$\vert$ mode == \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a0ba1cff6129858a1136728ffdc787926}{Shape\+Mode\+Binarize\+Alpha}} $\vert$$\vert$ mode == \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20ae478c81ede522586674806541e145993}{Shape\+Mode\+Reverse\+Binarize\+Alpha}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__shape_8h_a7c3c38083471976868424ca18e89295d}\label{SDL__shape_8h_a7c3c38083471976868424ca18e89295d}} 
+typedef struct \mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} \mbox{\hyperlink{SDL__shape_8h_a7c3c38083471976868424ca18e89295d}{SDL\+\_\+\+Window\+Shape\+Mode}}
+\begin{DoxyCompactList}\small\item\em A struct that tags the \mbox{\hyperlink{unionSDL__WindowShapeParams}{SDL\+\_\+\+Window\+Shape\+Params}} union with an enum describing the type of its contents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20}{Window\+Shape\+Mode}} \{ \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20aca1bc38c9b5179cbed0e9e176cd84d9e}{Shape\+Mode\+Default}}
+, \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a0ba1cff6129858a1136728ffdc787926}{Shape\+Mode\+Binarize\+Alpha}}
+, \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20ae478c81ede522586674806541e145993}{Shape\+Mode\+Reverse\+Binarize\+Alpha}}
+, \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a1d3ca52e90d5b3086e22120c2899f214}{Shape\+Mode\+Color\+Key}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enum denoting the specific type of contents present in an \mbox{\hyperlink{unionSDL__WindowShapeParams}{SDL\+\_\+\+Window\+Shape\+Params}} union. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$SDLCALL \mbox{\hyperlink{SDL__shape_8h_a5a7bed102a3db4d91e6a8e21be0f9950}{SDL\+\_\+\+Create\+Shaped\+Window}} (const char $\ast$title, unsigned int x, unsigned int y, unsigned int w, unsigned int h, Uint32 flags)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__shape_8h_a28630f0f6b298bac4d0efe850d7d327e}{SDL\+\_\+\+Is\+Shaped\+Window}} (const \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$window)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__shape_8h_a90d52818802235df9689922be5a4cf5a}{SDL\+\_\+\+Set\+Window\+Shape}} (\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$window, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$shape, \mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} $\ast$shape\+\_\+mode)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__shape_8h_a64dba6f6440cf6984d8da868fd758711}{SDL\+\_\+\+Get\+Shaped\+Window\+Mode}} (\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$window, \mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} $\ast$shape\+\_\+mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header file for the shaped window API. 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20}\label{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20}} 
+\index{SDL\_shape.h@{SDL\_shape.h}!WindowShapeMode@{WindowShapeMode}}
+\index{WindowShapeMode@{WindowShapeMode}!SDL\_shape.h@{SDL\_shape.h}}
+\doxysubsubsection{\texorpdfstring{WindowShapeMode}{WindowShapeMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20}{Window\+Shape\+Mode}}}
+
+
+
+An enum denoting the specific type of contents present in an \mbox{\hyperlink{unionSDL__WindowShapeParams}{SDL\+\_\+\+Window\+Shape\+Params}} union. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ShapeModeDefault@{ShapeModeDefault}!SDL\_shape.h@{SDL\_shape.h}}\index{SDL\_shape.h@{SDL\_shape.h}!ShapeModeDefault@{ShapeModeDefault}}}\mbox{\Hypertarget{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20aca1bc38c9b5179cbed0e9e176cd84d9e}\label{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20aca1bc38c9b5179cbed0e9e176cd84d9e}} 
+Shape\+Mode\+Default&The default mode, a binarized alpha cutoff of 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ShapeModeBinarizeAlpha@{ShapeModeBinarizeAlpha}!SDL\_shape.h@{SDL\_shape.h}}\index{SDL\_shape.h@{SDL\_shape.h}!ShapeModeBinarizeAlpha@{ShapeModeBinarizeAlpha}}}\mbox{\Hypertarget{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a0ba1cff6129858a1136728ffdc787926}\label{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a0ba1cff6129858a1136728ffdc787926}} 
+Shape\+Mode\+Binarize\+Alpha&A binarized alpha cutoff with a given integer value. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ShapeModeReverseBinarizeAlpha@{ShapeModeReverseBinarizeAlpha}!SDL\_shape.h@{SDL\_shape.h}}\index{SDL\_shape.h@{SDL\_shape.h}!ShapeModeReverseBinarizeAlpha@{ShapeModeReverseBinarizeAlpha}}}\mbox{\Hypertarget{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20ae478c81ede522586674806541e145993}\label{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20ae478c81ede522586674806541e145993}} 
+Shape\+Mode\+Reverse\+Binarize\+Alpha&A binarized alpha cutoff with a given integer value, but with the opposite comparison. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ShapeModeColorKey@{ShapeModeColorKey}!SDL\_shape.h@{SDL\_shape.h}}\index{SDL\_shape.h@{SDL\_shape.h}!ShapeModeColorKey@{ShapeModeColorKey}}}\mbox{\Hypertarget{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a1d3ca52e90d5b3086e22120c2899f214}\label{SDL__shape_8h_aa30948f2699e316a43b740eccebe5c20a1d3ca52e90d5b3086e22120c2899f214}} 
+Shape\+Mode\+Color\+Key&A color key is applied. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__shape_8h_a5a7bed102a3db4d91e6a8e21be0f9950}\label{SDL__shape_8h_a5a7bed102a3db4d91e6a8e21be0f9950}} 
+\index{SDL\_shape.h@{SDL\_shape.h}!SDL\_CreateShapedWindow@{SDL\_CreateShapedWindow}}
+\index{SDL\_CreateShapedWindow@{SDL\_CreateShapedWindow}!SDL\_shape.h@{SDL\_shape.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateShapedWindow()}{SDL\_CreateShapedWindow()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}}$\ast$ SDLCALL SDL\+\_\+\+Create\+Shaped\+Window (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title,  }\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{unsigned int}]{w,  }\item[{unsigned int}]{h,  }\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Create a window that can be shaped with the specified position, dimensions, and flags.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em title} & The title of the window, in UTF-\/8 encoding. \\
+\hline
+{\em x} & The x position of the window, \+::\+SDL\+\_\+\+WINDOWPOS\+\_\+\+CENTERED, or \+::\+SDL\+\_\+\+WINDOWPOS\+\_\+\+UNDEFINED. \\
+\hline
+{\em y} & The y position of the window, \+::\+SDL\+\_\+\+WINDOWPOS\+\_\+\+CENTERED, or \+::\+SDL\+\_\+\+WINDOWPOS\+\_\+\+UNDEFINED. \\
+\hline
+{\em w} & The width of the window. \\
+\hline
+{\em h} & The height of the window. \\
+\hline
+{\em flags} & The flags for the window, a mask of SDL\+\_\+\+WINDOW\+\_\+\+BORDERLESS with any of the following\+: \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18a5cf8af096f1870b0c2b12267cabd1f7a}{SDL\+\_\+\+WINDOW\+\_\+\+OPENGL}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18aaf410e1082e45a55ef9176163610dba2}{SDL\+\_\+\+WINDOW\+\_\+\+INPUT\+\_\+\+GRABBED}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18adda25e98e54964c0c2ec9ac31f5e629c}{SDL\+\_\+\+WINDOW\+\_\+\+HIDDEN}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18aaf59a5e2f762aa2b6d2e49b0ca220fd8}{SDL\+\_\+\+WINDOW\+\_\+\+RESIZABLE}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18acd8063a617f2ce05f694ecdbf56f811a}{SDL\+\_\+\+WINDOW\+\_\+\+MAXIMIZED}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18a7f08ee26b5773412a212233ddc168c5a}{SDL\+\_\+\+WINDOW\+\_\+\+MINIMIZED}}, \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18af7baea7dc9c0e4f09b28793504b02e4c}{SDL\+\_\+\+WINDOW\+\_\+\+BORDERLESS}} is always set, and \mbox{\hyperlink{SDL__video_8h_ab10f4fd6a082ef06fcae96860c95fb18ac7b8279bdf5e22a0b4a95aae3d846923}{SDL\+\_\+\+WINDOW\+\_\+\+FULLSCREEN}} is always unset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the window created, or NULL if window creation failed.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__video_8h_a72609295a4faee0587268339ccff80c2}{SDL\+\_\+\+Destroy\+Window}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__shape_8h_a64dba6f6440cf6984d8da868fd758711}\label{SDL__shape_8h_a64dba6f6440cf6984d8da868fd758711}} 
+\index{SDL\_shape.h@{SDL\_shape.h}!SDL\_GetShapedWindowMode@{SDL\_GetShapedWindowMode}}
+\index{SDL\_GetShapedWindowMode@{SDL\_GetShapedWindowMode}!SDL\_shape.h@{SDL\_shape.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetShapedWindowMode()}{SDL\_GetShapedWindowMode()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Shaped\+Window\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} $\ast$}]{shape\+\_\+mode }\end{DoxyParamCaption})}
+
+Get the shape parameters of a shaped window.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & The shaped window whose parameters should be retrieved. \\
+\hline
+{\em shape\+\_\+mode} & An empty shape-\/mode structure to fill, or NULL to check whether the window has a shape. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if the window has a shape and, provided shape\+\_\+mode was not NULL, shape\+\_\+mode has been filled with the mode data, SDL\+\_\+\+NONSHAPEABLE\+\_\+\+WINDOW if the SDL\+\_\+\+Window given is not a shaped window, or SDL\+\_\+\+WINDOW\+\_\+\+LACKS\+\_\+\+SHAPE if the SDL\+\_\+\+Window given is a shapeable window currently lacking a shape.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} 
+
+\mbox{\hyperlink{SDL__shape_8h_a90d52818802235df9689922be5a4cf5a}{SDL\+\_\+\+Set\+Window\+Shape}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__shape_8h_a28630f0f6b298bac4d0efe850d7d327e}\label{SDL__shape_8h_a28630f0f6b298bac4d0efe850d7d327e}} 
+\index{SDL\_shape.h@{SDL\_shape.h}!SDL\_IsShapedWindow@{SDL\_IsShapedWindow}}
+\index{SDL\_IsShapedWindow@{SDL\_IsShapedWindow}!SDL\_shape.h@{SDL\_shape.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IsShapedWindow()}{SDL\_IsShapedWindow()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Is\+Shaped\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+Return whether the given window is a shaped window.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & The window to query for being shaped. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the window is a window that can be shaped, SDL\+\_\+\+FALSE if the window is unshaped or NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__shape_8h_a5a7bed102a3db4d91e6a8e21be0f9950}{SDL\+\_\+\+Create\+Shaped\+Window}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__shape_8h_a90d52818802235df9689922be5a4cf5a}\label{SDL__shape_8h_a90d52818802235df9689922be5a4cf5a}} 
+\index{SDL\_shape.h@{SDL\_shape.h}!SDL\_SetWindowShape@{SDL\_SetWindowShape}}
+\index{SDL\_SetWindowShape@{SDL\_SetWindowShape}!SDL\_shape.h@{SDL\_shape.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetWindowShape()}{SDL\_SetWindowShape()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Window\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{shape,  }\item[{\mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} $\ast$}]{shape\+\_\+mode }\end{DoxyParamCaption})}
+
+Set the shape and parameters of a shaped window.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & The shaped window whose parameters should be set. \\
+\hline
+{\em shape} & A surface encoding the desired shape for the window. \\
+\hline
+{\em shape\+\_\+mode} & The parameters to set for the shaped window. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, SDL\+\_\+\+INVALID\+\_\+\+SHAPE\+\_\+\+ARGUMENT on an invalid shape argument, or SDL\+\_\+\+NONSHAPEABLE\+\_\+\+WINDOW if the SDL\+\_\+\+Window given does not reference a valid shaped window.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{structSDL__WindowShapeMode}{SDL\+\_\+\+Window\+Shape\+Mode}} 
+
+\mbox{\hyperlink{SDL__shape_8h_a64dba6f6440cf6984d8da868fd758711}{SDL\+\_\+\+Get\+Shaped\+Window\+Mode}} 
+\end{DoxySeeAlso}

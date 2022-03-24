@@ -1,0 +1,1357 @@
+\hypertarget{SDL__surface_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+surface.h}
+\label{SDL__surface_8h}\index{include/SDL2/SDL\_surface.h@{include/SDL2/SDL\_surface.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+pixels.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rect.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+blendmode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}
+\begin{DoxyCompactList}\small\item\em A collection of pixels used in software blitting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Surface flags}
+\label{_amgrpd2eeaf52e16b8c367d79016ab953cd2b}%
+These are the currently supported flags for the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a59c7111f96872f973d0f058362761776}{SDL\+\_\+\+SWSURFACE}}~0
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a4a5f795a69ac626fba73c4bd0bfd9626}{SDL\+\_\+\+PREALLOC}}~0x00000001
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{SDL\+\_\+\+RLEACCEL}}~0x00000002
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a2d3381f5c76aec3fea3f8b990c2e9f6d}{SDL\+\_\+\+DONTFREE}}~0x00000004
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a48a8fb403cb1513b0f689b532dc75861}{SDL\+\_\+\+SIMD\+\_\+\+ALIGNED}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_aba3239116c763175b6ea41ef78b72091}{SDL\+\_\+\+MUSTLOCK}}(S)~(((S)-\/$>$flags \& \mbox{\hyperlink{SDL__surface_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{SDL\+\_\+\+RLEACCEL}}) != 0)
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_ae63aa646481001be542220a8733c3ce0}{SDL\+\_\+\+Load\+BMP}}(file)~\mbox{\hyperlink{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}{SDL\+\_\+\+Load\+BMP\+\_\+\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}), 1)
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_a425e7a69acbdf2bd9ba46d332d917320}{SDL\+\_\+\+Save\+BMP}}(surface,  file)~        \mbox{\hyperlink{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}{SDL\+\_\+\+Save\+BMP\+\_\+\+RW}}(surface, \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}wb\char`\"{}), 1)
+\item 
+\#define \mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}}~\mbox{\hyperlink{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}{SDL\+\_\+\+Upper\+Blit}}
+\item 
+\mbox{\Hypertarget{SDL__surface_8h_a0be5f27c24e29a61096c2f59610ff1bf}\label{SDL__surface_8h_a0be5f27c24e29a61096c2f59610ff1bf}} 
+\#define {\bfseries SDL\+\_\+\+Blit\+Scaled}~\mbox{\hyperlink{SDL__surface_8h_a90ac01634e9ee33764fcf5ec7bc43c46}{SDL\+\_\+\+Upper\+Blit\+Scaled}}
+\item 
+enum \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} \{ \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a779237ffb78ee935518b83e8ab8a35dc}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+JPEG}}
+, \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a58058f0ed3146de73b031e256aa2aaaa}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+BT601}}
+, \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a806aeb86ff618a298206cbf921c0202a}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+BT709}}
+, \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446acbf0cb1b718195c6c0960d4471a5ed0a}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+AUTOMATIC}}
+ \}
+\begin{DoxyCompactList}\small\item\em The formula used for converting between YUV and RGB. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} \mbox{\hyperlink{SDL__surface_8h_ad894d177fae95d7a1c0d23597b69e569}{SDL\+\_\+\+Surface}}
+\begin{DoxyCompactList}\small\item\em A collection of pixels used in software blitting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__surface_8h_ab2d7366d99a08693d476b98760690947}\label{SDL__surface_8h_ab2d7366d99a08693d476b98760690947}} 
+typedef int(SDLCALL $\ast$ \mbox{\hyperlink{SDL__surface_8h_ab2d7366d99a08693d476b98760690947}{SDL\+\_\+blit}}) (struct \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, struct \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\begin{DoxyCompactList}\small\item\em The type of function used for surface blitting functions. \end{DoxyCompactList}\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} (Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}{SDL\+\_\+\+Create\+RGBSurface\+With\+Format}} (Uint32 flags, int width, int height, int depth, Uint32 format)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From}} (void $\ast$pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_a0c5dee1a61ebc865b045a0f1165d55fb}{SDL\+\_\+\+Create\+RGBSurface\+With\+Format\+From}} (void $\ast$pixels, int width, int height, int depth, int pitch, Uint32 format)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a72c780465293acb1f586995943422a17}{SDL\+\_\+\+Set\+Surface\+Palette}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$palette)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}{SDL\+\_\+\+Lock\+Surface}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}{SDL\+\_\+\+Unlock\+Surface}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}{SDL\+\_\+\+Load\+BMP\+\_\+\+RW}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src, int freesrc)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}{SDL\+\_\+\+Save\+BMP\+\_\+\+RW}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, int freedst)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_ae2f6d70b8071e83e0c84241dbdcd3a3b}{SDL\+\_\+\+Set\+Surface\+RLE}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, int flag)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__surface_8h_abdc58e9ce47e2693230a3a1389b1bfb6}{SDL\+\_\+\+Has\+Surface\+RLE}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a4cbe831b210dc900cb93101352357b73}{SDL\+\_\+\+Set\+Color\+Key}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, int flag, Uint32 key)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__surface_8h_a31ca900bd39b6805fc8586472be18c90}{SDL\+\_\+\+Has\+Color\+Key}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a2ff80a244bad20f1c4fa85adf1e1deb9}{SDL\+\_\+\+Get\+Color\+Key}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, Uint32 $\ast$key)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a4edf978396e3f562d43c672630e0ca71}{SDL\+\_\+\+Set\+Surface\+Color\+Mod}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, Uint8 r, Uint8 g, Uint8 b)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a5db1ae32b7884b598d86424e205c3a86}{SDL\+\_\+\+Get\+Surface\+Color\+Mod}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, Uint8 $\ast$r, Uint8 $\ast$g, Uint8 $\ast$b)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a0035f0239f0588d16c57aff7672be174}{SDL\+\_\+\+Set\+Surface\+Alpha\+Mod}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, Uint8 alpha)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a09a99bb24420857e85071e39607678f6}{SDL\+\_\+\+Get\+Surface\+Alpha\+Mod}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, Uint8 $\ast$alpha)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}{SDL\+\_\+\+Set\+Surface\+Blend\+Mode}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} blend\+Mode)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a95570c617879f45bf7e2e4d330534f6b}{SDL\+\_\+\+Get\+Surface\+Blend\+Mode}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} $\ast$blend\+Mode)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{SDL\+\_\+\+Set\+Clip\+Rect}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rect)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__surface_8h_a7d7f71b94748a1b0db3b5b769834ed27}{SDL\+\_\+\+Get\+Clip\+Rect}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rect)
+\item 
+\mbox{\Hypertarget{SDL__surface_8h_afbd136cb2ab3a50abb794677d703683e}\label{SDL__surface_8h_afbd136cb2ab3a50abb794677d703683e}} 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL {\bfseries SDL\+\_\+\+Duplicate\+Surface} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_a65fb480a0ac01b69f6999f48a6fd985b}{SDL\+\_\+\+Convert\+Surface}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$fmt, Uint32 flags)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$SDLCALL \mbox{\hyperlink{SDL__surface_8h_aec0b84e7d50b9cc84bd9e785170ce2cd}{SDL\+\_\+\+Convert\+Surface\+Format}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, Uint32 pixel\+\_\+format, Uint32 flags)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a339c5728a1181e2d6334ad07e1e84440}{SDL\+\_\+\+Convert\+Pixels}} (int width, int height, Uint32 src\+\_\+format, const void $\ast$src, int src\+\_\+pitch, Uint32 dst\+\_\+format, void $\ast$dst, int dst\+\_\+pitch)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_ab6af6b224b687e7c6413106b785743d3}{SDL\+\_\+\+Premultiply\+Alpha}} (int width, int height, Uint32 src\+\_\+format, const void $\ast$src, int src\+\_\+pitch, Uint32 dst\+\_\+format, void $\ast$dst, int dst\+\_\+pitch)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a98b3595458c6271303d6470cb2b2c721}{SDL\+\_\+\+Fill\+Rect}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rect, Uint32 color)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a7b893162f400b8193ff6ca628ec784b6}{SDL\+\_\+\+Fill\+Rects}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rects, int count, Uint32 color)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}{SDL\+\_\+\+Upper\+Blit}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a82bd1c0e0886d77e287207fe6351bf87}{SDL\+\_\+\+Lower\+Blit}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_aee44fe7d5dba376a971793d70ffcf55c}{SDL\+\_\+\+Soft\+Stretch}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_ac2fe0fda20d38a16ec1802da9d6e49a0}{SDL\+\_\+\+Soft\+Stretch\+Linear}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a90ac01634e9ee33764fcf5ec7bc43c46}{SDL\+\_\+\+Upper\+Blit\+Scaled}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__surface_8h_a5c6b2f06726600d41ff75ff259d4383b}{SDL\+\_\+\+Lower\+Blit\+Scaled}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$src, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$srcrect, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$dst, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$dstrect)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__surface_8h_a35875bf88b2d78e0990f5f13ef1cd0e1}{SDL\+\_\+\+Set\+YUVConversion\+Mode}} (\mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} mode)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} SDLCALL \mbox{\hyperlink{SDL__surface_8h_a61d2c4412423e5d1a0e3426ee678d262}{SDL\+\_\+\+Get\+YUVConversion\+Mode}} (void)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} SDLCALL \mbox{\hyperlink{SDL__surface_8h_a1cfad98219e074988d0c5731e304cda4}{SDL\+\_\+\+Get\+YUVConversion\+Mode\+For\+Resolution}} (int width, int height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header file for \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} definition and management functions. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}\label{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_BlitSurface@{SDL\_BlitSurface}}
+\index{SDL\_BlitSurface@{SDL\_BlitSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BlitSurface}{SDL\_BlitSurface}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Blit\+Surface~\mbox{\hyperlink{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}{SDL\+\_\+\+Upper\+Blit}}}
+
+Performs a fast blit from the source surface to the destination surface.
+
+This assumes that the source and destination rectangles are the same size. If either {\ttfamily srcrect} or {\ttfamily dstrect} are NULL, the entire surface ({\ttfamily src} or {\ttfamily dst}) is copied. The final blit rectangles are saved in {\ttfamily srcrect} and {\ttfamily dstrect} after all clipping is performed.
+
+\begin{DoxyReturn}{Renvoie}
+0 if the blit is successful, otherwise it returns -\/1.
+\end{DoxyReturn}
+The blit function should not be called on a locked surface.
+
+The blit semantics for surfaces with and without blending and colorkey are defined as follows\+: \begin{DoxyVerb}RGBA->RGB:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source alpha-channel and per-surface alpha)
+    SDL_SRCCOLORKEY ignored.
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB.
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    RGB values of the source color key, ignoring alpha in the
+    comparison.
+
+RGB->RGBA:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source per-surface alpha)
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB, set destination alpha to source per-surface alpha value.
+  both:
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    source color key.
+
+RGBA->RGBA:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source alpha-channel and per-surface alpha)
+    SDL_SRCCOLORKEY ignored.
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy all of RGBA to the destination.
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    RGB values of the source color key, ignoring alpha in the
+    comparison.
+
+RGB->RGB:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source per-surface alpha)
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB.
+  both:
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    source color key.
+\end{DoxyVerb}
+
+
+You should call \mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface()}} unless you know exactly how SDL blitting works internally and how to use the other blit functions. \mbox{\Hypertarget{SDL__surface_8h_a2d3381f5c76aec3fea3f8b990c2e9f6d}\label{SDL__surface_8h_a2d3381f5c76aec3fea3f8b990c2e9f6d}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_DONTFREE@{SDL\_DONTFREE}}
+\index{SDL\_DONTFREE@{SDL\_DONTFREE}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DONTFREE}{SDL\_DONTFREE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+DONTFREE~0x00000004}
+
+Surface is referenced internally \mbox{\Hypertarget{SDL__surface_8h_ae63aa646481001be542220a8733c3ce0}\label{SDL__surface_8h_ae63aa646481001be542220a8733c3ce0}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_LoadBMP@{SDL\_LoadBMP}}
+\index{SDL\_LoadBMP@{SDL\_LoadBMP}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadBMP}{SDL\_LoadBMP}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Load\+BMP(\begin{DoxyParamCaption}\item[{}]{file }\end{DoxyParamCaption})~\mbox{\hyperlink{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}{SDL\+\_\+\+Load\+BMP\+\_\+\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}), 1)}
+
+Load a surface from a file.
+
+Convenience macro. \mbox{\Hypertarget{SDL__surface_8h_aba3239116c763175b6ea41ef78b72091}\label{SDL__surface_8h_aba3239116c763175b6ea41ef78b72091}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_MUSTLOCK@{SDL\_MUSTLOCK}}
+\index{SDL\_MUSTLOCK@{SDL\_MUSTLOCK}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MUSTLOCK}{SDL\_MUSTLOCK}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MUSTLOCK(\begin{DoxyParamCaption}\item[{}]{S }\end{DoxyParamCaption})~(((S)-\/$>$flags \& \mbox{\hyperlink{SDL__surface_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}{SDL\+\_\+\+RLEACCEL}}) != 0)}
+
+Evaluates to true if the surface needs to be locked before access. \mbox{\Hypertarget{SDL__surface_8h_a4a5f795a69ac626fba73c4bd0bfd9626}\label{SDL__surface_8h_a4a5f795a69ac626fba73c4bd0bfd9626}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_PREALLOC@{SDL\_PREALLOC}}
+\index{SDL\_PREALLOC@{SDL\_PREALLOC}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PREALLOC}{SDL\_PREALLOC}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+PREALLOC~0x00000001}
+
+Surface uses preallocated memory \mbox{\Hypertarget{SDL__surface_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}\label{SDL__surface_8h_a3b3d53ad7ba0b7294ca25251d88d40fb}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_RLEACCEL@{SDL\_RLEACCEL}}
+\index{SDL\_RLEACCEL@{SDL\_RLEACCEL}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RLEACCEL}{SDL\_RLEACCEL}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RLEACCEL~0x00000002}
+
+Surface is RLE encoded \mbox{\Hypertarget{SDL__surface_8h_a425e7a69acbdf2bd9ba46d332d917320}\label{SDL__surface_8h_a425e7a69acbdf2bd9ba46d332d917320}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SaveBMP@{SDL\_SaveBMP}}
+\index{SDL\_SaveBMP@{SDL\_SaveBMP}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SaveBMP}{SDL\_SaveBMP}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Save\+BMP(\begin{DoxyParamCaption}\item[{}]{surface,  }\item[{}]{file }\end{DoxyParamCaption})~        \mbox{\hyperlink{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}{SDL\+\_\+\+Save\+BMP\+\_\+\+RW}}(surface, \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}wb\char`\"{}), 1)}
+
+Save a surface to a file.
+
+Convenience macro. \mbox{\Hypertarget{SDL__surface_8h_a48a8fb403cb1513b0f689b532dc75861}\label{SDL__surface_8h_a48a8fb403cb1513b0f689b532dc75861}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SIMD\_ALIGNED@{SDL\_SIMD\_ALIGNED}}
+\index{SDL\_SIMD\_ALIGNED@{SDL\_SIMD\_ALIGNED}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SIMD\_ALIGNED}{SDL\_SIMD\_ALIGNED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+SIMD\+\_\+\+ALIGNED~0x00000008}
+
+Surface uses aligned memory \mbox{\Hypertarget{SDL__surface_8h_a59c7111f96872f973d0f058362761776}\label{SDL__surface_8h_a59c7111f96872f973d0f058362761776}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SWSURFACE@{SDL\_SWSURFACE}}
+\index{SDL\_SWSURFACE@{SDL\_SWSURFACE}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SWSURFACE}{SDL\_SWSURFACE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+SWSURFACE~0}
+
+Just here for compatibility 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__surface_8h_ad894d177fae95d7a1c0d23597b69e569}\label{SDL__surface_8h_ad894d177fae95d7a1c0d23597b69e569}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_Surface@{SDL\_Surface}}
+\index{SDL\_Surface@{SDL\_Surface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Surface}{SDL\_Surface}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}}
+
+
+
+A collection of pixels used in software blitting. 
+
+\begin{DoxyNote}{Note}
+This structure should be treated as read-\/only, except for {\ttfamily pixels}, which, if not NULL, contains the raw pixel data for the surface. 
+\end{DoxyNote}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}\label{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_YUV\_CONVERSION\_MODE@{SDL\_YUV\_CONVERSION\_MODE}}
+\index{SDL\_YUV\_CONVERSION\_MODE@{SDL\_YUV\_CONVERSION\_MODE}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_YUV\_CONVERSION\_MODE}{SDL\_YUV\_CONVERSION\_MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}}}
+
+
+
+The formula used for converting between YUV and RGB. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_YUV\_CONVERSION\_JPEG@{SDL\_YUV\_CONVERSION\_JPEG}!SDL\_surface.h@{SDL\_surface.h}}\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_YUV\_CONVERSION\_JPEG@{SDL\_YUV\_CONVERSION\_JPEG}}}\mbox{\Hypertarget{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a779237ffb78ee935518b83e8ab8a35dc}\label{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a779237ffb78ee935518b83e8ab8a35dc}} 
+SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+JPEG&Full range JPEG \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_YUV\_CONVERSION\_BT601@{SDL\_YUV\_CONVERSION\_BT601}!SDL\_surface.h@{SDL\_surface.h}}\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_YUV\_CONVERSION\_BT601@{SDL\_YUV\_CONVERSION\_BT601}}}\mbox{\Hypertarget{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a58058f0ed3146de73b031e256aa2aaaa}\label{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a58058f0ed3146de73b031e256aa2aaaa}} 
+SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+BT601&BT.\+601 (the default) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_YUV\_CONVERSION\_BT709@{SDL\_YUV\_CONVERSION\_BT709}!SDL\_surface.h@{SDL\_surface.h}}\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_YUV\_CONVERSION\_BT709@{SDL\_YUV\_CONVERSION\_BT709}}}\mbox{\Hypertarget{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a806aeb86ff618a298206cbf921c0202a}\label{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446a806aeb86ff618a298206cbf921c0202a}} 
+SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+BT709&BT.\+709 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_YUV\_CONVERSION\_AUTOMATIC@{SDL\_YUV\_CONVERSION\_AUTOMATIC}!SDL\_surface.h@{SDL\_surface.h}}\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_YUV\_CONVERSION\_AUTOMATIC@{SDL\_YUV\_CONVERSION\_AUTOMATIC}}}\mbox{\Hypertarget{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446acbf0cb1b718195c6c0960d4471a5ed0a}\label{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446acbf0cb1b718195c6c0960d4471a5ed0a}} 
+SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+AUTOMATIC&BT.\+601 for SD content, BT.\+709 for HD content \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__surface_8h_a339c5728a1181e2d6334ad07e1e84440}\label{SDL__surface_8h_a339c5728a1181e2d6334ad07e1e84440}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_ConvertPixels@{SDL\_ConvertPixels}}
+\index{SDL\_ConvertPixels@{SDL\_ConvertPixels}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ConvertPixels()}{SDL\_ConvertPixels()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Convert\+Pixels (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{Uint32}]{src\+\_\+format,  }\item[{const void $\ast$}]{src,  }\item[{int}]{src\+\_\+pitch,  }\item[{Uint32}]{dst\+\_\+format,  }\item[{void $\ast$}]{dst,  }\item[{int}]{dst\+\_\+pitch }\end{DoxyParamCaption})}
+
+Copy a block of pixels of one format to another format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em width} & the width of the block to copy, in pixels \\
+\hline
+{\em height} & the height of the block to copy, in pixels \\
+\hline
+{\em src\+\_\+format} & an SDL\+\_\+\+Pixel\+Format\+Enum value of the {\ttfamily src} pixels format \\
+\hline
+{\em src} & a pointer to the source pixels \\
+\hline
+{\em src\+\_\+pitch} & the pitch of the source pixels, in bytes \\
+\hline
+{\em dst\+\_\+format} & an SDL\+\_\+\+Pixel\+Format\+Enum value of the {\ttfamily dst} pixels format \\
+\hline
+{\em dst} & a pointer to be filled in with new pixel data \\
+\hline
+{\em dst\+\_\+pitch} & the pitch of the destination pixels, in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_a65fb480a0ac01b69f6999f48a6fd985b}\label{SDL__surface_8h_a65fb480a0ac01b69f6999f48a6fd985b}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_ConvertSurface@{SDL\_ConvertSurface}}
+\index{SDL\_ConvertSurface@{SDL\_ConvertSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ConvertSurface()}{SDL\_ConvertSurface()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Convert\+Surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{fmt,  }\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Copy an existing surface to a new surface of the specified format.
+
+This function is used to optimize images for faster {\itshape repeat} blitting. This is accomplished by converting the original and storing the result as a new surface. The new, optimized surface can then be used as the source for future blits, making them faster.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the existing \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to convert \\
+\hline
+{\em fmt} & the \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure that the new surface is optimized for \\
+\hline
+{\em flags} & the flags are unused and should be set to 0; this is a leftover from SDL 1.\+2\textquotesingle{}s API \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}{SDL\+\_\+\+Alloc\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aec0b84e7d50b9cc84bd9e785170ce2cd}{SDL\+\_\+\+Convert\+Surface\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_aec0b84e7d50b9cc84bd9e785170ce2cd}\label{SDL__surface_8h_aec0b84e7d50b9cc84bd9e785170ce2cd}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_ConvertSurfaceFormat@{SDL\_ConvertSurfaceFormat}}
+\index{SDL\_ConvertSurfaceFormat@{SDL\_ConvertSurfaceFormat}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ConvertSurfaceFormat()}{SDL\_ConvertSurfaceFormat()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Convert\+Surface\+Format (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{Uint32}]{pixel\+\_\+format,  }\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Copy an existing surface to a new surface of the specified format enum.
+
+This function operates just like \mbox{\hyperlink{SDL__surface_8h_a65fb480a0ac01b69f6999f48a6fd985b}{SDL\+\_\+\+Convert\+Surface()}}, but accepts an SDL\+\_\+\+Pixel\+Format\+Enum value instead of an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure. As such, it might be easier to call but it doesn\textquotesingle{}t have access to palette information for the destination surface, in case that would be important.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the existing \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to convert \\
+\hline
+{\em pixel\+\_\+format} & the SDL\+\_\+\+Pixel\+Format\+Enum that the new surface is optimized for \\
+\hline
+{\em flags} & the flags are unused and should be set to 0; this is a leftover from SDL 1.\+2\textquotesingle{}s API \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}{SDL\+\_\+\+Alloc\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a65fb480a0ac01b69f6999f48a6fd985b}{SDL\+\_\+\+Convert\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}\label{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_CreateRGBSurface@{SDL\_CreateRGBSurface}}
+\index{SDL\_CreateRGBSurface@{SDL\_CreateRGBSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateRGBSurface()}{SDL\_CreateRGBSurface()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Create\+RGBSurface (\begin{DoxyParamCaption}\item[{Uint32}]{flags,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{Uint32}]{Rmask,  }\item[{Uint32}]{Gmask,  }\item[{Uint32}]{Bmask,  }\item[{Uint32}]{Amask }\end{DoxyParamCaption})}
+
+Allocate a new RGB surface.
+
+If {\ttfamily depth} is 4 or 8 bits, an empty palette is allocated for the surface. If {\ttfamily depth} is greater than 8 bits, the pixel format is set using the \mbox{[}RGBA\mbox{]}mask parameters.
+
+The \mbox{[}RGBA\mbox{]}mask parameters are the bitmasks used to extract that color from a pixel. For instance, {\ttfamily Rmask} being 0x\+FF000000 means the red data is stored in the most significant byte. Using zeros for the RGB masks sets a default value, based on the depth. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\_CreateRGBSurface}}(0,w,h,32,0,0,0,0);}
+
+\end{DoxyCode}
+
+
+However, using zero for the Amask results in an Amask of 0.
+
+By default surfaces with an alpha mask are set up for blending as with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}{SDL\_SetSurfaceBlendMode}}(surface, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883}{SDL\_BLENDMODE\_BLEND}})}
+
+\end{DoxyCode}
+
+
+You can change this by calling \mbox{\hyperlink{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}{SDL\+\_\+\+Set\+Surface\+Blend\+Mode()}} and selecting a different {\ttfamily blend\+Mode}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & the flags are unused and should be set to 0 \\
+\hline
+{\em width} & the width of the surface \\
+\hline
+{\em height} & the height of the surface \\
+\hline
+{\em depth} & the depth of the surface in bits \\
+\hline
+{\em Rmask} & the red mask for the pixels \\
+\hline
+{\em Gmask} & the green mask for the pixels \\
+\hline
+{\em Bmask} & the blue mask for the pixels \\
+\hline
+{\em Amask} & the alpha mask for the pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}{SDL\+\_\+\+Create\+RGBSurface\+With\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}\label{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_CreateRGBSurfaceFrom@{SDL\_CreateRGBSurfaceFrom}}
+\index{SDL\_CreateRGBSurfaceFrom@{SDL\_CreateRGBSurfaceFrom}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateRGBSurfaceFrom()}{SDL\_CreateRGBSurfaceFrom()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Create\+RGBSurface\+From (\begin{DoxyParamCaption}\item[{void $\ast$}]{pixels,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{int}]{pitch,  }\item[{Uint32}]{Rmask,  }\item[{Uint32}]{Gmask,  }\item[{Uint32}]{Bmask,  }\item[{Uint32}]{Amask }\end{DoxyParamCaption})}
+
+Allocate a new RGB surface with existing pixel data.
+
+This function operates mostly like \mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface()}}, except it does not allocate memory for the pixel data, instead the caller provides an existing buffer of data for the surface to use.
+
+No copy is made of the pixel data. Pixel data is not managed automatically; you must free the surface before you free the pixel data.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixels} & a pointer to existing pixel data \\
+\hline
+{\em width} & the width of the surface \\
+\hline
+{\em height} & the height of the surface \\
+\hline
+{\em depth} & the depth of the surface in bits \\
+\hline
+{\em pitch} & the pitch of the surface in bytes \\
+\hline
+{\em Rmask} & the red mask for the pixels \\
+\hline
+{\em Gmask} & the green mask for the pixels \\
+\hline
+{\em Bmask} & the blue mask for the pixels \\
+\hline
+{\em Amask} & the alpha mask for the pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}{SDL\+\_\+\+Create\+RGBSurface\+With\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}\label{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_CreateRGBSurfaceWithFormat@{SDL\_CreateRGBSurfaceWithFormat}}
+\index{SDL\_CreateRGBSurfaceWithFormat@{SDL\_CreateRGBSurfaceWithFormat}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateRGBSurfaceWithFormat()}{SDL\_CreateRGBSurfaceWithFormat()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Create\+RGBSurface\+With\+Format (\begin{DoxyParamCaption}\item[{Uint32}]{flags,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{Uint32}]{format }\end{DoxyParamCaption})}
+
+Allocate a new RGB surface with a specific pixel format.
+
+This function operates mostly like \mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface()}}, except instead of providing pixel color masks, you provide it with a predefined format from SDL\+\_\+\+Pixel\+Format\+Enum.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & the flags are unused and should be set to 0 \\
+\hline
+{\em width} & the width of the surface \\
+\hline
+{\em height} & the height of the surface \\
+\hline
+{\em depth} & the depth of the surface in bits \\
+\hline
+{\em format} & the SDL\+\_\+\+Pixel\+Format\+Enum for the new surface\textquotesingle{}s pixel format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+5.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a0c5dee1a61ebc865b045a0f1165d55fb}\label{SDL__surface_8h_a0c5dee1a61ebc865b045a0f1165d55fb}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_CreateRGBSurfaceWithFormatFrom@{SDL\_CreateRGBSurfaceWithFormatFrom}}
+\index{SDL\_CreateRGBSurfaceWithFormatFrom@{SDL\_CreateRGBSurfaceWithFormatFrom}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateRGBSurfaceWithFormatFrom()}{SDL\_CreateRGBSurfaceWithFormatFrom()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Create\+RGBSurface\+With\+Format\+From (\begin{DoxyParamCaption}\item[{void $\ast$}]{pixels,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{int}]{pitch,  }\item[{Uint32}]{format }\end{DoxyParamCaption})}
+
+Allocate a new RGB surface with with a specific pixel format and existing pixel data.
+
+This function operates mostly like \mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From()}}, except instead of providing pixel color masks, you provide it with a predefined format from SDL\+\_\+\+Pixel\+Format\+Enum.
+
+No copy is made of the pixel data. Pixel data is not managed automatically; you must free the surface before you free the pixel data.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixels} & a pointer to existing pixel data \\
+\hline
+{\em width} & the width of the surface \\
+\hline
+{\em height} & the height of the surface \\
+\hline
+{\em depth} & the depth of the surface in bits \\
+\hline
+{\em pitch} & the pitch of the surface in bytes \\
+\hline
+{\em format} & the SDL\+\_\+\+Pixel\+Format\+Enum for the new surface\textquotesingle{}s pixel format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is created or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+5.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a831ca475e37e6aa41afef1f3c657717d}{SDL\+\_\+\+Create\+RGBSurface\+With\+Format}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a98b3595458c6271303d6470cb2b2c721}\label{SDL__surface_8h_a98b3595458c6271303d6470cb2b2c721}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_FillRect@{SDL\_FillRect}}
+\index{SDL\_FillRect@{SDL\_FillRect}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FillRect()}{SDL\_FillRect()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Fill\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rect,  }\item[{Uint32}]{color }\end{DoxyParamCaption})}
+
+Perform a fast fill of a rectangle with a specific color.
+
+{\ttfamily color} should be a pixel of the format used by the surface, and can be generated by \mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB()}} or \mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA()}}. If the color value contains an alpha component then the destination is simply filled with that alpha information, no blending takes place.
+
+If there is a clip rectangle set on the destination (set via \mbox{\hyperlink{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{SDL\+\_\+\+Set\+Clip\+Rect()}}), then this function will fill based on the intersection of the clip rectangle and {\ttfamily rect}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is the drawing target \\
+\hline
+{\em rect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle to fill, or NULL to fill the entire surface \\
+\hline
+{\em color} & the color to fill with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a7b893162f400b8193ff6ca628ec784b6}{SDL\+\_\+\+Fill\+Rects}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a7b893162f400b8193ff6ca628ec784b6}\label{SDL__surface_8h_a7b893162f400b8193ff6ca628ec784b6}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_FillRects@{SDL\_FillRects}}
+\index{SDL\_FillRects@{SDL\_FillRects}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FillRects()}{SDL\_FillRects()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Fill\+Rects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rects,  }\item[{int}]{count,  }\item[{Uint32}]{color }\end{DoxyParamCaption})}
+
+Perform a fast fill of a set of rectangles with a specific color.
+
+{\ttfamily color} should be a pixel of the format used by the surface, and can be generated by \mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB()}} or \mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA()}}. If the color value contains an alpha component then the destination is simply filled with that alpha information, no blending takes place.
+
+If there is a clip rectangle set on the destination (set via \mbox{\hyperlink{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{SDL\+\_\+\+Set\+Clip\+Rect()}}), then this function will fill based on the intersection of the clip rectangle and {\ttfamily rect}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is the drawing target \\
+\hline
+{\em rects} & an array of SDL\+\_\+\+Rects representing the rectangles to fill. \\
+\hline
+{\em count} & the number of rectangles in the array \\
+\hline
+{\em color} & the color to fill with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a98b3595458c6271303d6470cb2b2c721}{SDL\+\_\+\+Fill\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}\label{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_FreeSurface@{SDL\_FreeSurface}}
+\index{SDL\_FreeSurface@{SDL\_FreeSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreeSurface()}{SDL\_FreeSurface()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+Surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Free an RGB surface.
+
+It is safe to pass NULL to this function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} to free.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a25c74ddbc73538e9a4accb42e1c09971}{SDL\+\_\+\+Create\+RGBSurface\+From}} 
+
+\mbox{\hyperlink{SDL__surface_8h_ae63aa646481001be542220a8733c3ce0}{SDL\+\_\+\+Load\+BMP}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}{SDL\+\_\+\+Load\+BMP\+\_\+\+RW}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a7d7f71b94748a1b0db3b5b769834ed27}\label{SDL__surface_8h_a7d7f71b94748a1b0db3b5b769834ed27}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetClipRect@{SDL\_GetClipRect}}
+\index{SDL\_GetClipRect@{SDL\_GetClipRect}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetClipRect()}{SDL\_GetClipRect()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Get\+Clip\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Get the clipping rectangle for a surface.
+
+When {\ttfamily surface} is the destination of a blit, only the area within the clip rectangle is drawn into.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure representing the surface to be clipped \\
+\hline
+{\em rect} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure filled in with the clipping rectangle for the surface\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}{SDL\+\_\+\+Set\+Clip\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a2ff80a244bad20f1c4fa85adf1e1deb9}\label{SDL__surface_8h_a2ff80a244bad20f1c4fa85adf1e1deb9}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetColorKey@{SDL\_GetColorKey}}
+\index{SDL\_GetColorKey@{SDL\_GetColorKey}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetColorKey()}{SDL\_GetColorKey()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Color\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{Uint32 $\ast$}]{key }\end{DoxyParamCaption})}
+
+Get the color key (transparent pixel) for a surface.
+
+The color key is a pixel of the format used by the surface, as generated by \mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB()}}.
+
+If the surface doesn\textquotesingle{}t have color key enabled this function returns -\/1.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+{\em key} & a pointer filled in with the transparent pixel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a4cbe831b210dc900cb93101352357b73}{SDL\+\_\+\+Set\+Color\+Key}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a09a99bb24420857e85071e39607678f6}\label{SDL__surface_8h_a09a99bb24420857e85071e39607678f6}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetSurfaceAlphaMod@{SDL\_GetSurfaceAlphaMod}}
+\index{SDL\_GetSurfaceAlphaMod@{SDL\_GetSurfaceAlphaMod}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetSurfaceAlphaMod()}{SDL\_GetSurfaceAlphaMod()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Surface\+Alpha\+Mod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{Uint8 $\ast$}]{alpha }\end{DoxyParamCaption})}
+
+Get the additional alpha value used in blit operations.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+{\em alpha} & a pointer filled in with the current alpha value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a5db1ae32b7884b598d86424e205c3a86}{SDL\+\_\+\+Get\+Surface\+Color\+Mod}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a0035f0239f0588d16c57aff7672be174}{SDL\+\_\+\+Set\+Surface\+Alpha\+Mod}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a95570c617879f45bf7e2e4d330534f6b}\label{SDL__surface_8h_a95570c617879f45bf7e2e4d330534f6b}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetSurfaceBlendMode@{SDL\_GetSurfaceBlendMode}}
+\index{SDL\_GetSurfaceBlendMode@{SDL\_GetSurfaceBlendMode}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetSurfaceBlendMode()}{SDL\_GetSurfaceBlendMode()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Surface\+Blend\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} $\ast$}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Get the blend mode used for blit operations.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+{\em blend\+Mode} & a pointer filled in with the current SDL\+\_\+\+Blend\+Mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}{SDL\+\_\+\+Set\+Surface\+Blend\+Mode}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a5db1ae32b7884b598d86424e205c3a86}\label{SDL__surface_8h_a5db1ae32b7884b598d86424e205c3a86}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetSurfaceColorMod@{SDL\_GetSurfaceColorMod}}
+\index{SDL\_GetSurfaceColorMod@{SDL\_GetSurfaceColorMod}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetSurfaceColorMod()}{SDL\_GetSurfaceColorMod()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Surface\+Color\+Mod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{Uint8 $\ast$}]{r,  }\item[{Uint8 $\ast$}]{g,  }\item[{Uint8 $\ast$}]{b }\end{DoxyParamCaption})}
+
+Get the additional color value multiplied into blit operations.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+{\em r} & a pointer filled in with the current red color value \\
+\hline
+{\em g} & a pointer filled in with the current green color value \\
+\hline
+{\em b} & a pointer filled in with the current blue color value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a09a99bb24420857e85071e39607678f6}{SDL\+\_\+\+Get\+Surface\+Alpha\+Mod}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a4edf978396e3f562d43c672630e0ca71}{SDL\+\_\+\+Set\+Surface\+Color\+Mod}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a61d2c4412423e5d1a0e3426ee678d262}\label{SDL__surface_8h_a61d2c4412423e5d1a0e3426ee678d262}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetYUVConversionMode@{SDL\_GetYUVConversionMode}}
+\index{SDL\_GetYUVConversionMode@{SDL\_GetYUVConversionMode}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetYUVConversionMode()}{SDL\_GetYUVConversionMode()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} SDLCALL SDL\+\_\+\+Get\+YUVConversion\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the YUV conversion mode
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+8. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_a1cfad98219e074988d0c5731e304cda4}\label{SDL__surface_8h_a1cfad98219e074988d0c5731e304cda4}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_GetYUVConversionModeForResolution@{SDL\_GetYUVConversionModeForResolution}}
+\index{SDL\_GetYUVConversionModeForResolution@{SDL\_GetYUVConversionModeForResolution}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetYUVConversionModeForResolution()}{SDL\_GetYUVConversionModeForResolution()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}} SDLCALL SDL\+\_\+\+Get\+YUVConversion\+Mode\+For\+Resolution (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+Get the YUV conversion mode, returning the correct mode for the resolution when the current conversion mode is SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+AUTOMATIC
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+8. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_a31ca900bd39b6805fc8586472be18c90}\label{SDL__surface_8h_a31ca900bd39b6805fc8586472be18c90}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_HasColorKey@{SDL\_HasColorKey}}
+\index{SDL\_HasColorKey@{SDL\_HasColorKey}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_HasColorKey()}{SDL\_HasColorKey()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Has\+Color\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Returns whether the surface has a color key
+
+It is safe to pass a NULL {\ttfamily surface} here; it will return SDL\+\_\+\+FALSE.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the surface has a color key, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a4cbe831b210dc900cb93101352357b73}{SDL\+\_\+\+Set\+Color\+Key}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a2ff80a244bad20f1c4fa85adf1e1deb9}{SDL\+\_\+\+Get\+Color\+Key}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_abdc58e9ce47e2693230a3a1389b1bfb6}\label{SDL__surface_8h_abdc58e9ce47e2693230a3a1389b1bfb6}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_HasSurfaceRLE@{SDL\_HasSurfaceRLE}}
+\index{SDL\_HasSurfaceRLE@{SDL\_HasSurfaceRLE}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_HasSurfaceRLE()}{SDL\_HasSurfaceRLE()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Has\+Surface\+RLE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Returns whether the surface is RLE enabled
+
+It is safe to pass a NULL {\ttfamily surface} here; it will return SDL\+\_\+\+FALSE.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the surface is RLE enabled, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_ae2f6d70b8071e83e0c84241dbdcd3a3b}{SDL\+\_\+\+Set\+Surface\+RLE}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}\label{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_LoadBMP\_RW@{SDL\_LoadBMP\_RW}}
+\index{SDL\_LoadBMP\_RW@{SDL\_LoadBMP\_RW}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadBMP\_RW()}{SDL\_LoadBMP\_RW()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}}$\ast$ SDLCALL SDL\+\_\+\+Load\+BMP\+\_\+\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src,  }\item[{int}]{freesrc }\end{DoxyParamCaption})}
+
+Load a BMP image from a seekable SDL data stream.
+
+The new surface should be freed with \mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface()}}. Not doing so will result in a memory leak.
+
+src is an open \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} buffer, typically loaded with SDL\+\_\+\+RWFrom\+File. Alternitavely, you might also use the macro SDL\+\_\+\+Load\+BMP to load a bitmap from a file, convert it to an \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} and then close the file.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the data stream for the surface \\
+\hline
+{\em freesrc} & non-\/zero to close the stream after being read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a new \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure or NULL if there was an error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a7b8d4f9cc058822501896a2eed81220e}{SDL\+\_\+\+Free\+Surface}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+\mbox{\hyperlink{SDL__surface_8h_ae63aa646481001be542220a8733c3ce0}{SDL\+\_\+\+Load\+BMP}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}{SDL\+\_\+\+Save\+BMP\+\_\+\+RW}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}\label{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_LockSurface@{SDL\_LockSurface}}
+\index{SDL\_LockSurface@{SDL\_LockSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockSurface()}{SDL\_LockSurface()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Lock\+Surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Set up a surface for directly accessing the pixels.
+
+Between calls to \mbox{\hyperlink{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}{SDL\+\_\+\+Lock\+Surface()}} / \mbox{\hyperlink{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}{SDL\+\_\+\+Unlock\+Surface()}}, you can write to and read from {\ttfamily surface-\/$>$pixels}, using the pixel format stored in {\ttfamily surface-\/$>$format}. Once you are done accessing the surface, you should use \mbox{\hyperlink{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}{SDL\+\_\+\+Unlock\+Surface()}} to release it.
+
+Not all surfaces require locking. If {\ttfamily \mbox{\hyperlink{SDL__surface_8h_aba3239116c763175b6ea41ef78b72091}{SDL\+\_\+\+MUSTLOCK(surface)}}} evaluates to 0, then you can read and write to the surface at any time, and the pixel format of the surface will not change.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to be locked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aba3239116c763175b6ea41ef78b72091}{SDL\+\_\+\+MUSTLOCK}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}{SDL\+\_\+\+Unlock\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a82bd1c0e0886d77e287207fe6351bf87}\label{SDL__surface_8h_a82bd1c0e0886d77e287207fe6351bf87}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_LowerBlit@{SDL\_LowerBlit}}
+\index{SDL\_LowerBlit@{SDL\_LowerBlit}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LowerBlit()}{SDL\_LowerBlit()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Lower\+Blit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform low-\/level surface blitting only.
+
+This is a semi-\/private blit function and it performs low-\/level surface blitting, assuming the input rectangles have already been clipped.
+
+Unless you know what you\textquotesingle{}re doing, you should be using \mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface()}} instead.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to be copied from \\
+\hline
+{\em srcrect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle to be copied, or NULL to copy the entire surface \\
+\hline
+{\em dst} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is the blit target \\
+\hline
+{\em dstrect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle that is copied into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a5c6b2f06726600d41ff75ff259d4383b}\label{SDL__surface_8h_a5c6b2f06726600d41ff75ff259d4383b}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_LowerBlitScaled@{SDL\_LowerBlitScaled}}
+\index{SDL\_LowerBlitScaled@{SDL\_LowerBlitScaled}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LowerBlitScaled()}{SDL\_LowerBlitScaled()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Lower\+Blit\+Scaled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform low-\/level surface scaled blitting only.
+
+This is a semi-\/private function and it performs low-\/level surface blitting, assuming the input rectangles have already been clipped.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to be copied from \\
+\hline
+{\em srcrect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle to be copied \\
+\hline
+{\em dst} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure that is the blit target \\
+\hline
+{\em dstrect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle that is copied into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+SDL\+\_\+\+Blit\+Scaled 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_ab6af6b224b687e7c6413106b785743d3}\label{SDL__surface_8h_ab6af6b224b687e7c6413106b785743d3}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_PremultiplyAlpha@{SDL\_PremultiplyAlpha}}
+\index{SDL\_PremultiplyAlpha@{SDL\_PremultiplyAlpha}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PremultiplyAlpha()}{SDL\_PremultiplyAlpha()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Premultiply\+Alpha (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{Uint32}]{src\+\_\+format,  }\item[{const void $\ast$}]{src,  }\item[{int}]{src\+\_\+pitch,  }\item[{Uint32}]{dst\+\_\+format,  }\item[{void $\ast$}]{dst,  }\item[{int}]{dst\+\_\+pitch }\end{DoxyParamCaption})}
+
+Premultiply the alpha on a block of pixels.
+
+This is safe to use with src == dst, but not for other overlapping areas.
+
+This function is currently only implemented for SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB8888.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em width} & the width of the block to convert, in pixels \\
+\hline
+{\em height} & the height of the block to convert, in pixels \\
+\hline
+{\em src\+\_\+format} & an SDL\+\_\+\+Pixel\+Format\+Enum value of the {\ttfamily src} pixels format \\
+\hline
+{\em src} & a pointer to the source pixels \\
+\hline
+{\em src\+\_\+pitch} & the pitch of the source pixels, in bytes \\
+\hline
+{\em dst\+\_\+format} & an SDL\+\_\+\+Pixel\+Format\+Enum value of the {\ttfamily dst} pixels format \\
+\hline
+{\em dst} & a pointer to be filled in with premultiplied pixel data \\
+\hline
+{\em dst\+\_\+pitch} & the pitch of the destination pixels, in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}\label{SDL__surface_8h_aadc126a4edeafb5033d5e942cf32db6a}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SaveBMP\_RW@{SDL\_SaveBMP\_RW}}
+\index{SDL\_SaveBMP\_RW@{SDL\_SaveBMP\_RW}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SaveBMP\_RW()}{SDL\_SaveBMP\_RW()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Save\+BMP\+\_\+\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{int}]{freedst }\end{DoxyParamCaption})}
+
+Save a surface to a seekable SDL data stream in BMP format.
+
+Surfaces with a 24-\/bit, 32-\/bit and paletted 8-\/bit format get saved in the BMP directly. Other RGB formats with 8-\/bit or higher get converted to a 24-\/bit surface or, if they have an alpha mask or a colorkey, to a 32-\/bit surface before they are saved. YUV and paletted 1-\/bit and 4-\/bit formats are not supported.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure containing the image to be saved \\
+\hline
+{\em dst} & a data stream to save to \\
+\hline
+{\em freedst} & non-\/zero to close the stream after being written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aac1d1435b9fa8523d699c3a33264d559}{SDL\+\_\+\+Load\+BMP\+\_\+\+RW}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a425e7a69acbdf2bd9ba46d332d917320}{SDL\+\_\+\+Save\+BMP}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}\label{SDL__surface_8h_a6cf2c30be55f51fe9e4faf97e3f8d08b}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetClipRect@{SDL\_SetClipRect}}
+\index{SDL\_SetClipRect@{SDL\_SetClipRect}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetClipRect()}{SDL\_SetClipRect()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Set\+Clip\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Set the clipping rectangle for a surface.
+
+When {\ttfamily surface} is the destination of a blit, only the area within the clip rectangle is drawn into.
+
+Note that blits are automatically clipped to the edges of the source and destination surfaces.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to be clipped \\
+\hline
+{\em rect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the clipping rectangle, or NULL to disable clipping \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the rectangle intersects the surface, otherwise SDL\+\_\+\+FALSE and blits will be completely clipped.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a7d7f71b94748a1b0db3b5b769834ed27}{SDL\+\_\+\+Get\+Clip\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a4cbe831b210dc900cb93101352357b73}\label{SDL__surface_8h_a4cbe831b210dc900cb93101352357b73}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetColorKey@{SDL\_SetColorKey}}
+\index{SDL\_SetColorKey@{SDL\_SetColorKey}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetColorKey()}{SDL\_SetColorKey()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Color\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{int}]{flag,  }\item[{Uint32}]{key }\end{DoxyParamCaption})}
+
+Set the color key (transparent pixel) in a surface.
+
+The color key defines a pixel value that will be treated as transparent in a blit. For example, one can use this to specify that cyan pixels should be considered transparent, and therefore not rendered.
+
+It is a pixel of the format used by the surface, as generated by \mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB()}}.
+
+RLE acceleration can substantially speed up blitting of images with large horizontal runs of transparent pixels. See \mbox{\hyperlink{SDL__surface_8h_ae2f6d70b8071e83e0c84241dbdcd3a3b}{SDL\+\_\+\+Set\+Surface\+RLE()}} for details.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to update \\
+\hline
+{\em flag} & SDL\+\_\+\+TRUE to enable color key, SDL\+\_\+\+FALSE to disable color key \\
+\hline
+{\em key} & the transparent pixel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a2ff80a244bad20f1c4fa85adf1e1deb9}{SDL\+\_\+\+Get\+Color\+Key}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a0035f0239f0588d16c57aff7672be174}\label{SDL__surface_8h_a0035f0239f0588d16c57aff7672be174}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetSurfaceAlphaMod@{SDL\_SetSurfaceAlphaMod}}
+\index{SDL\_SetSurfaceAlphaMod@{SDL\_SetSurfaceAlphaMod}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetSurfaceAlphaMod()}{SDL\_SetSurfaceAlphaMod()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Surface\+Alpha\+Mod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{Uint8}]{alpha }\end{DoxyParamCaption})}
+
+Set an additional alpha value used in blit operations.
+
+When this surface is blitted, during the blit operation the source alpha value is modulated by this alpha value according to the following formula\+:
+
+{\ttfamily srcA = srcA $\ast$ (alpha / 255)}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to update \\
+\hline
+{\em alpha} & the alpha value multiplied into blit operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a09a99bb24420857e85071e39607678f6}{SDL\+\_\+\+Get\+Surface\+Alpha\+Mod}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a4edf978396e3f562d43c672630e0ca71}{SDL\+\_\+\+Set\+Surface\+Color\+Mod}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}\label{SDL__surface_8h_a35f5b3b64c503c4a8da01566f62976a9}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetSurfaceBlendMode@{SDL\_SetSurfaceBlendMode}}
+\index{SDL\_SetSurfaceBlendMode@{SDL\_SetSurfaceBlendMode}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetSurfaceBlendMode()}{SDL\_SetSurfaceBlendMode()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Surface\+Blend\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}}}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Set the blend mode used for blit operations.
+
+To copy a surface to another surface (or texture) without blending with the existing data, the blendmode of the SOURCE surface should be set to {\ttfamily SDL\+\_\+\+BLENDMODE\+\_\+\+NONE}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to update \\
+\hline
+{\em blend\+Mode} & the SDL\+\_\+\+Blend\+Mode to use for blit blending \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a95570c617879f45bf7e2e4d330534f6b}{SDL\+\_\+\+Get\+Surface\+Blend\+Mode}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a4edf978396e3f562d43c672630e0ca71}\label{SDL__surface_8h_a4edf978396e3f562d43c672630e0ca71}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetSurfaceColorMod@{SDL\_SetSurfaceColorMod}}
+\index{SDL\_SetSurfaceColorMod@{SDL\_SetSurfaceColorMod}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetSurfaceColorMod()}{SDL\_SetSurfaceColorMod()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Surface\+Color\+Mod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b }\end{DoxyParamCaption})}
+
+Set an additional color value multiplied into blit operations.
+
+When this surface is blitted, during the blit operation each source color channel is modulated by the appropriate color value according to the following formula\+:
+
+{\ttfamily srcC = srcC $\ast$ (color / 255)}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to update \\
+\hline
+{\em r} & the red color value multiplied into blit operations \\
+\hline
+{\em g} & the green color value multiplied into blit operations \\
+\hline
+{\em b} & the blue color value multiplied into blit operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a5db1ae32b7884b598d86424e205c3a86}{SDL\+\_\+\+Get\+Surface\+Color\+Mod}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a0035f0239f0588d16c57aff7672be174}{SDL\+\_\+\+Set\+Surface\+Alpha\+Mod}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a72c780465293acb1f586995943422a17}\label{SDL__surface_8h_a72c780465293acb1f586995943422a17}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetSurfacePalette@{SDL\_SetSurfacePalette}}
+\index{SDL\_SetSurfacePalette@{SDL\_SetSurfacePalette}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetSurfacePalette()}{SDL\_SetSurfacePalette()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Surface\+Palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$}]{palette }\end{DoxyParamCaption})}
+
+Set the palette used by a surface.
+
+A single palette can be shared with many surfaces.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to update \\
+\hline
+{\em palette} & the \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} structure to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_ae2f6d70b8071e83e0c84241dbdcd3a3b}\label{SDL__surface_8h_ae2f6d70b8071e83e0c84241dbdcd3a3b}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetSurfaceRLE@{SDL\_SetSurfaceRLE}}
+\index{SDL\_SetSurfaceRLE@{SDL\_SetSurfaceRLE}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetSurfaceRLE()}{SDL\_SetSurfaceRLE()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Surface\+RLE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{int}]{flag }\end{DoxyParamCaption})}
+
+Set the RLE acceleration hint for a surface.
+
+If RLE is enabled, color key and alpha blending blits are much faster, but the surface must be locked before directly accessing the pixels.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to optimize \\
+\hline
+{\em flag} & 0 to disable, non-\/zero to enable RLE acceleration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}{SDL\+\_\+\+Lock\+Surface}} 
+
+\mbox{\hyperlink{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}{SDL\+\_\+\+Unlock\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a35875bf88b2d78e0990f5f13ef1cd0e1}\label{SDL__surface_8h_a35875bf88b2d78e0990f5f13ef1cd0e1}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SetYUVConversionMode@{SDL\_SetYUVConversionMode}}
+\index{SDL\_SetYUVConversionMode@{SDL\_SetYUVConversionMode}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetYUVConversionMode()}{SDL\_SetYUVConversionMode()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Set\+YUVConversion\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__surface_8h_a00a564600207cec7a2cb50a6e20d2446}{SDL\+\_\+\+YUV\+\_\+\+CONVERSION\+\_\+\+MODE}}}]{mode }\end{DoxyParamCaption})}
+
+Set the YUV conversion mode
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+8. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_aee44fe7d5dba376a971793d70ffcf55c}\label{SDL__surface_8h_aee44fe7d5dba376a971793d70ffcf55c}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SoftStretch@{SDL\_SoftStretch}}
+\index{SDL\_SoftStretch@{SDL\_SoftStretch}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SoftStretch()}{SDL\_SoftStretch()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Soft\+Stretch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform a fast, low quality, stretch blit between two surfaces of the same format.
+
+Please use SDL\+\_\+\+Blit\+Scaled() instead.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_ac2fe0fda20d38a16ec1802da9d6e49a0}\label{SDL__surface_8h_ac2fe0fda20d38a16ec1802da9d6e49a0}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_SoftStretchLinear@{SDL\_SoftStretchLinear}}
+\index{SDL\_SoftStretchLinear@{SDL\_SoftStretchLinear}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SoftStretchLinear()}{SDL\_SoftStretchLinear()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Soft\+Stretch\+Linear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform bilinear scaling between two surfaces of the same format, 32BPP.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}\label{SDL__surface_8h_a56b93f51358b55d7fc213a3ba9b02c24}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_UnlockSurface@{SDL\_UnlockSurface}}
+\index{SDL\_UnlockSurface@{SDL\_UnlockSurface}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnlockSurface()}{SDL\_UnlockSurface()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Unlock\+Surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Release a surface after directly accessing the pixels.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & the \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} structure to be unlocked\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_a3d1da1c7ecdaa461fac51a10785f5077}{SDL\+\_\+\+Lock\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}\label{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_UpperBlit@{SDL\_UpperBlit}}
+\index{SDL\_UpperBlit@{SDL\_UpperBlit}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UpperBlit()}{SDL\_UpperBlit()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Upper\+Blit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform a fast blit from the source surface to the destination surface.
+
+\mbox{\hyperlink{SDL__surface_8h_ac418c4404813eeb32f4e1b24f9deae96}{SDL\+\_\+\+Upper\+Blit()}} has been replaced by \mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface()}}, which is merely a macro for this function with a less confusing name.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__surface_8h_aad8d7ebe5e953593cb7d91373e73ba9a}{SDL\+\_\+\+Blit\+Surface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__surface_8h_a90ac01634e9ee33764fcf5ec7bc43c46}\label{SDL__surface_8h_a90ac01634e9ee33764fcf5ec7bc43c46}} 
+\index{SDL\_surface.h@{SDL\_surface.h}!SDL\_UpperBlitScaled@{SDL\_UpperBlitScaled}}
+\index{SDL\_UpperBlitScaled@{SDL\_UpperBlitScaled}!SDL\_surface.h@{SDL\_surface.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UpperBlitScaled()}{SDL\_UpperBlitScaled()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Upper\+Blit\+Scaled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{src,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{srcrect,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Perform a scaled surface copy to a destination surface.
+
+\mbox{\hyperlink{SDL__surface_8h_a90ac01634e9ee33764fcf5ec7bc43c46}{SDL\+\_\+\+Upper\+Blit\+Scaled()}} has been replaced by SDL\+\_\+\+Blit\+Scaled(), which is merely a macro for this function with a less confusing name.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+SDL\+\_\+\+Blit\+Scaled 
+\end{DoxySeeAlso}

@@ -1,0 +1,259 @@
+\hypertarget{SDL__rect_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+rect.h}
+\label{SDL__rect_8h}\index{include/SDL2/SDL\_rect.h@{include/SDL2/SDL\_rect.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+pixels.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}}
+\item 
+struct \mbox{\hyperlink{structSDL__FPoint}{SDL\+\_\+\+FPoint}}
+\item 
+struct \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}}
+\item 
+struct \mbox{\hyperlink{structSDL__FRect}{SDL\+\_\+\+FRect}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} \mbox{\hyperlink{SDL__rect_8h_aa8e5504e162ce2079402a96ab24464b0}{SDL\+\_\+\+Point}}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__FPoint}{SDL\+\_\+\+FPoint}} \mbox{\hyperlink{SDL__rect_8h_ad2d04905f83d62ade9d6e215e3ac9874}{SDL\+\_\+\+FPoint}}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} \mbox{\hyperlink{SDL__rect_8h_a9e17b356ca55e6b653f4fe33c5357ed5}{SDL\+\_\+\+Rect}}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__FRect}{SDL\+\_\+\+FRect}} \mbox{\hyperlink{SDL__rect_8h_a9237dbcbeeba2308b0180aa51ec5ada5}{SDL\+\_\+\+FRect}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool \mbox{\hyperlink{SDL__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}{SDL\+\_\+\+Point\+In\+Rect}} (const \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} $\ast$p, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$r)
+\item 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool \mbox{\hyperlink{SDL__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c}{SDL\+\_\+\+Rect\+Empty}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$r)
+\item 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool \mbox{\hyperlink{SDL__rect_8h_a156979fd3561cf90b87741d11057262a}{SDL\+\_\+\+Rect\+Equals}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$a, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$b)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__rect_8h_a191ec0b069421d4a36304b475697e847}{SDL\+\_\+\+Has\+Intersection}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$A, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$B)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}{SDL\+\_\+\+Intersect\+Rect}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$A, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$B, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$result)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__rect_8h_a659f2c25335202888408c95195823f9c}{SDL\+\_\+\+Union\+Rect}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$A, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$B, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$result)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}{SDL\+\_\+\+Enclose\+Points}} (const \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} $\ast$points, int count, const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$clip, \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$result)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__rect_8h_acdabdcbeb7b7083f94a092daa26ce069}{SDL\+\_\+\+Intersect\+Rect\+And\+Line}} (const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rect, int $\ast$X1, int $\ast$Y1, int $\ast$X2, int $\ast$Y2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header file for SDL\+\_\+rect definition and management functions. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__rect_8h_ad2d04905f83d62ade9d6e215e3ac9874}\label{SDL__rect_8h_ad2d04905f83d62ade9d6e215e3ac9874}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_FPoint@{SDL\_FPoint}}
+\index{SDL\_FPoint@{SDL\_FPoint}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FPoint}{SDL\_FPoint}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__FPoint}{SDL\+\_\+\+FPoint}} \mbox{\hyperlink{structSDL__FPoint}{SDL\+\_\+\+FPoint}}}
+
+The structure that defines a point (floating point)
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}{SDL\+\_\+\+Enclose\+Points}} 
+
+\mbox{\hyperlink{SDL__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}{SDL\+\_\+\+Point\+In\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rect_8h_a9237dbcbeeba2308b0180aa51ec5ada5}\label{SDL__rect_8h_a9237dbcbeeba2308b0180aa51ec5ada5}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_FRect@{SDL\_FRect}}
+\index{SDL\_FRect@{SDL\_FRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FRect}{SDL\_FRect}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__FRect}{SDL\+\_\+\+FRect}} \mbox{\hyperlink{structSDL__FRect}{SDL\+\_\+\+FRect}}}
+
+A rectangle, with the origin at the upper left (floating point). \mbox{\Hypertarget{SDL__rect_8h_aa8e5504e162ce2079402a96ab24464b0}\label{SDL__rect_8h_aa8e5504e162ce2079402a96ab24464b0}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_Point@{SDL\_Point}}
+\index{SDL\_Point@{SDL\_Point}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Point}{SDL\_Point}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}}}
+
+The structure that defines a point (integer)
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}{SDL\+\_\+\+Enclose\+Points}} 
+
+\mbox{\hyperlink{SDL__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}{SDL\+\_\+\+Point\+In\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rect_8h_a9e17b356ca55e6b653f4fe33c5357ed5}\label{SDL__rect_8h_a9e17b356ca55e6b653f4fe33c5357ed5}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_Rect@{SDL\_Rect}}
+\index{SDL\_Rect@{SDL\_Rect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Rect}{SDL\_Rect}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}}}
+
+A rectangle, with the origin at the upper left (integer).
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c}{SDL\+\_\+\+Rect\+Empty}} 
+
+\mbox{\hyperlink{SDL__rect_8h_a156979fd3561cf90b87741d11057262a}{SDL\+\_\+\+Rect\+Equals}} 
+
+\mbox{\hyperlink{SDL__rect_8h_a191ec0b069421d4a36304b475697e847}{SDL\+\_\+\+Has\+Intersection}} 
+
+\mbox{\hyperlink{SDL__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}{SDL\+\_\+\+Intersect\+Rect}} 
+
+\mbox{\hyperlink{SDL__rect_8h_a659f2c25335202888408c95195823f9c}{SDL\+\_\+\+Union\+Rect}} 
+
+\mbox{\hyperlink{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}{SDL\+\_\+\+Enclose\+Points}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}\label{SDL__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_EnclosePoints@{SDL\_EnclosePoints}}
+\index{SDL\_EnclosePoints@{SDL\_EnclosePoints}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_EnclosePoints()}{SDL\_EnclosePoints()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Enclose\+Points (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} $\ast$}]{points,  }\item[{int}]{count,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{clip,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate a minimal rectangle enclosing a set of points.
+
+If {\ttfamily clip} is not NULL then only points inside of the clipping rectangle are considered.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em points} & an array of \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} structures representing points to be enclosed \\
+\hline
+{\em count} & the number of structures in the {\ttfamily points} array \\
+\hline
+{\em clip} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} used for clipping or NULL to enclose all points \\
+\hline
+{\em result} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure filled in with the minimal enclosing rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if any points were enclosed or SDL\+\_\+\+FALSE if all the points were outside of the clipping rectangle.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__rect_8h_a191ec0b069421d4a36304b475697e847}\label{SDL__rect_8h_a191ec0b069421d4a36304b475697e847}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_HasIntersection@{SDL\_HasIntersection}}
+\index{SDL\_HasIntersection@{SDL\_HasIntersection}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_HasIntersection()}{SDL\_HasIntersection()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Has\+Intersection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{A,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{B }\end{DoxyParamCaption})}
+
+Determine whether two rectangles intersect.
+
+If either pointer is NULL the function will return SDL\+\_\+\+FALSE.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the first rectangle \\
+\hline
+{\em B} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the second rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if there is an intersection, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}{SDL\+\_\+\+Intersect\+Rect}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}\label{SDL__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_IntersectRect@{SDL\_IntersectRect}}
+\index{SDL\_IntersectRect@{SDL\_IntersectRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IntersectRect()}{SDL\_IntersectRect()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Intersect\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{A,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{B,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate the intersection of two rectangles.
+
+If {\ttfamily result} is NULL then this function will return SDL\+\_\+\+FALSE.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the first rectangle \\
+\hline
+{\em B} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the second rectangle \\
+\hline
+{\em result} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure filled in with the intersection of rectangles {\ttfamily A} and {\ttfamily B} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if there is an intersection, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rect_8h_a191ec0b069421d4a36304b475697e847}{SDL\+\_\+\+Has\+Intersection}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rect_8h_acdabdcbeb7b7083f94a092daa26ce069}\label{SDL__rect_8h_acdabdcbeb7b7083f94a092daa26ce069}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_IntersectRectAndLine@{SDL\_IntersectRectAndLine}}
+\index{SDL\_IntersectRectAndLine@{SDL\_IntersectRectAndLine}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IntersectRectAndLine()}{SDL\_IntersectRectAndLine()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Intersect\+Rect\+And\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rect,  }\item[{int $\ast$}]{X1,  }\item[{int $\ast$}]{Y1,  }\item[{int $\ast$}]{X2,  }\item[{int $\ast$}]{Y2 }\end{DoxyParamCaption})}
+
+Calculate the intersection of a rectangle and line segment.
+
+This function is used to clip a line segment to a rectangle. A line segment contained entirely within the rectangle or that does not intersect will remain unchanged. A line segment that crosses the rectangle at either or both ends will be clipped to the boundary of the rectangle and the new coordinates saved in {\ttfamily X1}, {\ttfamily Y1}, {\ttfamily X2}, and/or {\ttfamily Y2} as necessary.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle to intersect \\
+\hline
+{\em X1} & a pointer to the starting X-\/coordinate of the line \\
+\hline
+{\em Y1} & a pointer to the starting Y-\/coordinate of the line \\
+\hline
+{\em X2} & a pointer to the ending X-\/coordinate of the line \\
+\hline
+{\em Y2} & a pointer to the ending Y-\/coordinate of the line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if there is an intersection, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}\label{SDL__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_PointInRect@{SDL\_PointInRect}}
+\index{SDL\_PointInRect@{SDL\_PointInRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PointInRect()}{SDL\_PointInRect()}}
+{\footnotesize\ttfamily SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool SDL\+\_\+\+Point\+In\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Point}{SDL\+\_\+\+Point}} $\ast$}]{p,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+Returns true if point resides inside a rectangle. \mbox{\Hypertarget{SDL__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c}\label{SDL__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_RectEmpty@{SDL\_RectEmpty}}
+\index{SDL\_RectEmpty@{SDL\_RectEmpty}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RectEmpty()}{SDL\_RectEmpty()}}
+{\footnotesize\ttfamily SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool SDL\+\_\+\+Rect\+Empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{r }\end{DoxyParamCaption})}
+
+Returns true if the rectangle has no area. \mbox{\Hypertarget{SDL__rect_8h_a156979fd3561cf90b87741d11057262a}\label{SDL__rect_8h_a156979fd3561cf90b87741d11057262a}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_RectEquals@{SDL\_RectEquals}}
+\index{SDL\_RectEquals@{SDL\_RectEquals}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RectEquals()}{SDL\_RectEquals()}}
+{\footnotesize\ttfamily SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool SDL\+\_\+\+Rect\+Equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{a,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+Returns true if the two rectangles are equal. \mbox{\Hypertarget{SDL__rect_8h_a659f2c25335202888408c95195823f9c}\label{SDL__rect_8h_a659f2c25335202888408c95195823f9c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_UnionRect@{SDL\_UnionRect}}
+\index{SDL\_UnionRect@{SDL\_UnionRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnionRect()}{SDL\_UnionRect()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Union\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{A,  }\item[{const \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{B,  }\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate the union of two rectangles.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the first rectangle \\
+\hline
+{\em B} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the second rectangle \\
+\hline
+{\em result} & an \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure filled in with the union of rectangles {\ttfamily A} and {\ttfamily B}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}

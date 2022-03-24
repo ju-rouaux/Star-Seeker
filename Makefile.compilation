@@ -1,0 +1,25 @@
+#Extension de l'executable en fonction du systeme d'exploitation
+EXTAPP =
+
+#Cibles supplémentaires pour le make all en fonction du systeme d'exploitation
+CIBLE_ARCH = 
+
+#Parametre pour la cible clean en fonction du systeme d'exploitation
+PARAM_CLEAN =
+
+#Parametres pour la cible init en fonction du systeme d'exploitation
+PARAM_INIT = 
+
+
+#Compilation sur Windows
+ifeq ($(ARCH),win)
+    LDFLAGS = -I./include -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -lm
+    EXTAPP = .exe
+    
+#Compilation sur Linux...
+else
+    LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -lm 
+    CIBLE_ARCH = init
+    PARAM_CLEAN = -f
+    PARAM_INIT = -p
+endif

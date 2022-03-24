@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/textures.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier textures.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+</div>
+<p><a href="textures_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__textures.html">t_textures</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient toutes les textures du jeu.  <a href="structt__textures.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a22c2b2aa23a461a79661060683611305"><td class="memItemLeft" align="right" valign="top"><a id="a22c2b2aa23a461a79661060683611305"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TAILLE_TILE</b>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a22c2b2aa23a461a79661060683611305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:aa8ef9b33c5c731be9eb0f229a920f3ff"><td class="memItemLeft" align="right" valign="top"><a id="aa8ef9b33c5c731be9eb0f229a920f3ff"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8h.html#aa8ef9b33c5c731be9eb0f229a920f3ff">t_tile_type</a> { <br />
+&#160;&#160;<b>AUCUN</b>
+, <b>SOL</b>
+, <b>MUR</b>
+, <b>PORTE_BAS</b>
+, <br />
+&#160;&#160;<b>PORTE_DROITE</b>
+, <b>PORTE_HAUT</b>
+, <b>PORTE_GAUCHE</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:aa8ef9b33c5c731be9eb0f229a920f3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiants des tiles d'un niveau. <br /></td></tr>
+<tr class="separator:aa8ef9b33c5c731be9eb0f229a920f3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a41fd62043a2b1eb9e3bb077386f274a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__textures.html">t_textures</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8h.html#a41fd62043a2b1eb9e3bb077386f274a5">chargerTextures</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a41fd62043a2b1eb9e3bb077386f274a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les textures du jeu.  <a href="textures_8h.html#a41fd62043a2b1eb9e3bb077386f274a5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a41fd62043a2b1eb9e3bb077386f274a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8h.html#a48d76eceb81b1e6477d3bb1f80060b7b">detruireTextures</a> (<a class="el" href="structt__textures.html">t_textures</a> **textures)</td></tr>
+<tr class="memdesc:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour les textures et mets son pointeur à NULL.  <a href="textures_8h.html#a48d76eceb81b1e6477d3bb1f80060b7b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f9546af007eb8aa8382f6a097a48a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8h.html#af7f9546af007eb8aa8382f6a097a48a1">splitTexture</a> (SDL_Rect *rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)</td></tr>
+<tr class="memdesc:af7f9546af007eb8aa8382f6a097a48a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outil permettant de découper une tileset et récupérer une partie de la texture.  <a href="textures_8h.html#af7f9546af007eb8aa8382f6a097a48a1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af7f9546af007eb8aa8382f6a097a48a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af37932c13d71c8796a36f8d86b6a7718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8h.html#af37932c13d71c8796a36f8d86b6a7718">tileNiveau</a> (SDL_Rect *rectangle, <a class="el" href="textures_8h.html#aa8ef9b33c5c731be9eb0f229a920f3ff">t_tile_type</a> type)</td></tr>
+<tr class="memdesc:af37932c13d71c8796a36f8d86b6a7718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré.  <a href="textures_8h.html#af37932c13d71c8796a36f8d86b6a7718">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af37932c13d71c8796a36f8d86b6a7718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a41fd62043a2b1eb9e3bb077386f274a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41fd62043a2b1eb9e3bb077386f274a5">&#9670;&nbsp;</a></span>chargerTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__textures.html">t_textures</a>* chargerTextures </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les textures du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur du renderer de la fenêtre.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur de la structure contenant les références à toutes les textures, NULL si echec. </dd></dl>
+
+</div>
+</div>
+<a id="a48d76eceb81b1e6477d3bb1f80060b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d76eceb81b1e6477d3bb1f80060b7b">&#9670;&nbsp;</a></span>detruireTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireTextures </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__textures.html">t_textures</a> **&#160;</td>
+          <td class="paramname"><em>textures</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour les textures et mets son pointeur à NULL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textures</td><td>La structure des textures du jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af7f9546af007eb8aa8382f6a097a48a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f9546af007eb8aa8382f6a097a48a1">&#9670;&nbsp;</a></span>splitTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void splitTexture </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Rect *&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tailleX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tailleY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>decalageX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>decalageY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outil permettant de découper une tileset et récupérer une partie de la texture. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rectangle</td><td>Rectangle où stocker le résultat de calcul </td></tr>
+    <tr><td class="paramname">x</td><td>Position en x de la tile désirée </td></tr>
+    <tr><td class="paramname">y</td><td>Position en y de la tile désirée </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af37932c13d71c8796a36f8d86b6a7718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af37932c13d71c8796a36f8d86b6a7718">&#9670;&nbsp;</a></span>tileNiveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tileNiveau </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Rect *&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="textures_8h.html#aa8ef9b33c5c731be9eb0f229a920f3ff">t_tile_type</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rectangle</td><td>Rectangle où stocker le résultat de calcul </td></tr>
+    <tr><td class="paramname">type</td><td>Type de tile désiré </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

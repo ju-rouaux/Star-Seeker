@@ -1,0 +1,89 @@
+\hypertarget{animation_8h}{}\doxysection{Référence du fichier include/animation.h}
+\label{animation_8h}\index{include/animation.h@{include/animation.h}}
+
+
+Module facilitant la gestion des animations.  
+
+
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{animation_8h_a16b8fb64ee762fcc60ee22284e546339}\label{animation_8h_a16b8fb64ee762fcc60ee22284e546339}} 
+typedef struct s\+\_\+animation {\bfseries t\+\_\+animation}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{animation_8h_a9262f363dbd745b12413017d9ff1a320}{update\+Animation}} (\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$animation, unsigned int temps)
+\begin{DoxyCompactList}\small\item\em Actualise l\textquotesingle{}animation si nécéssaire selon la configuration de la structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$ \mbox{\hyperlink{animation_8h_aef0f577f19ba9a2ce6dca8dc282e59f3}{creer\+Animation}} (int vitesse, int nb\+\_\+textures)
+\begin{DoxyCompactList}\small\item\em Génère une structure permettant d\textquotesingle{}animer un objet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{animation_8h_a1e29331d629c266556bb66cfa75e66e7}{detruire\+Animation}} (\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$$\ast$animation)
+\begin{DoxyCompactList}\small\item\em Détruit une structure animation et mets son pointeur à NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module facilitant la gestion des animations. 
+
+Ce module utilise les configurations données dans la structure \mbox{\hyperlink{structt__animation}{t\+\_\+animation}} pour se charger d\textquotesingle{}animer une texture avec update\+Animation.
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{animation_8h_aef0f577f19ba9a2ce6dca8dc282e59f3}\label{animation_8h_aef0f577f19ba9a2ce6dca8dc282e59f3}} 
+\index{animation.h@{animation.h}!creerAnimation@{creerAnimation}}
+\index{creerAnimation@{creerAnimation}!animation.h@{animation.h}}
+\doxysubsubsection{\texorpdfstring{creerAnimation()}{creerAnimation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__animation}{t\+\_\+animation}}$\ast$ creer\+Animation (\begin{DoxyParamCaption}\item[{int}]{vitesse,  }\item[{int}]{nb\+\_\+textures }\end{DoxyParamCaption})}
+
+
+
+Génère une structure permettant d\textquotesingle{}animer un objet. 
+
+Il est possible qu\textquotesingle{}une entité ne possède pas d\textquotesingle{}animation (pointeur NULL). Dans ce cas le champ id\+\_\+animation permet de sélectionner la bonne partie de la texture.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vitesse} & Temps en milisecondes avant le passage à la frame suivante de l\textquotesingle{}animation \\
+\hline
+{\em nb\+\_\+textures} & Nombre de frames différentes d\textquotesingle{}une animation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La structure animation ou NULL si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{animation_8h_a1e29331d629c266556bb66cfa75e66e7}\label{animation_8h_a1e29331d629c266556bb66cfa75e66e7}} 
+\index{animation.h@{animation.h}!detruireAnimation@{detruireAnimation}}
+\index{detruireAnimation@{detruireAnimation}!animation.h@{animation.h}}
+\doxysubsubsection{\texorpdfstring{detruireAnimation()}{detruireAnimation()}}
+{\footnotesize\ttfamily void detruire\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$$\ast$}]{animation }\end{DoxyParamCaption})}
+
+
+
+Détruit une structure animation et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em animation} & L\textquotesingle{}adresse du pointeur animation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{animation_8h_a9262f363dbd745b12413017d9ff1a320}\label{animation_8h_a9262f363dbd745b12413017d9ff1a320}} 
+\index{animation.h@{animation.h}!updateAnimation@{updateAnimation}}
+\index{updateAnimation@{updateAnimation}!animation.h@{animation.h}}
+\doxysubsubsection{\texorpdfstring{updateAnimation()}{updateAnimation()}}
+{\footnotesize\ttfamily void update\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$}]{animation,  }\item[{unsigned int}]{temps }\end{DoxyParamCaption})}
+
+
+
+Actualise l\textquotesingle{}animation si nécéssaire selon la configuration de la structure. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em animation} & L\textquotesingle{}animation à actualiser \\
+\hline
+{\em temps} & Le temps actuel du jeu \\
+\hline
+\end{DoxyParams}

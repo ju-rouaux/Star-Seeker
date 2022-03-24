@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <moteur.h>
+#include <audio.h>
 #include <partie.h>
 #include <generation_niveau.h>
 #include <menu.h>
@@ -25,13 +27,17 @@ void resetSauvegardeJoueur(t_moteur * moteur)
 int main(int argc, char * argv[])
 {
     t_moteur * moteur = NULL;
-    e_menu code = 1;
+    e_code_main code = 1;
 
     if(SDL_Init(SDL_INIT_VIDEO) != 0)
     {
         printf("Erreur d'initialisation de la SDL : %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
+
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+        printf("WARNING : Erreur d'initialisation de SDL MIXER : %s\n", Mix_GetError());
 
     if(TTF_Init()==-1) {
         printf("TTF_Init: %s\n", TTF_GetError());
@@ -40,27 +46,26 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
 
-    while(code != M_QUITTER){
-        switch(code){
-            case M_PRINCIPAL : code = chargerMenu(moteur);break;
+    while(code != JEU_QUITTER){
+        switch(code)
+        {
+            case M_PRINCIPAL : code = chargerMenu(moteur); break;
             case M_JEU : code = nouvellePartie(moteur, 5); break;
-            case M_CHARGER : code = chargerPartie(moteur);break;
-            case M_OPTIONS : code = chargerMenu_Options(moteur);break;
+            case M_CHARGER : code = chargerPartie(moteur); break;
+            case M_OPTIONS : code = chargerMenu_Options(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
-           // case M_QUITTER : code =
-            case ERROR_MENU : return ERROR_MENU; break;
-            case ERROR_MENU_TEXTURE : return ERROR_MENU_TEXTURE;break;
-            default : return ERROR_MENU;
+
+            default : 
+                printf("Erreur menu (code %i)\n", code);
+                code = JEU_QUITTER;
         }
     }
-    // nouvellePartie(moteur, 5);
-    //chargerPartie(moteur);
-
 
     detruireMoteur(&moteur);
-
+    
+    Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();
-    return 0;
 
+    return 0;
 }

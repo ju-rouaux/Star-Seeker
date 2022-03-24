@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/SDL2/SDL_vulkan.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SDL_vulkan.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SDL__vulkan_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Simple DirectMedia Layer</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C) 2017, Mark Callow</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  This software is provided &#39;as-is&#39;, without any express or implied</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  warranty.  In no event will the authors be held liable for any damages</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  arising from the use of this software.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  Permission is granted to anyone to use this software for any purpose,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  including commercial applications, and to alter it and redistribute it</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  freely, subject to the following restrictions:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  1. The origin of this software must not be misrepresented; you must not</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">     claim that you wrote the original software. If you use this software</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">     in a product, an acknowledgment in the product documentation would be</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     appreciated but is not required.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  2. Altered source versions must be plainly marked as such, and must not be</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     misrepresented as being the original software.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  3. This notice may not be removed or altered from any source distribution.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef SDL_vulkan_h_</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SDL_vulkan_h_</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__video_8h.html">SDL_video.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="begin__code_8h.html">begin_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/* Set up for C function definitions, even when using C++ */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/* Avoid including vulkan.h, don&#39;t define VkInstance if it&#39;s already included */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifdef VULKAN_H_</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define NO_SDL_VULKAN_TYPEDEFS</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifndef NO_SDL_VULKAN_TYPEDEFS</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#if defined(__LP64__) || defined(_WIN64) || defined(__x86_64__) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef struct object##_T *object;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef uint64_t object;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;VK_DEFINE_HANDLE(VkInstance)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkSurfaceKHR)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* !NO_SDL_VULKAN_TYPEDEFS */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">typedef</span> VkInstance SDL_vulkanInstance;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">typedef</span> VkSurfaceKHR SDL_vulkanSurface; <span class="comment">/* for compatibility with Tizen */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/* @{ */</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#a9fcc0942c8eaa67c3eff2e3526304b5b">  109</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__vulkan_8h.html#a9fcc0942c8eaa67c3eff2e3526304b5b">SDL_Vulkan_LoadLibrary</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#aee3a196487ad045f8c2b5a0708f5bf55">  121</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> *SDLCALL <a class="code" href="SDL__vulkan_8h.html#aee3a196487ad045f8c2b5a0708f5bf55">SDL_Vulkan_GetVkGetInstanceProcAddr</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#a92970fb6bc833a8cc65217638d599ff2">  130</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__vulkan_8h.html#a92970fb6bc833a8cc65217638d599ff2">SDL_Vulkan_UnloadLibrary</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#a46d6b686f9154e972d6254fc3757bd0d">  160</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__vulkan_8h.html#a46d6b686f9154e972d6254fc3757bd0d">SDL_Vulkan_GetInstanceExtensions</a>(<a class="code" href="SDL__video_8h.html#a55a196c7d3b8497538632c79ae1e6392">SDL_Window</a> *window,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                                                                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *pCount,</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                                                                  <span class="keyword">const</span> <span class="keywordtype">char</span> **pNames);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#a1613884948ea2b2671cea8f43462642b">  182</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__vulkan_8h.html#a1613884948ea2b2671cea8f43462642b">SDL_Vulkan_CreateSurface</a>(<a class="code" href="SDL__video_8h.html#a55a196c7d3b8497538632c79ae1e6392">SDL_Window</a> *window,</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                                                          VkInstance instance,</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                                                          VkSurfaceKHR* surface);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="SDL__vulkan_8h.html#a170ea51b623cbda9f945b37c037d7974">  204</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__vulkan_8h.html#a170ea51b623cbda9f945b37c037d7974">SDL_Vulkan_GetDrawableSize</a>(<a class="code" href="SDL__video_8h.html#a55a196c7d3b8497538632c79ae1e6392">SDL_Window</a> * window,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                                                        <span class="keywordtype">int</span> *w, <span class="keywordtype">int</span> *h);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">/* @} */</span><span class="comment">/* Vulkan support functions */</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">/* Ends C function definitions when using C++ */</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="close__code_8h.html">close_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SDL_vulkan_h_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aSDL__video_8h_html"><div class="ttname"><a href="SDL__video_8h.html">SDL_video.h</a></div></div>
+<div class="ttc" id="aSDL__video_8h_html_a55a196c7d3b8497538632c79ae1e6392"><div class="ttname"><a href="SDL__video_8h.html#a55a196c7d3b8497538632c79ae1e6392">SDL_Window</a></div><div class="ttdeci">struct SDL_Window SDL_Window</div><div class="ttdoc">The type used to identify a window.</div><div class="ttdef"><b>Definition:</b> SDL_video.h:95</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_a1613884948ea2b2671cea8f43462642b"><div class="ttname"><a href="SDL__vulkan_8h.html#a1613884948ea2b2671cea8f43462642b">SDL_Vulkan_CreateSurface</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_Vulkan_CreateSurface(SDL_Window *window, VkInstance instance, VkSurfaceKHR *surface)</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_a170ea51b623cbda9f945b37c037d7974"><div class="ttname"><a href="SDL__vulkan_8h.html#a170ea51b623cbda9f945b37c037d7974">SDL_Vulkan_GetDrawableSize</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_Vulkan_GetDrawableSize(SDL_Window *window, int *w, int *h)</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_a46d6b686f9154e972d6254fc3757bd0d"><div class="ttname"><a href="SDL__vulkan_8h.html#a46d6b686f9154e972d6254fc3757bd0d">SDL_Vulkan_GetInstanceExtensions</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_Vulkan_GetInstanceExtensions(SDL_Window *window, unsigned int *pCount, const char **pNames)</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_a92970fb6bc833a8cc65217638d599ff2"><div class="ttname"><a href="SDL__vulkan_8h.html#a92970fb6bc833a8cc65217638d599ff2">SDL_Vulkan_UnloadLibrary</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_Vulkan_UnloadLibrary(void)</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_a9fcc0942c8eaa67c3eff2e3526304b5b"><div class="ttname"><a href="SDL__vulkan_8h.html#a9fcc0942c8eaa67c3eff2e3526304b5b">SDL_Vulkan_LoadLibrary</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_Vulkan_LoadLibrary(const char *path)</div></div>
+<div class="ttc" id="aSDL__vulkan_8h_html_aee3a196487ad045f8c2b5a0708f5bf55"><div class="ttname"><a href="SDL__vulkan_8h.html#aee3a196487ad045f8c2b5a0708f5bf55">SDL_Vulkan_GetVkGetInstanceProcAddr</a></div><div class="ttdeci">DECLSPEC void *SDLCALL SDL_Vulkan_GetVkGetInstanceProcAddr(void)</div></div>
+<div class="ttc" id="abegin__code_8h_html"><div class="ttname"><a href="begin__code_8h.html">begin_code.h</a></div></div>
+<div class="ttc" id="aclose__code_8h_html"><div class="ttname"><a href="close__code_8h.html">close_code.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

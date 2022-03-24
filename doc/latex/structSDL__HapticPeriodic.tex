@@ -1,0 +1,199 @@
+\hypertarget{structSDL__HapticPeriodic}{}\doxysection{Référence de la structure SDL\+\_\+\+Haptic\+Periodic}
+\label{structSDL__HapticPeriodic}\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+
+
+A structure containing a template for a Periodic effect.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_ac53c5725e8cff012e9b90e01b7110869}{type}}
+\item 
+\mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} \mbox{\hyperlink{structSDL__HapticPeriodic_a2c4f27d4583187a7a994e79ad49083d3}{direction}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__HapticPeriodic_a0ef0b17c54aaa5c99886c2a618444026}{length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a8688d1c7ee6270ed290f6b474aef5ec9}{delay}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a9e0177354f4a285b8c98e4a31cd31752}{button}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a076d266e917098d89b2385b631629162}{interval}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a0e7e105b96308129b248d52b56a2a839}{period}}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticPeriodic_aad0ad2b00c7e6959da627663d91f7b94}{magnitude}}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticPeriodic_abc7aa9e9c0d546cb54189a7812fbe554}{offset}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a25e8c6aebc78bd74b9343fa228d25d8f}{phase}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_ab35eedce7107edc75640586159fe75bb}{attack\+\_\+length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_a79fc2217fea6db6ab3d89ad905d52ccb}{attack\+\_\+level}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_ae1c186d02304eae142a62dca72f50fa8}{fade\+\_\+length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticPeriodic_afa7713fc264959873f2a852fca4174fd}{fade\+\_\+level}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A structure containing a template for a Periodic effect. 
+
+The struct handles the following effects\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{SDL__haptic_8h_aa6d75adbfcdda5075078e7a2849da5c0}{SDL\+\_\+\+HAPTIC\+\_\+\+SINE}}
+\item \mbox{\hyperlink{SDL__haptic_8h_ae047624d8458ff6400887c37a36f86d3}{SDL\+\_\+\+HAPTIC\+\_\+\+LEFTRIGHT}}
+\item \mbox{\hyperlink{SDL__haptic_8h_ae8123eaa51511507375ba6ef9220fa46}{SDL\+\_\+\+HAPTIC\+\_\+\+TRIANGLE}}
+\item \mbox{\hyperlink{SDL__haptic_8h_ab8e3f40f3c2bcee8905d13b634363c3f}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHUP}}
+\item \mbox{\hyperlink{SDL__haptic_8h_afd64aa747034a7ccf4b55f6246525701}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHDOWN}}
+\end{DoxyItemize}
+
+A periodic effect consists in a wave-\/shaped effect that repeats itself over time. The type determines the shape of the wave and the parameters determine the dimensions of the wave.
+
+Phase is given by hundredth of a degree meaning that giving the phase a value of 9000 will displace it 25\% of its period. Here are sample values\+:
+\begin{DoxyItemize}
+\item 0\+: No phase displacement.
+\item 9000\+: Displaced 25\% of its period.
+\item 18000\+: Displaced 50\% of its period.
+\item 27000\+: Displaced 75\% of its period.
+\item 36000\+: Displaced 100\% of its period, same as 0, but 0 is preferred.
+\end{DoxyItemize}
+
+Examples\+: \begin{DoxyVerb}SDL_HAPTIC_SINE
+  __      __      __      __
+ /  \    /  \    /  \    /
+/    \__/    \__/    \__/
+
+SDL_HAPTIC_SQUARE
+ __    __    __    __    __
+|  |  |  |  |  |  |  |  |  |
+|  |__|  |__|  |__|  |__|  |
+
+SDL_HAPTIC_TRIANGLE
+  /\    /\    /\    /\    /\
+ /  \  /  \  /  \  /  \  /
+/    \/    \/    \/    \/
+
+SDL_HAPTIC_SAWTOOTHUP
+  /|  /|  /|  /|  /|  /|  /|
+ / | / | / | / | / | / | / |
+/  |/  |/  |/  |/  |/  |/  |
+
+SDL_HAPTIC_SAWTOOTHDOWN
+\  |\  |\  |\  |\  |\  |\  |
+ \ | \ | \ | \ | \ | \ | \ |
+  \|  \|  \|  \|  \|  \|  \|
+\end{DoxyVerb}
+
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__haptic_8h_aa6d75adbfcdda5075078e7a2849da5c0}{SDL\+\_\+\+HAPTIC\+\_\+\+SINE}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_ae047624d8458ff6400887c37a36f86d3}{SDL\+\_\+\+HAPTIC\+\_\+\+LEFTRIGHT}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_ae8123eaa51511507375ba6ef9220fa46}{SDL\+\_\+\+HAPTIC\+\_\+\+TRIANGLE}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_ab8e3f40f3c2bcee8905d13b634363c3f}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHUP}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_afd64aa747034a7ccf4b55f6246525701}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHDOWN}} 
+
+\mbox{\hyperlink{unionSDL__HapticEffect}{SDL\+\_\+\+Haptic\+Effect}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__HapticPeriodic_ab35eedce7107edc75640586159fe75bb}\label{structSDL__HapticPeriodic_ab35eedce7107edc75640586159fe75bb}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!attack\_length@{attack\_length}}
+\index{attack\_length@{attack\_length}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{attack\_length}{attack\_length}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::attack\+\_\+length}
+
+Duration of the attack. \mbox{\Hypertarget{structSDL__HapticPeriodic_a79fc2217fea6db6ab3d89ad905d52ccb}\label{structSDL__HapticPeriodic_a79fc2217fea6db6ab3d89ad905d52ccb}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!attack\_level@{attack\_level}}
+\index{attack\_level@{attack\_level}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{attack\_level}{attack\_level}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::attack\+\_\+level}
+
+Level at the start of the attack. \mbox{\Hypertarget{structSDL__HapticPeriodic_a9e0177354f4a285b8c98e4a31cd31752}\label{structSDL__HapticPeriodic_a9e0177354f4a285b8c98e4a31cd31752}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!button@{button}}
+\index{button@{button}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::button}
+
+Button that triggers the effect. \mbox{\Hypertarget{structSDL__HapticPeriodic_a8688d1c7ee6270ed290f6b474aef5ec9}\label{structSDL__HapticPeriodic_a8688d1c7ee6270ed290f6b474aef5ec9}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!delay@{delay}}
+\index{delay@{delay}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{delay}{delay}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::delay}
+
+Delay before starting the effect. \mbox{\Hypertarget{structSDL__HapticPeriodic_a2c4f27d4583187a7a994e79ad49083d3}\label{structSDL__HapticPeriodic_a2c4f27d4583187a7a994e79ad49083d3}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!direction@{direction}}
+\index{direction@{direction}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} SDL\+\_\+\+Haptic\+Periodic\+::direction}
+
+Direction of the effect. \mbox{\Hypertarget{structSDL__HapticPeriodic_ae1c186d02304eae142a62dca72f50fa8}\label{structSDL__HapticPeriodic_ae1c186d02304eae142a62dca72f50fa8}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!fade\_length@{fade\_length}}
+\index{fade\_length@{fade\_length}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{fade\_length}{fade\_length}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::fade\+\_\+length}
+
+Duration of the fade. \mbox{\Hypertarget{structSDL__HapticPeriodic_afa7713fc264959873f2a852fca4174fd}\label{structSDL__HapticPeriodic_afa7713fc264959873f2a852fca4174fd}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!fade\_level@{fade\_level}}
+\index{fade\_level@{fade\_level}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{fade\_level}{fade\_level}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::fade\+\_\+level}
+
+Level at the end of the fade. \mbox{\Hypertarget{structSDL__HapticPeriodic_a076d266e917098d89b2385b631629162}\label{structSDL__HapticPeriodic_a076d266e917098d89b2385b631629162}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!interval@{interval}}
+\index{interval@{interval}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::interval}
+
+How soon it can be triggered again after button. \mbox{\Hypertarget{structSDL__HapticPeriodic_a0ef0b17c54aaa5c99886c2a618444026}\label{structSDL__HapticPeriodic_a0ef0b17c54aaa5c99886c2a618444026}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!length@{length}}
+\index{length@{length}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Haptic\+Periodic\+::length}
+
+Duration of the effect. \mbox{\Hypertarget{structSDL__HapticPeriodic_aad0ad2b00c7e6959da627663d91f7b94}\label{structSDL__HapticPeriodic_aad0ad2b00c7e6959da627663d91f7b94}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!magnitude@{magnitude}}
+\index{magnitude@{magnitude}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{magnitude}{magnitude}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Periodic\+::magnitude}
+
+Peak value; if negative, equivalent to 180 degrees extra phase shift. \mbox{\Hypertarget{structSDL__HapticPeriodic_abc7aa9e9c0d546cb54189a7812fbe554}\label{structSDL__HapticPeriodic_abc7aa9e9c0d546cb54189a7812fbe554}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!offset@{offset}}
+\index{offset@{offset}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Periodic\+::offset}
+
+Mean value of the wave. \mbox{\Hypertarget{structSDL__HapticPeriodic_a0e7e105b96308129b248d52b56a2a839}\label{structSDL__HapticPeriodic_a0e7e105b96308129b248d52b56a2a839}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!period@{period}}
+\index{period@{period}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{period}{period}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::period}
+
+Period of the wave. \mbox{\Hypertarget{structSDL__HapticPeriodic_a25e8c6aebc78bd74b9343fa228d25d8f}\label{structSDL__HapticPeriodic_a25e8c6aebc78bd74b9343fa228d25d8f}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!phase@{phase}}
+\index{phase@{phase}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{phase}{phase}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::phase}
+
+Positive phase shift given by hundredth of a degree. \mbox{\Hypertarget{structSDL__HapticPeriodic_ac53c5725e8cff012e9b90e01b7110869}\label{structSDL__HapticPeriodic_ac53c5725e8cff012e9b90e01b7110869}} 
+\index{SDL\_HapticPeriodic@{SDL\_HapticPeriodic}!type@{type}}
+\index{type@{type}!SDL\_HapticPeriodic@{SDL\_HapticPeriodic}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Periodic\+::type}
+
+\mbox{\hyperlink{SDL__haptic_8h_aa6d75adbfcdda5075078e7a2849da5c0}{SDL\+\_\+\+HAPTIC\+\_\+\+SINE}}, \mbox{\hyperlink{SDL__haptic_8h_ae047624d8458ff6400887c37a36f86d3}{SDL\+\_\+\+HAPTIC\+\_\+\+LEFTRIGHT}}, \mbox{\hyperlink{SDL__haptic_8h_ae8123eaa51511507375ba6ef9220fa46}{SDL\+\_\+\+HAPTIC\+\_\+\+TRIANGLE}}, \mbox{\hyperlink{SDL__haptic_8h_ab8e3f40f3c2bcee8905d13b634363c3f}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHUP}} or \mbox{\hyperlink{SDL__haptic_8h_afd64aa747034a7ccf4b55f6246525701}{SDL\+\_\+\+HAPTIC\+\_\+\+SAWTOOTHDOWN}} 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__haptic_8h}{SDL\+\_\+haptic.\+h}}\end{DoxyCompactItemize}

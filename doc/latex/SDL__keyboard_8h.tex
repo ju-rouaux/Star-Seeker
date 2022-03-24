@@ -1,0 +1,434 @@
+\hypertarget{SDL__keyboard_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+keyboard.h}
+\label{SDL__keyboard_8h}\index{include/SDL2/SDL\_keyboard.h@{include/SDL2/SDL\_keyboard.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+keycode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Keysym}{SDL\+\_\+\+Keysym}}
+\begin{DoxyCompactList}\small\item\em The SDL keysym structure, used in key events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__Keysym}{SDL\+\_\+\+Keysym}} \mbox{\hyperlink{SDL__keyboard_8h_a074ae08acbe79dba712775b95267f4d2}{SDL\+\_\+\+Keysym}}
+\begin{DoxyCompactList}\small\item\em The SDL keysym structure, used in key events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a20cb9d78980660f2f97f83e9080a9791}{SDL\+\_\+\+Get\+Keyboard\+Focus}} (void)
+\item 
+DECLSPEC const Uint8 $\ast$SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_add4d65672474cedfbfe9f3d9c2972aa8}{SDL\+\_\+\+Get\+Keyboard\+State}} (int $\ast$numkeys)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}{SDL\+\_\+\+Keymod}} SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a7b2ee63de74c442ac456cac9db5f8ed0}{SDL\+\_\+\+Get\+Mod\+State}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a705c85881304eab01f00abeca2ef5846}{SDL\+\_\+\+Set\+Mod\+State}} (\mbox{\hyperlink{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}{SDL\+\_\+\+Keymod}} modstate)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}{SDL\+\_\+\+Get\+Key\+From\+Scancode}} (\mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} scancode)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}{SDL\+\_\+\+Get\+Scancode\+From\+Key}} (\mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} key)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_ad81526318501fd88c503491909d9c07e}{SDL\+\_\+\+Get\+Scancode\+Name}} (\mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} scancode)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a0cb32dd58d3dc5b77c9daf0b6000f93c}{SDL\+\_\+\+Get\+Scancode\+From\+Name}} (const char $\ast$name)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a5d30971127cd386655b891f429b76fe9}{SDL\+\_\+\+Get\+Key\+Name}} (\mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} key)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_ad4d4e79f117a9092ec269601c5423337}{SDL\+\_\+\+Get\+Key\+From\+Name}} (const char $\ast$name)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}{SDL\+\_\+\+Start\+Text\+Input}} (void)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a6c84ed1daac21f8224d43bcb9d5bc597}{SDL\+\_\+\+Is\+Text\+Input\+Active}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_ab08b914cdfb2eaed26165cb2f6b110ec}{SDL\+\_\+\+Stop\+Text\+Input}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a949fd9d16d5156a9d5aa0dc74580dbae}{SDL\+\_\+\+Set\+Text\+Input\+Rect}} (\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$rect)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a106356274c192b53844c8f1a821b00d7}{SDL\+\_\+\+Has\+Screen\+Keyboard\+Support}} (void)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__keyboard_8h_a92f5b73c7b71efeb68f5e9616cb918b7}{SDL\+\_\+\+Is\+Screen\+Keyboard\+Shown}} (\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$window)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL keyboard event handling 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__keyboard_8h_a074ae08acbe79dba712775b95267f4d2}\label{SDL__keyboard_8h_a074ae08acbe79dba712775b95267f4d2}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_Keysym@{SDL\_Keysym}}
+\index{SDL\_Keysym@{SDL\_Keysym}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Keysym}{SDL\_Keysym}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__Keysym}{SDL\+\_\+\+Keysym}} \mbox{\hyperlink{structSDL__Keysym}{SDL\+\_\+\+Keysym}}}
+
+
+
+The SDL keysym structure, used in key events. 
+
+\begin{DoxyNote}{Note}
+If you are looking for translated character input, see the \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4fa2570088f6b9cbd109ae91b511368f}{SDL\+\_\+\+TEXTINPUT}} event. 
+\end{DoxyNote}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__keyboard_8h_a20cb9d78980660f2f97f83e9080a9791}\label{SDL__keyboard_8h_a20cb9d78980660f2f97f83e9080a9791}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetKeyboardFocus@{SDL\_GetKeyboardFocus}}
+\index{SDL\_GetKeyboardFocus@{SDL\_GetKeyboardFocus}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetKeyboardFocus()}{SDL\_GetKeyboardFocus()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}}$\ast$ SDLCALL SDL\+\_\+\+Get\+Keyboard\+Focus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Query the window which currently has keyboard focus.
+
+\begin{DoxyReturn}{Renvoie}
+the window with keyboard focus.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__keyboard_8h_add4d65672474cedfbfe9f3d9c2972aa8}\label{SDL__keyboard_8h_add4d65672474cedfbfe9f3d9c2972aa8}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetKeyboardState@{SDL\_GetKeyboardState}}
+\index{SDL\_GetKeyboardState@{SDL\_GetKeyboardState}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetKeyboardState()}{SDL\_GetKeyboardState()}}
+{\footnotesize\ttfamily DECLSPEC const Uint8$\ast$ SDLCALL SDL\+\_\+\+Get\+Keyboard\+State (\begin{DoxyParamCaption}\item[{int $\ast$}]{numkeys }\end{DoxyParamCaption})}
+
+Get a snapshot of the current state of the keyboard.
+
+The pointer returned is a pointer to an internal SDL array. It will be valid for the whole lifetime of the application and should not be freed by the caller.
+
+A array element with a value of 1 means that the key is pressed and a value of 0 means that it is not. Indexes into this array are obtained by using SDL\+\_\+\+Scancode values.
+
+Use \mbox{\hyperlink{SDL__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}{SDL\+\_\+\+Pump\+Events()}} to update the state array.
+
+This function gives you the current state after all events have been processed, so if a key or button has been pressed and released before you process events, then the pressed state will never show up in the \mbox{\hyperlink{SDL__keyboard_8h_add4d65672474cedfbfe9f3d9c2972aa8}{SDL\+\_\+\+Get\+Keyboard\+State()}} calls.
+
+Note\+: This function doesn\textquotesingle{}t take into account whether shift has been pressed or not.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em numkeys} & if non-\/\+NULL, receives the length of the returned array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to an array of key states.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}{SDL\+\_\+\+Pump\+Events}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_ad4d4e79f117a9092ec269601c5423337}\label{SDL__keyboard_8h_ad4d4e79f117a9092ec269601c5423337}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetKeyFromName@{SDL\_GetKeyFromName}}
+\index{SDL\_GetKeyFromName@{SDL\_GetKeyFromName}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetKeyFromName()}{SDL\_GetKeyFromName()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} SDLCALL SDL\+\_\+\+Get\+Key\+From\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Get a key code from a human-\/readable name.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & the human-\/readable key name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+key code, or {\ttfamily SDLK\+\_\+\+UNKNOWN} if the name wasn\textquotesingle{}t recognized; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}{SDL\+\_\+\+Get\+Key\+From\+Scancode}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a5d30971127cd386655b891f429b76fe9}{SDL\+\_\+\+Get\+Key\+Name}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a0cb32dd58d3dc5b77c9daf0b6000f93c}{SDL\+\_\+\+Get\+Scancode\+From\+Name}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}\label{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetKeyFromScancode@{SDL\_GetKeyFromScancode}}
+\index{SDL\_GetKeyFromScancode@{SDL\_GetKeyFromScancode}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetKeyFromScancode()}{SDL\_GetKeyFromScancode()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} SDLCALL SDL\+\_\+\+Get\+Key\+From\+Scancode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}}}]{scancode }\end{DoxyParamCaption})}
+
+Get the key code corresponding to the given scancode according to the current keyboard layout.
+
+See SDL\+\_\+\+Keycode for details.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em scancode} & the desired SDL\+\_\+\+Scancode to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Keycode that corresponds to the given SDL\+\_\+\+Scancode.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_a5d30971127cd386655b891f429b76fe9}{SDL\+\_\+\+Get\+Key\+Name}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}{SDL\+\_\+\+Get\+Scancode\+From\+Key}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a5d30971127cd386655b891f429b76fe9}\label{SDL__keyboard_8h_a5d30971127cd386655b891f429b76fe9}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetKeyName@{SDL\_GetKeyName}}
+\index{SDL\_GetKeyName@{SDL\_GetKeyName}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetKeyName()}{SDL\_GetKeyName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Key\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}}}]{key }\end{DoxyParamCaption})}
+
+Get a human-\/readable name for a key.
+
+See SDL\+\_\+\+Scancode and SDL\+\_\+\+Keycode for details.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & the desired SDL\+\_\+\+Keycode to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a UTF-\/8 string that stays valid at least until the next call to this function. If you need it around any longer, you must copy it. If the key doesn\textquotesingle{}t have a name, this function returns an empty string (\char`\"{}\char`\"{}).
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ad4d4e79f117a9092ec269601c5423337}{SDL\+\_\+\+Get\+Key\+From\+Name}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}{SDL\+\_\+\+Get\+Key\+From\+Scancode}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}{SDL\+\_\+\+Get\+Scancode\+From\+Key}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a7b2ee63de74c442ac456cac9db5f8ed0}\label{SDL__keyboard_8h_a7b2ee63de74c442ac456cac9db5f8ed0}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetModState@{SDL\_GetModState}}
+\index{SDL\_GetModState@{SDL\_GetModState}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetModState()}{SDL\_GetModState()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}{SDL\+\_\+\+Keymod}} SDLCALL SDL\+\_\+\+Get\+Mod\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the current key modifier state for the keyboard.
+
+\begin{DoxyReturn}{Renvoie}
+an OR\textquotesingle{}d combination of the modifier keys for the keyboard. See SDL\+\_\+\+Keymod for details.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_add4d65672474cedfbfe9f3d9c2972aa8}{SDL\+\_\+\+Get\+Keyboard\+State}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a705c85881304eab01f00abeca2ef5846}{SDL\+\_\+\+Set\+Mod\+State}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}\label{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetScancodeFromKey@{SDL\_GetScancodeFromKey}}
+\index{SDL\_GetScancodeFromKey@{SDL\_GetScancodeFromKey}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetScancodeFromKey()}{SDL\_GetScancodeFromKey()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} SDLCALL SDL\+\_\+\+Get\+Scancode\+From\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}}}]{key }\end{DoxyParamCaption})}
+
+Get the scancode corresponding to the given key code according to the current keyboard layout.
+
+See SDL\+\_\+\+Scancode for details.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & the desired SDL\+\_\+\+Keycode to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Scancode that corresponds to the given SDL\+\_\+\+Keycode.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_aa74e6944ede98feeb09408fd97aaad57}{SDL\+\_\+\+Get\+Key\+From\+Scancode}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_ad81526318501fd88c503491909d9c07e}{SDL\+\_\+\+Get\+Scancode\+Name}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a0cb32dd58d3dc5b77c9daf0b6000f93c}\label{SDL__keyboard_8h_a0cb32dd58d3dc5b77c9daf0b6000f93c}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetScancodeFromName@{SDL\_GetScancodeFromName}}
+\index{SDL\_GetScancodeFromName@{SDL\_GetScancodeFromName}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetScancodeFromName()}{SDL\_GetScancodeFromName()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} SDLCALL SDL\+\_\+\+Get\+Scancode\+From\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Get a scancode from a human-\/readable name.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & the human-\/readable scancode name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Scancode, or {\ttfamily SDL\+\_\+\+SCANCODE\+\_\+\+UNKNOWN} if the name wasn\textquotesingle{}t recognized; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ad4d4e79f117a9092ec269601c5423337}{SDL\+\_\+\+Get\+Key\+From\+Name}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}{SDL\+\_\+\+Get\+Scancode\+From\+Key}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_ad81526318501fd88c503491909d9c07e}{SDL\+\_\+\+Get\+Scancode\+Name}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_ad81526318501fd88c503491909d9c07e}\label{SDL__keyboard_8h_ad81526318501fd88c503491909d9c07e}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_GetScancodeName@{SDL\_GetScancodeName}}
+\index{SDL\_GetScancodeName@{SDL\_GetScancodeName}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetScancodeName()}{SDL\_GetScancodeName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Scancode\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}}}]{scancode }\end{DoxyParamCaption})}
+
+Get a human-\/readable name for a scancode.
+
+See SDL\+\_\+\+Scancode for details.
+
+{\bfseries{Warning}}\+: The returned name is by design not stable across platforms, e.\+g. the name for {\ttfamily SDL\+\_\+\+SCANCODE\+\_\+\+LGUI} is \char`\"{}\+Left GUI\char`\"{} under Linux but \char`\"{}\+Left \+Windows\char`\"{} under Microsoft Windows, and some scancodes like {\ttfamily SDL\+\_\+\+SCANCODE\+\_\+\+NONUSBACKSLASH} don\textquotesingle{}t have any name at all. There are even scancodes that share names, e.\+g. {\ttfamily SDL\+\_\+\+SCANCODE\+\_\+\+RETURN} and {\ttfamily SDL\+\_\+\+SCANCODE\+\_\+\+RETURN2} (both called \char`\"{}\+Return\char`\"{}). This function is therefore unsuitable for creating a stable cross-\/platform two-\/way mapping between strings and scancodes.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em scancode} & the desired SDL\+\_\+\+Scancode to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to the name for the scancode. If the scancode doesn\textquotesingle{}t have a name this function returns an empty string (\char`\"{}\char`\"{}).
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_a36216054a385bea6898a35ded18d9c0f}{SDL\+\_\+\+Get\+Scancode\+From\+Key}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a0cb32dd58d3dc5b77c9daf0b6000f93c}{SDL\+\_\+\+Get\+Scancode\+From\+Name}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a106356274c192b53844c8f1a821b00d7}\label{SDL__keyboard_8h_a106356274c192b53844c8f1a821b00d7}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_HasScreenKeyboardSupport@{SDL\_HasScreenKeyboardSupport}}
+\index{SDL\_HasScreenKeyboardSupport@{SDL\_HasScreenKeyboardSupport}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_HasScreenKeyboardSupport()}{SDL\_HasScreenKeyboardSupport()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Has\+Screen\+Keyboard\+Support (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check whether the platform has screen keyboard support.
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the platform has some screen keyboard support or SDL\+\_\+\+FALSE if not.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}{SDL\+\_\+\+Start\+Text\+Input}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_a92f5b73c7b71efeb68f5e9616cb918b7}{SDL\+\_\+\+Is\+Screen\+Keyboard\+Shown}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a92f5b73c7b71efeb68f5e9616cb918b7}\label{SDL__keyboard_8h_a92f5b73c7b71efeb68f5e9616cb918b7}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_IsScreenKeyboardShown@{SDL\_IsScreenKeyboardShown}}
+\index{SDL\_IsScreenKeyboardShown@{SDL\_IsScreenKeyboardShown}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IsScreenKeyboardShown()}{SDL\_IsScreenKeyboardShown()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Is\+Screen\+Keyboard\+Shown (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+Check whether the screen keyboard is shown for given window.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & the window for which screen keyboard should be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if screen keyboard is shown or SDL\+\_\+\+FALSE if not.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_a106356274c192b53844c8f1a821b00d7}{SDL\+\_\+\+Has\+Screen\+Keyboard\+Support}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a6c84ed1daac21f8224d43bcb9d5bc597}\label{SDL__keyboard_8h_a6c84ed1daac21f8224d43bcb9d5bc597}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_IsTextInputActive@{SDL\_IsTextInputActive}}
+\index{SDL\_IsTextInputActive@{SDL\_IsTextInputActive}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IsTextInputActive()}{SDL\_IsTextInputActive()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Is\+Text\+Input\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check whether or not Unicode text input events are enabled.
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if text input events are enabled else SDL\+\_\+\+FALSE.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}{SDL\+\_\+\+Start\+Text\+Input}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a705c85881304eab01f00abeca2ef5846}\label{SDL__keyboard_8h_a705c85881304eab01f00abeca2ef5846}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_SetModState@{SDL\_SetModState}}
+\index{SDL\_SetModState@{SDL\_SetModState}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetModState()}{SDL\_SetModState()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Set\+Mod\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}{SDL\+\_\+\+Keymod}}}]{modstate }\end{DoxyParamCaption})}
+
+Set the current key modifier state for the keyboard.
+
+The inverse of \mbox{\hyperlink{SDL__keyboard_8h_a7b2ee63de74c442ac456cac9db5f8ed0}{SDL\+\_\+\+Get\+Mod\+State()}}, \mbox{\hyperlink{SDL__keyboard_8h_a705c85881304eab01f00abeca2ef5846}{SDL\+\_\+\+Set\+Mod\+State()}} allows you to impose modifier key states on your application. Simply pass your desired modifier states into {\ttfamily modstate}. This value may be a bitwise, OR\textquotesingle{}d combination of SDL\+\_\+\+Keymod values.
+
+This does not change the keyboard state, only the key modifier flags that SDL reports.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em modstate} & the desired SDL\+\_\+\+Keymod for the keyboard\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_a7b2ee63de74c442ac456cac9db5f8ed0}{SDL\+\_\+\+Get\+Mod\+State}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_a949fd9d16d5156a9d5aa0dc74580dbae}\label{SDL__keyboard_8h_a949fd9d16d5156a9d5aa0dc74580dbae}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_SetTextInputRect@{SDL\_SetTextInputRect}}
+\index{SDL\_SetTextInputRect@{SDL\_SetTextInputRect}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetTextInputRect()}{SDL\_SetTextInputRect()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Set\+Text\+Input\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Set the rectangle used to type Unicode text inputs.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & the \mbox{\hyperlink{structSDL__Rect}{SDL\+\_\+\+Rect}} structure representing the rectangle to receive text (ignored if NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}{SDL\+\_\+\+Start\+Text\+Input}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}\label{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_StartTextInput@{SDL\_StartTextInput}}
+\index{SDL\_StartTextInput@{SDL\_StartTextInput}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_StartTextInput()}{SDL\_StartTextInput()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Start\+Text\+Input (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Start accepting Unicode text input events.
+
+This function will start accepting Unicode text input events in the focused SDL window, and start emitting \mbox{\hyperlink{structSDL__TextInputEvent}{SDL\+\_\+\+Text\+Input\+Event}} (SDL\+\_\+\+TEXTINPUT) and \mbox{\hyperlink{structSDL__TextEditingEvent}{SDL\+\_\+\+Text\+Editing\+Event}} (SDL\+\_\+\+TEXTEDITING) events. Please use this function in pair with \mbox{\hyperlink{SDL__keyboard_8h_ab08b914cdfb2eaed26165cb2f6b110ec}{SDL\+\_\+\+Stop\+Text\+Input()}}.
+
+On some platforms using this function activates the screen keyboard.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_a949fd9d16d5156a9d5aa0dc74580dbae}{SDL\+\_\+\+Set\+Text\+Input\+Rect}} 
+
+\mbox{\hyperlink{SDL__keyboard_8h_ab08b914cdfb2eaed26165cb2f6b110ec}{SDL\+\_\+\+Stop\+Text\+Input}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__keyboard_8h_ab08b914cdfb2eaed26165cb2f6b110ec}\label{SDL__keyboard_8h_ab08b914cdfb2eaed26165cb2f6b110ec}} 
+\index{SDL\_keyboard.h@{SDL\_keyboard.h}!SDL\_StopTextInput@{SDL\_StopTextInput}}
+\index{SDL\_StopTextInput@{SDL\_StopTextInput}!SDL\_keyboard.h@{SDL\_keyboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_StopTextInput()}{SDL\_StopTextInput()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Stop\+Text\+Input (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Stop receiving any text input events.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__keyboard_8h_ab2c8474b9a8b6d07cae4f8eceab38870}{SDL\+\_\+\+Start\+Text\+Input}} 
+\end{DoxySeeAlso}

@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_mutex.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_mutex.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__error_8h_source.html">SDL_error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__mutex_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1214610634c24465d7c50149752791a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a1214610634c24465d7c50149752791a9">SDL_MUTEX_TIMEDOUT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a1214610634c24465d7c50149752791a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2bc8605242c50341362ada961dc914"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#abd2bc8605242c50341362ada961dc914">SDL_MUTEX_MAXWAIT</a>&#160;&#160;&#160;(~(Uint32)0)</td></tr>
+<tr class="separator:abd2bc8605242c50341362ada961dc914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Mutex functions</h2></td></tr>
+<tr class="memitem:a3ce486805b5c21574466d3d93c908597"><td class="memItemLeft" align="right" valign="top"><a id="a3ce486805b5c21574466d3d93c908597"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_mutexP</b>(m)&#160;&#160;&#160;<a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex</a>(m)</td></tr>
+<tr class="separator:a3ce486805b5c21574466d3d93c908597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa25335079da2e776536c63e84288d684"><td class="memItemLeft" align="right" valign="top"><a id="aa25335079da2e776536c63e84288d684"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_mutexV</b>(m)&#160;&#160;&#160;<a class="el" href="SDL__mutex_8h.html#afee1549c7723ebe13fbfca8ad94f8c9d">SDL_UnlockMutex</a>(m)</td></tr>
+<tr class="separator:aa25335079da2e776536c63e84288d684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac085162a7cfb9ebd63e2d05d33c03c17"><td class="memItemLeft" align="right" valign="top"><a id="ac085162a7cfb9ebd63e2d05d33c03c17"></a>
+typedef struct SDL_mutex&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_mutex</b></td></tr>
+<tr class="separator:ac085162a7cfb9ebd63e2d05d33c03c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f90ad6a7420fb3c4b5685e440d762f"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_mutex *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#ae1f90ad6a7420fb3c4b5685e440d762f">SDL_CreateMutex</a> (void)</td></tr>
+<tr class="separator:ae1f90ad6a7420fb3c4b5685e440d762f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0908c6a7356331d197059fbdc6c66a0f"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex</a> (SDL_mutex *mutex)</td></tr>
+<tr class="separator:a0908c6a7356331d197059fbdc6c66a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5097fb4c7147d14a4c6df4515ec862e8"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a5097fb4c7147d14a4c6df4515ec862e8">SDL_TryLockMutex</a> (SDL_mutex *mutex)</td></tr>
+<tr class="separator:a5097fb4c7147d14a4c6df4515ec862e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee1549c7723ebe13fbfca8ad94f8c9d"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#afee1549c7723ebe13fbfca8ad94f8c9d">SDL_UnlockMutex</a> (SDL_mutex *mutex)</td></tr>
+<tr class="separator:afee1549c7723ebe13fbfca8ad94f8c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bbcc4e32ac927af62f0cba671f63fe"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#ad2bbcc4e32ac927af62f0cba671f63fe">SDL_DestroyMutex</a> (SDL_mutex *mutex)</td></tr>
+<tr class="separator:ad2bbcc4e32ac927af62f0cba671f63fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Semaphore functions</h2></td></tr>
+<tr class="memitem:aa7d56df841e98eed229d1d4b17327d29"><td class="memItemLeft" align="right" valign="top"><a id="aa7d56df841e98eed229d1d4b17327d29"></a>
+typedef struct SDL_semaphore&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_sem</b></td></tr>
+<tr class="separator:aa7d56df841e98eed229d1d4b17327d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c1a20a5466281a5d63a0cabe07e140"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_sem *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> (Uint32 initial_value)</td></tr>
+<tr class="separator:ab8c1a20a5466281a5d63a0cabe07e140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23deb3b7e29a5137d804e4be3453a768"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> (SDL_sem *sem)</td></tr>
+<tr class="separator:a23deb3b7e29a5137d804e4be3453a768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51d75d18cb90f28b35c31e853b04792"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> (SDL_sem *sem)</td></tr>
+<tr class="separator:af51d75d18cb90f28b35c31e853b04792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a517288aaa856ce2264e8420636e85c4a"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> (SDL_sem *sem)</td></tr>
+<tr class="separator:a517288aaa856ce2264e8420636e85c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea1acfaf722895626174e1e37c497da"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> (SDL_sem *sem, Uint32 ms)</td></tr>
+<tr class="separator:a4ea1acfaf722895626174e1e37c497da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c50f774babf7a44c381238a1f780595"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> (SDL_sem *sem)</td></tr>
+<tr class="separator:a0c50f774babf7a44c381238a1f780595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66390dca585fdab8de871fe32935768"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint32 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> (SDL_sem *sem)</td></tr>
+<tr class="separator:ae66390dca585fdab8de871fe32935768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Condition variable functions</h2></td></tr>
+<tr class="memitem:ac50401d1b84d806a0c927c8cf454f96a"><td class="memItemLeft" align="right" valign="top"><a id="ac50401d1b84d806a0c927c8cf454f96a"></a>
+typedef struct SDL_cond&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_cond</b></td></tr>
+<tr class="separator:ac50401d1b84d806a0c927c8cf454f96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac729fb4dbfe4057452ebfc1087f61585"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_cond *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> (void)</td></tr>
+<tr class="separator:ac729fb4dbfe4057452ebfc1087f61585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8843feeb270845e07fc23f692707540f"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> (SDL_cond *cond)</td></tr>
+<tr class="separator:a8843feeb270845e07fc23f692707540f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1037a8274b0b13118fc78eeb417a1397"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> (SDL_cond *cond)</td></tr>
+<tr class="separator:a1037a8274b0b13118fc78eeb417a1397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ffd0b45ebdc44057007a59857ba46b3"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> (SDL_cond *cond)</td></tr>
+<tr class="separator:a2ffd0b45ebdc44057007a59857ba46b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af759b2fe1c5507f47854c1edf1ecbabd"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> (SDL_cond *cond, SDL_mutex *mutex)</td></tr>
+<tr class="separator:af759b2fe1c5507f47854c1edf1ecbabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57013f95a9c608cf24a5100b841e863"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> (SDL_cond *cond, SDL_mutex *mutex, Uint32 ms)</td></tr>
+<tr class="separator:aa57013f95a9c608cf24a5100b841e863"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Functions to provide thread synchronization primitives. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="abd2bc8605242c50341362ada961dc914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd2bc8605242c50341362ada961dc914">&#9670;&nbsp;</a></span>SDL_MUTEX_MAXWAIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MUTEX_MAXWAIT&#160;&#160;&#160;(~(Uint32)0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This is the timeout value which corresponds to never time out. </p>
+
+</div>
+</div>
+<a id="a1214610634c24465d7c50149752791a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1214610634c24465d7c50149752791a9">&#9670;&nbsp;</a></span>SDL_MUTEX_TIMEDOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MUTEX_TIMEDOUT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Synchronization functions which can time out return this value if they time out. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a2ffd0b45ebdc44057007a59857ba46b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ffd0b45ebdc44057007a59857ba46b3">&#9670;&nbsp;</a></span>SDL_CondBroadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_CondBroadcast </td>
+          <td>(</td>
+          <td class="paramtype">SDL_cond *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Restart all threads that are waiting on the condition variable.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>the condition variable to signal </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1037a8274b0b13118fc78eeb417a1397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1037a8274b0b13118fc78eeb417a1397">&#9670;&nbsp;</a></span>SDL_CondSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_CondSignal </td>
+          <td>(</td>
+          <td class="paramtype">SDL_cond *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Restart one of the threads that are waiting on the condition variable.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>the condition variable to signal </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="af759b2fe1c5507f47854c1edf1ecbabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af759b2fe1c5507f47854c1edf1ecbabd">&#9670;&nbsp;</a></span>SDL_CondWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_CondWait </td>
+          <td>(</td>
+          <td class="paramtype">SDL_cond *&#160;</td>
+          <td class="paramname"><em>cond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Wait until a condition variable is signaled.</p>
+<p >This function unlocks the specified <code>mutex</code> and waits for another thread to call <a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal()</a> or <a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast()</a> on the condition variable <code>cond</code>. Once the condition variable is signaled, the mutex is re-locked and the function returns.</p>
+<p >The mutex must be locked before calling this function.</p>
+<p >This function is the equivalent of calling <a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout()</a> with a time length of <code>SDL_MUTEX_MAXWAIT</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>the condition variable to wait on </td></tr>
+    <tr><td class="paramname">mutex</td><td>the mutex used to coordinate thread access </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 when it is signaled or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa57013f95a9c608cf24a5100b841e863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57013f95a9c608cf24a5100b841e863">&#9670;&nbsp;</a></span>SDL_CondWaitTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_CondWaitTimeout </td>
+          <td>(</td>
+          <td class="paramtype">SDL_cond *&#160;</td>
+          <td class="paramname"><em>cond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>ms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Wait until a condition variable is signaled or a certain time has passed.</p>
+<p >This function unlocks the specified <code>mutex</code> and waits for another thread to call <a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal()</a> or <a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast()</a> on the condition variable <code>cond</code>, or for the specified time to elapse. Once the condition variable is signaled or the time elapsed, the mutex is re-locked and the function returns.</p>
+<p >The mutex must be locked before calling this function.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>the condition variable to wait on </td></tr>
+    <tr><td class="paramname">mutex</td><td>the mutex used to coordinate thread access </td></tr>
+    <tr><td class="paramname">ms</td><td>the maximum time to wait, in milliseconds, or <code>SDL_MUTEX_MAXWAIT</code> to wait indefinitely </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 if the condition variable is signaled, <code>SDL_MUTEX_TIMEDOUT</code> if the condition is not signaled in the allotted time, or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac729fb4dbfe4057452ebfc1087f61585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac729fb4dbfe4057452ebfc1087f61585">&#9670;&nbsp;</a></span>SDL_CreateCond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_cond* SDLCALL SDL_CreateCond </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a condition variable.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>a new condition variable or NULL on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a8843feeb270845e07fc23f692707540f">SDL_DestroyCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae1f90ad6a7420fb3c4b5685e440d762f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f90ad6a7420fb3c4b5685e440d762f">&#9670;&nbsp;</a></span>SDL_CreateMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_mutex* SDLCALL SDL_CreateMutex </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a new mutex.</p>
+<p >All newly-created mutexes begin in the <em>unlocked</em> state.</p>
+<p >Calls to <a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex()</a> will not return while the mutex is locked by another thread. See <a class="el" href="SDL__mutex_8h.html#a5097fb4c7147d14a4c6df4515ec862e8">SDL_TryLockMutex()</a> to attempt to lock without blocking.</p>
+<p >SDL mutexes are reentrant.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>the initialized and unlocked mutex or NULL on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ad2bbcc4e32ac927af62f0cba671f63fe">SDL_DestroyMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a5097fb4c7147d14a4c6df4515ec862e8">SDL_TryLockMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#afee1549c7723ebe13fbfca8ad94f8c9d">SDL_UnlockMutex</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab8c1a20a5466281a5d63a0cabe07e140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c1a20a5466281a5d63a0cabe07e140">&#9670;&nbsp;</a></span>SDL_CreateSemaphore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_sem* SDLCALL SDL_CreateSemaphore </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>initial_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Create a semaphore.</p>
+<p >This function creates a new semaphore and initializes it with the value <code>initial_value</code>. Each wait operation on the semaphore will atomically decrement the semaphore value and potentially block if the semaphore value is 0. Each post operation will atomically increment the semaphore value and wake waiting threads and allow them to retry the wait operation.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial_value</td><td>the starting value of the semaphore </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a new semaphore or NULL on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8843feeb270845e07fc23f692707540f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8843feeb270845e07fc23f692707540f">&#9670;&nbsp;</a></span>SDL_DestroyCond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_DestroyCond </td>
+          <td>(</td>
+          <td class="paramtype">SDL_cond *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Destroy a condition variable.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>the condition variable to destroy</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#a2ffd0b45ebdc44057007a59857ba46b3">SDL_CondBroadcast</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a1037a8274b0b13118fc78eeb417a1397">SDL_CondSignal</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af759b2fe1c5507f47854c1edf1ecbabd">SDL_CondWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#aa57013f95a9c608cf24a5100b841e863">SDL_CondWaitTimeout</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ac729fb4dbfe4057452ebfc1087f61585">SDL_CreateCond</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad2bbcc4e32ac927af62f0cba671f63fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bbcc4e32ac927af62f0cba671f63fe">&#9670;&nbsp;</a></span>SDL_DestroyMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_DestroyMutex </td>
+          <td>(</td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Destroy a mutex created with <a class="el" href="SDL__mutex_8h.html#ae1f90ad6a7420fb3c4b5685e440d762f">SDL_CreateMutex()</a>.</p>
+<p >This function must be called on any mutex that is no longer needed. Failure to destroy a mutex will result in a system memory or resource leak. While it is safe to destroy a mutex that is <em>unlocked</em>, it is not safe to attempt to destroy a locked mutex, and may result in undefined behavior depending on the platform.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mutex</td><td>the mutex to destroy</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ae1f90ad6a7420fb3c4b5685e440d762f">SDL_CreateMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a5097fb4c7147d14a4c6df4515ec862e8">SDL_TryLockMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#afee1549c7723ebe13fbfca8ad94f8c9d">SDL_UnlockMutex</a> </dd></dl>
+
+</div>
+</div>
+<a id="a23deb3b7e29a5137d804e4be3453a768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23deb3b7e29a5137d804e4be3453a768">&#9670;&nbsp;</a></span>SDL_DestroySemaphore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_DestroySemaphore </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Destroy a semaphore.</p>
+<p >It is not safe to destroy a semaphore if there are threads currently waiting on it.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore to destroy</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0908c6a7356331d197059fbdc6c66a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0908c6a7356331d197059fbdc6c66a0f">&#9670;&nbsp;</a></span>SDL_LockMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_LockMutex </td>
+          <td>(</td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Lock the mutex.</p>
+<p >This will block until the mutex is available, which is to say it is in the unlocked state and the OS has chosen the caller as the next thread to lock it. Of all threads waiting to lock the mutex, only one may do so at a time.</p>
+<p >It is legal for the owning thread to lock an already-locked mutex. It must unlock it the same number of times before it is actually made available for other threads in the system (this is known as a "recursive mutex").</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mutex</td><td>the mutex to lock </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0, or -1 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+<a id="a0c50f774babf7a44c381238a1f780595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c50f774babf7a44c381238a1f780595">&#9670;&nbsp;</a></span>SDL_SemPost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SemPost </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Atomically increment a semaphore's value and wake waiting threads.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore to increment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> </dd></dl>
+
+</div>
+</div>
+<a id="a517288aaa856ce2264e8420636e85c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a517288aaa856ce2264e8420636e85c4a">&#9670;&nbsp;</a></span>SDL_SemTryWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SemTryWait </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >See if a semaphore has a positive value and decrement it if it does.</p>
+<p >This function checks to see if the semaphore pointed to by <code>sem</code> has a positive value and atomically decrements the semaphore value if it does. If the semaphore doesn't have a positive value, the function immediately returns SDL_MUTEX_TIMEDOUT.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore to wait on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 if the wait succeeds, <code>SDL_MUTEX_TIMEDOUT</code> if the wait would block, or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae66390dca585fdab8de871fe32935768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66390dca585fdab8de871fe32935768">&#9670;&nbsp;</a></span>SDL_SemValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint32 SDLCALL SDL_SemValue </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the current value of a semaphore.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the current value of the semaphore.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd></dl>
+
+</div>
+</div>
+<a id="af51d75d18cb90f28b35c31e853b04792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51d75d18cb90f28b35c31e853b04792">&#9670;&nbsp;</a></span>SDL_SemWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SemWait </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Wait until a semaphore has a positive value and then decrements it.</p>
+<p >This function suspends the calling thread until either the semaphore pointed to by <code>sem</code> has a positive value or the call is interrupted by a signal or error. If the call is successful it will atomically decrement the semaphore value.</p>
+<p >This function is the equivalent of calling <a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout()</a> with a time length of <code>SDL_MUTEX_MAXWAIT</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore wait on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a4ea1acfaf722895626174e1e37c497da">SDL_SemWaitTimeout</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4ea1acfaf722895626174e1e37c497da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea1acfaf722895626174e1e37c497da">&#9670;&nbsp;</a></span>SDL_SemWaitTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SemWaitTimeout </td>
+          <td>(</td>
+          <td class="paramtype">SDL_sem *&#160;</td>
+          <td class="paramname"><em>sem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>ms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Wait until a semaphore has a positive value and then decrements it.</p>
+<p >This function suspends the calling thread until either the semaphore pointed to by <code>sem</code> has a positive value, the call is interrupted by a signal or error, or the specified time has elapsed. If the call is successful it will atomically decrement the semaphore value.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sem</td><td>the semaphore to wait on </td></tr>
+    <tr><td class="paramname">ms</td><td>the length of the timeout, in milliseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 if the wait succeeds, <code>SDL_MUTEX_TIMEDOUT</code> if the wait does not succeed in the allotted time, or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ab8c1a20a5466281a5d63a0cabe07e140">SDL_CreateSemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a23deb3b7e29a5137d804e4be3453a768">SDL_DestroySemaphore</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0c50f774babf7a44c381238a1f780595">SDL_SemPost</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a517288aaa856ce2264e8420636e85c4a">SDL_SemTryWait</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ae66390dca585fdab8de871fe32935768">SDL_SemValue</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#af51d75d18cb90f28b35c31e853b04792">SDL_SemWait</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5097fb4c7147d14a4c6df4515ec862e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5097fb4c7147d14a4c6df4515ec862e8">&#9670;&nbsp;</a></span>SDL_TryLockMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_TryLockMutex </td>
+          <td>(</td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Try to lock a mutex without blocking.</p>
+<p >This works just like <a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex()</a>, but if the mutex is not available, this function returns <code>SDL_MUTEX_TIMEOUT</code> immediately.</p>
+<p >This technique is useful if you need exclusive access to a resource but don't want to wait for it, and will return to it to try again later.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mutex</td><td>the mutex to try to lock </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0, <code>SDL_MUTEX_TIMEDOUT</code>, or -1 on error; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__mutex_8h.html#ae1f90ad6a7420fb3c4b5685e440d762f">SDL_CreateMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#ad2bbcc4e32ac927af62f0cba671f63fe">SDL_DestroyMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#a0908c6a7356331d197059fbdc6c66a0f">SDL_LockMutex</a> </dd>
+<dd>
+<a class="el" href="SDL__mutex_8h.html#afee1549c7723ebe13fbfca8ad94f8c9d">SDL_UnlockMutex</a> </dd></dl>
+
+</div>
+</div>
+<a id="afee1549c7723ebe13fbfca8ad94f8c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee1549c7723ebe13fbfca8ad94f8c9d">&#9670;&nbsp;</a></span>SDL_UnlockMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_UnlockMutex </td>
+          <td>(</td>
+          <td class="paramtype">SDL_mutex *&#160;</td>
+          <td class="paramname"><em>mutex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unlock the mutex.</p>
+<p >It is legal for the owning thread to lock an already-locked mutex. It must unlock it the same number of times before it is actually made available for other threads in the system (this is known as a "recursive mutex").</p>
+<p >It is an error to unlock a mutex that has not been locked by the current thread, and doing so results in undefined behavior.</p>
+<p >It is also an error to unlock a mutex that isn't locked at all.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mutex</td><td>the mutex to unlock. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0, or -1 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

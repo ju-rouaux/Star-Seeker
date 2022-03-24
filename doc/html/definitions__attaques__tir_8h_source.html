@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/definitions/definitions_attaques_tir.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_11d78a78cbacc94abc067fbb8f3d9498.html">definitions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">definitions_attaques_tir.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="definitions__attaques__tir_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef _JEU_DEF_ATTAQUE_TIR_</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define _JEU_DEF_ATTAQUE_TIR_</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="attaque_8h.html">attaque.h</a>&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define PI 3.14159265359</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> attaque_tir_demo(<a class="code" href="structt__attaque__tir.html">t_attaque_tir</a> * attaque)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    attaque-&gt;type_projectile = BALLE;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    attaque-&gt;cooldown = 100;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">nb_salves</a> = 10;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">nb_proj_salve</a> = 1;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">tir_interval</a> = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">etalement</a> = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> attaque_tir_sniper(<a class="code" href="structt__attaque__tir.html">t_attaque_tir</a> * attaque)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    attaque-&gt;type_projectile = BOULET;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    attaque-&gt;cooldown = 2000;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">nb_salves</a> = 1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">nb_proj_salve</a> = 1;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">tir_interval</a> = 100;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">etalement</a> = 0.349066;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> attaque_tir_360_shuriken(<a class="code" href="structt__attaque__tir.html">t_attaque_tir</a> * attaque)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    attaque-&gt;type_projectile = SHURIKEN;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    attaque-&gt;cooldown = 2000;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">nb_salves</a> = 2;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">nb_proj_salve</a> = 17;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">tir_interval</a> = 300;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">etalement</a> = 2*PI;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> attaque_tir_sabre(<a class="code" href="structt__attaque__tir.html">t_attaque_tir</a> * attaque)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    attaque-&gt;type_projectile = SABRE;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    attaque-&gt;cooldown = 1000;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">nb_salves</a> = 1;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">nb_proj_salve</a> =1;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">tir_interval</a> = 300;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    attaque-&gt;<a class="code" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">etalement</a> = PI/4;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">// static void attaque_laser(t_attaque_tir * attaque)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//     attaque-&gt;type_projectile = LASER;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//     attaque-&gt;cooldown = 0;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">//     attaque-&gt;nb_salves = 20;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//     attaque-&gt;nb_proj_salve =1;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//     attaque-&gt;tir_interval = 0;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//     attaque-&gt;etalement = 0;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//JEU_DEF_ATTAQUE_TIR_</span></div>
+<div class="ttc" id="aattaque_8h_html"><div class="ttname"><a href="attaque_8h.html">attaque.h</a></div><div class="ttdoc">Module gérant les attaques des personnages.</div></div>
+<div class="ttc" id="astructt__attaque__tir_html"><div class="ttname"><a href="structt__attaque__tir.html">t_attaque_tir</a></div><div class="ttdoc">Modélise une arme générant des projectiles.</div><div class="ttdef"><b>Definition:</b> attaque.h:28</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_a4816f78a3d4b9e2f7793bdd05e5a863a"><div class="ttname"><a href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">t_attaque_tir::etalement</a></div><div class="ttdeci">float etalement</div><div class="ttdef"><b>Definition:</b> attaque.h:36</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_a654379393a4ac09f78c10e556038c3bc"><div class="ttname"><a href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">t_attaque_tir::tir_interval</a></div><div class="ttdeci">int tir_interval</div><div class="ttdef"><b>Definition:</b> attaque.h:35</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_aa9ff1170ae3b69d969c62005381ea530"><div class="ttname"><a href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">t_attaque_tir::nb_proj_salve</a></div><div class="ttdeci">int nb_proj_salve</div><div class="ttdef"><b>Definition:</b> attaque.h:34</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_ad7a799864f764222e79d5aedc1d4ab12"><div class="ttname"><a href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">t_attaque_tir::nb_salves</a></div><div class="ttdeci">int nb_salves</div><div class="ttdef"><b>Definition:</b> attaque.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

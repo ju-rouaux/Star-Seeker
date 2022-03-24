@@ -152,6 +152,7 @@ static t_joueur_flags * creerJoueurFlags()
     flags->to_right = 0;
 
     flags->shooting = 0; // !!! Temporaire
+    flags->map_showing = 0;
 
     return flags;
 }
