@@ -11,18 +11,7 @@
 #include <menu.h>
 #include <menu_options.h>
 #include <menu_options_keymap.h>
-
-/**
- * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
- * sa partie.
- * 
- * \param moteur Le moteur du jeu
- */
-void resetSauvegardeJoueur(t_moteur * moteur)
-{
-    //Afficher un menu d'avertissement
-    moteur->parametres.reset_sauvegarde_joueur = VRAI;
-}
+#include <main.h>
 
 int main(int argc, char * argv[])
 {
@@ -45,7 +34,7 @@ int main(int argc, char * argv[])
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-
+    moteur->parametres.reset_sauvegarde_joueur = VRAI;
     while(code != JEU_QUITTER){
         switch(code)
         {

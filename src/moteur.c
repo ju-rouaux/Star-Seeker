@@ -17,25 +17,34 @@
 #include <textures.h>
 #include <camera.h>
 #include <liste.h>
+#include <sauvegarde.h>
 
 /**
- * \brief Initialise les touches du clavier
+ * \brief Initialise les touches du clavier à partir de la sauvegarde
+ * si possible.
  * 
- * \param moteur moteur du jeu
+ * \param parametres paramatres
  */
-void initialiserTouches(t_moteur * moteur){
-    //probleme entre la valeur des SDL_SCANCODE_.. et la réalité
-    moteur->parametres.key_up = 26; //SDL_SCANCODE_Z
-    moteur->parametres.key_down = 22; //SDL_SCANCODE_S
-    moteur->parametres.key_left = 4; //SDL_SCANCODE_Q
-    moteur->parametres.key_right = 7;//SDL_SCANCODE_D
-    moteur->parametres.key_projectile = 15; //SDL_SCANCODE_L
-}
+static void initialiserTouches(t_parametres * parametres)
+{
+    if(chargerSaveParametres(parametres) != SUCCESS)
+    {
+        //probleme entre la valeur des SDL_SCANCODE_.. et la réalité
+        parametres->key_up = 26; //SDL_SCANCODE_Z
+        parametres->key_down = 22; //SDL_SCANCODE_S
+        parametres->key_left = 4; //SDL_SCANCODE_Q
+        parametres->key_right = 7;//SDL_SCANCODE_D
+        parametres->key_projectile = 15; //SDL_SCANCODE_L
+        parametres->reset_sauvegarde_joueur = FAUX; //
+        parametres->volume_audio = MIX_MAX_VOLUME; //
+    }
 
+}
 
 
 /**
  * \brief Charge une fenêtre, un rendu, les textures, et une caméra.
+ * Charge les paramètres depuis la sauvegarde.
  * 
  * \return Structure moteur, NULL si échec.
  */
@@ -77,7 +86,9 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    if(chargerAudio(MIX_MAX_VOLUME, &moteur->musiques, &moteur->bruitages) != 0)
+    initialiserTouches(&moteur->parametres);
+
+    if(chargerAudio(moteur->parametres.volume_audio, &moteur->musiques, &moteur->bruitages) != 0)
     {
         printf("Moteur non chargé\n");
         detruireCamera(&moteur->camera);
@@ -108,18 +119,13 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
-    initialiserTouches(moteur);
-
-    moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    moteur->parametres.volume_audio = MIX_MAX_VOLUME;
-
     return moteur;
 }
 
 
 /**
  * \brief Libère la mémoire allouée pour la structure moteur et mets son 
- * pointeur à NULL. 
+ * pointeur à NULL. Sauvegarde aussi les paramètres.
  * 
  * \param moteur L'adresse du pointeur du moteur.
  */
@@ -127,6 +133,7 @@ void detruireMoteur(t_moteur ** moteur)
 {
     if(*moteur != NULL)
     {
+        sauvegarderParametres(&(*moteur)->parametres);
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);

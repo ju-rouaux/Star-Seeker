@@ -54,8 +54,8 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
 
         //Pour le bouton reset sauvegarde
         if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME)
-            SDL_SetTextureColorMod(boutons[0] -> texture, 255, 0, 0); //Si actif : rouge
-        else SDL_SetTextureColorMod(boutons[0] -> texture, 0, 0, 255);//sinon reste en bleu
+            SDL_SetTextureColorMod(boutons[0] -> texture, 0, 255, 0); //Si actif : rouge
+        else SDL_SetTextureColorMod(boutons[0] -> texture,255 , 125, 0);//sinon reste en bleu
     }
     return 0;
 }
@@ -111,10 +111,10 @@ e_code_main chargerMenu_Options(t_moteur * moteur) {
                 break;
             case 2: {
                 printf("Muet (on/off)\n");
-                 if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME){
+                if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME){
                     Mix_VolumeMusic(0);
                     moteur->parametres.volume_audio = 0;
-                 }
+                }
                 else{
                     Mix_VolumeMusic(MIX_MAX_VOLUME);
                     moteur->parametres.volume_audio = MIX_MAX_VOLUME;

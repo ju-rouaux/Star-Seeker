@@ -14,7 +14,7 @@
 
 int chargerAudio(int volume, t_musiques ** musiques, t_bruitages ** bruitages){
 
-    Mix_VolumeMusic(MIX_MAX_VOLUME);
+    Mix_VolumeMusic(volume);
 
 
 

@@ -26,7 +26,7 @@ RM = rm
 all: $(CIBLE_ARCH) $(APPNAME)
 	@echo -- Compilation reussie --
 
-# Générer les répertoires nécéssaires s'ils sont manquants
+# Générer les répertoires nécessaires s'ils sont manquants
 init:
 	mkdir $(PARAM_INIT) obj save
 
@@ -54,8 +54,10 @@ clean:
 	@echo -- Executable supprime ! --
 
 ########################################################################
+
 #Macros
 
+#Générer la documentation
 .PHONY: doc
 doc:
 	doxygen gen_doxygen
@@ -65,3 +67,6 @@ doc:
 .PHONY: start
 start: all
 	$(APPNAME)
+
+#Supprime les fichiers du projet, recompile et lance le programme
+mrproper: clean start

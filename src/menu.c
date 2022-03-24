@@ -189,18 +189,20 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
         case SDL_MOUSEMOTION: //Si la souris bouge
         {
             for (int i = 0; i < NB_B_MENU; i++) {
-                if (SDL_PointInRect(&mouse,&boutons[i]->rect))
+                if (SDL_PointInRect(&mouse,&boutons[i]->rect)){
+                    if(i == 2 && moteur->parametres.reset_sauvegarde_joueur == FAUX)
                     SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
-                else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
+                    else SDL_SetTextureColorMod(boutons[i] -> texture, 255, 0, 0);
+                }
+                else{
+                    if(i == 2 && moteur->parametres.reset_sauvegarde_joueur == VRAI)
+                        SDL_SetTextureColorMod(boutons[i] -> texture, 255, 125, 0);
+                    else  SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
+                }
             }
         }
         break;
-
         }
-        //Pour le bouton reset sauvegarde
-        if(moteur->parametres.reset_sauvegarde_joueur == VRAI){
-            SDL_SetTextureColorMod(boutons[2] -> texture, 255, 0, 0); //Si actif : rouge
-        }else SDL_SetTextureColorMod(boutons[2] -> texture, 0, 0, 255);//sinon reste en bleu
     }
     return 0;
 }
@@ -365,9 +367,9 @@ e_code_main chargerMenu(t_moteur * moteur) {
                 break;
             case 4:
                 printf("Toggle save\n");
-                if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
-                    moteur->parametres.reset_sauvegarde_joueur = FAUX;
-                else moteur->parametres.reset_sauvegarde_joueur = VRAI;
+                if(moteur->parametres.reset_sauvegarde_joueur == FAUX)
+                    moteur->parametres.reset_sauvegarde_joueur = VRAI;
+                else moteur->parametres.reset_sauvegarde_joueur = FAUX;
                 temp = 0;
                 break;
             case 5: {

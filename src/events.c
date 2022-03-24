@@ -102,15 +102,15 @@ e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
             case SDL_KEYDOWN:
 
                 if(moteur->parametres.key_up == event.key.keysym.scancode)
-                            joueur->flags->to_up = joueur->flags->to_down + 1;
+                    joueur->flags->to_up = joueur->flags->to_down + 1;
                 else if(moteur->parametres.key_left == event.key.keysym.scancode)
-                            joueur->flags->to_left = joueur->flags->to_right + 1;
+                    joueur->flags->to_left = joueur->flags->to_right + 1;
                 else if (moteur->parametres.key_down == event.key.keysym.scancode)
-                            joueur->flags->to_down = joueur->flags->to_up + 1;
+                    joueur->flags->to_down = joueur->flags->to_up + 1;
                 else if  (moteur->parametres.key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = joueur->flags->to_left + 1;
+                    joueur->flags->to_right = joueur->flags->to_left + 1;
                 else if  (moteur->parametres.key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 1;
+                    joueur->flags->shooting = 1;
 
                 switch (event.key.keysym.scancode)
                 {

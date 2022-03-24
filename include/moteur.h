@@ -54,7 +54,7 @@ typedef struct
 
 /**
  * \struct t_moteur
- * \brief Objet contenant les données nécéssaires au rendu du jeu, aussi
+ * \brief Objet contenant les données nécessaires au rendu du jeu, aussi
  * pour la gestion des collisions.
  */
 typedef struct s_moteur

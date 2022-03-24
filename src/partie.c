@@ -134,7 +134,7 @@ static void renduEntites(t_moteur * moteur)
  * \brief Libère et charge les entités 
  * 
  */
-void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, int id_ancienne_salle)
+void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau, int id_ancienne_salle)
 {
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
@@ -142,10 +142,10 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
     int tempsEcoule;
 
     //Sauver les entités de l'ancienne salle
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
 
     //Charger les entités de la nouvelle salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
     //Detruire anciennes collisions
     if(niveau->collisions != NULL)
@@ -187,6 +187,9 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
         renduEntites(moteur);
 
 
+        if(joueur->flags->map_showing == 1)
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+
         SDL_RenderPresent(moteur->renderer);
 
         //Réguler FPS
@@ -209,7 +212,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, niveau_informations_t * infos_niveau)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau)
 {
     //Variables pour faciliter les appels
     t_niveau * niveau = moteur->niveau_charge;
@@ -223,7 +226,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
 
     
     //Charger les entités de la salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
     while((code_sortie = handleEvents(joueur,moteur)) == NIVEAU_CONTINUER)
@@ -288,11 +291,11 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         }
 
 
-        // --- Changement de salle si nécéssaire ---
+        // --- Changement de salle si nécessaire ---
         id_ancienne_salle = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
         if(id_ancienne_salle != niveau->salle_chargee->id_salle)
-            transitionChangementSalle(moteur, joueur, info_entites, nb_info_entites, id_ancienne_salle);
+            transitionChangementSalle(moteur, joueur, infos_niveau, id_ancienne_salle);
 
 
     // ~~~ RENDU
@@ -316,7 +319,6 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
         }
 
-
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
 
@@ -328,9 +330,9 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
     }
 
     //Sauver l'état des entités
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
 
-    return code_sortie;;
+    return code_sortie;
 }
 
 
@@ -372,7 +374,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
         }
 
         //Jouer le niveau
-        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite, infos_niveaux[indice_niveau_charge]);
+        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]);
     
         //Fin du niveau
         infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;

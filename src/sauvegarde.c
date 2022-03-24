@@ -11,11 +11,12 @@
 
 #define filename_joueur "./save/save_joueur.save"
 #define filename_niveau "./save/save_niveau.save"
+#define filename_param  "./save/save_parametres.save"
 
 // OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Retourne la taille d'une fichier, utile pour savoir s'il est vide ou s'il existe.
+ * \brief Retourne la taille d'un fichier, utile pour savoir s'il est vide ou s'il existe.
  *
  * \param filename nom du fichier
  * 
@@ -245,7 +246,7 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 /**
  * \brief Sauvegarde les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
  * \param infos_niveaux La matrice des structures de donnée de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
@@ -276,7 +277,7 @@ err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveau
 /**
  * \brief Charge les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
  * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
  * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
@@ -302,6 +303,48 @@ err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niv
 
     fclose(fichier);
 
+    return SUCCESS;
+}
+
+// SAUVEGARDE PARAMETRES ---------------------------------------------------------------------------------------------
+
+/**
+ * \brief Sauvegarde des paramètres du joueur
+ * 
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save sauvegarderParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "wb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fwrite(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    fclose(fichier);
+    return SUCCESS;
+}
+
+/**
+ * \brief Charge les paramètres du joueur
+ * 
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save chargerSaveParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "rb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fread(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    fclose(fichier);
     return SUCCESS;
 }
 
