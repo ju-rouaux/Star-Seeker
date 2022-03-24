@@ -1,0 +1,100 @@
+\hypertarget{joueur_8h}{}\doxysection{Référence du fichier include/joueur.h}
+\label{joueur_8h}\index{include/joueur.h@{include/joueur.h}}
+
+
+Module de gestion du joueur.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$personnage.\+h$>$}\newline
+{\ttfamily \#include $<$attaque.\+h$>$}\newline
+{\ttfamily \#include $<$attributs\+\_\+personnages.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les entrées clavier/souris actives du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{joueur_8h_a356b59b347562c683291691f5aa4dca0}{PROPORTION\+\_\+\+JOUEUR}}~1.\+6
+\item 
+\#define \mbox{\hyperlink{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}{VITESSE\+\_\+\+JOUEUR\+\_\+\+DEFAULT}}~6.\+5
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{joueur_8h_a562df2301504c40a35596ed45f41f2b2}\label{joueur_8h_a562df2301504c40a35596ed45f41f2b2}} 
+typedef struct s\+\_\+joueur {\bfseries t\+\_\+joueur}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8h_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float x, float y, SDL\+\_\+\+Texture $\ast$apparence)
+\begin{DoxyCompactList}\small\item\em Génère une structure joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}{detruire\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$$\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion du joueur. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{joueur_8h_a356b59b347562c683291691f5aa4dca0}\label{joueur_8h_a356b59b347562c683291691f5aa4dca0}} 
+\index{joueur.h@{joueur.h}!PROPORTION\_JOUEUR@{PROPORTION\_JOUEUR}}
+\index{PROPORTION\_JOUEUR@{PROPORTION\_JOUEUR}!joueur.h@{joueur.h}}
+\doxysubsubsection{\texorpdfstring{PROPORTION\_JOUEUR}{PROPORTION\_JOUEUR}}
+{\footnotesize\ttfamily \#define PROPORTION\+\_\+\+JOUEUR~1.\+6}
+
+Taille du joueur par rapport à la taille d\textquotesingle{}une tile \mbox{\Hypertarget{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}\label{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}} 
+\index{joueur.h@{joueur.h}!VITESSE\_JOUEUR\_DEFAULT@{VITESSE\_JOUEUR\_DEFAULT}}
+\index{VITESSE\_JOUEUR\_DEFAULT@{VITESSE\_JOUEUR\_DEFAULT}!joueur.h@{joueur.h}}
+\doxysubsubsection{\texorpdfstring{VITESSE\_JOUEUR\_DEFAULT}{VITESSE\_JOUEUR\_DEFAULT}}
+{\footnotesize\ttfamily \#define VITESSE\+\_\+\+JOUEUR\+\_\+\+DEFAULT~6.\+5}
+
+La vitesse du joueur par défaut 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{joueur_8h_abede277b4d13650249d6ef69b267f2a8}\label{joueur_8h_abede277b4d13650249d6ef69b267f2a8}} 
+\index{joueur.h@{joueur.h}!creerJoueur@{creerJoueur}}
+\index{creerJoueur@{creerJoueur}!joueur.h@{joueur.h}}
+\doxysubsubsection{\texorpdfstring{creerJoueur()}{creerJoueur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}$\ast$ creer\+Joueur (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{apparence }\end{DoxyParamCaption})}
+
+
+
+Génère une structure joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Position du joueur en x \\
+\hline
+{\em y} & Position du joueur en y \\
+\hline
+{\em apparence} & Texture du joueur\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur joueur, NULL si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}\label{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}} 
+\index{joueur.h@{joueur.h}!detruireJoueur@{detruireJoueur}}
+\index{detruireJoueur@{detruireJoueur}!joueur.h@{joueur.h}}
+\doxysubsubsection{\texorpdfstring{detruireJoueur()}{detruireJoueur()}}
+{\footnotesize\ttfamily void detruire\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$$\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée au joueur et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & L\textquotesingle{}adresse du pointeur joueur \\
+\hline
+\end{DoxyParams}

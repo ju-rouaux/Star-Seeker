@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/moteur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">moteur.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="moteur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef _JEU_MOTEUR_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define _JEU_MOTEUR_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="textures_8h.html">textures.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="camera_8h.html">camera.h</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_liste t_liste;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="moteur_8h.html#afb773ba23c068f4f166d05461ea1d8e0">   20</a></span>&#160;<span class="preprocessor">#define NB_FPS 60 </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define TEMPS_POUR_CHAQUE_SECONDE ((float)1000/NB_FPS)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="moteur_8h.html#a016709016317bfa58ededa3e5e3433b1">   23</a></span>&#160;<span class="preprocessor">#define VITESSE_TRANSITION 10 </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="moteur_8h.html#a4ed291cf8084f5dfdc2b71abd8f8f0db">   25</a></span>&#160;<span class="preprocessor">#define NOMBRE_DE_PORTES 4 </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="moteur_8h.html#a56e417a69b01260f3a64db5273e2bf1f">   26</a></span>&#160;<span class="preprocessor">#define NB_TILE_LARGEUR 13 </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="moteur_8h.html#ad24341b1dc46d813928c0d57b0f4ff84">   27</a></span>&#160;<span class="preprocessor">#define NB_TILE_HAUTEUR 7 </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_niveau <a class="code" href="structt__niveau.html">t_niveau</a>; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    FAUX, VRAI</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} t_bool_param;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structt__parametres.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structt__parametres.html#a04f7ff7c761b93947289707899169750">   44</a></span>&#160;    t_bool_param <a class="code" href="structt__parametres.html#a04f7ff7c761b93947289707899169750">reset_sauvegarde_joueur</a>; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> volume_audio; <span class="comment">//(ou volume musique puis volume sons)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    SDL_Scancode key_up;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    SDL_Scancode key_down;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    SDL_Scancode key_left;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    SDL_Scancode key_right;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    SDL_Scancode key_projectile;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <a class="code" href="structt__parametres.html">t_parametres</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_moteur</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    SDL_Window * window;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    SDL_Renderer * renderer;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="structt__textures.html">t_textures</a> * textures;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> temps; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> temps_precedent; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="structt__camera.html">t_camera</a> * camera; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="structt__niveau.html">t_niveau</a> * niveau_charge; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    t_liste * liste_entites; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">int</span> echelle; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> window_width; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> window_height; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="structt__parametres.html">t_parametres</a> parametres;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <a class="code" href="structt__moteur.html">t_moteur</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<a class="code" href="structt__moteur.html">t_moteur</a> * <a class="code" href="moteur_8h.html#a980e14a5af12b07ba4baf701b77954ae">chargerMoteur</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> temps);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moteur_8h.html#aa8ba0a1a326f5f885b9f58d650c5f50c">detruireMoteur</a>(<a class="code" href="structt__moteur.html">t_moteur</a> ** moteur);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moteur_8h.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">updateEchelle</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// _JEU_MOTEUR_</span></div>
+<div class="ttc" id="acamera_8h_html"><div class="ttname"><a href="camera_8h.html">camera.h</a></div><div class="ttdoc">Module de calcul de position de caméra pour savoir où dessiner les éléments sur la fenêtre.</div></div>
+<div class="ttc" id="amoteur_8h_html_a980e14a5af12b07ba4baf701b77954ae"><div class="ttname"><a href="moteur_8h.html#a980e14a5af12b07ba4baf701b77954ae">chargerMoteur</a></div><div class="ttdeci">t_moteur * chargerMoteur(unsigned int temps)</div><div class="ttdoc">Charge une fenêtre, un rendu, les textures, et une caméra.</div><div class="ttdef"><b>Definition:</b> moteur.c:41</div></div>
+<div class="ttc" id="amoteur_8h_html_aa8ba0a1a326f5f885b9f58d650c5f50c"><div class="ttname"><a href="moteur_8h.html#aa8ba0a1a326f5f885b9f58d650c5f50c">detruireMoteur</a></div><div class="ttdeci">void detruireMoteur(t_moteur **moteur)</div><div class="ttdoc">Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> moteur.c:111</div></div>
+<div class="ttc" id="amoteur_8h_html_aebb3e2a0bb730dfb9391c82bf2c37d7c"><div class="ttname"><a href="moteur_8h.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">updateEchelle</a></div><div class="ttdeci">void updateEchelle(t_moteur *moteur)</div><div class="ttdoc">Calcule la taille en pixel d'un bloc selon la taille de l'écran et actualise les champs du moteur.</div><div class="ttdef"><b>Definition:</b> moteur.c:131</div></div>
+<div class="ttc" id="astructt__camera_html"><div class="ttname"><a href="structt__camera.html">t_camera</a></div><div class="ttdoc">Modélise une caméra virtuelle qu'il suffit de bouger pour déplacer tout l'affichage des éléments sur ...</div><div class="ttdef"><b>Definition:</b> camera.h:23</div></div>
+<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécéssaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
+<div class="ttc" id="astructt__niveau_html"><div class="ttname"><a href="structt__niveau.html">t_niveau</a></div><div class="ttdoc">Structure représentant une matrice de salles, c'est à dire un niveau.</div></div>
+<div class="ttc" id="astructt__parametres_html"><div class="ttname"><a href="structt__parametres.html">t_parametres</a></div><div class="ttdoc">Structure contenant les paramètres techniques du jeu pouvant être changés par le joueur.</div><div class="ttdef"><b>Definition:</b> moteur.h:43</div></div>
+<div class="ttc" id="astructt__parametres_html_a04f7ff7c761b93947289707899169750"><div class="ttname"><a href="structt__parametres.html#a04f7ff7c761b93947289707899169750">t_parametres::reset_sauvegarde_joueur</a></div><div class="ttdeci">t_bool_param reset_sauvegarde_joueur</div><div class="ttdef"><b>Definition:</b> moteur.h:44</div></div>
+<div class="ttc" id="astructt__textures_html"><div class="ttname"><a href="structt__textures.html">t_textures</a></div><div class="ttdoc">Contient toutes les textures du jeu.</div><div class="ttdef"><b>Definition:</b> textures.h:34</div></div>
+<div class="ttc" id="atextures_8h_html"><div class="ttname"><a href="textures_8h.html">textures.h</a></div><div class="ttdoc">Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

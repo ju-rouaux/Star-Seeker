@@ -1,0 +1,275 @@
+\hypertarget{SDL_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL.h}
+\label{SDL_8h}\index{include/SDL2/SDL.h@{include/SDL2/SDL.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+assert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+atomic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+audio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+clipboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+cpuinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+endian.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+filesystem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+gamecontroller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+haptic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+hidapi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+hints.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+joystick.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+loadso.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+messagebox.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+metal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+mutex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+power.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+render.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+shape.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+thread.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+locale.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+misc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{SDL\+\_\+\+INIT\+\_\+$\ast$}
+\label{_amgrpa6fe3a8ae2ad7bed5edc588e6bb0b7fb}%
+These are the flags which may be passed to \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}. You should specify the subsystems which you will be using in your application. \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL_8h_aadfaf3382d6e136b5944d1d5e7e50290}\label{SDL_8h_aadfaf3382d6e136b5944d1d5e7e50290}} 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+TIMER}~0x00000001u
+\item 
+\mbox{\Hypertarget{SDL_8h_abeceb02c19508655cb05cc8e64206333}\label{SDL_8h_abeceb02c19508655cb05cc8e64206333}} 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+AUDIO}~0x00000010u
+\item 
+\#define \mbox{\hyperlink{SDL_8h_afc988e510ed522628ffeb7c76f80c233}{SDL\+\_\+\+INIT\+\_\+\+VIDEO}}~0x00000020u
+\item 
+\#define \mbox{\hyperlink{SDL_8h_ad6b47d785eaa00d9c48e6c1cff4aef4b}{SDL\+\_\+\+INIT\+\_\+\+JOYSTICK}}~0x00000200u
+\item 
+\mbox{\Hypertarget{SDL_8h_adfd88189fec07574cae461b9dea75a85}\label{SDL_8h_adfd88189fec07574cae461b9dea75a85}} 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+HAPTIC}~0x00001000u
+\item 
+\#define \mbox{\hyperlink{SDL_8h_ac224a9aa4208de0e9b03948ff9b5fe0a}{SDL\+\_\+\+INIT\+\_\+\+GAMECONTROLLER}}~0x00002000u
+\item 
+\mbox{\Hypertarget{SDL_8h_addad89db9e13b46ebcd46a0db8ba0382}\label{SDL_8h_addad89db9e13b46ebcd46a0db8ba0382}} 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+EVENTS}~0x00004000u
+\item 
+\mbox{\Hypertarget{SDL_8h_a25711177b046dd1ccd2fcc2f123f117b}\label{SDL_8h_a25711177b046dd1ccd2fcc2f123f117b}} 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+SENSOR}~0x00008000u
+\item 
+\#define \mbox{\hyperlink{SDL_8h_ab848174dfbc69cb2cc7bbf06a6e5c584}{SDL\+\_\+\+INIT\+\_\+\+NOPARACHUTE}}~0x00100000u
+\item 
+\#define {\bfseries SDL\+\_\+\+INIT\+\_\+\+EVERYTHING}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init}} (Uint32 flags)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System}} (Uint32 flags)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System}} (Uint32 flags)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL_8h_a04dc570990c697eed95681216801710d}{SDL\+\_\+\+Was\+Init}} (Uint32 flags)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Main include header for the SDL library 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL_8h_a574afd93f30161d6e87449f675081fb5}\label{SDL_8h_a574afd93f30161d6e87449f675081fb5}} 
+\index{SDL.h@{SDL.h}!SDL\_INIT\_EVERYTHING@{SDL\_INIT\_EVERYTHING}}
+\index{SDL\_INIT\_EVERYTHING@{SDL\_INIT\_EVERYTHING}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_INIT\_EVERYTHING}{SDL\_INIT\_EVERYTHING}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+INIT\+\_\+\+EVERYTHING}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                ( \(\backslash\)}
+\DoxyCodeLine{                SDL\_INIT\_TIMER | SDL\_INIT\_AUDIO | \mbox{\hyperlink{SDL_8h_afc988e510ed522628ffeb7c76f80c233}{SDL\_INIT\_VIDEO}} | SDL\_INIT\_EVENTS | \(\backslash\)}
+\DoxyCodeLine{                SDL\_INIT\_JOYSTICK | SDL\_INIT\_HAPTIC | \mbox{\hyperlink{SDL_8h_ac224a9aa4208de0e9b03948ff9b5fe0a}{SDL\_INIT\_GAMECONTROLLER}} | SDL\_INIT\_SENSOR \(\backslash\)}
+\DoxyCodeLine{            )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL_8h_ac224a9aa4208de0e9b03948ff9b5fe0a}\label{SDL_8h_ac224a9aa4208de0e9b03948ff9b5fe0a}} 
+\index{SDL.h@{SDL.h}!SDL\_INIT\_GAMECONTROLLER@{SDL\_INIT\_GAMECONTROLLER}}
+\index{SDL\_INIT\_GAMECONTROLLER@{SDL\_INIT\_GAMECONTROLLER}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_INIT\_GAMECONTROLLER}{SDL\_INIT\_GAMECONTROLLER}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+INIT\+\_\+\+GAMECONTROLLER~0x00002000u}
+
+SDL\+\_\+\+INIT\+\_\+\+GAMECONTROLLER implies SDL\+\_\+\+INIT\+\_\+\+JOYSTICK \mbox{\Hypertarget{SDL_8h_ad6b47d785eaa00d9c48e6c1cff4aef4b}\label{SDL_8h_ad6b47d785eaa00d9c48e6c1cff4aef4b}} 
+\index{SDL.h@{SDL.h}!SDL\_INIT\_JOYSTICK@{SDL\_INIT\_JOYSTICK}}
+\index{SDL\_INIT\_JOYSTICK@{SDL\_INIT\_JOYSTICK}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_INIT\_JOYSTICK}{SDL\_INIT\_JOYSTICK}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+INIT\+\_\+\+JOYSTICK~0x00000200u}
+
+SDL\+\_\+\+INIT\+\_\+\+JOYSTICK implies SDL\+\_\+\+INIT\+\_\+\+EVENTS \mbox{\Hypertarget{SDL_8h_ab848174dfbc69cb2cc7bbf06a6e5c584}\label{SDL_8h_ab848174dfbc69cb2cc7bbf06a6e5c584}} 
+\index{SDL.h@{SDL.h}!SDL\_INIT\_NOPARACHUTE@{SDL\_INIT\_NOPARACHUTE}}
+\index{SDL\_INIT\_NOPARACHUTE@{SDL\_INIT\_NOPARACHUTE}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_INIT\_NOPARACHUTE}{SDL\_INIT\_NOPARACHUTE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+INIT\+\_\+\+NOPARACHUTE~0x00100000u}
+
+compatibility; this flag is ignored. \mbox{\Hypertarget{SDL_8h_afc988e510ed522628ffeb7c76f80c233}\label{SDL_8h_afc988e510ed522628ffeb7c76f80c233}} 
+\index{SDL.h@{SDL.h}!SDL\_INIT\_VIDEO@{SDL\_INIT\_VIDEO}}
+\index{SDL\_INIT\_VIDEO@{SDL\_INIT\_VIDEO}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_INIT\_VIDEO}{SDL\_INIT\_VIDEO}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+INIT\+\_\+\+VIDEO~0x00000020u}
+
+SDL\+\_\+\+INIT\+\_\+\+VIDEO implies SDL\+\_\+\+INIT\+\_\+\+EVENTS 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}\label{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}} 
+\index{SDL.h@{SDL.h}!SDL\_Init@{SDL\_Init}}
+\index{SDL\_Init@{SDL\_Init}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Init()}{SDL\_Init()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Init (\begin{DoxyParamCaption}\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Initialize the SDL library.
+
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} simply forwards to calling \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}}. Therefore, the two may be used interchangeably. Though for readability of your code \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}} might be preferred.
+
+The file I/O (for example\+: SDL\+\_\+\+RWFrom\+File) and threading (SDL\+\_\+\+Create\+Thread) subsystems are initialized by default. Message boxes (SDL\+\_\+\+Show\+Simple\+Message\+Box) also attempt to work without initializing the video subsystem, in hopes of being useful in showing an error dialog when SDL\+\_\+\+Init fails. You must specifically initialize other subsystems if you use them in your application.
+
+Logging (such as SDL\+\_\+\+Log) works without initialization, too.
+
+{\ttfamily flags} may be any of the following OR\textquotesingle{}d together\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+TIMER}\+: timer subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+AUDIO}\+: audio subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+VIDEO}\+: video subsystem; automatically initializes the events subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+JOYSTICK}\+: joystick subsystem; automatically initializes the events subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+HAPTIC}\+: haptic (force feedback) subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+GAMECONTROLLER}\+: controller subsystem; automatically initializes the joystick subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+EVENTS}\+: events subsystem
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+EVERYTHING}\+: all of the above subsystems
+\item {\ttfamily SDL\+\_\+\+INIT\+\_\+\+NOPARACHUTE}\+: compatibility; this flag is ignored
+\end{DoxyItemize}
+
+Subsystem initialization is ref-\/counted, you must call \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System()}} for each \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}} to correctly shutdown a subsystem manually (or call \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}} to force shutdown). If a subsystem is already loaded then this call will increase the ref-\/count and return.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & subsystem initialization flags \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System}} 
+
+\mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit}} 
+
+\mbox{\hyperlink{SDL__main_8h_a6a4bb5ffb489bf0956bc1b813397306d}{SDL\+\_\+\+Set\+Main\+Ready}} 
+
+\mbox{\hyperlink{SDL_8h_a04dc570990c697eed95681216801710d}{SDL\+\_\+\+Was\+Init}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}\label{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}} 
+\index{SDL.h@{SDL.h}!SDL\_InitSubSystem@{SDL\_InitSubSystem}}
+\index{SDL\_InitSubSystem@{SDL\_InitSubSystem}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_InitSubSystem()}{SDL\_InitSubSystem()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Init\+Sub\+System (\begin{DoxyParamCaption}\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Compatibility function to initialize the SDL library.
+
+In SDL2, this function and \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} are interchangeable.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & any of the flags used by \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}; see SDL\+\_\+\+Init for details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init}} 
+
+\mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit}} 
+
+\mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL_8h_afdabaf714781099083592051f2d9ac11}\label{SDL_8h_afdabaf714781099083592051f2d9ac11}} 
+\index{SDL.h@{SDL.h}!SDL\_Quit@{SDL\_Quit}}
+\index{SDL\_Quit@{SDL\_Quit}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Quit()}{SDL\_Quit()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Quit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Clean up all initialized subsystems.
+
+You should call this function even if you have already shutdown each initialized subsystem with \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System()}}. It is safe to call this function even in the case of errors in initialization.
+
+If you start a subsystem using a call to that subsystem\textquotesingle{}s init function (for example \mbox{\hyperlink{SDL__video_8h_a05244b30716f0339dcd140c6f92017b7}{SDL\+\_\+\+Video\+Init()}}) instead of \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} or \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}}, then you must use that subsystem\textquotesingle{}s quit function (\mbox{\hyperlink{SDL__video_8h_ade5fc4847320fb235f17265b683fa013}{SDL\+\_\+\+Video\+Quit()}}) to shut it down before calling \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}}. But generally, you should not be using those functions directly anyhow; use \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} instead.
+
+You can use this function with atexit() to ensure that it is run when your application is shutdown, but it is not wise to do this from a library or other dynamically loaded code.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init}} 
+
+\mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL_8h_a14e9091982e09097985e10e3ca65debb}\label{SDL_8h_a14e9091982e09097985e10e3ca65debb}} 
+\index{SDL.h@{SDL.h}!SDL\_QuitSubSystem@{SDL\_QuitSubSystem}}
+\index{SDL\_QuitSubSystem@{SDL\_QuitSubSystem}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_QuitSubSystem()}{SDL\_QuitSubSystem()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Quit\+Sub\+System (\begin{DoxyParamCaption}\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Shut down specific SDL subsystems.
+
+If you start a subsystem using a call to that subsystem\textquotesingle{}s init function (for example \mbox{\hyperlink{SDL__video_8h_a05244b30716f0339dcd140c6f92017b7}{SDL\+\_\+\+Video\+Init()}}) instead of \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} or \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}}, \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System()}} and \mbox{\hyperlink{SDL_8h_a04dc570990c697eed95681216801710d}{SDL\+\_\+\+Was\+Init()}} will not work. You will need to use that subsystem\textquotesingle{}s quit function (\mbox{\hyperlink{SDL__video_8h_ade5fc4847320fb235f17265b683fa013}{SDL\+\_\+\+Video\+Quit()}}) directly instead. But generally, you should not be using those functions directly anyhow; use \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} instead.
+
+You still need to call \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}} even if you close all open subsystems with \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & any of the flags used by \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}; see SDL\+\_\+\+Init for details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System}} 
+
+\mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL_8h_a04dc570990c697eed95681216801710d}\label{SDL_8h_a04dc570990c697eed95681216801710d}} 
+\index{SDL.h@{SDL.h}!SDL\_WasInit@{SDL\_WasInit}}
+\index{SDL\_WasInit@{SDL\_WasInit}!SDL.h@{SDL.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WasInit()}{SDL\_WasInit()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Was\+Init (\begin{DoxyParamCaption}\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Get a mask of the specified subsystems which are currently initialized.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em flags} & any of the flags used by \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}; see SDL\+\_\+\+Init for details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a mask of all initialized subsystems if {\ttfamily flags} is 0, otherwise it returns the initialization status of the specified subsystems.
+\end{DoxyReturn}
+The return value does not include SDL\+\_\+\+INIT\+\_\+\+NOPARACHUTE.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init}} 
+
+\mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System}} 
+\end{DoxySeeAlso}

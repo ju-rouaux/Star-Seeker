@@ -1,0 +1,278 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {french}{}
+\contentsline {chapter}{\numberline {1}Index des classes}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Liste des classes}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Index des fichiers}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Liste des fichiers}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Documentation des classes}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Référence de la structure element}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Référence de la structure niveau\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}base\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t}{5}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Description détaillée}{5}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Référence de la structure niveau\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}informations\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t}{5}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}animation}{6}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Description détaillée}{6}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Documentation des données membres}{6}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}dernier\_update}{6}{subsubsection.3.4.2.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}id\_max}{6}{subsubsection.3.4.2.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}indice\_texture}{6}{subsubsection.3.4.2.3}%
+\contentsline {subsubsection}{\numberline {3.4.2.4}vitesse}{7}{subsubsection.3.4.2.4}%
+\contentsline {section}{\numberline {3.5}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}entite}{7}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}monstre}{7}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}moteur}{7}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Documentation des données membres}{7}{subsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.1}camera}{7}{subsubsection.3.7.1.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.2}echelle}{8}{subsubsection.3.7.1.2}%
+\contentsline {subsubsection}{\numberline {3.7.1.3}niveau\_charge}{8}{subsubsection.3.7.1.3}%
+\contentsline {subsubsection}{\numberline {3.7.1.4}temps}{8}{subsubsection.3.7.1.4}%
+\contentsline {subsubsection}{\numberline {3.7.1.5}window\_height}{8}{subsubsection.3.7.1.5}%
+\contentsline {subsubsection}{\numberline {3.7.1.6}window\_width}{8}{subsubsection.3.7.1.6}%
+\contentsline {section}{\numberline {3.8}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau}{8}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Documentation des données membres}{9}{subsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.1.1}collisions}{9}{subsubsection.3.8.1.1}%
+\contentsline {subsubsection}{\numberline {3.8.1.2}h}{9}{subsubsection.3.8.1.2}%
+\contentsline {subsubsection}{\numberline {3.8.1.3}j\_charge}{9}{subsubsection.3.8.1.3}%
+\contentsline {subsubsection}{\numberline {3.8.1.4}l}{9}{subsubsection.3.8.1.4}%
+\contentsline {subsubsection}{\numberline {3.8.1.5}liste\_entites}{9}{subsubsection.3.8.1.5}%
+\contentsline {subsubsection}{\numberline {3.8.1.6}salle\_chargee}{9}{subsubsection.3.8.1.6}%
+\contentsline {subsubsection}{\numberline {3.8.1.7}taille\_collisions}{10}{subsubsection.3.8.1.7}%
+\contentsline {section}{\numberline {3.9}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}personnage}{10}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}projectile}{10}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Documentation des données membres}{10}{subsection.3.10.1}%
+\contentsline {subsubsection}{\numberline {3.10.1.1}cible}{10}{subsubsection.3.10.1.1}%
+\contentsline {subsubsection}{\numberline {3.10.1.2}dommages}{10}{subsubsection.3.10.1.2}%
+\contentsline {subsubsection}{\numberline {3.10.1.3}duree\_de\_vie}{10}{subsubsection.3.10.1.3}%
+\contentsline {section}{\numberline {3.11}Référence de la structure s\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}salle}{11}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Documentation des données membres}{11}{subsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.1.1}dimensions}{11}{subsubsection.3.11.1.1}%
+\contentsline {subsubsection}{\numberline {3.11.1.2}entites}{11}{subsubsection.3.11.1.2}%
+\contentsline {subsubsection}{\numberline {3.11.1.3}id\_salle}{11}{subsubsection.3.11.1.3}%
+\contentsline {subsubsection}{\numberline {3.11.1.4}nb\_entite}{11}{subsubsection.3.11.1.4}%
+\contentsline {subsubsection}{\numberline {3.11.1.5}portes}{11}{subsubsection.3.11.1.5}%
+\contentsline {section}{\numberline {3.12}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attaque\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}corps}{12}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}Description détaillée}{12}{subsection.3.12.1}%
+\contentsline {section}{\numberline {3.13}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}attaque\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tir}{12}{section.3.13}%
+\contentsline {subsection}{\numberline {3.13.1}Description détaillée}{12}{subsection.3.13.1}%
+\contentsline {subsection}{\numberline {3.13.2}Documentation des données membres}{12}{subsection.3.13.2}%
+\contentsline {subsubsection}{\numberline {3.13.2.1}nb\_proj\_salve}{12}{subsubsection.3.13.2.1}%
+\contentsline {subsubsection}{\numberline {3.13.2.2}nb\_salves}{13}{subsubsection.3.13.2.2}%
+\contentsline {subsubsection}{\numberline {3.13.2.3}nb\_salves\_restantes}{13}{subsubsection.3.13.2.3}%
+\contentsline {subsubsection}{\numberline {3.13.2.4}temps\_debut\_attaque}{13}{subsubsection.3.13.2.4}%
+\contentsline {subsubsection}{\numberline {3.13.2.5}tir\_interval}{13}{subsubsection.3.13.2.5}%
+\contentsline {section}{\numberline {3.14}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}camera}{13}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}Description détaillée}{13}{subsection.3.14.1}%
+\contentsline {subsection}{\numberline {3.14.2}Documentation des données membres}{14}{subsection.3.14.2}%
+\contentsline {subsubsection}{\numberline {3.14.2.1}futur\_x}{14}{subsubsection.3.14.2.1}%
+\contentsline {subsubsection}{\numberline {3.14.2.2}futur\_y}{14}{subsubsection.3.14.2.2}%
+\contentsline {subsubsection}{\numberline {3.14.2.3}x}{14}{subsubsection.3.14.2.3}%
+\contentsline {subsubsection}{\numberline {3.14.2.4}y}{14}{subsubsection.3.14.2.4}%
+\contentsline {section}{\numberline {3.15}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}couleur\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}RVB}{14}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}Description détaillée}{15}{subsection.3.15.1}%
+\contentsline {section}{\numberline {3.16}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dimensions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}salle}{15}{section.3.16}%
+\contentsline {subsection}{\numberline {3.16.1}Description détaillée}{15}{subsection.3.16.1}%
+\contentsline {subsection}{\numberline {3.16.2}Documentation des données membres}{15}{subsection.3.16.2}%
+\contentsline {subsubsection}{\numberline {3.16.2.1}hauteur}{15}{subsubsection.3.16.2.1}%
+\contentsline {subsubsection}{\numberline {3.16.2.2}i}{15}{subsubsection.3.16.2.2}%
+\contentsline {subsubsection}{\numberline {3.16.2.3}j}{16}{subsubsection.3.16.2.3}%
+\contentsline {subsubsection}{\numberline {3.16.2.4}largeur}{16}{subsubsection.3.16.2.4}%
+\contentsline {subsubsection}{\numberline {3.16.2.5}nombre}{16}{subsubsection.3.16.2.5}%
+\contentsline {section}{\numberline {3.17}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}entite}{16}{section.3.17}%
+\contentsline {subsection}{\numberline {3.17.1}Description détaillée}{16}{subsection.3.17.1}%
+\contentsline {section}{\numberline {3.18}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}joueur}{16}{section.3.18}%
+\contentsline {subsection}{\numberline {3.18.1}Description détaillée}{17}{subsection.3.18.1}%
+\contentsline {section}{\numberline {3.19}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}joueur\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}flags}{17}{section.3.19}%
+\contentsline {subsection}{\numberline {3.19.1}Description détaillée}{17}{subsection.3.19.1}%
+\contentsline {section}{\numberline {3.20}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}liste}{17}{section.3.20}%
+\contentsline {section}{\numberline {3.21}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}moteur}{17}{section.3.21}%
+\contentsline {subsection}{\numberline {3.21.1}Description détaillée}{18}{subsection.3.21.1}%
+\contentsline {section}{\numberline {3.22}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau}{18}{section.3.22}%
+\contentsline {subsection}{\numberline {3.22.1}Description détaillée}{18}{subsection.3.22.1}%
+\contentsline {section}{\numberline {3.23}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}personnage}{18}{section.3.23}%
+\contentsline {subsection}{\numberline {3.23.1}Description détaillée}{18}{subsection.3.23.1}%
+\contentsline {section}{\numberline {3.24}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}projectile}{18}{section.3.24}%
+\contentsline {subsection}{\numberline {3.24.1}Description détaillée}{18}{subsection.3.24.1}%
+\contentsline {section}{\numberline {3.25}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}salle}{19}{section.3.25}%
+\contentsline {subsection}{\numberline {3.25.1}Description détaillée}{19}{subsection.3.25.1}%
+\contentsline {section}{\numberline {3.26}Référence de la structure t\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}textures}{19}{section.3.26}%
+\contentsline {subsection}{\numberline {3.26.1}Description détaillée}{19}{subsection.3.26.1}%
+\contentsline {chapter}{\numberline {4}Documentation des fichiers}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Référence du fichier include/animation.h}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Description détaillée}{21}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Documentation des définitions de type}{22}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}t\_animation}{22}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Documentation des fonctions}{22}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}creerAnimation()}{22}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}detruireAnimation()}{22}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}updateAnimation()}{23}{subsubsection.4.1.3.3}%
+\contentsline {section}{\numberline {4.2}Référence du fichier include/attaque.h}{23}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Description détaillée}{23}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Référence du fichier include/camera.h}{24}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Description détaillée}{24}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Documentation des fonctions}{24}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}creerCamera()}{24}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}detruireCamera()}{25}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}updateCamera()}{25}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}updateFutureCamera()}{26}{subsubsection.4.3.2.4}%
+\contentsline {section}{\numberline {4.4}Référence du fichier include/entite.h}{26}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Description détaillée}{27}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Documentation des fonctions}{27}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}creerEntite()}{27}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}deplacerEntite()}{28}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}dessinerEntite()}{28}{subsubsection.4.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}detruireEntite()}{28}{subsubsection.4.4.2.4}%
+\contentsline {section}{\numberline {4.5}Référence du fichier include/generation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau.h}{29}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Description détaillée}{29}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Documentation des fonctions}{30}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}creer\_niveau\_info()}{30}{subsubsection.4.5.2.1}%
+\contentsline {section}{\numberline {4.6}Référence du fichier include/joueur.h}{30}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Description détaillée}{31}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Documentation des macros}{31}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}PROPORTION\_JOUEUR}{31}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}VITESSE\_JOUEUR\_DEFAULT}{31}{subsubsection.4.6.2.2}%
+\contentsline {subsection}{\numberline {4.6.3}Documentation des fonctions}{31}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}creerJoueur()}{31}{subsubsection.4.6.3.1}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}detruireJoueur()}{32}{subsubsection.4.6.3.2}%
+\contentsline {section}{\numberline {4.7}Référence du fichier include/liste.h}{32}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Description détaillée}{33}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Documentation des fonctions}{33}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}ajout\_droit()}{33}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}ajout\_gauche()}{33}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}en\_queue()}{33}{subsubsection.4.7.2.3}%
+\contentsline {subsubsection}{\numberline {4.7.2.4}en\_tete()}{34}{subsubsection.4.7.2.4}%
+\contentsline {subsubsection}{\numberline {4.7.2.5}hors\_liste()}{34}{subsubsection.4.7.2.5}%
+\contentsline {subsubsection}{\numberline {4.7.2.6}liste\_vide()}{34}{subsubsection.4.7.2.6}%
+\contentsline {subsubsection}{\numberline {4.7.2.7}modif\_elt()}{35}{subsubsection.4.7.2.7}%
+\contentsline {subsubsection}{\numberline {4.7.2.8}oter\_elt()}{35}{subsubsection.4.7.2.8}%
+\contentsline {subsubsection}{\numberline {4.7.2.9}precedent()}{35}{subsubsection.4.7.2.9}%
+\contentsline {subsubsection}{\numberline {4.7.2.10}suivant()}{36}{subsubsection.4.7.2.10}%
+\contentsline {section}{\numberline {4.8}Référence du fichier include/monstre.h}{36}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Description détaillée}{36}{subsection.4.8.1}%
+\contentsline {section}{\numberline {4.9}Référence du fichier include/moteur.h}{36}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Description détaillée}{37}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Documentation des macros}{37}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}NB\_FPS}{37}{subsubsection.4.9.2.1}%
+\contentsline {subsubsection}{\numberline {4.9.2.2}NB\_TILE\_HAUTEUR}{38}{subsubsection.4.9.2.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.3}NB\_TILE\_LARGEUR}{38}{subsubsection.4.9.2.3}%
+\contentsline {subsubsection}{\numberline {4.9.2.4}NOMBRE\_DE\_PORTES}{38}{subsubsection.4.9.2.4}%
+\contentsline {subsubsection}{\numberline {4.9.2.5}VITESSE\_TRANSITION}{38}{subsubsection.4.9.2.5}%
+\contentsline {subsection}{\numberline {4.9.3}Documentation des fonctions}{38}{subsection.4.9.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}chargerMoteur()}{38}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.2}detruireMoteur()}{38}{subsubsection.4.9.3.2}%
+\contentsline {subsubsection}{\numberline {4.9.3.3}updateEchelle()}{39}{subsubsection.4.9.3.3}%
+\contentsline {section}{\numberline {4.10}Référence du fichier include/niveau.h}{39}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Description détaillée}{40}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Documentation des fonctions}{40}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}arreterNiveau()}{40}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}detruireNiveau()}{40}{subsubsection.4.10.2.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.3}lancerNiveau()}{41}{subsubsection.4.10.2.3}%
+\contentsline {subsubsection}{\numberline {4.10.2.4}updateNiveau()}{41}{subsubsection.4.10.2.4}%
+\contentsline {section}{\numberline {4.11}Référence du fichier include/partie.h}{41}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Description détaillée}{41}{subsection.4.11.1}%
+\contentsline {section}{\numberline {4.12}Référence du fichier include/personnage.h}{42}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}Description détaillée}{42}{subsection.4.12.1}%
+\contentsline {section}{\numberline {4.13}Référence du fichier include/projectiles.h}{42}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Description détaillée}{43}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Documentation des fonctions}{43}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}creerProjectile()}{43}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}detruireProjectile()}{44}{subsubsection.4.13.2.2}%
+\contentsline {section}{\numberline {4.14}Référence du fichier include/rendu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau.h}{44}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Description détaillée}{44}{subsection.4.14.1}%
+\contentsline {section}{\numberline {4.15}Référence du fichier include/sauvegarde.h}{44}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Description détaillée}{45}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Documentation des fonctions}{45}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}chargerSauvegarde()}{45}{subsubsection.4.15.2.1}%
+\contentsline {section}{\numberline {4.16}Référence du fichier include/textures.h}{45}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Description détaillée}{46}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Documentation des fonctions}{46}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}chargerTextures()}{46}{subsubsection.4.16.2.1}%
+\contentsline {subsubsection}{\numberline {4.16.2.2}detruireTextures()}{47}{subsubsection.4.16.2.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.3}splitTexture()}{47}{subsubsection.4.16.2.3}%
+\contentsline {subsubsection}{\numberline {4.16.2.4}tileNiveau()}{47}{subsubsection.4.16.2.4}%
+\contentsline {section}{\numberline {4.17}Référence du fichier include/window.h}{48}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Description détaillée}{48}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Documentation des fonctions}{48}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}creerFenetreEtRendu()}{48}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}detruireFenetreEtRendu()}{49}{subsubsection.4.17.2.2}%
+\contentsline {section}{\numberline {4.18}Référence du fichier src/animation.c}{49}{section.4.18}%
+\contentsline {subsection}{\numberline {4.18.1}Description détaillée}{49}{subsection.4.18.1}%
+\contentsline {subsection}{\numberline {4.18.2}Documentation des fonctions}{50}{subsection.4.18.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.1}creerAnimation()}{50}{subsubsection.4.18.2.1}%
+\contentsline {subsubsection}{\numberline {4.18.2.2}detruireAnimation()}{50}{subsubsection.4.18.2.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.3}updateAnimation()}{50}{subsubsection.4.18.2.3}%
+\contentsline {section}{\numberline {4.19}Référence du fichier src/camera.c}{51}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Description détaillée}{51}{subsection.4.19.1}%
+\contentsline {subsection}{\numberline {4.19.2}Documentation des fonctions}{51}{subsection.4.19.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.1}creerCamera()}{51}{subsubsection.4.19.2.1}%
+\contentsline {subsubsection}{\numberline {4.19.2.2}detruireCamera()}{52}{subsubsection.4.19.2.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.3}updateCamera()}{52}{subsubsection.4.19.2.3}%
+\contentsline {subsubsection}{\numberline {4.19.2.4}updateFutureCamera()}{53}{subsubsection.4.19.2.4}%
+\contentsline {section}{\numberline {4.20}Référence du fichier src/entite.c}{53}{section.4.20}%
+\contentsline {subsection}{\numberline {4.20.1}Description détaillée}{54}{subsection.4.20.1}%
+\contentsline {subsection}{\numberline {4.20.2}Documentation des fonctions}{54}{subsection.4.20.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.1}creerEntite()}{54}{subsubsection.4.20.2.1}%
+\contentsline {subsubsection}{\numberline {4.20.2.2}deplacerEntite()}{54}{subsubsection.4.20.2.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.3}dessinerEntite()}{55}{subsubsection.4.20.2.3}%
+\contentsline {subsubsection}{\numberline {4.20.2.4}detruireEntite()}{55}{subsubsection.4.20.2.4}%
+\contentsline {section}{\numberline {4.21}Référence du fichier src/events.c}{56}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Description détaillée}{56}{subsection.4.21.1}%
+\contentsline {subsection}{\numberline {4.21.2}Documentation des fonctions}{56}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}handleEvents()}{56}{subsubsection.4.21.2.1}%
+\contentsline {section}{\numberline {4.22}Référence du fichier src/generation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau.c}{57}{section.4.22}%
+\contentsline {subsection}{\numberline {4.22.1}Description détaillée}{57}{subsection.4.22.1}%
+\contentsline {subsection}{\numberline {4.22.2}Documentation des fonctions}{58}{subsection.4.22.2}%
+\contentsline {subsubsection}{\numberline {4.22.2.1}creer\_niveau\_info()}{58}{subsubsection.4.22.2.1}%
+\contentsline {section}{\numberline {4.23}Référence du fichier src/joueur.c}{59}{section.4.23}%
+\contentsline {subsection}{\numberline {4.23.1}Description détaillée}{59}{subsection.4.23.1}%
+\contentsline {subsection}{\numberline {4.23.2}Documentation des fonctions}{59}{subsection.4.23.2}%
+\contentsline {subsubsection}{\numberline {4.23.2.1}creerJoueur()}{59}{subsubsection.4.23.2.1}%
+\contentsline {subsubsection}{\numberline {4.23.2.2}detruireJoueur()}{60}{subsubsection.4.23.2.2}%
+\contentsline {section}{\numberline {4.24}Référence du fichier src/liste.c}{60}{section.4.24}%
+\contentsline {subsection}{\numberline {4.24.1}Description détaillée}{61}{subsection.4.24.1}%
+\contentsline {subsection}{\numberline {4.24.2}Documentation des fonctions}{61}{subsection.4.24.2}%
+\contentsline {subsubsection}{\numberline {4.24.2.1}ajout\_droit()}{61}{subsubsection.4.24.2.1}%
+\contentsline {subsubsection}{\numberline {4.24.2.2}ajout\_gauche()}{61}{subsubsection.4.24.2.2}%
+\contentsline {subsubsection}{\numberline {4.24.2.3}en\_queue()}{62}{subsubsection.4.24.2.3}%
+\contentsline {subsubsection}{\numberline {4.24.2.4}en\_tete()}{62}{subsubsection.4.24.2.4}%
+\contentsline {subsubsection}{\numberline {4.24.2.5}hors\_liste()}{62}{subsubsection.4.24.2.5}%
+\contentsline {subsubsection}{\numberline {4.24.2.6}liste\_vide()}{62}{subsubsection.4.24.2.6}%
+\contentsline {subsubsection}{\numberline {4.24.2.7}modif\_elt()}{63}{subsubsection.4.24.2.7}%
+\contentsline {subsubsection}{\numberline {4.24.2.8}oter\_elt()}{63}{subsubsection.4.24.2.8}%
+\contentsline {subsubsection}{\numberline {4.24.2.9}precedent()}{63}{subsubsection.4.24.2.9}%
+\contentsline {subsubsection}{\numberline {4.24.2.10}suivant()}{64}{subsubsection.4.24.2.10}%
+\contentsline {section}{\numberline {4.25}Référence du fichier src/moteur.c}{64}{section.4.25}%
+\contentsline {subsection}{\numberline {4.25.1}Description détaillée}{64}{subsection.4.25.1}%
+\contentsline {subsection}{\numberline {4.25.2}Documentation des fonctions}{65}{subsection.4.25.2}%
+\contentsline {subsubsection}{\numberline {4.25.2.1}chargerMoteur()}{65}{subsubsection.4.25.2.1}%
+\contentsline {subsubsection}{\numberline {4.25.2.2}detruireMoteur()}{65}{subsubsection.4.25.2.2}%
+\contentsline {subsubsection}{\numberline {4.25.2.3}updateEchelle()}{65}{subsubsection.4.25.2.3}%
+\contentsline {section}{\numberline {4.26}Référence du fichier src/niveau.c}{65}{section.4.26}%
+\contentsline {subsection}{\numberline {4.26.1}Description détaillée}{66}{subsection.4.26.1}%
+\contentsline {subsection}{\numberline {4.26.2}Documentation des fonctions}{66}{subsection.4.26.2}%
+\contentsline {subsubsection}{\numberline {4.26.2.1}arreterNiveau()}{66}{subsubsection.4.26.2.1}%
+\contentsline {subsubsection}{\numberline {4.26.2.2}detruireNiveau()}{66}{subsubsection.4.26.2.2}%
+\contentsline {subsubsection}{\numberline {4.26.2.3}lancerNiveau()}{67}{subsubsection.4.26.2.3}%
+\contentsline {subsubsection}{\numberline {4.26.2.4}updateNiveau()}{67}{subsubsection.4.26.2.4}%
+\contentsline {section}{\numberline {4.27}Référence du fichier src/outils.c}{67}{section.4.27}%
+\contentsline {subsection}{\numberline {4.27.1}Description détaillée}{68}{subsection.4.27.1}%
+\contentsline {subsection}{\numberline {4.27.2}Documentation des fonctions}{68}{subsection.4.27.2}%
+\contentsline {subsubsection}{\numberline {4.27.2.1}de()}{68}{subsubsection.4.27.2.1}%
+\contentsline {section}{\numberline {4.28}Référence du fichier src/rendu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau.c}{68}{section.4.28}%
+\contentsline {subsection}{\numberline {4.28.1}Description détaillée}{68}{subsection.4.28.1}%
+\contentsline {section}{\numberline {4.29}Référence du fichier src/sauvegarde.c}{69}{section.4.29}%
+\contentsline {subsection}{\numberline {4.29.1}Description détaillée}{69}{subsection.4.29.1}%
+\contentsline {subsection}{\numberline {4.29.2}Documentation des fonctions}{69}{subsection.4.29.2}%
+\contentsline {subsubsection}{\numberline {4.29.2.1}chargerSauvegarde()}{69}{subsubsection.4.29.2.1}%
+\contentsline {section}{\numberline {4.30}Référence du fichier src/textures.c}{69}{section.4.30}%
+\contentsline {subsection}{\numberline {4.30.1}Description détaillée}{70}{subsection.4.30.1}%
+\contentsline {subsection}{\numberline {4.30.2}Documentation des fonctions}{70}{subsection.4.30.2}%
+\contentsline {subsubsection}{\numberline {4.30.2.1}chargerTextures()}{70}{subsubsection.4.30.2.1}%
+\contentsline {subsubsection}{\numberline {4.30.2.2}detruireTextures()}{70}{subsubsection.4.30.2.2}%
+\contentsline {subsubsection}{\numberline {4.30.2.3}splitTexture()}{71}{subsubsection.4.30.2.3}%
+\contentsline {subsubsection}{\numberline {4.30.2.4}tileNiveau()}{71}{subsubsection.4.30.2.4}%
+\contentsline {section}{\numberline {4.31}Référence du fichier src/window.c}{71}{section.4.31}%
+\contentsline {subsection}{\numberline {4.31.1}Description détaillée}{72}{subsection.4.31.1}%
+\contentsline {subsection}{\numberline {4.31.2}Documentation des fonctions}{72}{subsection.4.31.2}%
+\contentsline {subsubsection}{\numberline {4.31.2.1}creerFenetreEtRendu()}{72}{subsubsection.4.31.2.1}%
+\contentsline {subsubsection}{\numberline {4.31.2.2}detruireFenetreEtRendu()}{72}{subsubsection.4.31.2.2}%
+\contentsline {section}{\numberline {4.32}Référence du fichier test/test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}niveau.c}{73}{section.4.32}%
+\contentsline {subsection}{\numberline {4.32.1}Description détaillée}{73}{subsection.4.32.1}%
+\contentsline {chapter}{Index}{75}{section*.80}%

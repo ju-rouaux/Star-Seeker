@@ -1,0 +1,1489 @@
+\hypertarget{SDL__gamecontroller_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+gamecontroller.h}
+\label{SDL__gamecontroller_8h}\index{include/SDL2/SDL\_gamecontroller.h@{include/SDL2/SDL\_gamecontroller.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+joystick.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__gamecontroller_8h_a86b050862858714f651a4cf08fea2d3a}{SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+File}}(file)~\mbox{\hyperlink{SDL__gamecontroller_8h_a01da8611222d5648872fbb4440c886af}{SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}), 1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aa434ddee85ce43a59567b39c20acf873}\label{SDL__gamecontroller_8h_aa434ddee85ce43a59567b39c20acf873}} 
+typedef struct \+\_\+\+SDL\+\_\+\+Game\+Controller {\bfseries SDL\+\_\+\+Game\+Controller}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} \mbox{\hyperlink{SDL__gamecontroller_8h_ac05d685077e640c887c2f83de995767e}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__gamecontroller_8h_afe5f759b2d709059e4b429cfc08b399c}\label{SDL__gamecontroller_8h_afe5f759b2d709059e4b429cfc08b399c}} 
+enum {\bfseries SDL\+\_\+\+Game\+Controller\+Type} \{ \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+UNKNOWN} = 0
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+XBOX360}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+XBOXONE}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+PS3}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+PS4}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+NINTENDO\+\_\+\+SWITCH\+\_\+\+PRO}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+VIRTUAL}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+PS5}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+AMAZON\+\_\+\+LUNA}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+TYPE\+\_\+\+GOOGLE\+\_\+\+STADIA}
+ \}
+\item 
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aff63e7281b46e5275134938c52f5d6fa}\label{SDL__gamecontroller_8h_aff63e7281b46e5275134938c52f5d6fa}} 
+enum {\bfseries SDL\+\_\+\+Game\+Controller\+Bind\+Type} \{ {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+NONE} = 0
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+BUTTON}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+AXIS}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+HAT}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} \{ \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+INVALID} = -\/1
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+LEFTX}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+LEFTY}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+RIGHTX}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+RIGHTY}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+TRIGGERLEFT}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+TRIGGERRIGHT}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+MAX}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} \{ \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+INVALID} = -\/1
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+A}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+B}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+X}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+Y}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+BACK}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+GUIDE}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+START}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+LEFTSTICK}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+RIGHTSTICK}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+LEFTSHOULDER}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+RIGHTSHOULDER}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+DPAD\+\_\+\+UP}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+DPAD\+\_\+\+DOWN}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+DPAD\+\_\+\+LEFT}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+DPAD\+\_\+\+RIGHT}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+MISC1}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+PADDLE1}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+PADDLE2}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+PADDLE3}
+, \newline
+{\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+PADDLE4}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+TOUCHPAD}
+, {\bfseries SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+\+MAX}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a01da8611222d5648872fbb4440c886af}{SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+RW}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$rw, int freerw)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}{SDL\+\_\+\+Game\+Controller\+Add\+Mapping}} (const char $\ast$mapping\+String)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ac14eb47ec6097d89c7bec14f6b27ebfe}{SDL\+\_\+\+Game\+Controller\+Num\+Mappings}} (void)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ac5ddf8927b92d95968f568ec6399bc18}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+Index}} (int mapping\+\_\+index)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+GUID}} (\mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} guid)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a6d56a421a407e4587dfd0be98255fdf7}{SDL\+\_\+\+Game\+Controller\+Mapping}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}{SDL\+\_\+\+Is\+Game\+Controller}} (int joystick\+\_\+index)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}{SDL\+\_\+\+Game\+Controller\+Name\+For\+Index}} (int joystick\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Game\+Controller\+Type SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8cab24dcd19022722c306f04fdfc6b6a}{SDL\+\_\+\+Game\+Controller\+Type\+For\+Index}} (int joystick\+\_\+index)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a425074be07233d9e116bf6f3ebcb1f11}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+Device\+Index}} (int joystick\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Game\+Controller $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} (int joystick\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Game\+Controller $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a34e43c763202a2d7124f24fdaf508a2a}{SDL\+\_\+\+Game\+Controller\+From\+Instance\+ID}} (\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} joyid)
+\item 
+DECLSPEC SDL\+\_\+\+Game\+Controller $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ac30c5d89ad1c490bbc8d5370885d9c4d}{SDL\+\_\+\+Game\+Controller\+From\+Player\+Index}} (int player\+\_\+index)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_add465dba60b0e2ff4e0b53f15471be1e}{SDL\+\_\+\+Game\+Controller\+Name}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+\+Game\+Controller\+Type SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_aab21a8d107d382ce7ff32afbe82b8776}{SDL\+\_\+\+Game\+Controller\+Get\+Type}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a99740db152ae93bcdc59a8b540c3178d}{SDL\+\_\+\+Game\+Controller\+Get\+Player\+Index}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a85be71ba10423ad4da459131a13a0f5f}{SDL\+\_\+\+Game\+Controller\+Set\+Player\+Index}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, int player\+\_\+index)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ab0032725dcea365502694731c37605f7}{SDL\+\_\+\+Game\+Controller\+Get\+Vendor}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8ea81761681d1666a3b447eb9ef2dee8}{SDL\+\_\+\+Game\+Controller\+Get\+Product}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a2e3eda7c9faf9bf0f4e06d89f3859c72}{SDL\+\_\+\+Game\+Controller\+Get\+Product\+Version}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8427463c67571c4dfb49cc2edcd0027e}{SDL\+\_\+\+Game\+Controller\+Get\+Serial}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_adeeeba5a268842412f6578f38e75d231}{SDL\+\_\+\+Game\+Controller\+Get\+Attached}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_af2aac9107334b73d94b93f9c5ef51eb4}{SDL\+\_\+\+Game\+Controller\+Get\+Joystick}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a457fd59b3dec7d1b6ed384973b584bc6}{SDL\+\_\+\+Game\+Controller\+Event\+State}} (int state)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a92fe68241a17b60b2240c04d01b73e6b}{SDL\+\_\+\+Game\+Controller\+Update}} (void)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a623237e182b87c6def6d7be80a7d71d3}{SDL\+\_\+\+Game\+Controller\+Get\+Axis\+From\+String}} (const char $\ast$str)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a66cbcb3062d6e99e896611a2bde88456}{SDL\+\_\+\+Game\+Controller\+Get\+String\+For\+Axis}} (\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} axis)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_acdb9303cc6b67f1a0ec3ee55ad8e29d5}{SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Axis}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} axis)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8448d364a118ef54ba1d240f318d7a03}{SDL\+\_\+\+Game\+Controller\+Has\+Axis}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} axis)
+\item 
+DECLSPEC Sint16 SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a067291389e9a8a1fbc8cb2b0dabb8dd2}{SDL\+\_\+\+Game\+Controller\+Get\+Axis}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} axis)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8e072a1f116583ca136be6b609e41d13}{SDL\+\_\+\+Game\+Controller\+Get\+Button\+From\+String}} (const char $\ast$str)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a5afc30d12ed8c51e24e2ce32eca032de}{SDL\+\_\+\+Game\+Controller\+Get\+String\+For\+Button}} (\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} button)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a4ee15324cc28aa53bab9f28e71c96840}{SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Button}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} button)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a761d5b2da1c9aef500cebe401c6ed30f}{SDL\+\_\+\+Game\+Controller\+Has\+Button}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} button)
+\item 
+DECLSPEC Uint8 SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_afa9f025f4262bdfba38c364ec9cc31bf}{SDL\+\_\+\+Game\+Controller\+Get\+Button}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} button)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a5a22ed44ff4c46e2ec8edeea48b8b1ae}{SDL\+\_\+\+Game\+Controller\+Get\+Num\+Touchpads}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a80657ada0dcc10e971df3cf07b5c7106}{SDL\+\_\+\+Game\+Controller\+Get\+Num\+Touchpad\+Fingers}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, int touchpad)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a4a13f3fc8b896356f0bd57edebb4a72c}{SDL\+\_\+\+Game\+Controller\+Get\+Touchpad\+Finger}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, int touchpad, int finger, Uint8 $\ast$state, float $\ast$x, float $\ast$y, float $\ast$pressure)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_af84b3cbfe9f9acd9563c0d63cc57247a}{SDL\+\_\+\+Game\+Controller\+Has\+Sensor}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} type)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_acee01b6bdc79b5dda14b77538b1d34ba}{SDL\+\_\+\+Game\+Controller\+Set\+Sensor\+Enabled}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} type, SDL\+\_\+bool enabled)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a289122b9f72b3e89671fcbfaa6d61699}{SDL\+\_\+\+Game\+Controller\+Is\+Sensor\+Enabled}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} type)
+\item 
+DECLSPEC float SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a8bc636752e61693a6d38bb4b9c999ea2}{SDL\+\_\+\+Game\+Controller\+Get\+Sensor\+Data\+Rate}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} type)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_ac258208c13968bac123c18751dc3f198}{SDL\+\_\+\+Game\+Controller\+Get\+Sensor\+Data}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}} type, float $\ast$data, int num\+\_\+values)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_af656d1c71fe07da1146c376439d9b403}{SDL\+\_\+\+Game\+Controller\+Rumble}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, Uint16 low\+\_\+frequency\+\_\+rumble, Uint16 high\+\_\+frequency\+\_\+rumble, Uint32 duration\+\_\+ms)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a2879f90f77b4de4f73892aef4cf73d26}{SDL\+\_\+\+Game\+Controller\+Rumble\+Triggers}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, Uint16 left\+\_\+rumble, Uint16 right\+\_\+rumble, Uint32 duration\+\_\+ms)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_aea8e212c4b72bb4e72c4e5f1a25457c6}{SDL\+\_\+\+Game\+Controller\+Has\+LED}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_aa3fb8be22a6781c2b46b79309747978c}{SDL\+\_\+\+Game\+Controller\+Has\+Rumble}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_aedb548895f677b818901440b759b3a94}{SDL\+\_\+\+Game\+Controller\+Has\+Rumble\+Triggers}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a5c5e9971086494aeef01c3ee0325a132}{SDL\+\_\+\+Game\+Controller\+Set\+LED}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, Uint8 red, Uint8 green, Uint8 blue)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a2eaa3571798dff5d990be3514c744a99}{SDL\+\_\+\+Game\+Controller\+Send\+Effect}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, const void $\ast$data, int size)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a97fcf011947b35403c7d5319673a35e9}{SDL\+\_\+\+Game\+Controller\+Close}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a73af21c51483beb20b279b9111839f65}{SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Button}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} button)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__gamecontroller_8h_a0e57a7b0f709ba22c6510e014e80c217}{SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Axis}} (SDL\+\_\+\+Game\+Controller $\ast$gamecontroller, \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} axis)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL game controller event handling
+
+In order to use these functions, \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} must have been called with the \mbox{\hyperlink{SDL_8h_ac224a9aa4208de0e9b03948ff9b5fe0a}{SDL\+\_\+\+INIT\+\_\+\+GAMECONTROLLER}} flag. This causes SDL to scan the system for game controllers, and load appropriate drivers.
+
+If you would like to receive controller updates while the application is in the background, you should set the following hint before calling \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}\+: SDL\+\_\+\+HINT\+\_\+\+JOYSTICK\+\_\+\+ALLOW\+\_\+\+BACKGROUND\+\_\+\+EVENTS 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a86b050862858714f651a4cf08fea2d3a}\label{SDL__gamecontroller_8h_a86b050862858714f651a4cf08fea2d3a}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerAddMappingsFromFile@{SDL\_GameControllerAddMappingsFromFile}}
+\index{SDL\_GameControllerAddMappingsFromFile@{SDL\_GameControllerAddMappingsFromFile}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerAddMappingsFromFile}{SDL\_GameControllerAddMappingsFromFile}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+File(\begin{DoxyParamCaption}\item[{}]{file }\end{DoxyParamCaption})~\mbox{\hyperlink{SDL__gamecontroller_8h_a01da8611222d5648872fbb4440c886af}{SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}), 1)}
+
+Load a set of mappings from a file, filtered by the current \mbox{\hyperlink{SDL__platform_8h_a55905e7a299221262fc655e785ab2dc7}{SDL\+\_\+\+Get\+Platform()}}
+
+Convenience macro. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac05d685077e640c887c2f83de995767e}\label{SDL__gamecontroller_8h_ac05d685077e640c887c2f83de995767e}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerButtonBind@{SDL\_GameControllerButtonBind}}
+\index{SDL\_GameControllerButtonBind@{SDL\_GameControllerButtonBind}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerButtonBind}{SDL\_GameControllerButtonBind}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}}}
+
+Get the SDL joystick layer binding for this controller button/axis mapping 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}\label{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerAxis@{SDL\_GameControllerAxis}}
+\index{SDL\_GameControllerAxis@{SDL\_GameControllerAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerAxis}{SDL\_GameControllerAxis}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}
+
+The list of axes available from a controller
+
+Thumbstick axis values range from SDL\+\_\+\+JOYSTICK\+\_\+\+AXIS\+\_\+\+MIN to SDL\+\_\+\+JOYSTICK\+\_\+\+AXIS\+\_\+\+MAX, and are centered within $\sim$8000 of zero, though advanced UI will allow users to set or autodetect the dead zone, which varies between controllers.
+
+Trigger axis values range from 0 to SDL\+\_\+\+JOYSTICK\+\_\+\+AXIS\+\_\+\+MAX. \mbox{\Hypertarget{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}\label{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerButton@{SDL\_GameControllerButton}}
+\index{SDL\_GameControllerButton@{SDL\_GameControllerButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerButton}{SDL\_GameControllerButton}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}
+
+The list of buttons available from a controller 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}\label{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerAddMapping@{SDL\_GameControllerAddMapping}}
+\index{SDL\_GameControllerAddMapping@{SDL\_GameControllerAddMapping}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerAddMapping()}{SDL\_GameControllerAddMapping()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Add\+Mapping (\begin{DoxyParamCaption}\item[{const char $\ast$}]{mapping\+String }\end{DoxyParamCaption})}
+
+Add support for controllers that SDL is unaware of or to cause an existing controller to have a different binding.
+
+The mapping string has the format \char`\"{}\+GUID,name,mapping\char`\"{}, where GUID is the string value from \mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString()}}, name is the human readable string for the device and mappings are controller mappings to joystick ones. Under Windows there is a reserved GUID of \char`\"{}xinput\char`\"{} that covers all XInput devices. The mapping format for joystick is\+: \{$\vert$ $\vert$bX $\vert$a joystick button, index X $\vert$-\/ $\vert$hX.Y $\vert$hat X with value Y $\vert$-\/ $\vert$aX $\vert$axis X of the joystick $\vert$\} Buttons can be used as a controller axes and vice versa.
+
+This string shows an example of a valid mapping for a controller\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}341a3608000000000000504944564944,Afterglow PS3 Controller,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,back:b8,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftshoulder:b4,rightshoulder:b5,leftstick:b10,rightstick:b11,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,righttrigger:b7"{}}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mapping\+String} & the mapping string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 if a new mapping is added, 0 if an existing mapping is updated, -\/1 on error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a6d56a421a407e4587dfd0be98255fdf7}{SDL\+\_\+\+Game\+Controller\+Mapping}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+GUID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a01da8611222d5648872fbb4440c886af}\label{SDL__gamecontroller_8h_a01da8611222d5648872fbb4440c886af}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerAddMappingsFromRW@{SDL\_GameControllerAddMappingsFromRW}}
+\index{SDL\_GameControllerAddMappingsFromRW@{SDL\_GameControllerAddMappingsFromRW}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerAddMappingsFromRW()}{SDL\_GameControllerAddMappingsFromRW()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{rw,  }\item[{int}]{freerw }\end{DoxyParamCaption})}
+
+To count the number of game controllers in the system for the following\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} nJoysticks = \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\_NumJoysticks}}();}
+\DoxyCodeLine{\textcolor{keywordtype}{int} nGameControllers = 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nJoysticks; i++) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}{SDL\_IsGameController}}(i)) \{}
+\DoxyCodeLine{        nGameControllers++;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Using the SDL\+\_\+\+HINT\+\_\+\+GAMECONTROLLERCONFIG hint or the \mbox{\hyperlink{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}{SDL\+\_\+\+Game\+Controller\+Add\+Mapping()}} you can add support for controllers SDL is unaware of or cause an existing controller to have a different binding. The format is\+: guid,name,mappings
+
+Where GUID is the string value from \mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString()}}, name is the human readable string for the device and mappings are controller mappings to joystick ones. Under Windows there is a reserved GUID of \char`\"{}xinput\char`\"{} that covers any XInput devices. The mapping format for joystick is\+: bX -\/ a joystick button, index X h\+X.\+Y -\/ hat X with value Y aX -\/ axis X of the joystick Buttons can be used as a controller axis and vice versa.
+
+This string shows an example of a valid mapping for a controller
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}03000000341a00003608000000000000,PS3 Controller,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,back:b8,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftshoulder:b4,rightshoulder:b5,leftstick:b10,rightstick:b11,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,righttrigger:b7"{}},}
+
+\end{DoxyCode}
+ Load a set of Game Controller mappings from a seekable SDL data stream.
+
+You can call this function several times, if needed, to load different database files.
+
+If a new mapping is loaded for an already known controller GUID, the later version will overwrite the one currently loaded.
+
+Mappings not belonging to the current platform or with no platform field specified will be ignored (i.\+e. mappings for Linux will be ignored in Windows, etc).
+
+This function will load the text database entirely in memory before processing it, so take this into consideration if you are in a memory constrained environment.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rw} & the data stream for the mappings to be added \\
+\hline
+{\em freerw} & non-\/zero to close the stream after being read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of mappings added or -\/1 on error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}{SDL\+\_\+\+Game\+Controller\+Add\+Mapping}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a86b050862858714f651a4cf08fea2d3a}{SDL\+\_\+\+Game\+Controller\+Add\+Mappings\+From\+File}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+GUID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a97fcf011947b35403c7d5319673a35e9}\label{SDL__gamecontroller_8h_a97fcf011947b35403c7d5319673a35e9}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerClose@{SDL\_GameControllerClose}}
+\index{SDL\_GameControllerClose@{SDL\_GameControllerClose}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerClose()}{SDL\_GameControllerClose()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Game\+Controller\+Close (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Close a game controller previously opened with \mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller identifier previously returned by \mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open()}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a457fd59b3dec7d1b6ed384973b584bc6}\label{SDL__gamecontroller_8h_a457fd59b3dec7d1b6ed384973b584bc6}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerEventState@{SDL\_GameControllerEventState}}
+\index{SDL\_GameControllerEventState@{SDL\_GameControllerEventState}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerEventState()}{SDL\_GameControllerEventState()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Event\+State (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+Query or change current state of Game Controller events.
+
+If controller events are disabled, you must call \mbox{\hyperlink{SDL__gamecontroller_8h_a92fe68241a17b60b2240c04d01b73e6b}{SDL\+\_\+\+Game\+Controller\+Update()}} yourself and check the state of the controller when you want controller information.
+
+Any number can be passed to \mbox{\hyperlink{SDL__gamecontroller_8h_a457fd59b3dec7d1b6ed384973b584bc6}{SDL\+\_\+\+Game\+Controller\+Event\+State()}}, but only -\/1, 0, and 1 will have any effect. Other numbers will just be returned.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & can be one of {\ttfamily SDL\+\_\+\+QUERY}, {\ttfamily SDL\+\_\+\+IGNORE}, or {\ttfamily SDL\+\_\+\+ENABLE} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the same value passed to the function, with exception to -\/1 (SDL\+\_\+\+QUERY), which will return the current state.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a51ba353843fd4477f6a485ac4ef35d00}{SDL\+\_\+\+Joystick\+Event\+State}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a34e43c763202a2d7124f24fdaf508a2a}\label{SDL__gamecontroller_8h_a34e43c763202a2d7124f24fdaf508a2a}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerFromInstanceID@{SDL\_GameControllerFromInstanceID}}
+\index{SDL\_GameControllerFromInstanceID@{SDL\_GameControllerFromInstanceID}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerFromInstanceID()}{SDL\_GameControllerFromInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Game\+Controller$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+From\+Instance\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}}}]{joyid }\end{DoxyParamCaption})}
+
+Get the SDL\+\_\+\+Game\+Controller associated with an instance id.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joyid} & the instance id to get the SDL\+\_\+\+Game\+Controller for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Game\+Controller on success or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac30c5d89ad1c490bbc8d5370885d9c4d}\label{SDL__gamecontroller_8h_ac30c5d89ad1c490bbc8d5370885d9c4d}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerFromPlayerIndex@{SDL\_GameControllerFromPlayerIndex}}
+\index{SDL\_GameControllerFromPlayerIndex@{SDL\_GameControllerFromPlayerIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerFromPlayerIndex()}{SDL\_GameControllerFromPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Game\+Controller$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+From\+Player\+Index (\begin{DoxyParamCaption}\item[{int}]{player\+\_\+index }\end{DoxyParamCaption})}
+
+Get the SDL\+\_\+\+Game\+Controller associated with a player index.
+
+Please note that the player index is {\itshape not} the device index, nor is it the instance id!
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player\+\_\+index} & the player index, which is not the device index or the instance id! \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Game\+Controller associated with a player index.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a99740db152ae93bcdc59a8b540c3178d}{SDL\+\_\+\+Game\+Controller\+Get\+Player\+Index}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a85be71ba10423ad4da459131a13a0f5f}{SDL\+\_\+\+Game\+Controller\+Set\+Player\+Index}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a0e57a7b0f709ba22c6510e014e80c217}\label{SDL__gamecontroller_8h_a0e57a7b0f709ba22c6510e014e80c217}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetAppleSFSymbolsNameForAxis@{SDL\_GameControllerGetAppleSFSymbolsNameForAxis}}
+\index{SDL\_GameControllerGetAppleSFSymbolsNameForAxis@{SDL\_GameControllerGetAppleSFSymbolsNameForAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetAppleSFSymbolsNameForAxis()}{SDL\_GameControllerGetAppleSFSymbolsNameForAxis()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}]{axis }\end{DoxyParamCaption})}
+
+Return the sf\+Symbols\+Name for a given axis on a game controller on Apple platforms.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the controller to query \\
+\hline
+{\em axis} & an axis on the game controller \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sf\+Symbols\+Name or NULL if the name can\textquotesingle{}t be found
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a73af21c51483beb20b279b9111839f65}{SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Button}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a73af21c51483beb20b279b9111839f65}\label{SDL__gamecontroller_8h_a73af21c51483beb20b279b9111839f65}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetAppleSFSymbolsNameForButton@{SDL\_GameControllerGetAppleSFSymbolsNameForButton}}
+\index{SDL\_GameControllerGetAppleSFSymbolsNameForButton@{SDL\_GameControllerGetAppleSFSymbolsNameForButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetAppleSFSymbolsNameForButton()}{SDL\_GameControllerGetAppleSFSymbolsNameForButton()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}]{button }\end{DoxyParamCaption})}
+
+Return the sf\+Symbols\+Name for a given button on a game controller on Apple platforms.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the controller to query \\
+\hline
+{\em button} & a button on the game controller \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the sf\+Symbols\+Name or NULL if the name can\textquotesingle{}t be found
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a0e57a7b0f709ba22c6510e014e80c217}{SDL\+\_\+\+Game\+Controller\+Get\+Apple\+SFSymbols\+Name\+For\+Axis}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_adeeeba5a268842412f6578f38e75d231}\label{SDL__gamecontroller_8h_adeeeba5a268842412f6578f38e75d231}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetAttached@{SDL\_GameControllerGetAttached}}
+\index{SDL\_GameControllerGetAttached@{SDL\_GameControllerGetAttached}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetAttached()}{SDL\_GameControllerGetAttached()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Attached (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Check if a controller has been opened and is currently connected.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller identifier previously returned by \mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the controller has been opened and is currently connected, or SDL\+\_\+\+FALSE if not.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a97fcf011947b35403c7d5319673a35e9}{SDL\+\_\+\+Game\+Controller\+Close}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a067291389e9a8a1fbc8cb2b0dabb8dd2}\label{SDL__gamecontroller_8h_a067291389e9a8a1fbc8cb2b0dabb8dd2}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetAxis@{SDL\_GameControllerGetAxis}}
+\index{SDL\_GameControllerGetAxis@{SDL\_GameControllerGetAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetAxis()}{SDL\_GameControllerGetAxis()}}
+{\footnotesize\ttfamily DECLSPEC Sint16 SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}]{axis }\end{DoxyParamCaption})}
+
+Get the current state of an axis control on a game controller.
+
+The axis indices start at index 0.
+
+The state is a value ranging from -\/32768 to 32767. Triggers, however, range from 0 to 32767 (they never return a negative value).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em axis} & an axis index (one of the SDL\+\_\+\+Game\+Controller\+Axis values) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+axis state (including 0) on success or 0 (also) on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_afa9f025f4262bdfba38c364ec9cc31bf}{SDL\+\_\+\+Game\+Controller\+Get\+Button}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a623237e182b87c6def6d7be80a7d71d3}\label{SDL__gamecontroller_8h_a623237e182b87c6def6d7be80a7d71d3}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetAxisFromString@{SDL\_GameControllerGetAxisFromString}}
+\index{SDL\_GameControllerGetAxisFromString@{SDL\_GameControllerGetAxisFromString}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetAxisFromString()}{SDL\_GameControllerGetAxisFromString()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}} SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Axis\+From\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+Convert a string into SDL\+\_\+\+Game\+Controller\+Axis enum.
+
+This function is called internally to translate SDL\+\_\+\+Game\+Controller mapping strings for the underlying joystick device into the consistent SDL\+\_\+\+Game\+Controller mapping. You do not normally need to call this function unless you are parsing SDL\+\_\+\+Game\+Controller mappings in your own code.
+
+Note specially that \char`\"{}righttrigger\char`\"{} and \char`\"{}lefttrigger\char`\"{} map to {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+TRIGGERRIGHT} and {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+TRIGGERLEFT}, respectively.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & string representing a SDL\+\_\+\+Game\+Controller axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Game\+Controller\+Axis enum corresponding to the input string, or {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+INVALID} if no match was found.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a66cbcb3062d6e99e896611a2bde88456}{SDL\+\_\+\+Game\+Controller\+Get\+String\+For\+Axis}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_acdb9303cc6b67f1a0ec3ee55ad8e29d5}\label{SDL__gamecontroller_8h_acdb9303cc6b67f1a0ec3ee55ad8e29d5}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetBindForAxis@{SDL\_GameControllerGetBindForAxis}}
+\index{SDL\_GameControllerGetBindForAxis@{SDL\_GameControllerGetBindForAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetBindForAxis()}{SDL\_GameControllerGetBindForAxis()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}]{axis }\end{DoxyParamCaption})}
+
+Get the SDL joystick layer binding for a controller axis mapping.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em axis} & an axis enum value (one of the SDL\+\_\+\+Game\+Controller\+Axis values) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} describing the bind. On failure (like the given Controller axis doesn\textquotesingle{}t exist on the device), its {\ttfamily .bind\+Type} will be {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+NONE}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a4ee15324cc28aa53bab9f28e71c96840}{SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Button}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a4ee15324cc28aa53bab9f28e71c96840}\label{SDL__gamecontroller_8h_a4ee15324cc28aa53bab9f28e71c96840}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetBindForButton@{SDL\_GameControllerGetBindForButton}}
+\index{SDL\_GameControllerGetBindForButton@{SDL\_GameControllerGetBindForButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetBindForButton()}{SDL\_GameControllerGetBindForButton()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}]{button }\end{DoxyParamCaption})}
+
+Get the SDL joystick layer binding for a controller button mapping.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em button} & an button enum value (an SDL\+\_\+\+Game\+Controller\+Button value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a \mbox{\hyperlink{structSDL__GameControllerButtonBind}{SDL\+\_\+\+Game\+Controller\+Button\+Bind}} describing the bind. On failure (like the given Controller button doesn\textquotesingle{}t exist on the device), its {\ttfamily .bind\+Type} will be {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+BINDTYPE\+\_\+\+NONE}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_acdb9303cc6b67f1a0ec3ee55ad8e29d5}{SDL\+\_\+\+Game\+Controller\+Get\+Bind\+For\+Axis}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_afa9f025f4262bdfba38c364ec9cc31bf}\label{SDL__gamecontroller_8h_afa9f025f4262bdfba38c364ec9cc31bf}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetButton@{SDL\_GameControllerGetButton}}
+\index{SDL\_GameControllerGetButton@{SDL\_GameControllerGetButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetButton()}{SDL\_GameControllerGetButton()}}
+{\footnotesize\ttfamily DECLSPEC Uint8 SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}]{button }\end{DoxyParamCaption})}
+
+Get the current state of a button on a game controller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em button} & a button index (one of the SDL\+\_\+\+Game\+Controller\+Button values) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 for pressed state or 0 for not pressed state or error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a067291389e9a8a1fbc8cb2b0dabb8dd2}{SDL\+\_\+\+Game\+Controller\+Get\+Axis}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8e072a1f116583ca136be6b609e41d13}\label{SDL__gamecontroller_8h_a8e072a1f116583ca136be6b609e41d13}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetButtonFromString@{SDL\_GameControllerGetButtonFromString}}
+\index{SDL\_GameControllerGetButtonFromString@{SDL\_GameControllerGetButtonFromString}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetButtonFromString()}{SDL\_GameControllerGetButtonFromString()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}} SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Button\+From\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+Convert a string into an SDL\+\_\+\+Game\+Controller\+Button enum.
+
+This function is called internally to translate SDL\+\_\+\+Game\+Controller mapping strings for the underlying joystick device into the consistent SDL\+\_\+\+Game\+Controller mapping. You do not normally need to call this function unless you are parsing SDL\+\_\+\+Game\+Controller mappings in your own code.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & string representing a SDL\+\_\+\+Game\+Controller axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Game\+Controller\+Button enum corresponding to the input string, or {\ttfamily SDL\+\_\+\+CONTROLLER\+\_\+\+AXIS\+\_\+\+INVALID} if no match was found.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_af2aac9107334b73d94b93f9c5ef51eb4}\label{SDL__gamecontroller_8h_af2aac9107334b73d94b93f9c5ef51eb4}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetJoystick@{SDL\_GameControllerGetJoystick}}
+\index{SDL\_GameControllerGetJoystick@{SDL\_GameControllerGetJoystick}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetJoystick()}{SDL\_GameControllerGetJoystick()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Joystick (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the Joystick ID from a Game Controller.
+
+This function will give you a SDL\+\_\+\+Joystick object, which allows you to use the SDL\+\_\+\+Joystick functions with a SDL\+\_\+\+Game\+Controller object. This would be useful for getting a joystick\textquotesingle{}s position at any given time, even if it hasn\textquotesingle{}t moved (moving it would produce an event, which would have the axis\textquotesingle{} value).
+
+The pointer returned is owned by the SDL\+\_\+\+Game\+Controller. You should not call \mbox{\hyperlink{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}{SDL\+\_\+\+Joystick\+Close()}} on it, for example, since doing so will likely cause SDL to crash.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object that you want to get a joystick from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a SDL\+\_\+\+Joystick object; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a80657ada0dcc10e971df3cf07b5c7106}\label{SDL__gamecontroller_8h_a80657ada0dcc10e971df3cf07b5c7106}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetNumTouchpadFingers@{SDL\_GameControllerGetNumTouchpadFingers}}
+\index{SDL\_GameControllerGetNumTouchpadFingers@{SDL\_GameControllerGetNumTouchpadFingers}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetNumTouchpadFingers()}{SDL\_GameControllerGetNumTouchpadFingers()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Num\+Touchpad\+Fingers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{int}]{touchpad }\end{DoxyParamCaption})}
+
+Get the number of supported simultaneous fingers on a touchpad on a game controller.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a5a22ed44ff4c46e2ec8edeea48b8b1ae}\label{SDL__gamecontroller_8h_a5a22ed44ff4c46e2ec8edeea48b8b1ae}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetNumTouchpads@{SDL\_GameControllerGetNumTouchpads}}
+\index{SDL\_GameControllerGetNumTouchpads@{SDL\_GameControllerGetNumTouchpads}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetNumTouchpads()}{SDL\_GameControllerGetNumTouchpads()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Num\+Touchpads (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the number of touchpads on a game controller.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a99740db152ae93bcdc59a8b540c3178d}\label{SDL__gamecontroller_8h_a99740db152ae93bcdc59a8b540c3178d}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetPlayerIndex@{SDL\_GameControllerGetPlayerIndex}}
+\index{SDL\_GameControllerGetPlayerIndex@{SDL\_GameControllerGetPlayerIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetPlayerIndex()}{SDL\_GameControllerGetPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Player\+Index (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the player index of an opened game controller.
+
+For XInput controllers this returns the XInput user index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the player index for controller, or -\/1 if it\textquotesingle{}s not available.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8ea81761681d1666a3b447eb9ef2dee8}\label{SDL__gamecontroller_8h_a8ea81761681d1666a3b447eb9ef2dee8}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetProduct@{SDL\_GameControllerGetProduct}}
+\index{SDL\_GameControllerGetProduct@{SDL\_GameControllerGetProduct}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetProduct()}{SDL\_GameControllerGetProduct()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Product (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the USB product ID of an opened controller, if available.
+
+If the product ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB product ID, or zero if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a2e3eda7c9faf9bf0f4e06d89f3859c72}\label{SDL__gamecontroller_8h_a2e3eda7c9faf9bf0f4e06d89f3859c72}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetProductVersion@{SDL\_GameControllerGetProductVersion}}
+\index{SDL\_GameControllerGetProductVersion@{SDL\_GameControllerGetProductVersion}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetProductVersion()}{SDL\_GameControllerGetProductVersion()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Product\+Version (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the product version of an opened controller, if available.
+
+If the product version isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB product version, or zero if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac258208c13968bac123c18751dc3f198}\label{SDL__gamecontroller_8h_ac258208c13968bac123c18751dc3f198}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetSensorData@{SDL\_GameControllerGetSensorData}}
+\index{SDL\_GameControllerGetSensorData@{SDL\_GameControllerGetSensorData}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetSensorData()}{SDL\_GameControllerGetSensorData()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Sensor\+Data (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}]{type,  }\item[{float $\ast$}]{data,  }\item[{int}]{num\+\_\+values }\end{DoxyParamCaption})}
+
+Get the current state of a game controller sensor.
+
+The number of values and interpretation of the data is sensor dependent. See \mbox{\hyperlink{SDL__sensor_8h}{SDL\+\_\+sensor.\+h}} for the details for each type of sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+{\em type} & The type of sensor to query \\
+\hline
+{\em data} & A pointer filled with the current sensor state \\
+\hline
+{\em num\+\_\+values} & The number of values to write to data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 or -\/1 if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8bc636752e61693a6d38bb4b9c999ea2}\label{SDL__gamecontroller_8h_a8bc636752e61693a6d38bb4b9c999ea2}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetSensorDataRate@{SDL\_GameControllerGetSensorDataRate}}
+\index{SDL\_GameControllerGetSensorDataRate@{SDL\_GameControllerGetSensorDataRate}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetSensorDataRate()}{SDL\_GameControllerGetSensorDataRate()}}
+{\footnotesize\ttfamily DECLSPEC float SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Sensor\+Data\+Rate (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Get the data rate (number of events per second) of a game controller sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+{\em type} & The type of sensor to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the data rate, or 0.\+0f if the data rate is not available.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8427463c67571c4dfb49cc2edcd0027e}\label{SDL__gamecontroller_8h_a8427463c67571c4dfb49cc2edcd0027e}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetSerial@{SDL\_GameControllerGetSerial}}
+\index{SDL\_GameControllerGetSerial@{SDL\_GameControllerGetSerial}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetSerial()}{SDL\_GameControllerGetSerial()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Serial (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the serial number of an opened controller, if available.
+
+Returns the serial number of the controller, or NULL if it is not available.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the serial number, or NULL if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a66cbcb3062d6e99e896611a2bde88456}\label{SDL__gamecontroller_8h_a66cbcb3062d6e99e896611a2bde88456}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetStringForAxis@{SDL\_GameControllerGetStringForAxis}}
+\index{SDL\_GameControllerGetStringForAxis@{SDL\_GameControllerGetStringForAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetStringForAxis()}{SDL\_GameControllerGetStringForAxis()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+String\+For\+Axis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}]{axis }\end{DoxyParamCaption})}
+
+Convert from an SDL\+\_\+\+Game\+Controller\+Axis enum to a string.
+
+The caller should not SDL\+\_\+free() the returned string.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em axis} & an enum value for a given SDL\+\_\+\+Game\+Controller\+Axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a string for the given axis, or NULL if an invalid axis is specified. The string returned is of the format used by SDL\+\_\+\+Game\+Controller mapping strings.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a623237e182b87c6def6d7be80a7d71d3}{SDL\+\_\+\+Game\+Controller\+Get\+Axis\+From\+String}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a5afc30d12ed8c51e24e2ce32eca032de}\label{SDL__gamecontroller_8h_a5afc30d12ed8c51e24e2ce32eca032de}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetStringForButton@{SDL\_GameControllerGetStringForButton}}
+\index{SDL\_GameControllerGetStringForButton@{SDL\_GameControllerGetStringForButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetStringForButton()}{SDL\_GameControllerGetStringForButton()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+String\+For\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}]{button }\end{DoxyParamCaption})}
+
+Convert from an SDL\+\_\+\+Game\+Controller\+Button enum to a string.
+
+The caller should not SDL\+\_\+free() the returned string.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & an enum value for a given SDL\+\_\+\+Game\+Controller\+Button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a string for the given button, or NULL if an invalid axis is specified. The string returned is of the format used by SDL\+\_\+\+Game\+Controller mapping strings.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a8e072a1f116583ca136be6b609e41d13}{SDL\+\_\+\+Game\+Controller\+Get\+Button\+From\+String}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a4a13f3fc8b896356f0bd57edebb4a72c}\label{SDL__gamecontroller_8h_a4a13f3fc8b896356f0bd57edebb4a72c}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetTouchpadFinger@{SDL\_GameControllerGetTouchpadFinger}}
+\index{SDL\_GameControllerGetTouchpadFinger@{SDL\_GameControllerGetTouchpadFinger}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetTouchpadFinger()}{SDL\_GameControllerGetTouchpadFinger()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Touchpad\+Finger (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{int}]{touchpad,  }\item[{int}]{finger,  }\item[{Uint8 $\ast$}]{state,  }\item[{float $\ast$}]{x,  }\item[{float $\ast$}]{y,  }\item[{float $\ast$}]{pressure }\end{DoxyParamCaption})}
+
+Get the current state of a finger on a touchpad on a game controller.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aab21a8d107d382ce7ff32afbe82b8776}\label{SDL__gamecontroller_8h_aab21a8d107d382ce7ff32afbe82b8776}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetType@{SDL\_GameControllerGetType}}
+\index{SDL\_GameControllerGetType@{SDL\_GameControllerGetType}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetType()}{SDL\_GameControllerGetType()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Game\+Controller\+Type SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Type (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the type of this currently opened controller
+
+This is the same name as returned by \mbox{\hyperlink{SDL__gamecontroller_8h_a8cab24dcd19022722c306f04fdfc6b6a}{SDL\+\_\+\+Game\+Controller\+Type\+For\+Index()}}, but it takes a controller identifier instead of the (unstable) device index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the controller type.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ab0032725dcea365502694731c37605f7}\label{SDL__gamecontroller_8h_ab0032725dcea365502694731c37605f7}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerGetVendor@{SDL\_GameControllerGetVendor}}
+\index{SDL\_GameControllerGetVendor@{SDL\_GameControllerGetVendor}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerGetVendor()}{SDL\_GameControllerGetVendor()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Game\+Controller\+Get\+Vendor (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the USB vendor ID of an opened controller, if available.
+
+If the vendor ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB vendor ID, or zero if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8448d364a118ef54ba1d240f318d7a03}\label{SDL__gamecontroller_8h_a8448d364a118ef54ba1d240f318d7a03}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasAxis@{SDL\_GameControllerHasAxis}}
+\index{SDL\_GameControllerHasAxis@{SDL\_GameControllerHasAxis}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasAxis()}{SDL\_GameControllerHasAxis()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a96d0bda99d806397e4c697241ccffa1c}{SDL\+\_\+\+Game\+Controller\+Axis}}}]{axis }\end{DoxyParamCaption})}
+
+Query whether a game controller has a given axis.
+
+This merely reports whether the controller\textquotesingle{}s mapping defined this axis, as that is all the information SDL has about the physical device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em axis} & an axis enum value (an SDL\+\_\+\+Game\+Controller\+Axis value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the controller has this axis, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a761d5b2da1c9aef500cebe401c6ed30f}\label{SDL__gamecontroller_8h_a761d5b2da1c9aef500cebe401c6ed30f}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasButton@{SDL\_GameControllerHasButton}}
+\index{SDL\_GameControllerHasButton@{SDL\_GameControllerHasButton}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasButton()}{SDL\_GameControllerHasButton()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__gamecontroller_8h_a9e4d3f8c9c9860064a68a700e0486f98}{SDL\+\_\+\+Game\+Controller\+Button}}}]{button }\end{DoxyParamCaption})}
+
+Query whether a game controller has a given button.
+
+This merely reports whether the controller\textquotesingle{}s mapping defined this button, as that is all the information SDL has about the physical device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller \\
+\hline
+{\em button} & a button enum value (an SDL\+\_\+\+Game\+Controller\+Button value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the controller has this button, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aea8e212c4b72bb4e72c4e5f1a25457c6}\label{SDL__gamecontroller_8h_aea8e212c4b72bb4e72c4e5f1a25457c6}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasLED@{SDL\_GameControllerHasLED}}
+\index{SDL\_GameControllerHasLED@{SDL\_GameControllerHasLED}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasLED()}{SDL\_GameControllerHasLED()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+LED (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Query whether a game controller has an LED.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE, or SDL\+\_\+\+FALSE if this controller does not have a modifiable LED
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aa3fb8be22a6781c2b46b79309747978c}\label{SDL__gamecontroller_8h_aa3fb8be22a6781c2b46b79309747978c}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasRumble@{SDL\_GameControllerHasRumble}}
+\index{SDL\_GameControllerHasRumble@{SDL\_GameControllerHasRumble}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasRumble()}{SDL\_GameControllerHasRumble()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+Rumble (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Query whether a game controller has rumble support.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE, or SDL\+\_\+\+FALSE if this controller does not have rumble support
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_af656d1c71fe07da1146c376439d9b403}{SDL\+\_\+\+Game\+Controller\+Rumble}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aedb548895f677b818901440b759b3a94}\label{SDL__gamecontroller_8h_aedb548895f677b818901440b759b3a94}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasRumbleTriggers@{SDL\_GameControllerHasRumbleTriggers}}
+\index{SDL\_GameControllerHasRumbleTriggers@{SDL\_GameControllerHasRumbleTriggers}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasRumbleTriggers()}{SDL\_GameControllerHasRumbleTriggers()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+Rumble\+Triggers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Query whether a game controller has rumble support on triggers.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE, or SDL\+\_\+\+FALSE if this controller does not have trigger rumble support
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a2879f90f77b4de4f73892aef4cf73d26}{SDL\+\_\+\+Game\+Controller\+Rumble\+Triggers}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_af84b3cbfe9f9acd9563c0d63cc57247a}\label{SDL__gamecontroller_8h_af84b3cbfe9f9acd9563c0d63cc57247a}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerHasSensor@{SDL\_GameControllerHasSensor}}
+\index{SDL\_GameControllerHasSensor@{SDL\_GameControllerHasSensor}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerHasSensor()}{SDL\_GameControllerHasSensor()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Has\+Sensor (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Return whether a game controller has a particular sensor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+{\em type} & The type of sensor to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the sensor exists, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a289122b9f72b3e89671fcbfaa6d61699}\label{SDL__gamecontroller_8h_a289122b9f72b3e89671fcbfaa6d61699}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerIsSensorEnabled@{SDL\_GameControllerIsSensorEnabled}}
+\index{SDL\_GameControllerIsSensorEnabled@{SDL\_GameControllerIsSensorEnabled}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerIsSensorEnabled()}{SDL\_GameControllerIsSensorEnabled()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Game\+Controller\+Is\+Sensor\+Enabled (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Query whether sensor data reporting is enabled for a game controller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to query \\
+\hline
+{\em type} & The type of sensor to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the sensor is enabled, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a6d56a421a407e4587dfd0be98255fdf7}\label{SDL__gamecontroller_8h_a6d56a421a407e4587dfd0be98255fdf7}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerMapping@{SDL\_GameControllerMapping}}
+\index{SDL\_GameControllerMapping@{SDL\_GameControllerMapping}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerMapping()}{SDL\_GameControllerMapping()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Mapping (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the current mapping of a Game Controller.
+
+The returned string must be freed with SDL\+\_\+free().
+
+Details about mappings are discussed with \mbox{\hyperlink{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}{SDL\+\_\+\+Game\+Controller\+Add\+Mapping()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller you want to get the current mapping for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a string that has the controller\textquotesingle{}s mapping or NULL if no mapping is available; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a62cb682b1c589135cd32cce381d403f8}{SDL\+\_\+\+Game\+Controller\+Add\+Mapping}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}{SDL\+\_\+\+Game\+Controller\+Mapping\+For\+GUID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a425074be07233d9e116bf6f3ebcb1f11}\label{SDL__gamecontroller_8h_a425074be07233d9e116bf6f3ebcb1f11}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerMappingForDeviceIndex@{SDL\_GameControllerMappingForDeviceIndex}}
+\index{SDL\_GameControllerMappingForDeviceIndex@{SDL\_GameControllerMappingForDeviceIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerMappingForDeviceIndex()}{SDL\_GameControllerMappingForDeviceIndex()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Mapping\+For\+Device\+Index (\begin{DoxyParamCaption}\item[{int}]{joystick\+\_\+index }\end{DoxyParamCaption})}
+
+Get the mapping of a game controller.
+
+This can be called before any controllers are opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick\+\_\+index} & the device\+\_\+index of a device, from zero to \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}}-\/1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the mapping string. Must be freed with SDL\+\_\+free(). Returns NULL if no mapping is available.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}\label{SDL__gamecontroller_8h_a2bd404799b40e27d75d3699c866904cf}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerMappingForGUID@{SDL\_GameControllerMappingForGUID}}
+\index{SDL\_GameControllerMappingForGUID@{SDL\_GameControllerMappingForGUID}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerMappingForGUID()}{SDL\_GameControllerMappingForGUID()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Mapping\+For\+GUID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}}}]{guid }\end{DoxyParamCaption})}
+
+Get the game controller mapping string for a given GUID.
+
+The returned string must be freed with SDL\+\_\+free().
+
+
+\begin{DoxyParams}{Paramètres}
+{\em guid} & a structure containing the GUID for which a mapping is desired \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a mapping string or NULL on error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}{SDL\+\_\+\+Joystick\+Get\+Device\+GUID}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}{SDL\+\_\+\+Joystick\+Get\+GUID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac5ddf8927b92d95968f568ec6399bc18}\label{SDL__gamecontroller_8h_ac5ddf8927b92d95968f568ec6399bc18}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerMappingForIndex@{SDL\_GameControllerMappingForIndex}}
+\index{SDL\_GameControllerMappingForIndex@{SDL\_GameControllerMappingForIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerMappingForIndex()}{SDL\_GameControllerMappingForIndex()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Mapping\+For\+Index (\begin{DoxyParamCaption}\item[{int}]{mapping\+\_\+index }\end{DoxyParamCaption})}
+
+Get the mapping at a particular index.
+
+\begin{DoxyReturn}{Renvoie}
+the mapping string. Must be freed with SDL\+\_\+free(). Returns NULL if the index is out of range.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_add465dba60b0e2ff4e0b53f15471be1e}\label{SDL__gamecontroller_8h_add465dba60b0e2ff4e0b53f15471be1e}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerName@{SDL\_GameControllerName}}
+\index{SDL\_GameControllerName@{SDL\_GameControllerName}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerName()}{SDL\_GameControllerName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller }\end{DoxyParamCaption})}
+
+Get the implementation-\/dependent name for an opened game controller.
+
+This is the same name as returned by \mbox{\hyperlink{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}{SDL\+\_\+\+Game\+Controller\+Name\+For\+Index()}}, but it takes a controller identifier instead of the (unstable) device index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & a game controller identifier previously returned by \mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the implementation dependent name for the game controller, or NULL if there is no name or the identifier passed is invalid.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}{SDL\+\_\+\+Game\+Controller\+Name\+For\+Index}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}\label{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerNameForIndex@{SDL\_GameControllerNameForIndex}}
+\index{SDL\_GameControllerNameForIndex@{SDL\_GameControllerNameForIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerNameForIndex()}{SDL\_GameControllerNameForIndex()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Name\+For\+Index (\begin{DoxyParamCaption}\item[{int}]{joystick\+\_\+index }\end{DoxyParamCaption})}
+
+Get the implementation dependent name for the game controller.
+
+This function can be called before any controllers are opened.
+
+{\ttfamily joystick\+\_\+index} is the same as the {\ttfamily device\+\_\+index} passed to \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick\+\_\+index} & the device\+\_\+index of a device, from zero to \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}}-\/1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the implementation-\/dependent name for the game controller, or NULL if there is no name or the index is invalid.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_add465dba60b0e2ff4e0b53f15471be1e}{SDL\+\_\+\+Game\+Controller\+Name}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}{SDL\+\_\+\+Is\+Game\+Controller}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac14eb47ec6097d89c7bec14f6b27ebfe}\label{SDL__gamecontroller_8h_ac14eb47ec6097d89c7bec14f6b27ebfe}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerNumMappings@{SDL\_GameControllerNumMappings}}
+\index{SDL\_GameControllerNumMappings@{SDL\_GameControllerNumMappings}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerNumMappings()}{SDL\_GameControllerNumMappings()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Num\+Mappings (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of mappings installed.
+
+\begin{DoxyReturn}{Renvoie}
+the number of mappings.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}\label{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerOpen@{SDL\_GameControllerOpen}}
+\index{SDL\_GameControllerOpen@{SDL\_GameControllerOpen}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerOpen()}{SDL\_GameControllerOpen()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Game\+Controller$\ast$ SDLCALL SDL\+\_\+\+Game\+Controller\+Open (\begin{DoxyParamCaption}\item[{int}]{joystick\+\_\+index }\end{DoxyParamCaption})}
+
+Open a game controller for use.
+
+{\ttfamily joystick\+\_\+index} is the same as the {\ttfamily device\+\_\+index} passed to \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}}.
+
+The index passed as an argument refers to the N\textquotesingle{}th game controller on the system. This index is not the value which will identify this controller in future controller events. The joystick\textquotesingle{}s instance id (SDL\+\_\+\+Joystick\+ID) will be used there instead.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick\+\_\+index} & the device\+\_\+index of a device, up to \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a gamecontroller identifier or NULL if an error occurred; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a97fcf011947b35403c7d5319673a35e9}{SDL\+\_\+\+Game\+Controller\+Close}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}{SDL\+\_\+\+Game\+Controller\+Name\+For\+Index}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}{SDL\+\_\+\+Is\+Game\+Controller}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_af656d1c71fe07da1146c376439d9b403}\label{SDL__gamecontroller_8h_af656d1c71fe07da1146c376439d9b403}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerRumble@{SDL\_GameControllerRumble}}
+\index{SDL\_GameControllerRumble@{SDL\_GameControllerRumble}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerRumble()}{SDL\_GameControllerRumble()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Rumble (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{Uint16}]{low\+\_\+frequency\+\_\+rumble,  }\item[{Uint16}]{high\+\_\+frequency\+\_\+rumble,  }\item[{Uint32}]{duration\+\_\+ms }\end{DoxyParamCaption})}
+
+Start a rumble effect on a game controller.
+
+Each call to this function cancels any previous rumble effect, and calling it with 0 intensity stops any rumbling.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to vibrate \\
+\hline
+{\em low\+\_\+frequency\+\_\+rumble} & The intensity of the low frequency (left) rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em high\+\_\+frequency\+\_\+rumble} & The intensity of the high frequency (right) rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em duration\+\_\+ms} & The duration of the rumble effect, in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if rumble isn\textquotesingle{}t supported on this controller
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_aa3fb8be22a6781c2b46b79309747978c}{SDL\+\_\+\+Game\+Controller\+Has\+Rumble}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a2879f90f77b4de4f73892aef4cf73d26}\label{SDL__gamecontroller_8h_a2879f90f77b4de4f73892aef4cf73d26}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerRumbleTriggers@{SDL\_GameControllerRumbleTriggers}}
+\index{SDL\_GameControllerRumbleTriggers@{SDL\_GameControllerRumbleTriggers}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerRumbleTriggers()}{SDL\_GameControllerRumbleTriggers()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Rumble\+Triggers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{Uint16}]{left\+\_\+rumble,  }\item[{Uint16}]{right\+\_\+rumble,  }\item[{Uint32}]{duration\+\_\+ms }\end{DoxyParamCaption})}
+
+Start a rumble effect in the game controller\textquotesingle{}s triggers.
+
+Each call to this function cancels any previous trigger rumble effect, and calling it with 0 intensity stops any rumbling.
+
+Note that this is rumbling of the {\itshape triggers} and not the game controller as a whole. The first controller to offer this feature was the Play\+Station 5\textquotesingle{}s Dual\+Shock 5.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to vibrate \\
+\hline
+{\em left\+\_\+rumble} & The intensity of the left trigger rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em right\+\_\+rumble} & The intensity of the right trigger rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em duration\+\_\+ms} & The duration of the rumble effect, in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if trigger rumble isn\textquotesingle{}t supported on this controller
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_aedb548895f677b818901440b759b3a94}{SDL\+\_\+\+Game\+Controller\+Has\+Rumble\+Triggers}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a2eaa3571798dff5d990be3514c744a99}\label{SDL__gamecontroller_8h_a2eaa3571798dff5d990be3514c744a99}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerSendEffect@{SDL\_GameControllerSendEffect}}
+\index{SDL\_GameControllerSendEffect@{SDL\_GameControllerSendEffect}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerSendEffect()}{SDL\_GameControllerSendEffect()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Send\+Effect (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{const void $\ast$}]{data,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Send a controller specific effect packet
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to affect \\
+\hline
+{\em data} & The data to send to the controller \\
+\hline
+{\em size} & The size of the data to send to the controller \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if this controller or driver doesn\textquotesingle{}t support effect packets
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a5c5e9971086494aeef01c3ee0325a132}\label{SDL__gamecontroller_8h_a5c5e9971086494aeef01c3ee0325a132}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerSetLED@{SDL\_GameControllerSetLED}}
+\index{SDL\_GameControllerSetLED@{SDL\_GameControllerSetLED}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerSetLED()}{SDL\_GameControllerSetLED()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Set\+LED (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{Uint8}]{red,  }\item[{Uint8}]{green,  }\item[{Uint8}]{blue }\end{DoxyParamCaption})}
+
+Update a game controller\textquotesingle{}s LED color.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to update \\
+\hline
+{\em red} & The intensity of the red LED \\
+\hline
+{\em green} & The intensity of the green LED \\
+\hline
+{\em blue} & The intensity of the blue LED \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if this controller does not have a modifiable LED
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a85be71ba10423ad4da459131a13a0f5f}\label{SDL__gamecontroller_8h_a85be71ba10423ad4da459131a13a0f5f}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerSetPlayerIndex@{SDL\_GameControllerSetPlayerIndex}}
+\index{SDL\_GameControllerSetPlayerIndex@{SDL\_GameControllerSetPlayerIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerSetPlayerIndex()}{SDL\_GameControllerSetPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Game\+Controller\+Set\+Player\+Index (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{int}]{player\+\_\+index }\end{DoxyParamCaption})}
+
+Set the player index of an opened game controller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & the game controller object to adjust. \\
+\hline
+{\em player\+\_\+index} & Player index to assign to this controller.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_acee01b6bdc79b5dda14b77538b1d34ba}\label{SDL__gamecontroller_8h_acee01b6bdc79b5dda14b77538b1d34ba}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerSetSensorEnabled@{SDL\_GameControllerSetSensorEnabled}}
+\index{SDL\_GameControllerSetSensorEnabled@{SDL\_GameControllerSetSensorEnabled}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerSetSensorEnabled()}{SDL\_GameControllerSetSensorEnabled()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Game\+Controller\+Set\+Sensor\+Enabled (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Game\+Controller $\ast$}]{gamecontroller,  }\item[{\mbox{\hyperlink{SDL__sensor_8h_a94a441696f7d053dd541ec0b7e00e33a}{SDL\+\_\+\+Sensor\+Type}}}]{type,  }\item[{SDL\+\_\+bool}]{enabled }\end{DoxyParamCaption})}
+
+Set whether data reporting for a game controller sensor is enabled.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamecontroller} & The controller to update \\
+\hline
+{\em type} & The type of sensor to enable/disable \\
+\hline
+{\em enabled} & Whether data reporting should be enabled \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 or -\/1 if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a8cab24dcd19022722c306f04fdfc6b6a}\label{SDL__gamecontroller_8h_a8cab24dcd19022722c306f04fdfc6b6a}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerTypeForIndex@{SDL\_GameControllerTypeForIndex}}
+\index{SDL\_GameControllerTypeForIndex@{SDL\_GameControllerTypeForIndex}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerTypeForIndex()}{SDL\_GameControllerTypeForIndex()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Game\+Controller\+Type SDLCALL SDL\+\_\+\+Game\+Controller\+Type\+For\+Index (\begin{DoxyParamCaption}\item[{int}]{joystick\+\_\+index }\end{DoxyParamCaption})}
+
+Get the type of a game controller.
+
+This can be called before any controllers are opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick\+\_\+index} & the device\+\_\+index of a device, from zero to \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}}-\/1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the controller type.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a92fe68241a17b60b2240c04d01b73e6b}\label{SDL__gamecontroller_8h_a92fe68241a17b60b2240c04d01b73e6b}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_GameControllerUpdate@{SDL\_GameControllerUpdate}}
+\index{SDL\_GameControllerUpdate@{SDL\_GameControllerUpdate}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GameControllerUpdate()}{SDL\_GameControllerUpdate()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Game\+Controller\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Manually pump game controller updates if not using the loop.
+
+This function is called automatically by the event loop if events are enabled. Under such circumstances, it will not be necessary to call this function.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}\label{SDL__gamecontroller_8h_a3307c27938a336b83c317b6054d91bd4}} 
+\index{SDL\_gamecontroller.h@{SDL\_gamecontroller.h}!SDL\_IsGameController@{SDL\_IsGameController}}
+\index{SDL\_IsGameController@{SDL\_IsGameController}!SDL\_gamecontroller.h@{SDL\_gamecontroller.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IsGameController()}{SDL\_IsGameController()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Is\+Game\+Controller (\begin{DoxyParamCaption}\item[{int}]{joystick\+\_\+index }\end{DoxyParamCaption})}
+
+Check if the given joystick is supported by the game controller interface.
+
+{\ttfamily joystick\+\_\+index} is the same as the {\ttfamily device\+\_\+index} passed to \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick\+\_\+index} & the device\+\_\+index of a device, up to \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the given joystick is supported by the game controller interface, SDL\+\_\+\+FALSE if it isn\textquotesingle{}t or it\textquotesingle{}s an invalid index.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_aa27333eaf19fbcf39df244aa19c5d043}{SDL\+\_\+\+Game\+Controller\+Name\+For\+Index}} 
+
+\mbox{\hyperlink{SDL__gamecontroller_8h_ac7725e08ac17961bd7d5f8d4eb0c4033}{SDL\+\_\+\+Game\+Controller\+Open}} 
+\end{DoxySeeAlso}

@@ -1,0 +1,41 @@
+\hypertarget{SDL__test__compare_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+compare.h}
+\label{SDL__test__compare_8h}\index{include/SDL2/SDL\_test\_compare.h@{include/SDL2/SDL\_test\_compare.h}}
+{\ttfamily \#include \char`\"{}SDL.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+test\+\_\+images.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SDL__test__compare_8h_a3921b6606c5897e6fcb46c6a4ab5fec2}{SDLTest\+\_\+\+Compare\+Surfaces}} (\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$surface, \mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$reference\+Surface, int allowable\+\_\+error)
+\begin{DoxyCompactList}\small\item\em Compares a surface and with reference image data for equality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__compare_8h_a3921b6606c5897e6fcb46c6a4ab5fec2}\label{SDL__test__compare_8h_a3921b6606c5897e6fcb46c6a4ab5fec2}} 
+\index{SDL\_test\_compare.h@{SDL\_test\_compare.h}!SDLTest\_CompareSurfaces@{SDLTest\_CompareSurfaces}}
+\index{SDLTest\_CompareSurfaces@{SDLTest\_CompareSurfaces}!SDL\_test\_compare.h@{SDL\_test\_compare.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CompareSurfaces()}{SDLTest\_CompareSurfaces()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Compare\+Surfaces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{surface,  }\item[{\mbox{\hyperlink{structSDL__Surface}{SDL\+\_\+\+Surface}} $\ast$}]{reference\+Surface,  }\item[{int}]{allowable\+\_\+error }\end{DoxyParamCaption})}
+
+
+
+Compares a surface and with reference image data for equality. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & Surface used in comparison \\
+\hline
+{\em reference\+Surface} & Test Surface used in comparison \\
+\hline
+{\em allowable\+\_\+error} & Allowable difference (=sum of squared difference for each RGB component) in blending accuracy.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if comparison succeeded, $>$0 (=number of pixels for which the comparison failed) if comparison failed, -\/1 if any of the surfaces were NULL, -\/2 if the surface sizes differ. 
+\end{DoxyReturn}

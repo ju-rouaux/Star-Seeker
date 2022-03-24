@@ -1,0 +1,526 @@
+\hypertarget{SDL__hidapi_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+hidapi.h}
+\label{SDL__hidapi_8h}\index{include/SDL2/SDL\_hidapi.h@{include/SDL2/SDL\_hidapi.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Information about a connected HID device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct SDL\+\_\+hid\+\_\+device\+\_\+ \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}} \mbox{\hyperlink{SDL__hidapi_8h_afb328d87ec06aec76ebbca2eab491a70}{SDL\+\_\+hid\+\_\+device\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Information about a connected HID device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_afab0dc5913a3e90ed4434bd2778fe1bf}{SDL\+\_\+hid\+\_\+init}} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a795ed5c8ed4410b5962742d1c92774c9}{SDL\+\_\+hid\+\_\+exit}} (void)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a1d7587010cbd25a9fcf77e26682de356}{SDL\+\_\+hid\+\_\+device\+\_\+change\+\_\+count}} (void)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}} $\ast$SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate}} (unsigned short vendor\+\_\+id, unsigned short product\+\_\+id)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_af2f46b6c5b92e35724b2bd3116e2eb1e}{SDL\+\_\+hid\+\_\+free\+\_\+enumeration}} (\mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}} $\ast$devs)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open}} (unsigned short vendor\+\_\+id, unsigned short product\+\_\+id, const wchar\+\_\+t $\ast$serial\+\_\+number)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a41cf0c1d1dc9687a7e37b463f6ba7f25}{SDL\+\_\+hid\+\_\+open\+\_\+path}} (const char $\ast$path, int b\+Exclusive)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}{SDL\+\_\+hid\+\_\+write}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, const unsigned char $\ast$data, size\+\_\+t length)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a2aa5d9a34cd1200e566d4ec47fc5dc5f}{SDL\+\_\+hid\+\_\+read\+\_\+timeout}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, unsigned char $\ast$data, size\+\_\+t length, int milliseconds)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a6f41a95bea290df5a73b97e4bf5212a0}{SDL\+\_\+hid\+\_\+read}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, unsigned char $\ast$data, size\+\_\+t length)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a1f66ac734a1786884cb4f2b6309a60e7}{SDL\+\_\+hid\+\_\+set\+\_\+nonblocking}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, int nonblock)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a5349c62d24338025552c6f244956699f}{SDL\+\_\+hid\+\_\+send\+\_\+feature\+\_\+report}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, const unsigned char $\ast$data, size\+\_\+t length)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_ab955370e07dc09c62367ab70d1784793}{SDL\+\_\+hid\+\_\+get\+\_\+feature\+\_\+report}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, unsigned char $\ast$data, size\+\_\+t length)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a0e402a95d523c439b3a55be0c05dd6ba}{SDL\+\_\+hid\+\_\+close}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_abc79c19d7d67a361bb39b5ae4704c950}{SDL\+\_\+hid\+\_\+get\+\_\+manufacturer\+\_\+string}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, wchar\+\_\+t $\ast$string, size\+\_\+t maxlen)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_abfc7382b9200805fea25b4483a3cb224}{SDL\+\_\+hid\+\_\+get\+\_\+product\+\_\+string}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, wchar\+\_\+t $\ast$string, size\+\_\+t maxlen)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a06110655bc7e7c8a3a8e1d43a5af998b}{SDL\+\_\+hid\+\_\+get\+\_\+serial\+\_\+number\+\_\+string}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, wchar\+\_\+t $\ast$string, size\+\_\+t maxlen)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a8c58e5c7c4ce4920507e316da2ca07ea}{SDL\+\_\+hid\+\_\+get\+\_\+indexed\+\_\+string}} (\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$dev, int string\+\_\+index, wchar\+\_\+t $\ast$string, size\+\_\+t maxlen)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__hidapi_8h_a472eb84a7526e0c9fb6b696b2fa7a039}{SDL\+\_\+hid\+\_\+ble\+\_\+scan}} (SDL\+\_\+bool active)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header file for SDL HIDAPI functions.
+
+This is an adaptation of the original HIDAPI interface by Alan Ott, and includes source code licensed under the following BSD license\+:
+
+Copyright (c) 2010, Alan Ott, Signal 11 Software All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of Signal 11 Software nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \char`\"{}\+AS IS\char`\"{} AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+If you would like a version of SDL without this code, you can build SDL with SDL\+\_\+\+HIDAPI\+\_\+\+DISABLED defined to 1. You might want to do this for example on i\+OS or tv\+OS to avoid a dependency on the Core\+Bluetooth framework. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}\label{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_device@{SDL\_hid\_device}}
+\index{SDL\_hid\_device@{SDL\_hid\_device}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_device}{SDL\_hid\_device}}
+{\footnotesize\ttfamily typedef struct SDL\+\_\+hid\+\_\+device\+\_\+ \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}}}
+
+opaque hidapi structure \mbox{\Hypertarget{SDL__hidapi_8h_afb328d87ec06aec76ebbca2eab491a70}\label{SDL__hidapi_8h_afb328d87ec06aec76ebbca2eab491a70}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_device\_info@{SDL\_hid\_device\_info}}
+\index{SDL\_hid\_device\_info@{SDL\_hid\_device\_info}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_device\_info}{SDL\_hid\_device\_info}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}} \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}}}
+
+
+
+Information about a connected HID device. 
+
+hidapi info structure 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__hidapi_8h_a472eb84a7526e0c9fb6b696b2fa7a039}\label{SDL__hidapi_8h_a472eb84a7526e0c9fb6b696b2fa7a039}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_ble\_scan@{SDL\_hid\_ble\_scan}}
+\index{SDL\_hid\_ble\_scan@{SDL\_hid\_ble\_scan}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_ble\_scan()}{SDL\_hid\_ble\_scan()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+hid\+\_\+ble\+\_\+scan (\begin{DoxyParamCaption}\item[{SDL\+\_\+bool}]{active }\end{DoxyParamCaption})}
+
+Start or stop a BLE scan on i\+OS and tv\+OS to pair Steam Controllers
+
+
+\begin{DoxyParams}{Paramètres}
+{\em active} & SDL\+\_\+\+TRUE to start the scan, SDL\+\_\+\+FALSE to stop the scan\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a0e402a95d523c439b3a55be0c05dd6ba}\label{SDL__hidapi_8h_a0e402a95d523c439b3a55be0c05dd6ba}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_close@{SDL\_hid\_close}}
+\index{SDL\_hid\_close@{SDL\_hid\_close}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_close()}{SDL\_hid\_close()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+hid\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev }\end{DoxyParamCaption})}
+
+Close a HID device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a1d7587010cbd25a9fcf77e26682de356}\label{SDL__hidapi_8h_a1d7587010cbd25a9fcf77e26682de356}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_device\_change\_count@{SDL\_hid\_device\_change\_count}}
+\index{SDL\_hid\_device\_change\_count@{SDL\_hid\_device\_change\_count}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_device\_change\_count()}{SDL\_hid\_device\_change\_count()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+hid\+\_\+device\+\_\+change\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check to see if devices may have been added or removed.
+
+Enumerating the HID devices is an expensive operation, so you can call this to see if there have been any system device changes since the last call to this function. A change in the counter returned doesn\textquotesingle{}t necessarily mean that anything has changed, but you can call \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate()}} to get an updated device list.
+
+Calling this function for the first time may cause a thread or other system resource to be allocated to track device change notifications.
+
+\begin{DoxyReturn}{Renvoie}
+a change counter that is incremented with each potential device change, or 0 if device change detection isn\textquotesingle{}t available.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}\label{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_enumerate@{SDL\_hid\_enumerate}}
+\index{SDL\_hid\_enumerate@{SDL\_hid\_enumerate}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_enumerate()}{SDL\_hid\_enumerate()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}}$\ast$ SDLCALL SDL\+\_\+hid\+\_\+enumerate (\begin{DoxyParamCaption}\item[{unsigned short}]{vendor\+\_\+id,  }\item[{unsigned short}]{product\+\_\+id }\end{DoxyParamCaption})}
+
+Enumerate the HID Devices.
+
+This function returns a linked list of all the HID devices attached to the system which match vendor\+\_\+id and product\+\_\+id. If {\ttfamily vendor\+\_\+id} is set to 0 then any vendor matches. If {\ttfamily product\+\_\+id} is set to 0 then any product matches. If {\ttfamily vendor\+\_\+id} and {\ttfamily product\+\_\+id} are both set to 0, then all HID devices will be returned.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vendor\+\_\+id} & The Vendor ID (VID) of the types of device to open. \\
+\hline
+{\em product\+\_\+id} & The Product ID (PID) of the types of device to open. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a linked list of type \mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}}, containing information about the HID devices attached to the system, or NULL in the case of failure. Free this linked list by calling \mbox{\hyperlink{SDL__hidapi_8h_af2f46b6c5b92e35724b2bd3116e2eb1e}{SDL\+\_\+hid\+\_\+free\+\_\+enumeration()}}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__hidapi_8h_a1d7587010cbd25a9fcf77e26682de356}{SDL\+\_\+hid\+\_\+device\+\_\+change\+\_\+count}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__hidapi_8h_a795ed5c8ed4410b5962742d1c92774c9}\label{SDL__hidapi_8h_a795ed5c8ed4410b5962742d1c92774c9}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_exit@{SDL\_hid\_exit}}
+\index{SDL\_hid\_exit@{SDL\_hid\_exit}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_exit()}{SDL\_hid\_exit()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Finalize the HIDAPI library.
+
+This function frees all of the static data associated with HIDAPI. It should be called at the end of execution to avoid memory leaks.
+
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__hidapi_8h_afab0dc5913a3e90ed4434bd2778fe1bf}{SDL\+\_\+hid\+\_\+init}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__hidapi_8h_af2f46b6c5b92e35724b2bd3116e2eb1e}\label{SDL__hidapi_8h_af2f46b6c5b92e35724b2bd3116e2eb1e}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_free\_enumeration@{SDL\_hid\_free\_enumeration}}
+\index{SDL\_hid\_free\_enumeration@{SDL\_hid\_free\_enumeration}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_free\_enumeration()}{SDL\_hid\_free\_enumeration()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+hid\+\_\+free\+\_\+enumeration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__hid__device__info}{SDL\+\_\+hid\+\_\+device\+\_\+info}} $\ast$}]{devs }\end{DoxyParamCaption})}
+
+Free an enumeration Linked List
+
+This function frees a linked list created by \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em devs} & Pointer to a list of struct\+\_\+device returned from \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate()}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_ab955370e07dc09c62367ab70d1784793}\label{SDL__hidapi_8h_ab955370e07dc09c62367ab70d1784793}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_get\_feature\_report@{SDL\_hid\_get\_feature\_report}}
+\index{SDL\_hid\_get\_feature\_report@{SDL\_hid\_get\_feature\_report}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_get\_feature\_report()}{SDL\_hid\_get\_feature\_report()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+get\+\_\+feature\+\_\+report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{unsigned char $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Get a feature report from a HID device.
+
+Set the first byte of {\ttfamily data} to the Report ID of the report to be read. Make sure to allow space for this extra byte in {\ttfamily data}. Upon return, the first byte will still contain the Report ID, and the report data will start in data\mbox{[}1\mbox{]}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em data} & A buffer to put the read data into, including the Report ID. Set the first byte of {\ttfamily data} to the Report ID of the report to be read, or set it to zero if your device does not use numbered reports. \\
+\hline
+{\em length} & The number of bytes to read, including an extra byte for the report ID. The buffer can be longer than the actual report. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of bytes read plus one for the report ID (which is still in the first byte), or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a8c58e5c7c4ce4920507e316da2ca07ea}\label{SDL__hidapi_8h_a8c58e5c7c4ce4920507e316da2ca07ea}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_get\_indexed\_string@{SDL\_hid\_get\_indexed\_string}}
+\index{SDL\_hid\_get\_indexed\_string@{SDL\_hid\_get\_indexed\_string}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_get\_indexed\_string()}{SDL\_hid\_get\_indexed\_string()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+get\+\_\+indexed\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{int}]{string\+\_\+index,  }\item[{wchar\+\_\+t $\ast$}]{string,  }\item[{size\+\_\+t}]{maxlen }\end{DoxyParamCaption})}
+
+Get a string from a HID device, based on its string index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em string\+\_\+index} & The index of the string to get. \\
+\hline
+{\em string} & A wide string buffer to put the data into. \\
+\hline
+{\em maxlen} & The length of the buffer in multiples of wchar\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_abc79c19d7d67a361bb39b5ae4704c950}\label{SDL__hidapi_8h_abc79c19d7d67a361bb39b5ae4704c950}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_get\_manufacturer\_string@{SDL\_hid\_get\_manufacturer\_string}}
+\index{SDL\_hid\_get\_manufacturer\_string@{SDL\_hid\_get\_manufacturer\_string}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_get\_manufacturer\_string()}{SDL\_hid\_get\_manufacturer\_string()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+get\+\_\+manufacturer\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{wchar\+\_\+t $\ast$}]{string,  }\item[{size\+\_\+t}]{maxlen }\end{DoxyParamCaption})}
+
+Get The Manufacturer String from a HID device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em string} & A wide string buffer to put the data into. \\
+\hline
+{\em maxlen} & The length of the buffer in multiples of wchar\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_abfc7382b9200805fea25b4483a3cb224}\label{SDL__hidapi_8h_abfc7382b9200805fea25b4483a3cb224}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_get\_product\_string@{SDL\_hid\_get\_product\_string}}
+\index{SDL\_hid\_get\_product\_string@{SDL\_hid\_get\_product\_string}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_get\_product\_string()}{SDL\_hid\_get\_product\_string()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+get\+\_\+product\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{wchar\+\_\+t $\ast$}]{string,  }\item[{size\+\_\+t}]{maxlen }\end{DoxyParamCaption})}
+
+Get The Product String from a HID device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em string} & A wide string buffer to put the data into. \\
+\hline
+{\em maxlen} & The length of the buffer in multiples of wchar\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a06110655bc7e7c8a3a8e1d43a5af998b}\label{SDL__hidapi_8h_a06110655bc7e7c8a3a8e1d43a5af998b}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_get\_serial\_number\_string@{SDL\_hid\_get\_serial\_number\_string}}
+\index{SDL\_hid\_get\_serial\_number\_string@{SDL\_hid\_get\_serial\_number\_string}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_get\_serial\_number\_string()}{SDL\_hid\_get\_serial\_number\_string()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+get\+\_\+serial\+\_\+number\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{wchar\+\_\+t $\ast$}]{string,  }\item[{size\+\_\+t}]{maxlen }\end{DoxyParamCaption})}
+
+Get The Serial Number String from a HID device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em string} & A wide string buffer to put the data into. \\
+\hline
+{\em maxlen} & The length of the buffer in multiples of wchar\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_afab0dc5913a3e90ed4434bd2778fe1bf}\label{SDL__hidapi_8h_afab0dc5913a3e90ed4434bd2778fe1bf}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_init@{SDL\_hid\_init}}
+\index{SDL\_hid\_init@{SDL\_hid\_init}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_init()}{SDL\_hid\_init()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the HIDAPI library.
+
+This function initializes the HIDAPI library. Calling it is not strictly necessary, as it will be called automatically by \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate()}} and any of the SDL\+\_\+hid\+\_\+open\+\_\+$\ast$() functions if it is needed. This function should be called at the beginning of execution however, if there is a chance of HIDAPI handles being opened by different threads simultaneously.
+
+Each call to this function should have a matching call to \mbox{\hyperlink{SDL__hidapi_8h_a795ed5c8ed4410b5962742d1c92774c9}{SDL\+\_\+hid\+\_\+exit()}}
+
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__hidapi_8h_a795ed5c8ed4410b5962742d1c92774c9}{SDL\+\_\+hid\+\_\+exit}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}\label{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_open@{SDL\_hid\_open}}
+\index{SDL\_hid\_open@{SDL\_hid\_open}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_open()}{SDL\_hid\_open()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}}$\ast$ SDLCALL SDL\+\_\+hid\+\_\+open (\begin{DoxyParamCaption}\item[{unsigned short}]{vendor\+\_\+id,  }\item[{unsigned short}]{product\+\_\+id,  }\item[{const wchar\+\_\+t $\ast$}]{serial\+\_\+number }\end{DoxyParamCaption})}
+
+Open a HID device using a Vendor ID (VID), Product ID (PID) and optionally a serial number.
+
+If {\ttfamily serial\+\_\+number} is NULL, the first device with the specified VID and PID is opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vendor\+\_\+id} & The Vendor ID (VID) of the device to open. \\
+\hline
+{\em product\+\_\+id} & The Product ID (PID) of the device to open. \\
+\hline
+{\em serial\+\_\+number} & The Serial Number of the device to open (Optionally NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a SDL\+\_\+hid\+\_\+device object on success or NULL on failure.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a41cf0c1d1dc9687a7e37b463f6ba7f25}\label{SDL__hidapi_8h_a41cf0c1d1dc9687a7e37b463f6ba7f25}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_open\_path@{SDL\_hid\_open\_path}}
+\index{SDL\_hid\_open\_path@{SDL\_hid\_open\_path}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_open\_path()}{SDL\_hid\_open\_path()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}}$\ast$ SDLCALL SDL\+\_\+hid\+\_\+open\+\_\+path (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{int}]{b\+Exclusive }\end{DoxyParamCaption})}
+
+Open a HID device by its path name.
+
+The path name be determined by calling \mbox{\hyperlink{SDL__hidapi_8h_acb8cd5555594f5155f793bb1ce9acbda}{SDL\+\_\+hid\+\_\+enumerate()}}, or a platform-\/specific path name can be used (eg\+: /dev/hidraw0 on Linux).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & The path name of the device to open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a SDL\+\_\+hid\+\_\+device object on success or NULL on failure.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a6f41a95bea290df5a73b97e4bf5212a0}\label{SDL__hidapi_8h_a6f41a95bea290df5a73b97e4bf5212a0}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_read@{SDL\_hid\_read}}
+\index{SDL\_hid\_read@{SDL\_hid\_read}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_read()}{SDL\_hid\_read()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{unsigned char $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Read an Input report from a HID device.
+
+Input reports are returned to the host through the INTERRUPT IN endpoint. The first byte will contain the Report number if the device uses numbered reports.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em data} & A buffer to put the read data into. \\
+\hline
+{\em length} & The number of bytes to read. For devices with multiple reports, make sure to read an extra byte for the report number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the actual number of bytes read and -\/1 on error. If no packet was available to be read and the handle is in non-\/blocking mode, this function returns 0.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a2aa5d9a34cd1200e566d4ec47fc5dc5f}\label{SDL__hidapi_8h_a2aa5d9a34cd1200e566d4ec47fc5dc5f}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_read\_timeout@{SDL\_hid\_read\_timeout}}
+\index{SDL\_hid\_read\_timeout@{SDL\_hid\_read\_timeout}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_read\_timeout()}{SDL\_hid\_read\_timeout()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+read\+\_\+timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{unsigned char $\ast$}]{data,  }\item[{size\+\_\+t}]{length,  }\item[{int}]{milliseconds }\end{DoxyParamCaption})}
+
+Read an Input report from a HID device with timeout.
+
+Input reports are returned to the host through the INTERRUPT IN endpoint. The first byte will contain the Report number if the device uses numbered reports.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em data} & A buffer to put the read data into. \\
+\hline
+{\em length} & The number of bytes to read. For devices with multiple reports, make sure to read an extra byte for the report number. \\
+\hline
+{\em milliseconds} & timeout in milliseconds or -\/1 for blocking wait. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the actual number of bytes read and -\/1 on error. If no packet was available to be read within the timeout period, this function returns 0.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a5349c62d24338025552c6f244956699f}\label{SDL__hidapi_8h_a5349c62d24338025552c6f244956699f}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_send\_feature\_report@{SDL\_hid\_send\_feature\_report}}
+\index{SDL\_hid\_send\_feature\_report@{SDL\_hid\_send\_feature\_report}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_send\_feature\_report()}{SDL\_hid\_send\_feature\_report()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+send\+\_\+feature\+\_\+report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{const unsigned char $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Send a Feature report to the device.
+
+Feature reports are sent over the Control endpoint as a Set\+\_\+\+Report transfer. The first byte of {\ttfamily data} must contain the Report ID. For devices which only support a single report, this must be set to 0x0. The remaining bytes contain the report data. Since the Report ID is mandatory, calls to \mbox{\hyperlink{SDL__hidapi_8h_a5349c62d24338025552c6f244956699f}{SDL\+\_\+hid\+\_\+send\+\_\+feature\+\_\+report()}} will always contain one more byte than the report contains. For example, if a hid report is 16 bytes long, 17 bytes must be passed to \mbox{\hyperlink{SDL__hidapi_8h_a5349c62d24338025552c6f244956699f}{SDL\+\_\+hid\+\_\+send\+\_\+feature\+\_\+report()}}\+: the Report ID (or 0x0, for devices which do not use numbered reports), followed by the report data (16 bytes). In this example, the length passed in would be 17.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em data} & The data to send, including the report number as the first byte. \\
+\hline
+{\em length} & The length in bytes of the data to send, including the report number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the actual number of bytes written and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a1f66ac734a1786884cb4f2b6309a60e7}\label{SDL__hidapi_8h_a1f66ac734a1786884cb4f2b6309a60e7}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_set\_nonblocking@{SDL\_hid\_set\_nonblocking}}
+\index{SDL\_hid\_set\_nonblocking@{SDL\_hid\_set\_nonblocking}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_set\_nonblocking()}{SDL\_hid\_set\_nonblocking()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+set\+\_\+nonblocking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{int}]{nonblock }\end{DoxyParamCaption})}
+
+Set the device handle to be non-\/blocking.
+
+In non-\/blocking mode calls to \mbox{\hyperlink{SDL__hidapi_8h_a6f41a95bea290df5a73b97e4bf5212a0}{SDL\+\_\+hid\+\_\+read()}} will return immediately with a value of 0 if there is no data to be read. In blocking mode, \mbox{\hyperlink{SDL__hidapi_8h_a6f41a95bea290df5a73b97e4bf5212a0}{SDL\+\_\+hid\+\_\+read()}} will wait (block) until there is data to read before returning.
+
+Nonblocking can be turned on and off at any time.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em nonblock} & enable or not the nonblocking reads -\/ 1 to enable nonblocking -\/ 0 to disable nonblocking. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}\label{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}} 
+\index{SDL\_hidapi.h@{SDL\_hidapi.h}!SDL\_hid\_write@{SDL\_hid\_write}}
+\index{SDL\_hid\_write@{SDL\_hid\_write}!SDL\_hidapi.h@{SDL\_hidapi.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_hid\_write()}{SDL\_hid\_write()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+hid\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__hidapi_8h_a01e37a76f52ebe32810eae8de7ffad85}{SDL\+\_\+hid\+\_\+device}} $\ast$}]{dev,  }\item[{const unsigned char $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Write an Output report to a HID device.
+
+The first byte of {\ttfamily data} must contain the Report ID. For devices which only support a single report, this must be set to 0x0. The remaining bytes contain the report data. Since the Report ID is mandatory, calls to \mbox{\hyperlink{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}{SDL\+\_\+hid\+\_\+write()}} will always contain one more byte than the report contains. For example, if a hid report is 16 bytes long, 17 bytes must be passed to \mbox{\hyperlink{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}{SDL\+\_\+hid\+\_\+write()}}, the Report ID (or 0x0, for devices with a single report), followed by the report data (16 bytes). In this example, the length passed in would be 17.
+
+\mbox{\hyperlink{SDL__hidapi_8h_a6f20cc83879d21bad4306f540475dd8f}{SDL\+\_\+hid\+\_\+write()}} will send the data on the first OUT endpoint, if one exists. If it does not, it will send the data through the Control Endpoint (Endpoint 0).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & A device handle returned from \mbox{\hyperlink{SDL__hidapi_8h_abc174a8f668dade9b61845377830c9c6}{SDL\+\_\+hid\+\_\+open()}}. \\
+\hline
+{\em data} & The data to send, including the report number as the first byte. \\
+\hline
+{\em length} & The length in bytes of the data to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the actual number of bytes written and -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}

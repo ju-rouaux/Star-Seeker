@@ -1,0 +1,132 @@
+\hypertarget{structSDL__HapticRamp}{}\doxysection{Référence de la structure SDL\+\_\+\+Haptic\+Ramp}
+\label{structSDL__HapticRamp}\index{SDL\_HapticRamp@{SDL\_HapticRamp}}
+
+
+A structure containing a template for a Ramp effect.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_aca1c2349372433822ab62f60976640aa}{type}}
+\item 
+\mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} \mbox{\hyperlink{structSDL__HapticRamp_a6fb6c67ccf262b8f3ec08bcdf08f9965}{direction}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__HapticRamp_a57e75237507701405af2a3caf34cdb5a}{length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_ac9471016f41919b4a1c786bbd649a777}{delay}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_a2027c6fd88f1ebe652c90c71410ee0bf}{button}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_a4b89d108cfa7e96ea58b58771334c33d}{interval}}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticRamp_acc0e813ac6399290fd4a788d2471e8d4}{start}}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticRamp_a16dd3ee307795248e21ee45ba8fb4c6c}{end}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_adbcd7ffb05016d442c73e81cc0fcbbd2}{attack\+\_\+length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_a755933bbda14ae9b53c574b9fe6291a0}{attack\+\_\+level}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_ad58a8f7cfdf659b45f0503fc56db7436}{fade\+\_\+length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticRamp_a66b586f2e6a23a085a7b2854f61752c5}{fade\+\_\+level}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A structure containing a template for a Ramp effect. 
+
+This struct is exclusively for the \mbox{\hyperlink{SDL__haptic_8h_af10eb937a64a8f602e9c46682ac0d868}{SDL\+\_\+\+HAPTIC\+\_\+\+RAMP}} effect.
+
+The ramp effect starts at start strength and ends at end strength. It augments in linear fashion. If you use attack and fade with a ramp the effects get added to the ramp effect making the effect become quadratic instead of linear.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__haptic_8h_af10eb937a64a8f602e9c46682ac0d868}{SDL\+\_\+\+HAPTIC\+\_\+\+RAMP}} 
+
+\mbox{\hyperlink{unionSDL__HapticEffect}{SDL\+\_\+\+Haptic\+Effect}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__HapticRamp_adbcd7ffb05016d442c73e81cc0fcbbd2}\label{structSDL__HapticRamp_adbcd7ffb05016d442c73e81cc0fcbbd2}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!attack\_length@{attack\_length}}
+\index{attack\_length@{attack\_length}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{attack\_length}{attack\_length}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::attack\+\_\+length}
+
+Duration of the attack. \mbox{\Hypertarget{structSDL__HapticRamp_a755933bbda14ae9b53c574b9fe6291a0}\label{structSDL__HapticRamp_a755933bbda14ae9b53c574b9fe6291a0}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!attack\_level@{attack\_level}}
+\index{attack\_level@{attack\_level}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{attack\_level}{attack\_level}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::attack\+\_\+level}
+
+Level at the start of the attack. \mbox{\Hypertarget{structSDL__HapticRamp_a2027c6fd88f1ebe652c90c71410ee0bf}\label{structSDL__HapticRamp_a2027c6fd88f1ebe652c90c71410ee0bf}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!button@{button}}
+\index{button@{button}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::button}
+
+Button that triggers the effect. \mbox{\Hypertarget{structSDL__HapticRamp_ac9471016f41919b4a1c786bbd649a777}\label{structSDL__HapticRamp_ac9471016f41919b4a1c786bbd649a777}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!delay@{delay}}
+\index{delay@{delay}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{delay}{delay}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::delay}
+
+Delay before starting the effect. \mbox{\Hypertarget{structSDL__HapticRamp_a6fb6c67ccf262b8f3ec08bcdf08f9965}\label{structSDL__HapticRamp_a6fb6c67ccf262b8f3ec08bcdf08f9965}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!direction@{direction}}
+\index{direction@{direction}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} SDL\+\_\+\+Haptic\+Ramp\+::direction}
+
+Direction of the effect. \mbox{\Hypertarget{structSDL__HapticRamp_a16dd3ee307795248e21ee45ba8fb4c6c}\label{structSDL__HapticRamp_a16dd3ee307795248e21ee45ba8fb4c6c}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!end@{end}}
+\index{end@{end}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Ramp\+::end}
+
+Ending strength level. \mbox{\Hypertarget{structSDL__HapticRamp_ad58a8f7cfdf659b45f0503fc56db7436}\label{structSDL__HapticRamp_ad58a8f7cfdf659b45f0503fc56db7436}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!fade\_length@{fade\_length}}
+\index{fade\_length@{fade\_length}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{fade\_length}{fade\_length}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::fade\+\_\+length}
+
+Duration of the fade. \mbox{\Hypertarget{structSDL__HapticRamp_a66b586f2e6a23a085a7b2854f61752c5}\label{structSDL__HapticRamp_a66b586f2e6a23a085a7b2854f61752c5}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!fade\_level@{fade\_level}}
+\index{fade\_level@{fade\_level}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{fade\_level}{fade\_level}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::fade\+\_\+level}
+
+Level at the end of the fade. \mbox{\Hypertarget{structSDL__HapticRamp_a4b89d108cfa7e96ea58b58771334c33d}\label{structSDL__HapticRamp_a4b89d108cfa7e96ea58b58771334c33d}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!interval@{interval}}
+\index{interval@{interval}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::interval}
+
+How soon it can be triggered again after button. \mbox{\Hypertarget{structSDL__HapticRamp_a57e75237507701405af2a3caf34cdb5a}\label{structSDL__HapticRamp_a57e75237507701405af2a3caf34cdb5a}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!length@{length}}
+\index{length@{length}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Haptic\+Ramp\+::length}
+
+Duration of the effect. \mbox{\Hypertarget{structSDL__HapticRamp_acc0e813ac6399290fd4a788d2471e8d4}\label{structSDL__HapticRamp_acc0e813ac6399290fd4a788d2471e8d4}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!start@{start}}
+\index{start@{start}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Ramp\+::start}
+
+Beginning strength level. \mbox{\Hypertarget{structSDL__HapticRamp_aca1c2349372433822ab62f60976640aa}\label{structSDL__HapticRamp_aca1c2349372433822ab62f60976640aa}} 
+\index{SDL\_HapticRamp@{SDL\_HapticRamp}!type@{type}}
+\index{type@{type}!SDL\_HapticRamp@{SDL\_HapticRamp}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Ramp\+::type}
+
+\mbox{\hyperlink{SDL__haptic_8h_af10eb937a64a8f602e9c46682ac0d868}{SDL\+\_\+\+HAPTIC\+\_\+\+RAMP}} 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__haptic_8h}{SDL\+\_\+haptic.\+h}}\end{DoxyCompactItemize}

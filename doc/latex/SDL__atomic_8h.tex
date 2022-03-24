@@ -1,0 +1,393 @@
+\hypertarget{SDL__atomic_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+atomic.h}
+\label{SDL__atomic_8h}\index{include/SDL2/SDL\_atomic.h@{include/SDL2/SDL\_atomic.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A type representing an atomic integer value. It is a struct so people don\textquotesingle{}t accidentally use numeric operations on it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{SDL Atomic\+Lock}
+\label{_amgrpd7e348d61fe61536e787424b5d2866ed}%
+The atomic locks are efficient spinlocks using CPU instructions, but are vulnerable to starvation and can spin forever if a thread holding a lock has been terminated. For this reason you should minimize the code executed inside an atomic lock and never do expensive things like API or system calls while holding them.
+
+The atomic locks are not safe to lock recursively.
+
+Porting Note\+: The spin lock functions and type are required and can not be emulated because they are used in the atomic emulation code. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__atomic_8h_a36d435d444dc115a5cc11fa7027576ec}{SDL\+\_\+\+Compiler\+Barrier}}()~\{ SDL\+\_\+\+Spin\+Lock \+\_\+tmp = 0; \mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock}}(\&\+\_\+tmp); \mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock}}(\&\+\_\+tmp); \}
+\item 
+\mbox{\Hypertarget{SDL__atomic_8h_a041cb5705236fe51b35cb3d59c1fbba7}\label{SDL__atomic_8h_a041cb5705236fe51b35cb3d59c1fbba7}} 
+\#define {\bfseries SDL\+\_\+\+Memory\+Barrier\+Release}()~\mbox{\hyperlink{SDL__atomic_8h_a36d435d444dc115a5cc11fa7027576ec}{SDL\+\_\+\+Compiler\+Barrier}}()
+\item 
+\mbox{\Hypertarget{SDL__atomic_8h_aa33019d94c637a106218dde56b46a20a}\label{SDL__atomic_8h_aa33019d94c637a106218dde56b46a20a}} 
+\#define {\bfseries SDL\+\_\+\+Memory\+Barrier\+Acquire}()~\mbox{\hyperlink{SDL__atomic_8h_a36d435d444dc115a5cc11fa7027576ec}{SDL\+\_\+\+Compiler\+Barrier}}()
+\item 
+\mbox{\Hypertarget{SDL__atomic_8h_a9c3b04a6ce4b6907bfb6e2ea4649ff64}\label{SDL__atomic_8h_a9c3b04a6ce4b6907bfb6e2ea4649ff64}} 
+\#define \mbox{\hyperlink{SDL__atomic_8h_a9c3b04a6ce4b6907bfb6e2ea4649ff64}{SDL\+\_\+\+Atomic\+Inc\+Ref}}(a)~\mbox{\hyperlink{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}{SDL\+\_\+\+Atomic\+Add}}(a, 1)
+\begin{DoxyCompactList}\small\item\em Increment an atomic variable used as a reference count. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{SDL__atomic_8h_a1602c33647cfdfa8ae49a2eef10341c9}{SDL\+\_\+\+Atomic\+Dec\+Ref}}(a)~(\mbox{\hyperlink{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}{SDL\+\_\+\+Atomic\+Add}}(a, -\/1) == 1)
+\begin{DoxyCompactList}\small\item\em Decrement an atomic variable used as a reference count. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__atomic_8h_a59179ff8d21c65b9d9a544f3c2088e81}\label{SDL__atomic_8h_a59179ff8d21c65b9d9a544f3c2088e81}} 
+typedef int {\bfseries SDL\+\_\+\+Spin\+Lock}
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a5410c5f832f0d862282cd65fc432fc0b}{SDL\+\_\+\+Atomic\+Try\+Lock}} (SDL\+\_\+\+Spin\+Lock $\ast$lock)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock}} (SDL\+\_\+\+Spin\+Lock $\ast$lock)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock}} (SDL\+\_\+\+Spin\+Lock $\ast$lock)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a4bec96c1fc632536952c309513a0258e}{SDL\+\_\+\+Memory\+Barrier\+Release\+Function}} (void)
+\item 
+\mbox{\Hypertarget{SDL__atomic_8h_ae911d7eb425a9e83fd34ab1303412cba}\label{SDL__atomic_8h_ae911d7eb425a9e83fd34ab1303412cba}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+Memory\+Barrier\+Acquire\+Function} (void)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__atomic_8h_ad6b90be91abb896260930d3908c0437b}{SDL\+\_\+\+Atomic\+CAS}} (\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$a, int oldval, int newval)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a95b659308ebb16226d5c0cbf2188e51d}{SDL\+\_\+\+Atomic\+Set}} (\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$a, int v)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a633c2661709f59c98f128f99aea36d96}{SDL\+\_\+\+Atomic\+Get}} (\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$a)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}{SDL\+\_\+\+Atomic\+Add}} (\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$a, int v)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}{SDL\+\_\+\+Atomic\+CASPtr}} (void $\ast$$\ast$a, void $\ast$oldval, void $\ast$newval)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a8cd69c02c71a64c2e509dc11a560d075}{SDL\+\_\+\+Atomic\+Set\+Ptr}} (void $\ast$$\ast$a, void $\ast$v)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__atomic_8h_a46e899ee0013f3fae67eedaa6bce8947}{SDL\+\_\+\+Atomic\+Get\+Ptr}} (void $\ast$$\ast$a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Atomic operations.
+
+IMPORTANT\+: If you are not an expert in concurrent lockless programming, you should only be using the atomic lock and reference counting functions in this file. In all other cases you should be protecting your data structures with full mutexes.
+
+The list of \char`\"{}safe\char`\"{} functions to use are\+: \mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock()}} \mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock()}} \mbox{\hyperlink{SDL__atomic_8h_a9c3b04a6ce4b6907bfb6e2ea4649ff64}{SDL\+\_\+\+Atomic\+Inc\+Ref()}} \mbox{\hyperlink{SDL__atomic_8h_a1602c33647cfdfa8ae49a2eef10341c9}{SDL\+\_\+\+Atomic\+Dec\+Ref()}}
+
+Seriously, here be dragons! $^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$$^\wedge$
+
+You can find out a little more about lockless programming and the subtle issues that can arise here\+: \href{http://msdn.microsoft.com/en-us/library/ee418650\%28v=vs.85\%29.aspx}{\texttt{ http\+://msdn.\+microsoft.\+com/en-\/us/library/ee418650\%28v=vs.\+85\%29.\+aspx}}
+
+There\textquotesingle{}s also lots of good information here\+: \href{http://www.1024cores.net/home/lock-free-algorithms}{\texttt{ http\+://www.\+1024cores.\+net/home/lock-\/free-\/algorithms}} \href{http://preshing.com/}{\texttt{ http\+://preshing.\+com/}}
+
+These operations may or may not actually be implemented using processor specific atomic operations. When possible they are implemented as true processor specific atomic operations. When that is not possible the are implemented using locks that {\itshape do} use the available atomic operations.
+
+All of the atomic operations that modify memory are full memory barriers. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__atomic_8h_a1602c33647cfdfa8ae49a2eef10341c9}\label{SDL__atomic_8h_a1602c33647cfdfa8ae49a2eef10341c9}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicDecRef@{SDL\_AtomicDecRef}}
+\index{SDL\_AtomicDecRef@{SDL\_AtomicDecRef}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicDecRef}{SDL\_AtomicDecRef}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Atomic\+Dec\+Ref(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~(\mbox{\hyperlink{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}{SDL\+\_\+\+Atomic\+Add}}(a, -\/1) == 1)}
+
+
+
+Decrement an atomic variable used as a reference count. 
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the variable reached zero after decrementing, SDL\+\_\+\+FALSE otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__atomic_8h_a36d435d444dc115a5cc11fa7027576ec}\label{SDL__atomic_8h_a36d435d444dc115a5cc11fa7027576ec}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_CompilerBarrier@{SDL\_CompilerBarrier}}
+\index{SDL\_CompilerBarrier@{SDL\_CompilerBarrier}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CompilerBarrier}{SDL\_CompilerBarrier}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Compiler\+Barrier(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\{ SDL\+\_\+\+Spin\+Lock \+\_\+tmp = 0; \mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock}}(\&\+\_\+tmp); \mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock}}(\&\+\_\+tmp); \}}
+
+The compiler barrier prevents the compiler from reordering reads and writes to globally visible variables across the call. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}\label{SDL__atomic_8h_a36cadfcf8e2bda1974fbce6afdc6d529}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicAdd@{SDL\_AtomicAdd}}
+\index{SDL\_AtomicAdd@{SDL\_AtomicAdd}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicAdd()}{SDL\_AtomicAdd()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Atomic\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$}]{a,  }\item[{int}]{v }\end{DoxyParamCaption})}
+
+Add to an atomic variable.
+
+This function also acts as a full memory barrier.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to an \mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} variable to be modified \\
+\hline
+{\em v} & the desired value to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the previous value of the atomic variable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a1602c33647cfdfa8ae49a2eef10341c9}{SDL\+\_\+\+Atomic\+Dec\+Ref}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a9c3b04a6ce4b6907bfb6e2ea4649ff64}{SDL\+\_\+\+Atomic\+Inc\+Ref}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_ad6b90be91abb896260930d3908c0437b}\label{SDL__atomic_8h_ad6b90be91abb896260930d3908c0437b}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicCAS@{SDL\_AtomicCAS}}
+\index{SDL\_AtomicCAS@{SDL\_AtomicCAS}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicCAS()}{SDL\_AtomicCAS()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Atomic\+CAS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$}]{a,  }\item[{int}]{oldval,  }\item[{int}]{newval }\end{DoxyParamCaption})}
+
+Set an atomic variable to a new value if it is currently an old value.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to an \mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} variable to be modified \\
+\hline
+{\em oldval} & the old value \\
+\hline
+{\em newval} & the new value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the atomic variable was set, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}{SDL\+\_\+\+Atomic\+CASPtr}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a633c2661709f59c98f128f99aea36d96}{SDL\+\_\+\+Atomic\+Get}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a95b659308ebb16226d5c0cbf2188e51d}{SDL\+\_\+\+Atomic\+Set}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}\label{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicCASPtr@{SDL\_AtomicCASPtr}}
+\index{SDL\_AtomicCASPtr@{SDL\_AtomicCASPtr}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicCASPtr()}{SDL\_AtomicCASPtr()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Atomic\+CASPtr (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{a,  }\item[{void $\ast$}]{oldval,  }\item[{void $\ast$}]{newval }\end{DoxyParamCaption})}
+
+Set a pointer to a new value if it is currently an old value.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to a pointer \\
+\hline
+{\em oldval} & the old pointer value \\
+\hline
+{\em newval} & the new pointer value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the pointer was set, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_ad6b90be91abb896260930d3908c0437b}{SDL\+\_\+\+Atomic\+CAS}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a46e899ee0013f3fae67eedaa6bce8947}{SDL\+\_\+\+Atomic\+Get\+Ptr}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a8cd69c02c71a64c2e509dc11a560d075}{SDL\+\_\+\+Atomic\+Set\+Ptr}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a633c2661709f59c98f128f99aea36d96}\label{SDL__atomic_8h_a633c2661709f59c98f128f99aea36d96}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicGet@{SDL\_AtomicGet}}
+\index{SDL\_AtomicGet@{SDL\_AtomicGet}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicGet()}{SDL\_AtomicGet()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Atomic\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+Get the value of an atomic variable.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to an \mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current value of an atomic variable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a95b659308ebb16226d5c0cbf2188e51d}{SDL\+\_\+\+Atomic\+Set}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a46e899ee0013f3fae67eedaa6bce8947}\label{SDL__atomic_8h_a46e899ee0013f3fae67eedaa6bce8947}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicGetPtr@{SDL\_AtomicGetPtr}}
+\index{SDL\_AtomicGetPtr@{SDL\_AtomicGetPtr}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicGetPtr()}{SDL\_AtomicGetPtr()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Atomic\+Get\+Ptr (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{a }\end{DoxyParamCaption})}
+
+Get the value of a pointer atomically.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to a pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current value of a pointer.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}{SDL\+\_\+\+Atomic\+CASPtr}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a8cd69c02c71a64c2e509dc11a560d075}{SDL\+\_\+\+Atomic\+Set\+Ptr}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}\label{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicLock@{SDL\_AtomicLock}}
+\index{SDL\_AtomicLock@{SDL\_AtomicLock}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicLock()}{SDL\_AtomicLock()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Atomic\+Lock (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Spin\+Lock $\ast$}]{lock }\end{DoxyParamCaption})}
+
+Lock a spin lock by setting it to a non-\/zero value.
+
+{\itshape {\bfseries{Please note that spinlocks are dangerous if you don\textquotesingle{}t know what you\textquotesingle{}re doing. Please be careful using any sort of spinlock!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lock} & a pointer to a lock variable\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a5410c5f832f0d862282cd65fc432fc0b}{SDL\+\_\+\+Atomic\+Try\+Lock}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a95b659308ebb16226d5c0cbf2188e51d}\label{SDL__atomic_8h_a95b659308ebb16226d5c0cbf2188e51d}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicSet@{SDL\_AtomicSet}}
+\index{SDL\_AtomicSet@{SDL\_AtomicSet}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicSet()}{SDL\_AtomicSet()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Atomic\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} $\ast$}]{a,  }\item[{int}]{v }\end{DoxyParamCaption})}
+
+Set an atomic variable to a value.
+
+This function also acts as a full memory barrier.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to an \mbox{\hyperlink{structSDL__atomic__t}{SDL\+\_\+atomic\+\_\+t}} variable to be modified \\
+\hline
+{\em v} & the desired value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the previous value of the atomic variable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a633c2661709f59c98f128f99aea36d96}{SDL\+\_\+\+Atomic\+Get}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a8cd69c02c71a64c2e509dc11a560d075}\label{SDL__atomic_8h_a8cd69c02c71a64c2e509dc11a560d075}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicSetPtr@{SDL\_AtomicSetPtr}}
+\index{SDL\_AtomicSetPtr@{SDL\_AtomicSetPtr}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicSetPtr()}{SDL\_AtomicSetPtr()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Atomic\+Set\+Ptr (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{a,  }\item[{void $\ast$}]{v }\end{DoxyParamCaption})}
+
+Set a pointer to a value atomically.
+
+{\itshape {\bfseries{Note\+: If you don\textquotesingle{}t know what this function is for, you shouldn\textquotesingle{}t use it!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & a pointer to a pointer \\
+\hline
+{\em v} & the desired pointer value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the previous value of the pointer.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_aa3070cf7f391b522e08595822c2f0eba}{SDL\+\_\+\+Atomic\+CASPtr}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a46e899ee0013f3fae67eedaa6bce8947}{SDL\+\_\+\+Atomic\+Get\+Ptr}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a5410c5f832f0d862282cd65fc432fc0b}\label{SDL__atomic_8h_a5410c5f832f0d862282cd65fc432fc0b}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicTryLock@{SDL\_AtomicTryLock}}
+\index{SDL\_AtomicTryLock@{SDL\_AtomicTryLock}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicTryLock()}{SDL\_AtomicTryLock()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Atomic\+Try\+Lock (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Spin\+Lock $\ast$}]{lock }\end{DoxyParamCaption})}
+
+Try to lock a spin lock by setting it to a non-\/zero value.
+
+{\itshape {\bfseries{Please note that spinlocks are dangerous if you don\textquotesingle{}t know what you\textquotesingle{}re doing. Please be careful using any sort of spinlock!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lock} & a pointer to a lock variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the lock succeeded, SDL\+\_\+\+FALSE if the lock is already held.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}{SDL\+\_\+\+Atomic\+Unlock}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}\label{SDL__atomic_8h_a3fb14c56b17347349ac2fb5300205bac}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_AtomicUnlock@{SDL\_AtomicUnlock}}
+\index{SDL\_AtomicUnlock@{SDL\_AtomicUnlock}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AtomicUnlock()}{SDL\_AtomicUnlock()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Atomic\+Unlock (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Spin\+Lock $\ast$}]{lock }\end{DoxyParamCaption})}
+
+Unlock a spin lock by setting it to 0.
+
+Always returns immediately.
+
+{\itshape {\bfseries{Please note that spinlocks are dangerous if you don\textquotesingle{}t know what you\textquotesingle{}re doing. Please be careful using any sort of spinlock!}}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lock} & a pointer to a lock variable\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__atomic_8h_a95ecd72190ba8e5ed6ed78d5d1b36509}{SDL\+\_\+\+Atomic\+Lock}} 
+
+\mbox{\hyperlink{SDL__atomic_8h_a5410c5f832f0d862282cd65fc432fc0b}{SDL\+\_\+\+Atomic\+Try\+Lock}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__atomic_8h_a4bec96c1fc632536952c309513a0258e}\label{SDL__atomic_8h_a4bec96c1fc632536952c309513a0258e}} 
+\index{SDL\_atomic.h@{SDL\_atomic.h}!SDL\_MemoryBarrierReleaseFunction@{SDL\_MemoryBarrierReleaseFunction}}
+\index{SDL\_MemoryBarrierReleaseFunction@{SDL\_MemoryBarrierReleaseFunction}!SDL\_atomic.h@{SDL\_atomic.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MemoryBarrierReleaseFunction()}{SDL\_MemoryBarrierReleaseFunction()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Memory\+Barrier\+Release\+Function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Memory barriers are designed to prevent reads and writes from being reordered by the compiler and being seen out of order on multi-\/core CPUs.
+
+A typical pattern would be for thread A to write some data and a flag, and for thread B to read the flag and get the data. In this case you would insert a release barrier between writing the data and the flag, guaranteeing that the data write completes no later than the flag is written, and you would insert an acquire barrier between reading the flag and reading the data, to ensure that all the reads associated with the flag have completed.
+
+In this pattern you should always see a release barrier paired with an acquire barrier and you should gate the data reads/writes with a single flag variable.
+
+For more information on these semantics, take a look at the blog post\+: \href{http://preshing.com/20120913/acquire-and-release-semantics}{\texttt{ http\+://preshing.\+com/20120913/acquire-\/and-\/release-\/semantics}}
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}

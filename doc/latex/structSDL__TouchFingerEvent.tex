@@ -1,0 +1,100 @@
+\hypertarget{structSDL__TouchFingerEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Touch\+Finger\+Event}
+\label{structSDL__TouchFingerEvent}\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+
+
+Touch finger event structure (event.\+tfinger.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__TouchFingerEvent_a3883218fa3426065ca66086c100edbfa}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__TouchFingerEvent_abde2ab5cb013bbd21e37a65e2f8fa666}{timestamp}}
+\item 
+SDL\+\_\+\+Touch\+ID \mbox{\hyperlink{structSDL__TouchFingerEvent_ad7a6f39ec9af1bf47b160d18314edd70}{touch\+Id}}
+\item 
+\mbox{\Hypertarget{structSDL__TouchFingerEvent_a8616d46ed19906e3ee90a4d481d3a284}\label{structSDL__TouchFingerEvent_a8616d46ed19906e3ee90a4d481d3a284}} 
+SDL\+\_\+\+Finger\+ID {\bfseries finger\+Id}
+\item 
+float \mbox{\hyperlink{structSDL__TouchFingerEvent_a0ce44b1342220fa17e9b9b4a77c2c906}{x}}
+\item 
+float \mbox{\hyperlink{structSDL__TouchFingerEvent_ac2bb8af638d2927a8e13f6ffe8f9384e}{y}}
+\item 
+float \mbox{\hyperlink{structSDL__TouchFingerEvent_ac6acac209d6e2bd659fdb6760081393d}{dx}}
+\item 
+float \mbox{\hyperlink{structSDL__TouchFingerEvent_a9c0320c5f18a6b9d10da657e166608c9}{dy}}
+\item 
+float \mbox{\hyperlink{structSDL__TouchFingerEvent_ab4fca822d0807b5748dbae8d3cc56524}{pressure}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__TouchFingerEvent_a3dd6c668612f197dcb1e2b69d8c5e0e7}{window\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Touch finger event structure (event.\+tfinger.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__TouchFingerEvent_ac6acac209d6e2bd659fdb6760081393d}\label{structSDL__TouchFingerEvent_ac6acac209d6e2bd659fdb6760081393d}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!dx@{dx}}
+\index{dx@{dx}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Touch\+Finger\+Event\+::dx}
+
+Normalized in the range -\/1...1 \mbox{\Hypertarget{structSDL__TouchFingerEvent_a9c0320c5f18a6b9d10da657e166608c9}\label{structSDL__TouchFingerEvent_a9c0320c5f18a6b9d10da657e166608c9}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!dy@{dy}}
+\index{dy@{dy}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{dy}{dy}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Touch\+Finger\+Event\+::dy}
+
+Normalized in the range -\/1...1 \mbox{\Hypertarget{structSDL__TouchFingerEvent_ab4fca822d0807b5748dbae8d3cc56524}\label{structSDL__TouchFingerEvent_ab4fca822d0807b5748dbae8d3cc56524}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!pressure@{pressure}}
+\index{pressure@{pressure}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{pressure}{pressure}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Touch\+Finger\+Event\+::pressure}
+
+Normalized in the range 0...1 \mbox{\Hypertarget{structSDL__TouchFingerEvent_abde2ab5cb013bbd21e37a65e2f8fa666}\label{structSDL__TouchFingerEvent_abde2ab5cb013bbd21e37a65e2f8fa666}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Touch\+Finger\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__TouchFingerEvent_ad7a6f39ec9af1bf47b160d18314edd70}\label{structSDL__TouchFingerEvent_ad7a6f39ec9af1bf47b160d18314edd70}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!touchId@{touchId}}
+\index{touchId@{touchId}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{touchId}{touchId}}
+{\footnotesize\ttfamily SDL\+\_\+\+Touch\+ID SDL\+\_\+\+Touch\+Finger\+Event\+::touch\+Id}
+
+The touch device id \mbox{\Hypertarget{structSDL__TouchFingerEvent_a3883218fa3426065ca66086c100edbfa}\label{structSDL__TouchFingerEvent_a3883218fa3426065ca66086c100edbfa}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!type@{type}}
+\index{type@{type}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Touch\+Finger\+Event\+::type}
+
+\+::\+SDL\+\_\+\+FINGERMOTION or \+::\+SDL\+\_\+\+FINGERDOWN or \+::\+SDL\+\_\+\+FINGERUP \mbox{\Hypertarget{structSDL__TouchFingerEvent_a3dd6c668612f197dcb1e2b69d8c5e0e7}\label{structSDL__TouchFingerEvent_a3dd6c668612f197dcb1e2b69d8c5e0e7}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!windowID@{windowID}}
+\index{windowID@{windowID}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{windowID}{windowID}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Touch\+Finger\+Event\+::window\+ID}
+
+The window underneath the finger, if any \mbox{\Hypertarget{structSDL__TouchFingerEvent_a0ce44b1342220fa17e9b9b4a77c2c906}\label{structSDL__TouchFingerEvent_a0ce44b1342220fa17e9b9b4a77c2c906}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!x@{x}}
+\index{x@{x}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Touch\+Finger\+Event\+::x}
+
+Normalized in the range 0...1 \mbox{\Hypertarget{structSDL__TouchFingerEvent_ac2bb8af638d2927a8e13f6ffe8f9384e}\label{structSDL__TouchFingerEvent_ac2bb8af638d2927a8e13f6ffe8f9384e}} 
+\index{SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}!y@{y}}
+\index{y@{y}!SDL\_TouchFingerEvent@{SDL\_TouchFingerEvent}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Touch\+Finger\+Event\+::y}
+
+Normalized in the range 0...1 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

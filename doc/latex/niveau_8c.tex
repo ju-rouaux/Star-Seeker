@@ -1,0 +1,192 @@
+\hypertarget{niveau_8c}{}\doxysection{Référence du fichier src/niveau.c}
+\label{niveau_8c}\index{src/niveau.c@{src/niveau.c}}
+
+
+Module de chargement d\textquotesingle{}un niveau en structure interprétable pour le jeu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+{\ttfamily \#include $<$niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}} $\ast$ \mbox{\hyperlink{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}{creer\+Dimensions}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Génère une structure dimensions de salle. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}{detruire\+Dimensions}} (\mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}} $\ast$$\ast$dimensions)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{niveau_8c_ac0cbed61af52654fdc8ccb20ee029a10}{lier\+Salles}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Remplie la matrice \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ portes\mbox{[}\mbox{]} du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ \mbox{\hyperlink{niveau_8c_ac27f642324c09553bca751c5a54d3e28}{creer\+Salle}} (int id\+\_\+salle)
+\begin{DoxyCompactList}\small\item\em Génère une structure salle et mets les pointeurs de porte à NULL. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{niveau_8c_aab89c9c3f9c68cce78ef8d74f775a61e}{detruire\+Salle}} (\mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$$\ast$salle)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour une salle et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$ \mbox{\hyperlink{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}{charger\+Salles}} (niveau\+\_\+informations\+\_\+t $\ast$info)
+\begin{DoxyCompactList}\small\item\em Charge le niveau dans une structure exploitable pour le jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{niveau_8c_a863d645e21d3d98663cad01cfe6dd24a}{detruire\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}\label{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}} 
+int \mbox{\hyperlink{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}{charger\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$info)
+\begin{DoxyCompactList}\small\item\em Lance un niveau s couleurs du niveau sont aussi chargées. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{niveau_8c_af6df4be5bf28ad11dafd0311b92abd3b}{update\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau, float j\+\_\+x, float j\+\_\+y, int echelle)
+\begin{DoxyCompactList}\small\item\em Actualise la salle chargée du niveau selon l\textquotesingle{}activité du joueur (lorsqu\textquotesingle{}il change de salle par exemple). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de chargement d\textquotesingle{}un niveau en structure interprétable pour le jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}\label{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}} 
+\index{niveau.c@{niveau.c}!chargerSalles@{chargerSalles}}
+\index{chargerSalles@{chargerSalles}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{chargerSalles()}{chargerSalles()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}}$\ast$ charger\+Salles (\begin{DoxyParamCaption}\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Charge le niveau dans une structure exploitable pour le jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em info} & Les données sur la structure du niveau\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur du niveau chargé, NULL si echec du chargement. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}\label{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}} 
+\index{niveau.c@{niveau.c}!creerDimensions@{creerDimensions}}
+\index{creerDimensions@{creerDimensions}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{creerDimensions()}{creerDimensions()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}}$\ast$ creer\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Génère une structure dimensions de salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i} & Coordonnée en hauteur, de la salle d\textquotesingle{}origine dans la matrice niveau \\
+\hline
+{\em j} & Coordonnée en largeur, de la salle d\textquotesingle{}origine dans la matrice niveau\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur des dimensions, NULL si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{niveau_8c_ac27f642324c09553bca751c5a54d3e28}\label{niveau_8c_ac27f642324c09553bca751c5a54d3e28}} 
+\index{niveau.c@{niveau.c}!creerSalle@{creerSalle}}
+\index{creerSalle@{creerSalle}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{creerSalle()}{creerSalle()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__salle}{t\+\_\+salle}}$\ast$ creer\+Salle (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+salle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Génère une structure salle et mets les pointeurs de porte à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id\+\_\+salle} & L\textquotesingle{}identifiant de la salle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur de la salle créée, NULL si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}\label{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}} 
+\index{niveau.c@{niveau.c}!detruireDimensions@{detruireDimensions}}
+\index{detruireDimensions@{detruireDimensions}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{detruireDimensions()}{detruireDimensions()}}
+{\footnotesize\ttfamily static void detruire\+Dimensions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}} $\ast$$\ast$}]{dimensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL. 
+
+C\textquotesingle{}est à dire si le champ nombre vaut 0. Ce champ est décrémenté à chaque appel de la fonction.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dimensions} & L\textquotesingle{}adresse du pointeur de la dimension \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{niveau_8c_a863d645e21d3d98663cad01cfe6dd24a}\label{niveau_8c_a863d645e21d3d98663cad01cfe6dd24a}} 
+\index{niveau.c@{niveau.c}!detruireNiveau@{detruireNiveau}}
+\index{detruireNiveau@{detruireNiveau}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{detruireNiveau()}{detruireNiveau()}}
+{\footnotesize\ttfamily void detruire\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & L\textquotesingle{}adresse du pointeur du niveau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{niveau_8c_aab89c9c3f9c68cce78ef8d74f775a61e}\label{niveau_8c_aab89c9c3f9c68cce78ef8d74f775a61e}} 
+\index{niveau.c@{niveau.c}!detruireSalle@{detruireSalle}}
+\index{detruireSalle@{detruireSalle}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{detruireSalle()}{detruireSalle()}}
+{\footnotesize\ttfamily static void detruire\+Salle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$$\ast$}]{salle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Libère la mémoire allouée pour une salle et mets son pointeur à NULL. 
+
+Détruit aussi ses entités.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em salle} & L\textquotesingle{}adresse du pointeur de la salle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{niveau_8c_ac0cbed61af52654fdc8ccb20ee029a10}\label{niveau_8c_ac0cbed61af52654fdc8ccb20ee029a10}} 
+\index{niveau.c@{niveau.c}!lierSalles@{lierSalles}}
+\index{lierSalles@{lierSalles}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{lierSalles()}{lierSalles()}}
+{\footnotesize\ttfamily static int lier\+Salles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$}]{niveau }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remplie la matrice \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ portes\mbox{[}\mbox{]} du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle. 
+
+Fonctionnement \+: Pour chaque salle, si une voisine existe, il faut lier les portes des salles. Sinon ne rien faire, pour que les portes pointent toujours vers NULL. Deux salles liées et ayant un même identifiant ne formeront qu\textquotesingle{}une salle. Si deux salles liées ne forment qu\textquotesingle{}une salle, actualiser les dimensions et faire pointer les salles sur la même structure dimensions.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & Le niveau dont il faut lier les salles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès. Valeur négative si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{niveau_8c_af6df4be5bf28ad11dafd0311b92abd3b}\label{niveau_8c_af6df4be5bf28ad11dafd0311b92abd3b}} 
+\index{niveau.c@{niveau.c}!updateNiveau@{updateNiveau}}
+\index{updateNiveau@{updateNiveau}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{updateNiveau()}{updateNiveau()}}
+{\footnotesize\ttfamily void update\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$}]{niveau,  }\item[{float}]{j\+\_\+x,  }\item[{float}]{j\+\_\+y,  }\item[{int}]{echelle }\end{DoxyParamCaption})}
+
+
+
+Actualise la salle chargée du niveau selon l\textquotesingle{}activité du joueur (lorsqu\textquotesingle{}il change de salle par exemple). 
+
+Calcule les coordonnées des bords de la salle et change la salle courante du niveau si le joueur dépasse ces limites.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & Le niveau chargé \\
+\hline
+{\em joueur} & Le joueur \\
+\hline
+{\em echelle} & L\textquotesingle{}échelle du rendu \\
+\hline
+\end{DoxyParams}

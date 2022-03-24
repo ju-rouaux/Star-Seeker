@@ -1,0 +1,490 @@
+\begin{theindex}
+
+  \item {ajout\_droit}
+    \subitem {liste.c}, \hyperpage{61}
+    \subitem {liste.h}, \hyperpage{33}
+  \item {ajout\_gauche}
+    \subitem {liste.c}, \hyperpage{61}
+    \subitem {liste.h}, \hyperpage{33}
+  \item {animation.c}
+    \subitem {creerAnimation}, \hyperpage{50}
+    \subitem {detruireAnimation}, \hyperpage{50}
+    \subitem {updateAnimation}, \hyperpage{50}
+  \item {animation.h}
+    \subitem {creerAnimation}, \hyperpage{22}
+    \subitem {detruireAnimation}, \hyperpage{22}
+    \subitem {t\_animation}, \hyperpage{22}
+    \subitem {updateAnimation}, \hyperpage{23}
+  \item {arreterNiveau}
+    \subitem {niveau.c}, \hyperpage{66}
+    \subitem {niveau.h}, \hyperpage{40}
+
+  \indexspace
+
+  \item {camera}
+    \subitem {s\_moteur}, \hyperpage{7}
+  \item {camera.c}
+    \subitem {creerCamera}, \hyperpage{51}
+    \subitem {detruireCamera}, \hyperpage{52}
+    \subitem {updateCamera}, \hyperpage{52}
+    \subitem {updateFutureCamera}, \hyperpage{53}
+  \item {camera.h}
+    \subitem {creerCamera}, \hyperpage{24}
+    \subitem {detruireCamera}, \hyperpage{25}
+    \subitem {updateCamera}, \hyperpage{25}
+    \subitem {updateFutureCamera}, \hyperpage{26}
+  \item {chargerMoteur}
+    \subitem {moteur.c}, \hyperpage{65}
+    \subitem {moteur.h}, \hyperpage{38}
+  \item {chargerSauvegarde}
+    \subitem {sauvegarde.c}, \hyperpage{69}
+    \subitem {sauvegarde.h}, \hyperpage{45}
+  \item {chargerTextures}
+    \subitem {textures.c}, \hyperpage{70}
+    \subitem {textures.h}, \hyperpage{46}
+  \item {cible}
+    \subitem {s\_projectile}, \hyperpage{10}
+  \item {collisions}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {creer\_niveau\_info}
+    \subitem {generation\_niveau.c}, \hyperpage{58}
+    \subitem {generation\_niveau.h}, \hyperpage{30}
+  \item {creerAnimation}
+    \subitem {animation.c}, \hyperpage{50}
+    \subitem {animation.h}, \hyperpage{22}
+  \item {creerCamera}
+    \subitem {camera.c}, \hyperpage{51}
+    \subitem {camera.h}, \hyperpage{24}
+  \item {creerEntite}
+    \subitem {entite.c}, \hyperpage{54}
+    \subitem {entite.h}, \hyperpage{27}
+  \item {creerFenetreEtRendu}
+    \subitem {window.c}, \hyperpage{72}
+    \subitem {window.h}, \hyperpage{48}
+  \item {creerJoueur}
+    \subitem {joueur.c}, \hyperpage{59}
+    \subitem {joueur.h}, \hyperpage{31}
+  \item {creerProjectile}
+    \subitem {projectiles.h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {de}
+    \subitem {outils.c}, \hyperpage{68}
+  \item {deplacerEntite}
+    \subitem {entite.c}, \hyperpage{54}
+    \subitem {entite.h}, \hyperpage{28}
+  \item {dernier\_update}
+    \subitem {s\_animation}, \hyperpage{6}
+  \item {dessinerEntite}
+    \subitem {entite.c}, \hyperpage{55}
+    \subitem {entite.h}, \hyperpage{28}
+  \item {detruireAnimation}
+    \subitem {animation.c}, \hyperpage{50}
+    \subitem {animation.h}, \hyperpage{22}
+  \item {detruireCamera}
+    \subitem {camera.c}, \hyperpage{52}
+    \subitem {camera.h}, \hyperpage{25}
+  \item {detruireEntite}
+    \subitem {entite.c}, \hyperpage{55}
+    \subitem {entite.h}, \hyperpage{28}
+  \item {detruireFenetreEtRendu}
+    \subitem {window.c}, \hyperpage{72}
+    \subitem {window.h}, \hyperpage{49}
+  \item {detruireJoueur}
+    \subitem {joueur.c}, \hyperpage{60}
+    \subitem {joueur.h}, \hyperpage{32}
+  \item {detruireMoteur}
+    \subitem {moteur.c}, \hyperpage{65}
+    \subitem {moteur.h}, \hyperpage{38}
+  \item {detruireNiveau}
+    \subitem {niveau.c}, \hyperpage{66}
+    \subitem {niveau.h}, \hyperpage{40}
+  \item {detruireProjectile}
+    \subitem {projectiles.h}, \hyperpage{43}
+  \item {detruireTextures}
+    \subitem {textures.c}, \hyperpage{70}
+    \subitem {textures.h}, \hyperpage{47}
+  \item {dimensions}
+    \subitem {s\_salle}, \hyperpage{11}
+  \item {dommages}
+    \subitem {s\_projectile}, \hyperpage{10}
+  \item {duree\_de\_vie}
+    \subitem {s\_projectile}, \hyperpage{10}
+
+  \indexspace
+
+  \item {echelle}
+    \subitem {s\_moteur}, \hyperpage{7}
+  \item {element}, \hyperpage{5}
+  \item {en\_queue}
+    \subitem {liste.c}, \hyperpage{62}
+    \subitem {liste.h}, \hyperpage{33}
+  \item {en\_tete}
+    \subitem {liste.c}, \hyperpage{62}
+    \subitem {liste.h}, \hyperpage{34}
+  \item {entite.c}
+    \subitem {creerEntite}, \hyperpage{54}
+    \subitem {deplacerEntite}, \hyperpage{54}
+    \subitem {dessinerEntite}, \hyperpage{55}
+    \subitem {detruireEntite}, \hyperpage{55}
+  \item {entite.h}
+    \subitem {creerEntite}, \hyperpage{27}
+    \subitem {deplacerEntite}, \hyperpage{28}
+    \subitem {dessinerEntite}, \hyperpage{28}
+    \subitem {detruireEntite}, \hyperpage{28}
+  \item {entites}
+    \subitem {s\_salle}, \hyperpage{11}
+  \item {events.c}
+    \subitem {handleEvents}, \hyperpage{56}
+
+  \indexspace
+
+  \item {futur\_x}
+    \subitem {t\_camera}, \hyperpage{14}
+  \item {futur\_y}
+    \subitem {t\_camera}, \hyperpage{14}
+
+  \indexspace
+
+  \item {generation\_niveau.c}
+    \subitem {creer\_niveau\_info}, \hyperpage{58}
+  \item {generation\_niveau.h}
+    \subitem {creer\_niveau\_info}, \hyperpage{30}
+
+  \indexspace
+
+  \item {h}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {handleEvents}
+    \subitem {events.c}, \hyperpage{56}
+  \item {hauteur}
+    \subitem {t\_dimensions\_salle}, \hyperpage{15}
+  \item {hors\_liste}
+    \subitem {liste.c}, \hyperpage{62}
+    \subitem {liste.h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {i}
+    \subitem {t\_dimensions\_salle}, \hyperpage{15}
+  \item {id\_max}
+    \subitem {s\_animation}, \hyperpage{6}
+  \item {id\_salle}
+    \subitem {s\_salle}, \hyperpage{11}
+  \item {include/animation.h}, \hyperpage{21}
+  \item {include/attaque.h}, \hyperpage{23}
+  \item {include/camera.h}, \hyperpage{24}
+  \item {include/entite.h}, \hyperpage{26}
+  \item {include/generation\_niveau.h}, \hyperpage{29}
+  \item {include/joueur.h}, \hyperpage{30}
+  \item {include/liste.h}, \hyperpage{32}
+  \item {include/monstre.h}, \hyperpage{36}
+  \item {include/moteur.h}, \hyperpage{36}
+  \item {include/niveau.h}, \hyperpage{39}
+  \item {include/partie.h}, \hyperpage{41}
+  \item {include/personnage.h}, \hyperpage{42}
+  \item {include/projectiles.h}, \hyperpage{42}
+  \item {include/rendu\_niveau.h}, \hyperpage{44}
+  \item {include/sauvegarde.h}, \hyperpage{44}
+  \item {include/textures.h}, \hyperpage{45}
+  \item {include/window.h}, \hyperpage{48}
+  \item {indice\_texture}
+    \subitem {s\_animation}, \hyperpage{6}
+
+  \indexspace
+
+  \item {j}
+    \subitem {t\_dimensions\_salle}, \hyperpage{15}
+  \item {j\_charge}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {joueur.c}
+    \subitem {creerJoueur}, \hyperpage{59}
+    \subitem {detruireJoueur}, \hyperpage{60}
+  \item {joueur.h}
+    \subitem {creerJoueur}, \hyperpage{31}
+    \subitem {detruireJoueur}, \hyperpage{32}
+    \subitem {PROPORTION\_JOUEUR}, \hyperpage{31}
+    \subitem {VITESSE\_JOUEUR\_DEFAULT}, \hyperpage{31}
+
+  \indexspace
+
+  \item {l}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {lancerNiveau}
+    \subitem {niveau.c}, \hyperpage{67}
+    \subitem {niveau.h}, \hyperpage{41}
+  \item {largeur}
+    \subitem {t\_dimensions\_salle}, \hyperpage{16}
+  \item {liste.c}
+    \subitem {ajout\_droit}, \hyperpage{61}
+    \subitem {ajout\_gauche}, \hyperpage{61}
+    \subitem {en\_queue}, \hyperpage{62}
+    \subitem {en\_tete}, \hyperpage{62}
+    \subitem {hors\_liste}, \hyperpage{62}
+    \subitem {liste\_vide}, \hyperpage{62}
+    \subitem {modif\_elt}, \hyperpage{63}
+    \subitem {oter\_elt}, \hyperpage{63}
+    \subitem {precedent}, \hyperpage{63}
+    \subitem {suivant}, \hyperpage{64}
+  \item {liste.h}
+    \subitem {ajout\_droit}, \hyperpage{33}
+    \subitem {ajout\_gauche}, \hyperpage{33}
+    \subitem {en\_queue}, \hyperpage{33}
+    \subitem {en\_tete}, \hyperpage{34}
+    \subitem {hors\_liste}, \hyperpage{34}
+    \subitem {liste\_vide}, \hyperpage{34}
+    \subitem {modif\_elt}, \hyperpage{35}
+    \subitem {oter\_elt}, \hyperpage{35}
+    \subitem {precedent}, \hyperpage{35}
+    \subitem {suivant}, \hyperpage{35}
+  \item {liste\_entites}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {liste\_vide}
+    \subitem {liste.c}, \hyperpage{62}
+    \subitem {liste.h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {modif\_elt}
+    \subitem {liste.c}, \hyperpage{63}
+    \subitem {liste.h}, \hyperpage{35}
+  \item {moteur.c}
+    \subitem {chargerMoteur}, \hyperpage{65}
+    \subitem {detruireMoteur}, \hyperpage{65}
+    \subitem {updateEchelle}, \hyperpage{65}
+  \item {moteur.h}
+    \subitem {chargerMoteur}, \hyperpage{38}
+    \subitem {detruireMoteur}, \hyperpage{38}
+    \subitem {NB\_FPS}, \hyperpage{37}
+    \subitem {NB\_TILE\_HAUTEUR}, \hyperpage{37}
+    \subitem {NB\_TILE\_LARGEUR}, \hyperpage{38}
+    \subitem {NOMBRE\_DE\_PORTES}, \hyperpage{38}
+    \subitem {updateEchelle}, \hyperpage{39}
+    \subitem {VITESSE\_TRANSITION}, \hyperpage{38}
+
+  \indexspace
+
+  \item {nb\_entite}
+    \subitem {s\_salle}, \hyperpage{11}
+  \item {NB\_FPS}
+    \subitem {moteur.h}, \hyperpage{37}
+  \item {nb\_proj\_salve}
+    \subitem {t\_attaque\_tir}, \hyperpage{12}
+  \item {nb\_salves}
+    \subitem {t\_attaque\_tir}, \hyperpage{12}
+  \item {nb\_salves\_restantes}
+    \subitem {t\_attaque\_tir}, \hyperpage{13}
+  \item {NB\_TILE\_HAUTEUR}
+    \subitem {moteur.h}, \hyperpage{37}
+  \item {NB\_TILE\_LARGEUR}
+    \subitem {moteur.h}, \hyperpage{38}
+  \item {niveau.c}
+    \subitem {arreterNiveau}, \hyperpage{66}
+    \subitem {detruireNiveau}, \hyperpage{66}
+    \subitem {lancerNiveau}, \hyperpage{67}
+    \subitem {updateNiveau}, \hyperpage{67}
+  \item {niveau.h}
+    \subitem {arreterNiveau}, \hyperpage{40}
+    \subitem {detruireNiveau}, \hyperpage{40}
+    \subitem {lancerNiveau}, \hyperpage{41}
+    \subitem {updateNiveau}, \hyperpage{41}
+  \item {niveau\_base\_t}, \hyperpage{5}
+  \item {niveau\_charge}
+    \subitem {s\_moteur}, \hyperpage{8}
+  \item {niveau\_informations\_t}, \hyperpage{5}
+  \item {nombre}
+    \subitem {t\_dimensions\_salle}, \hyperpage{16}
+  \item {NOMBRE\_DE\_PORTES}
+    \subitem {moteur.h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {oter\_elt}
+    \subitem {liste.c}, \hyperpage{63}
+    \subitem {liste.h}, \hyperpage{35}
+  \item {outils.c}
+    \subitem {de}, \hyperpage{68}
+
+  \indexspace
+
+  \item {portes}
+    \subitem {s\_salle}, \hyperpage{11}
+  \item {precedent}
+    \subitem {liste.c}, \hyperpage{63}
+    \subitem {liste.h}, \hyperpage{35}
+  \item {projectiles.h}
+    \subitem {creerProjectile}, \hyperpage{43}
+    \subitem {detruireProjectile}, \hyperpage{43}
+  \item {PROPORTION\_JOUEUR}
+    \subitem {joueur.h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {s\_animation}, \hyperpage{6}
+    \subitem {dernier\_update}, \hyperpage{6}
+    \subitem {id\_max}, \hyperpage{6}
+    \subitem {indice\_texture}, \hyperpage{6}
+    \subitem {vitesse}, \hyperpage{6}
+  \item {s\_entite}, \hyperpage{7}
+  \item {s\_monstre}, \hyperpage{7}
+  \item {s\_moteur}, \hyperpage{7}
+    \subitem {camera}, \hyperpage{7}
+    \subitem {echelle}, \hyperpage{7}
+    \subitem {niveau\_charge}, \hyperpage{8}
+    \subitem {temps}, \hyperpage{8}
+    \subitem {window\_height}, \hyperpage{8}
+    \subitem {window\_width}, \hyperpage{8}
+  \item {s\_niveau}, \hyperpage{8}
+    \subitem {collisions}, \hyperpage{9}
+    \subitem {h}, \hyperpage{9}
+    \subitem {j\_charge}, \hyperpage{9}
+    \subitem {l}, \hyperpage{9}
+    \subitem {liste\_entites}, \hyperpage{9}
+    \subitem {salle\_chargee}, \hyperpage{9}
+    \subitem {taille\_collisions}, \hyperpage{9}
+  \item {s\_personnage}, \hyperpage{10}
+  \item {s\_projectile}, \hyperpage{10}
+    \subitem {cible}, \hyperpage{10}
+    \subitem {dommages}, \hyperpage{10}
+    \subitem {duree\_de\_vie}, \hyperpage{10}
+  \item {s\_salle}, \hyperpage{11}
+    \subitem {dimensions}, \hyperpage{11}
+    \subitem {entites}, \hyperpage{11}
+    \subitem {id\_salle}, \hyperpage{11}
+    \subitem {nb\_entite}, \hyperpage{11}
+    \subitem {portes}, \hyperpage{11}
+  \item {salle\_chargee}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {sauvegarde.c}
+    \subitem {chargerSauvegarde}, \hyperpage{69}
+  \item {sauvegarde.h}
+    \subitem {chargerSauvegarde}, \hyperpage{45}
+  \item {splitTexture}
+    \subitem {textures.c}, \hyperpage{71}
+    \subitem {textures.h}, \hyperpage{47}
+  \item {src/animation.c}, \hyperpage{49}
+  \item {src/camera.c}, \hyperpage{51}
+  \item {src/entite.c}, \hyperpage{53}
+  \item {src/events.c}, \hyperpage{56}
+  \item {src/generation\_niveau.c}, \hyperpage{57}
+  \item {src/joueur.c}, \hyperpage{59}
+  \item {src/liste.c}, \hyperpage{60}
+  \item {src/moteur.c}, \hyperpage{64}
+  \item {src/niveau.c}, \hyperpage{65}
+  \item {src/outils.c}, \hyperpage{67}
+  \item {src/rendu\_niveau.c}, \hyperpage{68}
+  \item {src/sauvegarde.c}, \hyperpage{69}
+  \item {src/textures.c}, \hyperpage{69}
+  \item {src/window.c}, \hyperpage{71}
+  \item {suivant}
+    \subitem {liste.c}, \hyperpage{64}
+    \subitem {liste.h}, \hyperpage{35}
+
+  \indexspace
+
+  \item {t\_animation}
+    \subitem {animation.h}, \hyperpage{22}
+  \item {t\_attaque\_corps}, \hyperpage{12}
+  \item {t\_attaque\_tir}, \hyperpage{12}
+    \subitem {nb\_proj\_salve}, \hyperpage{12}
+    \subitem {nb\_salves}, \hyperpage{12}
+    \subitem {nb\_salves\_restantes}, \hyperpage{13}
+    \subitem {temps\_debut\_attaque}, \hyperpage{13}
+    \subitem {tir\_interval}, \hyperpage{13}
+  \item {t\_camera}, \hyperpage{13}
+    \subitem {futur\_x}, \hyperpage{14}
+    \subitem {futur\_y}, \hyperpage{14}
+    \subitem {x}, \hyperpage{14}
+    \subitem {y}, \hyperpage{14}
+  \item {t\_couleurRVB}, \hyperpage{14}
+  \item {t\_dimensions\_salle}, \hyperpage{15}
+    \subitem {hauteur}, \hyperpage{15}
+    \subitem {i}, \hyperpage{15}
+    \subitem {j}, \hyperpage{15}
+    \subitem {largeur}, \hyperpage{16}
+    \subitem {nombre}, \hyperpage{16}
+  \item {t\_entite}, \hyperpage{16}
+  \item {t\_joueur}, \hyperpage{16}
+  \item {t\_joueur\_flags}, \hyperpage{17}
+  \item {t\_liste}, \hyperpage{17}
+  \item {t\_moteur}, \hyperpage{17}
+  \item {t\_niveau}, \hyperpage{18}
+  \item {t\_personnage}, \hyperpage{18}
+  \item {t\_projectile}, \hyperpage{18}
+  \item {t\_salle}, \hyperpage{19}
+  \item {t\_textures}, \hyperpage{19}
+  \item {taille\_collisions}
+    \subitem {s\_niveau}, \hyperpage{9}
+  \item {temps}
+    \subitem {s\_moteur}, \hyperpage{8}
+  \item {temps\_debut\_attaque}
+    \subitem {t\_attaque\_tir}, \hyperpage{13}
+  \item {test/test\_niveau.c}, \hyperpage{73}
+  \item {textures.c}
+    \subitem {chargerTextures}, \hyperpage{70}
+    \subitem {detruireTextures}, \hyperpage{70}
+    \subitem {splitTexture}, \hyperpage{71}
+    \subitem {tileNiveau}, \hyperpage{71}
+  \item {textures.h}
+    \subitem {chargerTextures}, \hyperpage{46}
+    \subitem {detruireTextures}, \hyperpage{47}
+    \subitem {splitTexture}, \hyperpage{47}
+    \subitem {tileNiveau}, \hyperpage{47}
+  \item {tileNiveau}
+    \subitem {textures.c}, \hyperpage{71}
+    \subitem {textures.h}, \hyperpage{47}
+  \item {tir\_interval}
+    \subitem {t\_attaque\_tir}, \hyperpage{13}
+
+  \indexspace
+
+  \item {updateAnimation}
+    \subitem {animation.c}, \hyperpage{50}
+    \subitem {animation.h}, \hyperpage{23}
+  \item {updateCamera}
+    \subitem {camera.c}, \hyperpage{52}
+    \subitem {camera.h}, \hyperpage{25}
+  \item {updateEchelle}
+    \subitem {moteur.c}, \hyperpage{65}
+    \subitem {moteur.h}, \hyperpage{39}
+  \item {updateFutureCamera}
+    \subitem {camera.c}, \hyperpage{53}
+    \subitem {camera.h}, \hyperpage{26}
+  \item {updateNiveau}
+    \subitem {niveau.c}, \hyperpage{67}
+    \subitem {niveau.h}, \hyperpage{41}
+
+  \indexspace
+
+  \item {vitesse}
+    \subitem {s\_animation}, \hyperpage{6}
+  \item {VITESSE\_JOUEUR\_DEFAULT}
+    \subitem {joueur.h}, \hyperpage{31}
+  \item {VITESSE\_TRANSITION}
+    \subitem {moteur.h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {window.c}
+    \subitem {creerFenetreEtRendu}, \hyperpage{72}
+    \subitem {detruireFenetreEtRendu}, \hyperpage{72}
+  \item {window.h}
+    \subitem {creerFenetreEtRendu}, \hyperpage{48}
+    \subitem {detruireFenetreEtRendu}, \hyperpage{49}
+  \item {window\_height}
+    \subitem {s\_moteur}, \hyperpage{8}
+  \item {window\_width}
+    \subitem {s\_moteur}, \hyperpage{8}
+
+  \indexspace
+
+  \item {x}
+    \subitem {t\_camera}, \hyperpage{14}
+
+  \indexspace
+
+  \item {y}
+    \subitem {t\_camera}, \hyperpage{14}
+
+\end{theindex}

@@ -1,0 +1,197 @@
+\hypertarget{sauvegarde_8c}{}\doxysection{Référence du fichier src/sauvegarde.c}
+\label{sauvegarde_8c}\index{src/sauvegarde.c@{src/sauvegarde.c}}
+
+
+Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.  
+
+
+{\ttfamily \#include $<$sauvegarde.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sauvegarde_8c_a13f12457971e2cc047962ad3af7bbf83}\label{sauvegarde_8c_a13f12457971e2cc047962ad3af7bbf83}} 
+\#define {\bfseries filename\+\_\+joueur}~\char`\"{}./save/save\+\_\+joueur.\+save\char`\"{}
+\item 
+\mbox{\Hypertarget{sauvegarde_8c_a35d3a71f8b76929683ee93a56eae75d3}\label{sauvegarde_8c_a35d3a71f8b76929683ee93a56eae75d3}} 
+\#define {\bfseries filename\+\_\+niveau}~\char`\"{}./save/save\+\_\+niveau.\+save\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}{taille\+Fichier}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Retourne la taille d\textquotesingle{}une fichier, utile pour savoir s\textquotesingle{}il est vide ou s\textquotesingle{}il existe. \end{DoxyCompactList}\item 
+err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_ad048f230be2b76ed45c7b13565025629}{charger\+Save\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Charge le joueur de ses données de sauvegarde. \end{DoxyCompactList}\item 
+err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}{sauvegarder\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Sauverde le joueur dans son fichier. \end{DoxyCompactList}\item 
+static err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_af2495c9632180af60a06099a95c634ab}{charger\+Infos\+Niveaux}} (FILE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$infos\+\_\+niveaux, int $\ast$nb\+\_\+niveaux, int $\ast$indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Charge les informations relatives à la structure des niveaux. Les données sont remplies dans les pointeurs donnés en paramètre. \end{DoxyCompactList}\item 
+static err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}{sauvegarder\+Infos\+Niveaux}} (FILE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Sauvegarde les informations relatives à la structure des niveaux. \end{DoxyCompactList}\item 
+err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_a73e0d4d5779bca575820f84ef02e6f16}{sauvegarder\+Partie}} (niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Sauvegarde les informations relatives à la partie. \end{DoxyCompactList}\item 
+err\+\_\+save \mbox{\hyperlink{sauvegarde_8c_a33375d00c8623cf3b9d4aa89b7395d47}{charger\+Save\+Partie}} (niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$infos\+\_\+niveaux, int $\ast$nb\+\_\+niveaux, int $\ast$indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Charge les informations relatives à la partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume Richard \& Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sauvegarde_8c_af2495c9632180af60a06099a95c634ab}\label{sauvegarde_8c_af2495c9632180af60a06099a95c634ab}} 
+\index{sauvegarde.c@{sauvegarde.c}!chargerInfosNiveaux@{chargerInfosNiveaux}}
+\index{chargerInfosNiveaux@{chargerInfosNiveaux}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{chargerInfosNiveaux()}{chargerInfosNiveaux()}}
+{\footnotesize\ttfamily static err\+\_\+save charger\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int $\ast$}]{nb\+\_\+niveaux,  }\item[{int $\ast$}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Charge les informations relatives à la structure des niveaux. Les données sont remplies dans les pointeurs donnés en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier contenant les données \\
+\hline
+{\em infos\+\_\+niveaux} & Retour de la matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & Retour du nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & Retour du niveau qui était chargé précédemment\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_ad048f230be2b76ed45c7b13565025629}\label{sauvegarde_8c_ad048f230be2b76ed45c7b13565025629}} 
+\index{sauvegarde.c@{sauvegarde.c}!chargerSaveJoueur@{chargerSaveJoueur}}
+\index{chargerSaveJoueur@{chargerSaveJoueur}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{chargerSaveJoueur()}{chargerSaveJoueur()}}
+{\footnotesize\ttfamily err\+\_\+save charger\+Save\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Charge le joueur de ses données de sauvegarde. 
+
+Lis la sauvegarde dans le fichier binaire et met à jour la structure \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & joueur à charger depuis la sauvegarde\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a33375d00c8623cf3b9d4aa89b7395d47}\label{sauvegarde_8c_a33375d00c8623cf3b9d4aa89b7395d47}} 
+\index{sauvegarde.c@{sauvegarde.c}!chargerSavePartie@{chargerSavePartie}}
+\index{chargerSavePartie@{chargerSavePartie}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{chargerSavePartie()}{chargerSavePartie()}}
+{\footnotesize\ttfamily err\+\_\+save charger\+Save\+Partie (\begin{DoxyParamCaption}\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int $\ast$}]{nb\+\_\+niveaux,  }\item[{int $\ast$}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Charge les informations relatives à la partie. 
+
+D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsque ce sera nécéssaire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em infos\+\_\+niveaux} & L\textquotesingle{}adresse de la matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & L\textquotesingle{}adresse du nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & L\textquotesingle{}adresse de l\textquotesingle{}indice du niveau qui est actuellement chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}\label{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}} 
+\index{sauvegarde.c@{sauvegarde.c}!sauvegarderInfosNiveaux@{sauvegarderInfosNiveaux}}
+\index{sauvegarderInfosNiveaux@{sauvegarderInfosNiveaux}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarderInfosNiveaux()}{sauvegarderInfosNiveaux()}}
+{\footnotesize\ttfamily static err\+\_\+save sauvegarder\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sauvegarde les informations relatives à la structure des niveaux. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier contenant les données \\
+\hline
+{\em infos\+\_\+niveaux} & La matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & Le nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & L\textquotesingle{}indice du niveau qui est actuellement chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}\label{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}} 
+\index{sauvegarde.c@{sauvegarde.c}!sauvegarderJoueur@{sauvegarderJoueur}}
+\index{sauvegarderJoueur@{sauvegarderJoueur}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarderJoueur()}{sauvegarderJoueur()}}
+{\footnotesize\ttfamily err\+\_\+save sauvegarder\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Sauverde le joueur dans son fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & joueur à sauvegarder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a73e0d4d5779bca575820f84ef02e6f16}\label{sauvegarde_8c_a73e0d4d5779bca575820f84ef02e6f16}} 
+\index{sauvegarde.c@{sauvegarde.c}!sauvegarderPartie@{sauvegarderPartie}}
+\index{sauvegarderPartie@{sauvegarderPartie}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarderPartie()}{sauvegarderPartie()}}
+{\footnotesize\ttfamily err\+\_\+save sauvegarder\+Partie (\begin{DoxyParamCaption}\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde les informations relatives à la partie. 
+
+D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsque ce sera nécéssaire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em infos\+\_\+niveaux} & La matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & Le nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & L\textquotesingle{}indice du niveau qui est actuellement chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}\label{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}} 
+\index{sauvegarde.c@{sauvegarde.c}!tailleFichier@{tailleFichier}}
+\index{tailleFichier@{tailleFichier}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{tailleFichier()}{tailleFichier()}}
+{\footnotesize\ttfamily static int taille\+Fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retourne la taille d\textquotesingle{}une fichier, utile pour savoir s\textquotesingle{}il est vide ou s\textquotesingle{}il existe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & nom du fichier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La taille du fichier. 
+\end{DoxyReturn}

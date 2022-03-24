@@ -1,0 +1,61 @@
+\hypertarget{SDL__main_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+main.h}
+\label{SDL__main_8h}\index{include/SDL2/SDL\_main.h@{include/SDL2/SDL\_main.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \mbox{\hyperlink{SDL__main_8h_a824db1a8625cd44144b424017466c4f9}{SDL\+\_\+main\+\_\+func}}) (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__main_8h_a35282508ae396e1fd5711ff3d85e08a7}\label{SDL__main_8h_a35282508ae396e1fd5711ff3d85e08a7}} 
+SDLMAIN\+\_\+\+DECLSPEC int {\bfseries SDL\+\_\+main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__main_8h_a6a4bb5ffb489bf0956bc1b813397306d}{SDL\+\_\+\+Set\+Main\+Ready}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Redefine main() on some platforms so that it is called by SDL.
+
+The application\textquotesingle{}s main() function must be called with C linkage, and should be declared like this\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} *argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__main_8h_a824db1a8625cd44144b424017466c4f9}\label{SDL__main_8h_a824db1a8625cd44144b424017466c4f9}} 
+\index{SDL\_main.h@{SDL\_main.h}!SDL\_main\_func@{SDL\_main\_func}}
+\index{SDL\_main\_func@{SDL\_main\_func}!SDL\_main.h@{SDL\_main.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_main\_func}{SDL\_main\_func}}
+{\footnotesize\ttfamily typedef int($\ast$ SDL\+\_\+main\+\_\+func) (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})}
+
+The prototype for the application\textquotesingle{}s main() function 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__main_8h_a6a4bb5ffb489bf0956bc1b813397306d}\label{SDL__main_8h_a6a4bb5ffb489bf0956bc1b813397306d}} 
+\index{SDL\_main.h@{SDL\_main.h}!SDL\_SetMainReady@{SDL\_SetMainReady}}
+\index{SDL\_SetMainReady@{SDL\_SetMainReady}!SDL\_main.h@{SDL\_main.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetMainReady()}{SDL\_SetMainReady()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Set\+Main\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Circumvent failure of \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} when not using SDL\+\_\+main() as an entry point.
+
+This function is defined in \mbox{\hyperlink{SDL__main_8h}{SDL\+\_\+main.\+h}}, along with the preprocessor rule to redefine main() as SDL\+\_\+main(). Thus to ensure that your main() function will not be changed it is necessary to define SDL\+\_\+\+MAIN\+\_\+\+HANDLED before including \mbox{\hyperlink{SDL_8h}{SDL.\+h}}.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init}} 
+\end{DoxySeeAlso}

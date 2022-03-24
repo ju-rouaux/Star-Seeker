@@ -1,0 +1,54 @@
+\hypertarget{SDL__locale_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+locale.h}
+\label{SDL__locale_8h}\index{include/SDL2/SDL\_locale.h@{include/SDL2/SDL\_locale.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Locale}{SDL\+\_\+\+Locale}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__locale_8h_a5c754f8e118f475987824610010a53ed}\label{SDL__locale_8h_a5c754f8e118f475987824610010a53ed}} 
+typedef struct \mbox{\hyperlink{structSDL__Locale}{SDL\+\_\+\+Locale}} {\bfseries SDL\+\_\+\+Locale}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Locale}{SDL\+\_\+\+Locale}} $\ast$SDLCALL \mbox{\hyperlink{SDL__locale_8h_a380c4a6bedcc09f5d107619afadd1c41}{SDL\+\_\+\+Get\+Preferred\+Locales}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL locale services 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__locale_8h_a380c4a6bedcc09f5d107619afadd1c41}\label{SDL__locale_8h_a380c4a6bedcc09f5d107619afadd1c41}} 
+\index{SDL\_locale.h@{SDL\_locale.h}!SDL\_GetPreferredLocales@{SDL\_GetPreferredLocales}}
+\index{SDL\_GetPreferredLocales@{SDL\_GetPreferredLocales}!SDL\_locale.h@{SDL\_locale.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPreferredLocales()}{SDL\_GetPreferredLocales()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Locale}{SDL\+\_\+\+Locale}}$\ast$ SDLCALL SDL\+\_\+\+Get\+Preferred\+Locales (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Report the user\textquotesingle{}s preferred locale.
+
+This returns an array of \mbox{\hyperlink{structSDL__Locale}{SDL\+\_\+\+Locale}} structs, the final item zeroed out. When the caller is done with this array, it should call SDL\+\_\+free() on the returned value; all the memory involved is allocated in a single block, so a single SDL\+\_\+free() will suffice.
+
+Returned language strings are in the format xx, where \textquotesingle{}xx\textquotesingle{} is an ISO-\/639 language specifier (such as \char`\"{}en\char`\"{} for English, \char`\"{}de\char`\"{} for German, etc). Country strings are in the format YY, where \char`\"{}\+YY\char`\"{} is an ISO-\/3166 country code (such as \char`\"{}\+US\char`\"{} for the United States, \char`\"{}\+CA\char`\"{} for Canada, etc). Country might be NULL if there\textquotesingle{}s no specific guidance on them (so you might get \{ \char`\"{}en\char`\"{}, \char`\"{}\+US\char`\"{} \} for American English, but \{ \char`\"{}en\char`\"{}, NULL \} means \char`\"{}\+English language, generically\char`\"{}). Language strings are never NULL, except to terminate the array.
+
+Please note that not all of these strings are 2 characters; some are three or more.
+
+The returned list of locales are in the order of the user\textquotesingle{}s preference. For example, a German citizen that is fluent in US English and knows enough Japanese to navigate around Tokyo might have a list like\+: \{ \char`\"{}de\char`\"{}, \char`\"{}en\+\_\+\+US\char`\"{}, \char`\"{}jp\char`\"{}, NULL \}. Someone from England might prefer British English (where \char`\"{}color\char`\"{} is spelled \char`\"{}colour\char`\"{}, etc), but will settle for anything like it\+: \{ \char`\"{}en\+\_\+\+GB\char`\"{}, \char`\"{}en\char`\"{}, NULL \}.
+
+This function returns NULL on error, including when the platform does not supply this information at all.
+
+This might be a \char`\"{}slow\char`\"{} call that has to query the operating system. It\textquotesingle{}s best to ask for this once and save the results. However, this list can change, usually because the user has changed a system preference outside of your program; SDL will send an SDL\+\_\+\+LOCALECHANGED event in this case, if possible, and you can call this function again to get an updated copy of preferred locales.
+
+\begin{DoxyReturn}{Renvoie}
+array of locales, terminated with a locale with a NULL language field. Will return NULL on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}

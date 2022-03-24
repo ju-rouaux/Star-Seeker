@@ -1,0 +1,146 @@
+\hypertarget{structSDL__HapticCondition}{}\doxysection{Référence de la structure SDL\+\_\+\+Haptic\+Condition}
+\label{structSDL__HapticCondition}\index{SDL\_HapticCondition@{SDL\_HapticCondition}}
+
+
+A structure containing a template for a Condition effect.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_a7be55a9a86c05dd1a54a3006781cfa6f}{type}}
+\item 
+\mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} \mbox{\hyperlink{structSDL__HapticCondition_a728507d30d18998949313de3a25e5581}{direction}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__HapticCondition_ad0efb0a6ddc20f058e87199eaaa95978}{length}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_aad40417980530ca8d80c62ba864a090b}{delay}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_acd35a9d432ad122bf7824b16974eac7a}{button}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_aafc182abea1078bed7e9cf5d0e713ea2}{interval}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_a90427a1e0d464b4b53abc1d419c97b2e}{right\+\_\+sat}} \mbox{[}3\mbox{]}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_a953448774c40818a4f47c6efea21124d}{left\+\_\+sat}} \mbox{[}3\mbox{]}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticCondition_a3de7f164ef88841255535387d0f100b6}{right\+\_\+coeff}} \mbox{[}3\mbox{]}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticCondition_a2adf52c32f60f0b6826b1e3add2eae7a}{left\+\_\+coeff}} \mbox{[}3\mbox{]}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__HapticCondition_af684c8eeeb719739a32723c00c5a2bbd}{deadband}} \mbox{[}3\mbox{]}
+\item 
+Sint16 \mbox{\hyperlink{structSDL__HapticCondition_a8a71ec28ff5ab85246cbc59736aa2c53}{center}} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A structure containing a template for a Condition effect. 
+
+The struct handles the following effects\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{SDL__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1}{SDL\+\_\+\+HAPTIC\+\_\+\+SPRING}}\+: Effect based on axes position.
+\item \mbox{\hyperlink{SDL__haptic_8h_a69522f261973e3ea4273486141320a87}{SDL\+\_\+\+HAPTIC\+\_\+\+DAMPER}}\+: Effect based on axes velocity.
+\item \mbox{\hyperlink{SDL__haptic_8h_a14b807471589120395aec28293cf6642}{SDL\+\_\+\+HAPTIC\+\_\+\+INERTIA}}\+: Effect based on axes acceleration.
+\item \mbox{\hyperlink{SDL__haptic_8h_a98a5011311168d63921aaac21403a4d8}{SDL\+\_\+\+HAPTIC\+\_\+\+FRICTION}}\+: Effect based on axes movement.
+\end{DoxyItemize}
+
+Direction is handled by condition internals instead of a direction member. The condition effect specific members have three parameters. The first refers to the X axis, the second refers to the Y axis and the third refers to the Z axis. The right terms refer to the positive side of the axis and the left terms refer to the negative side of the axis. Please refer to the \mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} diagram for which side is positive and which is negative.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1}{SDL\+\_\+\+HAPTIC\+\_\+\+SPRING}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a69522f261973e3ea4273486141320a87}{SDL\+\_\+\+HAPTIC\+\_\+\+DAMPER}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a14b807471589120395aec28293cf6642}{SDL\+\_\+\+HAPTIC\+\_\+\+INERTIA}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a98a5011311168d63921aaac21403a4d8}{SDL\+\_\+\+HAPTIC\+\_\+\+FRICTION}} 
+
+\mbox{\hyperlink{unionSDL__HapticEffect}{SDL\+\_\+\+Haptic\+Effect}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__HapticCondition_acd35a9d432ad122bf7824b16974eac7a}\label{structSDL__HapticCondition_acd35a9d432ad122bf7824b16974eac7a}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!button@{button}}
+\index{button@{button}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::button}
+
+Button that triggers the effect. \mbox{\Hypertarget{structSDL__HapticCondition_a8a71ec28ff5ab85246cbc59736aa2c53}\label{structSDL__HapticCondition_a8a71ec28ff5ab85246cbc59736aa2c53}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!center@{center}}
+\index{center@{center}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{center}{center}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Condition\+::center\mbox{[}3\mbox{]}}
+
+Position of the dead zone. \mbox{\Hypertarget{structSDL__HapticCondition_af684c8eeeb719739a32723c00c5a2bbd}\label{structSDL__HapticCondition_af684c8eeeb719739a32723c00c5a2bbd}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!deadband@{deadband}}
+\index{deadband@{deadband}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{deadband}{deadband}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::deadband\mbox{[}3\mbox{]}}
+
+Size of the dead zone; max 0x\+FFFF\+: whole axis-\/range when 0-\/centered. \mbox{\Hypertarget{structSDL__HapticCondition_aad40417980530ca8d80c62ba864a090b}\label{structSDL__HapticCondition_aad40417980530ca8d80c62ba864a090b}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!delay@{delay}}
+\index{delay@{delay}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{delay}{delay}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::delay}
+
+Delay before starting the effect. \mbox{\Hypertarget{structSDL__HapticCondition_a728507d30d18998949313de3a25e5581}\label{structSDL__HapticCondition_a728507d30d18998949313de3a25e5581}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!direction@{direction}}
+\index{direction@{direction}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticDirection}{SDL\+\_\+\+Haptic\+Direction}} SDL\+\_\+\+Haptic\+Condition\+::direction}
+
+Direction of the effect -\/ Not used ATM. \mbox{\Hypertarget{structSDL__HapticCondition_aafc182abea1078bed7e9cf5d0e713ea2}\label{structSDL__HapticCondition_aafc182abea1078bed7e9cf5d0e713ea2}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!interval@{interval}}
+\index{interval@{interval}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::interval}
+
+How soon it can be triggered again after button. \mbox{\Hypertarget{structSDL__HapticCondition_a2adf52c32f60f0b6826b1e3add2eae7a}\label{structSDL__HapticCondition_a2adf52c32f60f0b6826b1e3add2eae7a}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!left\_coeff@{left\_coeff}}
+\index{left\_coeff@{left\_coeff}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{left\_coeff}{left\_coeff}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Condition\+::left\+\_\+coeff\mbox{[}3\mbox{]}}
+
+How fast to increase the force towards the negative side. \mbox{\Hypertarget{structSDL__HapticCondition_a953448774c40818a4f47c6efea21124d}\label{structSDL__HapticCondition_a953448774c40818a4f47c6efea21124d}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!left\_sat@{left\_sat}}
+\index{left\_sat@{left\_sat}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{left\_sat}{left\_sat}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::left\+\_\+sat\mbox{[}3\mbox{]}}
+
+Level when joystick is to the negative side; max 0x\+FFFF. \mbox{\Hypertarget{structSDL__HapticCondition_ad0efb0a6ddc20f058e87199eaaa95978}\label{structSDL__HapticCondition_ad0efb0a6ddc20f058e87199eaaa95978}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!length@{length}}
+\index{length@{length}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Haptic\+Condition\+::length}
+
+Duration of the effect. \mbox{\Hypertarget{structSDL__HapticCondition_a3de7f164ef88841255535387d0f100b6}\label{structSDL__HapticCondition_a3de7f164ef88841255535387d0f100b6}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!right\_coeff@{right\_coeff}}
+\index{right\_coeff@{right\_coeff}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{right\_coeff}{right\_coeff}}
+{\footnotesize\ttfamily Sint16 SDL\+\_\+\+Haptic\+Condition\+::right\+\_\+coeff\mbox{[}3\mbox{]}}
+
+How fast to increase the force towards the positive side. \mbox{\Hypertarget{structSDL__HapticCondition_a90427a1e0d464b4b53abc1d419c97b2e}\label{structSDL__HapticCondition_a90427a1e0d464b4b53abc1d419c97b2e}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!right\_sat@{right\_sat}}
+\index{right\_sat@{right\_sat}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{right\_sat}{right\_sat}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::right\+\_\+sat\mbox{[}3\mbox{]}}
+
+Level when joystick is to the positive side; max 0x\+FFFF. \mbox{\Hypertarget{structSDL__HapticCondition_a7be55a9a86c05dd1a54a3006781cfa6f}\label{structSDL__HapticCondition_a7be55a9a86c05dd1a54a3006781cfa6f}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!type@{type}}
+\index{type@{type}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Condition\+::type}
+
+\mbox{\hyperlink{SDL__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1}{SDL\+\_\+\+HAPTIC\+\_\+\+SPRING}}, \mbox{\hyperlink{SDL__haptic_8h_a69522f261973e3ea4273486141320a87}{SDL\+\_\+\+HAPTIC\+\_\+\+DAMPER}}, \mbox{\hyperlink{SDL__haptic_8h_a14b807471589120395aec28293cf6642}{SDL\+\_\+\+HAPTIC\+\_\+\+INERTIA}} or \mbox{\hyperlink{SDL__haptic_8h_a98a5011311168d63921aaac21403a4d8}{SDL\+\_\+\+HAPTIC\+\_\+\+FRICTION}} 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__haptic_8h}{SDL\+\_\+haptic.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,197 @@
+\hypertarget{SDL__version_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+version.h}
+\label{SDL__version_8h}\index{include/SDL2/SDL\_version.h@{include/SDL2/SDL\_version.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__version_8h_a8fc808626be61507ade364b399f81468}\label{SDL__version_8h_a8fc808626be61507ade364b399f81468}} 
+\#define {\bfseries SDL\+\_\+\+MAJOR\+\_\+\+VERSION}~2
+\item 
+\mbox{\Hypertarget{SDL__version_8h_a2dd98e1cec119d54322cd9c8ea685c5c}\label{SDL__version_8h_a2dd98e1cec119d54322cd9c8ea685c5c}} 
+\#define {\bfseries SDL\+\_\+\+MINOR\+\_\+\+VERSION}~0
+\item 
+\mbox{\Hypertarget{SDL__version_8h_a84a0602cb43e6d9cefbdc119336019d5}\label{SDL__version_8h_a84a0602cb43e6d9cefbdc119336019d5}} 
+\#define {\bfseries SDL\+\_\+\+PATCHLEVEL}~20
+\item 
+\#define \mbox{\hyperlink{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}{SDL\+\_\+\+VERSION}}(x)
+\item 
+\#define \mbox{\hyperlink{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}{SDL\+\_\+\+VERSIONNUM}}(X,  Y,  Z)~    ((X)$\ast$1000 + (Y)$\ast$100 + (Z))
+\item 
+\#define \mbox{\hyperlink{SDL__version_8h_a75227c9b9ca2b4015e4697971712f16c}{SDL\+\_\+\+COMPILEDVERSION}}~    \mbox{\hyperlink{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}{SDL\+\_\+\+VERSIONNUM}}(SDL\+\_\+\+MAJOR\+\_\+\+VERSION, SDL\+\_\+\+MINOR\+\_\+\+VERSION, SDL\+\_\+\+PATCHLEVEL)
+\item 
+\#define \mbox{\hyperlink{SDL__version_8h_a44836f955b961ba74c8c5125af4c9b91}{SDL\+\_\+\+VERSION\+\_\+\+ATLEAST}}(X,  Y,  Z)~    (\mbox{\hyperlink{SDL__version_8h_a75227c9b9ca2b4015e4697971712f16c}{SDL\+\_\+\+COMPILEDVERSION}} $>$= \mbox{\hyperlink{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}{SDL\+\_\+\+VERSIONNUM}}(X, Y, Z))
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} \mbox{\hyperlink{SDL__version_8h_ab9a870099fb4c3c2ffc926a067b5243e}{SDL\+\_\+version}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}{SDL\+\_\+\+Get\+Version}} (\mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} $\ast$ver)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}{SDL\+\_\+\+Get\+Revision}} (void)
+\item 
+SDL\+\_\+\+DEPRECATED DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__version_8h_a3aaf4a973a60915fd9a30de51b17c3e4}{SDL\+\_\+\+Get\+Revision\+Number}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This header defines the current SDL version. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__version_8h_a75227c9b9ca2b4015e4697971712f16c}\label{SDL__version_8h_a75227c9b9ca2b4015e4697971712f16c}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_COMPILEDVERSION@{SDL\_COMPILEDVERSION}}
+\index{SDL\_COMPILEDVERSION@{SDL\_COMPILEDVERSION}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_COMPILEDVERSION}{SDL\_COMPILEDVERSION}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+COMPILEDVERSION~    \mbox{\hyperlink{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}{SDL\+\_\+\+VERSIONNUM}}(SDL\+\_\+\+MAJOR\+\_\+\+VERSION, SDL\+\_\+\+MINOR\+\_\+\+VERSION, SDL\+\_\+\+PATCHLEVEL)}
+
+This is the version number macro for the current SDL version. \mbox{\Hypertarget{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}\label{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_VERSION@{SDL\_VERSION}}
+\index{SDL\_VERSION@{SDL\_VERSION}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_VERSION}{SDL\_VERSION}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+VERSION(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                   \(\backslash\)}
+\DoxyCodeLine{    (x)-\/>major = SDL\_MAJOR\_VERSION;                 \(\backslash\)}
+\DoxyCodeLine{    (x)-\/>minor = SDL\_MINOR\_VERSION;                 \(\backslash\)}
+\DoxyCodeLine{    (x)-\/>patch = SDL\_PATCHLEVEL;                    \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Macro to determine SDL version program was compiled against.
+
+This macro fills in a \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} structure with the version of the library you compiled against. This is determined by what header the compiler uses. Note that if you dynamically linked the library, you might have a slightly newer or older version at runtime. That version can be determined with \mbox{\hyperlink{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}{SDL\+\_\+\+Get\+Version()}}, which, unlike \mbox{\hyperlink{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}{SDL\+\_\+\+VERSION()}}, is not a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & A pointer to a \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} struct to initialize.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} 
+
+\mbox{\hyperlink{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}{SDL\+\_\+\+Get\+Version}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__version_8h_a44836f955b961ba74c8c5125af4c9b91}\label{SDL__version_8h_a44836f955b961ba74c8c5125af4c9b91}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_VERSION\_ATLEAST@{SDL\_VERSION\_ATLEAST}}
+\index{SDL\_VERSION\_ATLEAST@{SDL\_VERSION\_ATLEAST}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_VERSION\_ATLEAST}{SDL\_VERSION\_ATLEAST}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+VERSION\+\_\+\+ATLEAST(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y,  }\item[{}]{Z }\end{DoxyParamCaption})~    (\mbox{\hyperlink{SDL__version_8h_a75227c9b9ca2b4015e4697971712f16c}{SDL\+\_\+\+COMPILEDVERSION}} $>$= \mbox{\hyperlink{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}{SDL\+\_\+\+VERSIONNUM}}(X, Y, Z))}
+
+This macro will evaluate to true if compiled with SDL at least X.\+Y.\+Z. \mbox{\Hypertarget{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}\label{SDL__version_8h_af77ec4d486c3401e48689a016d304e73}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_VERSIONNUM@{SDL\_VERSIONNUM}}
+\index{SDL\_VERSIONNUM@{SDL\_VERSIONNUM}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_VERSIONNUM}{SDL\_VERSIONNUM}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+VERSIONNUM(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y,  }\item[{}]{Z }\end{DoxyParamCaption})~    ((X)$\ast$1000 + (Y)$\ast$100 + (Z))}
+
+This macro turns the version numbers into a numeric value\+: \begin{DoxyVerb}(1,2,3) -> (1203)
+\end{DoxyVerb}
+
+
+This assumes that there will never be more than 100 patchlevels. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__version_8h_ab9a870099fb4c3c2ffc926a067b5243e}\label{SDL__version_8h_ab9a870099fb4c3c2ffc926a067b5243e}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_version@{SDL\_version}}
+\index{SDL\_version@{SDL\_version}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_version}{SDL\_version}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}}}
+
+Information about the version of SDL in use.
+
+Represents the library\textquotesingle{}s version as three levels\+: major revision (increments with massive changes, additions, and enhancements), minor revision (increments with backwards-\/compatible changes to the major revision), and patchlevel (increments with fixes to the minor revision).
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}{SDL\+\_\+\+VERSION}} 
+
+\mbox{\hyperlink{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}{SDL\+\_\+\+Get\+Version}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}\label{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_GetRevision@{SDL\_GetRevision}}
+\index{SDL\_GetRevision@{SDL\_GetRevision}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetRevision()}{SDL\_GetRevision()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Revision (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the code revision of SDL that is linked against your program.
+
+This value is the revision of the code you are linked with and may be different from the code you are compiling with, which is found in the constant SDL\+\_\+\+REVISION.
+
+The revision is arbitrary string (a hash value) uniquely identifying the exact revision of the SDL library in use, and is only useful in comparing against other revisions. It is NOT an incrementing number.
+
+If SDL wasn\textquotesingle{}t built from a git repository with the appropriate tools, this will return an empty string.
+
+Prior to SDL 2.\+0.\+16, before development moved to Git\+Hub, this returned a hash for a Mercurial repository.
+
+You shouldn\textquotesingle{}t use this function for anything but logging it for debugging purposes. The string is not intended to be reliable in any way.
+
+\begin{DoxyReturn}{Renvoie}
+an arbitrary string, uniquely identifying the exact revision of the SDL library in use.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}{SDL\+\_\+\+Get\+Version}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__version_8h_a3aaf4a973a60915fd9a30de51b17c3e4}\label{SDL__version_8h_a3aaf4a973a60915fd9a30de51b17c3e4}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_GetRevisionNumber@{SDL\_GetRevisionNumber}}
+\index{SDL\_GetRevisionNumber@{SDL\_GetRevisionNumber}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetRevisionNumber()}{SDL\_GetRevisionNumber()}}
+{\footnotesize\ttfamily SDL\+\_\+\+DEPRECATED DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Revision\+Number (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Obsolete function, do not use.
+
+When SDL was hosted in a Mercurial repository, and was built carefully, this would return the revision number that the build was created from. This number was not reliable for several reasons, but more importantly, SDL is now hosted in a git repository, which does not offer numbers at all, only hashes. This function only ever returns zero now. Don\textquotesingle{}t use it.
+
+Before SDL 2.\+0.\+16, this might have returned an unreliable, but non-\/zero number.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000002}{Obsolète}}]Use \mbox{\hyperlink{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}{SDL\+\_\+\+Get\+Revision()}} instead; if SDL was carefully built, it will return a git hash.\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Renvoie}
+zero, always, in modern SDL releases.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}{SDL\+\_\+\+Get\+Revision}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}\label{SDL__version_8h_a4204ecbb600f51ee50515979e60bf8f3}} 
+\index{SDL\_version.h@{SDL\_version.h}!SDL\_GetVersion@{SDL\_GetVersion}}
+\index{SDL\_GetVersion@{SDL\_GetVersion}!SDL\_version.h@{SDL\_version.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetVersion()}{SDL\_GetVersion()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Get\+Version (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} $\ast$}]{ver }\end{DoxyParamCaption})}
+
+Get the version of SDL that is linked against your program.
+
+If you are linking to SDL dynamically, then it is possible that the current version will be different than the version you compiled against. This function returns the current version, while \mbox{\hyperlink{SDL__version_8h_a7154bc5c2a95a644b5187e4225cdcbd0}{SDL\+\_\+\+VERSION()}} is a macro that tells you what version you compiled with.
+
+This function may be called safely at any time, even before \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ver} & the \mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} structure that contains the version information\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__version_8h_a6b6844eae68e68d6f91bc3d8d786cf47}{SDL\+\_\+\+Get\+Revision}} 
+\end{DoxySeeAlso}

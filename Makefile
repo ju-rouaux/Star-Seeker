@@ -1,10 +1,10 @@
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lm
+LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
 
 # Parametres du makefile
-APPNAME = ./bin/save
+APPNAME = ./bin/star-seeker
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -14,40 +14,52 @@ OBJDIR = ./obj
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
-# UNIX-based OS variables & settings
 RM = rm
 DELOBJ = $(OBJ)
-# Windows OS variables & settings
-DEL = del
-EXE = .exe
-WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
-all: $(APPNAME)
+# Compiler le projet
+all: init $(APPNAME)
 	@echo Compilation reussie
 
-#Test algo génération
+# Générer les répertoires nécéssaires
+init:
+	mkdir -p obj
+	mkdir -p save
+
+# Test algo génération
 algogen: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ obj/test_niveau.o $(LDFLAGS)
 
-# Compile
+# Compiler
 $(APPNAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 	@echo Tout les fichiers objets ont bien ete generes
 
-# Construit les fichiers .o avec les .h
+# Construire les fichiers .o avec les .h
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
 
-################### Cleaning rules for Unix-based OS ###################
-# Cleans complete project
+########################################################################
+
+# Supprimer les fichiers du projet (.exe pour Windows)
 .PHONY: clean
 clean:
-	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+	$(RM) -f $(OBJDIR)/*.o
+	$(RM) -f $(APPNAME)
+	$(RM) -f $(APPNAME).exe
+	@echo Clean effectue !
 
-#################### Cleaning rules for Windows OS #####################
-# Cleans complete project
-.PHONY: cleanw
-cleanw:
-	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
+########################################################################
+#Macros
+
+.PHONY: doc
+doc:
+	doxygen gen_doxygen
+	@echo Documentation generee
+
+#Compiler et lancer le programme
+.PHONY: start
+start: all
+	$(APPNAME)

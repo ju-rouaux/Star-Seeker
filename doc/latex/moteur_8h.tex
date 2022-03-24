@@ -1,0 +1,149 @@
+\hypertarget{moteur_8h}{}\doxysection{Référence du fichier include/moteur.h}
+\label{moteur_8h}\index{include/moteur.h@{include/moteur.h}}
+
+
+Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures, d\textquotesingle{}une caméra et les retournes dans une structure.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$textures.\+h$>$}\newline
+{\ttfamily \#include $<$camera.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les paramètres techniques du jeu pouvant être changés par le joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{NB\+\_\+\+FPS}}~60
+\item 
+\mbox{\Hypertarget{moteur_8h_ae7f255f11fb26158be219dde544a9472}\label{moteur_8h_ae7f255f11fb26158be219dde544a9472}} 
+\#define {\bfseries TEMPS\+\_\+\+POUR\+\_\+\+CHAQUE\+\_\+\+SECONDE}~((float)1000/\mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{NB\+\_\+\+FPS}})
+\item 
+\#define \mbox{\hyperlink{moteur_8h_a016709016317bfa58ededa3e5e3433b1}{VITESSE\+\_\+\+TRANSITION}}~10
+\item 
+\#define \mbox{\hyperlink{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}{NOMBRE\+\_\+\+DE\+\_\+\+PORTES}}~4
+\item 
+\#define \mbox{\hyperlink{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}{NB\+\_\+\+TILE\+\_\+\+LARGEUR}}~13
+\item 
+\#define \mbox{\hyperlink{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}{NB\+\_\+\+TILE\+\_\+\+HAUTEUR}}~7
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{moteur_8h_a4e606e9c680c840688f46054994527e9}\label{moteur_8h_a4e606e9c680c840688f46054994527e9}} 
+typedef struct s\+\_\+liste {\bfseries t\+\_\+liste}
+\item 
+\mbox{\Hypertarget{moteur_8h_a8021a643645b241cda0f63d81302b9c8}\label{moteur_8h_a8021a643645b241cda0f63d81302b9c8}} 
+typedef struct s\+\_\+niveau {\bfseries t\+\_\+niveau}
+\item 
+\mbox{\Hypertarget{moteur_8h_a5a3daf0bf964cf6be35cf706dfc7e04c}\label{moteur_8h_a5a3daf0bf964cf6be35cf706dfc7e04c}} 
+typedef struct s\+\_\+moteur {\bfseries t\+\_\+moteur}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{moteur_8h_a10b960116f92254c4253c9c88a554777}\label{moteur_8h_a10b960116f92254c4253c9c88a554777}} 
+enum {\bfseries t\+\_\+bool\+\_\+param} \{ {\bfseries FAUX}
+, {\bfseries VRAI}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$ \mbox{\hyperlink{moteur_8h_a980e14a5af12b07ba4baf701b77954ae}{charger\+Moteur}} (unsigned int temps)
+\begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}{detruire\+Moteur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8h_aebb3e2a0bb730dfb9391c82bf2c37d7c}{update\+Echelle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures, d\textquotesingle{}une caméra et les retournes dans une structure. 
+
+Le moteur contient aussi les collisions
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}\label{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}} 
+\index{moteur.h@{moteur.h}!NB\_FPS@{NB\_FPS}}
+\index{NB\_FPS@{NB\_FPS}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{NB\_FPS}{NB\_FPS}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+FPS~60}
+
+Nombre de frames par secondes du jeu \mbox{\Hypertarget{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}\label{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}} 
+\index{moteur.h@{moteur.h}!NB\_TILE\_HAUTEUR@{NB\_TILE\_HAUTEUR}}
+\index{NB\_TILE\_HAUTEUR@{NB\_TILE\_HAUTEUR}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{NB\_TILE\_HAUTEUR}{NB\_TILE\_HAUTEUR}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+TILE\+\_\+\+HAUTEUR~7}
+
+Surface au sol en hauteur \mbox{\Hypertarget{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}\label{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}} 
+\index{moteur.h@{moteur.h}!NB\_TILE\_LARGEUR@{NB\_TILE\_LARGEUR}}
+\index{NB\_TILE\_LARGEUR@{NB\_TILE\_LARGEUR}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{NB\_TILE\_LARGEUR}{NB\_TILE\_LARGEUR}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+TILE\+\_\+\+LARGEUR~13}
+
+Surface au sol en largeur \mbox{\Hypertarget{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}\label{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}} 
+\index{moteur.h@{moteur.h}!NOMBRE\_DE\_PORTES@{NOMBRE\_DE\_PORTES}}
+\index{NOMBRE\_DE\_PORTES@{NOMBRE\_DE\_PORTES}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{NOMBRE\_DE\_PORTES}{NOMBRE\_DE\_PORTES}}
+{\footnotesize\ttfamily \#define NOMBRE\+\_\+\+DE\+\_\+\+PORTES~4}
+
+Nombre de portes d\textquotesingle{}une salle (une par mur) \mbox{\Hypertarget{moteur_8h_a016709016317bfa58ededa3e5e3433b1}\label{moteur_8h_a016709016317bfa58ededa3e5e3433b1}} 
+\index{moteur.h@{moteur.h}!VITESSE\_TRANSITION@{VITESSE\_TRANSITION}}
+\index{VITESSE\_TRANSITION@{VITESSE\_TRANSITION}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{VITESSE\_TRANSITION}{VITESSE\_TRANSITION}}
+{\footnotesize\ttfamily \#define VITESSE\+\_\+\+TRANSITION~10}
+
+Vitesse d\textquotesingle{}une transition exprimée en tile par secondes 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{moteur_8h_a980e14a5af12b07ba4baf701b77954ae}\label{moteur_8h_a980e14a5af12b07ba4baf701b77954ae}} 
+\index{moteur.h@{moteur.h}!chargerMoteur@{chargerMoteur}}
+\index{chargerMoteur@{chargerMoteur}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{chargerMoteur()}{chargerMoteur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}}$\ast$ charger\+Moteur (\begin{DoxyParamCaption}\item[{unsigned int}]{temps }\end{DoxyParamCaption})}
+
+
+
+Charge une fenêtre, un rendu, les textures, et une caméra. 
+
+\begin{DoxyReturn}{Renvoie}
+Structure moteur, NULL si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}\label{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}} 
+\index{moteur.h@{moteur.h}!detruireMoteur@{detruireMoteur}}
+\index{detruireMoteur@{detruireMoteur}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{detruireMoteur()}{detruireMoteur()}}
+{\footnotesize\ttfamily void detruire\+Moteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & L\textquotesingle{}adresse du pointeur du moteur. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{moteur_8h_aebb3e2a0bb730dfb9391c82bf2c37d7c}\label{moteur_8h_aebb3e2a0bb730dfb9391c82bf2c37d7c}} 
+\index{moteur.h@{moteur.h}!updateEchelle@{updateEchelle}}
+\index{updateEchelle@{updateEchelle}!moteur.h@{moteur.h}}
+\doxysubsubsection{\texorpdfstring{updateEchelle()}{updateEchelle()}}
+{\footnotesize\ttfamily void update\+Echelle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & La structure moteur du jeu \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,96 @@
+\hypertarget{moteur_8c}{}\doxysection{Référence du fichier src/moteur.c}
+\label{moteur_8c}\index{src/moteur.c@{src/moteur.c}}
+
+
+Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures, d\textquotesingle{}une caméra et les retournes dans une structure.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$window.\+h$>$}\newline
+{\ttfamily \#include $<$textures.\+h$>$}\newline
+{\ttfamily \#include $<$camera.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}{initialiser\+Touches}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Initialise les touches du clavier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$ \mbox{\hyperlink{moteur_8c_a980e14a5af12b07ba4baf701b77954ae}{charger\+Moteur}} (unsigned int temps)
+\begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}{detruire\+Moteur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}{update\+Echelle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures, d\textquotesingle{}une caméra et les retournes dans une structure. 
+
+Le moteur contient aussi les collisions
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{moteur_8c_a980e14a5af12b07ba4baf701b77954ae}\label{moteur_8c_a980e14a5af12b07ba4baf701b77954ae}} 
+\index{moteur.c@{moteur.c}!chargerMoteur@{chargerMoteur}}
+\index{chargerMoteur@{chargerMoteur}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{chargerMoteur()}{chargerMoteur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}}$\ast$ charger\+Moteur (\begin{DoxyParamCaption}\item[{unsigned int}]{temps }\end{DoxyParamCaption})}
+
+
+
+Charge une fenêtre, un rendu, les textures, et une caméra. 
+
+\begin{DoxyReturn}{Renvoie}
+Structure moteur, NULL si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}\label{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}} 
+\index{moteur.c@{moteur.c}!detruireMoteur@{detruireMoteur}}
+\index{detruireMoteur@{detruireMoteur}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{detruireMoteur()}{detruireMoteur()}}
+{\footnotesize\ttfamily void detruire\+Moteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & L\textquotesingle{}adresse du pointeur du moteur. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}\label{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}} 
+\index{moteur.c@{moteur.c}!initialiserTouches@{initialiserTouches}}
+\index{initialiserTouches@{initialiserTouches}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{initialiserTouches()}{initialiserTouches()}}
+{\footnotesize\ttfamily void initialiser\+Touches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Initialise les touches du clavier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & moteur du jeu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}\label{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}} 
+\index{moteur.c@{moteur.c}!updateEchelle@{updateEchelle}}
+\index{updateEchelle@{updateEchelle}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{updateEchelle()}{updateEchelle()}}
+{\footnotesize\ttfamily void update\+Echelle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & La structure moteur du jeu \\
+\hline
+\end{DoxyParams}

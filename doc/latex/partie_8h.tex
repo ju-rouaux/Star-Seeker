@@ -1,0 +1,66 @@
+\hypertarget{partie_8h}{}\doxysection{Référence du fichier include/partie.h}
+\label{partie_8h}\index{include/partie.h@{include/partie.h}}
+
+
+Module de gestion d\textquotesingle{}une partie \+: appel de sauvegarde et appel des différents niveaux.  
+
+
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{partie_8h_a72a500bf8257d1e5efa3554f6d2ca750}{nouvelle\+Partie}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int nb\+\_\+niveaux)
+\begin{DoxyCompactList}\small\item\em Ecrase la sauvegarde pour générer une nouvelle partie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{partie_8h_ae49eedf18c5b9a3242a59d48bba10745}{charger\+Partie}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Charge la partie si le fichier de sauvegarde existe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion d\textquotesingle{}une partie \+: appel de sauvegarde et appel des différents niveaux. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{partie_8h_ae49eedf18c5b9a3242a59d48bba10745}\label{partie_8h_ae49eedf18c5b9a3242a59d48bba10745}} 
+\index{partie.h@{partie.h}!chargerPartie@{chargerPartie}}
+\index{chargerPartie@{chargerPartie}!partie.h@{partie.h}}
+\doxysubsubsection{\texorpdfstring{chargerPartie()}{chargerPartie()}}
+{\footnotesize\ttfamily int charger\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Charge la partie si le fichier de sauvegarde existe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8h_a72a500bf8257d1e5efa3554f6d2ca750}\label{partie_8h_a72a500bf8257d1e5efa3554f6d2ca750}} 
+\index{partie.h@{partie.h}!nouvellePartie@{nouvellePartie}}
+\index{nouvellePartie@{nouvellePartie}!partie.h@{partie.h}}
+\doxysubsubsection{\texorpdfstring{nouvellePartie()}{nouvellePartie()}}
+{\footnotesize\ttfamily int nouvelle\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{nb\+\_\+niveaux }\end{DoxyParamCaption})}
+
+
+
+Ecrase la sauvegarde pour générer une nouvelle partie. 
+
+Dans l\textquotesingle{}idéal cette fonction devra calculer le nombre de niveaux.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em nb\+\_\+niveaux} & !! TEMPORAIRE le nombre de niveaux désiré pour la nouvelle partie\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si echec. 
+\end{DoxyReturn}

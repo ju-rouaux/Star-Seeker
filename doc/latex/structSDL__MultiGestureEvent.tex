@@ -1,0 +1,67 @@
+\hypertarget{structSDL__MultiGestureEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Multi\+Gesture\+Event}
+\label{structSDL__MultiGestureEvent}\index{SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}}
+
+
+Multiple Finger Gesture Event (event.\+mgesture.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MultiGestureEvent_ab0c7adc9a3f71cc3532bfe0ff8cc6120}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MultiGestureEvent_a7e99a98debf3ce11f6d2a2fbb3637175}{timestamp}}
+\item 
+SDL\+\_\+\+Touch\+ID \mbox{\hyperlink{structSDL__MultiGestureEvent_aa15d1201559a3c9277082af71a972dc1}{touch\+Id}}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a4f4a920dcf5205baa24a140df56f3153}\label{structSDL__MultiGestureEvent_a4f4a920dcf5205baa24a140df56f3153}} 
+float {\bfseries d\+Theta}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a351c29785c5ce3f68c4591a427265f14}\label{structSDL__MultiGestureEvent_a351c29785c5ce3f68c4591a427265f14}} 
+float {\bfseries d\+Dist}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a1708fc3c788fd12cc0beb5dc05cf31ca}\label{structSDL__MultiGestureEvent_a1708fc3c788fd12cc0beb5dc05cf31ca}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a264602b9c5cc027eb6a283adda428454}\label{structSDL__MultiGestureEvent_a264602b9c5cc027eb6a283adda428454}} 
+float {\bfseries y}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a6b06cf80372ce3cad40110fdb6ef0353}\label{structSDL__MultiGestureEvent_a6b06cf80372ce3cad40110fdb6ef0353}} 
+Uint16 {\bfseries num\+Fingers}
+\item 
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a4804ec87789e697aba138c4888bb304b}\label{structSDL__MultiGestureEvent_a4804ec87789e697aba138c4888bb304b}} 
+Uint16 {\bfseries padding}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Multiple Finger Gesture Event (event.\+mgesture.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__MultiGestureEvent_a7e99a98debf3ce11f6d2a2fbb3637175}\label{structSDL__MultiGestureEvent_a7e99a98debf3ce11f6d2a2fbb3637175}} 
+\index{SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Multi\+Gesture\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__MultiGestureEvent_aa15d1201559a3c9277082af71a972dc1}\label{structSDL__MultiGestureEvent_aa15d1201559a3c9277082af71a972dc1}} 
+\index{SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}!touchId@{touchId}}
+\index{touchId@{touchId}!SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}}
+\doxysubsubsection{\texorpdfstring{touchId}{touchId}}
+{\footnotesize\ttfamily SDL\+\_\+\+Touch\+ID SDL\+\_\+\+Multi\+Gesture\+Event\+::touch\+Id}
+
+The touch device id \mbox{\Hypertarget{structSDL__MultiGestureEvent_ab0c7adc9a3f71cc3532bfe0ff8cc6120}\label{structSDL__MultiGestureEvent_ab0c7adc9a3f71cc3532bfe0ff8cc6120}} 
+\index{SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}!type@{type}}
+\index{type@{type}!SDL\_MultiGestureEvent@{SDL\_MultiGestureEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Multi\+Gesture\+Event\+::type}
+
+\+::\+SDL\+\_\+\+MULTIGESTURE 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

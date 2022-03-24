@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_sensor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_sensor.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__error_8h_source.html">SDL_error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__sensor_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a577adbb3be3bab2814caf71e9995f177"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a577adbb3be3bab2814caf71e9995f177">SDL_STANDARD_GRAVITY</a>&#160;&#160;&#160;9.80665f</td></tr>
+<tr class="separator:a577adbb3be3bab2814caf71e9995f177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a33718f4ef5c3f4ea306ddecf3ae3e3ad"><td class="memItemLeft" align="right" valign="top"><a id="a33718f4ef5c3f4ea306ddecf3ae3e3ad"></a>
+typedef struct _SDL_Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_Sensor</b></td></tr>
+<tr class="separator:a33718f4ef5c3f4ea306ddecf3ae3e3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cca37d0b39c2db41841f54308aee65b"><td class="memItemLeft" align="right" valign="top">typedef Sint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a></td></tr>
+<tr class="separator:a0cca37d0b39c2db41841f54308aee65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a94a441696f7d053dd541ec0b7e00e33a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> { <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33aa473fc0b4fcd77e59c39260888a0fb6ed">SDL_SENSOR_INVALID</a> = -1
+, <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33aaa657e6c2ff14bfd73ec9cacc940d433f">SDL_SENSOR_UNKNOWN</a>
+, <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33aabb4f72e33919c7d6689ac33605fb3bc7">SDL_SENSOR_ACCEL</a>
+, <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33aa6f5ff988acabc5ac39635976f1c1ac56">SDL_SENSOR_GYRO</a>
+ }</td></tr>
+<tr class="separator:a94a441696f7d053dd541ec0b7e00e33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a047fa18746e6ac5be4d20f6b7c481578"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a047fa18746e6ac5be4d20f6b7c481578">SDL_LockSensors</a> (void)</td></tr>
+<tr class="separator:a047fa18746e6ac5be4d20f6b7c481578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cabc17ed80337c304b2f7719928e7db"><td class="memItemLeft" align="right" valign="top"><a id="a1cabc17ed80337c304b2f7719928e7db"></a>
+DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_UnlockSensors</b> (void)</td></tr>
+<tr class="separator:a1cabc17ed80337c304b2f7719928e7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a398fee521f652c9c51b8865ea0c2aa02"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a398fee521f652c9c51b8865ea0c2aa02">SDL_NumSensors</a> (void)</td></tr>
+<tr class="separator:a398fee521f652c9c51b8865ea0c2aa02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae21bffaff2dc86b80e80272aefadd6a4"><td class="memItemLeft" align="right" valign="top">DECLSPEC const char *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#ae21bffaff2dc86b80e80272aefadd6a4">SDL_SensorGetDeviceName</a> (int device_index)</td></tr>
+<tr class="separator:ae21bffaff2dc86b80e80272aefadd6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2183f938cafa6fdd9363025c76502e61"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a2183f938cafa6fdd9363025c76502e61">SDL_SensorGetDeviceType</a> (int device_index)</td></tr>
+<tr class="separator:a2183f938cafa6fdd9363025c76502e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735c61476c9cff3db9499dc258096096"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a735c61476c9cff3db9499dc258096096">SDL_SensorGetDeviceNonPortableType</a> (int device_index)</td></tr>
+<tr class="separator:a735c61476c9cff3db9499dc258096096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d83f263e764e3fe77932bd748d34e8"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a52d83f263e764e3fe77932bd748d34e8">SDL_SensorGetDeviceInstanceID</a> (int device_index)</td></tr>
+<tr class="separator:a52d83f263e764e3fe77932bd748d34e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cde1c9751f7b88c518aa2a88a4f6b2c"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_Sensor *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a0cde1c9751f7b88c518aa2a88a4f6b2c">SDL_SensorOpen</a> (int device_index)</td></tr>
+<tr class="separator:a0cde1c9751f7b88c518aa2a88a4f6b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3630c5ba0ca6d1ec6f7bccd09246c5c"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_Sensor *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#ad3630c5ba0ca6d1ec6f7bccd09246c5c">SDL_SensorFromInstanceID</a> (<a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a> instance_id)</td></tr>
+<tr class="separator:ad3630c5ba0ca6d1ec6f7bccd09246c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afecccd2f9cb3d93c740c36929d88b9a3"><td class="memItemLeft" align="right" valign="top">DECLSPEC const char *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#afecccd2f9cb3d93c740c36929d88b9a3">SDL_SensorGetName</a> (SDL_Sensor *sensor)</td></tr>
+<tr class="separator:afecccd2f9cb3d93c740c36929d88b9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8e4d70062a1af56dea369a2a017907"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a3d8e4d70062a1af56dea369a2a017907">SDL_SensorGetType</a> (SDL_Sensor *sensor)</td></tr>
+<tr class="separator:a3d8e4d70062a1af56dea369a2a017907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98fe8a0c2dbefb69f59f0a07edefc129"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a98fe8a0c2dbefb69f59f0a07edefc129">SDL_SensorGetNonPortableType</a> (SDL_Sensor *sensor)</td></tr>
+<tr class="separator:a98fe8a0c2dbefb69f59f0a07edefc129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c4aaff92e0421a52bfbb0a2ac0129f"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a94c4aaff92e0421a52bfbb0a2ac0129f">SDL_SensorGetInstanceID</a> (SDL_Sensor *sensor)</td></tr>
+<tr class="separator:a94c4aaff92e0421a52bfbb0a2ac0129f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22466ee6b7af791937ebf1f7b76ed56b"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a22466ee6b7af791937ebf1f7b76ed56b">SDL_SensorGetData</a> (SDL_Sensor *sensor, float *data, int num_values)</td></tr>
+<tr class="separator:a22466ee6b7af791937ebf1f7b76ed56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff6e8813bb524a17f1d9b07d2a26005"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a4ff6e8813bb524a17f1d9b07d2a26005">SDL_SensorClose</a> (SDL_Sensor *sensor)</td></tr>
+<tr class="separator:a4ff6e8813bb524a17f1d9b07d2a26005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23afdba77827b8ad6c212eedce5c2069"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__sensor_8h.html#a23afdba77827b8ad6c212eedce5c2069">SDL_SensorUpdate</a> (void)</td></tr>
+<tr class="separator:a23afdba77827b8ad6c212eedce5c2069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Include file for SDL sensor event handling </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a577adbb3be3bab2814caf71e9995f177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577adbb3be3bab2814caf71e9995f177">&#9670;&nbsp;</a></span>SDL_STANDARD_GRAVITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_STANDARD_GRAVITY&#160;&#160;&#160;9.80665f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Accelerometer sensor</p>
+<p >The accelerometer returns the current acceleration in SI meters per second squared. This measurement includes the force of gravity, so a device at rest will have an value of SDL_STANDARD_GRAVITY away from the center of the earth.</p>
+<p >values[0]: Acceleration on the x axis values[1]: Acceleration on the y axis values[2]: Acceleration on the z axis</p>
+<p >For phones held in portrait mode and game controllers held in front of you, the axes are defined as follows: -X ... +X : left ... right -Y ... +Y : bottom ... top -Z ... +Z : farther ... closer</p>
+<p >The axis data is not changed when the phone is rotated.</p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__video_8h.html#a6540db01a424ced1847376e583361ecb">SDL_GetDisplayOrientation()</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a0cca37d0b39c2db41841f54308aee65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cca37d0b39c2db41841f54308aee65b">&#9670;&nbsp;</a></span>SDL_SensorID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Sint32 <a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This is a unique ID for a sensor for the time it is connected to the system, and is never reused for the lifetime of the application.</p>
+<p >The ID value starts at 0 and increments from there. The value -1 is an invalid ID. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a94a441696f7d053dd541ec0b7e00e33a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a441696f7d053dd541ec0b7e00e33a">&#9670;&nbsp;</a></span>SDL_SensorType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a94a441696f7d053dd541ec0b7e00e33aa473fc0b4fcd77e59c39260888a0fb6ed"></a>SDL_SENSOR_INVALID&#160;</td><td class="fielddoc"><p >Returned for an invalid sensor </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a94a441696f7d053dd541ec0b7e00e33aaa657e6c2ff14bfd73ec9cacc940d433f"></a>SDL_SENSOR_UNKNOWN&#160;</td><td class="fielddoc"><p >Unknown sensor type </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a94a441696f7d053dd541ec0b7e00e33aabb4f72e33919c7d6689ac33605fb3bc7"></a>SDL_SENSOR_ACCEL&#160;</td><td class="fielddoc"><p >Accelerometer </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a94a441696f7d053dd541ec0b7e00e33aa6f5ff988acabc5ac39635976f1c1ac56"></a>SDL_SENSOR_GYRO&#160;</td><td class="fielddoc"><p >Gyroscope </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a047fa18746e6ac5be4d20f6b7c481578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a047fa18746e6ac5be4d20f6b7c481578">&#9670;&nbsp;</a></span>SDL_LockSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LockSensors </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Gyroscope sensor</p>
+<p >The gyroscope returns the current rate of rotation in radians per second. The rotation is positive in the counter-clockwise direction. That is, an observer looking from a positive location on one of the axes would see positive rotation on that axis when it appeared to be rotating counter-clockwise.</p>
+<p >values[0]: Angular speed around the x axis (pitch) values[1]: Angular speed around the y axis (yaw) values[2]: Angular speed around the z axis (roll)</p>
+<p >For phones held in portrait mode and game controllers held in front of you, the axes are defined as follows: -X ... +X : left ... right -Y ... +Y : bottom ... top -Z ... +Z : farther ... closer</p>
+<p >The axis data is not changed when the phone or controller is rotated.</p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__video_8h.html#a6540db01a424ced1847376e583361ecb">SDL_GetDisplayOrientation()</a> Locking for multi-threaded access to the sensor API</dd></dl>
+<p>If you are using the sensor API or handling events from multiple threads you should use these locking functions to protect access to the sensors.</p>
+<p >In particular, you are guaranteed that the sensor list won't change, so the API functions that take a sensor index will be valid, and sensor events will not be delivered.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.14. </dd></dl>
+
+</div>
+</div>
+<a id="a398fee521f652c9c51b8865ea0c2aa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398fee521f652c9c51b8865ea0c2aa02">&#9670;&nbsp;</a></span>SDL_NumSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_NumSensors </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Count the number of sensors attached to the system right now.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>the number of sensors detected.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a4ff6e8813bb524a17f1d9b07d2a26005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff6e8813bb524a17f1d9b07d2a26005">&#9670;&nbsp;</a></span>SDL_SensorClose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_SensorClose </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Close a sensor previously opened with <a class="el" href="SDL__sensor_8h.html#a0cde1c9751f7b88c518aa2a88a4f6b2c">SDL_SensorOpen()</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object to close</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="ad3630c5ba0ca6d1ec6f7bccd09246c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3630c5ba0ca6d1ec6f7bccd09246c5c">&#9670;&nbsp;</a></span>SDL_SensorFromInstanceID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_Sensor* SDLCALL SDL_SensorFromInstanceID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a>&#160;</td>
+          <td class="paramname"><em>instance_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Return the SDL_Sensor associated with an instance id.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instance_id</td><td>The sensor from instance id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>an SDL_Sensor object.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a22466ee6b7af791937ebf1f7b76ed56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22466ee6b7af791937ebf1f7b76ed56b">&#9670;&nbsp;</a></span>SDL_SensorGetData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SensorGetData </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the current state of an opened sensor.</p>
+<p >The number of values and interpretation of the data is sensor dependent.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object to query </td></tr>
+    <tr><td class="paramname">data</td><td>A pointer filled with the current sensor state </td></tr>
+    <tr><td class="paramname">num_values</td><td>The number of values to write to data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 or -1 if an error occurred.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a52d83f263e764e3fe77932bd748d34e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d83f263e764e3fe77932bd748d34e8">&#9670;&nbsp;</a></span>SDL_SensorGetDeviceInstanceID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a> SDLCALL SDL_SensorGetDeviceInstanceID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>device_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the instance ID of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_index</td><td>The sensor to get instance id from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor instance ID, or -1 if <code>device_index</code> is out of range.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="ae21bffaff2dc86b80e80272aefadd6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae21bffaff2dc86b80e80272aefadd6a4">&#9670;&nbsp;</a></span>SDL_SensorGetDeviceName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC const char* SDLCALL SDL_SensorGetDeviceName </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>device_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the implementation dependent name of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_index</td><td>The sensor to obtain name from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor name, or NULL if <code>device_index</code> is out of range.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a735c61476c9cff3db9499dc258096096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735c61476c9cff3db9499dc258096096">&#9670;&nbsp;</a></span>SDL_SensorGetDeviceNonPortableType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SensorGetDeviceNonPortableType </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>device_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the platform dependent type of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_index</td><td>The sensor to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor platform dependent type, or -1 if <code>device_index</code> is out of range.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a2183f938cafa6fdd9363025c76502e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2183f938cafa6fdd9363025c76502e61">&#9670;&nbsp;</a></span>SDL_SensorGetDeviceType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> SDLCALL SDL_SensorGetDeviceType </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>device_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the type of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_index</td><td>The sensor to get the type from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the SDL_SensorType, or <code>SDL_SENSOR_INVALID</code> if <code>device_index</code> is out of range.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a94c4aaff92e0421a52bfbb0a2ac0129f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c4aaff92e0421a52bfbb0a2ac0129f">&#9670;&nbsp;</a></span>SDL_SensorGetInstanceID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a0cca37d0b39c2db41841f54308aee65b">SDL_SensorID</a> SDLCALL SDL_SensorGetInstanceID </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the instance ID of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object to inspect </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor instance ID, or -1 if <code>sensor</code> is NULL.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="afecccd2f9cb3d93c740c36929d88b9a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afecccd2f9cb3d93c740c36929d88b9a3">&#9670;&nbsp;</a></span>SDL_SensorGetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC const char* SDLCALL SDL_SensorGetName </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the implementation dependent name of a sensor</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor name, or NULL if <code>sensor</code> is NULL.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a98fe8a0c2dbefb69f59f0a07edefc129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98fe8a0c2dbefb69f59f0a07edefc129">&#9670;&nbsp;</a></span>SDL_SensorGetNonPortableType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SensorGetNonPortableType </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the platform dependent type of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object to inspect </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the sensor platform dependent type, or -1 if <code>sensor</code> is NULL.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a3d8e4d70062a1af56dea369a2a017907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8e4d70062a1af56dea369a2a017907">&#9670;&nbsp;</a></span>SDL_SensorGetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> SDLCALL SDL_SensorGetType </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Sensor *&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the type of a sensor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>The SDL_Sensor object to inspect </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the SDL_SensorType type, or <code>SDL_SENSOR_INVALID</code> if <code>sensor</code> is NULL.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a0cde1c9751f7b88c518aa2a88a4f6b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cde1c9751f7b88c518aa2a88a4f6b2c">&#9670;&nbsp;</a></span>SDL_SensorOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_Sensor* SDLCALL SDL_SensorOpen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>device_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Open a sensor for use.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device_index</td><td>The sensor to open </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>an SDL_Sensor sensor object, or NULL if an error occurred.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+<a id="a23afdba77827b8ad6c212eedce5c2069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23afdba77827b8ad6c212eedce5c2069">&#9670;&nbsp;</a></span>SDL_SensorUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_SensorUpdate </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Update the current state of the open sensors.</p>
+<p >This is called automatically by the event loop if sensor events are enabled.</p>
+<p >This needs to be called from the thread that initialized the sensor subsystem.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

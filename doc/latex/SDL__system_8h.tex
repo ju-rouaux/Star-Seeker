@@ -1,0 +1,53 @@
+\hypertarget{SDL__system_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+system.h}
+\label{SDL__system_8h}\index{include/SDL2/SDL\_system.h@{include/SDL2/SDL\_system.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+render.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__system_8h_a211a146233e8e37c64185105132e6257}{SDL\+\_\+\+Is\+Tablet}} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_ae3e44a610898157232a49a754fc3ab9a}\label{SDL__system_8h_ae3e44a610898157232a49a754fc3ab9a}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Will\+Terminate} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_ae0ff6644972f065a06072426a0f1691f}\label{SDL__system_8h_ae0ff6644972f065a06072426a0f1691f}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Did\+Receive\+Memory\+Warning} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_ad8e8c246a466b29a84a9018cb0803a55}\label{SDL__system_8h_ad8e8c246a466b29a84a9018cb0803a55}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Will\+Resign\+Active} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_af10116e8b6a71fb584a0cec7e582f9ec}\label{SDL__system_8h_af10116e8b6a71fb584a0cec7e582f9ec}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Did\+Enter\+Background} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_a4292c3354aed782e634ee116d23cfd26}\label{SDL__system_8h_a4292c3354aed782e634ee116d23cfd26}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Will\+Enter\+Foreground} (void)
+\item 
+\mbox{\Hypertarget{SDL__system_8h_a3e224d35ef257b2a7583e02ac9dabe90}\label{SDL__system_8h_a3e224d35ef257b2a7583e02ac9dabe90}} 
+DECLSPEC void SDLCALL {\bfseries SDL\+\_\+\+On\+Application\+Did\+Become\+Active} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for platform specific SDL API functions 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__system_8h_a211a146233e8e37c64185105132e6257}\label{SDL__system_8h_a211a146233e8e37c64185105132e6257}} 
+\index{SDL\_system.h@{SDL\_system.h}!SDL\_IsTablet@{SDL\_IsTablet}}
+\index{SDL\_IsTablet@{SDL\_IsTablet}!SDL\_system.h@{SDL\_system.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_IsTablet()}{SDL\_IsTablet()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Is\+Tablet (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Query if the current device is a tablet.
+
+If SDL can\textquotesingle{}t determine this, it will return SDL\+\_\+\+FALSE.
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the device is a tablet, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}

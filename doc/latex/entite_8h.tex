@@ -1,0 +1,154 @@
+\hypertarget{entite_8h}{}\doxysection{Référence du fichier include/entite.h}
+\label{entite_8h}\index{include/entite.h@{include/entite.h}}
+
+
+Module de manipulation des entites.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$animation.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$attributs\+\_\+entites.\+h$>$}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entite_8h_a2cbf188682c05adae88dc39bdd7ef995}\label{entite_8h_a2cbf188682c05adae88dc39bdd7ef995}} 
+typedef struct s\+\_\+entite {\bfseries t\+\_\+entite}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}\label{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}} 
+enum \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} \{ {\bfseries E\+\_\+\+AUCUN} = -\/1
+, {\bfseries E\+\_\+\+JOUEUR}
+, {\bfseries E\+\_\+\+MONSTRE}
+, {\bfseries E\+\_\+\+PROJECTILE}
+ \}
+\begin{DoxyCompactList}\small\item\em Identifiant permettant de reconnaitre la nature d\textquotesingle{}une entité. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{entite_8h_aaa46b794fb0a1e3bbdeda1552699b2f9}{dessiner\+Entite}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}entité à ses coordonnées, tout en gérant son animation s\textquotesingle{}il en possède une. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{entite_8h_a6a8da1bb938d887eff7742638a20f63f}{deplacer\+Entite}} (const \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Déplace l\textquotesingle{}entité selon sa direction et sa vitesse. L\textquotesingle{}entité n\textquotesingle{}est pas avancé si sa future position entraine une collision avec un mur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{entite_8h_a513005586a3e271551d04be4fabbcbcc}{ajouter\+Entite\+Liste}} (t\+\_\+liste $\ast$liste, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Ajoute une entité à la liste sans perturber son fonctionnement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$ \mbox{\hyperlink{entite_8h_a0fcc0be31f136b0b50fc2cd0ad80bb32}{creer\+Entite}} (float x, float y, SDL\+\_\+\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Génère une entité générique. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{entite_8h_a29f11ad700be8e6e8dc23d460863f78a}{detruire\+Entite}} (\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$entite)
+\begin{DoxyCompactList}\small\item\em Détruit une entité générique et mets sont pointeur à NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de manipulation des entites. 
+
+Pour faciliter le développement, ce module permet l\textquotesingle{}affichage et le déplacement automatique d\textquotesingle{}une entité selon ses paramètres.
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{entite_8h_a513005586a3e271551d04be4fabbcbcc}\label{entite_8h_a513005586a3e271551d04be4fabbcbcc}} 
+\index{entite.h@{entite.h}!ajouterEntiteListe@{ajouterEntiteListe}}
+\index{ajouterEntiteListe@{ajouterEntiteListe}!entite.h@{entite.h}}
+\doxysubsubsection{\texorpdfstring{ajouterEntiteListe()}{ajouterEntiteListe()}}
+{\footnotesize\ttfamily void ajouter\+Entite\+Liste (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{liste,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{entite }\end{DoxyParamCaption})}
+
+
+
+Ajoute une entité à la liste sans perturber son fonctionnement. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste} & La liste où ajouter l\textquotesingle{}entité \\
+\hline
+{\em entite} & L\textquotesingle{}entité à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{entite_8h_a0fcc0be31f136b0b50fc2cd0ad80bb32}\label{entite_8h_a0fcc0be31f136b0b50fc2cd0ad80bb32}} 
+\index{entite.h@{entite.h}!creerEntite@{creerEntite}}
+\index{creerEntite@{creerEntite}!entite.h@{entite.h}}
+\doxysubsubsection{\texorpdfstring{creerEntite()}{creerEntite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__entite}{t\+\_\+entite}}$\ast$ creer\+Entite (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Génère une entité générique. 
+
+Cette fonction est principalement utile pour créer une entité qui hérite des attributs de cette structure.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Position en x de l\textquotesingle{}entité \\
+\hline
+{\em y} & Position en y de l\textquotesingle{}entité \\
+\hline
+{\em texture} & Apparence de l\textquotesingle{}entité\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}adresse de l\textquotesingle{}entité créée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8h_a6a8da1bb938d887eff7742638a20f63f}\label{entite_8h_a6a8da1bb938d887eff7742638a20f63f}} 
+\index{entite.h@{entite.h}!deplacerEntite@{deplacerEntite}}
+\index{deplacerEntite@{deplacerEntite}!entite.h@{entite.h}}
+\doxysubsubsection{\texorpdfstring{deplacerEntite()}{deplacerEntite()}}
+{\footnotesize\ttfamily int deplacer\+Entite (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{entite }\end{DoxyParamCaption})}
+
+
+
+Déplace l\textquotesingle{}entité selon sa direction et sa vitesse. L\textquotesingle{}entité n\textquotesingle{}est pas avancé si sa future position entraine une collision avec un mur. 
+
+La fonction teste si une collision survient en traitant les deux axes de déplacement séparément afin que l\textquotesingle{}entité puisse glisser contre le mur s\textquotesingle{}il se dirige en diagonale au lieu de se voir annuler son déplacement.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Structure moteur du jeu \\
+\hline
+{\em entite} & L\textquotesingle{}entité à afficher\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si collision, sinon 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8h_aaa46b794fb0a1e3bbdeda1552699b2f9}\label{entite_8h_aaa46b794fb0a1e3bbdeda1552699b2f9}} 
+\index{entite.h@{entite.h}!dessinerEntite@{dessinerEntite}}
+\index{dessinerEntite@{dessinerEntite}!entite.h@{entite.h}}
+\doxysubsubsection{\texorpdfstring{dessinerEntite()}{dessinerEntite()}}
+{\footnotesize\ttfamily int dessiner\+Entite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{entite }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}entité à ses coordonnées, tout en gérant son animation s\textquotesingle{}il en possède une. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Structure moteur du jeu \\
+\hline
+{\em entite} & L\textquotesingle{}entité à afficher\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, sinon une valeur négative (SDL\+\_\+\+Error() pour connaitre l\textquotesingle{}erreur). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8h_a29f11ad700be8e6e8dc23d460863f78a}\label{entite_8h_a29f11ad700be8e6e8dc23d460863f78a}} 
+\index{entite.h@{entite.h}!detruireEntite@{detruireEntite}}
+\index{detruireEntite@{detruireEntite}!entite.h@{entite.h}}
+\doxysubsubsection{\texorpdfstring{detruireEntite()}{detruireEntite()}}
+{\footnotesize\ttfamily void detruire\+Entite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$}]{entite }\end{DoxyParamCaption})}
+
+
+
+Détruit une entité générique et mets sont pointeur à NULL. 
+
+Cette fonction détruit aussi l\textquotesingle{}animation si l\textquotesingle{}entité en a une.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em entite} & L\textquotesingle{}adresse du pointeur sur l\textquotesingle{}entité \\
+\hline
+\end{DoxyParams}

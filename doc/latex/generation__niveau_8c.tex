@@ -1,0 +1,224 @@
+\hypertarget{generation__niveau_8c}{}\doxysection{Référence du fichier src/generation\+\_\+niveau.c}
+\label{generation__niveau_8c}\index{src/generation\_niveau.c@{src/generation\_niveau.c}}
+
+
+Génération d\textquotesingle{}un niveau \+: l\textquotesingle{}agencement des salles et leurs ids.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+entites.\+h$>$}\newline
+{\ttfamily \#include $<$outils.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{generation__niveau_8c_a66270fcdcb042a93aac889629746d29e}{coordonnees\+\_\+valides}} (int i, int j)
+\item 
+static int \mbox{\hyperlink{generation__niveau_8c_a88b12fae0ea4f875e2140b4b8c90cfdb}{nb\+\_\+salles\+\_\+adjacentes\+\_\+dispo}} (int niv\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}, int i, int j, int compter\+Diagonales)
+\begin{DoxyCompactList}\small\item\em Compter les salles VIDE à côté de la salle (i, j). Possibilité de compter les voisines diagonales ou pas. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{generation__niveau_8c_a24d7a012e8a19020adeb3b54c9206704}{ajout\+\_\+salle\+\_\+adjacente}} (int niv\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}, int i, int j)
+\begin{DoxyCompactList}\small\item\em Crée une salle adjacente à un côté aléatoire de (i, j). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generation__niveau_8c_a569dea663f9c1d3a915208cfec1ee204}{identification\+Salles}} (int niv\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]})
+\begin{DoxyCompactList}\small\item\em Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generation__niveau_8c_abe2cbe39a51e047a5f86aca1c5b1a8e9}{definir\+\_\+coordonnees\+\_\+salle\+\_\+de\+\_\+fin}} (const int niv\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}, int $\ast$i\+\_\+fin, int $\ast$j\+\_\+fin)
+\begin{DoxyCompactList}\small\item\em Attribue à i\+\_\+fin et j\+\_\+fin les coordonnées de la salle finale du niveau. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generation__niveau_8c_a473bbe4bf876fe0199c27d10089c7914}{init\+\_\+niveau}} (int niv\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]})
+\begin{DoxyCompactList}\small\item\em initialise la matrice avec un niveau aléatoirement généré \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}{seed\+\_\+depuis\+\_\+mot}} (const char $\ast$mot)
+\begin{DoxyCompactList}\small\item\em Transforme arbitrairement un mot (lettres) en seed (entier) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}{couleur\+\_\+aleatoire}} (\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}} $\ast$couleur)
+\begin{DoxyCompactList}\small\item\em génère une couleur aléatoire en évitant les nuances de gris. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{generation__niveau_8c_adec97d0d2112b3247d1a5d6a39f094f7}{detruire\+\_\+niveau\+\_\+info}} (niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une information de niveau. \end{DoxyCompactList}\item 
+niveau\+\_\+informations\+\_\+t $\ast$ \mbox{\hyperlink{generation__niveau_8c_adf7304357c3cd12ea6d7c3ee7b07ca36}{creer\+\_\+niveau\+\_\+info}} (const char $\ast$nom\+\_\+planete)
+\begin{DoxyCompactList}\small\item\em Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Génération d\textquotesingle{}un niveau \+: l\textquotesingle{}agencement des salles et leurs ids. 
+
+\begin{DoxyAuthor}{Auteur}
+Camille REMOUÉ 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{generation__niveau_8c_a24d7a012e8a19020adeb3b54c9206704}\label{generation__niveau_8c_a24d7a012e8a19020adeb3b54c9206704}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!ajout\_salle\_adjacente@{ajout\_salle\_adjacente}}
+\index{ajout\_salle\_adjacente@{ajout\_salle\_adjacente}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{ajout\_salle\_adjacente()}{ajout\_salle\_adjacente()}}
+{\footnotesize\ttfamily static int ajout\+\_\+salle\+\_\+adjacente (\begin{DoxyParamCaption}\item[{int}]{niv\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]},  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Crée une salle adjacente à un côté aléatoire de (i, j). 
+
+Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de NOMBRE\+\_\+\+VOISINES\+\_\+\+DISPO\+\_\+\+NOUVELLE\+\_\+\+SALLE\+\_\+\+MIN \+: Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDE. Attention \+: la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niv} & Matrice principale \\
+\hline
+{\em i} & Coordonnée i \\
+\hline
+{\em j} & Coordonnée j\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+VRAI seulement si une nouvelle salle a été créée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__niveau_8c_a66270fcdcb042a93aac889629746d29e}\label{generation__niveau_8c_a66270fcdcb042a93aac889629746d29e}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!coordonnees\_valides@{coordonnees\_valides}}
+\index{coordonnees\_valides@{coordonnees\_valides}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{coordonnees\_valides()}{coordonnees\_valides()}}
+{\footnotesize\ttfamily static int coordonnees\+\_\+valides (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i} & Coordonnée i \\
+\hline
+{\em j} & Coordonnée j\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+VRAI seulement si les coordonnées sont à l\textquotesingle{}intérieur de la matrice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}\label{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!couleur\_aleatoire@{couleur\_aleatoire}}
+\index{couleur\_aleatoire@{couleur\_aleatoire}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{couleur\_aleatoire()}{couleur\_aleatoire()}}
+{\footnotesize\ttfamily static void couleur\+\_\+aleatoire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}} $\ast$}]{couleur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+génère une couleur aléatoire en évitant les nuances de gris. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em couleur} & La structure de retour \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__niveau_8c_adf7304357c3cd12ea6d7c3ee7b07ca36}\label{generation__niveau_8c_adf7304357c3cd12ea6d7c3ee7b07ca36}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!creer\_niveau\_info@{creer\_niveau\_info}}
+\index{creer\_niveau\_info@{creer\_niveau\_info}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{creer\_niveau\_info()}{creer\_niveau\_info()}}
+{\footnotesize\ttfamily niveau\+\_\+informations\+\_\+t$\ast$ creer\+\_\+niveau\+\_\+info (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nom\+\_\+planete }\end{DoxyParamCaption})}
+
+
+
+Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+\_\+planete} & Nom associé à un niveau unique \+: il génère la seed \\
+\hline
+\end{DoxyParams}
+!! A CALCULER\mbox{\Hypertarget{generation__niveau_8c_abe2cbe39a51e047a5f86aca1c5b1a8e9}\label{generation__niveau_8c_abe2cbe39a51e047a5f86aca1c5b1a8e9}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!definir\_coordonnees\_salle\_de\_fin@{definir\_coordonnees\_salle\_de\_fin}}
+\index{definir\_coordonnees\_salle\_de\_fin@{definir\_coordonnees\_salle\_de\_fin}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{definir\_coordonnees\_salle\_de\_fin()}{definir\_coordonnees\_salle\_de\_fin()}}
+{\footnotesize\ttfamily static void definir\+\_\+coordonnees\+\_\+salle\+\_\+de\+\_\+fin (\begin{DoxyParamCaption}\item[{const int}]{niv\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]},  }\item[{int $\ast$}]{i\+\_\+fin,  }\item[{int $\ast$}]{j\+\_\+fin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attribue à i\+\_\+fin et j\+\_\+fin les coordonnées de la salle finale du niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i\+\_\+fin} & \\
+\hline
+{\em j\+\_\+fin} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__niveau_8c_adec97d0d2112b3247d1a5d6a39f094f7}\label{generation__niveau_8c_adec97d0d2112b3247d1a5d6a39f094f7}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!detruire\_niveau\_info@{detruire\_niveau\_info}}
+\index{detruire\_niveau\_info@{detruire\_niveau\_info}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{detruire\_niveau\_info()}{detruire\_niveau\_info()}}
+{\footnotesize\ttfamily void detruire\+\_\+niveau\+\_\+info (\begin{DoxyParamCaption}\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée à une information de niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & L\textquotesingle{}adresse de la structure à libérer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__niveau_8c_a569dea663f9c1d3a915208cfec1ee204}\label{generation__niveau_8c_a569dea663f9c1d3a915208cfec1ee204}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!identificationSalles@{identificationSalles}}
+\index{identificationSalles@{identificationSalles}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{identificationSalles()}{identificationSalles()}}
+{\footnotesize\ttfamily static void identification\+Salles (\begin{DoxyParamCaption}\item[{int}]{niv\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niv} & La matrice du niveau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__niveau_8c_a473bbe4bf876fe0199c27d10089c7914}\label{generation__niveau_8c_a473bbe4bf876fe0199c27d10089c7914}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!init\_niveau@{init\_niveau}}
+\index{init\_niveau@{init\_niveau}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{init\_niveau()}{init\_niveau()}}
+{\footnotesize\ttfamily static void init\+\_\+niveau (\begin{DoxyParamCaption}\item[{int}]{niv\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+initialise la matrice avec un niveau aléatoirement généré 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niv} & La matrice de sortie \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__niveau_8c_a88b12fae0ea4f875e2140b4b8c90cfdb}\label{generation__niveau_8c_a88b12fae0ea4f875e2140b4b8c90cfdb}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!nb\_salles\_adjacentes\_dispo@{nb\_salles\_adjacentes\_dispo}}
+\index{nb\_salles\_adjacentes\_dispo@{nb\_salles\_adjacentes\_dispo}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{nb\_salles\_adjacentes\_dispo()}{nb\_salles\_adjacentes\_dispo()}}
+{\footnotesize\ttfamily static int nb\+\_\+salles\+\_\+adjacentes\+\_\+dispo (\begin{DoxyParamCaption}\item[{int}]{niv\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]},  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{compter\+Diagonales }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Compter les salles VIDE à côté de la salle (i, j). Possibilité de compter les voisines diagonales ou pas. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niv} & Matrice principale \\
+\hline
+{\em i} & Coordonnée i \\
+\hline
+{\em j} & Coordonnée j \\
+\hline
+{\em compter\+Diagonales} & Si égal à 0, ne pas compter les voisines diagonales. Toute autre valeur les prend en compte.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nombre de cases VIDE adjacentes à la case (i, j) \+: 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}\label{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}} 
+\index{generation\_niveau.c@{generation\_niveau.c}!seed\_depuis\_mot@{seed\_depuis\_mot}}
+\index{seed\_depuis\_mot@{seed\_depuis\_mot}!generation\_niveau.c@{generation\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{seed\_depuis\_mot()}{seed\_depuis\_mot()}}
+{\footnotesize\ttfamily int seed\+\_\+depuis\+\_\+mot (\begin{DoxyParamCaption}\item[{const char $\ast$}]{mot }\end{DoxyParamCaption})}
+
+
+
+Transforme arbitrairement un mot (lettres) en seed (entier) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & chaine de caractères en entrée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La seed correspondant au mot. 
+\end{DoxyReturn}

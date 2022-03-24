@@ -1,0 +1,1025 @@
+\hypertarget{SDL__rwops_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+rwops.h}
+\label{SDL__rwops_8h}\index{include/SDL2/SDL\_rwops.h@{include/SDL2/SDL\_rwops.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_abefd1a35086e97620beffc2c069bd97d}{SDL\+\_\+\+RWOPS\+\_\+\+UNKNOWN}}~0U
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_ad979b58d7905cfd8af0bab9ed97c1685}{SDL\+\_\+\+RWOPS\+\_\+\+WINFILE}}~1U
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_a054a717fd0b1a2f175e2e822e1ecc67d}{SDL\+\_\+\+RWOPS\+\_\+\+STDFILE}}~2U
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_ad1e973a8b9f9c6cae33f2870c9f76b7d}{SDL\+\_\+\+RWOPS\+\_\+\+JNIFILE}}~3U
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_a1120765c20af356803b2beb6709e6749}{SDL\+\_\+\+RWOPS\+\_\+\+MEMORY}}~4U
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_a145dd63b72548f37e2fdd9de8bf15bbc}{SDL\+\_\+\+RWOPS\+\_\+\+MEMORY\+\_\+\+RO}}~5U
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} \mbox{\hyperlink{SDL__rwops_8h_a74ae02b3c98390e2792749c53329cc23}{SDL\+\_\+\+RWops}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{Indent}\textbf{ Read endian functions}\par
+{\em Read an item of the specified endianness and return in native format. }\begin{DoxyCompactItemize}
+\item 
+DECLSPEC Uint8 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ab864094eb6b80fbf0c77d34ecdde7907}{SDL\+\_\+\+Read\+U8}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a7274f5c4b6f22a6b742ec6ef4f9d390b}{SDL\+\_\+\+Read\+LE16}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a3cdf85a50e40dc58536930429b7b4d09}{SDL\+\_\+\+Read\+BE16}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a8320334c299a3631fd6beb9937c30f04}{SDL\+\_\+\+Read\+LE32}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_af023e134e3ae87b1595306e5faeaab76}{SDL\+\_\+\+Read\+BE32}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint64 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_af7e5d9b56874b8bd3a8a6a0c5393c33d}{SDL\+\_\+\+Read\+LE64}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\item 
+DECLSPEC Uint64 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a4917dc584d162bc5f28b63843557214e}{SDL\+\_\+\+Read\+BE64}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Write endian functions}\par
+{\em Write an item of native format to the specified endianness. }\begin{DoxyCompactItemize}
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a07c817f8360ddc8c8983d12373306555}{SDL\+\_\+\+Write\+U8}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint8 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_aa4a7df8d967c5751e3f0974743b9c2d4}{SDL\+\_\+\+Write\+LE16}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint16 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ab84ea778a5f8f76cd73a52216c2c08f5}{SDL\+\_\+\+Write\+BE16}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint16 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a84f37961925773fe8b06ea09ed144568}{SDL\+\_\+\+Write\+LE32}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint32 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a5debf04eeed819018ddd9a2f70d32c89}{SDL\+\_\+\+Write\+BE32}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint32 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ae4f9b45fbb3bf4a40f3f308419307e6b}{SDL\+\_\+\+Write\+LE64}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint64 value)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a0422f79e1889750cf99310e968cb76fc}{SDL\+\_\+\+Write\+BE64}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$dst, Uint64 value)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{RWFrom functions}
+\label{_amgrp62de7a3fffaa5d9dd1e07f650daede2b}%
+Functions to create \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structures from various data streams. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_ac028b032bb8230df64bc6284e04789f5}{RW\+\_\+\+SEEK\+\_\+\+SET}}~0
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_aba5f3b60c197def370ffa2ca1ab1348d}{RW\+\_\+\+SEEK\+\_\+\+CUR}}~1
+\item 
+\#define \mbox{\hyperlink{SDL__rwops_8h_a6cf141faabd1b8f2ec3c03cf76eaf553}{RW\+\_\+\+SEEK\+\_\+\+END}}~2
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} (const char $\ast$file, const char $\ast$mode)
+\item 
+\mbox{\Hypertarget{SDL__rwops_8h_a53e066cae0672b16506a4204bb719e95}\label{SDL__rwops_8h_a53e066cae0672b16506a4204bb719e95}} 
+DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$SDLCALL {\bfseries SDL\+\_\+\+RWFrom\+FP} (FILE $\ast$fp, SDL\+\_\+bool autoclose)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} (void $\ast$mem, int size)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} (const void $\ast$mem, int size)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}{SDL\+\_\+\+Alloc\+RW}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$area)
+\item 
+DECLSPEC Sint64 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ab311e9e01e66dde338349b5988008f79}{SDL\+\_\+\+RWsize}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context)
+\item 
+DECLSPEC Sint64 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context, Sint64 offset, int whence)
+\item 
+DECLSPEC Sint64 SDLCALL \mbox{\hyperlink{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}{SDL\+\_\+\+RWtell}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context, void $\ast$ptr, size\+\_\+t size, size\+\_\+t maxnum)
+\item 
+DECLSPEC size\+\_\+t SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context, const void $\ast$ptr, size\+\_\+t size, size\+\_\+t num)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ab80a1b522d2fbbae8ed5610d029fcfda}{SDL\+\_\+\+Load\+File\+\_\+\+RW}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src, size\+\_\+t $\ast$datasize, int freesrc)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__rwops_8h_ac259a2d74dfea39864bf3840ee126837}{SDL\+\_\+\+Load\+File}} (const char $\ast$file, size\+\_\+t $\ast$datasize)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file provides a general interface for SDL to read and write data streams. It can easily be extended to files, memory, etc. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__rwops_8h_aba5f3b60c197def370ffa2ca1ab1348d}\label{SDL__rwops_8h_aba5f3b60c197def370ffa2ca1ab1348d}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!RW\_SEEK\_CUR@{RW\_SEEK\_CUR}}
+\index{RW\_SEEK\_CUR@{RW\_SEEK\_CUR}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{RW\_SEEK\_CUR}{RW\_SEEK\_CUR}}
+{\footnotesize\ttfamily \#define RW\+\_\+\+SEEK\+\_\+\+CUR~1}
+
+Seek relative to current read point \mbox{\Hypertarget{SDL__rwops_8h_a6cf141faabd1b8f2ec3c03cf76eaf553}\label{SDL__rwops_8h_a6cf141faabd1b8f2ec3c03cf76eaf553}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!RW\_SEEK\_END@{RW\_SEEK\_END}}
+\index{RW\_SEEK\_END@{RW\_SEEK\_END}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{RW\_SEEK\_END}{RW\_SEEK\_END}}
+{\footnotesize\ttfamily \#define RW\+\_\+\+SEEK\+\_\+\+END~2}
+
+Seek relative to the end of data \mbox{\Hypertarget{SDL__rwops_8h_ac028b032bb8230df64bc6284e04789f5}\label{SDL__rwops_8h_ac028b032bb8230df64bc6284e04789f5}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!RW\_SEEK\_SET@{RW\_SEEK\_SET}}
+\index{RW\_SEEK\_SET@{RW\_SEEK\_SET}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{RW\_SEEK\_SET}{RW\_SEEK\_SET}}
+{\footnotesize\ttfamily \#define RW\+\_\+\+SEEK\+\_\+\+SET~0}
+
+Seek from the beginning of data \mbox{\Hypertarget{SDL__rwops_8h_ad1e973a8b9f9c6cae33f2870c9f76b7d}\label{SDL__rwops_8h_ad1e973a8b9f9c6cae33f2870c9f76b7d}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_JNIFILE@{SDL\_RWOPS\_JNIFILE}}
+\index{SDL\_RWOPS\_JNIFILE@{SDL\_RWOPS\_JNIFILE}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_JNIFILE}{SDL\_RWOPS\_JNIFILE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+JNIFILE~3U}
+
+Android asset \mbox{\Hypertarget{SDL__rwops_8h_a1120765c20af356803b2beb6709e6749}\label{SDL__rwops_8h_a1120765c20af356803b2beb6709e6749}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_MEMORY@{SDL\_RWOPS\_MEMORY}}
+\index{SDL\_RWOPS\_MEMORY@{SDL\_RWOPS\_MEMORY}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_MEMORY}{SDL\_RWOPS\_MEMORY}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+MEMORY~4U}
+
+Memory stream \mbox{\Hypertarget{SDL__rwops_8h_a145dd63b72548f37e2fdd9de8bf15bbc}\label{SDL__rwops_8h_a145dd63b72548f37e2fdd9de8bf15bbc}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_MEMORY\_RO@{SDL\_RWOPS\_MEMORY\_RO}}
+\index{SDL\_RWOPS\_MEMORY\_RO@{SDL\_RWOPS\_MEMORY\_RO}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_MEMORY\_RO}{SDL\_RWOPS\_MEMORY\_RO}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+MEMORY\+\_\+\+RO~5U}
+
+Read-\/\+Only memory stream \mbox{\Hypertarget{SDL__rwops_8h_a054a717fd0b1a2f175e2e822e1ecc67d}\label{SDL__rwops_8h_a054a717fd0b1a2f175e2e822e1ecc67d}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_STDFILE@{SDL\_RWOPS\_STDFILE}}
+\index{SDL\_RWOPS\_STDFILE@{SDL\_RWOPS\_STDFILE}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_STDFILE}{SDL\_RWOPS\_STDFILE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+STDFILE~2U}
+
+Stdio file \mbox{\Hypertarget{SDL__rwops_8h_abefd1a35086e97620beffc2c069bd97d}\label{SDL__rwops_8h_abefd1a35086e97620beffc2c069bd97d}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_UNKNOWN@{SDL\_RWOPS\_UNKNOWN}}
+\index{SDL\_RWOPS\_UNKNOWN@{SDL\_RWOPS\_UNKNOWN}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_UNKNOWN}{SDL\_RWOPS\_UNKNOWN}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+UNKNOWN~0U}
+
+Unknown stream type \mbox{\Hypertarget{SDL__rwops_8h_ad979b58d7905cfd8af0bab9ed97c1685}\label{SDL__rwops_8h_ad979b58d7905cfd8af0bab9ed97c1685}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWOPS\_WINFILE@{SDL\_RWOPS\_WINFILE}}
+\index{SDL\_RWOPS\_WINFILE@{SDL\_RWOPS\_WINFILE}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWOPS\_WINFILE}{SDL\_RWOPS\_WINFILE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+RWOPS\+\_\+\+WINFILE~1U}
+
+Win32 file 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__rwops_8h_a74ae02b3c98390e2792749c53329cc23}\label{SDL__rwops_8h_a74ae02b3c98390e2792749c53329cc23}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWops@{SDL\_RWops}}
+\index{SDL\_RWops@{SDL\_RWops}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWops}{SDL\_RWops}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}}
+
+This is the read/write operation structure -- very basic. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}\label{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_AllocRW@{SDL\_AllocRW}}
+\index{SDL\_AllocRW@{SDL\_AllocRW}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AllocRW()}{SDL\_AllocRW()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}$\ast$ SDLCALL SDL\+\_\+\+Alloc\+RW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use this function to allocate an empty, unpopulated \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure.
+
+Applications do not need to use this function unless they are providing their own \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} implementation. If you just need a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to read/write a common data source, you should use the built-\/in implementations in SDL, like \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File()}} or \mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem()}}, etc.
+
+You must free the returned pointer with \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW()}}. Depending on your operating system and compiler, there may be a difference between the malloc() and free() your program uses and the versions SDL calls internally. Trying to mix the two can cause crashing such as segmentation faults. Since all \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} must free themselves when their {\bfseries{close}} method is called, all \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} must be allocated through this function, so they can all be freed correctly with \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW()}}.
+
+\begin{DoxyReturn}{Renvoie}
+a pointer to the allocated memory on success, or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}\label{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_FreeRW@{SDL\_FreeRW}}
+\index{SDL\_FreeRW@{SDL\_FreeRW}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreeRW()}{SDL\_FreeRW()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{area }\end{DoxyParamCaption})}
+
+Use this function to free an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure allocated by \mbox{\hyperlink{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}{SDL\+\_\+\+Alloc\+RW()}}.
+
+Applications do not need to use this function unless they are providing their own \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} implementation. If you just need a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to read/write a common data source, you should use the built-\/in implementations in SDL, like \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File()}} or \mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem()}}, etc, and call the {\bfseries{close}} method on those \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} pointers when you are done with them.
+
+Only use \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW()}} on pointers returned by \mbox{\hyperlink{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}{SDL\+\_\+\+Alloc\+RW()}}. The pointer is invalid as soon as this function returns. Any extra memory allocated during creation of the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} is not freed by \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW()}}; the programmer must be responsible for managing that memory in their {\bfseries{close}} method.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em area} & the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure to be freed\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a02d04e13c85cd28706b8c3881c32dd46}{SDL\+\_\+\+Alloc\+RW}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ac259a2d74dfea39864bf3840ee126837}\label{SDL__rwops_8h_ac259a2d74dfea39864bf3840ee126837}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_LoadFile@{SDL\_LoadFile}}
+\index{SDL\_LoadFile@{SDL\_LoadFile}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadFile()}{SDL\_LoadFile()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Load\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file,  }\item[{size\+\_\+t $\ast$}]{datasize }\end{DoxyParamCaption})}
+
+Load all the data from a file path.
+
+The data is allocated with a zero byte at the end (null terminated) for convenience. This extra byte is not included in the value reported via {\ttfamily datasize}.
+
+The data should be freed with SDL\+\_\+free().
+
+Prior to SDL 2.\+0.\+10, this function was a macro wrapping around SDL\+\_\+\+Load\+File\+\_\+\+RW.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file} & the path to read all available data from \\
+\hline
+{\em datasize} & if not NULL, will store the number of bytes read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the data, or NULL if there was an error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__rwops_8h_ab80a1b522d2fbbae8ed5610d029fcfda}\label{SDL__rwops_8h_ab80a1b522d2fbbae8ed5610d029fcfda}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_LoadFile\_RW@{SDL\_LoadFile\_RW}}
+\index{SDL\_LoadFile\_RW@{SDL\_LoadFile\_RW}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadFile\_RW()}{SDL\_LoadFile\_RW()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Load\+File\+\_\+\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src,  }\item[{size\+\_\+t $\ast$}]{datasize,  }\item[{int}]{freesrc }\end{DoxyParamCaption})}
+
+Load all the data from an SDL data stream.
+
+The data is allocated with a zero byte at the end (null terminated) for convenience. This extra byte is not included in the value reported via {\ttfamily datasize}.
+
+The data should be freed with SDL\+\_\+free().
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to read all available data from \\
+\hline
+{\em datasize} & if not NULL, will store the number of bytes read \\
+\hline
+{\em freesrc} & if non-\/zero, calls \mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose()}} on {\ttfamily src} before returning \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the data, or NULL if there was an error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__rwops_8h_a3cdf85a50e40dc58536930429b7b4d09}\label{SDL__rwops_8h_a3cdf85a50e40dc58536930429b7b4d09}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadBE16@{SDL\_ReadBE16}}
+\index{SDL\_ReadBE16@{SDL\_ReadBE16}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadBE16()}{SDL\_ReadBE16()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Read\+BE16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 16 bits of big-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+16 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a7274f5c4b6f22a6b742ec6ef4f9d390b}{SDL\+\_\+\+Read\+LE16}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_af023e134e3ae87b1595306e5faeaab76}\label{SDL__rwops_8h_af023e134e3ae87b1595306e5faeaab76}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadBE32@{SDL\_ReadBE32}}
+\index{SDL\_ReadBE32@{SDL\_ReadBE32}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadBE32()}{SDL\_ReadBE32()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Read\+BE32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 32 bits of big-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+32 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a8320334c299a3631fd6beb9937c30f04}{SDL\+\_\+\+Read\+LE32}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a4917dc584d162bc5f28b63843557214e}\label{SDL__rwops_8h_a4917dc584d162bc5f28b63843557214e}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadBE64@{SDL\_ReadBE64}}
+\index{SDL\_ReadBE64@{SDL\_ReadBE64}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadBE64()}{SDL\_ReadBE64()}}
+{\footnotesize\ttfamily DECLSPEC Uint64 SDLCALL SDL\+\_\+\+Read\+BE64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 64 bits of big-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+64 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_af7e5d9b56874b8bd3a8a6a0c5393c33d}{SDL\+\_\+\+Read\+LE64}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a7274f5c4b6f22a6b742ec6ef4f9d390b}\label{SDL__rwops_8h_a7274f5c4b6f22a6b742ec6ef4f9d390b}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadLE16@{SDL\_ReadLE16}}
+\index{SDL\_ReadLE16@{SDL\_ReadLE16}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadLE16()}{SDL\_ReadLE16()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Read\+LE16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 16 bits of little-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+16 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a3cdf85a50e40dc58536930429b7b4d09}{SDL\+\_\+\+Read\+BE16}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a8320334c299a3631fd6beb9937c30f04}\label{SDL__rwops_8h_a8320334c299a3631fd6beb9937c30f04}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadLE32@{SDL\_ReadLE32}}
+\index{SDL\_ReadLE32@{SDL\_ReadLE32}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadLE32()}{SDL\_ReadLE32()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Read\+LE32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 32 bits of little-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+32 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_af023e134e3ae87b1595306e5faeaab76}{SDL\+\_\+\+Read\+BE32}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_af7e5d9b56874b8bd3a8a6a0c5393c33d}\label{SDL__rwops_8h_af7e5d9b56874b8bd3a8a6a0c5393c33d}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadLE64@{SDL\_ReadLE64}}
+\index{SDL\_ReadLE64@{SDL\_ReadLE64}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadLE64()}{SDL\_ReadLE64()}}
+{\footnotesize\ttfamily DECLSPEC Uint64 SDLCALL SDL\+\_\+\+Read\+LE64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read 64 bits of little-\/endian data from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} and return in native format.
+
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the stream from which to read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+64 bits of data in the native byte order of the platform.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4917dc584d162bc5f28b63843557214e}{SDL\+\_\+\+Read\+BE64}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ab864094eb6b80fbf0c77d34ecdde7907}\label{SDL__rwops_8h_ab864094eb6b80fbf0c77d34ecdde7907}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_ReadU8@{SDL\_ReadU8}}
+\index{SDL\_ReadU8@{SDL\_ReadU8}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ReadU8()}{SDL\_ReadU8()}}
+{\footnotesize\ttfamily DECLSPEC Uint8 SDLCALL SDL\+\_\+\+Read\+U8 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Use this function to read a byte from an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the read byte on success or 0 on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a07c817f8360ddc8c8983d12373306555}{SDL\+\_\+\+Write\+U8}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}\label{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWclose@{SDL\_RWclose}}
+\index{SDL\_RWclose@{SDL\_RWclose}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWclose()}{SDL\_RWclose()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+RWclose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+Close and free an allocated \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure.
+
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose()}} closes and cleans up the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} stream. It releases any resources used by the stream and frees the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} itself with \mbox{\hyperlink{SDL__rwops_8h_ac4c87c7bed186ea1a98531164ff1acfa}{SDL\+\_\+\+Free\+RW()}}. This returns 0 on success, or -\/1 if the stream failed to flush to its output (e.\+g. to disk).
+
+Note that if this fails to flush the stream to disk, this function reports an error, but the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} is still invalid once this function returns.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure to close \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}\label{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWFromConstMem@{SDL\_RWFromConstMem}}
+\index{SDL\_RWFromConstMem@{SDL\_RWFromConstMem}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWFromConstMem()}{SDL\_RWFromConstMem()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}$\ast$ SDLCALL SDL\+\_\+\+RWFrom\+Const\+Mem (\begin{DoxyParamCaption}\item[{const void $\ast$}]{mem,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Use this function to prepare a read-\/only memory buffer for use with RWops.
+
+This function sets up an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} struct based on a memory area of a certain size. It assumes the memory area is not writable.
+
+Attempting to write to this RWops stream will report an error without writing to the memory buffer.
+
+This memory buffer is not copied by the RWops; the pointer you provide must remain valid until you close the stream. Closing the stream will not free the original buffer.
+
+If you need to write to a memory buffer, you should use \mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem()}} with a writable buffer of memory instead.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mem} & a pointer to a read-\/only buffer to feed an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} stream \\
+\hline
+{\em size} & the buffer size, in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a new \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure, or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}{SDL\+\_\+\+RWtell}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}\label{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWFromFile@{SDL\_RWFromFile}}
+\index{SDL\_RWFromFile@{SDL\_RWFromFile}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWFromFile()}{SDL\_RWFromFile()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}$\ast$ SDLCALL SDL\+\_\+\+RWFrom\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+Use this function to create a new \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure for reading from and/or writing to a named file.
+
+The {\ttfamily mode} string is treated roughly the same as in a call to the C library\textquotesingle{}s fopen(), even if SDL doesn\textquotesingle{}t happen to use fopen() behind the scenes.
+
+Available {\ttfamily mode} strings\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}r\char`\"{}\+: Open a file for reading. The file must exist.
+\item \char`\"{}w\char`\"{}\+: Create an empty file for writing. If a file with the same name already exists its content is erased and the file is treated as a new empty file.
+\item \char`\"{}a\char`\"{}\+: Append to a file. Writing operations append data at the end of the file. The file is created if it does not exist.
+\item \char`\"{}r+\char`\"{}\+: Open a file for update both reading and writing. The file must exist.
+\item \char`\"{}w+\char`\"{}\+: Create an empty file for both reading and writing. If a file with the same name already exists its content is erased and the file is treated as a new empty file.
+\item \char`\"{}a+\char`\"{}\+: Open a file for reading and appending. All writing operations are performed at the end of the file, protecting the previous content to be overwritten. You can reposition (fseek, rewind) the internal pointer to anywhere in the file for reading, but writing operations will move it back to the end of file. The file is created if it does not exist.
+\end{DoxyItemize}
+
+{\bfseries{NOTE}}\+: In order to open a file as a binary file, a \char`\"{}b\char`\"{} character has to be included in the {\ttfamily mode} string. This additional \char`\"{}b\char`\"{} character can either be appended at the end of the string (thus making the following compound modes\+: \char`\"{}rb\char`\"{}, \char`\"{}wb\char`\"{}, \char`\"{}ab\char`\"{}, \char`\"{}r+b\char`\"{}, \char`\"{}w+b\char`\"{}, \char`\"{}a+b\char`\"{}) or be inserted between the letter and the \char`\"{}+\char`\"{} sign for the mixed modes (\char`\"{}rb+\char`\"{}, \char`\"{}wb+\char`\"{}, \char`\"{}ab+\char`\"{}). Additional characters may follow the sequence, although they should have no effect. For example, \char`\"{}t\char`\"{} is sometimes appended to make explicit the file is a text file.
+
+This function supports Unicode filenames, but they must be encoded in UTF-\/8 format, regardless of the underlying operating system.
+
+As a fallback, \mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File()}} will transparently open a matching filename in an Android app\textquotesingle{}s {\ttfamily assets}.
+
+Closing the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} will close the file handle SDL is holding internally.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file} & a UTF-\/8 string representing the filename to open \\
+\hline
+{\em mode} & an ASCII string representing the mode to be used for opening the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure that is created, or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}{SDL\+\_\+\+RWtell}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}\label{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWFromMem@{SDL\_RWFromMem}}
+\index{SDL\_RWFromMem@{SDL\_RWFromMem}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWFromMem()}{SDL\_RWFromMem()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}$\ast$ SDLCALL SDL\+\_\+\+RWFrom\+Mem (\begin{DoxyParamCaption}\item[{void $\ast$}]{mem,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Use this function to prepare a read-\/write memory buffer for use with \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}.
+
+This function sets up an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} struct based on a memory area of a certain size, for both read and write access.
+
+This memory buffer is not copied by the RWops; the pointer you provide must remain valid until you close the stream. Closing the stream will not free the original buffer.
+
+If you need to make sure the RWops never writes to the memory buffer, you should use \mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem()}} with a read-\/only buffer of memory instead.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mem} & a pointer to a buffer to feed an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} stream \\
+\hline
+{\em size} & the buffer size, in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a new \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure, or NULL if it fails; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}{SDL\+\_\+\+RWtell}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}\label{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWread@{SDL\_RWread}}
+\index{SDL\_RWread@{SDL\_RWread}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWread()}{SDL\_RWread()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+RWread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context,  }\item[{void $\ast$}]{ptr,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{maxnum }\end{DoxyParamCaption})}
+
+Read from a data source.
+
+This function reads up to {\ttfamily maxnum} objects each of size {\ttfamily size} from the data source to the area pointed at by {\ttfamily ptr}. This function may read less objects than requested. It will return zero when there has been an error or the data stream is completely read.
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread()}} is actually a function wrapper that calls the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}\textquotesingle{}s {\ttfamily read} method appropriately, to simplify application development.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & a pointer to an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure \\
+\hline
+{\em ptr} & a pointer to a buffer to read data into \\
+\hline
+{\em size} & the size of each object to read, in bytes \\
+\hline
+{\em maxnum} & the maximum number of objects to be read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of objects read, or 0 at error or end of file; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}\label{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWseek@{SDL\_RWseek}}
+\index{SDL\_RWseek@{SDL\_RWseek}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWseek()}{SDL\_RWseek()}}
+{\footnotesize\ttfamily DECLSPEC Sint64 SDLCALL SDL\+\_\+\+RWseek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context,  }\item[{Sint64}]{offset,  }\item[{int}]{whence }\end{DoxyParamCaption})}
+
+Seek within an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} data stream.
+
+This function seeks to byte {\ttfamily offset}, relative to {\ttfamily whence}.
+
+{\ttfamily whence} may be any of the following values\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily RW\+\_\+\+SEEK\+\_\+\+SET}\+: seek from the beginning of data
+\item {\ttfamily RW\+\_\+\+SEEK\+\_\+\+CUR}\+: seek relative to current read point
+\item {\ttfamily RW\+\_\+\+SEEK\+\_\+\+END}\+: seek relative to the end of data
+\end{DoxyItemize}
+
+If this stream can not seek, it will return -\/1.
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek()}} is actually a wrapper function that calls the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}\textquotesingle{}s {\ttfamily seek} method appropriately, to simplify application development.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & a pointer to an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure \\
+\hline
+{\em offset} & an offset in bytes, relative to {\bfseries{whence}} location; can be negative \\
+\hline
+{\em whence} & any of {\ttfamily RW\+\_\+\+SEEK\+\_\+\+SET}, {\ttfamily RW\+\_\+\+SEEK\+\_\+\+CUR}, {\ttfamily RW\+\_\+\+SEEK\+\_\+\+END} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the final offset in the data stream after the seek or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}{SDL\+\_\+\+RWtell}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ab311e9e01e66dde338349b5988008f79}\label{SDL__rwops_8h_ab311e9e01e66dde338349b5988008f79}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWsize@{SDL\_RWsize}}
+\index{SDL\_RWsize@{SDL\_RWsize}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWsize()}{SDL\_RWsize()}}
+{\footnotesize\ttfamily DECLSPEC Sint64 SDLCALL SDL\+\_\+\+RWsize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+Use this function to get the size of the data stream in an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to get the size of the data stream from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the size of the data stream in the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} on success, -\/1 if unknown or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}\label{SDL__rwops_8h_aade1cc6bf5cd0972c64f1bc032bdece6}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWtell@{SDL\_RWtell}}
+\index{SDL\_RWtell@{SDL\_RWtell}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWtell()}{SDL\_RWtell()}}
+{\footnotesize\ttfamily DECLSPEC Sint64 SDLCALL SDL\+\_\+\+RWtell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+Determine the current read/write offset in an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} data stream.
+
+SDL\+\_\+\+RWtell is actually a wrapper function that calls the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}\textquotesingle{}s {\ttfamily seek} method, with an offset of 0 bytes from {\ttfamily RW\+\_\+\+SEEK\+\_\+\+CUR}, to simplify application development.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} data stream object from which to get the current offset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current offset in the stream, or -\/1 if the information can not be determined.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}{SDL\+\_\+\+RWwrite}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}\label{SDL__rwops_8h_ada3c6d29d2fc5f0367abdcbfc2f2896a}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_RWwrite@{SDL\_RWwrite}}
+\index{SDL\_RWwrite@{SDL\_RWwrite}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RWwrite()}{SDL\_RWwrite()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+RWwrite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{context,  }\item[{const void $\ast$}]{ptr,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+Write to an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} data stream.
+
+This function writes exactly {\ttfamily num} objects each of size {\ttfamily size} from the area pointed at by {\ttfamily ptr} to the stream. If this fails for any reason, it\textquotesingle{}ll return less than {\ttfamily num} to demonstrate how far the write progressed. On success, it returns {\ttfamily num}.
+
+SDL\+\_\+\+RWwrite is actually a function wrapper that calls the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}\textquotesingle{}s {\ttfamily write} method appropriately, to simplify application development.
+
+Prior to SDL 2.\+0.\+10, this function was a macro.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em context} & a pointer to an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure \\
+\hline
+{\em ptr} & a pointer to a buffer containing data to write \\
+\hline
+{\em size} & the size of an object to write, in bytes \\
+\hline
+{\em num} & the number of objects to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of objects written, which will be less than {\bfseries{num}} on error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a4e432d6d008ad176b7653b4797de12e9}{SDL\+\_\+\+RWclose}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a51b4be80c4647e8a473b6b9fed03b1a6}{SDL\+\_\+\+RWFrom\+Const\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}} 
+
+SDL\+\_\+\+RWFrom\+FP 
+
+\mbox{\hyperlink{SDL__rwops_8h_ae6f34841ce63d08597477558ffc0278e}{SDL\+\_\+\+RWFrom\+Mem}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a7496ce8759fe964ee40cd6fbfa4b82f9}{SDL\+\_\+\+RWread}} 
+
+\mbox{\hyperlink{SDL__rwops_8h_a2bd3bfec48d375b5e761a5f7f3138766}{SDL\+\_\+\+RWseek}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ab84ea778a5f8f76cd73a52216c2c08f5}\label{SDL__rwops_8h_ab84ea778a5f8f76cd73a52216c2c08f5}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteBE16@{SDL\_WriteBE16}}
+\index{SDL\_WriteBE16@{SDL\_WriteBE16}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteBE16()}{SDL\_WriteBE16()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+BE16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint16}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 16 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as big-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_aa4a7df8d967c5751e3f0974743b9c2d4}{SDL\+\_\+\+Write\+LE16}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a5debf04eeed819018ddd9a2f70d32c89}\label{SDL__rwops_8h_a5debf04eeed819018ddd9a2f70d32c89}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteBE32@{SDL\_WriteBE32}}
+\index{SDL\_WriteBE32@{SDL\_WriteBE32}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteBE32()}{SDL\_WriteBE32()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+BE32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint32}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 32 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as big-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a84f37961925773fe8b06ea09ed144568}{SDL\+\_\+\+Write\+LE32}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a0422f79e1889750cf99310e968cb76fc}\label{SDL__rwops_8h_a0422f79e1889750cf99310e968cb76fc}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteBE64@{SDL\_WriteBE64}}
+\index{SDL\_WriteBE64@{SDL\_WriteBE64}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteBE64()}{SDL\_WriteBE64()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+BE64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint64}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 64 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as big-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_ae4f9b45fbb3bf4a40f3f308419307e6b}{SDL\+\_\+\+Write\+LE64}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_aa4a7df8d967c5751e3f0974743b9c2d4}\label{SDL__rwops_8h_aa4a7df8d967c5751e3f0974743b9c2d4}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteLE16@{SDL\_WriteLE16}}
+\index{SDL\_WriteLE16@{SDL\_WriteLE16}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteLE16()}{SDL\_WriteLE16()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+LE16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint16}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 16 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as little-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_ab84ea778a5f8f76cd73a52216c2c08f5}{SDL\+\_\+\+Write\+BE16}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a84f37961925773fe8b06ea09ed144568}\label{SDL__rwops_8h_a84f37961925773fe8b06ea09ed144568}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteLE32@{SDL\_WriteLE32}}
+\index{SDL\_WriteLE32@{SDL\_WriteLE32}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteLE32()}{SDL\_WriteLE32()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+LE32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint32}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 32 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as little-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a5debf04eeed819018ddd9a2f70d32c89}{SDL\+\_\+\+Write\+BE32}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_ae4f9b45fbb3bf4a40f3f308419307e6b}\label{SDL__rwops_8h_ae4f9b45fbb3bf4a40f3f308419307e6b}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteLE64@{SDL\_WriteLE64}}
+\index{SDL\_WriteLE64@{SDL\_WriteLE64}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteLE64()}{SDL\_WriteLE64()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+LE64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint64}]{value }\end{DoxyParamCaption})}
+
+Use this function to write 64 bits in native format to a \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} as little-\/endian data.
+
+SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-\/endian format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the stream to which data will be written \\
+\hline
+{\em value} & the data to be written, in native format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on successful write, 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_a0422f79e1889750cf99310e968cb76fc}{SDL\+\_\+\+Write\+BE64}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__rwops_8h_a07c817f8360ddc8c8983d12373306555}\label{SDL__rwops_8h_a07c817f8360ddc8c8983d12373306555}} 
+\index{SDL\_rwops.h@{SDL\_rwops.h}!SDL\_WriteU8@{SDL\_WriteU8}}
+\index{SDL\_WriteU8@{SDL\_WriteU8}!SDL\_rwops.h@{SDL\_rwops.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WriteU8()}{SDL\_WriteU8()}}
+{\footnotesize\ttfamily DECLSPEC size\+\_\+t SDLCALL SDL\+\_\+\+Write\+U8 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{dst,  }\item[{Uint8}]{value }\end{DoxyParamCaption})}
+
+Use this function to write a byte to an \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} to write to \\
+\hline
+{\em value} & the byte value to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 on success or 0 on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__rwops_8h_ab864094eb6b80fbf0c77d34ecdde7907}{SDL\+\_\+\+Read\+U8}} 
+\end{DoxySeeAlso}

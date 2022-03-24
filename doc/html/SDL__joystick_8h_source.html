@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/SDL2/SDL_joystick.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SDL_joystick.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SDL__joystick_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Simple DirectMedia Layer</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C) 1997-2022 Sam Lantinga &lt;slouken@libsdl.org&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  This software is provided &#39;as-is&#39;, without any express or implied</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  warranty.  In no event will the authors be held liable for any damages</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  arising from the use of this software.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  Permission is granted to anyone to use this software for any purpose,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  including commercial applications, and to alter it and redistribute it</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  freely, subject to the following restrictions:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  1. The origin of this software must not be misrepresented; you must not</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">     claim that you wrote the original software. If you use this software</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">     in a product, an acknowledgment in the product documentation would be</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     appreciated but is not required.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  2. Altered source versions must be plainly marked as such, and must not be</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     misrepresented as being the original software.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  3. This notice may not be removed or altered from any source distribution.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef SDL_joystick_h_</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define SDL_joystick_h_</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__stdinc_8h.html">SDL_stdinc.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__error_8h.html">SDL_error.h</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="begin__code_8h.html">begin_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/* Set up for C function definitions, even when using C++ */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">struct </span>_SDL_Joystick;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_SDL_Joystick SDL_Joystick;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/* A structure that encodes the stable unique id for a joystick device */</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structSDL__JoystickGUID.html">   72</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    Uint8 data[16];</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">   83</a></span>&#160;<span class="keyword">typedef</span> Sint32 <a class="code" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    SDL_JOYSTICK_TYPE_UNKNOWN,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    SDL_JOYSTICK_TYPE_GAMECONTROLLER,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    SDL_JOYSTICK_TYPE_WHEEL,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    SDL_JOYSTICK_TYPE_ARCADE_STICK,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    SDL_JOYSTICK_TYPE_FLIGHT_STICK,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    SDL_JOYSTICK_TYPE_DANCE_PAD,</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    SDL_JOYSTICK_TYPE_GUITAR,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    SDL_JOYSTICK_TYPE_DRUM_KIT,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    SDL_JOYSTICK_TYPE_ARCADE_PAD,</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    SDL_JOYSTICK_TYPE_THROTTLE</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} SDL_JoystickType;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    SDL_JOYSTICK_POWER_UNKNOWN = -1,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    SDL_JOYSTICK_POWER_EMPTY,   <span class="comment">/* &lt;= 5% */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    SDL_JOYSTICK_POWER_LOW,     <span class="comment">/* &lt;= 20% */</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    SDL_JOYSTICK_POWER_MEDIUM,  <span class="comment">/* &lt;= 70% */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    SDL_JOYSTICK_POWER_FULL,    <span class="comment">/* &lt;= 100% */</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    SDL_JOYSTICK_POWER_WIRED,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    SDL_JOYSTICK_POWER_MAX</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;} SDL_JoystickPowerLevel;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/* Set max recognized G-force from accelerometer</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">   See src/joystick/uikit/SDL_sysjoystick.m for notes on why this is needed</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#define SDL_IPHONE_MAX_GFORCE 5.0</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/* Function prototypes */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a4a2e0bedda1b7d0ac957607e944bfba0">  130</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a4a2e0bedda1b7d0ac957607e944bfba0">SDL_LockJoysticks</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#add3a6baa4646469b34c42df028c59be0">  145</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#add3a6baa4646469b34c42df028c59be0">SDL_UnlockJoysticks</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a2ab130eaa28f8e3bd544a5432041a311">  158</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a2ab130eaa28f8e3bd544a5432041a311">SDL_NumJoysticks</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ad36c04c086f834fe09a97e4cf86a5a59">  175</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> *SDLCALL <a class="code" href="SDL__joystick_8h.html#ad36c04c086f834fe09a97e4cf86a5a59">SDL_JoystickNameForIndex</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ad882a8dd3fe4278725a7fc212b755db7">  183</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#ad882a8dd3fe4278725a7fc212b755db7">SDL_JoystickGetDevicePlayerIndex</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#afdbf5289ff5452afb1bd869ffcf250b5">  201</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a> SDLCALL <a class="code" href="SDL__joystick_8h.html#afdbf5289ff5452afb1bd869ffcf250b5">SDL_JoystickGetDeviceGUID</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#afb8ba88559debca4ab2c702b8500d5fe">  216</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#afb8ba88559debca4ab2c702b8500d5fe">SDL_JoystickGetDeviceVendor</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a6330470720659333e6ef60994942a855">  231</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#a6330470720659333e6ef60994942a855">SDL_JoystickGetDeviceProduct</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a10972ad002df75e76ed68c18e1188e5e">  246</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#a10972ad002df75e76ed68c18e1188e5e">SDL_JoystickGetDeviceProductVersion</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a368a06b0fd51d453bb4692dcc2c42b69">  260</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_JoystickType SDLCALL <a class="code" href="SDL__joystick_8h.html#a368a06b0fd51d453bb4692dcc2c42b69">SDL_JoystickGetDeviceType</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a6c46ea976c7a65d49b38d31b42d11652">  275</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a> SDLCALL <a class="code" href="SDL__joystick_8h.html#a6c46ea976c7a65d49b38d31b42d11652">SDL_JoystickGetDeviceInstanceID</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a5b6f6554bca2659e149b5bc0fa538899">  297</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_Joystick *SDLCALL <a class="code" href="SDL__joystick_8h.html#a5b6f6554bca2659e149b5bc0fa538899">SDL_JoystickOpen</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ad220bd2c90df0fe65c229b69c0bf248a">  308</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_Joystick *SDLCALL <a class="code" href="SDL__joystick_8h.html#ad220bd2c90df0fe65c229b69c0bf248a">SDL_JoystickFromInstanceID</a>(<a class="code" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a> instance_id);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a6303adf72601a406399e6a45c6d89b25">  319</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_Joystick *SDLCALL <a class="code" href="SDL__joystick_8h.html#a6303adf72601a406399e6a45c6d89b25">SDL_JoystickFromPlayerIndex</a>(<span class="keywordtype">int</span> player_index);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ac72e7fbcf14ab9d1d061b48b60ee63f1">  328</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#ac72e7fbcf14ab9d1d061b48b60ee63f1">SDL_JoystickAttachVirtual</a>(SDL_JoystickType type,</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                                                      <span class="keywordtype">int</span> naxes,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                                                      <span class="keywordtype">int</span> nbuttons,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                                                      <span class="keywordtype">int</span> nhats);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ae1cff0f737264b2d885bff05a9c5b33f">  342</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#ae1cff0f737264b2d885bff05a9c5b33f">SDL_JoystickDetachVirtual</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a718be0fe686e838f1d0db00d523ff47a">  352</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#a718be0fe686e838f1d0db00d523ff47a">SDL_JoystickIsVirtual</a>(<span class="keywordtype">int</span> device_index);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a68d808bc0054c5cd068b0d0ff7c5ef7d">  370</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a68d808bc0054c5cd068b0d0ff7c5ef7d">SDL_JoystickSetVirtualAxis</a>(SDL_Joystick *joystick, <span class="keywordtype">int</span> axis, Sint16 value);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aa895270395be528f6658006a5c02a799">  388</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#aa895270395be528f6658006a5c02a799">SDL_JoystickSetVirtualButton</a>(SDL_Joystick *joystick, <span class="keywordtype">int</span> button, Uint8 value);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a3f1bcde55e0486bee726f7748c1ca971">  406</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a3f1bcde55e0486bee726f7748c1ca971">SDL_JoystickSetVirtualHat</a>(SDL_Joystick *joystick, <span class="keywordtype">int</span> hat, Uint8 value);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ad3ab02961bc45606e8f5f937c934160c">  420</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> *SDLCALL <a class="code" href="SDL__joystick_8h.html#ad3ab02961bc45606e8f5f937c934160c">SDL_JoystickName</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a1b3543511c1839f9c06aeea65b574e77">  433</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a1b3543511c1839f9c06aeea65b574e77">SDL_JoystickGetPlayerIndex</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a552d1be1bccb9cd81191ddf5f576fa31">  443</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a552d1be1bccb9cd81191ddf5f576fa31">SDL_JoystickSetPlayerIndex</a>(SDL_Joystick *joystick, <span class="keywordtype">int</span> player_index);</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#acc85c770af41eae76948e11c678f92ca">  460</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a> SDLCALL <a class="code" href="SDL__joystick_8h.html#acc85c770af41eae76948e11c678f92ca">SDL_JoystickGetGUID</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a13d9a1e3c5cbe2591cd5214aad48fed8">  472</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#a13d9a1e3c5cbe2591cd5214aad48fed8">SDL_JoystickGetVendor</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a0f4732dffd2a769a2346f4091b2f3199">  484</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#a0f4732dffd2a769a2346f4091b2f3199">SDL_JoystickGetProduct</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#afe6bbdbc0c81170d237fae42bec05665">  496</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#afe6bbdbc0c81170d237fae42bec05665">SDL_JoystickGetProductVersion</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00509"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aac85f320b665a43bcb20653df62a39e9">  509</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> * SDLCALL <a class="code" href="SDL__joystick_8h.html#aac85f320b665a43bcb20653df62a39e9">SDL_JoystickGetSerial</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
+<div class="line"><a name="l00519"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ad21afdbdd915c013cacefb7e79bfe3bf">  519</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_JoystickType SDLCALL <a class="code" href="SDL__joystick_8h.html#ad21afdbdd915c013cacefb7e79bfe3bf">SDL_JoystickGetType</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
+<div class="line"><a name="l00536"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a7f615ef8040e7e9de3af6482d8d9908c">  536</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a7f615ef8040e7e9de3af6482d8d9908c">SDL_JoystickGetGUIDString</a>(<a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a> guid, <span class="keywordtype">char</span> *pszGUID, <span class="keywordtype">int</span> cbGUID);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aef9d131a6a6838847731cf8094944b46">  552</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a> SDLCALL <a class="code" href="SDL__joystick_8h.html#aef9d131a6a6838847731cf8094944b46">SDL_JoystickGetGUIDFromString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *pchGUID);</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00566"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a222cd2d664acbea2dad78b891df4b89a">  566</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#a222cd2d664acbea2dad78b891df4b89a">SDL_JoystickGetAttached</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
+<div class="line"><a name="l00579"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ab38dfc6428e15c2476478418075d4c83">  579</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a> SDLCALL <a class="code" href="SDL__joystick_8h.html#ab38dfc6428e15c2476478418075d4c83">SDL_JoystickInstanceID</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="line"><a name="l00598"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a865c2e087fe69a3a30c87243729ecdea">  598</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a865c2e087fe69a3a30c87243729ecdea">SDL_JoystickNumAxes</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
+<div class="line"><a name="l00616"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a755d087bb16270087bfced7501656a6d">  616</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a755d087bb16270087bfced7501656a6d">SDL_JoystickNumBalls</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00630"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aa62ea91c7c4ca2d12804a9fb3760e448">  630</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#aa62ea91c7c4ca2d12804a9fb3760e448">SDL_JoystickNumHats</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00644"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#adfc662e571011ae7ec303101ab34e53a">  644</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#adfc662e571011ae7ec303101ab34e53a">SDL_JoystickNumButtons</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
+<div class="line"><a name="l00656"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a3ea23a9504ea56f2778147dbf39a029f">  656</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a3ea23a9504ea56f2778147dbf39a029f">SDL_JoystickUpdate</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
+<div class="line"><a name="l00681"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a51ba353843fd4477f6a485ac4ef35d00">  681</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a51ba353843fd4477f6a485ac4ef35d00">SDL_JoystickEventState</a>(<span class="keywordtype">int</span> state);</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="preprocessor">#define SDL_JOYSTICK_AXIS_MAX   32767</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="preprocessor">#define SDL_JOYSTICK_AXIS_MIN   -32768</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ac6fbda13b93679bedfc34733d4b2e748">  708</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Sint16 SDLCALL <a class="code" href="SDL__joystick_8h.html#ac6fbda13b93679bedfc34733d4b2e748">SDL_JoystickGetAxis</a>(SDL_Joystick *joystick,</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                                                   <span class="keywordtype">int</span> axis);</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
+<div class="line"><a name="l00725"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a3b87809500c342149471e1abf0ace40c">  725</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#a3b87809500c342149471e1abf0ace40c">SDL_JoystickGetAxisInitialState</a>(SDL_Joystick *joystick,</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                                                   <span class="keywordtype">int</span> axis, Sint16 *state);</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160; </div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment">/* @{ */</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="preprocessor">#define SDL_HAT_CENTERED    0x00</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="preprocessor">#define SDL_HAT_UP          0x01</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="preprocessor">#define SDL_HAT_RIGHT       0x02</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="preprocessor">#define SDL_HAT_DOWN        0x04</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="preprocessor">#define SDL_HAT_LEFT        0x08</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="preprocessor">#define SDL_HAT_RIGHTUP     (SDL_HAT_RIGHT|SDL_HAT_UP)</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="preprocessor">#define SDL_HAT_RIGHTDOWN   (SDL_HAT_RIGHT|SDL_HAT_DOWN)</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="preprocessor">#define SDL_HAT_LEFTUP      (SDL_HAT_LEFT|SDL_HAT_UP)</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="preprocessor">#define SDL_HAT_LEFTDOWN    (SDL_HAT_LEFT|SDL_HAT_DOWN)</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
+<div class="line"><a name="l00766"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a2215030cf283295569fee41fd0251e01">  766</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint8 SDLCALL <a class="code" href="SDL__joystick_8h.html#a2215030cf283295569fee41fd0251e01">SDL_JoystickGetHat</a>(SDL_Joystick *joystick,</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                                                 <span class="keywordtype">int</span> hat);</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
+<div class="line"><a name="l00788"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#ac7a5a4c17f6a5a4ef9f5bc78e50913df">  788</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#ac7a5a4c17f6a5a4ef9f5bc78e50913df">SDL_JoystickGetBall</a>(SDL_Joystick *joystick,</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                                                <span class="keywordtype">int</span> ball, <span class="keywordtype">int</span> *dx, <span class="keywordtype">int</span> *dy);</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160; </div>
+<div class="line"><a name="l00803"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aaf7789eb03bc42525691e075e2a36131">  803</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint8 SDLCALL <a class="code" href="SDL__joystick_8h.html#aaf7789eb03bc42525691e075e2a36131">SDL_JoystickGetButton</a>(SDL_Joystick *joystick,</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                                                    <span class="keywordtype">int</span> button);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
+<div class="line"><a name="l00824"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a307c87a4de5aec2d1ca22856d94930fa">  824</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a307c87a4de5aec2d1ca22856d94930fa">SDL_JoystickRumble</a>(SDL_Joystick *joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms);</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; </div>
+<div class="line"><a name="l00849"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a0d248aa2e25ac62d30444583180ff539">  849</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a0d248aa2e25ac62d30444583180ff539">SDL_JoystickRumbleTriggers</a>(SDL_Joystick *joystick, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms);</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160; </div>
+<div class="line"><a name="l00862"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a7a5a92f4eb93dde4e58d5155ce22b7a7">  862</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#a7a5a92f4eb93dde4e58d5155ce22b7a7">SDL_JoystickHasLED</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160; </div>
+<div class="line"><a name="l00874"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#afa0e29b3b5738184da3cc281de3e4896">  874</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#afa0e29b3b5738184da3cc281de3e4896">SDL_JoystickHasRumble</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160; </div>
+<div class="line"><a name="l00886"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a815f02f2cbced249cb4b0018dfd3a777">  886</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__joystick_8h.html#a815f02f2cbced249cb4b0018dfd3a777">SDL_JoystickHasRumbleTriggers</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160; </div>
+<div class="line"><a name="l00902"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a4e3e052e175f47fe02c63e92a59f4b04">  902</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a4e3e052e175f47fe02c63e92a59f4b04">SDL_JoystickSetLED</a>(SDL_Joystick *joystick, Uint8 red, Uint8 green, Uint8 blue);</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160; </div>
+<div class="line"><a name="l00914"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a16c10474f6a3d861babfe1ae424cb1a5">  914</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#a16c10474f6a3d861babfe1ae424cb1a5">SDL_JoystickSendEffect</a>(SDL_Joystick *joystick, <span class="keyword">const</span> <span class="keywordtype">void</span> *data, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160; </div>
+<div class="line"><a name="l00925"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#aafa0951b40ec2e200c098495c3dd4943">  925</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__joystick_8h.html#aafa0951b40ec2e200c098495c3dd4943">SDL_JoystickClose</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160; </div>
+<div class="line"><a name="l00936"></a><span class="lineno"><a class="line" href="SDL__joystick_8h.html#a192bbea3553394a6e9c80f77e431fd76">  936</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_JoystickPowerLevel SDLCALL <a class="code" href="SDL__joystick_8h.html#a192bbea3553394a6e9c80f77e431fd76">SDL_JoystickCurrentPowerLevel</a>(SDL_Joystick *joystick);</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160; </div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="comment">/* Ends C function definitions when using C++ */</span></div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;}</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="close__code_8h.html">close_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160; </div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SDL_joystick_h_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160; </div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="comment">/* vi: set ts=4 sw=4 expandtab: */</span></div>
+<div class="ttc" id="aSDL__error_8h_html"><div class="ttname"><a href="SDL__error_8h.html">SDL_error.h</a></div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a0d248aa2e25ac62d30444583180ff539"><div class="ttname"><a href="SDL__joystick_8h.html#a0d248aa2e25ac62d30444583180ff539">SDL_JoystickRumbleTriggers</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickRumbleTriggers(SDL_Joystick *joystick, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a0f4732dffd2a769a2346f4091b2f3199"><div class="ttname"><a href="SDL__joystick_8h.html#a0f4732dffd2a769a2346f4091b2f3199">SDL_JoystickGetProduct</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetProduct(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a10972ad002df75e76ed68c18e1188e5e"><div class="ttname"><a href="SDL__joystick_8h.html#a10972ad002df75e76ed68c18e1188e5e">SDL_JoystickGetDeviceProductVersion</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetDeviceProductVersion(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a13d9a1e3c5cbe2591cd5214aad48fed8"><div class="ttname"><a href="SDL__joystick_8h.html#a13d9a1e3c5cbe2591cd5214aad48fed8">SDL_JoystickGetVendor</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetVendor(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a16c10474f6a3d861babfe1ae424cb1a5"><div class="ttname"><a href="SDL__joystick_8h.html#a16c10474f6a3d861babfe1ae424cb1a5">SDL_JoystickSendEffect</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickSendEffect(SDL_Joystick *joystick, const void *data, int size)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a192bbea3553394a6e9c80f77e431fd76"><div class="ttname"><a href="SDL__joystick_8h.html#a192bbea3553394a6e9c80f77e431fd76">SDL_JoystickCurrentPowerLevel</a></div><div class="ttdeci">DECLSPEC SDL_JoystickPowerLevel SDLCALL SDL_JoystickCurrentPowerLevel(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a1b3543511c1839f9c06aeea65b574e77"><div class="ttname"><a href="SDL__joystick_8h.html#a1b3543511c1839f9c06aeea65b574e77">SDL_JoystickGetPlayerIndex</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickGetPlayerIndex(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a2215030cf283295569fee41fd0251e01"><div class="ttname"><a href="SDL__joystick_8h.html#a2215030cf283295569fee41fd0251e01">SDL_JoystickGetHat</a></div><div class="ttdeci">DECLSPEC Uint8 SDLCALL SDL_JoystickGetHat(SDL_Joystick *joystick, int hat)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a222cd2d664acbea2dad78b891df4b89a"><div class="ttname"><a href="SDL__joystick_8h.html#a222cd2d664acbea2dad78b891df4b89a">SDL_JoystickGetAttached</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickGetAttached(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a2ab130eaa28f8e3bd544a5432041a311"><div class="ttname"><a href="SDL__joystick_8h.html#a2ab130eaa28f8e3bd544a5432041a311">SDL_NumJoysticks</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_NumJoysticks(void)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a307c87a4de5aec2d1ca22856d94930fa"><div class="ttname"><a href="SDL__joystick_8h.html#a307c87a4de5aec2d1ca22856d94930fa">SDL_JoystickRumble</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickRumble(SDL_Joystick *joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a368a06b0fd51d453bb4692dcc2c42b69"><div class="ttname"><a href="SDL__joystick_8h.html#a368a06b0fd51d453bb4692dcc2c42b69">SDL_JoystickGetDeviceType</a></div><div class="ttdeci">DECLSPEC SDL_JoystickType SDLCALL SDL_JoystickGetDeviceType(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a3b87809500c342149471e1abf0ace40c"><div class="ttname"><a href="SDL__joystick_8h.html#a3b87809500c342149471e1abf0ace40c">SDL_JoystickGetAxisInitialState</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickGetAxisInitialState(SDL_Joystick *joystick, int axis, Sint16 *state)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a3c3d32500cb08f76ee8077983912c0bd"><div class="ttname"><a href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a></div><div class="ttdeci">Sint32 SDL_JoystickID</div><div class="ttdef"><b>Definition:</b> SDL_joystick.h:83</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a3ea23a9504ea56f2778147dbf39a029f"><div class="ttname"><a href="SDL__joystick_8h.html#a3ea23a9504ea56f2778147dbf39a029f">SDL_JoystickUpdate</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_JoystickUpdate(void)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a3f1bcde55e0486bee726f7748c1ca971"><div class="ttname"><a href="SDL__joystick_8h.html#a3f1bcde55e0486bee726f7748c1ca971">SDL_JoystickSetVirtualHat</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickSetVirtualHat(SDL_Joystick *joystick, int hat, Uint8 value)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a4a2e0bedda1b7d0ac957607e944bfba0"><div class="ttname"><a href="SDL__joystick_8h.html#a4a2e0bedda1b7d0ac957607e944bfba0">SDL_LockJoysticks</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LockJoysticks(void)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a4e3e052e175f47fe02c63e92a59f4b04"><div class="ttname"><a href="SDL__joystick_8h.html#a4e3e052e175f47fe02c63e92a59f4b04">SDL_JoystickSetLED</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickSetLED(SDL_Joystick *joystick, Uint8 red, Uint8 green, Uint8 blue)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a51ba353843fd4477f6a485ac4ef35d00"><div class="ttname"><a href="SDL__joystick_8h.html#a51ba353843fd4477f6a485ac4ef35d00">SDL_JoystickEventState</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickEventState(int state)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a552d1be1bccb9cd81191ddf5f576fa31"><div class="ttname"><a href="SDL__joystick_8h.html#a552d1be1bccb9cd81191ddf5f576fa31">SDL_JoystickSetPlayerIndex</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_JoystickSetPlayerIndex(SDL_Joystick *joystick, int player_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a5b6f6554bca2659e149b5bc0fa538899"><div class="ttname"><a href="SDL__joystick_8h.html#a5b6f6554bca2659e149b5bc0fa538899">SDL_JoystickOpen</a></div><div class="ttdeci">DECLSPEC SDL_Joystick *SDLCALL SDL_JoystickOpen(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a6303adf72601a406399e6a45c6d89b25"><div class="ttname"><a href="SDL__joystick_8h.html#a6303adf72601a406399e6a45c6d89b25">SDL_JoystickFromPlayerIndex</a></div><div class="ttdeci">DECLSPEC SDL_Joystick *SDLCALL SDL_JoystickFromPlayerIndex(int player_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a6330470720659333e6ef60994942a855"><div class="ttname"><a href="SDL__joystick_8h.html#a6330470720659333e6ef60994942a855">SDL_JoystickGetDeviceProduct</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetDeviceProduct(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a68d808bc0054c5cd068b0d0ff7c5ef7d"><div class="ttname"><a href="SDL__joystick_8h.html#a68d808bc0054c5cd068b0d0ff7c5ef7d">SDL_JoystickSetVirtualAxis</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickSetVirtualAxis(SDL_Joystick *joystick, int axis, Sint16 value)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a6c46ea976c7a65d49b38d31b42d11652"><div class="ttname"><a href="SDL__joystick_8h.html#a6c46ea976c7a65d49b38d31b42d11652">SDL_JoystickGetDeviceInstanceID</a></div><div class="ttdeci">DECLSPEC SDL_JoystickID SDLCALL SDL_JoystickGetDeviceInstanceID(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a718be0fe686e838f1d0db00d523ff47a"><div class="ttname"><a href="SDL__joystick_8h.html#a718be0fe686e838f1d0db00d523ff47a">SDL_JoystickIsVirtual</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickIsVirtual(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a755d087bb16270087bfced7501656a6d"><div class="ttname"><a href="SDL__joystick_8h.html#a755d087bb16270087bfced7501656a6d">SDL_JoystickNumBalls</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickNumBalls(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a7a5a92f4eb93dde4e58d5155ce22b7a7"><div class="ttname"><a href="SDL__joystick_8h.html#a7a5a92f4eb93dde4e58d5155ce22b7a7">SDL_JoystickHasLED</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickHasLED(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a7f615ef8040e7e9de3af6482d8d9908c"><div class="ttname"><a href="SDL__joystick_8h.html#a7f615ef8040e7e9de3af6482d8d9908c">SDL_JoystickGetGUIDString</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_JoystickGetGUIDString(SDL_JoystickGUID guid, char *pszGUID, int cbGUID)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a815f02f2cbced249cb4b0018dfd3a777"><div class="ttname"><a href="SDL__joystick_8h.html#a815f02f2cbced249cb4b0018dfd3a777">SDL_JoystickHasRumbleTriggers</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickHasRumbleTriggers(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a865c2e087fe69a3a30c87243729ecdea"><div class="ttname"><a href="SDL__joystick_8h.html#a865c2e087fe69a3a30c87243729ecdea">SDL_JoystickNumAxes</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickNumAxes(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aa62ea91c7c4ca2d12804a9fb3760e448"><div class="ttname"><a href="SDL__joystick_8h.html#aa62ea91c7c4ca2d12804a9fb3760e448">SDL_JoystickNumHats</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickNumHats(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aa895270395be528f6658006a5c02a799"><div class="ttname"><a href="SDL__joystick_8h.html#aa895270395be528f6658006a5c02a799">SDL_JoystickSetVirtualButton</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickSetVirtualButton(SDL_Joystick *joystick, int button, Uint8 value)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aac85f320b665a43bcb20653df62a39e9"><div class="ttname"><a href="SDL__joystick_8h.html#aac85f320b665a43bcb20653df62a39e9">SDL_JoystickGetSerial</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_JoystickGetSerial(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aaf7789eb03bc42525691e075e2a36131"><div class="ttname"><a href="SDL__joystick_8h.html#aaf7789eb03bc42525691e075e2a36131">SDL_JoystickGetButton</a></div><div class="ttdeci">DECLSPEC Uint8 SDLCALL SDL_JoystickGetButton(SDL_Joystick *joystick, int button)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aafa0951b40ec2e200c098495c3dd4943"><div class="ttname"><a href="SDL__joystick_8h.html#aafa0951b40ec2e200c098495c3dd4943">SDL_JoystickClose</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_JoystickClose(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ab38dfc6428e15c2476478418075d4c83"><div class="ttname"><a href="SDL__joystick_8h.html#ab38dfc6428e15c2476478418075d4c83">SDL_JoystickInstanceID</a></div><div class="ttdeci">DECLSPEC SDL_JoystickID SDLCALL SDL_JoystickInstanceID(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ac6fbda13b93679bedfc34733d4b2e748"><div class="ttname"><a href="SDL__joystick_8h.html#ac6fbda13b93679bedfc34733d4b2e748">SDL_JoystickGetAxis</a></div><div class="ttdeci">DECLSPEC Sint16 SDLCALL SDL_JoystickGetAxis(SDL_Joystick *joystick, int axis)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ac72e7fbcf14ab9d1d061b48b60ee63f1"><div class="ttname"><a href="SDL__joystick_8h.html#ac72e7fbcf14ab9d1d061b48b60ee63f1">SDL_JoystickAttachVirtual</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickAttachVirtual(SDL_JoystickType type, int naxes, int nbuttons, int nhats)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ac7a5a4c17f6a5a4ef9f5bc78e50913df"><div class="ttname"><a href="SDL__joystick_8h.html#ac7a5a4c17f6a5a4ef9f5bc78e50913df">SDL_JoystickGetBall</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickGetBall(SDL_Joystick *joystick, int ball, int *dx, int *dy)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_acc85c770af41eae76948e11c678f92ca"><div class="ttname"><a href="SDL__joystick_8h.html#acc85c770af41eae76948e11c678f92ca">SDL_JoystickGetGUID</a></div><div class="ttdeci">DECLSPEC SDL_JoystickGUID SDLCALL SDL_JoystickGetGUID(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ad21afdbdd915c013cacefb7e79bfe3bf"><div class="ttname"><a href="SDL__joystick_8h.html#ad21afdbdd915c013cacefb7e79bfe3bf">SDL_JoystickGetType</a></div><div class="ttdeci">DECLSPEC SDL_JoystickType SDLCALL SDL_JoystickGetType(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ad220bd2c90df0fe65c229b69c0bf248a"><div class="ttname"><a href="SDL__joystick_8h.html#ad220bd2c90df0fe65c229b69c0bf248a">SDL_JoystickFromInstanceID</a></div><div class="ttdeci">DECLSPEC SDL_Joystick *SDLCALL SDL_JoystickFromInstanceID(SDL_JoystickID instance_id)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ad36c04c086f834fe09a97e4cf86a5a59"><div class="ttname"><a href="SDL__joystick_8h.html#ad36c04c086f834fe09a97e4cf86a5a59">SDL_JoystickNameForIndex</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_JoystickNameForIndex(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ad3ab02961bc45606e8f5f937c934160c"><div class="ttname"><a href="SDL__joystick_8h.html#ad3ab02961bc45606e8f5f937c934160c">SDL_JoystickName</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_JoystickName(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ad882a8dd3fe4278725a7fc212b755db7"><div class="ttname"><a href="SDL__joystick_8h.html#ad882a8dd3fe4278725a7fc212b755db7">SDL_JoystickGetDevicePlayerIndex</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickGetDevicePlayerIndex(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_add3a6baa4646469b34c42df028c59be0"><div class="ttname"><a href="SDL__joystick_8h.html#add3a6baa4646469b34c42df028c59be0">SDL_UnlockJoysticks</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_UnlockJoysticks(void)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_adfc662e571011ae7ec303101ab34e53a"><div class="ttname"><a href="SDL__joystick_8h.html#adfc662e571011ae7ec303101ab34e53a">SDL_JoystickNumButtons</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickNumButtons(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_ae1cff0f737264b2d885bff05a9c5b33f"><div class="ttname"><a href="SDL__joystick_8h.html#ae1cff0f737264b2d885bff05a9c5b33f">SDL_JoystickDetachVirtual</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_JoystickDetachVirtual(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_aef9d131a6a6838847731cf8094944b46"><div class="ttname"><a href="SDL__joystick_8h.html#aef9d131a6a6838847731cf8094944b46">SDL_JoystickGetGUIDFromString</a></div><div class="ttdeci">DECLSPEC SDL_JoystickGUID SDLCALL SDL_JoystickGetGUIDFromString(const char *pchGUID)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_afa0e29b3b5738184da3cc281de3e4896"><div class="ttname"><a href="SDL__joystick_8h.html#afa0e29b3b5738184da3cc281de3e4896">SDL_JoystickHasRumble</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_JoystickHasRumble(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_afb8ba88559debca4ab2c702b8500d5fe"><div class="ttname"><a href="SDL__joystick_8h.html#afb8ba88559debca4ab2c702b8500d5fe">SDL_JoystickGetDeviceVendor</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetDeviceVendor(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_afdbf5289ff5452afb1bd869ffcf250b5"><div class="ttname"><a href="SDL__joystick_8h.html#afdbf5289ff5452afb1bd869ffcf250b5">SDL_JoystickGetDeviceGUID</a></div><div class="ttdeci">DECLSPEC SDL_JoystickGUID SDLCALL SDL_JoystickGetDeviceGUID(int device_index)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_afe6bbdbc0c81170d237fae42bec05665"><div class="ttname"><a href="SDL__joystick_8h.html#afe6bbdbc0c81170d237fae42bec05665">SDL_JoystickGetProductVersion</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_JoystickGetProductVersion(SDL_Joystick *joystick)</div></div>
+<div class="ttc" id="aSDL__stdinc_8h_html"><div class="ttname"><a href="SDL__stdinc_8h.html">SDL_stdinc.h</a></div></div>
+<div class="ttc" id="abegin__code_8h_html"><div class="ttname"><a href="begin__code_8h.html">begin_code.h</a></div></div>
+<div class="ttc" id="aclose__code_8h_html"><div class="ttname"><a href="close__code_8h.html">close_code.h</a></div></div>
+<div class="ttc" id="astructSDL__JoystickGUID_html"><div class="ttname"><a href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a></div><div class="ttdef"><b>Definition:</b> SDL_joystick.h:72</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

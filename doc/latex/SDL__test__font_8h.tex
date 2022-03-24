@@ -1,0 +1,76 @@
+\hypertarget{SDL__test__font_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+font.h}
+\label{SDL__test__font_8h}\index{include/SDL2/SDL\_test\_font.h@{include/SDL2/SDL\_test\_font.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__font_8h_a82fc3703abee6ebcdd3684365e1d06c9}\label{SDL__test__font_8h_a82fc3703abee6ebcdd3684365e1d06c9}} 
+\#define {\bfseries FONT\+\_\+\+CHARACTER\+\_\+\+SIZE}~8
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SDL__test__font_8h_aa7dc58388352aa14c537ac959220aa89}{SDLTest\+\_\+\+Draw\+Character}} (SDL\+\_\+\+Renderer $\ast$renderer, int x, int y, char c)
+\begin{DoxyCompactList}\small\item\em Draw a string in the currently set font. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{SDL__test__font_8h_ac5ece4b232de5964c2565360a7318a77}{SDLTest\+\_\+\+Draw\+String}} (SDL\+\_\+\+Renderer $\ast$renderer, int x, int y, const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Draw a string in the currently set font. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__test__font_8h_aeec32d6261ad6e10e8b0d2f714a10aef}\label{SDL__test__font_8h_aeec32d6261ad6e10e8b0d2f714a10aef}} 
+void \mbox{\hyperlink{SDL__test__font_8h_aeec32d6261ad6e10e8b0d2f714a10aef}{SDLTest\+\_\+\+Cleanup\+Text\+Drawing}} (void)
+\begin{DoxyCompactList}\small\item\em Cleanup textures used by font drawing functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__font_8h_aa7dc58388352aa14c537ac959220aa89}\label{SDL__test__font_8h_aa7dc58388352aa14c537ac959220aa89}} 
+\index{SDL\_test\_font.h@{SDL\_test\_font.h}!SDLTest\_DrawCharacter@{SDLTest\_DrawCharacter}}
+\index{SDLTest\_DrawCharacter@{SDLTest\_DrawCharacter}!SDL\_test\_font.h@{SDL\_test\_font.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_DrawCharacter()}{SDLTest\_DrawCharacter()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Draw\+Character (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Draw a string in the currently set font. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & The renderer to draw on. \\
+\hline
+{\em x} & The X coordinate of the upper left corner of the character. \\
+\hline
+{\em y} & The Y coordinate of the upper left corner of the character. \\
+\hline
+{\em c} & The character to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__font_8h_ac5ece4b232de5964c2565360a7318a77}\label{SDL__test__font_8h_ac5ece4b232de5964c2565360a7318a77}} 
+\index{SDL\_test\_font.h@{SDL\_test\_font.h}!SDLTest\_DrawString@{SDLTest\_DrawString}}
+\index{SDLTest\_DrawString@{SDLTest\_DrawString}!SDL\_test\_font.h@{SDL\_test\_font.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_DrawString()}{SDLTest\_DrawString()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Draw\+String (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Draw a string in the currently set font. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & The renderer to draw on. \\
+\hline
+{\em x} & The X coordinate of the upper left corner of the string. \\
+\hline
+{\em y} & The Y coordinate of the upper left corner of the string. \\
+\hline
+{\em s} & The string to draw.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/animation.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier animation.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module facilitant la gestion des animations.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="animation_8h_source.html">animation.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a9262f363dbd745b12413017d9ff1a320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a9262f363dbd745b12413017d9ff1a320">updateAnimation</a> (<a class="el" href="structt__animation.html">t_animation</a> *animation, unsigned int temps)</td></tr>
+<tr class="memdesc:a9262f363dbd745b12413017d9ff1a320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise l'animation si nécéssaire selon la configuration de la structure.  <a href="animation_8c.html#a9262f363dbd745b12413017d9ff1a320">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9262f363dbd745b12413017d9ff1a320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0f577f19ba9a2ce6dca8dc282e59f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__animation.html">t_animation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a> (int vitesse, int nb_textures)</td></tr>
+<tr class="memdesc:aef0f577f19ba9a2ce6dca8dc282e59f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une structure permettant d'animer un objet.  <a href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef0f577f19ba9a2ce6dca8dc282e59f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e29331d629c266556bb66cfa75e66e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="animation_8c.html#a1e29331d629c266556bb66cfa75e66e7">detruireAnimation</a> (<a class="el" href="structt__animation.html">t_animation</a> **animation)</td></tr>
+<tr class="memdesc:a1e29331d629c266556bb66cfa75e66e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une structure animation et mets son pointeur à NULL.  <a href="animation_8c.html#a1e29331d629c266556bb66cfa75e66e7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1e29331d629c266556bb66cfa75e66e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Module facilitant la gestion des animations. </p>
+<p >Ce module utilise les configurations données dans la structure <a class="el" href="structt__animation.html" title="Structure contenant les données nécéssaires à la réalisation d&#39;une animation.">t_animation</a> pour se charger d'animer une texture avec updateAnimation.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aef0f577f19ba9a2ce6dca8dc282e59f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef0f577f19ba9a2ce6dca8dc282e59f3">&#9670;&nbsp;</a></span>creerAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__animation.html">t_animation</a>* creerAnimation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vitesse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_textures</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génère une structure permettant d'animer un objet. </p>
+<p >Il est possible qu'une entité ne possède pas d'animation (pointeur NULL). Dans ce cas le champ id_animation permet de sélectionner la bonne partie de la texture.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vitesse</td><td>Temps en milisecondes avant le passage à la frame suivante de l'animation </td></tr>
+    <tr><td class="paramname">nb_textures</td><td>Nombre de frames différentes d'une animation</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La structure animation ou NULL si échec. </dd></dl>
+
+</div>
+</div>
+<a id="a1e29331d629c266556bb66cfa75e66e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e29331d629c266556bb66cfa75e66e7">&#9670;&nbsp;</a></span>detruireAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireAnimation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__animation.html">t_animation</a> **&#160;</td>
+          <td class="paramname"><em>animation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une structure animation et mets son pointeur à NULL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">animation</td><td>L'adresse du pointeur animation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9262f363dbd745b12413017d9ff1a320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9262f363dbd745b12413017d9ff1a320">&#9670;&nbsp;</a></span>updateAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateAnimation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__animation.html">t_animation</a> *&#160;</td>
+          <td class="paramname"><em>animation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>temps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualise l'animation si nécéssaire selon la configuration de la structure. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">animation</td><td>L'animation à actualiser </td></tr>
+    <tr><td class="paramname">temps</td><td>Le temps actuel du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

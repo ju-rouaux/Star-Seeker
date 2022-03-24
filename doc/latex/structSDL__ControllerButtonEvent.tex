@@ -1,0 +1,71 @@
+\hypertarget{structSDL__ControllerButtonEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Controller\+Button\+Event}
+\label{structSDL__ControllerButtonEvent}\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+
+
+Game controller button event structure (event.\+cbutton.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__ControllerButtonEvent_a09869d792031e47a88673d85915c209f}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__ControllerButtonEvent_a73003712734c4d2f966db3d7c2ce826b}{timestamp}}
+\item 
+\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} \mbox{\hyperlink{structSDL__ControllerButtonEvent_a98777e88b5d5cae83eef16ffd4bcacc1}{which}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__ControllerButtonEvent_a039da6cd31c3c62e62a3ae17cc64d0db}{button}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__ControllerButtonEvent_a00c46683f86674c2a4f74404ee3e857c}{state}}
+\item 
+\mbox{\Hypertarget{structSDL__ControllerButtonEvent_a34d3e43fc1994288b9b083c874bc0899}\label{structSDL__ControllerButtonEvent_a34d3e43fc1994288b9b083c874bc0899}} 
+Uint8 {\bfseries padding1}
+\item 
+\mbox{\Hypertarget{structSDL__ControllerButtonEvent_a8caf56a3921227913cfb652d5de1eec4}\label{structSDL__ControllerButtonEvent_a8caf56a3921227913cfb652d5de1eec4}} 
+Uint8 {\bfseries padding2}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Game controller button event structure (event.\+cbutton.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__ControllerButtonEvent_a039da6cd31c3c62e62a3ae17cc64d0db}\label{structSDL__ControllerButtonEvent_a039da6cd31c3c62e62a3ae17cc64d0db}} 
+\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}!button@{button}}
+\index{button@{button}!SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Controller\+Button\+Event\+::button}
+
+The controller button (SDL\+\_\+\+Game\+Controller\+Button) \mbox{\Hypertarget{structSDL__ControllerButtonEvent_a00c46683f86674c2a4f74404ee3e857c}\label{structSDL__ControllerButtonEvent_a00c46683f86674c2a4f74404ee3e857c}} 
+\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}!state@{state}}
+\index{state@{state}!SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Controller\+Button\+Event\+::state}
+
+\+::\+SDL\+\_\+\+PRESSED or \+::\+SDL\+\_\+\+RELEASED \mbox{\Hypertarget{structSDL__ControllerButtonEvent_a73003712734c4d2f966db3d7c2ce826b}\label{structSDL__ControllerButtonEvent_a73003712734c4d2f966db3d7c2ce826b}} 
+\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Controller\+Button\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__ControllerButtonEvent_a09869d792031e47a88673d85915c209f}\label{structSDL__ControllerButtonEvent_a09869d792031e47a88673d85915c209f}} 
+\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}!type@{type}}
+\index{type@{type}!SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Controller\+Button\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaafe044d5f92ac9608ded473218569474}{SDL\+\_\+\+CONTROLLERBUTTONDOWN}} or \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa8cb5a10b1ae0e185ef69a321d3d2d1be}{SDL\+\_\+\+CONTROLLERBUTTONUP}} \mbox{\Hypertarget{structSDL__ControllerButtonEvent_a98777e88b5d5cae83eef16ffd4bcacc1}\label{structSDL__ControllerButtonEvent_a98777e88b5d5cae83eef16ffd4bcacc1}} 
+\index{SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}!which@{which}}
+\index{which@{which}!SDL\_ControllerButtonEvent@{SDL\_ControllerButtonEvent}}
+\doxysubsubsection{\texorpdfstring{which}{which}}
+{\footnotesize\ttfamily \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDL\+\_\+\+Controller\+Button\+Event\+::which}
+
+The joystick instance id 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

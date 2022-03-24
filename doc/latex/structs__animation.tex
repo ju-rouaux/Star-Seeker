@@ -1,0 +1,54 @@
+\hypertarget{structs__animation}{}\doxysection{Référence de la structure s\+\_\+animation}
+\label{structs__animation}\index{s\_animation@{s\_animation}}
+
+
+Structure contenant les données nécéssaires à la réalisation d\textquotesingle{}une animation.  
+
+
+
+
+{\ttfamily \#include $<$animation.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structs__animation_a5f1b144899e2e96ffa7fbaa766376afb}{vitesse}}
+\item 
+\mbox{\Hypertarget{structs__animation_a64a1efc8f311cadf15404288ac751455}\label{structs__animation_a64a1efc8f311cadf15404288ac751455}} 
+int {\bfseries nb\+\_\+textures}
+\item 
+int \mbox{\hyperlink{structs__animation_a6949b86345332d4cdce7159d5cba5a77}{indice\+\_\+texture}}
+\item 
+unsigned int \mbox{\hyperlink{structs__animation_adbd10228e1b3c649d67ba9dd0ec9894c}{dernier\+\_\+update}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure contenant les données nécéssaires à la réalisation d\textquotesingle{}une animation. 
+
+Les champs de cette structure ne sont pas destinés à être changés après l\textquotesingle{}appel de la fonction de création. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structs__animation_adbd10228e1b3c649d67ba9dd0ec9894c}\label{structs__animation_adbd10228e1b3c649d67ba9dd0ec9894c}} 
+\index{s\_animation@{s\_animation}!dernier\_update@{dernier\_update}}
+\index{dernier\_update@{dernier\_update}!s\_animation@{s\_animation}}
+\doxysubsubsection{\texorpdfstring{dernier\_update}{dernier\_update}}
+{\footnotesize\ttfamily unsigned int s\+\_\+animation\+::dernier\+\_\+update}
+
+Indice de l\textquotesingle{}image active de l\textquotesingle{}animation courante Temps qu\textquotesingle{}il était au moment du changement vers la l\textquotesingle{}image courante \mbox{\Hypertarget{structs__animation_a6949b86345332d4cdce7159d5cba5a77}\label{structs__animation_a6949b86345332d4cdce7159d5cba5a77}} 
+\index{s\_animation@{s\_animation}!indice\_texture@{indice\_texture}}
+\index{indice\_texture@{indice\_texture}!s\_animation@{s\_animation}}
+\doxysubsubsection{\texorpdfstring{indice\_texture}{indice\_texture}}
+{\footnotesize\ttfamily int s\+\_\+animation\+::indice\+\_\+texture}
+
+Nombre d\textquotesingle{}images sur une ligne du tileset \mbox{\Hypertarget{structs__animation_a5f1b144899e2e96ffa7fbaa766376afb}\label{structs__animation_a5f1b144899e2e96ffa7fbaa766376afb}} 
+\index{s\_animation@{s\_animation}!vitesse@{vitesse}}
+\index{vitesse@{vitesse}!s\_animation@{s\_animation}}
+\doxysubsubsection{\texorpdfstring{vitesse}{vitesse}}
+{\footnotesize\ttfamily int s\+\_\+animation\+::vitesse}
+
+Temps en milisecondes avant le passage à l\textquotesingle{}image suivante 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{animation_8h}{animation.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_log.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_log.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__log_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a06c6de264730f257cdba6188b6aaae12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a06c6de264730f257cdba6188b6aaae12">SDL_MAX_LOG_MESSAGE</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memdesc:a06c6de264730f257cdba6188b6aaae12"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum size of a log message.  <a href="SDL__log_8h.html#a06c6de264730f257cdba6188b6aaae12">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a06c6de264730f257cdba6188b6aaae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a11c2a5b3bbfd910cf18fbc70cf513e24"><td class="memItemLeft" align="right" valign="top">typedef void(SDLCALL *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a>) (void *userdata, int category, <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority, const char *message)</td></tr>
+<tr class="separator:a11c2a5b3bbfd910cf18fbc70cf513e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ad221d23d6438fe99a781fb04b118039d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">SDL_LogCategory</a> { <br />
+&#160;&#160;<b>SDL_LOG_CATEGORY_APPLICATION</b>
+, <b>SDL_LOG_CATEGORY_ERROR</b>
+, <b>SDL_LOG_CATEGORY_ASSERT</b>
+, <b>SDL_LOG_CATEGORY_SYSTEM</b>
+, <br />
+&#160;&#160;<b>SDL_LOG_CATEGORY_AUDIO</b>
+, <b>SDL_LOG_CATEGORY_VIDEO</b>
+, <b>SDL_LOG_CATEGORY_RENDER</b>
+, <b>SDL_LOG_CATEGORY_INPUT</b>
+, <br />
+&#160;&#160;<b>SDL_LOG_CATEGORY_TEST</b>
+, <b>SDL_LOG_CATEGORY_RESERVED1</b>
+, <b>SDL_LOG_CATEGORY_RESERVED2</b>
+, <b>SDL_LOG_CATEGORY_RESERVED3</b>
+, <br />
+&#160;&#160;<b>SDL_LOG_CATEGORY_RESERVED4</b>
+, <b>SDL_LOG_CATEGORY_RESERVED5</b>
+, <b>SDL_LOG_CATEGORY_RESERVED6</b>
+, <b>SDL_LOG_CATEGORY_RESERVED7</b>
+, <br />
+&#160;&#160;<b>SDL_LOG_CATEGORY_RESERVED8</b>
+, <b>SDL_LOG_CATEGORY_RESERVED9</b>
+, <b>SDL_LOG_CATEGORY_RESERVED10</b>
+, <b>SDL_LOG_CATEGORY_CUSTOM</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:ad221d23d6438fe99a781fb04b118039d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The predefined log categories.  <a href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad221d23d6438fe99a781fb04b118039d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e04f1d062a71901f59592c276ad946"><td class="memItemLeft" align="right" valign="top"><a id="a09e04f1d062a71901f59592c276ad946"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> { <br />
+&#160;&#160;<b>SDL_LOG_PRIORITY_VERBOSE</b> = 1
+, <b>SDL_LOG_PRIORITY_DEBUG</b>
+, <b>SDL_LOG_PRIORITY_INFO</b>
+, <b>SDL_LOG_PRIORITY_WARN</b>
+, <br />
+&#160;&#160;<b>SDL_LOG_PRIORITY_ERROR</b>
+, <b>SDL_LOG_PRIORITY_CRITICAL</b>
+, <b>SDL_NUM_LOG_PRIORITIES</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a09e04f1d062a71901f59592c276ad946"><td class="mdescLeft">&#160;</td><td class="mdescRight">The predefined log priorities. <br /></td></tr>
+<tr class="separator:a09e04f1d062a71901f59592c276ad946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a8f54656094d10994fdb5399f271906ef"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">SDL_LogSetAllPriority</a> (<a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority)</td></tr>
+<tr class="separator:a8f54656094d10994fdb5399f271906ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4809ac7942e029d0bf17f380d23f73"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a> (int category, <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority)</td></tr>
+<tr class="separator:a9a4809ac7942e029d0bf17f380d23f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f0cff24dadd97d09808b6aaad3f5f4"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a26f0cff24dadd97d09808b6aaad3f5f4">SDL_LogGetPriority</a> (int category)</td></tr>
+<tr class="separator:a26f0cff24dadd97d09808b6aaad3f5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf17b4ea6a83e308c815fd4d50544eba"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#acf17b4ea6a83e308c815fd4d50544eba">SDL_LogResetPriorities</a> (void)</td></tr>
+<tr class="separator:acf17b4ea6a83e308c815fd4d50544eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712dc42164c67b7f9e23dc0e3b15bd92"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> (SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(1)</td></tr>
+<tr class="separator:a712dc42164c67b7f9e23dc0e3b15bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a7d9211a9ced1c1a6db4be0f3fbb7e"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:a34a7d9211a9ced1c1a6db4be0f3fbb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0749fe47180b98c04bd82aca7235d703"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:a0749fe47180b98c04bd82aca7235d703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c8956ea1a84ad325c3f5ecd2094515"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:a81c8956ea1a84ad325c3f5ecd2094515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a7a09fec470638f028138626b3d126"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:a91a7a09fec470638f028138626b3d126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acabe956be51b7a4c877dbfcb0489a02f"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:acabe956be51b7a4c877dbfcb0489a02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3600cf500a030f892d41a61d9d30de19"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> (int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</td></tr>
+<tr class="separator:a3600cf500a030f892d41a61d9d30de19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fcfeca9c95069b6432bf1cdb01d0ba4"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> (int category, <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(3)</td></tr>
+<tr class="separator:a7fcfeca9c95069b6432bf1cdb01d0ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cacafd4d8e6d258da40e97a3cb3f80b"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> (int category, <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority, const char *fmt, va_list ap)</td></tr>
+<tr class="separator:a2cacafd4d8e6d258da40e97a3cb3f80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a074ce8cf644b09454ec112084f9f399e"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a074ce8cf644b09454ec112084f9f399e">SDL_LogGetOutputFunction</a> (<a class="el" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a> *callback, void **userdata)</td></tr>
+<tr class="separator:a074ce8cf644b09454ec112084f9f399e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229eb1fdf797f548b20ee98ca8acaac6"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">SDL_LogSetOutputFunction</a> (<a class="el" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a> callback, void *userdata)</td></tr>
+<tr class="separator:a229eb1fdf797f548b20ee98ca8acaac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Simple log messages with categories and priorities.</p>
+<p >By default logs are quiet, but if you're debugging SDL you might want: </p><pre class="fragment">SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);
+</pre><p> Here's where the messages go on different platforms: Windows: debug output stream Android: log output Others: standard error output (stderr) </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a06c6de264730f257cdba6188b6aaae12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c6de264730f257cdba6188b6aaae12">&#9670;&nbsp;</a></span>SDL_MAX_LOG_MESSAGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MAX_LOG_MESSAGE&#160;&#160;&#160;4096</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The maximum size of a log message. </p>
+<p >Messages longer than the maximum size will be truncated </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a11c2a5b3bbfd910cf18fbc70cf513e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11c2a5b3bbfd910cf18fbc70cf513e24">&#9670;&nbsp;</a></span>SDL_LogOutputFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(SDLCALL * SDL_LogOutputFunction) (void *userdata, int category, <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority, const char *message)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The prototype for the log output callback function.</p>
+<p >This function is called by SDL when there is new text to be logged.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userdata</td><td>what was passed as <code>userdata</code> to <a class="el" href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">SDL_LogSetOutputFunction()</a> </td></tr>
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">priority</td><td>the priority of the message </td></tr>
+    <tr><td class="paramname">message</td><td>the message being output </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ad221d23d6438fe99a781fb04b118039d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad221d23d6438fe99a781fb04b118039d">&#9670;&nbsp;</a></span>SDL_LogCategory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">SDL_LogCategory</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The predefined log categories. </p>
+<p >By default the application category is enabled at the INFO level, the assert category is enabled at the WARN level, test is enabled at the VERBOSE level and all other categories are enabled at the CRITICAL level. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a712dc42164c67b7f9e23dc0e3b15bd92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712dc42164c67b7f9e23dc0e3b15bd92">&#9670;&nbsp;</a></span>SDL_Log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_Log </td>
+          <td>(</td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_CATEGORY_APPLICATION and SDL_LOG_PRIORITY_INFO.</p>
+<p >= *</p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string</td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <code>fmt</code> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3600cf500a030f892d41a61d9d30de19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3600cf500a030f892d41a61d9d30de19">&#9670;&nbsp;</a></span>SDL_LogCritical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogCritical </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_CRITICAL.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0749fe47180b98c04bd82aca7235d703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0749fe47180b98c04bd82aca7235d703">&#9670;&nbsp;</a></span>SDL_LogDebug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogDebug </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_DEBUG.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="acabe956be51b7a4c877dbfcb0489a02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acabe956be51b7a4c877dbfcb0489a02f">&#9670;&nbsp;</a></span>SDL_LogError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogError </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_ERROR.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a074ce8cf644b09454ec112084f9f399e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a074ce8cf644b09454ec112084f9f399e">&#9670;&nbsp;</a></span>SDL_LogGetOutputFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogGetOutputFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a> *&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>userdata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the current log output function.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>an SDL_LogOutputFunction filled in with the current log callback </td></tr>
+    <tr><td class="paramname">userdata</td><td>a pointer filled in with the pointer that is passed to <code>callback</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">SDL_LogSetOutputFunction</a> </dd></dl>
+
+</div>
+</div>
+<a id="a26f0cff24dadd97d09808b6aaad3f5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f0cff24dadd97d09808b6aaad3f5f4">&#9670;&nbsp;</a></span>SDL_LogGetPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> SDLCALL SDL_LogGetPriority </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the priority of a particular log category.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the SDL_LogPriority for the requested category</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a> </dd></dl>
+
+</div>
+</div>
+<a id="a81c8956ea1a84ad325c3f5ecd2094515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c8956ea1a84ad325c3f5ecd2094515">&#9670;&nbsp;</a></span>SDL_LogInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogInfo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_INFO.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7fcfeca9c95069b6432bf1cdb01d0ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fcfeca9c95069b6432bf1cdb01d0ba4">&#9670;&nbsp;</a></span>SDL_LogMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogMessage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with the specified category and priority.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">priority</td><td>the priority of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2cacafd4d8e6d258da40e97a3cb3f80b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cacafd4d8e6d258da40e97a3cb3f80b">&#9670;&nbsp;</a></span>SDL_LogMessageV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogMessageV </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list&#160;</td>
+          <td class="paramname"><em>ap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with the specified category and priority.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">priority</td><td>the priority of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">ap</td><td>a variable argument list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="acf17b4ea6a83e308c815fd4d50544eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf17b4ea6a83e308c815fd4d50544eba">&#9670;&nbsp;</a></span>SDL_LogResetPriorities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogResetPriorities </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Reset all priorities to default.</p>
+<p >This is called by <a class="el" href="SDL_8h.html#afdabaf714781099083592051f2d9ac11">SDL_Quit()</a>.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">SDL_LogSetAllPriority</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8f54656094d10994fdb5399f271906ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f54656094d10994fdb5399f271906ef">&#9670;&nbsp;</a></span>SDL_LogSetAllPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogSetAllPriority </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the priority of all log categories.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>the SDL_LogPriority to assign</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a> </dd></dl>
+
+</div>
+</div>
+<a id="a229eb1fdf797f548b20ee98ca8acaac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229eb1fdf797f548b20ee98ca8acaac6">&#9670;&nbsp;</a></span>SDL_LogSetOutputFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogSetOutputFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a>&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>userdata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Replace the default log output function with one of your own.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>an SDL_LogOutputFunction to call instead of the default </td></tr>
+    <tr><td class="paramname">userdata</td><td>a pointer that is passed to <code>callback</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a074ce8cf644b09454ec112084f9f399e">SDL_LogGetOutputFunction</a> </dd></dl>
+
+</div>
+</div>
+<a id="a9a4809ac7942e029d0bf17f380d23f73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4809ac7942e029d0bf17f380d23f73">&#9670;&nbsp;</a></span>SDL_LogSetPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogSetPriority </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a>&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the priority of a particular log category.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category to assign a priority to </td></tr>
+    <tr><td class="paramname">priority</td><td>the SDL_LogPriority to assign</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a26f0cff24dadd97d09808b6aaad3f5f4">SDL_LogGetPriority</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">SDL_LogSetAllPriority</a> </dd></dl>
+
+</div>
+</div>
+<a id="a34a7d9211a9ced1c1a6db4be0f3fbb7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a7d9211a9ced1c1a6db4be0f3fbb7e">&#9670;&nbsp;</a></span>SDL_LogVerbose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogVerbose </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_VERBOSE.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a> </dd></dl>
+
+</div>
+</div>
+<a id="a91a7a09fec470638f028138626b3d126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a7a09fec470638f028138626b3d126">&#9670;&nbsp;</a></span>SDL_LogWarn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_LogWarn </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_PRINTF_FORMAT_STRING const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Log a message with SDL_LOG_PRIORITY_WARN.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td>the category of the message </td></tr>
+    <tr><td class="paramname">fmt</td><td>a printf() style message format string </td></tr>
+    <tr><td class="paramname">...</td><td>additional parameters matching % tokens in the <b>fmt</b> string, if any</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a> </dd>
+<dd>
+<a class="el" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

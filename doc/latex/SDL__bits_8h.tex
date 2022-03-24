@@ -1,0 +1,30 @@
+\hypertarget{SDL__bits_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+bits.h}
+\label{SDL__bits_8h}\index{include/SDL2/SDL\_bits.h@{include/SDL2/SDL\_bits.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE int \mbox{\hyperlink{SDL__bits_8h_ada8cd16089cc635936dfe1a6884729a4}{SDL\+\_\+\+Most\+Significant\+Bit\+Index32}} (Uint32 x)
+\item 
+\mbox{\Hypertarget{SDL__bits_8h_a9ca9ab50814f9cfbce5c1cba379b001d}\label{SDL__bits_8h_a9ca9ab50814f9cfbce5c1cba379b001d}} 
+SDL\+\_\+\+FORCE\+\_\+\+INLINE SDL\+\_\+bool {\bfseries SDL\+\_\+\+Has\+Exactly\+One\+Bit\+Set32} (Uint32 x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Functions for fiddling with bits and bitmasks.
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__bits_8h_ada8cd16089cc635936dfe1a6884729a4}\label{SDL__bits_8h_ada8cd16089cc635936dfe1a6884729a4}} 
+\index{SDL\_bits.h@{SDL\_bits.h}!SDL\_MostSignificantBitIndex32@{SDL\_MostSignificantBitIndex32}}
+\index{SDL\_MostSignificantBitIndex32@{SDL\_MostSignificantBitIndex32}!SDL\_bits.h@{SDL\_bits.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MostSignificantBitIndex32()}{SDL\_MostSignificantBitIndex32()}}
+{\footnotesize\ttfamily SDL\+\_\+\+FORCE\+\_\+\+INLINE int SDL\+\_\+\+Most\+Significant\+Bit\+Index32 (\begin{DoxyParamCaption}\item[{Uint32}]{x }\end{DoxyParamCaption})}
+
+Get the index of the most significant bit. Result is undefined when called with 0. This operation can also be stated as \char`\"{}count leading zeroes\char`\"{} and \char`\"{}log base 2\char`\"{}.
+
+\begin{DoxyReturn}{Renvoie}
+the index of the most significant bit, or -\/1 if the value is 0. 
+\end{DoxyReturn}

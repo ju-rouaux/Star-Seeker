@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/entite.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier entite.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de manipulation des entites.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="animation_8h_source.html">animation.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;attributs_entites.h&gt;</code><br />
+</div>
+<p><a href="entite_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a2cbf188682c05adae88dc39bdd7ef995"><td class="memItemLeft" align="right" valign="top"><a id="a2cbf188682c05adae88dc39bdd7ef995"></a>
+typedef struct s_entite&#160;</td><td class="memItemRight" valign="bottom"><b>t_entite</b></td></tr>
+<tr class="separator:a2cbf188682c05adae88dc39bdd7ef995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memItemLeft" align="right" valign="top"><a id="aaafe4b6a828c515418ebc7c038ac55b2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> { <b>E_AUCUN</b> = -1
+, <b>E_JOUEUR</b>
+, <b>E_MONSTRE</b>
+, <b>E_PROJECTILE</b>
+ }</td></tr>
+<tr class="memdesc:aaafe4b6a828c515418ebc7c038ac55b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant permettant de reconnaitre la nature d'une entité. <br /></td></tr>
+<tr class="separator:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aaa46b794fb0a1e3bbdeda1552699b2f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#aaa46b794fb0a1e3bbdeda1552699b2f9">dessinerEntite</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
+<tr class="memdesc:aaa46b794fb0a1e3bbdeda1552699b2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'entité à ses coordonnées, tout en gérant son animation s'il en possède une.  <a href="entite_8h.html#aaa46b794fb0a1e3bbdeda1552699b2f9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa46b794fb0a1e3bbdeda1552699b2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a8da1bb938d887eff7742638a20f63f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a> (const <a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
+<tr class="memdesc:a6a8da1bb938d887eff7742638a20f63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position entraine une collision avec un mur.  <a href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6a8da1bb938d887eff7742638a20f63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a513005586a3e271551d04be4fabbcbcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">ajouterEntiteListe</a> (t_liste *liste, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
+<tr class="memdesc:a513005586a3e271551d04be4fabbcbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une entité à la liste sans perturber son fonctionnement.  <a href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a513005586a3e271551d04be4fabbcbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a0fcc0be31f136b0b50fc2cd0ad80bb32">creerEntite</a> (float x, float y, SDL_Texture *texture)</td></tr>
+<tr class="memdesc:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une entité générique.  <a href="entite_8h.html#a0fcc0be31f136b0b50fc2cd0ad80bb32">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f11ad700be8e6e8dc23d460863f78a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a29f11ad700be8e6e8dc23d460863f78a">detruireEntite</a> (<a class="el" href="structt__entite.html">t_entite</a> **entite)</td></tr>
+<tr class="memdesc:a29f11ad700be8e6e8dc23d460863f78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une entité générique et mets sont pointeur à NULL.  <a href="entite_8h.html#a29f11ad700be8e6e8dc23d460863f78a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a29f11ad700be8e6e8dc23d460863f78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Module de manipulation des entites. </p>
+<p >Pour faciliter le développement, ce module permet l'affichage et le déplacement automatique d'une entité selon ses paramètres.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a513005586a3e271551d04be4fabbcbcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513005586a3e271551d04be4fabbcbcc">&#9670;&nbsp;</a></span>ajouterEntiteListe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajouterEntiteListe </td>
+          <td>(</td>
+          <td class="paramtype">t_liste *&#160;</td>
+          <td class="paramname"><em>liste</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une entité à la liste sans perturber son fonctionnement. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste</td><td>La liste où ajouter l'entité </td></tr>
+    <tr><td class="paramname">entite</td><td>L'entité à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0fcc0be31f136b0b50fc2cd0ad80bb32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fcc0be31f136b0b50fc2cd0ad80bb32">&#9670;&nbsp;</a></span>creerEntite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__entite.html">t_entite</a>* creerEntite </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génère une entité générique. </p>
+<p >Cette fonction est principalement utile pour créer une entité qui hérite des attributs de cette structure.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Position en x de l'entité </td></tr>
+    <tr><td class="paramname">y</td><td>Position en y de l'entité </td></tr>
+    <tr><td class="paramname">texture</td><td>Apparence de l'entité</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'adresse de l'entité créée. </dd></dl>
+
+</div>
+</div>
+<a id="a6a8da1bb938d887eff7742638a20f63f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a8da1bb938d887eff7742638a20f63f">&#9670;&nbsp;</a></span>deplacerEntite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deplacerEntite </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position entraine une collision avec un mur. </p>
+<p >La fonction teste si une collision survient en traitant les deux axes de déplacement séparément afin que l'entité puisse glisser contre le mur s'il se dirige en diagonale au lieu de se voir annuler son déplacement.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Structure moteur du jeu </td></tr>
+    <tr><td class="paramname">entite</td><td>L'entité à afficher</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>-1 si collision, sinon 0. </dd></dl>
+
+</div>
+</div>
+<a id="aaa46b794fb0a1e3bbdeda1552699b2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa46b794fb0a1e3bbdeda1552699b2f9">&#9670;&nbsp;</a></span>dessinerEntite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int dessinerEntite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine l'entité à ses coordonnées, tout en gérant son animation s'il en possède une. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Structure moteur du jeu </td></tr>
+    <tr><td class="paramname">entite</td><td>L'entité à afficher</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si succès, sinon une valeur négative (SDL_Error() pour connaitre l'erreur). </dd></dl>
+
+</div>
+</div>
+<a id="a29f11ad700be8e6e8dc23d460863f78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f11ad700be8e6e8dc23d460863f78a">&#9670;&nbsp;</a></span>detruireEntite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireEntite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> **&#160;</td>
+          <td class="paramname"><em>entite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une entité générique et mets sont pointeur à NULL. </p>
+<p >Cette fonction détruit aussi l'animation si l'entité en a une.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>L'adresse du pointeur sur l'entité </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

@@ -1,0 +1,125 @@
+\hypertarget{textures_8h}{}\doxysection{Référence du fichier include/textures.h}
+\label{textures_8h}\index{include/textures.h@{include/textures.h}}
+
+
+Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__textures}{t\+\_\+textures}}
+\begin{DoxyCompactList}\small\item\em Contient toutes les textures du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{textures_8h_a22c2b2aa23a461a79661060683611305}\label{textures_8h_a22c2b2aa23a461a79661060683611305}} 
+\#define {\bfseries TAILLE\+\_\+\+TILE}~16
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}\label{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}} 
+enum \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} \{ \newline
+{\bfseries AUCUN}
+, {\bfseries SOL}
+, {\bfseries MUR}
+, {\bfseries PORTE\+\_\+\+BAS}
+, \newline
+{\bfseries PORTE\+\_\+\+DROITE}
+, {\bfseries PORTE\+\_\+\+HAUT}
+, {\bfseries PORTE\+\_\+\+GAUCHE}
+ \}
+\begin{DoxyCompactList}\small\item\em Identifiants des tiles d\textquotesingle{}un niveau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__textures}{t\+\_\+textures}} $\ast$ \mbox{\hyperlink{textures_8h_a41fd62043a2b1eb9e3bb077386f274a5}{charger\+Textures}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Charge les textures du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{textures_8h_a48d76eceb81b1e6477d3bb1f80060b7b}{detruire\+Textures}} (\mbox{\hyperlink{structt__textures}{t\+\_\+textures}} $\ast$$\ast$textures)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour les textures et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{textures_8h_af7f9546af007eb8aa8382f6a097a48a1}{split\+Texture}} (SDL\+\_\+\+Rect $\ast$rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)
+\begin{DoxyCompactList}\small\item\em Outil permettant de découper une tileset et récupérer une partie de la texture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{textures_8h_af37932c13d71c8796a36f8d86b6a7718}{tile\+Niveau}} (SDL\+\_\+\+Rect $\ast$rectangle, \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{textures_8h_a41fd62043a2b1eb9e3bb077386f274a5}\label{textures_8h_a41fd62043a2b1eb9e3bb077386f274a5}} 
+\index{textures.h@{textures.h}!chargerTextures@{chargerTextures}}
+\index{chargerTextures@{chargerTextures}!textures.h@{textures.h}}
+\doxysubsubsection{\texorpdfstring{chargerTextures()}{chargerTextures()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__textures}{t\+\_\+textures}}$\ast$ charger\+Textures (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Charge les textures du jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur du renderer de la fenêtre.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur de la structure contenant les références à toutes les textures, NULL si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{textures_8h_a48d76eceb81b1e6477d3bb1f80060b7b}\label{textures_8h_a48d76eceb81b1e6477d3bb1f80060b7b}} 
+\index{textures.h@{textures.h}!detruireTextures@{detruireTextures}}
+\index{detruireTextures@{detruireTextures}!textures.h@{textures.h}}
+\doxysubsubsection{\texorpdfstring{detruireTextures()}{detruireTextures()}}
+{\footnotesize\ttfamily void detruire\+Textures (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__textures}{t\+\_\+textures}} $\ast$$\ast$}]{textures }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour les textures et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em textures} & La structure des textures du jeu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{textures_8h_af7f9546af007eb8aa8382f6a097a48a1}\label{textures_8h_af7f9546af007eb8aa8382f6a097a48a1}} 
+\index{textures.h@{textures.h}!splitTexture@{splitTexture}}
+\index{splitTexture@{splitTexture}!textures.h@{textures.h}}
+\doxysubsubsection{\texorpdfstring{splitTexture()}{splitTexture()}}
+{\footnotesize\ttfamily void split\+Texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rectangle,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{tailleX,  }\item[{int}]{tailleY,  }\item[{int}]{decalageX,  }\item[{int}]{decalageY }\end{DoxyParamCaption})}
+
+
+
+Outil permettant de découper une tileset et récupérer une partie de la texture. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rectangle} & Rectangle où stocker le résultat de calcul \\
+\hline
+{\em x} & Position en x de la tile désirée \\
+\hline
+{\em y} & Position en y de la tile désirée \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{textures_8h_af37932c13d71c8796a36f8d86b6a7718}\label{textures_8h_af37932c13d71c8796a36f8d86b6a7718}} 
+\index{textures.h@{textures.h}!tileNiveau@{tileNiveau}}
+\index{tileNiveau@{tileNiveau}!textures.h@{textures.h}}
+\doxysubsubsection{\texorpdfstring{tileNiveau()}{tileNiveau()}}
+{\footnotesize\ttfamily void tile\+Niveau (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rectangle,  }\item[{\mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rectangle} & Rectangle où stocker le résultat de calcul \\
+\hline
+{\em type} & Type de tile désiré \\
+\hline
+\end{DoxyParams}
