@@ -20,7 +20,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <moteur.h>
 
 
 
@@ -39,7 +39,7 @@ typedef struct{
 
 } t_musiques;
 
-int chargerAudio(t_musiques ** musiques, t_bruitages ** bruitages);
+int chargerAudio(t_moteur * moteur, t_musiques ** musiques, t_bruitages ** bruitages);
 void detruireAudio(t_musiques ** m, t_bruitages ** b);
 
 #endif // _JEU_AUDIO_

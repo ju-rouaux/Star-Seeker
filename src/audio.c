@@ -10,9 +10,15 @@
 
 #include <stdio.h>
 #include <audio.h>
+#include <moteur.h>
 
 
-int chargerAudio(t_musiques ** musiques, t_bruitages ** bruitages){
+int chargerAudio(t_moteur * moteur, t_musiques ** musiques, t_bruitages ** bruitages){
+
+    moteur->parametres.volume_audio = MIX_MAX_VOLUME;
+    Mix_Volume(-1,moteur->parametres.volume_audio);
+
+
 
     t_musiques * m = malloc(sizeof(t_musiques));
 
