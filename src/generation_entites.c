@@ -11,7 +11,6 @@
 #include <monstre.h>
 #include <generation_niveau.h>
 
-
 /**
  * 
  * 
@@ -19,17 +18,27 @@
  * 
  */
 static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
-{   
+{
+    int nb_alea = rand() % 4 + 1;
+
     //générer un nombre d'entité selon difficulté
-    *nb_entites = 1;
+    *nb_entites = 0.35 * (indice_difficulte + nb_alea);
 
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
 
-    //générer entités
-    for(int i = 0; i < *nb_entites; i++)
-        (*liste_entites)[i] = (t_entite*) creerMonstre(x_orig_salle + 6, y_orig_salle + 4, 0, 2, 1.5, A_360, STATIQUE);
+    float x_alea;
+    float y_alea;
+    int attaque_alea;
 
+
+    //générer entités
+    for(int i = 0; i < *nb_entites; i++){
+        x_alea = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
+        y_alea = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
+        attaque_alea = rand() % (NB_ATTAQUE +1);
+        (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.1, attaque_alea, STATIQUE);
+    }
     return 0;
 }
 
