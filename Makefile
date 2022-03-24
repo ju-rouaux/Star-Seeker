@@ -67,3 +67,6 @@ doc:
 .PHONY: start
 start: all
 	$(APPNAME)
+
+#Supprime les fichiers du projet, recompile et lance le programme
+mrproper: clean start

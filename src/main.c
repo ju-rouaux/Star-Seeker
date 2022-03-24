@@ -9,6 +9,7 @@
 #include <menu.h>
 #include <menu_options.h>
 #include <menu_options_keymap.h>
+#include <main.h>
 
 /**
  * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
