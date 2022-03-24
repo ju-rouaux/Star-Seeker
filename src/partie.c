@@ -185,7 +185,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
         //Dessiner entités
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
-        
+
 
         SDL_RenderPresent(moteur->renderer);
 
@@ -312,6 +312,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
 
         //Map
         if(joueur->flags->map_showing == 1){
+            Mix_PlayMusic(moteur->bruitages->treasure, 1);
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
         }
 
