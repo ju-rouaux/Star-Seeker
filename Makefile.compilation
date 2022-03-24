@@ -13,12 +13,12 @@ PARAM_INIT =
 
 #Compilation sur Windows
 ifeq ($(ARCH),win)
-    LDFLAGS = -I./include -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lm
+    LDFLAGS = -I./include -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -lm
     EXTAPP = .exe
     
 #Compilation sur Linux...
 else
-    LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
+    LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -lm 
     CIBLE_ARCH = init
     PARAM_CLEAN = -f
     PARAM_INIT = -p

@@ -77,7 +77,7 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    if(chargerAudio(&moteur->musiques, &moteur->bruitages) != 0)
+    if(chargerAudio(MIX_MAX_VOLUME, &moteur->musiques, &moteur->bruitages) != 0)
     {
         printf("Moteur non chargé\n");
         detruireCamera(&moteur->camera);
