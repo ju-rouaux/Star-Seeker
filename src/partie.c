@@ -186,7 +186,6 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-
         if(joueur->flags->map_showing == 1)
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
 
@@ -229,7 +228,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
     chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
-    while((code_sortie = handleEvents(joueur,moteur)) == NIVEAU_CONTINUER)
+    while((code_sortie = handleEvents(joueur, &moteur->parametres)) == NIVEAU_CONTINUER)
     {
         //Traitements de début de boucle
         moteur->temps_precedent = moteur->temps;
@@ -327,7 +326,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
     }
 
     //Sauver l'état des entités
-    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
     return code_sortie;;
 }

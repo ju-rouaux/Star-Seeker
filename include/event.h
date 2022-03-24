@@ -5,6 +5,6 @@
 #include <moteur.h>
 #include <main.h>
 
-e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur);
+e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres);
 
 #endif

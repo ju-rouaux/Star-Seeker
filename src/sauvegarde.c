@@ -220,18 +220,21 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 
             for(int k = 0; k < niveaux[i]->liste_infos_entites[j]->nb_entites; k++)
             {
-                if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
-                    return READ_OR_WRITE_FAIL;
-                
-                switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                if(niveaux[i]->liste_infos_entites[j]->entites[k] != NULL)
                 {
-                case E_MONSTRE:
-                    if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                    if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
                         return READ_OR_WRITE_FAIL;
-                    break;
-                
-                default:
-                    break;
+                    
+                    switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                    {
+                    case E_MONSTRE:
+                        if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+                    
+                    default:
+                        break;
+                    }
                 }
                 
             }

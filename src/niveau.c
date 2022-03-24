@@ -12,10 +12,6 @@
 #include <generation_niveau.h>
 #include <niveau.h>
 
-//A faire
-//static void chargerMonstres();
-//static void chargerObstacles();
-
 
 /**
  * \brief Génère une structure dimensions de salle.

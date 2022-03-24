@@ -19,12 +19,11 @@
 #include <sauvegarde.h>
 
 /**
- * \brief Initialise les touches du clavier à partir de la sauvegarde
- * si possible.
+ * \brief Initialise les parametres.
  * 
- * \param moteur moteur du jeu
+ * \param parametres Paramètres du moteur
  */
-static void initialiserTouches(t_parametres * parametres)
+static void initialiserParams(t_parametres * parametres)
 {
     if(chargerSaveParametres(parametres) != SUCCESS)
     {
@@ -34,8 +33,9 @@ static void initialiserTouches(t_parametres * parametres)
         parametres->key_left = 4; //SDL_SCANCODE_Q
         parametres->key_right = 7;//SDL_SCANCODE_D
         parametres->key_projectile = 15; //SDL_SCANCODE_L
+        parametres->reset_sauvegarde_joueur = FAUX;
+        parametres->volume_audio = 100;
     }
-
 }
 
 
@@ -100,10 +100,7 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
-    initialiserTouches(&moteur->parametres);
-
-    moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    moteur->parametres.volume_audio = 100;
+    initialiserParams(&moteur->parametres);
 
     return moteur;
 }
