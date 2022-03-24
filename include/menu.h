@@ -33,6 +33,10 @@
 
 typedef enum {ERROR_MENU_TEXTURE = -2,ERROR_MENU, M_PRINCIPAL = 1, M_JEU,M_CHARGER,M_RESET,M_OPTIONS, M_KEYMAP, M_QUITTER} e_menu;
 
+/**
+ * \struct t_bouton
+ * \brief Modelise un bouton avec du texte
+ */
 typedef struct s_bouton {
     SDL_Texture * texture;
     SDL_Rect rect;
