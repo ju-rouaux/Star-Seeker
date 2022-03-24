@@ -14,7 +14,9 @@ make all
 ```
 
 Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires obj et save.
-```make init```
+```
+make init
+```
 obj est nécessaire à la compilation tandis que save est nécessaire à l'exécution du jeu.
 
 
