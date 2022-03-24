@@ -1,7 +1,7 @@
 #Extension de l'executable en fonction du systeme d'exploitation
 EXTAPP =
 
-#Cibles supplémentaires pour le make all en fonction du systeme d'exploitation
+#Cibles supplementaires pour le make all en fonction du systeme d'exploitation
 CIBLE_ARCH = 
 
 #Parametre pour la cible clean en fonction du systeme d'exploitation

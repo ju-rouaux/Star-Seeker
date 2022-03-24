@@ -287,7 +287,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         }
 
 
-        // --- Changement de salle si nécéssaire ---
+        // --- Changement de salle si nécessaire ---
         id_ancienne_salle = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
         if(id_ancienne_salle != niveau->salle_chargee->id_salle)
