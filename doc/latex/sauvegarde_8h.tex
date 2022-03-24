@@ -1,0 +1,62 @@
+\hypertarget{sauvegarde_8h}{}\doxysection{Référence du fichier include/sauvegarde.h}
+\label{sauvegarde_8h}\index{include/sauvegarde.h@{include/sauvegarde.h}}
+
+
+Sauvegarde l\textquotesingle{}etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$joueur.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$animation.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sauvegarde_8h_a13f12457971e2cc047962ad3af7bbf83}\label{sauvegarde_8h_a13f12457971e2cc047962ad3af7bbf83}} 
+\#define {\bfseries filename\+\_\+joueur}~\char`\"{}./save/save\+\_\+joueur.\+save\char`\"{}
+\item 
+\mbox{\Hypertarget{sauvegarde_8h_a35d3a71f8b76929683ee93a56eae75d3}\label{sauvegarde_8h_a35d3a71f8b76929683ee93a56eae75d3}} 
+\#define {\bfseries filename\+\_\+niveau}~\char`\"{}./save/save\+\_\+niveau.\+save\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}{charger\+Sauvegarde}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$$\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Fonction de chargement du niveau et du joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sauvegarde_8h_aadf625542c1e15d2022e34eedb3ca925}\label{sauvegarde_8h_aadf625542c1e15d2022e34eedb3ca925}} 
+int {\bfseries sauvegarder} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$niveau)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Sauvegarde l\textquotesingle{}etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}\label{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}} 
+\index{sauvegarde.h@{sauvegarde.h}!chargerSauvegarde@{chargerSauvegarde}}
+\index{chargerSauvegarde@{chargerSauvegarde}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{chargerSauvegarde()}{chargerSauvegarde()}}
+{\footnotesize\ttfamily int charger\+Sauvegarde (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{\mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Fonction de chargement du niveau et du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & joueur \\
+\hline
+{\em niveau} & niveau (NULL si l\textquotesingle{}on ne souhaite pas charger le niveau) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si echec. 
+\end{DoxyReturn}

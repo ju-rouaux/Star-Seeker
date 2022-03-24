@@ -1,0 +1,1442 @@
+\hypertarget{SDL__joystick_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+joystick.h}
+\label{SDL__joystick_8h}\index{include/SDL2/SDL\_joystick.h@{include/SDL2/SDL\_joystick.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a174438b13726ecccde135dded4119722}\label{SDL__joystick_8h_a174438b13726ecccde135dded4119722}} 
+\#define {\bfseries SDL\+\_\+\+IPHONE\+\_\+\+MAX\+\_\+\+GFORCE}~5.\+0
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_af443c2c3d8cc4dd4f5b2923bc053ee4b}\label{SDL__joystick_8h_af443c2c3d8cc4dd4f5b2923bc053ee4b}} 
+\#define {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+AXIS\+\_\+\+MAX}~32767
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a591b0765b63a2cab64d8f268be8a22ec}\label{SDL__joystick_8h_a591b0765b63a2cab64d8f268be8a22ec}} 
+\#define {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+AXIS\+\_\+\+MIN}~-\/32768
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a1246a982e91df301042a77e65c694987}\label{SDL__joystick_8h_a1246a982e91df301042a77e65c694987}} 
+typedef struct \+\_\+\+SDL\+\_\+\+Joystick {\bfseries SDL\+\_\+\+Joystick}
+\item 
+typedef Sint32 \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a01a289030d76adc1666951fd6021c2ea}\label{SDL__joystick_8h_a01a289030d76adc1666951fd6021c2ea}} 
+enum {\bfseries SDL\+\_\+\+Joystick\+Type} \{ \newline
+{\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+UNKNOWN}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+GAMECONTROLLER}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+WHEEL}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+ARCADE\+\_\+\+STICK}
+, \newline
+{\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+FLIGHT\+\_\+\+STICK}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+DANCE\+\_\+\+PAD}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+GUITAR}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+DRUM\+\_\+\+KIT}
+, \newline
+{\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+ARCADE\+\_\+\+PAD}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+THROTTLE}
+ \}
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a293471a907265fb92ea12caf5bcc8065}\label{SDL__joystick_8h_a293471a907265fb92ea12caf5bcc8065}} 
+enum {\bfseries SDL\+\_\+\+Joystick\+Power\+Level} \{ \newline
+{\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+UNKNOWN} = -\/1
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+EMPTY}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+LOW}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+MEDIUM}
+, \newline
+{\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+FULL}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+WIRED}
+, {\bfseries SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+MAX}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a4a2e0bedda1b7d0ac957607e944bfba0}{SDL\+\_\+\+Lock\+Joysticks}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_add3a6baa4646469b34c42df028c59be0}{SDL\+\_\+\+Unlock\+Joysticks}} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks}} (void)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ad36c04c086f834fe09a97e4cf86a5a59}{SDL\+\_\+\+Joystick\+Name\+For\+Index}} (int device\+\_\+index)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ad882a8dd3fe4278725a7fc212b755db7}{SDL\+\_\+\+Joystick\+Get\+Device\+Player\+Index}} (int device\+\_\+index)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL \mbox{\hyperlink{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}{SDL\+\_\+\+Joystick\+Get\+Device\+GUID}} (int device\+\_\+index)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_afb8ba88559debca4ab2c702b8500d5fe}{SDL\+\_\+\+Joystick\+Get\+Device\+Vendor}} (int device\+\_\+index)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a6330470720659333e6ef60994942a855}{SDL\+\_\+\+Joystick\+Get\+Device\+Product}} (int device\+\_\+index)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a10972ad002df75e76ed68c18e1188e5e}{SDL\+\_\+\+Joystick\+Get\+Device\+Product\+Version}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick\+Type SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a368a06b0fd51d453bb4692dcc2c42b69}{SDL\+\_\+\+Joystick\+Get\+Device\+Type}} (int device\+\_\+index)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a6c46ea976c7a65d49b38d31b42d11652}{SDL\+\_\+\+Joystick\+Get\+Device\+Instance\+ID}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ad220bd2c90df0fe65c229b69c0bf248a}{SDL\+\_\+\+Joystick\+From\+Instance\+ID}} (\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} instance\+\_\+id)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a6303adf72601a406399e6a45c6d89b25}{SDL\+\_\+\+Joystick\+From\+Player\+Index}} (int player\+\_\+index)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ac72e7fbcf14ab9d1d061b48b60ee63f1}{SDL\+\_\+\+Joystick\+Attach\+Virtual}} (SDL\+\_\+\+Joystick\+Type type, int naxes, int nbuttons, int nhats)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ae1cff0f737264b2d885bff05a9c5b33f}{SDL\+\_\+\+Joystick\+Detach\+Virtual}} (int device\+\_\+index)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a718be0fe686e838f1d0db00d523ff47a}{SDL\+\_\+\+Joystick\+Is\+Virtual}} (int device\+\_\+index)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a68d808bc0054c5cd068b0d0ff7c5ef7d}{SDL\+\_\+\+Joystick\+Set\+Virtual\+Axis}} (SDL\+\_\+\+Joystick $\ast$joystick, int axis, Sint16 value)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aa895270395be528f6658006a5c02a799}{SDL\+\_\+\+Joystick\+Set\+Virtual\+Button}} (SDL\+\_\+\+Joystick $\ast$joystick, int button, Uint8 value)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a3f1bcde55e0486bee726f7748c1ca971}{SDL\+\_\+\+Joystick\+Set\+Virtual\+Hat}} (SDL\+\_\+\+Joystick $\ast$joystick, int hat, Uint8 value)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ad3ab02961bc45606e8f5f937c934160c}{SDL\+\_\+\+Joystick\+Name}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a1b3543511c1839f9c06aeea65b574e77}{SDL\+\_\+\+Joystick\+Get\+Player\+Index}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a552d1be1bccb9cd81191ddf5f576fa31}{SDL\+\_\+\+Joystick\+Set\+Player\+Index}} (SDL\+\_\+\+Joystick $\ast$joystick, int player\+\_\+index)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL \mbox{\hyperlink{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}{SDL\+\_\+\+Joystick\+Get\+GUID}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a13d9a1e3c5cbe2591cd5214aad48fed8}{SDL\+\_\+\+Joystick\+Get\+Vendor}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a0f4732dffd2a769a2346f4091b2f3199}{SDL\+\_\+\+Joystick\+Get\+Product}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC Uint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_afe6bbdbc0c81170d237fae42bec05665}{SDL\+\_\+\+Joystick\+Get\+Product\+Version}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aac85f320b665a43bcb20653df62a39e9}{SDL\+\_\+\+Joystick\+Get\+Serial}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick\+Type SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ad21afdbdd915c013cacefb7e79bfe3bf}{SDL\+\_\+\+Joystick\+Get\+Type}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString}} (\mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} guid, char $\ast$psz\+GUID, int cb\+GUID)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aef9d131a6a6838847731cf8094944b46}{SDL\+\_\+\+Joystick\+Get\+GUIDFrom\+String}} (const char $\ast$pch\+GUID)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a222cd2d664acbea2dad78b891df4b89a}{SDL\+\_\+\+Joystick\+Get\+Attached}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ab38dfc6428e15c2476478418075d4c83}{SDL\+\_\+\+Joystick\+Instance\+ID}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a865c2e087fe69a3a30c87243729ecdea}{SDL\+\_\+\+Joystick\+Num\+Axes}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a755d087bb16270087bfced7501656a6d}{SDL\+\_\+\+Joystick\+Num\+Balls}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aa62ea91c7c4ca2d12804a9fb3760e448}{SDL\+\_\+\+Joystick\+Num\+Hats}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_adfc662e571011ae7ec303101ab34e53a}{SDL\+\_\+\+Joystick\+Num\+Buttons}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a3ea23a9504ea56f2778147dbf39a029f}{SDL\+\_\+\+Joystick\+Update}} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a51ba353843fd4477f6a485ac4ef35d00}{SDL\+\_\+\+Joystick\+Event\+State}} (int state)
+\item 
+DECLSPEC Sint16 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ac6fbda13b93679bedfc34733d4b2e748}{SDL\+\_\+\+Joystick\+Get\+Axis}} (SDL\+\_\+\+Joystick $\ast$joystick, int axis)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a3b87809500c342149471e1abf0ace40c}{SDL\+\_\+\+Joystick\+Get\+Axis\+Initial\+State}} (SDL\+\_\+\+Joystick $\ast$joystick, int axis, Sint16 $\ast$state)
+\end{DoxyCompactItemize}
+\doxysubsection*{Hat positions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_adbfd6f0bad25cd1bb79f8c0a065f3833}\label{SDL__joystick_8h_adbfd6f0bad25cd1bb79f8c0a065f3833}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+CENTERED}~0x00
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_ac916fe96c0740790e5496e12c67d8889}\label{SDL__joystick_8h_ac916fe96c0740790e5496e12c67d8889}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+UP}~0x01
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a5d1844afaf2ceaf58c689a8bd480a543}\label{SDL__joystick_8h_a5d1844afaf2ceaf58c689a8bd480a543}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+RIGHT}~0x02
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_aa87f7a91d6bae8b420b133559d983338}\label{SDL__joystick_8h_aa87f7a91d6bae8b420b133559d983338}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+DOWN}~0x04
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a4666c12cae25d8bab053d8569396cd77}\label{SDL__joystick_8h_a4666c12cae25d8bab053d8569396cd77}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+LEFT}~0x08
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a65fde978b4ab9c269c215d1922ae7755}\label{SDL__joystick_8h_a65fde978b4ab9c269c215d1922ae7755}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+RIGHTUP}~(SDL\+\_\+\+HAT\+\_\+\+RIGHT$\vert$SDL\+\_\+\+HAT\+\_\+\+UP)
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_abf50339da11ca12699ee2199607d275f}\label{SDL__joystick_8h_abf50339da11ca12699ee2199607d275f}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+RIGHTDOWN}~(SDL\+\_\+\+HAT\+\_\+\+RIGHT$\vert$SDL\+\_\+\+HAT\+\_\+\+DOWN)
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a6d7988b43c09ced08ec318a2556f1858}\label{SDL__joystick_8h_a6d7988b43c09ced08ec318a2556f1858}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+LEFTUP}~(SDL\+\_\+\+HAT\+\_\+\+LEFT$\vert$SDL\+\_\+\+HAT\+\_\+\+UP)
+\item 
+\mbox{\Hypertarget{SDL__joystick_8h_a3fa8609d382a0f74507890491033c784}\label{SDL__joystick_8h_a3fa8609d382a0f74507890491033c784}} 
+\#define {\bfseries SDL\+\_\+\+HAT\+\_\+\+LEFTDOWN}~(SDL\+\_\+\+HAT\+\_\+\+LEFT$\vert$SDL\+\_\+\+HAT\+\_\+\+DOWN)
+\item 
+DECLSPEC Uint8 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a2215030cf283295569fee41fd0251e01}{SDL\+\_\+\+Joystick\+Get\+Hat}} (SDL\+\_\+\+Joystick $\ast$joystick, int hat)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_ac7a5a4c17f6a5a4ef9f5bc78e50913df}{SDL\+\_\+\+Joystick\+Get\+Ball}} (SDL\+\_\+\+Joystick $\ast$joystick, int ball, int $\ast$dx, int $\ast$dy)
+\item 
+DECLSPEC Uint8 SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aaf7789eb03bc42525691e075e2a36131}{SDL\+\_\+\+Joystick\+Get\+Button}} (SDL\+\_\+\+Joystick $\ast$joystick, int button)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a307c87a4de5aec2d1ca22856d94930fa}{SDL\+\_\+\+Joystick\+Rumble}} (SDL\+\_\+\+Joystick $\ast$joystick, Uint16 low\+\_\+frequency\+\_\+rumble, Uint16 high\+\_\+frequency\+\_\+rumble, Uint32 duration\+\_\+ms)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a0d248aa2e25ac62d30444583180ff539}{SDL\+\_\+\+Joystick\+Rumble\+Triggers}} (SDL\+\_\+\+Joystick $\ast$joystick, Uint16 left\+\_\+rumble, Uint16 right\+\_\+rumble, Uint32 duration\+\_\+ms)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a7a5a92f4eb93dde4e58d5155ce22b7a7}{SDL\+\_\+\+Joystick\+Has\+LED}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_afa0e29b3b5738184da3cc281de3e4896}{SDL\+\_\+\+Joystick\+Has\+Rumble}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a815f02f2cbced249cb4b0018dfd3a777}{SDL\+\_\+\+Joystick\+Has\+Rumble\+Triggers}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a4e3e052e175f47fe02c63e92a59f4b04}{SDL\+\_\+\+Joystick\+Set\+LED}} (SDL\+\_\+\+Joystick $\ast$joystick, Uint8 red, Uint8 green, Uint8 blue)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a16c10474f6a3d861babfe1ae424cb1a5}{SDL\+\_\+\+Joystick\+Send\+Effect}} (SDL\+\_\+\+Joystick $\ast$joystick, const void $\ast$data, int size)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}{SDL\+\_\+\+Joystick\+Close}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\item 
+DECLSPEC SDL\+\_\+\+Joystick\+Power\+Level SDLCALL \mbox{\hyperlink{SDL__joystick_8h_a192bbea3553394a6e9c80f77e431fd76}{SDL\+\_\+\+Joystick\+Current\+Power\+Level}} (SDL\+\_\+\+Joystick $\ast$joystick)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL joystick event handling
+
+The term \char`\"{}device\+\_\+index\char`\"{} identifies currently plugged in joystick devices between 0 and \mbox{\hyperlink{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}{SDL\+\_\+\+Num\+Joysticks()}}, with the exact joystick behind a device\+\_\+index changing as joysticks are plugged and unplugged.
+
+The term \char`\"{}instance\+\_\+id\char`\"{} is the current instantiation of a joystick device in the system, if the joystick is removed and then re-\/inserted then it will get a new instance\+\_\+id, instance\+\_\+id\textquotesingle{}s are monotonically increasing identifiers of a joystick plugged in.
+
+The term \char`\"{}player\+\_\+index\char`\"{} is the number assigned to a player on a specific controller. For XInput controllers this returns the XInput user index. Many joysticks will not be able to supply this information.
+
+The term Joystick\+GUID is a stable 128-\/bit identifier for a joystick device that does not change over time, it identifies class of the device (a X360 wired controller for example). This identifier is platform dependent.
+
+In order to use these functions, \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} must have been called with the \mbox{\hyperlink{SDL_8h_ad6b47d785eaa00d9c48e6c1cff4aef4b}{SDL\+\_\+\+INIT\+\_\+\+JOYSTICK}} flag. This causes SDL to scan the system for joysticks, and load appropriate drivers.
+
+If you would like to receive joystick updates while the application is in the background, you should set the following hint before calling \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}\+: SDL\+\_\+\+HINT\+\_\+\+JOYSTICK\+\_\+\+ALLOW\+\_\+\+BACKGROUND\+\_\+\+EVENTS 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}\label{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickID@{SDL\_JoystickID}}
+\index{SDL\_JoystickID@{SDL\_JoystickID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickID}{SDL\_JoystickID}}
+{\footnotesize\ttfamily typedef Sint32 \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}}}
+
+This is a unique ID for a joystick for the time it is connected to the system, and is never reused for the lifetime of the application. If the joystick is disconnected and reconnected, it will get a new ID.
+
+The ID value starts at 0 and increments from there. The value -\/1 is an invalid ID. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__joystick_8h_ac72e7fbcf14ab9d1d061b48b60ee63f1}\label{SDL__joystick_8h_ac72e7fbcf14ab9d1d061b48b60ee63f1}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickAttachVirtual@{SDL\_JoystickAttachVirtual}}
+\index{SDL\_JoystickAttachVirtual@{SDL\_JoystickAttachVirtual}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickAttachVirtual()}{SDL\_JoystickAttachVirtual()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Attach\+Virtual (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick\+Type}]{type,  }\item[{int}]{naxes,  }\item[{int}]{nbuttons,  }\item[{int}]{nhats }\end{DoxyParamCaption})}
+
+Attach a new virtual joystick.
+
+\begin{DoxyReturn}{Renvoie}
+the joystick\textquotesingle{}s device index, or -\/1 if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}\label{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickClose@{SDL\_JoystickClose}}
+\index{SDL\_JoystickClose@{SDL\_JoystickClose}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickClose()}{SDL\_JoystickClose()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Joystick\+Close (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Close a joystick previously opened with \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick device to close\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a192bbea3553394a6e9c80f77e431fd76}\label{SDL__joystick_8h_a192bbea3553394a6e9c80f77e431fd76}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickCurrentPowerLevel@{SDL\_JoystickCurrentPowerLevel}}
+\index{SDL\_JoystickCurrentPowerLevel@{SDL\_JoystickCurrentPowerLevel}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickCurrentPowerLevel()}{SDL\_JoystickCurrentPowerLevel()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick\+Power\+Level SDLCALL SDL\+\_\+\+Joystick\+Current\+Power\+Level (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the battery level of a joystick as SDL\+\_\+\+Joystick\+Power\+Level.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current battery level as SDL\+\_\+\+Joystick\+Power\+Level on success or {\ttfamily SDL\+\_\+\+JOYSTICK\+\_\+\+POWER\+\_\+\+UNKNOWN} if it is unknown
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_ae1cff0f737264b2d885bff05a9c5b33f}\label{SDL__joystick_8h_ae1cff0f737264b2d885bff05a9c5b33f}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickDetachVirtual@{SDL\_JoystickDetachVirtual}}
+\index{SDL\_JoystickDetachVirtual@{SDL\_JoystickDetachVirtual}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickDetachVirtual()}{SDL\_JoystickDetachVirtual()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Detach\+Virtual (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Detach a virtual joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & a value previously returned from \mbox{\hyperlink{SDL__joystick_8h_ac72e7fbcf14ab9d1d061b48b60ee63f1}{SDL\+\_\+\+Joystick\+Attach\+Virtual()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, or -\/1 if an error occurred.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a51ba353843fd4477f6a485ac4ef35d00}\label{SDL__joystick_8h_a51ba353843fd4477f6a485ac4ef35d00}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickEventState@{SDL\_JoystickEventState}}
+\index{SDL\_JoystickEventState@{SDL\_JoystickEventState}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickEventState()}{SDL\_JoystickEventState()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Event\+State (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+Enable/disable joystick event polling.
+
+If joystick events are disabled, you must call \mbox{\hyperlink{SDL__joystick_8h_a3ea23a9504ea56f2778147dbf39a029f}{SDL\+\_\+\+Joystick\+Update()}} yourself and manually check the state of the joystick when you want joystick information.
+
+It is recommended that you leave joystick event handling enabled.
+
+{\bfseries{WARNING}}\+: Calling this function may delete all events currently in SDL\textquotesingle{}s event queue.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & can be one of {\ttfamily SDL\+\_\+\+QUERY}, {\ttfamily SDL\+\_\+\+IGNORE}, or {\ttfamily SDL\+\_\+\+ENABLE} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 if enabled, 0 if disabled, or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+If {\ttfamily state} is {\ttfamily SDL\+\_\+\+QUERY} then the current state is returned, otherwise the new processing state is returned.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gamecontroller_8h_a457fd59b3dec7d1b6ed384973b584bc6}{SDL\+\_\+\+Game\+Controller\+Event\+State}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_ad220bd2c90df0fe65c229b69c0bf248a}\label{SDL__joystick_8h_ad220bd2c90df0fe65c229b69c0bf248a}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickFromInstanceID@{SDL\_JoystickFromInstanceID}}
+\index{SDL\_JoystickFromInstanceID@{SDL\_JoystickFromInstanceID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickFromInstanceID()}{SDL\_JoystickFromInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick$\ast$ SDLCALL SDL\+\_\+\+Joystick\+From\+Instance\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}}}]{instance\+\_\+id }\end{DoxyParamCaption})}
+
+Get the SDL\+\_\+\+Joystick associated with an instance id.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em instance\+\_\+id} & the instance id to get the SDL\+\_\+\+Joystick for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Joystick on success or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a6303adf72601a406399e6a45c6d89b25}\label{SDL__joystick_8h_a6303adf72601a406399e6a45c6d89b25}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickFromPlayerIndex@{SDL\_JoystickFromPlayerIndex}}
+\index{SDL\_JoystickFromPlayerIndex@{SDL\_JoystickFromPlayerIndex}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickFromPlayerIndex()}{SDL\_JoystickFromPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick$\ast$ SDLCALL SDL\+\_\+\+Joystick\+From\+Player\+Index (\begin{DoxyParamCaption}\item[{int}]{player\+\_\+index }\end{DoxyParamCaption})}
+
+Get the SDL\+\_\+\+Joystick associated with a player index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em player\+\_\+index} & the player index to get the SDL\+\_\+\+Joystick for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Joystick on success or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a222cd2d664acbea2dad78b891df4b89a}\label{SDL__joystick_8h_a222cd2d664acbea2dad78b891df4b89a}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetAttached@{SDL\_JoystickGetAttached}}
+\index{SDL\_JoystickGetAttached@{SDL\_JoystickGetAttached}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetAttached()}{SDL\_JoystickGetAttached()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Get\+Attached (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the status of a specified joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the joystick has been opened, SDL\+\_\+\+FALSE if it has not; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}{SDL\+\_\+\+Joystick\+Close}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_ac6fbda13b93679bedfc34733d4b2e748}\label{SDL__joystick_8h_ac6fbda13b93679bedfc34733d4b2e748}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetAxis@{SDL\_JoystickGetAxis}}
+\index{SDL\_JoystickGetAxis@{SDL\_JoystickGetAxis}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetAxis()}{SDL\_JoystickGetAxis()}}
+{\footnotesize\ttfamily DECLSPEC Sint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{axis }\end{DoxyParamCaption})}
+
+Get the current state of an axis control on a joystick.
+
+SDL makes no promises about what part of the joystick any given axis refers to. Your game should have some sort of configuration UI to let users specify what each axis should be bound to. Alternately, SDL\textquotesingle{}s higher-\/level Game Controller API makes a great effort to apply order to this lower-\/level interface, so you know that a specific axis is the \char`\"{}left thumb stick,\char`\"{} etc.
+
+The value returned by \mbox{\hyperlink{SDL__joystick_8h_ac6fbda13b93679bedfc34733d4b2e748}{SDL\+\_\+\+Joystick\+Get\+Axis()}} is a signed integer (-\/32768 to 32767) representing the current position of the axis. It may be necessary to impose certain tolerances on these values to account for jitter.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+{\em axis} & the axis to query; the axis indices start at index 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a 16-\/bit signed integer representing the current position of the axis or 0 on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a865c2e087fe69a3a30c87243729ecdea}{SDL\+\_\+\+Joystick\+Num\+Axes}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a3b87809500c342149471e1abf0ace40c}\label{SDL__joystick_8h_a3b87809500c342149471e1abf0ace40c}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetAxisInitialState@{SDL\_JoystickGetAxisInitialState}}
+\index{SDL\_JoystickGetAxisInitialState@{SDL\_JoystickGetAxisInitialState}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetAxisInitialState()}{SDL\_JoystickGetAxisInitialState()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Get\+Axis\+Initial\+State (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{axis,  }\item[{Sint16 $\ast$}]{state }\end{DoxyParamCaption})}
+
+Get the initial state of an axis control on a joystick.
+
+The state is a value ranging from -\/32768 to 32767.
+
+The axis indices start at index 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+{\em axis} & the axis to query; the axis indices start at index 0 \\
+\hline
+{\em state} & Upon return, the initial value is supplied here. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if this axis has any initial value, or SDL\+\_\+\+FALSE if not.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_ac7a5a4c17f6a5a4ef9f5bc78e50913df}\label{SDL__joystick_8h_ac7a5a4c17f6a5a4ef9f5bc78e50913df}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetBall@{SDL\_JoystickGetBall}}
+\index{SDL\_JoystickGetBall@{SDL\_JoystickGetBall}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetBall()}{SDL\_JoystickGetBall()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Get\+Ball (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{ball,  }\item[{int $\ast$}]{dx,  }\item[{int $\ast$}]{dy }\end{DoxyParamCaption})}
+
+Get the ball axis change since the last poll.
+
+Trackballs can only return relative motion since the last call to \mbox{\hyperlink{SDL__joystick_8h_ac7a5a4c17f6a5a4ef9f5bc78e50913df}{SDL\+\_\+\+Joystick\+Get\+Ball()}}, these motion deltas are placed into {\ttfamily dx} and {\ttfamily dy}.
+
+Most joysticks do not have trackballs.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick to query \\
+\hline
+{\em ball} & the ball index to query; ball indices start at index 0 \\
+\hline
+{\em dx} & stores the difference in the x axis position since the last poll \\
+\hline
+{\em dy} & stores the difference in the y axis position since the last poll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a755d087bb16270087bfced7501656a6d}{SDL\+\_\+\+Joystick\+Num\+Balls}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_aaf7789eb03bc42525691e075e2a36131}\label{SDL__joystick_8h_aaf7789eb03bc42525691e075e2a36131}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetButton@{SDL\_JoystickGetButton}}
+\index{SDL\_JoystickGetButton@{SDL\_JoystickGetButton}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetButton()}{SDL\_JoystickGetButton()}}
+{\footnotesize\ttfamily DECLSPEC Uint8 SDLCALL SDL\+\_\+\+Joystick\+Get\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{button }\end{DoxyParamCaption})}
+
+Get the current state of a button on a joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+{\em button} & the button index to get the state from; indices start at index 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 if the specified button is pressed, 0 otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_adfc662e571011ae7ec303101ab34e53a}{SDL\+\_\+\+Joystick\+Num\+Buttons}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}\label{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceGUID@{SDL\_JoystickGetDeviceGUID}}
+\index{SDL\_JoystickGetDeviceGUID@{SDL\_JoystickGetDeviceGUID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceGUID()}{SDL\_JoystickGetDeviceGUID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+GUID (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the implementation-\/dependent GUID for the joystick at a given device index.
+
+This function can be called before any joysticks are opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the GUID of the selected joystick. If called on an invalid index, this function returns a zero GUID
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}{SDL\+\_\+\+Joystick\+Get\+GUID}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a6c46ea976c7a65d49b38d31b42d11652}\label{SDL__joystick_8h_a6c46ea976c7a65d49b38d31b42d11652}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceInstanceID@{SDL\_JoystickGetDeviceInstanceID}}
+\index{SDL\_JoystickGetDeviceInstanceID@{SDL\_JoystickGetDeviceInstanceID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceInstanceID()}{SDL\_JoystickGetDeviceInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Instance\+ID (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the instance ID of a joystick.
+
+This can be called before any joysticks are opened. If the index is out of range, this function will return -\/1.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the instance id of the selected joystick. If called on an invalid index, this function returns zero
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_ad882a8dd3fe4278725a7fc212b755db7}\label{SDL__joystick_8h_ad882a8dd3fe4278725a7fc212b755db7}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDevicePlayerIndex@{SDL\_JoystickGetDevicePlayerIndex}}
+\index{SDL\_JoystickGetDevicePlayerIndex@{SDL\_JoystickGetDevicePlayerIndex}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDevicePlayerIndex()}{SDL\_JoystickGetDevicePlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Player\+Index (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the player index of a joystick, or -\/1 if it\textquotesingle{}s not available This can be called before any joysticks are opened.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a6330470720659333e6ef60994942a855}\label{SDL__joystick_8h_a6330470720659333e6ef60994942a855}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceProduct@{SDL\_JoystickGetDeviceProduct}}
+\index{SDL\_JoystickGetDeviceProduct@{SDL\_JoystickGetDeviceProduct}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceProduct()}{SDL\_JoystickGetDeviceProduct()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Product (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the USB product ID of a joystick, if available.
+
+This can be called before any joysticks are opened. If the product ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB product ID of the selected joystick. If called on an invalid index, this function returns zero
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a10972ad002df75e76ed68c18e1188e5e}\label{SDL__joystick_8h_a10972ad002df75e76ed68c18e1188e5e}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceProductVersion@{SDL\_JoystickGetDeviceProductVersion}}
+\index{SDL\_JoystickGetDeviceProductVersion@{SDL\_JoystickGetDeviceProductVersion}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceProductVersion()}{SDL\_JoystickGetDeviceProductVersion()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Product\+Version (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the product version of a joystick, if available.
+
+This can be called before any joysticks are opened. If the product version isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the product version of the selected joystick. If called on an invalid index, this function returns zero
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a368a06b0fd51d453bb4692dcc2c42b69}\label{SDL__joystick_8h_a368a06b0fd51d453bb4692dcc2c42b69}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceType@{SDL\_JoystickGetDeviceType}}
+\index{SDL\_JoystickGetDeviceType@{SDL\_JoystickGetDeviceType}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceType()}{SDL\_JoystickGetDeviceType()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick\+Type SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Type (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the type of a joystick, if available.
+
+This can be called before any joysticks are opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Joystick\+Type of the selected joystick. If called on an invalid index, this function returns {\ttfamily SDL\+\_\+\+JOYSTICK\+\_\+\+TYPE\+\_\+\+UNKNOWN}
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_afb8ba88559debca4ab2c702b8500d5fe}\label{SDL__joystick_8h_afb8ba88559debca4ab2c702b8500d5fe}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetDeviceVendor@{SDL\_JoystickGetDeviceVendor}}
+\index{SDL\_JoystickGetDeviceVendor@{SDL\_JoystickGetDeviceVendor}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetDeviceVendor()}{SDL\_JoystickGetDeviceVendor()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Device\+Vendor (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the USB vendor ID of a joystick, if available.
+
+This can be called before any joysticks are opened. If the vendor ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB vendor ID of the selected joystick. If called on an invalid index, this function returns zero
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}\label{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetGUID@{SDL\_JoystickGetGUID}}
+\index{SDL\_JoystickGetGUID@{SDL\_JoystickGetGUID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetGUID()}{SDL\_JoystickGetGUID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL SDL\+\_\+\+Joystick\+Get\+GUID (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the implementation-\/dependent GUID for the joystick.
+
+This function requires an open joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the GUID of the given joystick. If called on an invalid index, this function returns a zero GUID; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}{SDL\+\_\+\+Joystick\+Get\+Device\+GUID}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_aef9d131a6a6838847731cf8094944b46}\label{SDL__joystick_8h_aef9d131a6a6838847731cf8094944b46}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetGUIDFromString@{SDL\_JoystickGetGUIDFromString}}
+\index{SDL\_JoystickGetGUIDFromString@{SDL\_JoystickGetGUIDFromString}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetGUIDFromString()}{SDL\_JoystickGetGUIDFromString()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} SDLCALL SDL\+\_\+\+Joystick\+Get\+GUIDFrom\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pch\+GUID }\end{DoxyParamCaption})}
+
+Convert a GUID string into a \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} structure.
+
+Performs no error checking. If this function is given a string containing an invalid GUID, the function will silently succeed, but the GUID generated will not be useful.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pch\+GUID} & string containing an ASCII representation of a GUID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} structure.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}{SDL\+\_\+\+Joystick\+Get\+GUIDString}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}\label{SDL__joystick_8h_a7f615ef8040e7e9de3af6482d8d9908c}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetGUIDString@{SDL\_JoystickGetGUIDString}}
+\index{SDL\_JoystickGetGUIDString@{SDL\_JoystickGetGUIDString}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetGUIDString()}{SDL\_JoystickGetGUIDString()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Joystick\+Get\+GUIDString (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}}}]{guid,  }\item[{char $\ast$}]{psz\+GUID,  }\item[{int}]{cb\+GUID }\end{DoxyParamCaption})}
+
+Get an ASCII string representation for a given \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}}.
+
+You should supply at least 33 bytes for psz\+GUID.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em guid} & the \mbox{\hyperlink{structSDL__JoystickGUID}{SDL\+\_\+\+Joystick\+GUID}} you wish to convert to string \\
+\hline
+{\em psz\+GUID} & buffer in which to write the ASCII string \\
+\hline
+{\em cb\+GUID} & the size of psz\+GUID\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_afdbf5289ff5452afb1bd869ffcf250b5}{SDL\+\_\+\+Joystick\+Get\+Device\+GUID}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_acc85c770af41eae76948e11c678f92ca}{SDL\+\_\+\+Joystick\+Get\+GUID}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_aef9d131a6a6838847731cf8094944b46}{SDL\+\_\+\+Joystick\+Get\+GUIDFrom\+String}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a2215030cf283295569fee41fd0251e01}\label{SDL__joystick_8h_a2215030cf283295569fee41fd0251e01}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetHat@{SDL\_JoystickGetHat}}
+\index{SDL\_JoystickGetHat@{SDL\_JoystickGetHat}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetHat()}{SDL\_JoystickGetHat()}}
+{\footnotesize\ttfamily DECLSPEC Uint8 SDLCALL SDL\+\_\+\+Joystick\+Get\+Hat (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{hat }\end{DoxyParamCaption})}
+
+Get the current state of a POV hat on a joystick.
+
+The returned value will be one of the following positions\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+CENTERED}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+UP}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+RIGHT}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+DOWN}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+LEFT}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+RIGHTUP}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+RIGHTDOWN}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+LEFTUP}
+\item {\ttfamily SDL\+\_\+\+HAT\+\_\+\+LEFTDOWN}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+{\em hat} & the hat index to get the state from; indices start at index 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current hat position.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_aa62ea91c7c4ca2d12804a9fb3760e448}{SDL\+\_\+\+Joystick\+Num\+Hats}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a1b3543511c1839f9c06aeea65b574e77}\label{SDL__joystick_8h_a1b3543511c1839f9c06aeea65b574e77}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetPlayerIndex@{SDL\_JoystickGetPlayerIndex}}
+\index{SDL\_JoystickGetPlayerIndex@{SDL\_JoystickGetPlayerIndex}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetPlayerIndex()}{SDL\_JoystickGetPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Get\+Player\+Index (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the player index of an opened joystick.
+
+For XInput controllers this returns the XInput user index. Many joysticks will not be able to supply this information.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the player index, or -\/1 if it\textquotesingle{}s not available.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a0f4732dffd2a769a2346f4091b2f3199}\label{SDL__joystick_8h_a0f4732dffd2a769a2346f4091b2f3199}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetProduct@{SDL\_JoystickGetProduct}}
+\index{SDL\_JoystickGetProduct@{SDL\_JoystickGetProduct}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetProduct()}{SDL\_JoystickGetProduct()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Product (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the USB product ID of an opened joystick, if available.
+
+If the product ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB product ID of the selected joystick, or 0 if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_afe6bbdbc0c81170d237fae42bec05665}\label{SDL__joystick_8h_afe6bbdbc0c81170d237fae42bec05665}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetProductVersion@{SDL\_JoystickGetProductVersion}}
+\index{SDL\_JoystickGetProductVersion@{SDL\_JoystickGetProductVersion}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetProductVersion()}{SDL\_JoystickGetProductVersion()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Product\+Version (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the product version of an opened joystick, if available.
+
+If the product version isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the product version of the selected joystick, or 0 if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_aac85f320b665a43bcb20653df62a39e9}\label{SDL__joystick_8h_aac85f320b665a43bcb20653df62a39e9}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetSerial@{SDL\_JoystickGetSerial}}
+\index{SDL\_JoystickGetSerial@{SDL\_JoystickGetSerial}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetSerial()}{SDL\_JoystickGetSerial()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Joystick\+Get\+Serial (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the serial number of an opened joystick, if available.
+
+Returns the serial number of the joystick, or NULL if it is not available.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the serial number of the selected joystick, or NULL if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_ad21afdbdd915c013cacefb7e79bfe3bf}\label{SDL__joystick_8h_ad21afdbdd915c013cacefb7e79bfe3bf}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetType@{SDL\_JoystickGetType}}
+\index{SDL\_JoystickGetType@{SDL\_JoystickGetType}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetType()}{SDL\_JoystickGetType()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick\+Type SDLCALL SDL\+\_\+\+Joystick\+Get\+Type (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the type of an opened joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Joystick\+Type of the selected joystick.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a13d9a1e3c5cbe2591cd5214aad48fed8}\label{SDL__joystick_8h_a13d9a1e3c5cbe2591cd5214aad48fed8}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickGetVendor@{SDL\_JoystickGetVendor}}
+\index{SDL\_JoystickGetVendor@{SDL\_JoystickGetVendor}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickGetVendor()}{SDL\_JoystickGetVendor()}}
+{\footnotesize\ttfamily DECLSPEC Uint16 SDLCALL SDL\+\_\+\+Joystick\+Get\+Vendor (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the USB vendor ID of an opened joystick, if available.
+
+If the vendor ID isn\textquotesingle{}t available this function returns 0.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the USB vendor ID of the selected joystick, or 0 if unavailable.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a7a5a92f4eb93dde4e58d5155ce22b7a7}\label{SDL__joystick_8h_a7a5a92f4eb93dde4e58d5155ce22b7a7}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickHasLED@{SDL\_JoystickHasLED}}
+\index{SDL\_JoystickHasLED@{SDL\_JoystickHasLED}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickHasLED()}{SDL\_JoystickHasLED()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Has\+LED (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Query whether a joystick has an LED.
+
+An example of a joystick LED is the light on the back of a Play\+Station 4\textquotesingle{}s Dual\+Shock 4 controller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the joystick has a modifiable LED, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_afa0e29b3b5738184da3cc281de3e4896}\label{SDL__joystick_8h_afa0e29b3b5738184da3cc281de3e4896}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickHasRumble@{SDL\_JoystickHasRumble}}
+\index{SDL\_JoystickHasRumble@{SDL\_JoystickHasRumble}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickHasRumble()}{SDL\_JoystickHasRumble()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Has\+Rumble (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Query whether a joystick has rumble support.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the joystick has rumble, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a307c87a4de5aec2d1ca22856d94930fa}{SDL\+\_\+\+Joystick\+Rumble}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a815f02f2cbced249cb4b0018dfd3a777}\label{SDL__joystick_8h_a815f02f2cbced249cb4b0018dfd3a777}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickHasRumbleTriggers@{SDL\_JoystickHasRumbleTriggers}}
+\index{SDL\_JoystickHasRumbleTriggers@{SDL\_JoystickHasRumbleTriggers}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickHasRumbleTriggers()}{SDL\_JoystickHasRumbleTriggers()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Has\+Rumble\+Triggers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Query whether a joystick has rumble support on triggers.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the joystick has trigger rumble, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a0d248aa2e25ac62d30444583180ff539}{SDL\+\_\+\+Joystick\+Rumble\+Triggers}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_ab38dfc6428e15c2476478418075d4c83}\label{SDL__joystick_8h_ab38dfc6428e15c2476478418075d4c83}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickInstanceID@{SDL\_JoystickInstanceID}}
+\index{SDL\_JoystickInstanceID@{SDL\_JoystickInstanceID}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickInstanceID()}{SDL\_JoystickInstanceID()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDLCALL SDL\+\_\+\+Joystick\+Instance\+ID (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the instance ID of an opened joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the instance ID of the specified joystick on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a718be0fe686e838f1d0db00d523ff47a}\label{SDL__joystick_8h_a718be0fe686e838f1d0db00d523ff47a}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickIsVirtual@{SDL\_JoystickIsVirtual}}
+\index{SDL\_JoystickIsVirtual@{SDL\_JoystickIsVirtual}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickIsVirtual()}{SDL\_JoystickIsVirtual()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Joystick\+Is\+Virtual (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Query whether or not the joystick at a given device index is virtual.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & a joystick device index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the joystick is virtual, SDL\+\_\+\+FALSE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_ad3ab02961bc45606e8f5f937c934160c}\label{SDL__joystick_8h_ad3ab02961bc45606e8f5f937c934160c}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickName@{SDL\_JoystickName}}
+\index{SDL\_JoystickName@{SDL\_JoystickName}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickName()}{SDL\_JoystickName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Joystick\+Name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the implementation dependent name of a joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the name of the selected joystick. If no name can be found, this function returns NULL; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_ad36c04c086f834fe09a97e4cf86a5a59}{SDL\+\_\+\+Joystick\+Name\+For\+Index}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_ad36c04c086f834fe09a97e4cf86a5a59}\label{SDL__joystick_8h_ad36c04c086f834fe09a97e4cf86a5a59}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickNameForIndex@{SDL\_JoystickNameForIndex}}
+\index{SDL\_JoystickNameForIndex@{SDL\_JoystickNameForIndex}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickNameForIndex()}{SDL\_JoystickNameForIndex()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Joystick\+Name\+For\+Index (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Get the implementation dependent name of a joystick.
+
+This can be called before any joysticks are opened.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query (the N\textquotesingle{}th joystick on the system) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the name of the selected joystick. If no name can be found, this function returns NULL; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_ad3ab02961bc45606e8f5f937c934160c}{SDL\+\_\+\+Joystick\+Name}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a865c2e087fe69a3a30c87243729ecdea}\label{SDL__joystick_8h_a865c2e087fe69a3a30c87243729ecdea}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickNumAxes@{SDL\_JoystickNumAxes}}
+\index{SDL\_JoystickNumAxes@{SDL\_JoystickNumAxes}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickNumAxes()}{SDL\_JoystickNumAxes()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Num\+Axes (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the number of general axis controls on a joystick.
+
+Often, the directional pad on a game controller will either look like 4 separate buttons or a POV hat, and not axes, but all of this is up to the device and platform.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of axis controls/number of axes on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_ac6fbda13b93679bedfc34733d4b2e748}{SDL\+\_\+\+Joystick\+Get\+Axis}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a755d087bb16270087bfced7501656a6d}\label{SDL__joystick_8h_a755d087bb16270087bfced7501656a6d}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickNumBalls@{SDL\_JoystickNumBalls}}
+\index{SDL\_JoystickNumBalls@{SDL\_JoystickNumBalls}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickNumBalls()}{SDL\_JoystickNumBalls()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Num\+Balls (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the number of trackballs on a joystick.
+
+Joystick trackballs have only relative motion events associated with them and their state cannot be polled.
+
+Most joysticks do not have trackballs.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of trackballs on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_ac7a5a4c17f6a5a4ef9f5bc78e50913df}{SDL\+\_\+\+Joystick\+Get\+Ball}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_adfc662e571011ae7ec303101ab34e53a}\label{SDL__joystick_8h_adfc662e571011ae7ec303101ab34e53a}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickNumButtons@{SDL\_JoystickNumButtons}}
+\index{SDL\_JoystickNumButtons@{SDL\_JoystickNumButtons}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickNumButtons()}{SDL\_JoystickNumButtons()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Num\+Buttons (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the number of buttons on a joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of buttons on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_aaf7789eb03bc42525691e075e2a36131}{SDL\+\_\+\+Joystick\+Get\+Button}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_aa62ea91c7c4ca2d12804a9fb3760e448}\label{SDL__joystick_8h_aa62ea91c7c4ca2d12804a9fb3760e448}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickNumHats@{SDL\_JoystickNumHats}}
+\index{SDL\_JoystickNumHats@{SDL\_JoystickNumHats}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickNumHats()}{SDL\_JoystickNumHats()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Num\+Hats (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick }\end{DoxyParamCaption})}
+
+Get the number of POV hats on a joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & an SDL\+\_\+\+Joystick structure containing joystick information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of POV hats on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a2215030cf283295569fee41fd0251e01}{SDL\+\_\+\+Joystick\+Get\+Hat}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}\label{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickOpen@{SDL\_JoystickOpen}}
+\index{SDL\_JoystickOpen@{SDL\_JoystickOpen}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickOpen()}{SDL\_JoystickOpen()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Joystick$\ast$ SDLCALL SDL\+\_\+\+Joystick\+Open (\begin{DoxyParamCaption}\item[{int}]{device\+\_\+index }\end{DoxyParamCaption})}
+
+Open a joystick for use.
+
+The {\ttfamily device\+\_\+index} argument refers to the N\textquotesingle{}th joystick presently recognized by SDL on the system. It is {\bfseries{NOT}} the same as the instance ID used to identify the joystick in future events. See \mbox{\hyperlink{SDL__joystick_8h_ab38dfc6428e15c2476478418075d4c83}{SDL\+\_\+\+Joystick\+Instance\+ID()}} for more details about instance IDs.
+
+The joystick subsystem must be initialized before a joystick can be opened for use.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device\+\_\+index} & the index of the joystick to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a joystick identifier or NULL if an error occurred; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_aafa0951b40ec2e200c098495c3dd4943}{SDL\+\_\+\+Joystick\+Close}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_ab38dfc6428e15c2476478418075d4c83}{SDL\+\_\+\+Joystick\+Instance\+ID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a307c87a4de5aec2d1ca22856d94930fa}\label{SDL__joystick_8h_a307c87a4de5aec2d1ca22856d94930fa}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickRumble@{SDL\_JoystickRumble}}
+\index{SDL\_JoystickRumble@{SDL\_JoystickRumble}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickRumble()}{SDL\_JoystickRumble()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Rumble (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{Uint16}]{low\+\_\+frequency\+\_\+rumble,  }\item[{Uint16}]{high\+\_\+frequency\+\_\+rumble,  }\item[{Uint32}]{duration\+\_\+ms }\end{DoxyParamCaption})}
+
+Start a rumble effect.
+
+Each call to this function cancels any previous rumble effect, and calling it with 0 intensity stops any rumbling.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to vibrate \\
+\hline
+{\em low\+\_\+frequency\+\_\+rumble} & The intensity of the low frequency (left) rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em high\+\_\+frequency\+\_\+rumble} & The intensity of the high frequency (right) rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em duration\+\_\+ms} & The duration of the rumble effect, in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if rumble isn\textquotesingle{}t supported on this joystick
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_afa0e29b3b5738184da3cc281de3e4896}{SDL\+\_\+\+Joystick\+Has\+Rumble}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a0d248aa2e25ac62d30444583180ff539}\label{SDL__joystick_8h_a0d248aa2e25ac62d30444583180ff539}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickRumbleTriggers@{SDL\_JoystickRumbleTriggers}}
+\index{SDL\_JoystickRumbleTriggers@{SDL\_JoystickRumbleTriggers}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickRumbleTriggers()}{SDL\_JoystickRumbleTriggers()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Rumble\+Triggers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{Uint16}]{left\+\_\+rumble,  }\item[{Uint16}]{right\+\_\+rumble,  }\item[{Uint32}]{duration\+\_\+ms }\end{DoxyParamCaption})}
+
+Start a rumble effect in the joystick\textquotesingle{}s triggers
+
+Each call to this function cancels any previous trigger rumble effect, and calling it with 0 intensity stops any rumbling.
+
+Note that this function is for {\itshape trigger} rumble; the first joystick to support this was the Play\+Station 5\textquotesingle{}s Dual\+Shock 5 controller. If you want the (more common) whole-\/controller rumble, use \mbox{\hyperlink{SDL__joystick_8h_a307c87a4de5aec2d1ca22856d94930fa}{SDL\+\_\+\+Joystick\+Rumble()}} instead.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to vibrate \\
+\hline
+{\em left\+\_\+rumble} & The intensity of the left trigger rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em right\+\_\+rumble} & The intensity of the right trigger rumble motor, from 0 to 0x\+FFFF \\
+\hline
+{\em duration\+\_\+ms} & The duration of the rumble effect, in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if trigger rumble isn\textquotesingle{}t supported on this joystick
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a815f02f2cbced249cb4b0018dfd3a777}{SDL\+\_\+\+Joystick\+Has\+Rumble\+Triggers}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a16c10474f6a3d861babfe1ae424cb1a5}\label{SDL__joystick_8h_a16c10474f6a3d861babfe1ae424cb1a5}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSendEffect@{SDL\_JoystickSendEffect}}
+\index{SDL\_JoystickSendEffect@{SDL\_JoystickSendEffect}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSendEffect()}{SDL\_JoystickSendEffect()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Send\+Effect (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{const void $\ast$}]{data,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Send a joystick specific effect packet
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to affect \\
+\hline
+{\em data} & The data to send to the joystick \\
+\hline
+{\em size} & The size of the data to send to the joystick \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 if this joystick or driver doesn\textquotesingle{}t support effect packets
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a4e3e052e175f47fe02c63e92a59f4b04}\label{SDL__joystick_8h_a4e3e052e175f47fe02c63e92a59f4b04}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSetLED@{SDL\_JoystickSetLED}}
+\index{SDL\_JoystickSetLED@{SDL\_JoystickSetLED}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSetLED()}{SDL\_JoystickSetLED()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Set\+LED (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{Uint8}]{red,  }\item[{Uint8}]{green,  }\item[{Uint8}]{blue }\end{DoxyParamCaption})}
+
+Update a joystick\textquotesingle{}s LED color.
+
+An example of a joystick LED is the light on the back of a Play\+Station 4\textquotesingle{}s Dual\+Shock 4 controller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & The joystick to update \\
+\hline
+{\em red} & The intensity of the red LED \\
+\hline
+{\em green} & The intensity of the green LED \\
+\hline
+{\em blue} & The intensity of the blue LED \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 if this joystick does not have a modifiable LED
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a552d1be1bccb9cd81191ddf5f576fa31}\label{SDL__joystick_8h_a552d1be1bccb9cd81191ddf5f576fa31}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSetPlayerIndex@{SDL\_JoystickSetPlayerIndex}}
+\index{SDL\_JoystickSetPlayerIndex@{SDL\_JoystickSetPlayerIndex}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSetPlayerIndex()}{SDL\_JoystickSetPlayerIndex()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Joystick\+Set\+Player\+Index (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{player\+\_\+index }\end{DoxyParamCaption})}
+
+Set the player index of an opened joystick.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the SDL\+\_\+\+Joystick obtained from \mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open()}} \\
+\hline
+{\em player\+\_\+index} & the player index to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+12. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a68d808bc0054c5cd068b0d0ff7c5ef7d}\label{SDL__joystick_8h_a68d808bc0054c5cd068b0d0ff7c5ef7d}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSetVirtualAxis@{SDL\_JoystickSetVirtualAxis}}
+\index{SDL\_JoystickSetVirtualAxis@{SDL\_JoystickSetVirtualAxis}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSetVirtualAxis()}{SDL\_JoystickSetVirtualAxis()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Set\+Virtual\+Axis (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{axis,  }\item[{Sint16}]{value }\end{DoxyParamCaption})}
+
+Set values on an opened, virtual-\/joystick\textquotesingle{}s axis.
+
+Please note that values set here will not be applied until the next call to SDL\+\_\+\+Joystick\+Update, which can either be called directly, or can be called indirectly through various other SDL APIs, including, but not limited to the following\+: SDL\+\_\+\+Poll\+Event, SDL\+\_\+\+Pump\+Events, SDL\+\_\+\+Wait\+Event\+Timeout, SDL\+\_\+\+Wait\+Event.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the virtual joystick on which to set state. \\
+\hline
+{\em axis} & the specific axis on the virtual joystick to set. \\
+\hline
+{\em value} & the new value for the specified axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_aa895270395be528f6658006a5c02a799}\label{SDL__joystick_8h_aa895270395be528f6658006a5c02a799}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSetVirtualButton@{SDL\_JoystickSetVirtualButton}}
+\index{SDL\_JoystickSetVirtualButton@{SDL\_JoystickSetVirtualButton}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSetVirtualButton()}{SDL\_JoystickSetVirtualButton()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Set\+Virtual\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{button,  }\item[{Uint8}]{value }\end{DoxyParamCaption})}
+
+Set values on an opened, virtual-\/joystick\textquotesingle{}s button.
+
+Please note that values set here will not be applied until the next call to SDL\+\_\+\+Joystick\+Update, which can either be called directly, or can be called indirectly through various other SDL APIs, including, but not limited to the following\+: SDL\+\_\+\+Poll\+Event, SDL\+\_\+\+Pump\+Events, SDL\+\_\+\+Wait\+Event\+Timeout, SDL\+\_\+\+Wait\+Event.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the virtual joystick on which to set state. \\
+\hline
+{\em button} & the specific button on the virtual joystick to set. \\
+\hline
+{\em value} & the new value for the specified button. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a3f1bcde55e0486bee726f7748c1ca971}\label{SDL__joystick_8h_a3f1bcde55e0486bee726f7748c1ca971}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickSetVirtualHat@{SDL\_JoystickSetVirtualHat}}
+\index{SDL\_JoystickSetVirtualHat@{SDL\_JoystickSetVirtualHat}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickSetVirtualHat()}{SDL\_JoystickSetVirtualHat()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Joystick\+Set\+Virtual\+Hat (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Joystick $\ast$}]{joystick,  }\item[{int}]{hat,  }\item[{Uint8}]{value }\end{DoxyParamCaption})}
+
+Set values on an opened, virtual-\/joystick\textquotesingle{}s hat.
+
+Please note that values set here will not be applied until the next call to SDL\+\_\+\+Joystick\+Update, which can either be called directly, or can be called indirectly through various other SDL APIs, including, but not limited to the following\+: SDL\+\_\+\+Poll\+Event, SDL\+\_\+\+Pump\+Events, SDL\+\_\+\+Wait\+Event\+Timeout, SDL\+\_\+\+Wait\+Event.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joystick} & the virtual joystick on which to set state. \\
+\hline
+{\em hat} & the specific hat on the virtual joystick to set. \\
+\hline
+{\em value} & the new value for the specified hat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a3ea23a9504ea56f2778147dbf39a029f}\label{SDL__joystick_8h_a3ea23a9504ea56f2778147dbf39a029f}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_JoystickUpdate@{SDL\_JoystickUpdate}}
+\index{SDL\_JoystickUpdate@{SDL\_JoystickUpdate}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_JoystickUpdate()}{SDL\_JoystickUpdate()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Joystick\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Update the current state of the open joysticks.
+
+This is called automatically by the event loop if any joystick events are enabled.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_a51ba353843fd4477f6a485ac4ef35d00}{SDL\+\_\+\+Joystick\+Event\+State}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_a4a2e0bedda1b7d0ac957607e944bfba0}\label{SDL__joystick_8h_a4a2e0bedda1b7d0ac957607e944bfba0}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_LockJoysticks@{SDL\_LockJoysticks}}
+\index{SDL\_LockJoysticks@{SDL\_LockJoysticks}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockJoysticks()}{SDL\_LockJoysticks()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Lock\+Joysticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Locking for multi-\/threaded access to the joystick API
+
+If you are using the joystick API or handling events from multiple threads you should use these locking functions to protect access to the joysticks.
+
+In particular, you are guaranteed that the joystick list won\textquotesingle{}t change, so the API functions that take a joystick index will be valid, and joystick and game controller events will not be delivered.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}\label{SDL__joystick_8h_a2ab130eaa28f8e3bd544a5432041a311}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_NumJoysticks@{SDL\_NumJoysticks}}
+\index{SDL\_NumJoysticks@{SDL\_NumJoysticks}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_NumJoysticks()}{SDL\_NumJoysticks()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Num\+Joysticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Count the number of joysticks attached to the system.
+
+\begin{DoxyReturn}{Renvoie}
+the number of attached joysticks on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__joystick_8h_ad3ab02961bc45606e8f5f937c934160c}{SDL\+\_\+\+Joystick\+Name}} 
+
+\mbox{\hyperlink{SDL__joystick_8h_a5b6f6554bca2659e149b5bc0fa538899}{SDL\+\_\+\+Joystick\+Open}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__joystick_8h_add3a6baa4646469b34c42df028c59be0}\label{SDL__joystick_8h_add3a6baa4646469b34c42df028c59be0}} 
+\index{SDL\_joystick.h@{SDL\_joystick.h}!SDL\_UnlockJoysticks@{SDL\_UnlockJoysticks}}
+\index{SDL\_UnlockJoysticks@{SDL\_UnlockJoysticks}!SDL\_joystick.h@{SDL\_joystick.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnlockJoysticks()}{SDL\_UnlockJoysticks()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Unlock\+Joysticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Unlocking for multi-\/threaded access to the joystick API
+
+If you are using the joystick API or handling events from multiple threads you should use these locking functions to protect access to the joysticks.
+
+In particular, you are guaranteed that the joystick list won\textquotesingle{}t change, so the API functions that take a joystick index will be valid, and joystick and game controller events will not be delivered.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7. 
+\end{DoxySince}

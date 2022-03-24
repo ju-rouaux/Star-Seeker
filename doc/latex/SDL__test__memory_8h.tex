@@ -1,0 +1,45 @@
+\hypertarget{SDL__test__memory_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+memory.h}
+\label{SDL__test__memory_8h}\index{include/SDL2/SDL\_test\_memory.h@{include/SDL2/SDL\_test\_memory.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SDL__test__memory_8h_aa83b2e85883723b069653d8c7bb2c30d}{SDLTest\+\_\+\+Track\+Allocations}} (void)
+\begin{DoxyCompactList}\small\item\em Start tracking SDL memory allocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__memory_8h_a184fd271f563e77460e586245c1535c3}{SDLTest\+\_\+\+Log\+Allocations}} (void)
+\begin{DoxyCompactList}\small\item\em Print a log of any outstanding allocations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__memory_8h_a184fd271f563e77460e586245c1535c3}\label{SDL__test__memory_8h_a184fd271f563e77460e586245c1535c3}} 
+\index{SDL\_test\_memory.h@{SDL\_test\_memory.h}!SDLTest\_LogAllocations@{SDLTest\_LogAllocations}}
+\index{SDLTest\_LogAllocations@{SDLTest\_LogAllocations}!SDL\_test\_memory.h@{SDL\_test\_memory.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_LogAllocations()}{SDLTest\_LogAllocations()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Log\+Allocations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Print a log of any outstanding allocations. 
+
+\begin{DoxyNote}{Note}
+This can be called after \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}} 
+\end{DoxyNote}
+\mbox{\Hypertarget{SDL__test__memory_8h_aa83b2e85883723b069653d8c7bb2c30d}\label{SDL__test__memory_8h_aa83b2e85883723b069653d8c7bb2c30d}} 
+\index{SDL\_test\_memory.h@{SDL\_test\_memory.h}!SDLTest\_TrackAllocations@{SDLTest\_TrackAllocations}}
+\index{SDLTest\_TrackAllocations@{SDLTest\_TrackAllocations}!SDL\_test\_memory.h@{SDL\_test\_memory.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_TrackAllocations()}{SDLTest\_TrackAllocations()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Track\+Allocations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Start tracking SDL memory allocations. 
+
+\begin{DoxyNote}{Note}
+This should be called before any other SDL functions for complete tracking coverage 
+\end{DoxyNote}

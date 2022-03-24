@@ -1,0 +1,91 @@
+\hypertarget{attaque_8h}{}\doxysection{Référence du fichier include/attaque.h}
+\label{attaque_8h}\index{include/attaque.h@{include/attaque.h}}
+
+
+Module gérant les attaques des personnages.  
+
+
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$projectiles.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}}
+\begin{DoxyCompactList}\small\item\em Modélise une arme générant des projectiles. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__attaque__corps}{t\+\_\+attaque\+\_\+corps}}
+\begin{DoxyCompactList}\small\item\em Modélise une arme de corps à corps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{attaque_8h_a8a6345a56e7c9e82e88e86387650b3a7}\label{attaque_8h_a8a6345a56e7c9e82e88e86387650b3a7}} 
+typedef struct s\+\_\+personnage {\bfseries t\+\_\+personnage}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{attaque_8h_ac7dcc833fc35572565d511b3875d7880}\label{attaque_8h_ac7dcc833fc35572565d511b3875d7880}} 
+enum {\bfseries e\+\_\+nom\+\_\+attaque} \{ \newline
+{\bfseries DEMO}
+, {\bfseries SNIPER}
+, {\bfseries A\+\_\+360}
+, {\bfseries SABRE\+\_\+\+LASER}
+, \newline
+{\bfseries LASER\+\_\+\+CONTINU}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{attaque_8h_adb931616942b8e32011135199dc287c3}{charger\+Attaque\+Tir}} (\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$attaque, e\+\_\+nom\+\_\+attaque nouvelle\+\_\+attaque)
+\begin{DoxyCompactList}\small\item\em Actualise les champs de la structure attaque vers les paramètres décrits par le nom de la future attaque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{attaque_8h_a8f4acf25e5f918118744d8ea52d33d57}{update\+Attaque\+Tir}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__personnage}{t\+\_\+personnage}} $\ast$personnage, int attaquer)
+\begin{DoxyCompactList}\small\item\em Cette fonction devant être appelée à chaque actualisation d\textquotesingle{}un personnage permet à une attaque de continuer de s\textquotesingle{}exécuter si elle dure dans le temps, ou bien de lancer une attaque si \char`\"{}attaquer\char`\"{} est vrai. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module gérant les attaques des personnages. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{attaque_8h_adb931616942b8e32011135199dc287c3}\label{attaque_8h_adb931616942b8e32011135199dc287c3}} 
+\index{attaque.h@{attaque.h}!chargerAttaqueTir@{chargerAttaqueTir}}
+\index{chargerAttaqueTir@{chargerAttaqueTir}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{chargerAttaqueTir()}{chargerAttaqueTir()}}
+{\footnotesize\ttfamily void charger\+Attaque\+Tir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$}]{attaque,  }\item[{e\+\_\+nom\+\_\+attaque}]{nouvelle\+\_\+attaque }\end{DoxyParamCaption})}
+
+
+
+Actualise les champs de la structure attaque vers les paramètres décrits par le nom de la future attaque. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em attaque} & L\textquotesingle{}attaque à actualiser \\
+\hline
+{\em nouvelle\+\_\+attaque} & La nouvelle attaque désirée \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{attaque_8h_a8f4acf25e5f918118744d8ea52d33d57}\label{attaque_8h_a8f4acf25e5f918118744d8ea52d33d57}} 
+\index{attaque.h@{attaque.h}!updateAttaqueTir@{updateAttaqueTir}}
+\index{updateAttaqueTir@{updateAttaqueTir}!attaque.h@{attaque.h}}
+\doxysubsubsection{\texorpdfstring{updateAttaqueTir()}{updateAttaqueTir()}}
+{\footnotesize\ttfamily void update\+Attaque\+Tir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__personnage}{t\+\_\+personnage}} $\ast$}]{personnage,  }\item[{int}]{attaquer }\end{DoxyParamCaption})}
+
+
+
+Cette fonction devant être appelée à chaque actualisation d\textquotesingle{}un personnage permet à une attaque de continuer de s\textquotesingle{}exécuter si elle dure dans le temps, ou bien de lancer une attaque si \char`\"{}attaquer\char`\"{} est vrai. 
+
+Si attaquer est vrai, mais que le cooldown de l\textquotesingle{}attaque n\textquotesingle{}est pas terminé, l\textquotesingle{}attaque ne sera pas réalisée. ATTENTION \+: La direction de l\textquotesingle{}attaque est la même que la direction du personnage.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em personnage} & Le personnage réalisant l\textquotesingle{}attaque \\
+\hline
+{\em attaquer} & Vrai si le personnage désire lancer une nouvelle attaque \\
+\hline
+\end{DoxyParams}

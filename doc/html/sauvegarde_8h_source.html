@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/sauvegarde.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">sauvegarde.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _JEU_SAUVEGARDE_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _JEU_SAUVEGARDE_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="joueur_8h.html">joueur.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="generation__niveau_8h.html">generation_niveau.h</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="monstre_8h.html">monstre.h</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    NO_FILE = -5, MALLOC_FAIL = -4, READ_OR_WRITE_FAIL = -3, FOPEN_FAIL = -2, SAVE_ERROR = -1, SUCCESS = 0</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} err_save;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;err_save <a class="code" href="sauvegarde_8c.html#a73e0d4d5779bca575820f84ef02e6f16">sauvegarderPartie</a>(niveau_informations_t ** infos_niveaux, <span class="keywordtype">int</span> nb_niveaux, <span class="keywordtype">int</span> indice_niveau_charge);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;err_save <a class="code" href="sauvegarde_8c.html#add6045470a7ec5bc9b2bd4f72364a1cc">sauvegarderJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> * joueur);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;err_save <a class="code" href="sauvegarde_8c.html#ad048f230be2b76ed45c7b13565025629">chargerSaveJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> * joueur);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;err_save <a class="code" href="sauvegarde_8c.html#a33375d00c8623cf3b9d4aa89b7395d47">chargerSavePartie</a>(niveau_informations_t *** infos_niveaux, <span class="keywordtype">int</span> * nb_niveaux, <span class="keywordtype">int</span> * indice_niveau_charge);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_SAUVEGARDE_</span></div>
+<div class="ttc" id="ageneration__niveau_8h_html"><div class="ttname"><a href="generation__niveau_8h.html">generation_niveau.h</a></div><div class="ttdoc">Librairie de generation.c.</div></div>
+<div class="ttc" id="ajoueur_8h_html"><div class="ttname"><a href="joueur_8h.html">joueur.h</a></div><div class="ttdoc">Module de gestion du joueur.</div></div>
+<div class="ttc" id="amonstre_8h_html"><div class="ttname"><a href="monstre_8h.html">monstre.h</a></div><div class="ttdoc">Module de gestion des monstres.</div></div>
+<div class="ttc" id="asauvegarde_8c_html_a33375d00c8623cf3b9d4aa89b7395d47"><div class="ttname"><a href="sauvegarde_8c.html#a33375d00c8623cf3b9d4aa89b7395d47">chargerSavePartie</a></div><div class="ttdeci">err_save chargerSavePartie(niveau_informations_t ***infos_niveaux, int *nb_niveaux, int *indice_niveau_charge)</div><div class="ttdoc">Charge les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:287</div></div>
+<div class="ttc" id="asauvegarde_8c_html_a73e0d4d5779bca575820f84ef02e6f16"><div class="ttname"><a href="sauvegarde_8c.html#a73e0d4d5779bca575820f84ef02e6f16">sauvegarderPartie</a></div><div class="ttdeci">err_save sauvegarderPartie(niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge)</div><div class="ttdoc">Sauvegarde les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:256</div></div>
+<div class="ttc" id="asauvegarde_8c_html_ad048f230be2b76ed45c7b13565025629"><div class="ttname"><a href="sauvegarde_8c.html#ad048f230be2b76ed45c7b13565025629">chargerSaveJoueur</a></div><div class="ttdeci">err_save chargerSaveJoueur(t_joueur *joueur)</div><div class="ttdoc">Charge le joueur de ses données de sauvegarde.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:49</div></div>
+<div class="ttc" id="asauvegarde_8c_html_add6045470a7ec5bc9b2bd4f72364a1cc"><div class="ttname"><a href="sauvegarde_8c.html#add6045470a7ec5bc9b2bd4f72364a1cc">sauvegarderJoueur</a></div><div class="ttdeci">err_save sauvegarderJoueur(t_joueur *joueur)</div><div class="ttdoc">Sauverde le joueur dans son fichier.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:91</div></div>
+<div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

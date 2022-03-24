@@ -7,12 +7,14 @@
  *  
  */
 
+#include <generation_entites.h>
+
 #ifndef _JEU_GENERATION_NIVEAU_
 #define _JEU_GENERATION_NIVEAU_
 
 
-#define LONGUEUR_NIVEAU_MAX 25
-#define HAUTEUR_NIVEAU_MAX 25
+#define LONGUEUR_NIVEAU_MAX 20
+#define HAUTEUR_NIVEAU_MAX 10
 
 //Cases du niveau
 #define VIDE 0
@@ -69,19 +71,23 @@ typedef struct {
     int vert;
     int bleu;
 
-    int matrice[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX];
+    int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX];
+    t_info_entites ** liste_infos_entites; /**< Liste des entités présentes dans le niveau */
+    int nb_infos_entite;
 
-    //Positions des salles
+    //Positions des salles de départ et de fin
 
     int i_dep;
     int j_dep;
     int i_fin;
     int j_fin;
 
+
 } niveau_informations_t;
 
 
 niveau_informations_t * creer_niveau_info(const char * nom_planete);
 void detruire_niveau_info(niveau_informations_t ** niveau);
+int seed_depuis_mot(const char * mot);
 
 #endif // _JEU_GENERATION_NIVEAU

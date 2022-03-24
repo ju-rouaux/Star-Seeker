@@ -1,0 +1,100 @@
+\hypertarget{structSDL__MouseButtonEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Mouse\+Button\+Event}
+\label{structSDL__MouseButtonEvent}\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+
+
+Mouse button event structure (event.\+button.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_af64cb09ea68b8081ecc8ee498552e3d7}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_ab05e8a454692608ff56c502e95799c56}{timestamp}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_ab3b855d4b543b5d02fcf5d56e4421393}{window\+ID}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_a366aef59a0f393afc8a3561e741825df}{which}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__MouseButtonEvent_a1a4680e19ae06d02d2093f0bcba1b24c}{button}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__MouseButtonEvent_a8809cef85cfffad4f2059f2ba4fc6a3d}{state}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__MouseButtonEvent_aa606bebcbc3ffc7e932016039c2a36a1}{clicks}}
+\item 
+\mbox{\Hypertarget{structSDL__MouseButtonEvent_a765957d218d16fa00558fa4d20e80689}\label{structSDL__MouseButtonEvent_a765957d218d16fa00558fa4d20e80689}} 
+Uint8 {\bfseries padding1}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_a5bb9c61b86e999f58637511e32e3a076}{x}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseButtonEvent_a7ccb5c55a7ddadce723f4ea6d5269540}{y}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Mouse button event structure (event.\+button.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__MouseButtonEvent_a1a4680e19ae06d02d2093f0bcba1b24c}\label{structSDL__MouseButtonEvent_a1a4680e19ae06d02d2093f0bcba1b24c}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!button@{button}}
+\index{button@{button}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Mouse\+Button\+Event\+::button}
+
+The mouse button index \mbox{\Hypertarget{structSDL__MouseButtonEvent_aa606bebcbc3ffc7e932016039c2a36a1}\label{structSDL__MouseButtonEvent_aa606bebcbc3ffc7e932016039c2a36a1}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!clicks@{clicks}}
+\index{clicks@{clicks}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{clicks}{clicks}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Mouse\+Button\+Event\+::clicks}
+
+1 for single-\/click, 2 for double-\/click, etc. \mbox{\Hypertarget{structSDL__MouseButtonEvent_a8809cef85cfffad4f2059f2ba4fc6a3d}\label{structSDL__MouseButtonEvent_a8809cef85cfffad4f2059f2ba4fc6a3d}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!state@{state}}
+\index{state@{state}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Mouse\+Button\+Event\+::state}
+
+\+::\+SDL\+\_\+\+PRESSED or \+::\+SDL\+\_\+\+RELEASED \mbox{\Hypertarget{structSDL__MouseButtonEvent_ab05e8a454692608ff56c502e95799c56}\label{structSDL__MouseButtonEvent_ab05e8a454692608ff56c502e95799c56}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Button\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__MouseButtonEvent_af64cb09ea68b8081ecc8ee498552e3d7}\label{structSDL__MouseButtonEvent_af64cb09ea68b8081ecc8ee498552e3d7}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!type@{type}}
+\index{type@{type}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Button\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa9267166e1536dfa8b0daa98c0afa9052}{SDL\+\_\+\+MOUSEBUTTONDOWN}} or \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4ab85278398d29b9e50f500aad2b952b}{SDL\+\_\+\+MOUSEBUTTONUP}} \mbox{\Hypertarget{structSDL__MouseButtonEvent_a366aef59a0f393afc8a3561e741825df}\label{structSDL__MouseButtonEvent_a366aef59a0f393afc8a3561e741825df}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!which@{which}}
+\index{which@{which}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{which}{which}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Button\+Event\+::which}
+
+The mouse instance id, or SDL\+\_\+\+TOUCH\+\_\+\+MOUSEID \mbox{\Hypertarget{structSDL__MouseButtonEvent_ab3b855d4b543b5d02fcf5d56e4421393}\label{structSDL__MouseButtonEvent_ab3b855d4b543b5d02fcf5d56e4421393}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!windowID@{windowID}}
+\index{windowID@{windowID}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{windowID}{windowID}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Button\+Event\+::window\+ID}
+
+The window with mouse focus, if any \mbox{\Hypertarget{structSDL__MouseButtonEvent_a5bb9c61b86e999f58637511e32e3a076}\label{structSDL__MouseButtonEvent_a5bb9c61b86e999f58637511e32e3a076}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!x@{x}}
+\index{x@{x}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Button\+Event\+::x}
+
+X coordinate, relative to window \mbox{\Hypertarget{structSDL__MouseButtonEvent_a7ccb5c55a7ddadce723f4ea6d5269540}\label{structSDL__MouseButtonEvent_a7ccb5c55a7ddadce723f4ea6d5269540}} 
+\index{SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}!y@{y}}
+\index{y@{y}!SDL\_MouseButtonEvent@{SDL\_MouseButtonEvent}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Button\+Event\+::y}
+
+Y coordinate, relative to window 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,49 @@
+\hypertarget{SDL__test__log_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+log.h}
+\label{SDL__test__log_8h}\index{include/SDL2/SDL\_test\_log.h@{include/SDL2/SDL\_test\_log.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{SDL__test__log_8h_a7f48f39cff0614cbfc04362a5be417a2}{SDLTest\+\_\+\+Log}} (SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(1)
+\begin{DoxyCompactList}\small\item\em Prints given message with a timestamp in the TEST category and INFO priority. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__log_8h_a57f7362e2320e2f89e4ffeb7722e7362}{SDLTest\+\_\+\+Log\+Error}} (SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(1)
+\begin{DoxyCompactList}\small\item\em Prints given message with a timestamp in the TEST category and the ERROR priority. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__log_8h_a7f48f39cff0614cbfc04362a5be417a2}\label{SDL__test__log_8h_a7f48f39cff0614cbfc04362a5be417a2}} 
+\index{SDL\_test\_log.h@{SDL\_test\_log.h}!SDLTest\_Log@{SDLTest\_Log}}
+\index{SDLTest\_Log@{SDLTest\_Log}!SDL\_test\_log.h@{SDL\_test\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Log()}{SDLTest\_Log()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Log (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Prints given message with a timestamp in the TEST category and INFO priority. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fmt} & Message to be logged \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{SDL__test__log_8h_a57f7362e2320e2f89e4ffeb7722e7362}\label{SDL__test__log_8h_a57f7362e2320e2f89e4ffeb7722e7362}} 
+\index{SDL\_test\_log.h@{SDL\_test\_log.h}!SDLTest\_LogError@{SDLTest\_LogError}}
+\index{SDLTest\_LogError@{SDLTest\_LogError}!SDL\_test\_log.h@{SDL\_test\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_LogError()}{SDLTest\_LogError()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Log\+Error (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Prints given message with a timestamp in the TEST category and the ERROR priority. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fmt} & Message to be logged \\
+\hline
+\end{DoxyParams}

@@ -36,7 +36,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     textures->player = NULL;
 
     //Map
-    surface = SDL_LoadBMP("./img/tileset_map.bmp");
+    surface = SDL_LoadBMP("./assets/img/tileset_map.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface tileset_map.bmp : %s\n", SDL_GetError());
@@ -56,7 +56,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
 
 
     //Player
-    surface = SDL_LoadBMP("./img/personnage.bmp");
+    surface = SDL_LoadBMP("./assets/img/personnage.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface personnage.bmp : %s\n", SDL_GetError());
@@ -72,7 +72,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Projectiles
-    surface = SDL_LoadBMP("./img/projectiles.bmp");
+    surface = SDL_LoadBMP("./assets/img/projectiles.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface projectiles.bmp : %s\n", SDL_GetError());
@@ -83,6 +83,54 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     if(textures->projectiles == NULL)
     {
         printf("Impossible de charger la texture de projectiles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Corps monstres
+    surface = SDL_LoadBMP("./assets/img/monstres_haut.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface monstres_haut.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->monstres_haut = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->monstres_haut == NULL)
+    {
+        printf("Impossible de charger la texture de monstres_haut.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Pattes monstres
+    surface = SDL_LoadBMP("./assets/img/monstres_bas.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface monstres_bas.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->monstres_bas = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->monstres_bas == NULL)
+    {
+        printf("Impossible de charger la texture de monstres_bas.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Overlay
+    surface = SDL_LoadBMP("./assets/img/overlay.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface overlay.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->overlay = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->overlay == NULL)
+    {
+        printf("Impossible de charger la texture de overlay.bmp : %s\n", SDL_GetError());
         return NULL;
     }
     surface = NULL;
@@ -105,6 +153,12 @@ void detruireTextures(t_textures ** textures)
             SDL_DestroyTexture((*textures)->map);
         if((*textures)->player != NULL)
             SDL_DestroyTexture((*textures)->player);
+        if((*textures)->projectiles != NULL)
+            SDL_DestroyTexture((*textures)->projectiles);
+        if((*textures)->monstres_bas != NULL)
+            SDL_DestroyTexture((*textures)->monstres_bas);
+        if((*textures)->monstres_haut != NULL)
+            SDL_DestroyTexture((*textures)->monstres_haut);
         free(*textures);
     }
     *textures = NULL;
@@ -117,12 +171,12 @@ void detruireTextures(t_textures ** textures)
  * \param x Position en x de la tile désirée
  * \param y Position en y de la tile désirée
  */
-void splitTexture(SDL_Rect * rectangle, int x, int y)
+void splitTexture(SDL_Rect * rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)
 {
-    rectangle->x = x * TAILLE_TILE;
-    rectangle->y = y * TAILLE_TILE;
-    rectangle->h = TAILLE_TILE;
-    rectangle->w = TAILLE_TILE;
+    rectangle->x = x * decalageX;
+    rectangle->y = y * decalageY;
+    rectangle->h = tailleX;
+    rectangle->w = tailleY;
 }
 
 
@@ -138,25 +192,25 @@ void tileNiveau(SDL_Rect * rectangle, t_tile_type type)
     switch (type)
     {
     case SOL:
-        splitTexture(rectangle, 0,0);
+        splitTexture(rectangle, 0,0, 16,16, 16,16);
         break;
     case MUR:
-        splitTexture(rectangle, 1,0);
+        splitTexture(rectangle, 1,0, 16,16, 16,16);
         break;
     case PORTE_HAUT:
-        splitTexture(rectangle, 2,0);
+        splitTexture(rectangle, 2,0, 16,16, 16,16);
         break;
     case PORTE_GAUCHE:
-        splitTexture(rectangle, 3,0);
+        splitTexture(rectangle, 3,0, 16,16, 16,16);
         break;
     case PORTE_BAS:
-        splitTexture(rectangle, 4,0);
+        splitTexture(rectangle, 4,0, 16,16, 16,16);
         break;
     case PORTE_DROITE:
-        splitTexture(rectangle, 5,0);
+        splitTexture(rectangle, 5,0, 16,16, 16,16);
         break;
     default: //texture par défaut
-        splitTexture(rectangle, 0,0);
+        splitTexture(rectangle, 0,0, 16,16, 16,16);
         break;
     }
 }

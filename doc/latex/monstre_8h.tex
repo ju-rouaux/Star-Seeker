@@ -1,0 +1,38 @@
+\hypertarget{monstre_8h}{}\doxysection{Référence du fichier include/monstre.h}
+\label{monstre_8h}\index{include/monstre.h@{include/monstre.h}}
+
+
+Module de gestion des monstres.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$attaque.\+h$>$}\newline
+{\ttfamily \#include $<$attributs\+\_\+personnages.\+h$>$}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{monstre_8h_a6763c5d6cbaf1c4bbe54a3daa998c422}\label{monstre_8h_a6763c5d6cbaf1c4bbe54a3daa998c422}} 
+typedef struct s\+\_\+monstre {\bfseries t\+\_\+monstre}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}\label{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}} 
+enum {\bfseries e\+\_\+deplacement\+\_\+monstre} \{ {\bfseries STATIQUE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}\label{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}} 
+t\+\_\+monstre $\ast$ {\bfseries creer\+Monstre} (float x, float y, float vitesse, int pv, float taille, e\+\_\+nom\+\_\+attaque type\+\_\+attaque, e\+\_\+deplacement\+\_\+monstre deplacement)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion des monstres. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}

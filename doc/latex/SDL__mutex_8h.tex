@@ -1,0 +1,645 @@
+\hypertarget{SDL__mutex_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+mutex.h}
+\label{SDL__mutex_8h}\index{include/SDL2/SDL\_mutex.h@{include/SDL2/SDL\_mutex.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__mutex_8h_a1214610634c24465d7c50149752791a9}{SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT}}~1
+\item 
+\#define \mbox{\hyperlink{SDL__mutex_8h_abd2bc8605242c50341362ada961dc914}{SDL\+\_\+\+MUTEX\+\_\+\+MAXWAIT}}~($\sim$(Uint32)0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Mutex functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__mutex_8h_a3ce486805b5c21574466d3d93c908597}\label{SDL__mutex_8h_a3ce486805b5c21574466d3d93c908597}} 
+\#define {\bfseries SDL\+\_\+mutexP}(m)~\mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex}}(m)
+\item 
+\mbox{\Hypertarget{SDL__mutex_8h_aa25335079da2e776536c63e84288d684}\label{SDL__mutex_8h_aa25335079da2e776536c63e84288d684}} 
+\#define {\bfseries SDL\+\_\+mutexV}(m)~\mbox{\hyperlink{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}{SDL\+\_\+\+Unlock\+Mutex}}(m)
+\item 
+\mbox{\Hypertarget{SDL__mutex_8h_ac085162a7cfb9ebd63e2d05d33c03c17}\label{SDL__mutex_8h_ac085162a7cfb9ebd63e2d05d33c03c17}} 
+typedef struct SDL\+\_\+mutex {\bfseries SDL\+\_\+mutex}
+\item 
+DECLSPEC SDL\+\_\+mutex $\ast$SDLCALL \mbox{\hyperlink{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}{SDL\+\_\+\+Create\+Mutex}} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex}} (SDL\+\_\+mutex $\ast$mutex)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}{SDL\+\_\+\+Try\+Lock\+Mutex}} (SDL\+\_\+mutex $\ast$mutex)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}{SDL\+\_\+\+Unlock\+Mutex}} (SDL\+\_\+mutex $\ast$mutex)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__mutex_8h_ad2bbcc4e32ac927af62f0cba671f63fe}{SDL\+\_\+\+Destroy\+Mutex}} (SDL\+\_\+mutex $\ast$mutex)
+\end{DoxyCompactItemize}
+\doxysubsection*{Semaphore functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__mutex_8h_aa7d56df841e98eed229d1d4b17327d29}\label{SDL__mutex_8h_aa7d56df841e98eed229d1d4b17327d29}} 
+typedef struct SDL\+\_\+semaphore {\bfseries SDL\+\_\+sem}
+\item 
+DECLSPEC SDL\+\_\+sem $\ast$SDLCALL \mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} (Uint32 initial\+\_\+value)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} (SDL\+\_\+sem $\ast$sem)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} (SDL\+\_\+sem $\ast$sem)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} (SDL\+\_\+sem $\ast$sem)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} (SDL\+\_\+sem $\ast$sem, Uint32 ms)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} (SDL\+\_\+sem $\ast$sem)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} (SDL\+\_\+sem $\ast$sem)
+\end{DoxyCompactItemize}
+\doxysubsection*{Condition variable functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__mutex_8h_ac50401d1b84d806a0c927c8cf454f96a}\label{SDL__mutex_8h_ac50401d1b84d806a0c927c8cf454f96a}} 
+typedef struct SDL\+\_\+cond {\bfseries SDL\+\_\+cond}
+\item 
+DECLSPEC SDL\+\_\+cond $\ast$SDLCALL \mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} (SDL\+\_\+cond $\ast$cond)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} (SDL\+\_\+cond $\ast$cond)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} (SDL\+\_\+cond $\ast$cond)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} (SDL\+\_\+cond $\ast$cond, SDL\+\_\+mutex $\ast$mutex)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} (SDL\+\_\+cond $\ast$cond, SDL\+\_\+mutex $\ast$mutex, Uint32 ms)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Functions to provide thread synchronization primitives. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__mutex_8h_abd2bc8605242c50341362ada961dc914}\label{SDL__mutex_8h_abd2bc8605242c50341362ada961dc914}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_MUTEX\_MAXWAIT@{SDL\_MUTEX\_MAXWAIT}}
+\index{SDL\_MUTEX\_MAXWAIT@{SDL\_MUTEX\_MAXWAIT}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MUTEX\_MAXWAIT}{SDL\_MUTEX\_MAXWAIT}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MUTEX\+\_\+\+MAXWAIT~($\sim$(Uint32)0)}
+
+This is the timeout value which corresponds to never time out. \mbox{\Hypertarget{SDL__mutex_8h_a1214610634c24465d7c50149752791a9}\label{SDL__mutex_8h_a1214610634c24465d7c50149752791a9}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_MUTEX\_TIMEDOUT@{SDL\_MUTEX\_TIMEDOUT}}
+\index{SDL\_MUTEX\_TIMEDOUT@{SDL\_MUTEX\_TIMEDOUT}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MUTEX\_TIMEDOUT}{SDL\_MUTEX\_TIMEDOUT}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT~1}
+
+Synchronization functions which can time out return this value if they time out. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}\label{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CondBroadcast@{SDL\_CondBroadcast}}
+\index{SDL\_CondBroadcast@{SDL\_CondBroadcast}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CondBroadcast()}{SDL\_CondBroadcast()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Cond\+Broadcast (\begin{DoxyParamCaption}\item[{SDL\+\_\+cond $\ast$}]{cond }\end{DoxyParamCaption})}
+
+Restart all threads that are waiting on the condition variable.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cond} & the condition variable to signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}\label{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CondSignal@{SDL\_CondSignal}}
+\index{SDL\_CondSignal@{SDL\_CondSignal}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CondSignal()}{SDL\_CondSignal()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Cond\+Signal (\begin{DoxyParamCaption}\item[{SDL\+\_\+cond $\ast$}]{cond }\end{DoxyParamCaption})}
+
+Restart one of the threads that are waiting on the condition variable.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cond} & the condition variable to signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}\label{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CondWait@{SDL\_CondWait}}
+\index{SDL\_CondWait@{SDL\_CondWait}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CondWait()}{SDL\_CondWait()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Cond\+Wait (\begin{DoxyParamCaption}\item[{SDL\+\_\+cond $\ast$}]{cond,  }\item[{SDL\+\_\+mutex $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Wait until a condition variable is signaled.
+
+This function unlocks the specified {\ttfamily mutex} and waits for another thread to call \mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal()}} or \mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast()}} on the condition variable {\ttfamily cond}. Once the condition variable is signaled, the mutex is re-\/locked and the function returns.
+
+The mutex must be locked before calling this function.
+
+This function is the equivalent of calling \mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout()}} with a time length of {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+MAXWAIT}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cond} & the condition variable to wait on \\
+\hline
+{\em mutex} & the mutex used to coordinate thread access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 when it is signaled or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}\label{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CondWaitTimeout@{SDL\_CondWaitTimeout}}
+\index{SDL\_CondWaitTimeout@{SDL\_CondWaitTimeout}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CondWaitTimeout()}{SDL\_CondWaitTimeout()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Cond\+Wait\+Timeout (\begin{DoxyParamCaption}\item[{SDL\+\_\+cond $\ast$}]{cond,  }\item[{SDL\+\_\+mutex $\ast$}]{mutex,  }\item[{Uint32}]{ms }\end{DoxyParamCaption})}
+
+Wait until a condition variable is signaled or a certain time has passed.
+
+This function unlocks the specified {\ttfamily mutex} and waits for another thread to call \mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal()}} or \mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast()}} on the condition variable {\ttfamily cond}, or for the specified time to elapse. Once the condition variable is signaled or the time elapsed, the mutex is re-\/locked and the function returns.
+
+The mutex must be locked before calling this function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cond} & the condition variable to wait on \\
+\hline
+{\em mutex} & the mutex used to coordinate thread access \\
+\hline
+{\em ms} & the maximum time to wait, in milliseconds, or {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+MAXWAIT} to wait indefinitely \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if the condition variable is signaled, {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT} if the condition is not signaled in the allotted time, or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}\label{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CreateCond@{SDL\_CreateCond}}
+\index{SDL\_CreateCond@{SDL\_CreateCond}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateCond()}{SDL\_CreateCond()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+cond$\ast$ SDLCALL SDL\+\_\+\+Create\+Cond (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create a condition variable.
+
+\begin{DoxyReturn}{Renvoie}
+a new condition variable or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}{SDL\+\_\+\+Destroy\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}\label{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CreateMutex@{SDL\_CreateMutex}}
+\index{SDL\_CreateMutex@{SDL\_CreateMutex}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateMutex()}{SDL\_CreateMutex()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+mutex$\ast$ SDLCALL SDL\+\_\+\+Create\+Mutex (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create a new mutex.
+
+All newly-\/created mutexes begin in the {\itshape unlocked} state.
+
+Calls to \mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex()}} will not return while the mutex is locked by another thread. See \mbox{\hyperlink{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}{SDL\+\_\+\+Try\+Lock\+Mutex()}} to attempt to lock without blocking.
+
+SDL mutexes are reentrant.
+
+\begin{DoxyReturn}{Renvoie}
+the initialized and unlocked mutex or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ad2bbcc4e32ac927af62f0cba671f63fe}{SDL\+\_\+\+Destroy\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}{SDL\+\_\+\+Try\+Lock\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}{SDL\+\_\+\+Unlock\+Mutex}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}\label{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_CreateSemaphore@{SDL\_CreateSemaphore}}
+\index{SDL\_CreateSemaphore@{SDL\_CreateSemaphore}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateSemaphore()}{SDL\_CreateSemaphore()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+sem$\ast$ SDLCALL SDL\+\_\+\+Create\+Semaphore (\begin{DoxyParamCaption}\item[{Uint32}]{initial\+\_\+value }\end{DoxyParamCaption})}
+
+Create a semaphore.
+
+This function creates a new semaphore and initializes it with the value {\ttfamily initial\+\_\+value}. Each wait operation on the semaphore will atomically decrement the semaphore value and potentially block if the semaphore value is 0. Each post operation will atomically increment the semaphore value and wake waiting threads and allow them to retry the wait operation.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em initial\+\_\+value} & the starting value of the semaphore \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a new semaphore or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}\label{SDL__mutex_8h_a8843feeb270845e07fc23f692707540f}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_DestroyCond@{SDL\_DestroyCond}}
+\index{SDL\_DestroyCond@{SDL\_DestroyCond}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DestroyCond()}{SDL\_DestroyCond()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Destroy\+Cond (\begin{DoxyParamCaption}\item[{SDL\+\_\+cond $\ast$}]{cond }\end{DoxyParamCaption})}
+
+Destroy a condition variable.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cond} & the condition variable to destroy\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_a2ffd0b45ebdc44057007a59857ba46b3}{SDL\+\_\+\+Cond\+Broadcast}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a1037a8274b0b13118fc78eeb417a1397}{SDL\+\_\+\+Cond\+Signal}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af759b2fe1c5507f47854c1edf1ecbabd}{SDL\+\_\+\+Cond\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_aa57013f95a9c608cf24a5100b841e863}{SDL\+\_\+\+Cond\+Wait\+Timeout}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ac729fb4dbfe4057452ebfc1087f61585}{SDL\+\_\+\+Create\+Cond}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_ad2bbcc4e32ac927af62f0cba671f63fe}\label{SDL__mutex_8h_ad2bbcc4e32ac927af62f0cba671f63fe}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_DestroyMutex@{SDL\_DestroyMutex}}
+\index{SDL\_DestroyMutex@{SDL\_DestroyMutex}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DestroyMutex()}{SDL\_DestroyMutex()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Destroy\+Mutex (\begin{DoxyParamCaption}\item[{SDL\+\_\+mutex $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Destroy a mutex created with \mbox{\hyperlink{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}{SDL\+\_\+\+Create\+Mutex()}}.
+
+This function must be called on any mutex that is no longer needed. Failure to destroy a mutex will result in a system memory or resource leak. While it is safe to destroy a mutex that is {\itshape unlocked}, it is not safe to attempt to destroy a locked mutex, and may result in undefined behavior depending on the platform.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mutex} & the mutex to destroy\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}{SDL\+\_\+\+Create\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}{SDL\+\_\+\+Try\+Lock\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}{SDL\+\_\+\+Unlock\+Mutex}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}\label{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_DestroySemaphore@{SDL\_DestroySemaphore}}
+\index{SDL\_DestroySemaphore@{SDL\_DestroySemaphore}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DestroySemaphore()}{SDL\_DestroySemaphore()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Destroy\+Semaphore (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Destroy a semaphore.
+
+It is not safe to destroy a semaphore if there are threads currently waiting on it.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore to destroy\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}\label{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_LockMutex@{SDL\_LockMutex}}
+\index{SDL\_LockMutex@{SDL\_LockMutex}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockMutex()}{SDL\_LockMutex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Lock\+Mutex (\begin{DoxyParamCaption}\item[{SDL\+\_\+mutex $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Lock the mutex.
+
+This will block until the mutex is available, which is to say it is in the unlocked state and the OS has chosen the caller as the next thread to lock it. Of all threads waiting to lock the mutex, only one may do so at a time.
+
+It is legal for the owning thread to lock an already-\/locked mutex. It must unlock it the same number of times before it is actually made available for other threads in the system (this is known as a \char`\"{}recursive mutex\char`\"{}).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mutex} & the mutex to lock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}\label{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_SemPost@{SDL\_SemPost}}
+\index{SDL\_SemPost@{SDL\_SemPost}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SemPost()}{SDL\_SemPost()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sem\+Post (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Atomically increment a semaphore\textquotesingle{}s value and wake waiting threads.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore to increment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}\label{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_SemTryWait@{SDL\_SemTryWait}}
+\index{SDL\_SemTryWait@{SDL\_SemTryWait}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SemTryWait()}{SDL\_SemTryWait()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sem\+Try\+Wait (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem }\end{DoxyParamCaption})}
+
+See if a semaphore has a positive value and decrement it if it does.
+
+This function checks to see if the semaphore pointed to by {\ttfamily sem} has a positive value and atomically decrements the semaphore value if it does. If the semaphore doesn\textquotesingle{}t have a positive value, the function immediately returns SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore to wait on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if the wait succeeds, {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT} if the wait would block, or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}\label{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_SemValue@{SDL\_SemValue}}
+\index{SDL\_SemValue@{SDL\_SemValue}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SemValue()}{SDL\_SemValue()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Sem\+Value (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Get the current value of a semaphore.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the current value of the semaphore.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}\label{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_SemWait@{SDL\_SemWait}}
+\index{SDL\_SemWait@{SDL\_SemWait}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SemWait()}{SDL\_SemWait()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sem\+Wait (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Wait until a semaphore has a positive value and then decrements it.
+
+This function suspends the calling thread until either the semaphore pointed to by {\ttfamily sem} has a positive value or the call is interrupted by a signal or error. If the call is successful it will atomically decrement the semaphore value.
+
+This function is the equivalent of calling \mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout()}} with a time length of {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+MAXWAIT}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore wait on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}{SDL\+\_\+\+Sem\+Wait\+Timeout}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}\label{SDL__mutex_8h_a4ea1acfaf722895626174e1e37c497da}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_SemWaitTimeout@{SDL\_SemWaitTimeout}}
+\index{SDL\_SemWaitTimeout@{SDL\_SemWaitTimeout}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SemWaitTimeout()}{SDL\_SemWaitTimeout()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Sem\+Wait\+Timeout (\begin{DoxyParamCaption}\item[{SDL\+\_\+sem $\ast$}]{sem,  }\item[{Uint32}]{ms }\end{DoxyParamCaption})}
+
+Wait until a semaphore has a positive value and then decrements it.
+
+This function suspends the calling thread until either the semaphore pointed to by {\ttfamily sem} has a positive value, the call is interrupted by a signal or error, or the specified time has elapsed. If the call is successful it will atomically decrement the semaphore value.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sem} & the semaphore to wait on \\
+\hline
+{\em ms} & the length of the timeout, in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if the wait succeeds, {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT} if the wait does not succeed in the allotted time, or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ab8c1a20a5466281a5d63a0cabe07e140}{SDL\+\_\+\+Create\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a23deb3b7e29a5137d804e4be3453a768}{SDL\+\_\+\+Destroy\+Semaphore}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0c50f774babf7a44c381238a1f780595}{SDL\+\_\+\+Sem\+Post}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a517288aaa856ce2264e8420636e85c4a}{SDL\+\_\+\+Sem\+Try\+Wait}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ae66390dca585fdab8de871fe32935768}{SDL\+\_\+\+Sem\+Value}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_af51d75d18cb90f28b35c31e853b04792}{SDL\+\_\+\+Sem\+Wait}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}\label{SDL__mutex_8h_a5097fb4c7147d14a4c6df4515ec862e8}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_TryLockMutex@{SDL\_TryLockMutex}}
+\index{SDL\_TryLockMutex@{SDL\_TryLockMutex}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TryLockMutex()}{SDL\_TryLockMutex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Try\+Lock\+Mutex (\begin{DoxyParamCaption}\item[{SDL\+\_\+mutex $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Try to lock a mutex without blocking.
+
+This works just like \mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex()}}, but if the mutex is not available, this function returns {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+TIMEOUT} immediately.
+
+This technique is useful if you need exclusive access to a resource but don\textquotesingle{}t want to wait for it, and will return to it to try again later.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mutex} & the mutex to try to lock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, {\ttfamily SDL\+\_\+\+MUTEX\+\_\+\+TIMEDOUT}, or -\/1 on error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__mutex_8h_ae1f90ad6a7420fb3c4b5685e440d762f}{SDL\+\_\+\+Create\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_ad2bbcc4e32ac927af62f0cba671f63fe}{SDL\+\_\+\+Destroy\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_a0908c6a7356331d197059fbdc6c66a0f}{SDL\+\_\+\+Lock\+Mutex}} 
+
+\mbox{\hyperlink{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}{SDL\+\_\+\+Unlock\+Mutex}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}\label{SDL__mutex_8h_afee1549c7723ebe13fbfca8ad94f8c9d}} 
+\index{SDL\_mutex.h@{SDL\_mutex.h}!SDL\_UnlockMutex@{SDL\_UnlockMutex}}
+\index{SDL\_UnlockMutex@{SDL\_UnlockMutex}!SDL\_mutex.h@{SDL\_mutex.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnlockMutex()}{SDL\_UnlockMutex()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Unlock\+Mutex (\begin{DoxyParamCaption}\item[{SDL\+\_\+mutex $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Unlock the mutex.
+
+It is legal for the owning thread to lock an already-\/locked mutex. It must unlock it the same number of times before it is actually made available for other threads in the system (this is known as a \char`\"{}recursive mutex\char`\"{}).
+
+It is an error to unlock a mutex that has not been locked by the current thread, and doing so results in undefined behavior.
+
+It is also an error to unlock a mutex that isn\textquotesingle{}t locked at all.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mutex} & the mutex to unlock. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0, or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}

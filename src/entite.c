@@ -45,7 +45,7 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
         indice_texture = entite->animation->indice_texture;
     }
 
-    splitTexture(&source, indice_texture, entite->id_animation);
+    splitTexture(&source, indice_texture, entite->id_animation, 16,16, 16,16);
 
     return SDL_RenderCopy(moteur->renderer, entite->texture, &source, &entite->hitbox);
 }
@@ -66,6 +66,9 @@ int dessinerEntite(t_moteur * moteur, t_entite * entite)
  */
 int deplacerEntite(const t_moteur * moteur, t_entite * entite)
 {
+    if(entite->vitesse == 0)
+        return 0;
+        
     int i; //Variable pour parcourir le tableau des collisions
     int collision = 0; //Faux, vrai si une collision occure 
     
@@ -74,8 +77,13 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
     
     //Normalisation du vecteur direction en divisant par sqrt(x^2 + y^2)
     float normalisation = sqrt(pow(entite->direction_vx, 2) + pow(entite->direction_vy, 2));
-    float futur_x = entite->x + distance * (entite->direction_vx / normalisation);
-    float futur_y = entite->y + distance * (entite->direction_vy / normalisation);
+    float futur_x = entite->x;
+    float futur_y = entite->y;
+    if(normalisation != 0)
+    {
+        futur_x = entite->x + distance * (entite->direction_vx / normalisation);
+        futur_y = entite->y + distance * (entite->direction_vy / normalisation);
+    }
     
     //Définir la taille de la hitbox
     SDL_Rect hitbox; //Zone aux pieds de l'entité, aire où il entre en collision avec le mur
@@ -108,6 +116,26 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
 
     return collision;
 }
+
+
+/**
+ * \brief Ajoute une entité à la liste sans perturber son fonctionnement.
+ * 
+ * \param liste La liste où ajouter l'entité
+ * \param entite L'entité à ajouter
+ */
+void ajouterEntiteListe(t_liste * liste, t_entite * entite)
+{
+    if(entite != NULL)
+    {
+        ajout_gauche(liste, entite);
+        suivant(liste);
+        if(hors_liste(liste))
+            en_queue(liste);
+    }
+}
+
+
 
 /**
  * \brief Détruit une entité générique et mets sont pointeur à NULL.
@@ -166,7 +194,8 @@ t_entite * creerEntite(float x, float y, SDL_Texture * texture)
     entite->animation = NULL;
     entite->id_animation = 0;
 
-    entite->update = dessinerEntite;
+    entite->update = NULL;
+    entite->dessiner = dessinerEntite;
     entite->detruire = detruireEntite;
 
     return entite;

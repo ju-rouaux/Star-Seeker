@@ -18,6 +18,21 @@
 #include <camera.h>
 #include <liste.h>
 
+/**
+ * \brief Initialise les touches du clavier
+ * 
+ * \param moteur moteur du jeu
+ */
+void initialiserTouches(t_moteur * moteur){
+    //probleme entre la valeur des SDL_SCANCODE_.. et la réalité
+    moteur->parametres.key_up = 26; //SDL_SCANCODE_Z
+    moteur->parametres.key_down = 22; //SDL_SCANCODE_S
+    moteur->parametres.key_left = 4; //SDL_SCANCODE_Q
+    moteur->parametres.key_right = 7;//SDL_SCANCODE_D
+    moteur->parametres.key_projectile = 15; //SDL_SCANCODE_L
+}
+
+
 
 /**
  * \brief Charge une fenêtre, un rendu, les textures, et une caméra.
@@ -92,6 +107,8 @@ t_moteur * chargerMoteur(unsigned int temps)
 
     moteur->echelle = 0;
     updateEchelle(moteur);
+
+    initialiserTouches(moteur);
 
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
     moteur->parametres.volume_audio = 100;

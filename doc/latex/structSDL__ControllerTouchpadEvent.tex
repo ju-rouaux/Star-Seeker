@@ -1,0 +1,89 @@
+\hypertarget{structSDL__ControllerTouchpadEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Controller\+Touchpad\+Event}
+\label{structSDL__ControllerTouchpadEvent}\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+
+
+Game controller touchpad event structure (event.\+ctouchpad.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_ac33536046a3481953246b22a0371c109}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a2b80663393965edfc666f364f07631da}{timestamp}}
+\item 
+\mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a0eccc1247f8924b2e495a2afd4f2daf4}{which}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a47ebc5c7897b57bda7fe7c2fa553eb7f}{touchpad}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a0e88fa90ee264c841170cf199a4e57c9}{finger}}
+\item 
+float \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_adb5d612ba132f5dc0278a27da9f2e310}{x}}
+\item 
+float \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a7d7bb07fbb017e8d832f04a0bb80c333}{y}}
+\item 
+float \mbox{\hyperlink{structSDL__ControllerTouchpadEvent_a63f7ea4e43a032d8a64c2022761ba5e1}{pressure}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Game controller touchpad event structure (event.\+ctouchpad.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a0e88fa90ee264c841170cf199a4e57c9}\label{structSDL__ControllerTouchpadEvent_a0e88fa90ee264c841170cf199a4e57c9}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!finger@{finger}}
+\index{finger@{finger}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{finger}{finger}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Controller\+Touchpad\+Event\+::finger}
+
+The index of the finger on the touchpad \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a63f7ea4e43a032d8a64c2022761ba5e1}\label{structSDL__ControllerTouchpadEvent_a63f7ea4e43a032d8a64c2022761ba5e1}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!pressure@{pressure}}
+\index{pressure@{pressure}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{pressure}{pressure}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Controller\+Touchpad\+Event\+::pressure}
+
+Normalized in the range 0...1 \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a2b80663393965edfc666f364f07631da}\label{structSDL__ControllerTouchpadEvent_a2b80663393965edfc666f364f07631da}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Controller\+Touchpad\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a47ebc5c7897b57bda7fe7c2fa553eb7f}\label{structSDL__ControllerTouchpadEvent_a47ebc5c7897b57bda7fe7c2fa553eb7f}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!touchpad@{touchpad}}
+\index{touchpad@{touchpad}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{touchpad}{touchpad}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Controller\+Touchpad\+Event\+::touchpad}
+
+The index of the touchpad \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_ac33536046a3481953246b22a0371c109}\label{structSDL__ControllerTouchpadEvent_ac33536046a3481953246b22a0371c109}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!type@{type}}
+\index{type@{type}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Controller\+Touchpad\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa156ec1564f07159355de8137bdab406d}{SDL\+\_\+\+CONTROLLERTOUCHPADDOWN}} or \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa6652ad594ff8306ded63b2e16a0d507f}{SDL\+\_\+\+CONTROLLERTOUCHPADMOTION}} or \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaae94c3ab09ae94c2b83c386eae4e56810}{SDL\+\_\+\+CONTROLLERTOUCHPADUP}} \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a0eccc1247f8924b2e495a2afd4f2daf4}\label{structSDL__ControllerTouchpadEvent_a0eccc1247f8924b2e495a2afd4f2daf4}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!which@{which}}
+\index{which@{which}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{which}{which}}
+{\footnotesize\ttfamily \mbox{\hyperlink{SDL__joystick_8h_a3c3d32500cb08f76ee8077983912c0bd}{SDL\+\_\+\+Joystick\+ID}} SDL\+\_\+\+Controller\+Touchpad\+Event\+::which}
+
+The joystick instance id \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_adb5d612ba132f5dc0278a27da9f2e310}\label{structSDL__ControllerTouchpadEvent_adb5d612ba132f5dc0278a27da9f2e310}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!x@{x}}
+\index{x@{x}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Controller\+Touchpad\+Event\+::x}
+
+Normalized in the range 0...1 with 0 being on the left \mbox{\Hypertarget{structSDL__ControllerTouchpadEvent_a7d7bb07fbb017e8d832f04a0bb80c333}\label{structSDL__ControllerTouchpadEvent_a7d7bb07fbb017e8d832f04a0bb80c333}} 
+\index{SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}!y@{y}}
+\index{y@{y}!SDL\_ControllerTouchpadEvent@{SDL\_ControllerTouchpadEvent}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float SDL\+\_\+\+Controller\+Touchpad\+Event\+::y}
+
+Normalized in the range 0...1 with 0 being at the top 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

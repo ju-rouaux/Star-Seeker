@@ -15,8 +15,9 @@
 #include <string.h>
 #include <ctype.h>
 
-#include <generation_niveau.h>
+#include <generation_entites.h>
 #include <outils.h>
+#include <generation_niveau.h>
 
 
 
@@ -29,7 +30,7 @@
 */
 static int coordonnees_valides(int i, int j){
 
-    if(i >= 0 && i < LONGUEUR_NIVEAU_MAX && j >= 0 && j < HAUTEUR_NIVEAU_MAX)
+    if(i >= 0 && i < HAUTEUR_NIVEAU_MAX && j >= 0 && j < LONGUEUR_NIVEAU_MAX)
         return 1;
 
     return 0;
@@ -48,7 +49,7 @@ static int coordonnees_valides(int i, int j){
  * 
  * \return Le nombre de cases VIDE adjacentes à la case (i, j) :
  */
-static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j, int compterDiagonales){
+static int nb_salles_adjacentes_dispo(int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int i, int j, int compterDiagonales){
 
     int cpt_salles = 0;
 
@@ -69,13 +70,13 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
         if( (coordonnees_valides(i+1, j+1) && niv[i+1][j+1] == VIDE ))
             cpt_salles++;
 
-        if( (coordonnees_valides(i-1, j-1) && niv[i-1][j] == VIDE ))
+        if( (coordonnees_valides(i-1, j-1) && niv[i-1][j-1] == VIDE ))
             cpt_salles++;
 
-        if( (coordonnees_valides(i-1, j+1) && niv[i][j+1] == VIDE ))
+        if( (coordonnees_valides(i-1, j+1) && niv[i-1][j+1] == VIDE ))
             cpt_salles++;
 
-        if( (coordonnees_valides(i+1, j-1) && niv[i][j-1] == VIDE ))
+        if( (coordonnees_valides(i+1, j-1) && niv[i+1][j-1] == VIDE ))
             cpt_salles++;
     }
 
@@ -98,13 +99,16 @@ static int nb_salles_adjacentes_dispo(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEA
  * 
  * \return VRAI seulement si une nouvelle salle a été créée.
  */
-static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int i, int j){
+static int ajout_salle_adjacente(int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int i, int j){
     
     int direction = rand() % 4;
 
     for(int directionMax = direction + 4; direction < directionMax; direction++){
 
-        if(i != LONGUEUR_NIVEAU_MAX -1 && i != 0 && j != HAUTEUR_NIVEAU_MAX -1 && j != 0 && niv[ i + (direction % 4 == 0) - (direction % 4 == 1) ][j + (direction % 4 == 2) - (direction % 4 == 3)] == VIDE && nb_salles_adjacentes_dispo(niv, i + (direction % 4 == 0) - (direction % 4 == 1), j + (direction % 4 == 2) - (direction % 4 == 3), 1) > NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN){
+        if(i != (HAUTEUR_NIVEAU_MAX - 1) && i != 0 && j != (LONGUEUR_NIVEAU_MAX - 1) && j != 0 && 
+        niv[ i + (direction % 4 == 0) - (direction % 4 == 1) ][j + (direction % 4 == 2) - (direction % 4 == 3)] == VIDE && 
+        nb_salles_adjacentes_dispo(niv, i + (direction % 4 == 0) - (direction % 4 == 1), j + (direction % 4 == 2) - (direction % 4 == 3), 1) > NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN)
+        {
             niv[ i + (direction % 4 == 0) - (direction % 4 == 1) ][j + (direction % 4 == 2) - (direction % 4 == 3)] = SALLE;
             return 1;
         }
@@ -123,23 +127,23 @@ static int ajout_salle_adjacente(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
  * \param niv La matrice du niveau
  *
  */
-static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static void identificationSalles(int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX]){
 
     int id = 1;
 
-    for(int j = 0; j < HAUTEUR_NIVEAU_MAX; j++){
+    for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++){
 
-        for(int i = 0; i < LONGUEUR_NIVEAU_MAX; i++){
+        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++){
 
             if(niv[i][j] == SALLE){
 
                 //Probable ajout d'une extension de salle depuis la salle du haut 
-                if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i][j-1] != VIDE)
-                    niv[i][j] = niv[i][j-1];
+                if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && coordonnees_valides(i-1, j) && niv[i-1][j] != VIDE)
+                    niv[i][j] = niv[i-1][j];
 
                 //Probable ajout d'une extension de salle depuis la salle de gauche
-                else if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && niv[i-1][j] != VIDE)
-                    niv[i][j] = niv[i-1][j];
+                else if (de(100) < CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE && coordonnees_valides(i, j-1) && niv[i][j-1] != VIDE)
+                    niv[i][j] = niv[i][j-1];
 
                 else 
                     niv[i][j] = id++;
@@ -161,15 +165,15 @@ static void identificationSalles(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX
  * \param j_fin 
  *  
  */
-static void definir_coordonnees_salle_de_fin(const int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX], int * i_fin, int * j_fin){
+static void definir_coordonnees_salle_de_fin(const int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int * i_fin, int * j_fin){
 
-    *i_fin = LONGUEUR_NIVEAU_MAX/2;
-    *j_fin = HAUTEUR_NIVEAU_MAX/2;
+    *i_fin = HAUTEUR_NIVEAU_MAX/2;
+    *j_fin = LONGUEUR_NIVEAU_MAX/2;
 
-    while(*i_fin != LONGUEUR_NIVEAU_MAX/2 && *j_fin != HAUTEUR_NIVEAU_MAX/2 && niv[*i_fin ][*j_fin] == VIDE){
+    while(*i_fin != HAUTEUR_NIVEAU_MAX/2 && *j_fin != LONGUEUR_NIVEAU_MAX/2 && niv[*i_fin ][*j_fin] == VIDE){
 
-        *i_fin = rand() % LONGUEUR_NIVEAU_MAX;
-        *j_fin = rand() % HAUTEUR_NIVEAU_MAX;
+        *i_fin = rand() % HAUTEUR_NIVEAU_MAX;
+        *j_fin = rand() % LONGUEUR_NIVEAU_MAX;
 
     }
 
@@ -184,18 +188,18 @@ static void definir_coordonnees_salle_de_fin(const int niv[LONGUEUR_NIVEAU_MAX][
  * \param niv La matrice de sortie
  * 
  */
-static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
+static void init_niveau(int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX]){
 
-    for (int i = 0; i < LONGUEUR_NIVEAU_MAX; i++)
-        for (int j = 0; j < HAUTEUR_NIVEAU_MAX; j++)
+    for (int i = 0; i < HAUTEUR_NIVEAU_MAX; i++)
+        for (int j = 0; j < LONGUEUR_NIVEAU_MAX; j++)
             niv[i][j] = VIDE;
 
     
 
     // SALLE DE DÉBUT
-    niv[LONGUEUR_NIVEAU_MAX/2][HAUTEUR_NIVEAU_MAX/2] = SALLE;
+    niv[HAUTEUR_NIVEAU_MAX/2][LONGUEUR_NIVEAU_MAX/2] = SALLE;
 
-    int nbMaxSalles = LONGUEUR_NIVEAU_MAX * HAUTEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;
+    int nbMaxSalles = HAUTEUR_NIVEAU_MAX * LONGUEUR_NIVEAU_MAX * POURCENTAGE_DE_SALLES_GLOBAL / 100;
     int nbSalles = 1;
 
     while(nbSalles < nbMaxSalles){
@@ -209,8 +213,8 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
         while(salle == 0){
 
 
-            i = rand() % LONGUEUR_NIVEAU_MAX;
-            j = rand() % HAUTEUR_NIVEAU_MAX;
+            i = rand() % HAUTEUR_NIVEAU_MAX;
+            j = rand() % LONGUEUR_NIVEAU_MAX;
 
             if (niv[i][j] != VIDE){
 
@@ -231,7 +235,7 @@ static void init_niveau(int niv[LONGUEUR_NIVEAU_MAX][HAUTEUR_NIVEAU_MAX]){
  * 
  * \return La seed correspondant au mot.
  */
-static int seed_depuis_mot(const char * mot){
+int seed_depuis_mot(const char * mot){
 
     int seed = 0;
 
@@ -265,10 +269,23 @@ static void couleur_aleatoire(t_couleurRVB * couleur){
 }
 
 
-
+/**
+ * \brief Libère la mémoire allouée à une information de niveau.
+ * 
+ * \param niveau L'adresse de la structure à libérer
+ */
 void detruire_niveau_info(niveau_informations_t ** niveau){
     if(*niveau != NULL)
+    {
+        if((*niveau)->liste_infos_entites != NULL)
+        {
+            for(int i = 0; i < (*niveau)->nb_infos_entite; i++)
+                detruireInfosEntites(&((*niveau)->liste_infos_entites[i]));
+
+            free((*niveau)->liste_infos_entites);
+        }
         free(*niveau);
+    }
     *niveau = NULL;
 }
 
@@ -279,6 +296,8 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
  */
 niveau_informations_t * creer_niveau_info(const char * nom_planete){
+
+    int indice_difficulte = 1; //!!! A CALCULER
 
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);
@@ -310,6 +329,9 @@ niveau_informations_t * creer_niveau_info(const char * nom_planete){
 
     definir_coordonnees_salle_de_fin(niveau->matrice, &(niveau->i_dep), &(niveau->j_dep));
     
+    niveau->liste_infos_entites = NULL;
+    niveau->nb_infos_entite = 0;
+    genererEntites(indice_difficulte, (int*) niveau->matrice, HAUTEUR_NIVEAU_MAX, LONGUEUR_NIVEAU_MAX, &niveau->liste_infos_entites, &niveau->nb_infos_entite);
 
     return niveau;
 }

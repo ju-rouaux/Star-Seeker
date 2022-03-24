@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/niveau.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier niveau.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de chargement d'un niveau en structure interprétable pour le jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="niveau_8h_source.html">niveau.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a9130bd9c6640053bbd276ecdbb2613ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__dimensions__salle.html">t_dimensions_salle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#a9130bd9c6640053bbd276ecdbb2613ac">creerDimensions</a> (int i, int j)</td></tr>
+<tr class="memdesc:a9130bd9c6640053bbd276ecdbb2613ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une structure dimensions de salle.  <a href="niveau_8c.html#a9130bd9c6640053bbd276ecdbb2613ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9130bd9c6640053bbd276ecdbb2613ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd91d18a498c98ba89dcc4733ffe8bb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#a5fd91d18a498c98ba89dcc4733ffe8bb">detruireDimensions</a> (<a class="el" href="structt__dimensions__salle.html">t_dimensions_salle</a> **dimensions)</td></tr>
+<tr class="memdesc:a5fd91d18a498c98ba89dcc4733ffe8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL.  <a href="niveau_8c.html#a5fd91d18a498c98ba89dcc4733ffe8bb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5fd91d18a498c98ba89dcc4733ffe8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cbed61af52654fdc8ccb20ee029a10"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#ac0cbed61af52654fdc8ccb20ee029a10">lierSalles</a> (<a class="el" href="structt__niveau.html">t_niveau</a> *niveau)</td></tr>
+<tr class="memdesc:ac0cbed61af52654fdc8ccb20ee029a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplie la matrice <a class="el" href="structt__salle.html" title="Structure représentant une salle et les salles qui lui sont liées.">t_salle</a> * portes[] du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle.  <a href="niveau_8c.html#ac0cbed61af52654fdc8ccb20ee029a10">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac0cbed61af52654fdc8ccb20ee029a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27f642324c09553bca751c5a54d3e28"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__salle.html">t_salle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#ac27f642324c09553bca751c5a54d3e28">creerSalle</a> (int id_salle)</td></tr>
+<tr class="memdesc:ac27f642324c09553bca751c5a54d3e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une structure salle et mets les pointeurs de porte à NULL.  <a href="niveau_8c.html#ac27f642324c09553bca751c5a54d3e28">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac27f642324c09553bca751c5a54d3e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab89c9c3f9c68cce78ef8d74f775a61e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#aab89c9c3f9c68cce78ef8d74f775a61e">detruireSalle</a> (<a class="el" href="structt__salle.html">t_salle</a> **salle)</td></tr>
+<tr class="memdesc:aab89c9c3f9c68cce78ef8d74f775a61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour une salle et mets son pointeur à NULL.  <a href="niveau_8c.html#aab89c9c3f9c68cce78ef8d74f775a61e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aab89c9c3f9c68cce78ef8d74f775a61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a318800dfb1c81e4b7054ebd66575356b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__niveau.html">t_niveau</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#a318800dfb1c81e4b7054ebd66575356b">chargerSalles</a> (niveau_informations_t *info)</td></tr>
+<tr class="memdesc:a318800dfb1c81e4b7054ebd66575356b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge le niveau dans une structure exploitable pour le jeu.  <a href="niveau_8c.html#a318800dfb1c81e4b7054ebd66575356b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a318800dfb1c81e4b7054ebd66575356b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a863d645e21d3d98663cad01cfe6dd24a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#a863d645e21d3d98663cad01cfe6dd24a">detruireNiveau</a> (<a class="el" href="structt__niveau.html">t_niveau</a> **niveau)</td></tr>
+<tr class="memdesc:a863d645e21d3d98663cad01cfe6dd24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour un niveau et mets son pointeur à NULL.  <a href="niveau_8c.html#a863d645e21d3d98663cad01cfe6dd24a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a863d645e21d3d98663cad01cfe6dd24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa88412eb1547b2bbaff8b3106cb780"><td class="memItemLeft" align="right" valign="top"><a id="a2aa88412eb1547b2bbaff8b3106cb780"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#a2aa88412eb1547b2bbaff8b3106cb780">chargerNiveau</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, niveau_informations_t *info)</td></tr>
+<tr class="memdesc:a2aa88412eb1547b2bbaff8b3106cb780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lance un niveau s couleurs du niveau sont aussi chargées. <br /></td></tr>
+<tr class="separator:a2aa88412eb1547b2bbaff8b3106cb780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6df4be5bf28ad11dafd0311b92abd3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="niveau_8c.html#af6df4be5bf28ad11dafd0311b92abd3b">updateNiveau</a> (<a class="el" href="structt__niveau.html">t_niveau</a> *niveau, float j_x, float j_y, int echelle)</td></tr>
+<tr class="memdesc:af6df4be5bf28ad11dafd0311b92abd3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise la salle chargée du niveau selon l'activité du joueur (lorsqu'il change de salle par exemple).  <a href="niveau_8c.html#af6df4be5bf28ad11dafd0311b92abd3b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af6df4be5bf28ad11dafd0311b92abd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Module de chargement d'un niveau en structure interprétable pour le jeu. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a318800dfb1c81e4b7054ebd66575356b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a318800dfb1c81e4b7054ebd66575356b">&#9670;&nbsp;</a></span>chargerSalles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__niveau.html">t_niveau</a>* chargerSalles </td>
+          <td>(</td>
+          <td class="paramtype">niveau_informations_t *&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge le niveau dans une structure exploitable pour le jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">info</td><td>Les données sur la structure du niveau</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur du niveau chargé, NULL si echec du chargement. </dd></dl>
+
+</div>
+</div>
+<a id="a9130bd9c6640053bbd276ecdbb2613ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9130bd9c6640053bbd276ecdbb2613ac">&#9670;&nbsp;</a></span>creerDimensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__dimensions__salle.html">t_dimensions_salle</a>* creerDimensions </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Génère une structure dimensions de salle. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée en hauteur, de la salle d'origine dans la matrice niveau </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée en largeur, de la salle d'origine dans la matrice niveau</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur des dimensions, NULL si echec. </dd></dl>
+
+</div>
+</div>
+<a id="ac27f642324c09553bca751c5a54d3e28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27f642324c09553bca751c5a54d3e28">&#9670;&nbsp;</a></span>creerSalle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__salle.html">t_salle</a>* creerSalle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_salle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Génère une structure salle et mets les pointeurs de porte à NULL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id_salle</td><td>L'identifiant de la salle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur de la salle créée, NULL si échec. </dd></dl>
+
+</div>
+</div>
+<a id="a5fd91d18a498c98ba89dcc4733ffe8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd91d18a498c98ba89dcc4733ffe8bb">&#9670;&nbsp;</a></span>detruireDimensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void detruireDimensions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__dimensions__salle.html">t_dimensions_salle</a> **&#160;</td>
+          <td class="paramname"><em>dimensions</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL. </p>
+<p >C'est à dire si le champ nombre vaut 0. Ce champ est décrémenté à chaque appel de la fonction.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dimensions</td><td>L'adresse du pointeur de la dimension </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a863d645e21d3d98663cad01cfe6dd24a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a863d645e21d3d98663cad01cfe6dd24a">&#9670;&nbsp;</a></span>detruireNiveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireNiveau </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__niveau.html">t_niveau</a> **&#160;</td>
+          <td class="paramname"><em>niveau</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>L'adresse du pointeur du niveau </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab89c9c3f9c68cce78ef8d74f775a61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab89c9c3f9c68cce78ef8d74f775a61e">&#9670;&nbsp;</a></span>detruireSalle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void detruireSalle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__salle.html">t_salle</a> **&#160;</td>
+          <td class="paramname"><em>salle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour une salle et mets son pointeur à NULL. </p>
+<p >Détruit aussi ses entités.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salle</td><td>L'adresse du pointeur de la salle </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0cbed61af52654fdc8ccb20ee029a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cbed61af52654fdc8ccb20ee029a10">&#9670;&nbsp;</a></span>lierSalles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int lierSalles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__niveau.html">t_niveau</a> *&#160;</td>
+          <td class="paramname"><em>niveau</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remplie la matrice <a class="el" href="structt__salle.html" title="Structure représentant une salle et les salles qui lui sont liées.">t_salle</a> * portes[] du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle. </p>
+<p >Fonctionnement : Pour chaque salle, si une voisine existe, il faut lier les portes des salles. Sinon ne rien faire, pour que les portes pointent toujours vers NULL. Deux salles liées et ayant un même identifiant ne formeront qu'une salle. Si deux salles liées ne forment qu'une salle, actualiser les dimensions et faire pointer les salles sur la même structure dimensions.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>Le niveau dont il faut lier les salles</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si succès. Valeur négative si échec. </dd></dl>
+
+</div>
+</div>
+<a id="af6df4be5bf28ad11dafd0311b92abd3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6df4be5bf28ad11dafd0311b92abd3b">&#9670;&nbsp;</a></span>updateNiveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateNiveau </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__niveau.html">t_niveau</a> *&#160;</td>
+          <td class="paramname"><em>niveau</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>j_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>j_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>echelle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualise la salle chargée du niveau selon l'activité du joueur (lorsqu'il change de salle par exemple). </p>
+<p >Calcule les coordonnées des bords de la salle et change la salle courante du niveau si le joueur dépasse ces limites.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>Le niveau chargé </td></tr>
+    <tr><td class="paramname">joueur</td><td>Le joueur </td></tr>
+    <tr><td class="paramname">echelle</td><td>L'échelle du rendu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

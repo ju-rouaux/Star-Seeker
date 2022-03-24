@@ -2,7 +2,5 @@
 /lib/
 /include/SDL2/
 /bin/
-/doc/
-*.o
-*.save
-
+/obj/
+/save/

@@ -1,0 +1,138 @@
+\hypertarget{structSDL__HapticDirection}{}\doxysection{Référence de la structure SDL\+\_\+\+Haptic\+Direction}
+\label{structSDL__HapticDirection}\index{SDL\_HapticDirection@{SDL\_HapticDirection}}
+
+
+Structure that represents a haptic direction.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}{type}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}{dir}} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure that represents a haptic direction. 
+
+This is the direction where the force comes from, instead of the direction in which the force is exerted.
+
+Directions can be specified by\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{SDL__haptic_8h_acdc35e97e5525472054a67b76e518f3b}{SDL\+\_\+\+HAPTIC\+\_\+\+POLAR}} \+: Specified by polar coordinates.
+\item \mbox{\hyperlink{SDL__haptic_8h_af8b2430a363a968de2a5b64c8f663d3b}{SDL\+\_\+\+HAPTIC\+\_\+\+CARTESIAN}} \+: Specified by cartesian coordinates.
+\item \mbox{\hyperlink{SDL__haptic_8h_a1fcf7cb0eaf3c39b16ba266054e25aff}{SDL\+\_\+\+HAPTIC\+\_\+\+SPHERICAL}} \+: Specified by spherical coordinates.
+\end{DoxyItemize}
+
+Cardinal directions of the haptic device are relative to the positioning of the device. North is considered to be away from the user.
+
+The following diagram represents the cardinal directions\+: \begin{DoxyVerb}              .--.
+              |__| .-------.
+              |=.| |.-----.|
+              |--| ||     ||
+              |  | |'-----'|
+              |__|~')_____('
+                [ COMPUTER ]
+
+
+                  North (0,-1)
+                      ^
+                      |
+                      |
+(-1,0)  West <----[ HAPTIC ]----> East (1,0)
+                      |
+                      |
+                      v
+                   South (0,1)
+
+
+                   [ USER ]
+                     \|||/
+                     (o o)
+               ---ooO-(_)-Ooo---\end{DoxyVerb}
+
+
+If type is \mbox{\hyperlink{SDL__haptic_8h_acdc35e97e5525472054a67b76e518f3b}{SDL\+\_\+\+HAPTIC\+\_\+\+POLAR}}, direction is encoded by hundredths of a degree starting north and turning clockwise. \mbox{\hyperlink{SDL__haptic_8h_acdc35e97e5525472054a67b76e518f3b}{SDL\+\_\+\+HAPTIC\+\_\+\+POLAR}} only uses the first {\ttfamily dir} parameter. The cardinal directions would be\+:
+\begin{DoxyItemize}
+\item North\+: 0 (0 degrees)
+\item East\+: 9000 (90 degrees)
+\item South\+: 18000 (180 degrees)
+\item West\+: 27000 (270 degrees)
+\end{DoxyItemize}
+
+If type is \mbox{\hyperlink{SDL__haptic_8h_af8b2430a363a968de2a5b64c8f663d3b}{SDL\+\_\+\+HAPTIC\+\_\+\+CARTESIAN}}, direction is encoded by three positions (X axis, Y axis and Z axis (with 3 axes)). \mbox{\hyperlink{SDL__haptic_8h_af8b2430a363a968de2a5b64c8f663d3b}{SDL\+\_\+\+HAPTIC\+\_\+\+CARTESIAN}} uses the first three {\ttfamily dir} parameters. The cardinal directions would be\+:
+\begin{DoxyItemize}
+\item North\+: 0,-\/1, 0
+\item East\+: 1, 0, 0
+\item South\+: 0, 1, 0
+\item West\+: -\/1, 0, 0
+\end{DoxyItemize}
+
+The Z axis represents the height of the effect if supported, otherwise it\textquotesingle{}s unused. In cartesian encoding (1, 2) would be the same as (2, 4), you can use any multiple you want, only the direction matters.
+
+If type is \mbox{\hyperlink{SDL__haptic_8h_a1fcf7cb0eaf3c39b16ba266054e25aff}{SDL\+\_\+\+HAPTIC\+\_\+\+SPHERICAL}}, direction is encoded by two rotations. The first two {\ttfamily dir} parameters are used. The {\ttfamily dir} parameters are as follows (all values are in hundredths of degrees)\+:
+\begin{DoxyItemize}
+\item Degrees from (1, 0) rotated towards (0, 1).
+\item Degrees towards (0, 0, 1) (device needs at least 3 axes).
+\end{DoxyItemize}
+
+Example of force coming from the south with all encodings (force coming from the south means the user will have to pull the stick to counteract)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structSDL__HapticDirection}{SDL\_HapticDirection}} direction;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Cartesian directions}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}{type}} = \mbox{\hyperlink{SDL__haptic_8h_af8b2430a363a968de2a5b64c8f663d3b}{SDL\_HAPTIC\_CARTESIAN}}; \textcolor{comment}{// Using cartesian direction encoding.}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}{dir}}[0] = 0; \textcolor{comment}{// X position}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}{dir}}[1] = 1; \textcolor{comment}{// Y position}}
+\DoxyCodeLine{\textcolor{comment}{// Assuming the device has 2 axes, we don't need to specify third parameter.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Polar directions}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}{type}} = \mbox{\hyperlink{SDL__haptic_8h_acdc35e97e5525472054a67b76e518f3b}{SDL\_HAPTIC\_POLAR}}; \textcolor{comment}{// We'll be using polar direction encoding.}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}{dir}}[0] = 18000; \textcolor{comment}{// Polar only uses first parameter}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Spherical coordinates}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}{type}} = \mbox{\hyperlink{SDL__haptic_8h_a1fcf7cb0eaf3c39b16ba266054e25aff}{SDL\_HAPTIC\_SPHERICAL}}; \textcolor{comment}{// Spherical encoding}}
+\DoxyCodeLine{direction.\mbox{\hyperlink{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}{dir}}[0] = 9000; \textcolor{comment}{// Since we only have two axes we don't need more parameters.}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__haptic_8h_acdc35e97e5525472054a67b76e518f3b}{SDL\+\_\+\+HAPTIC\+\_\+\+POLAR}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_af8b2430a363a968de2a5b64c8f663d3b}{SDL\+\_\+\+HAPTIC\+\_\+\+CARTESIAN}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a1fcf7cb0eaf3c39b16ba266054e25aff}{SDL\+\_\+\+HAPTIC\+\_\+\+SPHERICAL}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_a9efacbecc0a1b7a13684ee822b18062c}{SDL\+\_\+\+HAPTIC\+\_\+\+STEERING\+\_\+\+AXIS}} 
+
+\mbox{\hyperlink{unionSDL__HapticEffect}{SDL\+\_\+\+Haptic\+Effect}} 
+
+\mbox{\hyperlink{SDL__haptic_8h_ad6705645197f6df4eeeea32392462483}{SDL\+\_\+\+Haptic\+Num\+Axes}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}\label{structSDL__HapticDirection_a6cebd8118a3e61e36bd0c503ae020362}} 
+\index{SDL\_HapticDirection@{SDL\_HapticDirection}!dir@{dir}}
+\index{dir@{dir}!SDL\_HapticDirection@{SDL\_HapticDirection}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Haptic\+Direction\+::dir\mbox{[}3\mbox{]}}
+
+The encoded direction. \mbox{\Hypertarget{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}\label{structSDL__HapticDirection_acd6830ad68c4ba2af16057fa418087cc}} 
+\index{SDL\_HapticDirection@{SDL\_HapticDirection}!type@{type}}
+\index{type@{type}!SDL\_HapticDirection@{SDL\_HapticDirection}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Haptic\+Direction\+::type}
+
+The type of encoding. 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__haptic_8h}{SDL\+\_\+haptic.\+h}}\end{DoxyCompactItemize}

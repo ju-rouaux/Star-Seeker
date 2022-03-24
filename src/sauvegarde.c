@@ -123,6 +123,9 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
     niveau_informations_t * tmp = NULL;
     niveau_informations_t ** infos = NULL;
 
+    e_type_entite type_c; //type entité courante;
+    t_monstre * monstre_temp;
+
     if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
 
@@ -136,17 +139,47 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
     for(int i = 0; i < (*nb_niveaux); i++)
     {
         tmp  = malloc(sizeof(niveau_informations_t));
-        if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1)
-        {
-            i--;
-            while(i >= 0)
-            {
-                detruire_niveau_info(&infos[i]);
-                i--;
-            }
-            free(infos);
+        if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1) //Lecture infos niveaux
             return READ_OR_WRITE_FAIL;
+
+        tmp->liste_infos_entites = malloc(sizeof(t_info_entites*) * tmp->nb_infos_entite);
+        if(tmp->liste_infos_entites == NULL)
+            return MALLOC_FAIL;
+
+        for(int j = 0; j < tmp->nb_infos_entite; j++)
+        {
+            tmp->liste_infos_entites[j] = malloc(sizeof(t_info_entites));
+            if(tmp->liste_infos_entites[j] == NULL)
+                return MALLOC_FAIL;
+
+            if(fread(tmp->liste_infos_entites[j], sizeof(t_info_entites), 1, fichier) != 1) //Lecture liste entité
+                return READ_OR_WRITE_FAIL;
+
+            tmp->liste_infos_entites[j]->entites = malloc(sizeof(t_entite*) *  tmp->liste_infos_entites[j]->nb_entites);
+            if(tmp->liste_infos_entites[j]->entites == NULL)
+                return MALLOC_FAIL;
+
+            for(int k = 0; k < tmp->liste_infos_entites[j]->nb_entites; k++)
+            {
+                if(fread(&type_c, sizeof(e_type_entite), 1, fichier) != 1) //Lecture type entité
+                    return READ_OR_WRITE_FAIL;
+
+                switch (type_c)
+                {
+                case E_MONSTRE:
+                    monstre_temp = malloc(sizeof(t_monstre));
+                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1) //Lecture infos niveaux
+                        return READ_OR_WRITE_FAIL;
+                    tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
+                    free(monstre_temp);
+                    break;
+                
+                default:
+                    break;
+                }
+            }
         }
+
         infos[i] = tmp;
     }
 
@@ -175,8 +208,35 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
         return READ_OR_WRITE_FAIL;
 
     for(int i = 0; i < nb_niveaux; i++)
-        if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1)
+    {
+        if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1) //Ecriture structure
             return READ_OR_WRITE_FAIL;
+
+        for(int j = 0; j < niveaux[i]->nb_infos_entite; j++)
+        {
+            if(fwrite(niveaux[i]->liste_infos_entites[j], sizeof(t_info_entites), 1, fichier) != 1) //Ecriture des données sur les entités d'une salle
+                return READ_OR_WRITE_FAIL;
+
+            for(int k = 0; k < niveaux[i]->liste_infos_entites[j]->nb_entites; k++)
+            {
+                if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
+                    return READ_OR_WRITE_FAIL;
+                
+                switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                {
+                case E_MONSTRE:
+                    if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                        return READ_OR_WRITE_FAIL;
+                    break;
+                
+                default:
+                    break;
+                }
+                
+            }
+
+        }
+    }
 
     return SUCCESS;
 }
@@ -233,9 +293,14 @@ err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niv
 
     retour = chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
     if(retour != SUCCESS)
+    {
+        printf("code %i", retour);
         return retour;
+    }
 
     //Ici traitements futurs
+
+    fclose(fichier);
 
     return SUCCESS;
 }

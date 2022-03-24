@@ -15,10 +15,9 @@
 #include <entite.h>
 #include <animation.h>
 #include <liste.h>
-#include <projectiles.h>
 #include <joueur.h>
 #include <attaque.h>
-
+#include <monstre.h>
 
 /**
  * \brief Calcule l'animation à joueur selon l'orientation du joueur.
@@ -116,16 +115,16 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
         joueur->animation->vitesse = 250;
     
     updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
-    /*
-    if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
+    
+    /*if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
     {
-        t_projectile * balle = creerProjectile(BALLE, joueur->x, joueur->y, joueur->direction_vx, joueur->direction_vy, E_MONSTRE, moteur->textures->projectiles);
+        t_monstre * monstre = creerMonstre(joueur->x, joueur->y, 2, 100, 2, DEMO, STATIQUE);
         en_queue(moteur->liste_entites);
-        if(balle != NULL)
-            ajout_droit(moteur->liste_entites, (t_entite*) balle);
+        if(monstre != NULL)
+            ajout_droit(moteur->liste_entites, (t_entite*) monstre);
         
-    }
-    */
+    }*/
+    
 
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
 
@@ -153,6 +152,7 @@ static t_joueur_flags * creerJoueurFlags()
     flags->to_right = 0;
 
     flags->shooting = 0; // !!! Temporaire
+    flags->map_showing = 0;
 
     return flags;
 }
@@ -216,7 +216,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
         return NULL;
     }
 
-    joueur->animation = creerAnimation(50, 4, 15); //Changer les paramètres d'animation si on ajoute des animations
+    joueur->animation = creerAnimation(50, 4); //Changer les paramètres d'animation si on ajoute des animations
     if(joueur->animation == NULL)
     {
         printf("Le joueur n'a pas pu être créé\n");
@@ -231,12 +231,12 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->taille = PROPORTION_JOUEUR;
     joueur->id_animation = 0; //idle
 
-    joueur->update = (int (*)(t_moteur*, t_entite*)) updateJoueur;
+    joueur->update = (int (*)(t_moteur *, t_entite *, float, float)) updateJoueur;
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
     joueur->pv = 100;
 
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, SABRE_LASER);
 
     return joueur;
 }

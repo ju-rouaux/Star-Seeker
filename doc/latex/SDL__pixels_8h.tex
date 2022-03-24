@@ -1,0 +1,810 @@
+\hypertarget{SDL__pixels_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+pixels.h}
+\label{SDL__pixels_8h}\index{include/SDL2/SDL\_pixels.h@{include/SDL2/SDL\_pixels.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+endian.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}}
+\item 
+struct \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}}
+\item 
+struct \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Transparency definitions}
+\label{_amgrpcb6efa569c1e9d1565c23131eb8303ef}%
+These define alpha as the opacity of a surface. \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a5d933eb0233ca33d598800f33ef43376}\label{SDL__pixels_8h_a5d933eb0233ca33d598800f33ef43376}} 
+\#define {\bfseries SDL\+\_\+\+ALPHA\+\_\+\+OPAQUE}~255
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a604d4b3b28add80eb4824ffd083d3ef4}\label{SDL__pixels_8h_a604d4b3b28add80eb4824ffd083d3ef4}} 
+\#define {\bfseries SDL\+\_\+\+ALPHA\+\_\+\+TRANSPARENT}~0
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a7dc1903b18ca972a3676628782873f71}\label{SDL__pixels_8h_a7dc1903b18ca972a3676628782873f71}} 
+\#define {\bfseries SDL\+\_\+\+DEFINE\+\_\+\+PIXELFOURCC}(A,  B,  C,  D)~SDL\+\_\+\+FOURCC(A, B, C, D)
+\item 
+\#define {\bfseries SDL\+\_\+\+DEFINE\+\_\+\+PIXELFORMAT}(type,  order,  layout,  bits,  bytes)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a11eb1848a5ecbc9033855a3d7fabcf83}\label{SDL__pixels_8h_a11eb1848a5ecbc9033855a3d7fabcf83}} 
+\#define {\bfseries SDL\+\_\+\+PIXELFLAG}(X)~(((X) $>$$>$ 28) \& 0x0F)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a9a13feff26a3bed0e04a74f503b0397e}\label{SDL__pixels_8h_a9a13feff26a3bed0e04a74f503b0397e}} 
+\#define {\bfseries SDL\+\_\+\+PIXELTYPE}(X)~(((X) $>$$>$ 24) \& 0x0F)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a38b57b9e01151753588d55a4e2438856}\label{SDL__pixels_8h_a38b57b9e01151753588d55a4e2438856}} 
+\#define {\bfseries SDL\+\_\+\+PIXELORDER}(X)~(((X) $>$$>$ 20) \& 0x0F)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a850007b089215fe1d5e0efa5e4e73d72}\label{SDL__pixels_8h_a850007b089215fe1d5e0efa5e4e73d72}} 
+\#define {\bfseries SDL\+\_\+\+PIXELLAYOUT}(X)~(((X) $>$$>$ 16) \& 0x0F)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a4637c50b3383aa176eac2d267684e75d}\label{SDL__pixels_8h_a4637c50b3383aa176eac2d267684e75d}} 
+\#define {\bfseries SDL\+\_\+\+BITSPERPIXEL}(X)~(((X) $>$$>$ 8) \& 0x\+FF)
+\item 
+\#define {\bfseries SDL\+\_\+\+BYTESPERPIXEL}(X)
+\item 
+\#define {\bfseries SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+INDEXED}(format)
+\item 
+\#define {\bfseries SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+PACKED}(format)
+\item 
+\#define {\bfseries SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+ARRAY}(format)
+\item 
+\#define {\bfseries SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+ALPHA}(format)
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_ac2a8124d1f6842ddf7ef5cc01c760818}\label{SDL__pixels_8h_ac2a8124d1f6842ddf7ef5cc01c760818}} 
+\#define {\bfseries SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+FOURCC}(format)~    ((format) \&\& (SDL\+\_\+\+PIXELFLAG(format) != 1))
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_aceb6cb42789d5646f5206f02a07a36dc}\label{SDL__pixels_8h_aceb6cb42789d5646f5206f02a07a36dc}} 
+\#define {\bfseries SDL\+\_\+\+Colour}~\mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_a355a9ed42dcc4f61e525ca4a5987fe44}{SDL\+\_\+\+Pixel\+Type}} \{ \newline
+{\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+UNKNOWN}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+INDEX1}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+INDEX4}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+INDEX8}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+PACKED8}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+PACKED16}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+PACKED32}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+ARRAYU8}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+ARRAYU16}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+ARRAYU32}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+ARRAYF16}
+, {\bfseries SDL\+\_\+\+PIXELTYPE\+\_\+\+ARRAYF32}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_a59d2ee19b4701f488577d065629a4f19}{SDL\+\_\+\+Bitmap\+Order}} \{ {\bfseries SDL\+\_\+\+BITMAPORDER\+\_\+\+NONE}
+, {\bfseries SDL\+\_\+\+BITMAPORDER\+\_\+4321}
+, {\bfseries SDL\+\_\+\+BITMAPORDER\+\_\+1234}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_ab40e48e4f36aa469249d415e76f057f0}{SDL\+\_\+\+Packed\+Order}} \{ \newline
+{\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+NONE}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+XRGB}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+RGBX}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+ARGB}
+, \newline
+{\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+RGBA}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+XBGR}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+BGRX}
+, {\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+ABGR}
+, \newline
+{\bfseries SDL\+\_\+\+PACKEDORDER\+\_\+\+BGRA}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_a7e63896f019e17267a4c30ac3abdfd68}{SDL\+\_\+\+Array\+Order}} \{ \newline
+{\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+NONE}
+, {\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+RGB}
+, {\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+RGBA}
+, {\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+ARGB}
+, \newline
+{\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+BGR}
+, {\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+BGRA}
+, {\bfseries SDL\+\_\+\+ARRAYORDER\+\_\+\+ABGR}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_a53908f8e47e506d3c25529cde6800f78}{SDL\+\_\+\+Packed\+Layout}} \{ \newline
+{\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+\+NONE}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+332}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+4444}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+1555}
+, \newline
+{\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+5551}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+565}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+8888}
+, {\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+2101010}
+, \newline
+{\bfseries SDL\+\_\+\+PACKEDLAYOUT\+\_\+1010102}
+ \}
+\item 
+enum \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111}{SDL\+\_\+\+Pixel\+Format\+Enum}} \{ \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+UNKNOWN}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+INDEX1\+LSB}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+INDEX1\+MSB}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+INDEX4\+LSB}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+INDEX4\+MSB}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+INDEX8}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB332}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB4444}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB444} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB4444
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR4444}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGR444} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR4444
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB1555}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB555} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB1555
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR1555}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGR555} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR1555
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB4444}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA4444}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR4444}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRA4444}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB1555}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA5551}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR1555}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRA5551}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB565}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGR565}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB24}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGR24}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB8888}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGB888} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XRGB8888
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBX8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGR888} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+XBGR8888
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRX8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR8888}
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRA8888}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB2101010}
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA32} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR8888
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB32} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRA8888
+, \newline
+{\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+BGRA32} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+ARGB8888
+, {\bfseries SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR32} = SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA8888
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a706edeff2993aaabae0e8a85dd456d23}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+YV12}}
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a9d5d930c6560d21d02be1d3738160e08}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+IYUV}}
+, \newline
+\mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a87d182ad80264610243c4bdbba13b456}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+YUY2}}
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a69bd11cf739b7e762d5103555fe85094}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+UYVY}}
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0fba10d58b6af54319f3653724a54a29}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+YVYU}}
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a8fa8e4c226ea2918366e68b239921099}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+NV12}}
+, \newline
+\mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a97f2d6c51817862e1927e462960e7052}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+NV21}}
+, \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0d8d7ba67039174e96fc561962d3b0f7}{SDL\+\_\+\+PIXELFORMAT\+\_\+\+EXTERNAL\+\_\+\+OES}} =
+ \}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}} \mbox{\hyperlink{SDL__pixels_8h_aefb2a1d044dcf564bcd0d6894d0e8c04}{SDL\+\_\+\+Color}}
+\item 
+\mbox{\Hypertarget{SDL__pixels_8h_a8f8bd5ba6e48d2a6eaf6c94a8f460083}\label{SDL__pixels_8h_a8f8bd5ba6e48d2a6eaf6c94a8f460083}} 
+typedef struct \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} {\bfseries SDL\+\_\+\+Palette}
+\item 
+typedef struct \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} \mbox{\hyperlink{SDL__pixels_8h_a03a9dee95b581ed5a268cc45a316db65}{SDL\+\_\+\+Pixel\+Format}}
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__pixels_8h_abc7a949ed918d285449d6a8fcc2b0321}{SDL\+\_\+\+Get\+Pixel\+Format\+Name}} (Uint32 format)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__pixels_8h_aabce46ecd37dd031b6b9a1b2d64f962b}{SDL\+\_\+\+Pixel\+Format\+Enum\+To\+Masks}} (Uint32 format, int $\ast$bpp, Uint32 $\ast$Rmask, Uint32 $\ast$Gmask, Uint32 $\ast$Bmask, Uint32 $\ast$Amask)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a60fede85fba7bdca549f46b3f6372593}{SDL\+\_\+\+Masks\+To\+Pixel\+Format\+Enum}} (int bpp, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}{SDL\+\_\+\+Alloc\+Format}} (Uint32 pixel\+\_\+format)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a6b40e44d9a48dfecde34428a78648f8a}{SDL\+\_\+\+Free\+Format}} (\mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}{SDL\+\_\+\+Alloc\+Palette}} (int ncolors)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__pixels_8h_ae7835e283254c53bed7e7b3d2287d3b6}{SDL\+\_\+\+Set\+Pixel\+Format\+Palette}} (\mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format, \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$palette)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a51164f5ac7a7b2b4117ff0e0f256eaff}{SDL\+\_\+\+Set\+Palette\+Colors}} (\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$palette, const \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}} $\ast$colors, int firstcolor, int ncolors)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a31d328d11619b5f5ed0a14612cbb429a}{SDL\+\_\+\+Free\+Palette}} (\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$palette)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB}} (const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format, Uint8 r, Uint8 g, Uint8 b)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA}} (const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}{SDL\+\_\+\+Get\+RGB}} (Uint32 pixel, const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format, Uint8 $\ast$r, Uint8 $\ast$g, Uint8 $\ast$b)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}{SDL\+\_\+\+Get\+RGBA}} (Uint32 pixel, const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$format, Uint8 $\ast$r, Uint8 $\ast$g, Uint8 $\ast$b, Uint8 $\ast$a)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__pixels_8h_a768b7ed72549e36a26a36267772906fb}{SDL\+\_\+\+Calculate\+Gamma\+Ramp}} (float gamma, Uint16 $\ast$ramp)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header for the enumerated pixel format definitions. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__pixels_8h_a0a65fc19d5122dd3c544f283553ad42c}\label{SDL__pixels_8h_a0a65fc19d5122dd3c544f283553ad42c}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_BYTESPERPIXEL@{SDL\_BYTESPERPIXEL}}
+\index{SDL\_BYTESPERPIXEL@{SDL\_BYTESPERPIXEL}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BYTESPERPIXEL}{SDL\_BYTESPERPIXEL}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+BYTESPERPIXEL(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (SDL\_ISPIXELFORMAT\_FOURCC(X) ? \(\backslash\)}
+\DoxyCodeLine{        ((((X) == \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a87d182ad80264610243c4bdbba13b456}{SDL\_PIXELFORMAT\_YUY2}}) || \(\backslash\)}
+\DoxyCodeLine{          ((X) == \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a69bd11cf739b7e762d5103555fe85094}{SDL\_PIXELFORMAT\_UYVY}}) || \(\backslash\)}
+\DoxyCodeLine{          ((X) == \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0fba10d58b6af54319f3653724a54a29}{SDL\_PIXELFORMAT\_YVYU}})) ? 2 : 1) : (((X) >> 0) \& 0xFF))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__pixels_8h_a99163b258b6b49ab19845cf800a803f8}\label{SDL__pixels_8h_a99163b258b6b49ab19845cf800a803f8}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_DEFINE\_PIXELFORMAT@{SDL\_DEFINE\_PIXELFORMAT}}
+\index{SDL\_DEFINE\_PIXELFORMAT@{SDL\_DEFINE\_PIXELFORMAT}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DEFINE\_PIXELFORMAT}{SDL\_DEFINE\_PIXELFORMAT}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+DEFINE\+\_\+\+PIXELFORMAT(\begin{DoxyParamCaption}\item[{}]{type,  }\item[{}]{order,  }\item[{}]{layout,  }\item[{}]{bits,  }\item[{}]{bytes }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    ((1 << 28) | ((type) << 24) | ((order) << 20) | ((layout) << 16) | \(\backslash\)}
+\DoxyCodeLine{     ((bits) << 8) | ((bytes) << 0))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__pixels_8h_a4d4ef3b8864a55ebc83539a6d0c6b15d}\label{SDL__pixels_8h_a4d4ef3b8864a55ebc83539a6d0c6b15d}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_ISPIXELFORMAT\_ALPHA@{SDL\_ISPIXELFORMAT\_ALPHA}}
+\index{SDL\_ISPIXELFORMAT\_ALPHA@{SDL\_ISPIXELFORMAT\_ALPHA}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ISPIXELFORMAT\_ALPHA}{SDL\_ISPIXELFORMAT\_ALPHA}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+ALPHA(\begin{DoxyParamCaption}\item[{}]{format }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    ((SDL\_ISPIXELFORMAT\_PACKED(format) \&\& \(\backslash\)}
+\DoxyCodeLine{     ((SDL\_PIXELORDER(format) == SDL\_PACKEDORDER\_ARGB) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_PACKEDORDER\_RGBA) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_PACKEDORDER\_ABGR) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_PACKEDORDER\_BGRA))) || \(\backslash\)}
+\DoxyCodeLine{    (SDL\_ISPIXELFORMAT\_ARRAY(format) \&\& \(\backslash\)}
+\DoxyCodeLine{     ((SDL\_PIXELORDER(format) == SDL\_ARRAYORDER\_ARGB) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_ARRAYORDER\_RGBA) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_ARRAYORDER\_ABGR) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELORDER(format) == SDL\_ARRAYORDER\_BGRA))))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__pixels_8h_a8f842c1384f7d6bc17fa2b33738e9b4b}\label{SDL__pixels_8h_a8f842c1384f7d6bc17fa2b33738e9b4b}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_ISPIXELFORMAT\_ARRAY@{SDL\_ISPIXELFORMAT\_ARRAY}}
+\index{SDL\_ISPIXELFORMAT\_ARRAY@{SDL\_ISPIXELFORMAT\_ARRAY}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ISPIXELFORMAT\_ARRAY}{SDL\_ISPIXELFORMAT\_ARRAY}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{format }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (!SDL\_ISPIXELFORMAT\_FOURCC(format) \&\& \(\backslash\)}
+\DoxyCodeLine{     ((SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_ARRAYU8) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_ARRAYU16) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_ARRAYU32) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_ARRAYF16) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_ARRAYF32)))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__pixels_8h_a8bbf98a12987b0b22864743efb4b136e}\label{SDL__pixels_8h_a8bbf98a12987b0b22864743efb4b136e}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_ISPIXELFORMAT\_INDEXED@{SDL\_ISPIXELFORMAT\_INDEXED}}
+\index{SDL\_ISPIXELFORMAT\_INDEXED@{SDL\_ISPIXELFORMAT\_INDEXED}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ISPIXELFORMAT\_INDEXED}{SDL\_ISPIXELFORMAT\_INDEXED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+INDEXED(\begin{DoxyParamCaption}\item[{}]{format }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (!SDL\_ISPIXELFORMAT\_FOURCC(format) \&\& \(\backslash\)}
+\DoxyCodeLine{     ((SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_INDEX1) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_INDEX4) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_INDEX8)))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{SDL__pixels_8h_a29855dc8b3cd34b288ec4ba50fd4ca0c}\label{SDL__pixels_8h_a29855dc8b3cd34b288ec4ba50fd4ca0c}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_ISPIXELFORMAT\_PACKED@{SDL\_ISPIXELFORMAT\_PACKED}}
+\index{SDL\_ISPIXELFORMAT\_PACKED@{SDL\_ISPIXELFORMAT\_PACKED}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ISPIXELFORMAT\_PACKED}{SDL\_ISPIXELFORMAT\_PACKED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+ISPIXELFORMAT\+\_\+\+PACKED(\begin{DoxyParamCaption}\item[{}]{format }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (!SDL\_ISPIXELFORMAT\_FOURCC(format) \&\& \(\backslash\)}
+\DoxyCodeLine{     ((SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_PACKED8) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_PACKED16) || \(\backslash\)}
+\DoxyCodeLine{      (SDL\_PIXELTYPE(format) == SDL\_PIXELTYPE\_PACKED32)))}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__pixels_8h_aefb2a1d044dcf564bcd0d6894d0e8c04}\label{SDL__pixels_8h_aefb2a1d044dcf564bcd0d6894d0e8c04}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_Color@{SDL\_Color}}
+\index{SDL\_Color@{SDL\_Color}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Color}{SDL\_Color}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}} \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}}}
+
+The bits of this structure can be directly reinterpreted as an integer-\/packed color which uses the SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA32 format (SDL\+\_\+\+PIXELFORMAT\+\_\+\+ABGR8888 on little-\/endian systems and SDL\+\_\+\+PIXELFORMAT\+\_\+\+RGBA8888 on big-\/endian systems). \mbox{\Hypertarget{SDL__pixels_8h_a03a9dee95b581ed5a268cc45a316db65}\label{SDL__pixels_8h_a03a9dee95b581ed5a268cc45a316db65}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PixelFormat@{SDL\_PixelFormat}}
+\index{SDL\_PixelFormat@{SDL\_PixelFormat}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PixelFormat}{SDL\_PixelFormat}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}}}
+
+\begin{DoxyNote}{Note}
+Everything in the pixel format structure is read-\/only. 
+\end{DoxyNote}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__pixels_8h_a7e63896f019e17267a4c30ac3abdfd68}\label{SDL__pixels_8h_a7e63896f019e17267a4c30ac3abdfd68}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_ArrayOrder@{SDL\_ArrayOrder}}
+\index{SDL\_ArrayOrder@{SDL\_ArrayOrder}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ArrayOrder}{SDL\_ArrayOrder}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_a7e63896f019e17267a4c30ac3abdfd68}{SDL\+\_\+\+Array\+Order}}}
+
+Array component order, low byte -\/$>$ high byte. \mbox{\Hypertarget{SDL__pixels_8h_a59d2ee19b4701f488577d065629a4f19}\label{SDL__pixels_8h_a59d2ee19b4701f488577d065629a4f19}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_BitmapOrder@{SDL\_BitmapOrder}}
+\index{SDL\_BitmapOrder@{SDL\_BitmapOrder}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BitmapOrder}{SDL\_BitmapOrder}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_a59d2ee19b4701f488577d065629a4f19}{SDL\+\_\+\+Bitmap\+Order}}}
+
+Bitmap pixel order, high bit -\/$>$ low bit. \mbox{\Hypertarget{SDL__pixels_8h_a53908f8e47e506d3c25529cde6800f78}\label{SDL__pixels_8h_a53908f8e47e506d3c25529cde6800f78}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PackedLayout@{SDL\_PackedLayout}}
+\index{SDL\_PackedLayout@{SDL\_PackedLayout}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PackedLayout}{SDL\_PackedLayout}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_a53908f8e47e506d3c25529cde6800f78}{SDL\+\_\+\+Packed\+Layout}}}
+
+Packed component layout. \mbox{\Hypertarget{SDL__pixels_8h_ab40e48e4f36aa469249d415e76f057f0}\label{SDL__pixels_8h_ab40e48e4f36aa469249d415e76f057f0}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PackedOrder@{SDL\_PackedOrder}}
+\index{SDL\_PackedOrder@{SDL\_PackedOrder}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PackedOrder}{SDL\_PackedOrder}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_ab40e48e4f36aa469249d415e76f057f0}{SDL\+\_\+\+Packed\+Order}}}
+
+Packed component order, high bit -\/$>$ low bit. \mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PixelFormatEnum@{SDL\_PixelFormatEnum}}
+\index{SDL\_PixelFormatEnum@{SDL\_PixelFormatEnum}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PixelFormatEnum}{SDL\_PixelFormatEnum}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111}{SDL\+\_\+\+Pixel\+Format\+Enum}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_YV12@{SDL\_PIXELFORMAT\_YV12}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_YV12@{SDL\_PIXELFORMAT\_YV12}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a706edeff2993aaabae0e8a85dd456d23}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a706edeff2993aaabae0e8a85dd456d23}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+YV12&Planar mode\+: Y + V + U (3 planes) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_IYUV@{SDL\_PIXELFORMAT\_IYUV}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_IYUV@{SDL\_PIXELFORMAT\_IYUV}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a9d5d930c6560d21d02be1d3738160e08}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a9d5d930c6560d21d02be1d3738160e08}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+IYUV&Planar mode\+: Y + U + V (3 planes) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_YUY2@{SDL\_PIXELFORMAT\_YUY2}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_YUY2@{SDL\_PIXELFORMAT\_YUY2}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a87d182ad80264610243c4bdbba13b456}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a87d182ad80264610243c4bdbba13b456}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+YUY2&Packed mode\+: Y0+\+U0+\+Y1+\+V0 (1 plane) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_UYVY@{SDL\_PIXELFORMAT\_UYVY}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_UYVY@{SDL\_PIXELFORMAT\_UYVY}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a69bd11cf739b7e762d5103555fe85094}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a69bd11cf739b7e762d5103555fe85094}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+UYVY&Packed mode\+: U0+\+Y0+\+V0+\+Y1 (1 plane) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_YVYU@{SDL\_PIXELFORMAT\_YVYU}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_YVYU@{SDL\_PIXELFORMAT\_YVYU}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0fba10d58b6af54319f3653724a54a29}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0fba10d58b6af54319f3653724a54a29}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+YVYU&Packed mode\+: Y0+\+V0+\+Y1+\+U0 (1 plane) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_NV12@{SDL\_PIXELFORMAT\_NV12}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_NV12@{SDL\_PIXELFORMAT\_NV12}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a8fa8e4c226ea2918366e68b239921099}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a8fa8e4c226ea2918366e68b239921099}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+NV12&Planar mode\+: Y + U/V interleaved (2 planes) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_NV21@{SDL\_PIXELFORMAT\_NV21}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_NV21@{SDL\_PIXELFORMAT\_NV21}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a97f2d6c51817862e1927e462960e7052}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a97f2d6c51817862e1927e462960e7052}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+NV21&Planar mode\+: Y + V/U interleaved (2 planes) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_PIXELFORMAT\_EXTERNAL\_OES@{SDL\_PIXELFORMAT\_EXTERNAL\_OES}!SDL\_pixels.h@{SDL\_pixels.h}}\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PIXELFORMAT\_EXTERNAL\_OES@{SDL\_PIXELFORMAT\_EXTERNAL\_OES}}}\mbox{\Hypertarget{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0d8d7ba67039174e96fc561962d3b0f7}\label{SDL__pixels_8h_a95821d38f8029ed06c258e9be3dfc111a0d8d7ba67039174e96fc561962d3b0f7}} 
+SDL\+\_\+\+PIXELFORMAT\+\_\+\+EXTERNAL\+\_\+\+OES&Android video texture format \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{SDL__pixels_8h_a355a9ed42dcc4f61e525ca4a5987fe44}\label{SDL__pixels_8h_a355a9ed42dcc4f61e525ca4a5987fe44}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PixelType@{SDL\_PixelType}}
+\index{SDL\_PixelType@{SDL\_PixelType}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PixelType}{SDL\_PixelType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__pixels_8h_a355a9ed42dcc4f61e525ca4a5987fe44}{SDL\+\_\+\+Pixel\+Type}}}
+
+Pixel type. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}\label{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_AllocFormat@{SDL\_AllocFormat}}
+\index{SDL\_AllocFormat@{SDL\_AllocFormat}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AllocFormat()}{SDL\_AllocFormat()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}}$\ast$ SDLCALL SDL\+\_\+\+Alloc\+Format (\begin{DoxyParamCaption}\item[{Uint32}]{pixel\+\_\+format }\end{DoxyParamCaption})}
+
+Create an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure corresponding to a pixel format.
+
+Returned structure may come from a shared global cache (i.\+e. not newly allocated), and hence should not be modified, especially the palette. Weird errors such as {\ttfamily Blit combination not supported} may occur.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixel\+\_\+format} & one of the SDL\+\_\+\+Pixel\+Format\+Enum values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the new \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure or NULL on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a6b40e44d9a48dfecde34428a78648f8a}{SDL\+\_\+\+Free\+Format}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}\label{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_AllocPalette@{SDL\_AllocPalette}}
+\index{SDL\_AllocPalette@{SDL\_AllocPalette}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AllocPalette()}{SDL\_AllocPalette()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}}$\ast$ SDLCALL SDL\+\_\+\+Alloc\+Palette (\begin{DoxyParamCaption}\item[{int}]{ncolors }\end{DoxyParamCaption})}
+
+Create a palette structure with the specified number of color entries.
+
+The palette entries are initialized to white.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ncolors} & represents the number of color entries in the color palette \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a new \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} structure on success or NULL on failure (e.\+g. if there wasn\textquotesingle{}t enough memory); call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a31d328d11619b5f5ed0a14612cbb429a}{SDL\+\_\+\+Free\+Palette}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a768b7ed72549e36a26a36267772906fb}\label{SDL__pixels_8h_a768b7ed72549e36a26a36267772906fb}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_CalculateGammaRamp@{SDL\_CalculateGammaRamp}}
+\index{SDL\_CalculateGammaRamp@{SDL\_CalculateGammaRamp}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CalculateGammaRamp()}{SDL\_CalculateGammaRamp()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Calculate\+Gamma\+Ramp (\begin{DoxyParamCaption}\item[{float}]{gamma,  }\item[{Uint16 $\ast$}]{ramp }\end{DoxyParamCaption})}
+
+Calculate a 256 entry gamma ramp for a gamma value.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em gamma} & a gamma value where 0.\+0 is black and 1.\+0 is identity \\
+\hline
+{\em ramp} & an array of 256 values filled in with the gamma ramp\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__video_8h_a6799acf235454f519ac209ccf14caa67}{SDL\+\_\+\+Set\+Window\+Gamma\+Ramp}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a6b40e44d9a48dfecde34428a78648f8a}\label{SDL__pixels_8h_a6b40e44d9a48dfecde34428a78648f8a}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_FreeFormat@{SDL\_FreeFormat}}
+\index{SDL\_FreeFormat@{SDL\_FreeFormat}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreeFormat()}{SDL\_FreeFormat()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+Format (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format }\end{DoxyParamCaption})}
+
+Free an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure allocated by \mbox{\hyperlink{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}{SDL\+\_\+\+Alloc\+Format()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & the \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a95972bb1fcfc9ddde496cd9ce13c7edd}{SDL\+\_\+\+Alloc\+Format}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a31d328d11619b5f5ed0a14612cbb429a}\label{SDL__pixels_8h_a31d328d11619b5f5ed0a14612cbb429a}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_FreePalette@{SDL\_FreePalette}}
+\index{SDL\_FreePalette@{SDL\_FreePalette}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreePalette()}{SDL\_FreePalette()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+Palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$}]{palette }\end{DoxyParamCaption})}
+
+Free a palette created with \mbox{\hyperlink{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}{SDL\+\_\+\+Alloc\+Palette()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em palette} & the \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} structure to be freed\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}{SDL\+\_\+\+Alloc\+Palette}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_abc7a949ed918d285449d6a8fcc2b0321}\label{SDL__pixels_8h_abc7a949ed918d285449d6a8fcc2b0321}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_GetPixelFormatName@{SDL\_GetPixelFormatName}}
+\index{SDL\_GetPixelFormatName@{SDL\_GetPixelFormatName}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPixelFormatName()}{SDL\_GetPixelFormatName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Pixel\+Format\+Name (\begin{DoxyParamCaption}\item[{Uint32}]{format }\end{DoxyParamCaption})}
+
+Get the human readable name of a pixel format.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & the pixel format to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the human readable name of the specified pixel format or {\ttfamily SDL\+\_\+\+PIXELFORMAT\+\_\+\+UNKNOWN} if the format isn\textquotesingle{}t recognized.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}\label{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_GetRGB@{SDL\_GetRGB}}
+\index{SDL\_GetRGB@{SDL\_GetRGB}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetRGB()}{SDL\_GetRGB()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Get\+RGB (\begin{DoxyParamCaption}\item[{Uint32}]{pixel,  }\item[{const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format,  }\item[{Uint8 $\ast$}]{r,  }\item[{Uint8 $\ast$}]{g,  }\item[{Uint8 $\ast$}]{b }\end{DoxyParamCaption})}
+
+Get RGB values from a pixel in the specified format.
+
+This function uses the entire 8-\/bit \mbox{[}0..255\mbox{]} range when converting color components from pixel formats with less than 8-\/bits per RGB component (e.\+g., a completely white pixel in 16-\/bit RGB565 format would return \mbox{[}0xff, 0xff, 0xff\mbox{]} not \mbox{[}0xf8, 0xfc, 0xf8\mbox{]}).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixel} & a pixel value \\
+\hline
+{\em format} & an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure describing the format of the pixel \\
+\hline
+{\em r} & a pointer filled in with the red component \\
+\hline
+{\em g} & a pointer filled in with the green component \\
+\hline
+{\em b} & a pointer filled in with the blue component\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}{SDL\+\_\+\+Get\+RGBA}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}\label{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_GetRGBA@{SDL\_GetRGBA}}
+\index{SDL\_GetRGBA@{SDL\_GetRGBA}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetRGBA()}{SDL\_GetRGBA()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Get\+RGBA (\begin{DoxyParamCaption}\item[{Uint32}]{pixel,  }\item[{const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format,  }\item[{Uint8 $\ast$}]{r,  }\item[{Uint8 $\ast$}]{g,  }\item[{Uint8 $\ast$}]{b,  }\item[{Uint8 $\ast$}]{a }\end{DoxyParamCaption})}
+
+Get RGBA values from a pixel in the specified format.
+
+This function uses the entire 8-\/bit \mbox{[}0..255\mbox{]} range when converting color components from pixel formats with less than 8-\/bits per RGB component (e.\+g., a completely white pixel in 16-\/bit RGB565 format would return \mbox{[}0xff, 0xff, 0xff\mbox{]} not \mbox{[}0xf8, 0xfc, 0xf8\mbox{]}).
+
+If the surface has no alpha component, the alpha will be returned as 0xff (100\% opaque).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixel} & a pixel value \\
+\hline
+{\em format} & an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure describing the format of the pixel \\
+\hline
+{\em r} & a pointer filled in with the red component \\
+\hline
+{\em g} & a pointer filled in with the green component \\
+\hline
+{\em b} & a pointer filled in with the blue component \\
+\hline
+{\em a} & a pointer filled in with the alpha component\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}{SDL\+\_\+\+Get\+RGB}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}\label{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_MapRGB@{SDL\_MapRGB}}
+\index{SDL\_MapRGB@{SDL\_MapRGB}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MapRGB()}{SDL\_MapRGB()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Map\+RGB (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b }\end{DoxyParamCaption})}
+
+Map an RGB triple to an opaque pixel value for a given pixel format.
+
+This function maps the RGB color value to the specified pixel format and returns the pixel value best approximating the given RGB color value for the given pixel format.
+
+If the format has a palette (8-\/bit) the index of the closest matching color in the palette will be returned.
+
+If the specified pixel format has an alpha component it will be returned as all 1 bits (fully opaque).
+
+If the pixel format bpp (color depth) is less than 32-\/bpp then the unused upper bits of the return value can safely be ignored (e.\+g., with a 16-\/bpp format the return value can be assigned to a Uint16, and similarly a Uint8 for an 8-\/bpp format).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure describing the pixel format \\
+\hline
+{\em r} & the red component of the pixel in the range 0-\/255 \\
+\hline
+{\em g} & the green component of the pixel in the range 0-\/255 \\
+\hline
+{\em b} & the blue component of the pixel in the range 0-\/255 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pixel value
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}{SDL\+\_\+\+Get\+RGB}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}{SDL\+\_\+\+Get\+RGBA}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}{SDL\+\_\+\+Map\+RGBA}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}\label{SDL__pixels_8h_a8cc5000a066e052d4d36070ea91ac942}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_MapRGBA@{SDL\_MapRGBA}}
+\index{SDL\_MapRGBA@{SDL\_MapRGBA}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MapRGBA()}{SDL\_MapRGBA()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Map\+RGBA (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a }\end{DoxyParamCaption})}
+
+Map an RGBA quadruple to a pixel value for a given pixel format.
+
+This function maps the RGBA color value to the specified pixel format and returns the pixel value best approximating the given RGBA color value for the given pixel format.
+
+If the specified pixel format has no alpha component the alpha value will be ignored (as it will be in formats with a palette).
+
+If the format has a palette (8-\/bit) the index of the closest matching color in the palette will be returned.
+
+If the pixel format bpp (color depth) is less than 32-\/bpp then the unused upper bits of the return value can safely be ignored (e.\+g., with a 16-\/bpp format the return value can be assigned to a Uint16, and similarly a Uint8 for an 8-\/bpp format).
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & an \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure describing the format of the pixel \\
+\hline
+{\em r} & the red component of the pixel in the range 0-\/255 \\
+\hline
+{\em g} & the green component of the pixel in the range 0-\/255 \\
+\hline
+{\em b} & the blue component of the pixel in the range 0-\/255 \\
+\hline
+{\em a} & the alpha component of the pixel in the range 0-\/255 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pixel value
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a26dc44b5dac11825abb4b59ac5af76e3}{SDL\+\_\+\+Get\+RGB}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a02d675543e9c5bb72232a08a529ae64e}{SDL\+\_\+\+Get\+RGBA}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a157cf64c250c578722b939ea11a85b39}{SDL\+\_\+\+Map\+RGB}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a60fede85fba7bdca549f46b3f6372593}\label{SDL__pixels_8h_a60fede85fba7bdca549f46b3f6372593}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_MasksToPixelFormatEnum@{SDL\_MasksToPixelFormatEnum}}
+\index{SDL\_MasksToPixelFormatEnum@{SDL\_MasksToPixelFormatEnum}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MasksToPixelFormatEnum()}{SDL\_MasksToPixelFormatEnum()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Masks\+To\+Pixel\+Format\+Enum (\begin{DoxyParamCaption}\item[{int}]{bpp,  }\item[{Uint32}]{Rmask,  }\item[{Uint32}]{Gmask,  }\item[{Uint32}]{Bmask,  }\item[{Uint32}]{Amask }\end{DoxyParamCaption})}
+
+Convert a bpp value and RGBA masks to an enumerated pixel format.
+
+This will return {\ttfamily SDL\+\_\+\+PIXELFORMAT\+\_\+\+UNKNOWN} if the conversion wasn\textquotesingle{}t possible.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bpp} & a bits per pixel value; usually 15, 16, or 32 \\
+\hline
+{\em Rmask} & the red mask for the format \\
+\hline
+{\em Gmask} & the green mask for the format \\
+\hline
+{\em Bmask} & the blue mask for the format \\
+\hline
+{\em Amask} & the alpha mask for the format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+one of the SDL\+\_\+\+Pixel\+Format\+Enum values
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_aabce46ecd37dd031b6b9a1b2d64f962b}{SDL\+\_\+\+Pixel\+Format\+Enum\+To\+Masks}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_aabce46ecd37dd031b6b9a1b2d64f962b}\label{SDL__pixels_8h_aabce46ecd37dd031b6b9a1b2d64f962b}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_PixelFormatEnumToMasks@{SDL\_PixelFormatEnumToMasks}}
+\index{SDL\_PixelFormatEnumToMasks@{SDL\_PixelFormatEnumToMasks}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PixelFormatEnumToMasks()}{SDL\_PixelFormatEnumToMasks()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Pixel\+Format\+Enum\+To\+Masks (\begin{DoxyParamCaption}\item[{Uint32}]{format,  }\item[{int $\ast$}]{bpp,  }\item[{Uint32 $\ast$}]{Rmask,  }\item[{Uint32 $\ast$}]{Gmask,  }\item[{Uint32 $\ast$}]{Bmask,  }\item[{Uint32 $\ast$}]{Amask }\end{DoxyParamCaption})}
+
+Convert one of the enumerated pixel formats to a bpp value and RGBA masks.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & one of the SDL\+\_\+\+Pixel\+Format\+Enum values \\
+\hline
+{\em bpp} & a bits per pixel value; usually 15, 16, or 32 \\
+\hline
+{\em Rmask} & a pointer filled in with the red mask for the format \\
+\hline
+{\em Gmask} & a pointer filled in with the green mask for the format \\
+\hline
+{\em Bmask} & a pointer filled in with the blue mask for the format \\
+\hline
+{\em Amask} & a pointer filled in with the alpha mask for the format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE on success or SDL\+\_\+\+FALSE if the conversion wasn\textquotesingle{}t possible; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a60fede85fba7bdca549f46b3f6372593}{SDL\+\_\+\+Masks\+To\+Pixel\+Format\+Enum}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_a51164f5ac7a7b2b4117ff0e0f256eaff}\label{SDL__pixels_8h_a51164f5ac7a7b2b4117ff0e0f256eaff}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_SetPaletteColors@{SDL\_SetPaletteColors}}
+\index{SDL\_SetPaletteColors@{SDL\_SetPaletteColors}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetPaletteColors()}{SDL\_SetPaletteColors()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Palette\+Colors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$}]{palette,  }\item[{const \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}} $\ast$}]{colors,  }\item[{int}]{firstcolor,  }\item[{int}]{ncolors }\end{DoxyParamCaption})}
+
+Set a range of colors in a palette.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em palette} & the \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} structure to modify \\
+\hline
+{\em colors} & an array of \mbox{\hyperlink{structSDL__Color}{SDL\+\_\+\+Color}} structures to copy into the palette \\
+\hline
+{\em firstcolor} & the index of the first palette entry to modify \\
+\hline
+{\em ncolors} & the number of entries to modify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code if not all of the colors could be set; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}{SDL\+\_\+\+Alloc\+Palette}} 
+
+\mbox{\hyperlink{SDL__surface_8h_aac106bf796c828587cce76cb847d11ae}{SDL\+\_\+\+Create\+RGBSurface}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__pixels_8h_ae7835e283254c53bed7e7b3d2287d3b6}\label{SDL__pixels_8h_ae7835e283254c53bed7e7b3d2287d3b6}} 
+\index{SDL\_pixels.h@{SDL\_pixels.h}!SDL\_SetPixelFormatPalette@{SDL\_SetPixelFormatPalette}}
+\index{SDL\_SetPixelFormatPalette@{SDL\_SetPixelFormatPalette}!SDL\_pixels.h@{SDL\_pixels.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetPixelFormatPalette()}{SDL\_SetPixelFormatPalette()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Pixel\+Format\+Palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} $\ast$}]{format,  }\item[{\mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} $\ast$}]{palette }\end{DoxyParamCaption})}
+
+Set the palette for a pixel format structure.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em format} & the \mbox{\hyperlink{structSDL__PixelFormat}{SDL\+\_\+\+Pixel\+Format}} structure that will use the palette \\
+\hline
+{\em palette} & the \mbox{\hyperlink{structSDL__Palette}{SDL\+\_\+\+Palette}} structure that will be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__pixels_8h_a9824eb994b2431017b57fcc1b6a8055c}{SDL\+\_\+\+Alloc\+Palette}} 
+
+\mbox{\hyperlink{SDL__pixels_8h_a31d328d11619b5f5ed0a14612cbb429a}{SDL\+\_\+\+Free\+Palette}} 
+\end{DoxySeeAlso}

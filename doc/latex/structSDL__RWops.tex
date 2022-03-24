@@ -1,0 +1,130 @@
+\hypertarget{structSDL__RWops}{}\doxysection{Référence de la structure SDL\+\_\+\+RWops}
+\label{structSDL__RWops}\index{SDL\_RWops@{SDL\_RWops}}
+
+
+{\ttfamily \#include $<$SDL\+\_\+rwops.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSDL__RWops_a45f66dbb683a88281d96f83ca18c525f}{Sint64}} (SDLCALL $\ast$size)(struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context)
+\item 
+\mbox{\hyperlink{structSDL__RWops_a767114391a3d1b4a7c214da3e164acf5}{Sint64}} (SDLCALL $\ast$seek)(struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context
+\item 
+\mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} (SDLCALL $\ast$read)(struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context
+\item 
+\mbox{\hyperlink{structSDL__RWops_a5f12fd517afffba5bfaff4643d6792b1}{size\+\_\+t}} (SDLCALL $\ast$write)(struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context
+\item 
+\mbox{\hyperlink{structSDL__RWops_ab303bcbb0f6742a141ba8b2998923f47}{int}} (SDLCALL $\ast$close)(struct \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$context)
+\end{DoxyCompactItemize}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_ab1ee9d9e4f61b3b30f26160c282ae416}\label{structSDL__RWops_ab1ee9d9e4f61b3b30f26160c282ae416}} 
+\mbox{\hyperlink{structSDL__RWops_a45f66dbb683a88281d96f83ca18c525f}{Sint64}} {\bfseries offset}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a95b96dcc6690897bfaf2d059f4378ed2}\label{structSDL__RWops_a95b96dcc6690897bfaf2d059f4378ed2}} 
+\mbox{\hyperlink{structSDL__RWops_a45f66dbb683a88281d96f83ca18c525f}{Sint64}} \mbox{\hyperlink{structSDL__RWops_ab303bcbb0f6742a141ba8b2998923f47}{int}} {\bfseries whence}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a3f68b93789331775de802d51a2934f0a}\label{structSDL__RWops_a3f68b93789331775de802d51a2934f0a}} 
+void $\ast$ {\bfseries ptr}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_ab078bcf43a916d469ff550c60ab4b3f2}\label{structSDL__RWops_ab078bcf43a916d469ff550c60ab4b3f2}} 
+void \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} {\bfseries size}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a7786282ec28451085908f70048ee32c8}\label{structSDL__RWops_a7786282ec28451085908f70048ee32c8}} 
+void \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} {\bfseries maxnum}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a51baff579726790887a4ca41ce14873c}\label{structSDL__RWops_a51baff579726790887a4ca41ce14873c}} 
+const void $\ast$ {\bfseries ptr}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a74d37eb068407bd5cdbdb845e4c4663a}\label{structSDL__RWops_a74d37eb068407bd5cdbdb845e4c4663a}} 
+const void \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} {\bfseries size}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a630921d5c84cf48a4a10f9a75e1caa10}\label{structSDL__RWops_a630921d5c84cf48a4a10f9a75e1caa10}} 
+const void \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} \mbox{\hyperlink{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}{size\+\_\+t}} {\bfseries num}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_a099017bfceaac24ced0e4d08a4e0a023}\label{structSDL__RWops_a099017bfceaac24ced0e4d08a4e0a023}} 
+Uint32 {\bfseries type}
+\item 
+\mbox{\Hypertarget{structSDL__RWops_ac39b920843b21701aa755f10cc1faad2}\label{structSDL__RWops_ac39b920843b21701aa755f10cc1faad2}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>SDL\_bool {\bfseries autoclose}\\
+\>\>FILE $\ast$ {\bfseries fp}\\
+\>\} {\bfseries stdio}\\
+\>struct \{\\
+\>\>Uint8 $\ast$ {\bfseries base}\\
+\>\>Uint8 $\ast$ {\bfseries here}\\
+\>\>Uint8 $\ast$ {\bfseries stop}\\
+\>\} {\bfseries mem}\\
+\>struct \{\\
+\>\>void $\ast$ {\bfseries data1}\\
+\>\>void $\ast$ {\bfseries data2}\\
+\>\} {\bfseries unknown}\\
+\} {\bfseries hidden}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This is the read/write operation structure -- very basic. 
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{structSDL__RWops_ab303bcbb0f6742a141ba8b2998923f47}\label{structSDL__RWops_ab303bcbb0f6742a141ba8b2998923f47}} 
+\index{SDL\_RWops@{SDL\_RWops}!int@{int}}
+\index{int@{int}!SDL\_RWops@{SDL\_RWops}}
+\doxysubsubsection{\texorpdfstring{int()}{int()}}
+{\footnotesize\ttfamily SDL\+\_\+\+RWops\+::int (\begin{DoxyParamCaption}\item[{SDLCALL $\ast$}]{close }\end{DoxyParamCaption})}
+
+Close and free an allocated \mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} structure.
+
+\begin{DoxyReturn}{Renvoie}
+0 if successful or -\/1 on write error when flushing data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structSDL__RWops_a767114391a3d1b4a7c214da3e164acf5}\label{structSDL__RWops_a767114391a3d1b4a7c214da3e164acf5}} 
+\index{SDL\_RWops@{SDL\_RWops}!Sint64@{Sint64}}
+\index{Sint64@{Sint64}!SDL\_RWops@{SDL\_RWops}}
+\doxysubsubsection{\texorpdfstring{Sint64()}{Sint64()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SDL\+\_\+\+RWops\+::\+Sint64 (\begin{DoxyParamCaption}\item[{SDLCALL $\ast$}]{seek }\end{DoxyParamCaption})}
+
+Seek to {\ttfamily offset} relative to {\ttfamily whence}, one of stdio\textquotesingle{}s whence values\+: RW\+\_\+\+SEEK\+\_\+\+SET, RW\+\_\+\+SEEK\+\_\+\+CUR, RW\+\_\+\+SEEK\+\_\+\+END
+
+\begin{DoxyReturn}{Renvoie}
+the final offset in the data stream, or -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structSDL__RWops_a45f66dbb683a88281d96f83ca18c525f}\label{structSDL__RWops_a45f66dbb683a88281d96f83ca18c525f}} 
+\index{SDL\_RWops@{SDL\_RWops}!Sint64@{Sint64}}
+\index{Sint64@{Sint64}!SDL\_RWops@{SDL\_RWops}}
+\doxysubsubsection{\texorpdfstring{Sint64()}{Sint64()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SDL\+\_\+\+RWops\+::\+Sint64 (\begin{DoxyParamCaption}\item[{SDLCALL $\ast$}]{size }\end{DoxyParamCaption})}
+
+Return the size of the file in this rwops, or -\/1 if unknown \mbox{\Hypertarget{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}\label{structSDL__RWops_acd9a3c6e840d285c1e30cadaf99097b2}} 
+\index{SDL\_RWops@{SDL\_RWops}!size\_t@{size\_t}}
+\index{size\_t@{size\_t}!SDL\_RWops@{SDL\_RWops}}
+\doxysubsubsection{\texorpdfstring{size\_t()}{size\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SDL\+\_\+\+RWops\+::size\+\_\+t (\begin{DoxyParamCaption}\item[{SDLCALL $\ast$}]{read }\end{DoxyParamCaption})}
+
+Read up to {\ttfamily maxnum} objects each of size {\ttfamily size} from the data stream to the area pointed at by {\ttfamily ptr}.
+
+\begin{DoxyReturn}{Renvoie}
+the number of objects read, or 0 at error or end of file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structSDL__RWops_a5f12fd517afffba5bfaff4643d6792b1}\label{structSDL__RWops_a5f12fd517afffba5bfaff4643d6792b1}} 
+\index{SDL\_RWops@{SDL\_RWops}!size\_t@{size\_t}}
+\index{size\_t@{size\_t}!SDL\_RWops@{SDL\_RWops}}
+\doxysubsubsection{\texorpdfstring{size\_t()}{size\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SDL\+\_\+\+RWops\+::size\+\_\+t (\begin{DoxyParamCaption}\item[{SDLCALL $\ast$}]{write }\end{DoxyParamCaption})}
+
+Write exactly {\ttfamily num} objects each of size {\ttfamily size} from the area pointed at by {\ttfamily ptr} to data stream.
+
+\begin{DoxyReturn}{Renvoie}
+the number of objects written, or 0 at error or end of file. 
+\end{DoxyReturn}
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__rwops_8h}{SDL\+\_\+rwops.\+h}}\end{DoxyCompactItemize}

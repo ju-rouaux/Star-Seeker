@@ -1,0 +1,84 @@
+\hypertarget{SDL__clipboard_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+clipboard.h}
+\label{SDL__clipboard_8h}\index{include/SDL2/SDL\_clipboard.h@{include/SDL2/SDL\_clipboard.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}{SDL\+\_\+\+Set\+Clipboard\+Text}} (const char $\ast$text)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}{SDL\+\_\+\+Get\+Clipboard\+Text}} (void)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__clipboard_8h_a415fa85de093cf6117626a9415394509}{SDL\+\_\+\+Has\+Clipboard\+Text}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL clipboard handling 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}\label{SDL__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_GetClipboardText@{SDL\_GetClipboardText}}
+\index{SDL\_GetClipboardText@{SDL\_GetClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetClipboardText()}{SDL\_GetClipboardText()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Get\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get UTF-\/8 text from the clipboard, which must be freed with SDL\+\_\+free().
+
+This functions returns empty string if there was not enough memory left for a copy of the clipboard\textquotesingle{}s content.
+
+\begin{DoxyReturn}{Renvoie}
+the clipboard text on success or an empty string on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information. Caller must call SDL\+\_\+free() on the returned pointer when done with it (even if there was an error).
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__clipboard_8h_a415fa85de093cf6117626a9415394509}{SDL\+\_\+\+Has\+Clipboard\+Text}} 
+
+\mbox{\hyperlink{SDL__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}{SDL\+\_\+\+Set\+Clipboard\+Text}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__clipboard_8h_a415fa85de093cf6117626a9415394509}\label{SDL__clipboard_8h_a415fa85de093cf6117626a9415394509}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_HasClipboardText@{SDL\_HasClipboardText}}
+\index{SDL\_HasClipboardText@{SDL\_HasClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_HasClipboardText()}{SDL\_HasClipboardText()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Has\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Query whether the clipboard exists and contains a non-\/empty text string.
+
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the clipboard has text, or SDL\+\_\+\+FALSE if it does not.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}{SDL\+\_\+\+Get\+Clipboard\+Text}} 
+
+\mbox{\hyperlink{SDL__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}{SDL\+\_\+\+Set\+Clipboard\+Text}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}\label{SDL__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_SetClipboardText@{SDL\_SetClipboardText}}
+\index{SDL\_SetClipboardText@{SDL\_SetClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetClipboardText()}{SDL\_SetClipboardText()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+Put UTF-\/8 text into the clipboard.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text} & the text to store in the clipboard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}{SDL\+\_\+\+Get\+Clipboard\+Text}} 
+
+\mbox{\hyperlink{SDL__clipboard_8h_a415fa85de093cf6117626a9415394509}{SDL\+\_\+\+Has\+Clipboard\+Text}} 
+\end{DoxySeeAlso}

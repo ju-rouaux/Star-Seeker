@@ -1,0 +1,429 @@
+\hypertarget{SDL__thread_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+thread.h}
+\label{SDL__thread_8h}\index{include/SDL2/SDL\_thread.h@{include/SDL2/SDL\_thread.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+atomic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+mutex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__thread_8h_a97cd1dc60cea74b74273affb1a974db5}\label{SDL__thread_8h_a97cd1dc60cea74b74273affb1a974db5}} 
+typedef struct SDL\+\_\+\+Thread {\bfseries SDL\+\_\+\+Thread}
+\item 
+\mbox{\Hypertarget{SDL__thread_8h_ac4db699531ce9f18f5a8547aa988b88e}\label{SDL__thread_8h_ac4db699531ce9f18f5a8547aa988b88e}} 
+typedef unsigned long {\bfseries SDL\+\_\+thread\+ID}
+\item 
+\mbox{\Hypertarget{SDL__thread_8h_a07ce005c35ad6ac377d6124db7296026}\label{SDL__thread_8h_a07ce005c35ad6ac377d6124db7296026}} 
+typedef unsigned int {\bfseries SDL\+\_\+\+TLSID}
+\item 
+typedef int(SDLCALL $\ast$ \mbox{\hyperlink{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}{SDL\+\_\+\+Thread\+Function}}) (void $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}{SDL\+\_\+\+Thread\+Priority}} \{ {\bfseries SDL\+\_\+\+THREAD\+\_\+\+PRIORITY\+\_\+\+LOW}
+, {\bfseries SDL\+\_\+\+THREAD\+\_\+\+PRIORITY\+\_\+\+NORMAL}
+, {\bfseries SDL\+\_\+\+THREAD\+\_\+\+PRIORITY\+\_\+\+HIGH}
+, {\bfseries SDL\+\_\+\+THREAD\+\_\+\+PRIORITY\+\_\+\+TIME\+\_\+\+CRITICAL}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC SDL\+\_\+\+Thread $\ast$SDLCALL \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread}} (\mbox{\hyperlink{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}{SDL\+\_\+\+Thread\+Function}} fn, const char $\ast$name, void $\ast$data)
+\item 
+DECLSPEC SDL\+\_\+\+Thread $\ast$SDLCALL \mbox{\hyperlink{SDL__thread_8h_a4bee261cd43d1e25ba75a89fff9fe75d}{SDL\+\_\+\+Create\+Thread\+With\+Stack\+Size}} (\mbox{\hyperlink{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}{SDL\+\_\+\+Thread\+Function}} fn, const char $\ast$name, const size\+\_\+t stacksize, void $\ast$data)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__thread_8h_abe2ffa508d85379b355673d557e74d9f}{SDL\+\_\+\+Get\+Thread\+Name}} (SDL\+\_\+\+Thread $\ast$thread)
+\item 
+DECLSPEC SDL\+\_\+thread\+ID SDLCALL \mbox{\hyperlink{SDL__thread_8h_a341933eef1470789de20b05c1392b9ae}{SDL\+\_\+\+Thread\+ID}} (void)
+\item 
+DECLSPEC SDL\+\_\+thread\+ID SDLCALL \mbox{\hyperlink{SDL__thread_8h_a0bf5d93ed5cb25ea59307472c62c66db}{SDL\+\_\+\+Get\+Thread\+ID}} (SDL\+\_\+\+Thread $\ast$thread)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__thread_8h_adf4da9c0e6a6833bef9741344b09699d}{SDL\+\_\+\+Set\+Thread\+Priority}} (\mbox{\hyperlink{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}{SDL\+\_\+\+Thread\+Priority}} priority)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread}} (SDL\+\_\+\+Thread $\ast$thread, int $\ast$status)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}{SDL\+\_\+\+Detach\+Thread}} (SDL\+\_\+\+Thread $\ast$thread)
+\item 
+DECLSPEC SDL\+\_\+\+TLSID SDLCALL \mbox{\hyperlink{SDL__thread_8h_ac7ed1ec8dec5b902da25b60da2b728fa}{SDL\+\_\+\+TLSCreate}} (void)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__thread_8h_ab519f8d89ea808f32fc139071e6207bb}{SDL\+\_\+\+TLSGet}} (SDL\+\_\+\+TLSID id)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}{SDL\+\_\+\+TLSSet}} (SDL\+\_\+\+TLSID id, const void $\ast$value, void(SDLCALL $\ast$destructor)(void $\ast$))
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__thread_8h_addd72a8ba431ef92685bbc9c89c5c67c}{SDL\+\_\+\+TLSCleanup}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header for the SDL thread management routines. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}\label{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_ThreadFunction@{SDL\_ThreadFunction}}
+\index{SDL\_ThreadFunction@{SDL\_ThreadFunction}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ThreadFunction}{SDL\_ThreadFunction}}
+{\footnotesize\ttfamily typedef int(SDLCALL $\ast$ SDL\+\_\+\+Thread\+Function) (void $\ast$data)}
+
+The function passed to \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & what was passed as {\ttfamily data} to \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a value that can be reported through \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}\label{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_ThreadPriority@{SDL\_ThreadPriority}}
+\index{SDL\_ThreadPriority@{SDL\_ThreadPriority}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ThreadPriority}{SDL\_ThreadPriority}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}{SDL\+\_\+\+Thread\+Priority}}}
+
+The SDL thread priority.
+
+SDL will make system changes as necessary in order to apply the thread priority. Code which attempts to control thread state related to priority should be aware that calling SDL\+\_\+\+Set\+Thread\+Priority may alter such state. SDL\+\_\+\+HINT\+\_\+\+THREAD\+\_\+\+PRIORITY\+\_\+\+POLICY can be used to control aspects of this behavior.
+
+\begin{DoxyNote}{Note}
+On many systems you require special privileges to set high or time critical priority. 
+\end{DoxyNote}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}\label{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_CreateThread@{SDL\_CreateThread}}
+\index{SDL\_CreateThread@{SDL\_CreateThread}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateThread()}{SDL\_CreateThread()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Thread$\ast$ SDLCALL SDL\+\_\+\+Create\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}{SDL\+\_\+\+Thread\+Function}}}]{fn,  }\item[{const char $\ast$}]{name,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+Create a new thread with a default stack size.
+
+This is equivalent to calling\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__thread_8h_a4bee261cd43d1e25ba75a89fff9fe75d}{SDL\_CreateThreadWithStackSize}}(fn, name, 0, data);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fn} & the SDL\+\_\+\+Thread\+Function function to call in the new thread \\
+\hline
+{\em name} & the name of the thread \\
+\hline
+{\em data} & a pointer that is passed to {\ttfamily fn} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an opaque pointer to the new thread object on success, NULL if the new thread could not be created; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_a4bee261cd43d1e25ba75a89fff9fe75d}{SDL\+\_\+\+Create\+Thread\+With\+Stack\+Size}} 
+
+\mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_a4bee261cd43d1e25ba75a89fff9fe75d}\label{SDL__thread_8h_a4bee261cd43d1e25ba75a89fff9fe75d}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_CreateThreadWithStackSize@{SDL\_CreateThreadWithStackSize}}
+\index{SDL\_CreateThreadWithStackSize@{SDL\_CreateThreadWithStackSize}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CreateThreadWithStackSize()}{SDL\_CreateThreadWithStackSize()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Thread$\ast$ SDLCALL SDL\+\_\+\+Create\+Thread\+With\+Stack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__thread_8h_a35d10c50423c326b20abea6a486f53e0}{SDL\+\_\+\+Thread\+Function}}}]{fn,  }\item[{const char $\ast$}]{name,  }\item[{const size\+\_\+t}]{stacksize,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+Create a new thread with a specific stack size.
+
+SDL makes an attempt to report {\ttfamily name} to the system, so that debuggers can display it. Not all platforms support this.
+
+Thread naming is a little complicated\+: Most systems have very small limits for the string length (Haiku has 32 bytes, Linux currently has 16, Visual C++ 6.\+0 has {\itshape nine}!), and possibly other arbitrary rules. You\textquotesingle{}ll have to see what happens with your system\textquotesingle{}s debugger. The name should be UTF-\/8 (but using the naming limits of C identifiers is a better bet). There are no requirements for thread naming conventions, so long as the string is null-\/terminated UTF-\/8, but these guidelines are helpful in choosing a name\+:
+
+\href{https://stackoverflow.com/questions/149932/naming-conventions-for-threads}{\texttt{ https\+://stackoverflow.\+com/questions/149932/naming-\/conventions-\/for-\/threads}}
+
+If a system imposes requirements, SDL will try to munge the string for it (truncate, etc), but the original string contents will be available from \mbox{\hyperlink{SDL__thread_8h_abe2ffa508d85379b355673d557e74d9f}{SDL\+\_\+\+Get\+Thread\+Name()}}.
+
+The size (in bytes) of the new stack can be specified. Zero means \char`\"{}use the system default\char`\"{} which might be wildly different between platforms. x86 Linux generally defaults to eight megabytes, an embedded device might be a few kilobytes instead. You generally need to specify a stack that is a multiple of the system\textquotesingle{}s page size (in many cases, this is 4 kilobytes, but check your system documentation).
+
+In SDL 2.\+1, stack size will be folded into the original SDL\+\_\+\+Create\+Thread function, but for backwards compatibility, this is currently a separate function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fn} & the SDL\+\_\+\+Thread\+Function function to call in the new thread \\
+\hline
+{\em name} & the name of the thread \\
+\hline
+{\em stacksize} & the size, in bytes, to allocate for the new thread stack. \\
+\hline
+{\em data} & a pointer that is passed to {\ttfamily fn} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an opaque pointer to the new thread object on success, NULL if the new thread could not be created; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+9.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}\label{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_DetachThread@{SDL\_DetachThread}}
+\index{SDL\_DetachThread@{SDL\_DetachThread}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DetachThread()}{SDL\_DetachThread()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Detach\+Thread (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Thread $\ast$}]{thread }\end{DoxyParamCaption})}
+
+Let a thread clean up on exit without intervention.
+
+A thread may be \char`\"{}detached\char`\"{} to signify that it should not remain until another thread has called \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}} on it. Detaching a thread is useful for long-\/running threads that nothing needs to synchronize with or further manage. When a detached thread is done, it simply goes away.
+
+There is no way to recover the return code of a detached thread. If you need this, don\textquotesingle{}t detach the thread and instead use \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}}.
+
+Once a thread is detached, you should usually assume the SDL\+\_\+\+Thread isn\textquotesingle{}t safe to reference again, as it will become invalid immediately upon the detached thread\textquotesingle{}s exit, instead of remaining until someone has called \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}} to finally clean it up. As such, don\textquotesingle{}t detach the same thread more than once.
+
+If a thread has already exited when passed to \mbox{\hyperlink{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}{SDL\+\_\+\+Detach\+Thread()}}, it will stop waiting for a call to \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}} and clean up immediately. It is not safe to detach a thread that might be used with \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}}.
+
+You may not call \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}} on a thread that has been detached. Use either that function or this one, but not both, or behavior is undefined.
+
+It is safe to pass NULL to this function; it is a no-\/op.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em thread} & the SDL\+\_\+\+Thread pointer that was returned from the \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread()}} call that started this thread\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+2.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread}} 
+
+\mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_a0bf5d93ed5cb25ea59307472c62c66db}\label{SDL__thread_8h_a0bf5d93ed5cb25ea59307472c62c66db}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_GetThreadID@{SDL\_GetThreadID}}
+\index{SDL\_GetThreadID@{SDL\_GetThreadID}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetThreadID()}{SDL\_GetThreadID()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+thread\+ID SDLCALL SDL\+\_\+\+Get\+Thread\+ID (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Thread $\ast$}]{thread }\end{DoxyParamCaption})}
+
+Get the thread identifier for the specified thread.
+
+This thread identifier is as reported by the underlying operating system. If SDL is running on a platform that does not support threads the return value will always be zero.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em thread} & the thread to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the ID of the specified thread, or the ID of the current thread if {\ttfamily thread} is NULL.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_a341933eef1470789de20b05c1392b9ae}{SDL\+\_\+\+Thread\+ID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_abe2ffa508d85379b355673d557e74d9f}\label{SDL__thread_8h_abe2ffa508d85379b355673d557e74d9f}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_GetThreadName@{SDL\_GetThreadName}}
+\index{SDL\_GetThreadName@{SDL\_GetThreadName}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetThreadName()}{SDL\_GetThreadName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Thread\+Name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Thread $\ast$}]{thread }\end{DoxyParamCaption})}
+
+Get the thread name as it was specified in \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread()}}.
+
+This is internal memory, not to be freed by the caller, and remains valid until the specified thread is cleaned up by \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em thread} & the thread to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to a UTF-\/8 string that names the specified thread, or NULL if it doesn\textquotesingle{}t have a name.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_adf4da9c0e6a6833bef9741344b09699d}\label{SDL__thread_8h_adf4da9c0e6a6833bef9741344b09699d}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_SetThreadPriority@{SDL\_SetThreadPriority}}
+\index{SDL\_SetThreadPriority@{SDL\_SetThreadPriority}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetThreadPriority()}{SDL\_SetThreadPriority()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Thread\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__thread_8h_acce8dea56f6b307fadd2949b64e3ebda}{SDL\+\_\+\+Thread\+Priority}}}]{priority }\end{DoxyParamCaption})}
+
+Set the priority for the current thread.
+
+Note that some platforms will not let you alter the priority (or at least, promote the thread to a higher priority) at all, and some require you to be an administrator account. Be prepared for this to fail.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em priority} & the SDL\+\_\+\+Thread\+Priority to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__thread_8h_a341933eef1470789de20b05c1392b9ae}\label{SDL__thread_8h_a341933eef1470789de20b05c1392b9ae}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_ThreadID@{SDL\_ThreadID}}
+\index{SDL\_ThreadID@{SDL\_ThreadID}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ThreadID()}{SDL\_ThreadID()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+thread\+ID SDLCALL SDL\+\_\+\+Thread\+ID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the thread identifier for the current thread.
+
+This thread identifier is as reported by the underlying operating system. If SDL is running on a platform that does not support threads the return value will always be zero.
+
+This function also returns a valid thread ID when called from the main thread.
+
+\begin{DoxyReturn}{Renvoie}
+the ID of the current thread.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_a0bf5d93ed5cb25ea59307472c62c66db}{SDL\+\_\+\+Get\+Thread\+ID}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_addd72a8ba431ef92685bbc9c89c5c67c}\label{SDL__thread_8h_addd72a8ba431ef92685bbc9c89c5c67c}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_TLSCleanup@{SDL\_TLSCleanup}}
+\index{SDL\_TLSCleanup@{SDL\_TLSCleanup}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TLSCleanup()}{SDL\_TLSCleanup()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+TLSCleanup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Cleanup all TLS data for this thread.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__thread_8h_ac7ed1ec8dec5b902da25b60da2b728fa}\label{SDL__thread_8h_ac7ed1ec8dec5b902da25b60da2b728fa}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_TLSCreate@{SDL\_TLSCreate}}
+\index{SDL\_TLSCreate@{SDL\_TLSCreate}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TLSCreate()}{SDL\_TLSCreate()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+TLSID SDLCALL SDL\+\_\+\+TLSCreate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create a piece of thread-\/local storage.
+
+This creates an identifier that is globally visible to all threads but refers to data that is thread-\/specific.
+
+\begin{DoxyReturn}{Renvoie}
+the newly created thread local storage identifier or 0 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_ab519f8d89ea808f32fc139071e6207bb}{SDL\+\_\+\+TLSGet}} 
+
+\mbox{\hyperlink{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}{SDL\+\_\+\+TLSSet}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_ab519f8d89ea808f32fc139071e6207bb}\label{SDL__thread_8h_ab519f8d89ea808f32fc139071e6207bb}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_TLSGet@{SDL\_TLSGet}}
+\index{SDL\_TLSGet@{SDL\_TLSGet}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TLSGet()}{SDL\_TLSGet()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+TLSGet (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+TLSID}]{id }\end{DoxyParamCaption})}
+
+Get the current thread\textquotesingle{}s value associated with a thread local storage ID.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & the thread local storage ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the value associated with the ID for the current thread or NULL if no value has been set; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_ac7ed1ec8dec5b902da25b60da2b728fa}{SDL\+\_\+\+TLSCreate}} 
+
+\mbox{\hyperlink{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}{SDL\+\_\+\+TLSSet}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}\label{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_TLSSet@{SDL\_TLSSet}}
+\index{SDL\_TLSSet@{SDL\_TLSSet}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TLSSet()}{SDL\_TLSSet()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+TLSSet (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+TLSID}]{id,  }\item[{const void $\ast$}]{value,  }\item[{void(SDLCALL $\ast$destructor)(void $\ast$)}]{ }\end{DoxyParamCaption})}
+
+Set the current thread\textquotesingle{}s value associated with a thread local storage ID.
+
+The function prototype for {\ttfamily destructor} is\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} destructor(\textcolor{keywordtype}{void} *value)}
+
+\end{DoxyCode}
+
+
+where its parameter {\ttfamily value} is what was passed as {\ttfamily value} to \mbox{\hyperlink{SDL__thread_8h_a807c8306201205c7c3ac0cb34ac7cd77}{SDL\+\_\+\+TLSSet()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & the thread local storage ID \\
+\hline
+{\em value} & the value to associate with the ID for the current thread \\
+\hline
+{\em destructor} & a function called when the thread exits, to free the value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_ac7ed1ec8dec5b902da25b60da2b728fa}{SDL\+\_\+\+TLSCreate}} 
+
+\mbox{\hyperlink{SDL__thread_8h_ab519f8d89ea808f32fc139071e6207bb}{SDL\+\_\+\+TLSGet}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}\label{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}} 
+\index{SDL\_thread.h@{SDL\_thread.h}!SDL\_WaitThread@{SDL\_WaitThread}}
+\index{SDL\_WaitThread@{SDL\_WaitThread}!SDL\_thread.h@{SDL\_thread.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_WaitThread()}{SDL\_WaitThread()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Wait\+Thread (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Thread $\ast$}]{thread,  }\item[{int $\ast$}]{status }\end{DoxyParamCaption})}
+
+Wait for a thread to finish.
+
+Threads that haven\textquotesingle{}t been detached will remain (as a \char`\"{}zombie\char`\"{}) until this function cleans them up. Not doing so is a resource leak.
+
+Once a thread has been cleaned up through this function, the SDL\+\_\+\+Thread that references it becomes invalid and should not be referenced again. As such, only one thread may call \mbox{\hyperlink{SDL__thread_8h_ac96743626ed21d2cdb0868a23cca9705}{SDL\+\_\+\+Wait\+Thread()}} on another.
+
+The return code for the thread function is placed in the area pointed to by {\ttfamily status}, if {\ttfamily status} is not NULL.
+
+You may not wait on a thread that has been used in a call to \mbox{\hyperlink{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}{SDL\+\_\+\+Detach\+Thread()}}. Use either that function or this one, but not both, or behavior is undefined.
+
+It is safe to pass a NULL thread to this function; it is a no-\/op.
+
+Note that the thread pointer is freed by this function and is not valid afterward.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em thread} & the SDL\+\_\+\+Thread pointer that was returned from the \mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread()}} call that started this thread \\
+\hline
+{\em status} & pointer to an integer that will receive the value returned from the thread function by its \textquotesingle{}return\textquotesingle{}, or NULL to not receive such value back.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__thread_8h_aca3013d4f50e918b17d2721b37e59082}{SDL\+\_\+\+Create\+Thread}} 
+
+\mbox{\hyperlink{SDL__thread_8h_af90602c51ef5a62f26ed9931af484906}{SDL\+\_\+\+Detach\+Thread}} 
+\end{DoxySeeAlso}

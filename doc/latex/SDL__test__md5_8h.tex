@@ -1,0 +1,82 @@
+\hypertarget{SDL__test__md5_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+md5.h}
+\label{SDL__test__md5_8h}\index{include/SDL2/SDL\_test\_md5.h@{include/SDL2/SDL\_test\_md5.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__md5_8h_a2bdcfd1b3373be8191c70eb4a7cb84c6}\label{SDL__test__md5_8h_a2bdcfd1b3373be8191c70eb4a7cb84c6}} 
+typedef unsigned long int {\bfseries MD5\+UINT4}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{SDL__test__md5_8h_add801a5f4162ed3bb0211d0e7b5829ec}{SDLTest\+\_\+\+Md5\+Init}} (\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$md\+Context)
+\begin{DoxyCompactList}\small\item\em initialize the context \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__md5_8h_a435607e2ee1bf1ce09686ef97c21a7d5}{SDLTest\+\_\+\+Md5\+Update}} (\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$md\+Context, unsigned char $\ast$in\+Buf, unsigned int in\+Len)
+\begin{DoxyCompactList}\small\item\em update digest from variable length data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__md5_8h_a3f0bd1fb177aea21d09b3ff7b3323e77}{SDLTest\+\_\+\+Md5\+Final}} (\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$md\+Context)
+\begin{DoxyCompactList}\small\item\em complete digest computation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__md5_8h_a3f0bd1fb177aea21d09b3ff7b3323e77}\label{SDL__test__md5_8h_a3f0bd1fb177aea21d09b3ff7b3323e77}} 
+\index{SDL\_test\_md5.h@{SDL\_test\_md5.h}!SDLTest\_Md5Final@{SDLTest\_Md5Final}}
+\index{SDLTest\_Md5Final@{SDLTest\_Md5Final}!SDL\_test\_md5.h@{SDL\_test\_md5.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Md5Final()}{SDLTest\_Md5Final()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Md5\+Final (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$}]{md\+Context }\end{DoxyParamCaption})}
+
+
+
+complete digest computation 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em md\+Context} & pointer to context variable\\
+\hline
+\end{DoxyParams}
+Note\+: The function terminates the message-\/digest computation and ends with the desired message digest in md\+Context.\+digest\mbox{[}0..15\mbox{]}. Always call before using the digest\mbox{[}\mbox{]} variable. \mbox{\Hypertarget{SDL__test__md5_8h_add801a5f4162ed3bb0211d0e7b5829ec}\label{SDL__test__md5_8h_add801a5f4162ed3bb0211d0e7b5829ec}} 
+\index{SDL\_test\_md5.h@{SDL\_test\_md5.h}!SDLTest\_Md5Init@{SDLTest\_Md5Init}}
+\index{SDLTest\_Md5Init@{SDLTest\_Md5Init}!SDL\_test\_md5.h@{SDL\_test\_md5.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Md5Init()}{SDLTest\_Md5Init()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Md5\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$}]{md\+Context }\end{DoxyParamCaption})}
+
+
+
+initialize the context 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em md\+Context} & pointer to context variable\\
+\hline
+\end{DoxyParams}
+Note\+: The function initializes the message-\/digest context md\+Context. Call before each new use of the context -\/ all fields are set to zero. \mbox{\Hypertarget{SDL__test__md5_8h_a435607e2ee1bf1ce09686ef97c21a7d5}\label{SDL__test__md5_8h_a435607e2ee1bf1ce09686ef97c21a7d5}} 
+\index{SDL\_test\_md5.h@{SDL\_test\_md5.h}!SDLTest\_Md5Update@{SDLTest\_Md5Update}}
+\index{SDLTest\_Md5Update@{SDLTest\_Md5Update}!SDL\_test\_md5.h@{SDL\_test\_md5.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Md5Update()}{SDLTest\_Md5Update()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Md5\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Md5Context}{SDLTest\+\_\+\+Md5\+Context}} $\ast$}]{md\+Context,  }\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned int}]{in\+Len }\end{DoxyParamCaption})}
+
+
+
+update digest from variable length data 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em md\+Context} & pointer to context variable \\
+\hline
+{\em in\+Buf} & pointer to data array/string \\
+\hline
+{\em in\+Len} & length of data array/string\\
+\hline
+\end{DoxyParams}
+Note\+: The function updates the message-\/digest context to account for the presence of each of the characters in\+Buf\mbox{[}0..in\+Len-\/1\mbox{]} in the message whose digest is being computed. 

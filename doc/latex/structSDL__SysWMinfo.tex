@@ -1,0 +1,96 @@
+\hypertarget{structSDL__SysWMinfo}{}\doxysection{Référence de la structure SDL\+\_\+\+Sys\+WMinfo}
+\label{structSDL__SysWMinfo}\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+
+
+{\ttfamily \#include $<$SDL\+\_\+syswm.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structSDL__SysWMinfo_ac3a70af022d4849e9ff546595e94627f}\label{structSDL__SysWMinfo_ac3a70af022d4849e9ff546595e94627f}} 
+\mbox{\hyperlink{structSDL__version}{SDL\+\_\+version}} {\bfseries version}
+\item 
+\mbox{\Hypertarget{structSDL__SysWMinfo_a438b6a06ab3ee417293c7b7fc5a23855}\label{structSDL__SysWMinfo_a438b6a06ab3ee417293c7b7fc5a23855}} 
+\mbox{\hyperlink{SDL__syswm_8h_a064c26598287280fff2a00d6758ac4f7}{SDL\+\_\+\+SYSWM\+\_\+\+TYPE}} {\bfseries subsystem}
+\item 
+\mbox{\Hypertarget{structSDL__SysWMinfo_aded93aa13e3661b0cb3884101d63bfc3}\label{structSDL__SysWMinfo_aded93aa13e3661b0cb3884101d63bfc3}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>Display $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_a58ef8bc8e1065e95e75a08d08f4a4741}{display}}\\
+\>\>Window \mbox{\hyperlink{structSDL__SysWMinfo_a83ca4b0f4bdf67a0edee03d5bde86b93}{window}}\\
+\>\} {\bfseries x11}\\
+\>struct \{\\
+\>\>struct wl\_display $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_a148aa67e71b758f6930165fbc027e2b2}{display}}\\
+\>\>struct wl\_surface $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_a24a91614de4a63682f391f38c7ebb7a2}{surface}}\\
+\>\>void $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_a7974942f5ec558546e56db94d8df6c8c}{shell\_surface}}\\
+\>\>struct wl\_egl\_window $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_aa03dd5fafbab7a20fe3e5cfed39c7a9a}{egl\_window}}\\
+\>\>struct xdg\_surface $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_a893d249a67275e523a6180e41776b233}{xdg\_surface}}\\
+\>\>struct xdg\_toplevel $\ast$ \mbox{\hyperlink{structSDL__SysWMinfo_afc698a1aba525891101b2bab2b1c4807}{xdg\_toplevel}}\\
+\>\} {\bfseries wl}\\
+\>Uint8 {\bfseries dummy} \mbox{[}64\mbox{]}\\
+\} {\bfseries info}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The custom window manager information structure.
+
+When this structure is returned, it holds information about which low level system it is using, and will be one of SDL\+\_\+\+SYSWM\+\_\+\+TYPE. 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__SysWMinfo_a58ef8bc8e1065e95e75a08d08f4a4741}\label{structSDL__SysWMinfo_a58ef8bc8e1065e95e75a08d08f4a4741}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!display@{display}}
+\index{display@{display}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{display}{display}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Display$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::display}
+
+The X11 display \mbox{\Hypertarget{structSDL__SysWMinfo_a148aa67e71b758f6930165fbc027e2b2}\label{structSDL__SysWMinfo_a148aa67e71b758f6930165fbc027e2b2}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!display@{display}}
+\index{display@{display}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{display}{display}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily struct wl\+\_\+display$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::display}
+
+Wayland display \mbox{\Hypertarget{structSDL__SysWMinfo_aa03dd5fafbab7a20fe3e5cfed39c7a9a}\label{structSDL__SysWMinfo_aa03dd5fafbab7a20fe3e5cfed39c7a9a}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!egl\_window@{egl\_window}}
+\index{egl\_window@{egl\_window}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{egl\_window}{egl\_window}}
+{\footnotesize\ttfamily struct wl\+\_\+egl\+\_\+window$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::egl\+\_\+window}
+
+Wayland EGL window (native window) \mbox{\Hypertarget{structSDL__SysWMinfo_a7974942f5ec558546e56db94d8df6c8c}\label{structSDL__SysWMinfo_a7974942f5ec558546e56db94d8df6c8c}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!shell\_surface@{shell\_surface}}
+\index{shell\_surface@{shell\_surface}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{shell\_surface}{shell\_surface}}
+{\footnotesize\ttfamily void$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::shell\+\_\+surface}
+
+DEPRECATED Wayland shell\+\_\+surface (window manager handle) \mbox{\Hypertarget{structSDL__SysWMinfo_a24a91614de4a63682f391f38c7ebb7a2}\label{structSDL__SysWMinfo_a24a91614de4a63682f391f38c7ebb7a2}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!surface@{surface}}
+\index{surface@{surface}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{surface}{surface}}
+{\footnotesize\ttfamily struct wl\+\_\+surface$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::surface}
+
+Wayland surface \mbox{\Hypertarget{structSDL__SysWMinfo_a83ca4b0f4bdf67a0edee03d5bde86b93}\label{structSDL__SysWMinfo_a83ca4b0f4bdf67a0edee03d5bde86b93}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!window@{window}}
+\index{window@{window}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily Window SDL\+\_\+\+Sys\+WMinfo\+::window}
+
+The X11 window \mbox{\Hypertarget{structSDL__SysWMinfo_a893d249a67275e523a6180e41776b233}\label{structSDL__SysWMinfo_a893d249a67275e523a6180e41776b233}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!xdg\_surface@{xdg\_surface}}
+\index{xdg\_surface@{xdg\_surface}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{xdg\_surface}{xdg\_surface}}
+{\footnotesize\ttfamily struct xdg\+\_\+surface$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::xdg\+\_\+surface}
+
+Wayland xdg surface (window manager handle) \mbox{\Hypertarget{structSDL__SysWMinfo_afc698a1aba525891101b2bab2b1c4807}\label{structSDL__SysWMinfo_afc698a1aba525891101b2bab2b1c4807}} 
+\index{SDL\_SysWMinfo@{SDL\_SysWMinfo}!xdg\_toplevel@{xdg\_toplevel}}
+\index{xdg\_toplevel@{xdg\_toplevel}!SDL\_SysWMinfo@{SDL\_SysWMinfo}}
+\doxysubsubsection{\texorpdfstring{xdg\_toplevel}{xdg\_toplevel}}
+{\footnotesize\ttfamily struct xdg\+\_\+toplevel$\ast$ SDL\+\_\+\+Sys\+WMinfo\+::xdg\+\_\+toplevel}
+
+Wayland xdg toplevel role 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__syswm_8h}{SDL\+\_\+syswm.\+h}}\end{DoxyCompactItemize}

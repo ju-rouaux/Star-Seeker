@@ -1,0 +1,139 @@
+\hypertarget{SDL__test__harness_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+harness.h}
+\label{SDL__test__harness_8h}\index{include/SDL2/SDL\_test\_harness.h@{include/SDL2/SDL\_test\_harness.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDLTest__TestCaseReference}{SDLTest\+\_\+\+Test\+Case\+Reference}}
+\item 
+struct \mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_a4404f2feb87e68e20e31bd86ec1728b1}\label{SDL__test__harness_8h_a4404f2feb87e68e20e31bd86ec1728b1}} 
+\#define {\bfseries TEST\+\_\+\+ENABLED}~1
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_ac7b13b8aefdada941436332f7559e5f0}\label{SDL__test__harness_8h_ac7b13b8aefdada941436332f7559e5f0}} 
+\#define {\bfseries TEST\+\_\+\+DISABLED}~0
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_ad1b0d362df8510a4a917442ae7173aa1}\label{SDL__test__harness_8h_ad1b0d362df8510a4a917442ae7173aa1}} 
+\#define {\bfseries TEST\+\_\+\+ABORTED}~-\/1
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_a24c50cc9207eee59e73f95faff5ef07a}\label{SDL__test__harness_8h_a24c50cc9207eee59e73f95faff5ef07a}} 
+\#define {\bfseries TEST\+\_\+\+STARTED}~0
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_aa1fcd18bba2a887390bb7e032f177716}\label{SDL__test__harness_8h_aa1fcd18bba2a887390bb7e032f177716}} 
+\#define {\bfseries TEST\+\_\+\+COMPLETED}~1
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_adc53d81b0aba42f8a5773a4bd1c3da88}\label{SDL__test__harness_8h_adc53d81b0aba42f8a5773a4bd1c3da88}} 
+\#define {\bfseries TEST\+\_\+\+SKIPPED}~2
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_accbb9396b61c19b746505b685275ce82}\label{SDL__test__harness_8h_accbb9396b61c19b746505b685275ce82}} 
+\#define {\bfseries TEST\+\_\+\+RESULT\+\_\+\+PASSED}~0
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_a25cadd1b04d9f8f342919a53e2b984b7}\label{SDL__test__harness_8h_a25cadd1b04d9f8f342919a53e2b984b7}} 
+\#define {\bfseries TEST\+\_\+\+RESULT\+\_\+\+FAILED}~1
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_ab560e79979c20b68710cc24585a2f78f}\label{SDL__test__harness_8h_ab560e79979c20b68710cc24585a2f78f}} 
+\#define {\bfseries TEST\+\_\+\+RESULT\+\_\+\+NO\+\_\+\+ASSERT}~2
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_aadce13b4d24fe4ac2b58578167e53846}\label{SDL__test__harness_8h_aadce13b4d24fe4ac2b58578167e53846}} 
+\#define {\bfseries TEST\+\_\+\+RESULT\+\_\+\+SKIPPED}~3
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_aff94de0de0428e277e9c660d755adb1a}\label{SDL__test__harness_8h_aff94de0de0428e277e9c660d755adb1a}} 
+\#define {\bfseries TEST\+\_\+\+RESULT\+\_\+\+SETUP\+\_\+\+FAILURE}~4
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_acf5b8d5c6dcbf946fdf7bdb1ceb03e45}\label{SDL__test__harness_8h_acf5b8d5c6dcbf946fdf7bdb1ceb03e45}} 
+typedef void($\ast$ {\bfseries SDLTest\+\_\+\+Test\+Case\+Set\+Up\+Fp}) (void $\ast$arg)
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_ae1a62d8f725d57dc95faddcc5409afbb}\label{SDL__test__harness_8h_ae1a62d8f725d57dc95faddcc5409afbb}} 
+typedef int($\ast$ {\bfseries SDLTest\+\_\+\+Test\+Case\+Fp}) (void $\ast$arg)
+\item 
+\mbox{\Hypertarget{SDL__test__harness_8h_a146292b699bf0c95e1c4bcfaced3b1dc}\label{SDL__test__harness_8h_a146292b699bf0c95e1c4bcfaced3b1dc}} 
+typedef void($\ast$ {\bfseries SDLTest\+\_\+\+Test\+Case\+Tear\+Down\+Fp}) (void $\ast$arg)
+\item 
+typedef struct \mbox{\hyperlink{structSDLTest__TestCaseReference}{SDLTest\+\_\+\+Test\+Case\+Reference}} \mbox{\hyperlink{SDL__test__harness_8h_ae02b9535633a86200d7bce94686d1545}{SDLTest\+\_\+\+Test\+Case\+Reference}}
+\item 
+typedef struct \mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}} \mbox{\hyperlink{SDL__test__harness_8h_ae52f136004f974251df5cde2152fc5ad}{SDLTest\+\_\+\+Test\+Suite\+Reference}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{SDL__test__harness_8h_a0f3c803e79549fcfd3bec2e93b19e0b1}{SDLTest\+\_\+\+Generate\+Run\+Seed}} (const int length)
+\begin{DoxyCompactList}\small\item\em Generates a random run seed string for the harness. The generated seed will contain alphanumeric characters (0-\/9A-\/Z). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{SDL__test__harness_8h_a4999be460499b1cb45e2b2b3bbb582b2}{SDLTest\+\_\+\+Run\+Suites}} (\mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}} $\ast$test\+Suites\mbox{[}$\,$\mbox{]}, const char $\ast$user\+Run\+Seed, Uint64 user\+Exec\+Key, const char $\ast$filter, int test\+Iterations)
+\begin{DoxyCompactList}\small\item\em Execute a test suite using the given run seed and execution key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__test__harness_8h_ae02b9535633a86200d7bce94686d1545}\label{SDL__test__harness_8h_ae02b9535633a86200d7bce94686d1545}} 
+\index{SDL\_test\_harness.h@{SDL\_test\_harness.h}!SDLTest\_TestCaseReference@{SDLTest\_TestCaseReference}}
+\index{SDLTest\_TestCaseReference@{SDLTest\_TestCaseReference}!SDL\_test\_harness.h@{SDL\_test\_harness.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_TestCaseReference}{SDLTest\_TestCaseReference}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDLTest__TestCaseReference}{SDLTest\+\_\+\+Test\+Case\+Reference}} \mbox{\hyperlink{structSDLTest__TestCaseReference}{SDLTest\+\_\+\+Test\+Case\+Reference}}}
+
+Holds information about a single test case. \mbox{\Hypertarget{SDL__test__harness_8h_ae52f136004f974251df5cde2152fc5ad}\label{SDL__test__harness_8h_ae52f136004f974251df5cde2152fc5ad}} 
+\index{SDL\_test\_harness.h@{SDL\_test\_harness.h}!SDLTest\_TestSuiteReference@{SDLTest\_TestSuiteReference}}
+\index{SDLTest\_TestSuiteReference@{SDLTest\_TestSuiteReference}!SDL\_test\_harness.h@{SDL\_test\_harness.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_TestSuiteReference}{SDLTest\_TestSuiteReference}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}} \mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}}}
+
+Holds information about a test suite (multiple test cases). 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__harness_8h_a0f3c803e79549fcfd3bec2e93b19e0b1}\label{SDL__test__harness_8h_a0f3c803e79549fcfd3bec2e93b19e0b1}} 
+\index{SDL\_test\_harness.h@{SDL\_test\_harness.h}!SDLTest\_GenerateRunSeed@{SDLTest\_GenerateRunSeed}}
+\index{SDLTest\_GenerateRunSeed@{SDLTest\_GenerateRunSeed}!SDL\_test\_harness.h@{SDL\_test\_harness.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_GenerateRunSeed()}{SDLTest\_GenerateRunSeed()}}
+{\footnotesize\ttfamily char$\ast$ SDLTest\+\_\+\+Generate\+Run\+Seed (\begin{DoxyParamCaption}\item[{const int}]{length }\end{DoxyParamCaption})}
+
+
+
+Generates a random run seed string for the harness. The generated seed will contain alphanumeric characters (0-\/9A-\/Z). 
+
+Note\+: The returned string needs to be deallocated by the caller.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em length} & The length of the seed string to generate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the generated seed string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__harness_8h_a4999be460499b1cb45e2b2b3bbb582b2}\label{SDL__test__harness_8h_a4999be460499b1cb45e2b2b3bbb582b2}} 
+\index{SDL\_test\_harness.h@{SDL\_test\_harness.h}!SDLTest\_RunSuites@{SDLTest\_RunSuites}}
+\index{SDLTest\_RunSuites@{SDLTest\_RunSuites}!SDL\_test\_harness.h@{SDL\_test\_harness.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_RunSuites()}{SDLTest\_RunSuites()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Run\+Suites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__TestSuiteReference}{SDLTest\+\_\+\+Test\+Suite\+Reference}} $\ast$}]{test\+Suites\mbox{[}$\,$\mbox{]},  }\item[{const char $\ast$}]{user\+Run\+Seed,  }\item[{Uint64}]{user\+Exec\+Key,  }\item[{const char $\ast$}]{filter,  }\item[{int}]{test\+Iterations }\end{DoxyParamCaption})}
+
+
+
+Execute a test suite using the given run seed and execution key. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em test\+Suites} & Suites containing the test case. \\
+\hline
+{\em user\+Run\+Seed} & Custom run seed provided by user, or NULL to autogenerate one. \\
+\hline
+{\em user\+Exec\+Key} & Custom execution key provided by user, or 0 to autogenerate one. \\
+\hline
+{\em filter} & Filter specification. NULL disables. Case sensitive. \\
+\hline
+{\em test\+Iterations} & Number of iterations to run each test case.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the test run result\+: 0 when all tests passed, 1 if any tests failed. 
+\end{DoxyReturn}

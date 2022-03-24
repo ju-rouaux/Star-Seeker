@@ -1,0 +1,50 @@
+\hypertarget{overlay_8h}{}\doxysection{Référence du fichier include/overlay.h}
+\label{overlay_8h}\index{include/overlay.h@{include/overlay.h}}
+
+
+Module de gestion de l\textquotesingle{}interface utilisateur in-\/game.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$overlay.\+h$>$}\newline
+{\ttfamily \#include $<$textures.\+h$>$}\newline
+{\ttfamily \#include $<$joueur.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{overlay_8h_a981c222c503070d57f4edb8ca611561b}{dessiner\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$infos\+Niveau, int id\+Salle)
+\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion de l\textquotesingle{}interface utilisateur in-\/game. 
+
+\begin{DoxyAuthor}{Auteur}
+Camille Remoué 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{overlay_8h_a981c222c503070d57f4edb8ca611561b}\label{overlay_8h_a981c222c503070d57f4edb8ca611561b}} 
+\index{overlay.h@{overlay.h}!dessiner\_map@{dessiner\_map}}
+\index{dessiner\_map@{dessiner\_map}!overlay.h@{overlay.h}}
+\doxysubsubsection{\texorpdfstring{dessiner\_map()}{dessiner\_map()}}
+{\footnotesize\ttfamily void dessiner\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{infos\+Niveau,  }\item[{int}]{id\+Salle }\end{DoxyParamCaption})}
+
+
+
+Dessine toute la map à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Informations d\textquotesingle{}échelle et de taille d\textquotesingle{}écran \\
+\hline
+{\em infos\+Niveau} & Matrice du niveau et couleurs du niveau \\
+\hline
+{\em id\+Salle} & ID de la salle actuelle \\
+\hline
+\end{DoxyParams}

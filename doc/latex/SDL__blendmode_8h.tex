@@ -1,0 +1,255 @@
+\hypertarget{SDL__blendmode_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+blendmode.h}
+\label{SDL__blendmode_8h}\index{include/SDL2/SDL\_blendmode.h@{include/SDL2/SDL\_blendmode.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} \{ \newline
+\mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea417f2736f69e38ae734e75afa04c57ac}{SDL\+\_\+\+BLENDMODE\+\_\+\+NONE}} = 0x00000000
+, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883}{SDL\+\_\+\+BLENDMODE\+\_\+\+BLEND}} = 0x00000001
+, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea4af39da8d41a1765fb26425a3ca4391e}{SDL\+\_\+\+BLENDMODE\+\_\+\+ADD}} = 0x00000002
+, \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eaf7714323757a614d3e506be37cd28c43}{SDL\+\_\+\+BLENDMODE\+\_\+\+MOD}} = 0x00000004
+, \newline
+\mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae52e77421c29b374f9442f162e357d50}{SDL\+\_\+\+BLENDMODE\+\_\+\+MUL}} = 0x00000008
+, {\bfseries SDL\+\_\+\+BLENDMODE\+\_\+\+INVALID} = 0x7\+FFFFFFF
+ \}
+\begin{DoxyCompactList}\small\item\em The blend mode used in \mbox{\hyperlink{SDL__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6}{SDL\+\_\+\+Render\+Copy()}} and drawing operations. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}} \{ \newline
+\mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a79c1a3992734df94dc21b0dd2eaf9cc3}{SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD}} = 0x1
+, \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502acd41cbbe8ee275638a8c9ef97de2eae5}{SDL\+\_\+\+BLENDOPERATION\+\_\+\+SUBTRACT}} = 0x2
+, \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a6f55ae40255c3d8c9927a85ea836d518}{SDL\+\_\+\+BLENDOPERATION\+\_\+\+REV\+\_\+\+SUBTRACT}} = 0x3
+, \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a49762d60e4bf6edcf42c7f7aa3c51fbd}{SDL\+\_\+\+BLENDOPERATION\+\_\+\+MINIMUM}} = 0x4
+, \newline
+\mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a236541634d3e80b4932b6c8a6b278f2a}{SDL\+\_\+\+BLENDOPERATION\+\_\+\+MAXIMUM}} = 0x5
+ \}
+\begin{DoxyCompactList}\small\item\em The blend operation used when combining source and destination pixel components. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}} \{ \newline
+\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca1729e63b0e2643241b7fb83b5e00a618}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ZERO}} = 0x1
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605caf2f9f66f01b413de3802f6764125a273}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE}} = 0x2
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca2ae2717da790b7616c9512cd5a031b06}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+SRC\+\_\+\+COLOR}} = 0x3
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca0ef57a3ec7cfbe5a4b6d7e6aab3d7612}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+SRC\+\_\+\+COLOR}} = 0x4
+, \newline
+\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca6709090055ddc6033c4ce7a63ac26fe5}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+SRC\+\_\+\+ALPHA}} = 0x5
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca99342bc66f17946d8b6ef26452a8b010}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+SRC\+\_\+\+ALPHA}} = 0x6
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cadcd2cc1da2d79b0f696a2f79350c96fc}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+DST\+\_\+\+COLOR}} = 0x7
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7238a9b5d18911b67ca3e6975bc66f73}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+DST\+\_\+\+COLOR}} = 0x8
+, \newline
+\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cabb3330092906beea2a5d1e275f338e42}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+DST\+\_\+\+ALPHA}} = 0x9
+, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7419eb5c0c94094f26f1f5183438c9e2}{SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+DST\+\_\+\+ALPHA}} = 0xA
+ \}
+\begin{DoxyCompactList}\small\item\em The normalized factor used to multiply pixel components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} SDLCALL \mbox{\hyperlink{SDL__blendmode_8h_a68566100acaa096e94f213a9768c6b6d}{SDL\+\_\+\+Compose\+Custom\+Blend\+Mode}} (\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}} src\+Color\+Factor, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}} dst\+Color\+Factor, \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}} color\+Operation, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}} src\+Alpha\+Factor, \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}} dst\+Alpha\+Factor, \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}} alpha\+Operation)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header file declaring the SDL\+\_\+\+Blend\+Mode enumeration 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}} 
+\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BlendFactor@{SDL\_BlendFactor}}
+\index{SDL\_BlendFactor@{SDL\_BlendFactor}!SDL\_blendmode.h@{SDL\_blendmode.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BlendFactor}{SDL\_BlendFactor}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}}}
+
+
+
+The normalized factor used to multiply pixel components. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ZERO@{SDL\_BLENDFACTOR\_ZERO}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ZERO@{SDL\_BLENDFACTOR\_ZERO}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca1729e63b0e2643241b7fb83b5e00a618}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca1729e63b0e2643241b7fb83b5e00a618}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ZERO&0, 0, 0, 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ONE@{SDL\_BLENDFACTOR\_ONE}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ONE@{SDL\_BLENDFACTOR\_ONE}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605caf2f9f66f01b413de3802f6764125a273}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605caf2f9f66f01b413de3802f6764125a273}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE&1, 1, 1, 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_SRC\_COLOR@{SDL\_BLENDFACTOR\_SRC\_COLOR}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_SRC\_COLOR@{SDL\_BLENDFACTOR\_SRC\_COLOR}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca2ae2717da790b7616c9512cd5a031b06}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca2ae2717da790b7616c9512cd5a031b06}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+SRC\+\_\+\+COLOR&srcR, srcG, srcB, srcA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_COLOR@{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_COLOR}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_COLOR@{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_COLOR}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca0ef57a3ec7cfbe5a4b6d7e6aab3d7612}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca0ef57a3ec7cfbe5a4b6d7e6aab3d7612}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+SRC\+\_\+\+COLOR&1-\/srcR, 1-\/srcG, 1-\/srcB, 1-\/srcA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_SRC\_ALPHA@{SDL\_BLENDFACTOR\_SRC\_ALPHA}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_SRC\_ALPHA@{SDL\_BLENDFACTOR\_SRC\_ALPHA}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca6709090055ddc6033c4ce7a63ac26fe5}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca6709090055ddc6033c4ce7a63ac26fe5}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+SRC\+\_\+\+ALPHA&srcA, srcA, srcA, srcA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_ALPHA@{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_ALPHA}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_ALPHA@{SDL\_BLENDFACTOR\_ONE\_MINUS\_SRC\_ALPHA}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca99342bc66f17946d8b6ef26452a8b010}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca99342bc66f17946d8b6ef26452a8b010}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+SRC\+\_\+\+ALPHA&1-\/srcA, 1-\/srcA, 1-\/srcA, 1-\/srcA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_DST\_COLOR@{SDL\_BLENDFACTOR\_DST\_COLOR}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_DST\_COLOR@{SDL\_BLENDFACTOR\_DST\_COLOR}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cadcd2cc1da2d79b0f696a2f79350c96fc}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cadcd2cc1da2d79b0f696a2f79350c96fc}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+DST\+\_\+\+COLOR&dstR, dstG, dstB, dstA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_COLOR@{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_COLOR}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_COLOR@{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_COLOR}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7238a9b5d18911b67ca3e6975bc66f73}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7238a9b5d18911b67ca3e6975bc66f73}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+DST\+\_\+\+COLOR&1-\/dstR, 1-\/dstG, 1-\/dstB, 1-\/dstA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_DST\_ALPHA@{SDL\_BLENDFACTOR\_DST\_ALPHA}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_DST\_ALPHA@{SDL\_BLENDFACTOR\_DST\_ALPHA}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cabb3330092906beea2a5d1e275f338e42}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605cabb3330092906beea2a5d1e275f338e42}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+DST\+\_\+\+ALPHA&dstA, dstA, dstA, dstA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_ALPHA@{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_ALPHA}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_ALPHA@{SDL\_BLENDFACTOR\_ONE\_MINUS\_DST\_ALPHA}}}\mbox{\Hypertarget{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7419eb5c0c94094f26f1f5183438c9e2}\label{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605ca7419eb5c0c94094f26f1f5183438c9e2}} 
+SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+DST\+\_\+\+ALPHA&1-\/dstA, 1-\/dstA, 1-\/dstA, 1-\/dstA \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}} 
+\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BlendMode@{SDL\_BlendMode}}
+\index{SDL\_BlendMode@{SDL\_BlendMode}!SDL\_blendmode.h@{SDL\_blendmode.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BlendMode}{SDL\_BlendMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}}}
+
+
+
+The blend mode used in \mbox{\hyperlink{SDL__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6}{SDL\+\_\+\+Render\+Copy()}} and drawing operations. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDMODE\_NONE@{SDL\_BLENDMODE\_NONE}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDMODE\_NONE@{SDL\_BLENDMODE\_NONE}}}\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea417f2736f69e38ae734e75afa04c57ac}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea417f2736f69e38ae734e75afa04c57ac}} 
+SDL\+\_\+\+BLENDMODE\+\_\+\+NONE&no blending dst\+RGBA = src\+RGBA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDMODE\_BLEND@{SDL\_BLENDMODE\_BLEND}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDMODE\_BLEND@{SDL\_BLENDMODE\_BLEND}}}\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883}} 
+SDL\+\_\+\+BLENDMODE\+\_\+\+BLEND&alpha blending dst\+RGB = (src\+RGB $\ast$ srcA) + (dst\+RGB $\ast$ (1-\/srcA)) dstA = srcA + (dstA $\ast$ (1-\/srcA)) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDMODE\_ADD@{SDL\_BLENDMODE\_ADD}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDMODE\_ADD@{SDL\_BLENDMODE\_ADD}}}\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea4af39da8d41a1765fb26425a3ca4391e}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1ea4af39da8d41a1765fb26425a3ca4391e}} 
+SDL\+\_\+\+BLENDMODE\+\_\+\+ADD&additive blending dst\+RGB = (src\+RGB $\ast$ srcA) + dst\+RGB dstA = dstA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDMODE\_MOD@{SDL\_BLENDMODE\_MOD}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDMODE\_MOD@{SDL\_BLENDMODE\_MOD}}}\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eaf7714323757a614d3e506be37cd28c43}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eaf7714323757a614d3e506be37cd28c43}} 
+SDL\+\_\+\+BLENDMODE\+\_\+\+MOD&color modulate dst\+RGB = src\+RGB $\ast$ dst\+RGB dstA = dstA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDMODE\_MUL@{SDL\_BLENDMODE\_MUL}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDMODE\_MUL@{SDL\_BLENDMODE\_MUL}}}\mbox{\Hypertarget{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae52e77421c29b374f9442f162e357d50}\label{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1eae52e77421c29b374f9442f162e357d50}} 
+SDL\+\_\+\+BLENDMODE\+\_\+\+MUL&color multiply dst\+RGB = (src\+RGB $\ast$ dst\+RGB) + (dst\+RGB $\ast$ (1-\/srcA)) dstA = (srcA $\ast$ dstA) + (dstA $\ast$ (1-\/srcA)) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}} 
+\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BlendOperation@{SDL\_BlendOperation}}
+\index{SDL\_BlendOperation@{SDL\_BlendOperation}!SDL\_blendmode.h@{SDL\_blendmode.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BlendOperation}{SDL\_BlendOperation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}}}
+
+
+
+The blend operation used when combining source and destination pixel components. 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDOPERATION\_ADD@{SDL\_BLENDOPERATION\_ADD}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDOPERATION\_ADD@{SDL\_BLENDOPERATION\_ADD}}}\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a79c1a3992734df94dc21b0dd2eaf9cc3}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a79c1a3992734df94dc21b0dd2eaf9cc3}} 
+SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD&dst + src\+: supported by all renderers \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDOPERATION\_SUBTRACT@{SDL\_BLENDOPERATION\_SUBTRACT}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDOPERATION\_SUBTRACT@{SDL\_BLENDOPERATION\_SUBTRACT}}}\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502acd41cbbe8ee275638a8c9ef97de2eae5}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502acd41cbbe8ee275638a8c9ef97de2eae5}} 
+SDL\+\_\+\+BLENDOPERATION\+\_\+\+SUBTRACT&dst -\/ src \+: supported by D3\+D9, D3\+D11, Open\+GL, Open\+GLES \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDOPERATION\_REV\_SUBTRACT@{SDL\_BLENDOPERATION\_REV\_SUBTRACT}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDOPERATION\_REV\_SUBTRACT@{SDL\_BLENDOPERATION\_REV\_SUBTRACT}}}\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a6f55ae40255c3d8c9927a85ea836d518}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a6f55ae40255c3d8c9927a85ea836d518}} 
+SDL\+\_\+\+BLENDOPERATION\+\_\+\+REV\+\_\+\+SUBTRACT&src -\/ dst \+: supported by D3\+D9, D3\+D11, Open\+GL, Open\+GLES \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDOPERATION\_MINIMUM@{SDL\_BLENDOPERATION\_MINIMUM}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDOPERATION\_MINIMUM@{SDL\_BLENDOPERATION\_MINIMUM}}}\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a49762d60e4bf6edcf42c7f7aa3c51fbd}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a49762d60e4bf6edcf42c7f7aa3c51fbd}} 
+SDL\+\_\+\+BLENDOPERATION\+\_\+\+MINIMUM&min(dst, src) \+: supported by D3\+D11 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_BLENDOPERATION\_MAXIMUM@{SDL\_BLENDOPERATION\_MAXIMUM}!SDL\_blendmode.h@{SDL\_blendmode.h}}\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_BLENDOPERATION\_MAXIMUM@{SDL\_BLENDOPERATION\_MAXIMUM}}}\mbox{\Hypertarget{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a236541634d3e80b4932b6c8a6b278f2a}\label{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502a236541634d3e80b4932b6c8a6b278f2a}} 
+SDL\+\_\+\+BLENDOPERATION\+\_\+\+MAXIMUM&max(dst, src) \+: supported by D3\+D11 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__blendmode_8h_a68566100acaa096e94f213a9768c6b6d}\label{SDL__blendmode_8h_a68566100acaa096e94f213a9768c6b6d}} 
+\index{SDL\_blendmode.h@{SDL\_blendmode.h}!SDL\_ComposeCustomBlendMode@{SDL\_ComposeCustomBlendMode}}
+\index{SDL\_ComposeCustomBlendMode@{SDL\_ComposeCustomBlendMode}!SDL\_blendmode.h@{SDL\_blendmode.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ComposeCustomBlendMode()}{SDL\_ComposeCustomBlendMode()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__blendmode_8h_a850d3c67a878fd6698a1c8dbb1eabf1e}{SDL\+\_\+\+Blend\+Mode}} SDLCALL SDL\+\_\+\+Compose\+Custom\+Blend\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}}}]{src\+Color\+Factor,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}}}]{dst\+Color\+Factor,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}}}]{color\+Operation,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}}}]{src\+Alpha\+Factor,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_ae7649e376a461512af328b39f3d9605c}{SDL\+\_\+\+Blend\+Factor}}}]{dst\+Alpha\+Factor,  }\item[{\mbox{\hyperlink{SDL__blendmode_8h_a54ae8d3f832db7354f4fda522835f502}{SDL\+\_\+\+Blend\+Operation}}}]{alpha\+Operation }\end{DoxyParamCaption})}
+
+Compose a custom blend mode for renderers.
+
+The functions SDL\+\_\+\+Set\+Render\+Draw\+Blend\+Mode and SDL\+\_\+\+Set\+Texture\+Blend\+Mode accept the SDL\+\_\+\+Blend\+Mode returned by this function if the renderer supports it.
+
+A blend mode controls how the pixels from a drawing operation (source) get combined with the pixels from the render target (destination). First, the components of the source and destination pixels get multiplied with their blend factors. Then, the blend operation takes the two products and calculates the result that will get stored in the render target.
+
+Expressed in pseudocode, it would look like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{dstRGB = colorOperation(srcRGB * srcColorFactor, dstRGB * dstColorFactor);}
+\DoxyCodeLine{dstA = alphaOperation(srcA * srcAlphaFactor, dstA * dstAlphaFactor);}
+
+\end{DoxyCode}
+
+
+Where the functions {\ttfamily color\+Operation(src, dst)} and {\ttfamily alpha\+Operation(src, dst)} can return one of the following\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily src + dst}
+\item {\ttfamily src -\/ dst}
+\item {\ttfamily dst -\/ src}
+\item {\ttfamily min(src, dst)}
+\item {\ttfamily max(src, dst)}
+\end{DoxyItemize}
+
+The red, green, and blue components are always multiplied with the first, second, and third components of the SDL\+\_\+\+Blend\+Factor, respectively. The fourth component is not used.
+
+The alpha component is always multiplied with the fourth component of the SDL\+\_\+\+Blend\+Factor. The other components are not used in the alpha calculation.
+
+Support for these blend modes varies for each renderer. To check if a specific SDL\+\_\+\+Blend\+Mode is supported, create a renderer and pass it to either SDL\+\_\+\+Set\+Render\+Draw\+Blend\+Mode or SDL\+\_\+\+Set\+Texture\+Blend\+Mode. They will return with an error if the blend mode is not supported.
+
+This list describes the support of custom blend modes for each renderer in SDL 2.\+0.\+6. All renderers support the four blend modes listed in the SDL\+\_\+\+Blend\+Mode enumeration.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{direct3d}}\+: Supports {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD} with all factors.
+\item {\bfseries{direct3d11}}\+: Supports all operations with all factors. However, some factors produce unexpected results with {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+MINIMUM} and {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+MAXIMUM}.
+\item {\bfseries{opengl}}\+: Supports the {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD} operation with all factors. Open\+GL versions 1.\+1, 1.\+2, and 1.\+3 do not work correctly with SDL 2.\+0.\+6.
+\item {\bfseries{opengles}}\+: Supports the {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD} operation with all factors. Color and alpha factors need to be the same. Open\+GL ES 1 implementation specific\+: May also support {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+SUBTRACT} and {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+REV\+\_\+\+SUBTRACT}. May support color and alpha operations being different from each other. May support color and alpha factors being different from each other.
+\item {\bfseries{opengles2}}\+: Supports the {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+ADD}, {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+SUBTRACT}, {\ttfamily SDL\+\_\+\+BLENDOPERATION\+\_\+\+REV\+\_\+\+SUBTRACT} operations with all factors.
+\item {\bfseries{psp}}\+: No custom blend mode support.
+\item {\bfseries{software}}\+: No custom blend mode support.
+\end{DoxyItemize}
+
+Some renderers do not provide an alpha component for the default render target. The {\ttfamily SDL\+\_\+\+BLENDFACTOR\+\_\+\+DST\+\_\+\+ALPHA} and {\ttfamily SDL\+\_\+\+BLENDFACTOR\+\_\+\+ONE\+\_\+\+MINUS\+\_\+\+DST\+\_\+\+ALPHA} factors do not have an effect in this case.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src\+Color\+Factor} & the SDL\+\_\+\+Blend\+Factor applied to the red, green, and blue components of the source pixels \\
+\hline
+{\em dst\+Color\+Factor} & the SDL\+\_\+\+Blend\+Factor applied to the red, green, and blue components of the destination pixels \\
+\hline
+{\em color\+Operation} & the SDL\+\_\+\+Blend\+Operation used to combine the red, green, and blue components of the source and destination pixels \\
+\hline
+{\em src\+Alpha\+Factor} & the SDL\+\_\+\+Blend\+Factor applied to the alpha component of the source pixels \\
+\hline
+{\em dst\+Alpha\+Factor} & the SDL\+\_\+\+Blend\+Factor applied to the alpha component of the destination pixels \\
+\hline
+{\em alpha\+Operation} & the SDL\+\_\+\+Blend\+Operation used to combine the alpha component of the source and destination pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Blend\+Mode that represents the chosen factors and operations.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+6.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__render_8h_a37e6e440b995756c9cc8a20fe3ca2385}{SDL\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}} 
+
+\mbox{\hyperlink{SDL__render_8h_a384109767532e9703652233571a0d3cf}{SDL\+\_\+\+Get\+Render\+Draw\+Blend\+Mode}} 
+
+\mbox{\hyperlink{SDL__render_8h_af8b9cb77ca18f76c18f39d29ed960de8}{SDL\+\_\+\+Set\+Texture\+Blend\+Mode}} 
+
+\mbox{\hyperlink{SDL__render_8h_a2595ee57e6f3a4882f3ae4062ca420c4}{SDL\+\_\+\+Get\+Texture\+Blend\+Mode}} 
+\end{DoxySeeAlso}

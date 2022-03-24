@@ -1,0 +1,97 @@
+\hypertarget{projectiles_8h}{}\doxysection{Référence du fichier include/projectiles.h}
+\label{projectiles_8h}\index{include/projectiles.h@{include/projectiles.h}}
+
+
+Module de définition de projectiles.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$attributs\+\_\+entites.\+h$>$}\newline
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{projectiles_8h_ae083b265f5792be4d0fef62db17ba440}\label{projectiles_8h_ae083b265f5792be4d0fef62db17ba440}} 
+typedef struct s\+\_\+projectile {\bfseries t\+\_\+projectile}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}\label{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}} 
+enum {\bfseries e\+\_\+type\+\_\+projectile} \{ \newline
+{\bfseries BALLE}
+, {\bfseries BOULE\+\_\+\+FEU}
+, {\bfseries BOULET}
+, {\bfseries SHURIKEN}
+, \newline
+{\bfseries SABRE}
+, {\bfseries LASER}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{projectiles_8h_a54419c37c4af9b4b3d4af8cad856cf4f}\label{projectiles_8h_a54419c37c4af9b4b3d4af8cad856cf4f}} 
+int {\bfseries faire\+Degats} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile, struct s\+\_\+joueur $\ast$joueur, t\+\_\+liste $\ast$liste)
+\item 
+\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$ \mbox{\hyperlink{projectiles_8h_a4ae4edfde673d942e4b54428c2e7aad2}{creer\+Projectile}} (e\+\_\+type\+\_\+projectile type, float x, float y, float direction\+\_\+vx, float direction\+\_\+vy, \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} cible, SDL\+\_\+\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un projectile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}{detruire\+Projectile}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$$\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une structure projectile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de définition de projectiles. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{projectiles_8h_a4ae4edfde673d942e4b54428c2e7aad2}\label{projectiles_8h_a4ae4edfde673d942e4b54428c2e7aad2}} 
+\index{projectiles.h@{projectiles.h}!creerProjectile@{creerProjectile}}
+\index{creerProjectile@{creerProjectile}!projectiles.h@{projectiles.h}}
+\doxysubsubsection{\texorpdfstring{creerProjectile()}{creerProjectile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}}$\ast$ creer\+Projectile (\begin{DoxyParamCaption}\item[{e\+\_\+type\+\_\+projectile}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{direction\+\_\+vx,  }\item[{float}]{direction\+\_\+vy,  }\item[{\mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}}}]{cible,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un projectile. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & La nature du projectile désiré \\
+\hline
+{\em x} & La position de départ en x \\
+\hline
+{\em y} & La position de départ en y \\
+\hline
+{\em direction\+\_\+vx} & Sa direction en x \\
+\hline
+{\em direction\+\_\+vy} & Sa direction en y \\
+\hline
+{\em cible} & Le type de l\textquotesingle{}entité qui doit subir des dégats s\textquotesingle{}il est touché \\
+\hline
+{\em texture} & Tileset des projectiles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur projectile (NULL si echec). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}\label{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}} 
+\index{projectiles.h@{projectiles.h}!detruireProjectile@{detruireProjectile}}
+\index{detruireProjectile@{detruireProjectile}!projectiles.h@{projectiles.h}}
+\doxysubsubsection{\texorpdfstring{detruireProjectile()}{detruireProjectile()}}
+{\footnotesize\ttfamily void detruire\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$$\ast$}]{projectile }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée à une structure projectile. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & L\textquotesingle{}adresse du pointeur du projectile \\
+\hline
+\end{DoxyParams}

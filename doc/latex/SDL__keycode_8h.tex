@@ -1,0 +1,369 @@
+\hypertarget{SDL__keycode_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+keycode.h}
+\label{SDL__keycode_8h}\index{include/SDL2/SDL\_keycode.h@{include/SDL2/SDL\_keycode.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+scancode.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__keycode_8h_ad1ff7a791f8bc7b5c16cd89cf24fa927}\label{SDL__keycode_8h_ad1ff7a791f8bc7b5c16cd89cf24fa927}} 
+\#define {\bfseries SDLK\+\_\+\+SCANCODE\+\_\+\+MASK}~(1$<$$<$30)
+\item 
+\mbox{\Hypertarget{SDL__keycode_8h_a5c00698b7cbc9ebe72d77c34fdc5bd3a}\label{SDL__keycode_8h_a5c00698b7cbc9ebe72d77c34fdc5bd3a}} 
+\#define {\bfseries SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE}(X)~(X $\vert$ SDLK\+\_\+\+SCANCODE\+\_\+\+MASK)
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef Sint32 \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}}
+\begin{DoxyCompactList}\small\item\em The SDL virtual key representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__keycode_8h_a179ce01fa41d35408f06b4b3d1cd9d3d}\label{SDL__keycode_8h_a179ce01fa41d35408f06b4b3d1cd9d3d}} 
+enum {\bfseries SDL\+\_\+\+Key\+Code} \{ \newline
+{\bfseries SDLK\+\_\+\+UNKNOWN} = 0
+, {\bfseries SDLK\+\_\+\+RETURN} = \textquotesingle{}\textbackslash{}r\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+ESCAPE} = \textquotesingle{}\textbackslash{}x1B\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+BACKSPACE} = \textquotesingle{}\textbackslash{}b\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+TAB} = \textquotesingle{}\textbackslash{}t\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+SPACE} = \textquotesingle{} \textquotesingle{}
+, {\bfseries SDLK\+\_\+\+EXCLAIM} = \textquotesingle{}!\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+QUOTEDBL} = \textquotesingle{}\char`\"{}\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+HASH} = \textquotesingle{}\#\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+PERCENT} = \textquotesingle{}\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+DOLLAR} = \textquotesingle{}\$\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+AMPERSAND} = \textquotesingle{}\&\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+QUOTE} = \textquotesingle{}\textbackslash{}\textquotesingle{}\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+LEFTPAREN} = \textquotesingle{}(\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+RIGHTPAREN} = \textquotesingle{})\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+ASTERISK} = \textquotesingle{}$\ast$\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+PLUS} = \textquotesingle{}+\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+COMMA} = \textquotesingle{},\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+MINUS} = \textquotesingle{}-\/\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+PERIOD} = \textquotesingle{}.\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+SLASH} = \textquotesingle{}/\textquotesingle{}
+, {\bfseries SDLK\+\_\+0} = \textquotesingle{}0\textquotesingle{}
+, {\bfseries SDLK\+\_\+1} = \textquotesingle{}1\textquotesingle{}
+, {\bfseries SDLK\+\_\+2} = \textquotesingle{}2\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+3} = \textquotesingle{}3\textquotesingle{}
+, {\bfseries SDLK\+\_\+4} = \textquotesingle{}4\textquotesingle{}
+, {\bfseries SDLK\+\_\+5} = \textquotesingle{}5\textquotesingle{}
+, {\bfseries SDLK\+\_\+6} = \textquotesingle{}6\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+7} = \textquotesingle{}7\textquotesingle{}
+, {\bfseries SDLK\+\_\+8} = \textquotesingle{}8\textquotesingle{}
+, {\bfseries SDLK\+\_\+9} = \textquotesingle{}9\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+COLON} = \textquotesingle{}\+:\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+SEMICOLON} = \textquotesingle{};\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+LESS} = \textquotesingle{}$<$\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+EQUALS} = \textquotesingle{}=\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+GREATER} = \textquotesingle{}$>$\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+QUESTION} = \textquotesingle{}?\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+AT} = \textquotesingle{}@\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+LEFTBRACKET} = \textquotesingle{}\mbox{[}\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+BACKSLASH} = \textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+\+RIGHTBRACKET} = \textquotesingle{}\mbox{]}\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+CARET} = \textquotesingle{}$^\wedge$\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+UNDERSCORE} = \textquotesingle{}\+\_\+\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+BACKQUOTE} = \textquotesingle{}\`{}\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+a} = \textquotesingle{}a\textquotesingle{}
+, {\bfseries SDLK\+\_\+b} = \textquotesingle{}b\textquotesingle{}
+, {\bfseries SDLK\+\_\+c} = \textquotesingle{}c\textquotesingle{}
+, {\bfseries SDLK\+\_\+d} = \textquotesingle{}d\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+e} = \textquotesingle{}e\textquotesingle{}
+, {\bfseries SDLK\+\_\+f} = \textquotesingle{}f\textquotesingle{}
+, {\bfseries SDLK\+\_\+g} = \textquotesingle{}g\textquotesingle{}
+, {\bfseries SDLK\+\_\+h} = \textquotesingle{}h\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+i} = \textquotesingle{}i\textquotesingle{}
+, {\bfseries SDLK\+\_\+j} = \textquotesingle{}j\textquotesingle{}
+, {\bfseries SDLK\+\_\+k} = \textquotesingle{}k\textquotesingle{}
+, {\bfseries SDLK\+\_\+l} = \textquotesingle{}l\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+m} = \textquotesingle{}m\textquotesingle{}
+, {\bfseries SDLK\+\_\+n} = \textquotesingle{}n\textquotesingle{}
+, {\bfseries SDLK\+\_\+o} = \textquotesingle{}o\textquotesingle{}
+, {\bfseries SDLK\+\_\+p} = \textquotesingle{}p\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+q} = \textquotesingle{}q\textquotesingle{}
+, {\bfseries SDLK\+\_\+r} = \textquotesingle{}r\textquotesingle{}
+, {\bfseries SDLK\+\_\+s} = \textquotesingle{}s\textquotesingle{}
+, {\bfseries SDLK\+\_\+t} = \textquotesingle{}t\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+u} = \textquotesingle{}u\textquotesingle{}
+, {\bfseries SDLK\+\_\+v} = \textquotesingle{}v\textquotesingle{}
+, {\bfseries SDLK\+\_\+w} = \textquotesingle{}w\textquotesingle{}
+, {\bfseries SDLK\+\_\+x} = \textquotesingle{}x\textquotesingle{}
+, \newline
+{\bfseries SDLK\+\_\+y} = \textquotesingle{}y\textquotesingle{}
+, {\bfseries SDLK\+\_\+z} = \textquotesingle{}z\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+CAPSLOCK} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CAPSLOCK)
+, {\bfseries SDLK\+\_\+\+F1} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F1)
+, \newline
+{\bfseries SDLK\+\_\+\+F2} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F2)
+, {\bfseries SDLK\+\_\+\+F3} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F3)
+, {\bfseries SDLK\+\_\+\+F4} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F4)
+, {\bfseries SDLK\+\_\+\+F5} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F5)
+, \newline
+{\bfseries SDLK\+\_\+\+F6} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F6)
+, {\bfseries SDLK\+\_\+\+F7} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F7)
+, {\bfseries SDLK\+\_\+\+F8} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F8)
+, {\bfseries SDLK\+\_\+\+F9} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F9)
+, \newline
+{\bfseries SDLK\+\_\+\+F10} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F10)
+, {\bfseries SDLK\+\_\+\+F11} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F11)
+, {\bfseries SDLK\+\_\+\+F12} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F12)
+, {\bfseries SDLK\+\_\+\+PRINTSCREEN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PRINTSCREEN)
+, \newline
+{\bfseries SDLK\+\_\+\+SCROLLLOCK} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+SCROLLLOCK)
+, {\bfseries SDLK\+\_\+\+PAUSE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PAUSE)
+, {\bfseries SDLK\+\_\+\+INSERT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+INSERT)
+, {\bfseries SDLK\+\_\+\+HOME} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+HOME)
+, \newline
+{\bfseries SDLK\+\_\+\+PAGEUP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PAGEUP)
+, {\bfseries SDLK\+\_\+\+DELETE} = \textquotesingle{}\textbackslash{}x7F\textquotesingle{}
+, {\bfseries SDLK\+\_\+\+END} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+END)
+, {\bfseries SDLK\+\_\+\+PAGEDOWN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PAGEDOWN)
+, \newline
+{\bfseries SDLK\+\_\+\+RIGHT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RIGHT)
+, {\bfseries SDLK\+\_\+\+LEFT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+LEFT)
+, {\bfseries SDLK\+\_\+\+DOWN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+DOWN)
+, {\bfseries SDLK\+\_\+\+UP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+UP)
+, \newline
+{\bfseries SDLK\+\_\+\+NUMLOCKCLEAR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+NUMLOCKCLEAR)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+DIVIDE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+DIVIDE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MULTIPLY} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MULTIPLY)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MINUS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MINUS)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+PLUS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+PLUS)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+ENTER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+ENTER)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+1} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+1)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+2} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+2)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+3} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+3)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+4} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+4)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+5} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+5)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+6} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+6)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+7} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+7)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+8} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+8)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+9} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+9)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+0} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+0)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+PERIOD} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+PERIOD)
+, {\bfseries SDLK\+\_\+\+APPLICATION} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+APPLICATION)
+, {\bfseries SDLK\+\_\+\+POWER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+POWER)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+EQUALS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+EQUALS)
+, \newline
+{\bfseries SDLK\+\_\+\+F13} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F13)
+, {\bfseries SDLK\+\_\+\+F14} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F14)
+, {\bfseries SDLK\+\_\+\+F15} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F15)
+, {\bfseries SDLK\+\_\+\+F16} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F16)
+, \newline
+{\bfseries SDLK\+\_\+\+F17} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F17)
+, {\bfseries SDLK\+\_\+\+F18} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F18)
+, {\bfseries SDLK\+\_\+\+F19} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F19)
+, {\bfseries SDLK\+\_\+\+F20} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F20)
+, \newline
+{\bfseries SDLK\+\_\+\+F21} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F21)
+, {\bfseries SDLK\+\_\+\+F22} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F22)
+, {\bfseries SDLK\+\_\+\+F23} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F23)
+, {\bfseries SDLK\+\_\+\+F24} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+F24)
+, \newline
+{\bfseries SDLK\+\_\+\+EXECUTE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+EXECUTE)
+, {\bfseries SDLK\+\_\+\+HELP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+HELP)
+, {\bfseries SDLK\+\_\+\+MENU} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+MENU)
+, {\bfseries SDLK\+\_\+\+SELECT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+SELECT)
+, \newline
+{\bfseries SDLK\+\_\+\+STOP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+STOP)
+, {\bfseries SDLK\+\_\+\+AGAIN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AGAIN)
+, {\bfseries SDLK\+\_\+\+UNDO} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+UNDO)
+, {\bfseries SDLK\+\_\+\+CUT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CUT)
+, \newline
+{\bfseries SDLK\+\_\+\+COPY} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+COPY)
+, {\bfseries SDLK\+\_\+\+PASTE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PASTE)
+, {\bfseries SDLK\+\_\+\+FIND} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+FIND)
+, {\bfseries SDLK\+\_\+\+MUTE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+MUTE)
+, \newline
+{\bfseries SDLK\+\_\+\+VOLUMEUP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+VOLUMEUP)
+, {\bfseries SDLK\+\_\+\+VOLUMEDOWN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+VOLUMEDOWN)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+COMMA} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+COMMA)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+EQUALSAS400}
+, \newline
+{\bfseries SDLK\+\_\+\+ALTERASE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+ALTERASE)
+, {\bfseries SDLK\+\_\+\+SYSREQ} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+SYSREQ)
+, {\bfseries SDLK\+\_\+\+CANCEL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CANCEL)
+, {\bfseries SDLK\+\_\+\+CLEAR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CLEAR)
+, \newline
+{\bfseries SDLK\+\_\+\+PRIOR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+PRIOR)
+, {\bfseries SDLK\+\_\+\+RETURN2} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RETURN2)
+, {\bfseries SDLK\+\_\+\+SEPARATOR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+SEPARATOR)
+, {\bfseries SDLK\+\_\+\+OUT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+OUT)
+, \newline
+{\bfseries SDLK\+\_\+\+OPER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+OPER)
+, {\bfseries SDLK\+\_\+\+CLEARAGAIN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CLEARAGAIN)
+, {\bfseries SDLK\+\_\+\+CRSEL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CRSEL)
+, {\bfseries SDLK\+\_\+\+EXSEL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+EXSEL)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+00} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+00)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+000} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+000)
+, {\bfseries SDLK\+\_\+\+THOUSANDSSEPARATOR}
+, {\bfseries SDLK\+\_\+\+DECIMALSEPARATOR}
+, \newline
+{\bfseries SDLK\+\_\+\+CURRENCYUNIT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CURRENCYUNIT)
+, {\bfseries SDLK\+\_\+\+CURRENCYSUBUNIT}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+LEFTPAREN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+LEFTPAREN)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+RIGHTPAREN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+RIGHTPAREN)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+LEFTBRACE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+LEFTBRACE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+RIGHTBRACE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+RIGHTBRACE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+TAB} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+TAB)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+BACKSPACE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+BACKSPACE)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+A} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+A)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+B} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+B)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+C} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+C)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+D} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+D)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+E} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+E)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+F} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+F)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+XOR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+XOR)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+POWER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+POWER)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+PERCENT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+PERCENT)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+LESS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+LESS)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+GREATER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+GREATER)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+AMPERSAND} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+AMPERSAND)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+DBLAMPERSAND}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+VERTICALBAR}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+DBLVERTICALBAR}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+COLON} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+COLON)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+HASH} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+HASH)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+SPACE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+SPACE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+AT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+AT)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+EXCLAM} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+EXCLAM)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMSTORE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MEMSTORE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMRECALL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MEMRECALL)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMCLEAR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MEMCLEAR)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMADD} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MEMADD)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMSUBTRACT}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMMULTIPLY}
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+MEMDIVIDE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+MEMDIVIDE)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+PLUSMINUS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+PLUSMINUS)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+CLEAR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+CLEAR)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+CLEARENTRY} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+CLEARENTRY)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+BINARY} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+BINARY)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+OCTAL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+OCTAL)
+, \newline
+{\bfseries SDLK\+\_\+\+KP\+\_\+\+DECIMAL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KP\+\_\+\+DECIMAL)
+, {\bfseries SDLK\+\_\+\+KP\+\_\+\+HEXADECIMAL}
+, {\bfseries SDLK\+\_\+\+LCTRL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+LCTRL)
+, {\bfseries SDLK\+\_\+\+LSHIFT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+LSHIFT)
+, \newline
+{\bfseries SDLK\+\_\+\+LALT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+LALT)
+, {\bfseries SDLK\+\_\+\+LGUI} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+LGUI)
+, {\bfseries SDLK\+\_\+\+RCTRL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RCTRL)
+, {\bfseries SDLK\+\_\+\+RSHIFT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RSHIFT)
+, \newline
+{\bfseries SDLK\+\_\+\+RALT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RALT)
+, {\bfseries SDLK\+\_\+\+RGUI} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+RGUI)
+, {\bfseries SDLK\+\_\+\+MODE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+MODE)
+, {\bfseries SDLK\+\_\+\+AUDIONEXT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIONEXT)
+, \newline
+{\bfseries SDLK\+\_\+\+AUDIOPREV} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOPREV)
+, {\bfseries SDLK\+\_\+\+AUDIOSTOP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOSTOP)
+, {\bfseries SDLK\+\_\+\+AUDIOPLAY} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOPLAY)
+, {\bfseries SDLK\+\_\+\+AUDIOMUTE} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOMUTE)
+, \newline
+{\bfseries SDLK\+\_\+\+MEDIASELECT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+MEDIASELECT)
+, {\bfseries SDLK\+\_\+\+WWW} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+WWW)
+, {\bfseries SDLK\+\_\+\+MAIL} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+MAIL)
+, {\bfseries SDLK\+\_\+\+CALCULATOR} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+CALCULATOR)
+, \newline
+{\bfseries SDLK\+\_\+\+COMPUTER} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+COMPUTER)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+SEARCH} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+SEARCH)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+HOME} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+HOME)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+BACK} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+BACK)
+, \newline
+{\bfseries SDLK\+\_\+\+AC\+\_\+\+FORWARD} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+FORWARD)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+STOP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+STOP)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+REFRESH} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+REFRESH)
+, {\bfseries SDLK\+\_\+\+AC\+\_\+\+BOOKMARKS} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AC\+\_\+\+BOOKMARKS)
+, \newline
+{\bfseries SDLK\+\_\+\+BRIGHTNESSDOWN}
+, {\bfseries SDLK\+\_\+\+BRIGHTNESSUP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+BRIGHTNESSUP)
+, {\bfseries SDLK\+\_\+\+DISPLAYSWITCH} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+DISPLAYSWITCH)
+, {\bfseries SDLK\+\_\+\+KBDILLUMTOGGLE}
+, \newline
+{\bfseries SDLK\+\_\+\+KBDILLUMDOWN} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KBDILLUMDOWN)
+, {\bfseries SDLK\+\_\+\+KBDILLUMUP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+KBDILLUMUP)
+, {\bfseries SDLK\+\_\+\+EJECT} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+EJECT)
+, {\bfseries SDLK\+\_\+\+SLEEP} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+SLEEP)
+, \newline
+{\bfseries SDLK\+\_\+\+APP1} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+APP1)
+, {\bfseries SDLK\+\_\+\+APP2} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+APP2)
+, {\bfseries SDLK\+\_\+\+AUDIOREWIND} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOREWIND)
+, {\bfseries SDLK\+\_\+\+AUDIOFASTFORWARD} = SDL\+\_\+\+SCANCODE\+\_\+\+TO\+\_\+\+KEYCODE(SDL\+\_\+\+SCANCODE\+\_\+\+AUDIOFASTFORWARD)
+ \}
+\item 
+\mbox{\Hypertarget{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}\label{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}} 
+enum \mbox{\hyperlink{SDL__keycode_8h_afa050ad71f0a5b86aa05cb13f542d747}{SDL\+\_\+\+Keymod}} \{ \newline
+{\bfseries KMOD\+\_\+\+NONE} = 0x0000
+, {\bfseries KMOD\+\_\+\+LSHIFT} = 0x0001
+, {\bfseries KMOD\+\_\+\+RSHIFT} = 0x0002
+, {\bfseries KMOD\+\_\+\+LCTRL} = 0x0040
+, \newline
+{\bfseries KMOD\+\_\+\+RCTRL} = 0x0080
+, {\bfseries KMOD\+\_\+\+LALT} = 0x0100
+, {\bfseries KMOD\+\_\+\+RALT} = 0x0200
+, {\bfseries KMOD\+\_\+\+LGUI} = 0x0400
+, \newline
+{\bfseries KMOD\+\_\+\+RGUI} = 0x0800
+, {\bfseries KMOD\+\_\+\+NUM} = 0x1000
+, {\bfseries KMOD\+\_\+\+CAPS} = 0x2000
+, {\bfseries KMOD\+\_\+\+MODE} = 0x4000
+, \newline
+{\bfseries KMOD\+\_\+\+SCROLL} = 0x8000
+, {\bfseries KMOD\+\_\+\+CTRL} = KMOD\+\_\+\+LCTRL $\vert$ KMOD\+\_\+\+RCTRL
+, {\bfseries KMOD\+\_\+\+SHIFT} = KMOD\+\_\+\+LSHIFT $\vert$ KMOD\+\_\+\+RSHIFT
+, {\bfseries KMOD\+\_\+\+ALT} = KMOD\+\_\+\+LALT $\vert$ KMOD\+\_\+\+RALT
+, \newline
+{\bfseries KMOD\+\_\+\+GUI} = KMOD\+\_\+\+LGUI $\vert$ KMOD\+\_\+\+RGUI
+, {\bfseries KMOD\+\_\+\+RESERVED} = KMOD\+\_\+\+SCROLL
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of valid key mods (possibly OR\textquotesingle{}d together). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Defines constants which identify keyboard keys and modifiers. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}\label{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}} 
+\index{SDL\_keycode.h@{SDL\_keycode.h}!SDL\_Keycode@{SDL\_Keycode}}
+\index{SDL\_Keycode@{SDL\_Keycode}!SDL\_keycode.h@{SDL\_keycode.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Keycode}{SDL\_Keycode}}
+{\footnotesize\ttfamily typedef Sint32 \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}}}
+
+
+
+The SDL virtual key representation. 
+
+Values of this type are used to represent keyboard keys using the current layout of the keyboard. These values include Unicode values representing the unmodified character that would be generated by pressing the key, or an SDLK\+\_\+$\ast$ constant for those keys that do not generate characters.
+
+A special exception is the number keys at the top of the keyboard which always map to SDLK\+\_\+0...SDLK\+\_\+9, regardless of layout. 

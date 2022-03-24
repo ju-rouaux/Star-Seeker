@@ -1,0 +1,2297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_surface.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_surface.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__pixels_8h_source.html">SDL_pixels.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__rect_8h_source.html">SDL_rect.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__blendmode_8h_source.html">SDL_blendmode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__rwops_8h_source.html">SDL_rwops.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__surface_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__Surface.html">SDL_Surface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of pixels used in software blitting.  <a href="structSDL__Surface.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Surface flags</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p ><a class="anchor" id="amgrpd2eeaf52e16b8c367d79016ab953cd2b"></a>These are the currently supported flags for the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a>. </p>
+</td></tr>
+<tr class="memitem:a59c7111f96872f973d0f058362761776"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a59c7111f96872f973d0f058362761776">SDL_SWSURFACE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a59c7111f96872f973d0f058362761776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a5f795a69ac626fba73c4bd0bfd9626"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a4a5f795a69ac626fba73c4bd0bfd9626">SDL_PREALLOC</a>&#160;&#160;&#160;0x00000001</td></tr>
+<tr class="separator:a4a5f795a69ac626fba73c4bd0bfd9626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b3d53ad7ba0b7294ca25251d88d40fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a3b3d53ad7ba0b7294ca25251d88d40fb">SDL_RLEACCEL</a>&#160;&#160;&#160;0x00000002</td></tr>
+<tr class="separator:a3b3d53ad7ba0b7294ca25251d88d40fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3381f5c76aec3fea3f8b990c2e9f6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a2d3381f5c76aec3fea3f8b990c2e9f6d">SDL_DONTFREE</a>&#160;&#160;&#160;0x00000004</td></tr>
+<tr class="separator:a2d3381f5c76aec3fea3f8b990c2e9f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a8fb403cb1513b0f689b532dc75861"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a48a8fb403cb1513b0f689b532dc75861">SDL_SIMD_ALIGNED</a>&#160;&#160;&#160;0x00000008</td></tr>
+<tr class="separator:a48a8fb403cb1513b0f689b532dc75861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3239116c763175b6ea41ef78b72091"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aba3239116c763175b6ea41ef78b72091">SDL_MUSTLOCK</a>(S)&#160;&#160;&#160;(((S)-&gt;flags &amp; <a class="el" href="SDL__surface_8h.html#a3b3d53ad7ba0b7294ca25251d88d40fb">SDL_RLEACCEL</a>) != 0)</td></tr>
+<tr class="separator:aba3239116c763175b6ea41ef78b72091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae63aa646481001be542220a8733c3ce0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ae63aa646481001be542220a8733c3ce0">SDL_LoadBMP</a>(file)&#160;&#160;&#160;<a class="el" href="SDL__surface_8h.html#aac1d1435b9fa8523d699c3a33264d559">SDL_LoadBMP_RW</a>(<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a>(file, &quot;rb&quot;), 1)</td></tr>
+<tr class="separator:ae63aa646481001be542220a8733c3ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425e7a69acbdf2bd9ba46d332d917320"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a425e7a69acbdf2bd9ba46d332d917320">SDL_SaveBMP</a>(surface,  file)&#160;&#160;&#160;        <a class="el" href="SDL__surface_8h.html#aadc126a4edeafb5033d5e942cf32db6a">SDL_SaveBMP_RW</a>(surface, <a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a>(file, &quot;wb&quot;), 1)</td></tr>
+<tr class="separator:a425e7a69acbdf2bd9ba46d332d917320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8d7ebe5e953593cb7d91373e73ba9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a>&#160;&#160;&#160;<a class="el" href="SDL__surface_8h.html#ac418c4404813eeb32f4e1b24f9deae96">SDL_UpperBlit</a></td></tr>
+<tr class="separator:aad8d7ebe5e953593cb7d91373e73ba9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be5f27c24e29a61096c2f59610ff1bf"><td class="memItemLeft" align="right" valign="top"><a id="a0be5f27c24e29a61096c2f59610ff1bf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_BlitScaled</b>&#160;&#160;&#160;<a class="el" href="SDL__surface_8h.html#a90ac01634e9ee33764fcf5ec7bc43c46">SDL_UpperBlitScaled</a></td></tr>
+<tr class="separator:a0be5f27c24e29a61096c2f59610ff1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a564600207cec7a2cb50a6e20d2446"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> { <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446a779237ffb78ee935518b83e8ab8a35dc">SDL_YUV_CONVERSION_JPEG</a>
+, <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446a58058f0ed3146de73b031e256aa2aaaa">SDL_YUV_CONVERSION_BT601</a>
+, <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446a806aeb86ff618a298206cbf921c0202a">SDL_YUV_CONVERSION_BT709</a>
+, <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446acbf0cb1b718195c6c0960d4471a5ed0a">SDL_YUV_CONVERSION_AUTOMATIC</a>
+ }</td></tr>
+<tr class="memdesc:a00a564600207cec7a2cb50a6e20d2446"><td class="mdescLeft">&#160;</td><td class="mdescRight">The formula used for converting between YUV and RGB.  <a href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a00a564600207cec7a2cb50a6e20d2446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad894d177fae95d7a1c0d23597b69e569"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structSDL__Surface.html">SDL_Surface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ad894d177fae95d7a1c0d23597b69e569">SDL_Surface</a></td></tr>
+<tr class="memdesc:ad894d177fae95d7a1c0d23597b69e569"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of pixels used in software blitting.  <a href="SDL__surface_8h.html#ad894d177fae95d7a1c0d23597b69e569">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad894d177fae95d7a1c0d23597b69e569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2d7366d99a08693d476b98760690947"><td class="memItemLeft" align="right" valign="top"><a id="ab2d7366d99a08693d476b98760690947"></a>
+typedef int(SDLCALL *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ab2d7366d99a08693d476b98760690947">SDL_blit</a>) (struct <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, struct <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="memdesc:ab2d7366d99a08693d476b98760690947"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of function used for surface blitting functions. <br /></td></tr>
+<tr class="separator:ab2d7366d99a08693d476b98760690947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac106bf796c828587cce76cb847d11ae"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> (Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</td></tr>
+<tr class="separator:aac106bf796c828587cce76cb847d11ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831ca475e37e6aa41afef1f3c657717d"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a831ca475e37e6aa41afef1f3c657717d">SDL_CreateRGBSurfaceWithFormat</a> (Uint32 flags, int width, int height, int depth, Uint32 format)</td></tr>
+<tr class="separator:a831ca475e37e6aa41afef1f3c657717d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c74ddbc73538e9a4accb42e1c09971"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom</a> (void *pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</td></tr>
+<tr class="separator:a25c74ddbc73538e9a4accb42e1c09971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5dee1a61ebc865b045a0f1165d55fb"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a0c5dee1a61ebc865b045a0f1165d55fb">SDL_CreateRGBSurfaceWithFormatFrom</a> (void *pixels, int width, int height, int depth, int pitch, Uint32 format)</td></tr>
+<tr class="separator:a0c5dee1a61ebc865b045a0f1165d55fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8d4f9cc058822501896a2eed81220e"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:a7b8d4f9cc058822501896a2eed81220e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c780465293acb1f586995943422a17"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a72c780465293acb1f586995943422a17">SDL_SetSurfacePalette</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, <a class="el" href="structSDL__Palette.html">SDL_Palette</a> *palette)</td></tr>
+<tr class="separator:a72c780465293acb1f586995943422a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1da1c7ecdaa461fac51a10785f5077"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a3d1da1c7ecdaa461fac51a10785f5077">SDL_LockSurface</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:a3d1da1c7ecdaa461fac51a10785f5077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b93f51358b55d7fc213a3ba9b02c24"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a56b93f51358b55d7fc213a3ba9b02c24">SDL_UnlockSurface</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:a56b93f51358b55d7fc213a3ba9b02c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1d1435b9fa8523d699c3a33264d559"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aac1d1435b9fa8523d699c3a33264d559">SDL_LoadBMP_RW</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src, int freesrc)</td></tr>
+<tr class="separator:aac1d1435b9fa8523d699c3a33264d559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc126a4edeafb5033d5e942cf32db6a"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aadc126a4edeafb5033d5e942cf32db6a">SDL_SaveBMP_RW</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, int freedst)</td></tr>
+<tr class="separator:aadc126a4edeafb5033d5e942cf32db6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f6d70b8071e83e0c84241dbdcd3a3b"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ae2f6d70b8071e83e0c84241dbdcd3a3b">SDL_SetSurfaceRLE</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, int flag)</td></tr>
+<tr class="separator:ae2f6d70b8071e83e0c84241dbdcd3a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc58e9ce47e2693230a3a1389b1bfb6"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#abdc58e9ce47e2693230a3a1389b1bfb6">SDL_HasSurfaceRLE</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:abdc58e9ce47e2693230a3a1389b1bfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbe831b210dc900cb93101352357b73"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a4cbe831b210dc900cb93101352357b73">SDL_SetColorKey</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, int flag, Uint32 key)</td></tr>
+<tr class="separator:a4cbe831b210dc900cb93101352357b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ca900bd39b6805fc8586472be18c90"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a31ca900bd39b6805fc8586472be18c90">SDL_HasColorKey</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:a31ca900bd39b6805fc8586472be18c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff80a244bad20f1c4fa85adf1e1deb9"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a2ff80a244bad20f1c4fa85adf1e1deb9">SDL_GetColorKey</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, Uint32 *key)</td></tr>
+<tr class="separator:a2ff80a244bad20f1c4fa85adf1e1deb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edf978396e3f562d43c672630e0ca71"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a4edf978396e3f562d43c672630e0ca71">SDL_SetSurfaceColorMod</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, Uint8 r, Uint8 g, Uint8 b)</td></tr>
+<tr class="separator:a4edf978396e3f562d43c672630e0ca71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db1ae32b7884b598d86424e205c3a86"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a5db1ae32b7884b598d86424e205c3a86">SDL_GetSurfaceColorMod</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, Uint8 *r, Uint8 *g, Uint8 *b)</td></tr>
+<tr class="separator:a5db1ae32b7884b598d86424e205c3a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0035f0239f0588d16c57aff7672be174"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a0035f0239f0588d16c57aff7672be174">SDL_SetSurfaceAlphaMod</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, Uint8 alpha)</td></tr>
+<tr class="separator:a0035f0239f0588d16c57aff7672be174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a99bb24420857e85071e39607678f6"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a09a99bb24420857e85071e39607678f6">SDL_GetSurfaceAlphaMod</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, Uint8 *alpha)</td></tr>
+<tr class="separator:a09a99bb24420857e85071e39607678f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f5b3b64c503c4a8da01566f62976a9"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a35f5b3b64c503c4a8da01566f62976a9">SDL_SetSurfaceBlendMode</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, <a class="el" href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1e">SDL_BlendMode</a> blendMode)</td></tr>
+<tr class="separator:a35f5b3b64c503c4a8da01566f62976a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95570c617879f45bf7e2e4d330534f6b"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a95570c617879f45bf7e2e4d330534f6b">SDL_GetSurfaceBlendMode</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, <a class="el" href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1e">SDL_BlendMode</a> *blendMode)</td></tr>
+<tr class="separator:a95570c617879f45bf7e2e4d330534f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf2c30be55f51fe9e4faf97e3f8d08b"><td class="memItemLeft" align="right" valign="top">DECLSPEC SDL_bool SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a6cf2c30be55f51fe9e4faf97e3f8d08b">SDL_SetClipRect</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *rect)</td></tr>
+<tr class="separator:a6cf2c30be55f51fe9e4faf97e3f8d08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7f71b94748a1b0db3b5b769834ed27"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a7d7f71b94748a1b0db3b5b769834ed27">SDL_GetClipRect</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *rect)</td></tr>
+<tr class="separator:a7d7f71b94748a1b0db3b5b769834ed27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbd136cb2ab3a50abb794677d703683e"><td class="memItemLeft" align="right" valign="top"><a id="afbd136cb2ab3a50abb794677d703683e"></a>
+DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_DuplicateSurface</b> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *surface)</td></tr>
+<tr class="separator:afbd136cb2ab3a50abb794677d703683e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65fb480a0ac01b69f6999f48a6fd985b"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a65fb480a0ac01b69f6999f48a6fd985b">SDL_ConvertSurface</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, const <a class="el" href="structSDL__PixelFormat.html">SDL_PixelFormat</a> *fmt, Uint32 flags)</td></tr>
+<tr class="separator:a65fb480a0ac01b69f6999f48a6fd985b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0b84e7d50b9cc84bd9e785170ce2cd"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aec0b84e7d50b9cc84bd9e785170ce2cd">SDL_ConvertSurfaceFormat</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, Uint32 pixel_format, Uint32 flags)</td></tr>
+<tr class="separator:aec0b84e7d50b9cc84bd9e785170ce2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339c5728a1181e2d6334ad07e1e84440"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a339c5728a1181e2d6334ad07e1e84440">SDL_ConvertPixels</a> (int width, int height, Uint32 src_format, const void *src, int src_pitch, Uint32 dst_format, void *dst, int dst_pitch)</td></tr>
+<tr class="separator:a339c5728a1181e2d6334ad07e1e84440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6af6b224b687e7c6413106b785743d3"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ab6af6b224b687e7c6413106b785743d3">SDL_PremultiplyAlpha</a> (int width, int height, Uint32 src_format, const void *src, int src_pitch, Uint32 dst_format, void *dst, int dst_pitch)</td></tr>
+<tr class="separator:ab6af6b224b687e7c6413106b785743d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98b3595458c6271303d6470cb2b2c721"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a98b3595458c6271303d6470cb2b2c721">SDL_FillRect</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *rect, Uint32 color)</td></tr>
+<tr class="separator:a98b3595458c6271303d6470cb2b2c721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b893162f400b8193ff6ca628ec784b6"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a7b893162f400b8193ff6ca628ec784b6">SDL_FillRects</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *rects, int count, Uint32 color)</td></tr>
+<tr class="separator:a7b893162f400b8193ff6ca628ec784b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac418c4404813eeb32f4e1b24f9deae96"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ac418c4404813eeb32f4e1b24f9deae96">SDL_UpperBlit</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:ac418c4404813eeb32f4e1b24f9deae96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82bd1c0e0886d77e287207fe6351bf87"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a82bd1c0e0886d77e287207fe6351bf87">SDL_LowerBlit</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:a82bd1c0e0886d77e287207fe6351bf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee44fe7d5dba376a971793d70ffcf55c"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#aee44fe7d5dba376a971793d70ffcf55c">SDL_SoftStretch</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:aee44fe7d5dba376a971793d70ffcf55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2fe0fda20d38a16ec1802da9d6e49a0"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#ac2fe0fda20d38a16ec1802da9d6e49a0">SDL_SoftStretchLinear</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:ac2fe0fda20d38a16ec1802da9d6e49a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ac01634e9ee33764fcf5ec7bc43c46"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a90ac01634e9ee33764fcf5ec7bc43c46">SDL_UpperBlitScaled</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:a90ac01634e9ee33764fcf5ec7bc43c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6b2f06726600d41ff75ff259d4383b"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a5c6b2f06726600d41ff75ff259d4383b">SDL_LowerBlitScaled</a> (<a class="el" href="structSDL__Surface.html">SDL_Surface</a> *src, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *srcrect, <a class="el" href="structSDL__Surface.html">SDL_Surface</a> *dst, <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *dstrect)</td></tr>
+<tr class="separator:a5c6b2f06726600d41ff75ff259d4383b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35875bf88b2d78e0990f5f13ef1cd0e1"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a35875bf88b2d78e0990f5f13ef1cd0e1">SDL_SetYUVConversionMode</a> (<a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> mode)</td></tr>
+<tr class="separator:a35875bf88b2d78e0990f5f13ef1cd0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d2c4412423e5d1a0e3426ee678d262"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a61d2c4412423e5d1a0e3426ee678d262">SDL_GetYUVConversionMode</a> (void)</td></tr>
+<tr class="separator:a61d2c4412423e5d1a0e3426ee678d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cfad98219e074988d0c5731e304cda4"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__surface_8h.html#a1cfad98219e074988d0c5731e304cda4">SDL_GetYUVConversionModeForResolution</a> (int width, int height)</td></tr>
+<tr class="separator:a1cfad98219e074988d0c5731e304cda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Header file for <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> definition and management functions. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="aad8d7ebe5e953593cb7d91373e73ba9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8d7ebe5e953593cb7d91373e73ba9a">&#9670;&nbsp;</a></span>SDL_BlitSurface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_BlitSurface&#160;&#160;&#160;<a class="el" href="SDL__surface_8h.html#ac418c4404813eeb32f4e1b24f9deae96">SDL_UpperBlit</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Performs a fast blit from the source surface to the destination surface.</p>
+<p >This assumes that the source and destination rectangles are the same size. If either <code>srcrect</code> or <code>dstrect</code> are NULL, the entire surface (<code>src</code> or <code>dst</code>) is copied. The final blit rectangles are saved in <code>srcrect</code> and <code>dstrect</code> after all clipping is performed.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>0 if the blit is successful, otherwise it returns -1.</dd></dl>
+<p>The blit function should not be called on a locked surface.</p>
+<p >The blit semantics for surfaces with and without blending and colorkey are defined as follows: </p><pre class="fragment">RGBA-&gt;RGB:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source alpha-channel and per-surface alpha)
+    SDL_SRCCOLORKEY ignored.
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB.
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    RGB values of the source color key, ignoring alpha in the
+    comparison.
+
+RGB-&gt;RGBA:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source per-surface alpha)
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB, set destination alpha to source per-surface alpha value.
+  both:
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    source color key.
+
+RGBA-&gt;RGBA:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source alpha-channel and per-surface alpha)
+    SDL_SRCCOLORKEY ignored.
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy all of RGBA to the destination.
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    RGB values of the source color key, ignoring alpha in the
+    comparison.
+
+RGB-&gt;RGB:
+  Source surface blend mode set to SDL_BLENDMODE_BLEND:
+    alpha-blend (using the source per-surface alpha)
+  Source surface blend mode set to SDL_BLENDMODE_NONE:
+    copy RGB.
+  both:
+    if SDL_SRCCOLORKEY set, only copy the pixels matching the
+    source color key.
+</pre><p >You should call <a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface()</a> unless you know exactly how SDL blitting works internally and how to use the other blit functions. </p>
+
+</div>
+</div>
+<a id="a2d3381f5c76aec3fea3f8b990c2e9f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3381f5c76aec3fea3f8b990c2e9f6d">&#9670;&nbsp;</a></span>SDL_DONTFREE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_DONTFREE&#160;&#160;&#160;0x00000004</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Surface is referenced internally </p>
+
+</div>
+</div>
+<a id="ae63aa646481001be542220a8733c3ce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae63aa646481001be542220a8733c3ce0">&#9670;&nbsp;</a></span>SDL_LoadBMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_LoadBMP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">file</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="SDL__surface_8h.html#aac1d1435b9fa8523d699c3a33264d559">SDL_LoadBMP_RW</a>(<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a>(file, &quot;rb&quot;), 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Load a surface from a file.</p>
+<p >Convenience macro. </p>
+
+</div>
+</div>
+<a id="aba3239116c763175b6ea41ef78b72091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3239116c763175b6ea41ef78b72091">&#9670;&nbsp;</a></span>SDL_MUSTLOCK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MUSTLOCK</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">S</td><td>)</td>
+          <td>&#160;&#160;&#160;(((S)-&gt;flags &amp; <a class="el" href="SDL__surface_8h.html#a3b3d53ad7ba0b7294ca25251d88d40fb">SDL_RLEACCEL</a>) != 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Evaluates to true if the surface needs to be locked before access. </p>
+
+</div>
+</div>
+<a id="a4a5f795a69ac626fba73c4bd0bfd9626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a5f795a69ac626fba73c4bd0bfd9626">&#9670;&nbsp;</a></span>SDL_PREALLOC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_PREALLOC&#160;&#160;&#160;0x00000001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Surface uses preallocated memory </p>
+
+</div>
+</div>
+<a id="a3b3d53ad7ba0b7294ca25251d88d40fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3d53ad7ba0b7294ca25251d88d40fb">&#9670;&nbsp;</a></span>SDL_RLEACCEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RLEACCEL&#160;&#160;&#160;0x00000002</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Surface is RLE encoded </p>
+
+</div>
+</div>
+<a id="a425e7a69acbdf2bd9ba46d332d917320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a425e7a69acbdf2bd9ba46d332d917320">&#9670;&nbsp;</a></span>SDL_SaveBMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_SaveBMP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">surface, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">file&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;        <a class="el" href="SDL__surface_8h.html#aadc126a4edeafb5033d5e942cf32db6a">SDL_SaveBMP_RW</a>(surface, <a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a>(file, &quot;wb&quot;), 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Save a surface to a file.</p>
+<p >Convenience macro. </p>
+
+</div>
+</div>
+<a id="a48a8fb403cb1513b0f689b532dc75861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a8fb403cb1513b0f689b532dc75861">&#9670;&nbsp;</a></span>SDL_SIMD_ALIGNED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_SIMD_ALIGNED&#160;&#160;&#160;0x00000008</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Surface uses aligned memory </p>
+
+</div>
+</div>
+<a id="a59c7111f96872f973d0f058362761776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c7111f96872f973d0f058362761776">&#9670;&nbsp;</a></span>SDL_SWSURFACE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_SWSURFACE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Just here for compatibility </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="ad894d177fae95d7a1c0d23597b69e569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad894d177fae95d7a1c0d23597b69e569">&#9670;&nbsp;</a></span>SDL_Surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structSDL__Surface.html">SDL_Surface</a> <a class="el" href="structSDL__Surface.html">SDL_Surface</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A collection of pixels used in software blitting. </p>
+<dl class="section note"><dt>Note</dt><dd>This structure should be treated as read-only, except for <code>pixels</code>, which, if not NULL, contains the raw pixel data for the surface. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a00a564600207cec7a2cb50a6e20d2446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a564600207cec7a2cb50a6e20d2446">&#9670;&nbsp;</a></span>SDL_YUV_CONVERSION_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The formula used for converting between YUV and RGB. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a00a564600207cec7a2cb50a6e20d2446a779237ffb78ee935518b83e8ab8a35dc"></a>SDL_YUV_CONVERSION_JPEG&#160;</td><td class="fielddoc"><p >Full range JPEG </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00a564600207cec7a2cb50a6e20d2446a58058f0ed3146de73b031e256aa2aaaa"></a>SDL_YUV_CONVERSION_BT601&#160;</td><td class="fielddoc"><p >BT.601 (the default) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00a564600207cec7a2cb50a6e20d2446a806aeb86ff618a298206cbf921c0202a"></a>SDL_YUV_CONVERSION_BT709&#160;</td><td class="fielddoc"><p >BT.709 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a00a564600207cec7a2cb50a6e20d2446acbf0cb1b718195c6c0960d4471a5ed0a"></a>SDL_YUV_CONVERSION_AUTOMATIC&#160;</td><td class="fielddoc"><p >BT.601 for SD content, BT.709 for HD content </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a339c5728a1181e2d6334ad07e1e84440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339c5728a1181e2d6334ad07e1e84440">&#9670;&nbsp;</a></span>SDL_ConvertPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_ConvertPixels </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>src_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>src_pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>dst_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dst_pitch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Copy a block of pixels of one format to another format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>the width of the block to copy, in pixels </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the block to copy, in pixels </td></tr>
+    <tr><td class="paramname">src_format</td><td>an SDL_PixelFormatEnum value of the <code>src</code> pixels format </td></tr>
+    <tr><td class="paramname">src</td><td>a pointer to the source pixels </td></tr>
+    <tr><td class="paramname">src_pitch</td><td>the pitch of the source pixels, in bytes </td></tr>
+    <tr><td class="paramname">dst_format</td><td>an SDL_PixelFormatEnum value of the <code>dst</code> pixels format </td></tr>
+    <tr><td class="paramname">dst</td><td>a pointer to be filled in with new pixel data </td></tr>
+    <tr><td class="paramname">dst_pitch</td><td>the pitch of the destination pixels, in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+<a id="a65fb480a0ac01b69f6999f48a6fd985b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65fb480a0ac01b69f6999f48a6fd985b">&#9670;&nbsp;</a></span>SDL_ConvertSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_ConvertSurface </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__PixelFormat.html">SDL_PixelFormat</a> *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Copy an existing surface to a new surface of the specified format.</p>
+<p >This function is used to optimize images for faster <em>repeat</em> blitting. This is accomplished by converting the original and storing the result as a new surface. The new, optimized surface can then be used as the source for future blits, making them faster.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the existing <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to convert </td></tr>
+    <tr><td class="paramname">fmt</td><td>the <a class="el" href="structSDL__PixelFormat.html">SDL_PixelFormat</a> structure that the new surface is optimized for </td></tr>
+    <tr><td class="paramname">flags</td><td>the flags are unused and should be set to 0; this is a leftover from SDL 1.2's API </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__pixels_8h.html#a95972bb1fcfc9ddde496cd9ce13c7edd">SDL_AllocFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#aec0b84e7d50b9cc84bd9e785170ce2cd">SDL_ConvertSurfaceFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="aec0b84e7d50b9cc84bd9e785170ce2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec0b84e7d50b9cc84bd9e785170ce2cd">&#9670;&nbsp;</a></span>SDL_ConvertSurfaceFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_ConvertSurfaceFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>pixel_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Copy an existing surface to a new surface of the specified format enum.</p>
+<p >This function operates just like <a class="el" href="SDL__surface_8h.html#a65fb480a0ac01b69f6999f48a6fd985b">SDL_ConvertSurface()</a>, but accepts an SDL_PixelFormatEnum value instead of an <a class="el" href="structSDL__PixelFormat.html">SDL_PixelFormat</a> structure. As such, it might be easier to call but it doesn't have access to palette information for the destination surface, in case that would be important.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the existing <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to convert </td></tr>
+    <tr><td class="paramname">pixel_format</td><td>the SDL_PixelFormatEnum that the new surface is optimized for </td></tr>
+    <tr><td class="paramname">flags</td><td>the flags are unused and should be set to 0; this is a leftover from SDL 1.2's API </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__pixels_8h.html#a95972bb1fcfc9ddde496cd9ce13c7edd">SDL_AllocFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a65fb480a0ac01b69f6999f48a6fd985b">SDL_ConvertSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="aac106bf796c828587cce76cb847d11ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac106bf796c828587cce76cb847d11ae">&#9670;&nbsp;</a></span>SDL_CreateRGBSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_CreateRGBSurface </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Rmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Gmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Bmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Amask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Allocate a new RGB surface.</p>
+<p >If <code>depth</code> is 4 or 8 bits, an empty palette is allocated for the surface. If <code>depth</code> is greater than 8 bits, the pixel format is set using the [RGBA]mask parameters.</p>
+<p >The [RGBA]mask parameters are the bitmasks used to extract that color from a pixel. For instance, <code>Rmask</code> being 0xFF000000 means the red data is stored in the most significant byte. Using zeros for the RGB masks sets a default value, based on the depth. For example:</p>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line"><a class="code" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a>(0,w,h,32,0,0,0,0);</div>
+<div class="ttc" id="aSDL__surface_8h_html_aac106bf796c828587cce76cb847d11ae"><div class="ttname"><a href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a></div><div class="ttdeci">DECLSPEC SDL_Surface *SDLCALL SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</div></div>
+</div><!-- fragment --><p >However, using zero for the Amask results in an Amask of 0.</p>
+<p >By default surfaces with an alpha mask are set up for blending as with:</p>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line"><a class="code" href="SDL__surface_8h.html#a35f5b3b64c503c4a8da01566f62976a9">SDL_SetSurfaceBlendMode</a>(surface, <a class="code" href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883">SDL_BLENDMODE_BLEND</a>)</div>
+<div class="ttc" id="aSDL__blendmode_8h_html_a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883"><div class="ttname"><a href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1eae421984ebfeedd59dfea21e1bdda1883">SDL_BLENDMODE_BLEND</a></div><div class="ttdeci">@ SDL_BLENDMODE_BLEND</div><div class="ttdef"><b>Definition:</b> SDL_blendmode.h:44</div></div>
+<div class="ttc" id="aSDL__surface_8h_html_a35f5b3b64c503c4a8da01566f62976a9"><div class="ttname"><a href="SDL__surface_8h.html#a35f5b3b64c503c4a8da01566f62976a9">SDL_SetSurfaceBlendMode</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_SetSurfaceBlendMode(SDL_Surface *surface, SDL_BlendMode blendMode)</div></div>
+</div><!-- fragment --><p >You can change this by calling <a class="el" href="SDL__surface_8h.html#a35f5b3b64c503c4a8da01566f62976a9">SDL_SetSurfaceBlendMode()</a> and selecting a different <code>blendMode</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>the flags are unused and should be set to 0 </td></tr>
+    <tr><td class="paramname">width</td><td>the width of the surface </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the surface </td></tr>
+    <tr><td class="paramname">depth</td><td>the depth of the surface in bits </td></tr>
+    <tr><td class="paramname">Rmask</td><td>the red mask for the pixels </td></tr>
+    <tr><td class="paramname">Gmask</td><td>the green mask for the pixels </td></tr>
+    <tr><td class="paramname">Bmask</td><td>the blue mask for the pixels </td></tr>
+    <tr><td class="paramname">Amask</td><td>the alpha mask for the pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a831ca475e37e6aa41afef1f3c657717d">SDL_CreateRGBSurfaceWithFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a25c74ddbc73538e9a4accb42e1c09971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c74ddbc73538e9a4accb42e1c09971">&#9670;&nbsp;</a></span>SDL_CreateRGBSurfaceFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_CreateRGBSurfaceFrom </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Rmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Gmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Bmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>Amask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Allocate a new RGB surface with existing pixel data.</p>
+<p >This function operates mostly like <a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface()</a>, except it does not allocate memory for the pixel data, instead the caller provides an existing buffer of data for the surface to use.</p>
+<p >No copy is made of the pixel data. Pixel data is not managed automatically; you must free the surface before you free the pixel data.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixels</td><td>a pointer to existing pixel data </td></tr>
+    <tr><td class="paramname">width</td><td>the width of the surface </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the surface </td></tr>
+    <tr><td class="paramname">depth</td><td>the depth of the surface in bits </td></tr>
+    <tr><td class="paramname">pitch</td><td>the pitch of the surface in bytes </td></tr>
+    <tr><td class="paramname">Rmask</td><td>the red mask for the pixels </td></tr>
+    <tr><td class="paramname">Gmask</td><td>the green mask for the pixels </td></tr>
+    <tr><td class="paramname">Bmask</td><td>the blue mask for the pixels </td></tr>
+    <tr><td class="paramname">Amask</td><td>the alpha mask for the pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a831ca475e37e6aa41afef1f3c657717d">SDL_CreateRGBSurfaceWithFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a831ca475e37e6aa41afef1f3c657717d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831ca475e37e6aa41afef1f3c657717d">&#9670;&nbsp;</a></span>SDL_CreateRGBSurfaceWithFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_CreateRGBSurfaceWithFormat </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Allocate a new RGB surface with a specific pixel format.</p>
+<p >This function operates mostly like <a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface()</a>, except instead of providing pixel color masks, you provide it with a predefined format from SDL_PixelFormatEnum.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>the flags are unused and should be set to 0 </td></tr>
+    <tr><td class="paramname">width</td><td>the width of the surface </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the surface </td></tr>
+    <tr><td class="paramname">depth</td><td>the depth of the surface in bits </td></tr>
+    <tr><td class="paramname">format</td><td>the SDL_PixelFormatEnum for the new surface's pixel format. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.5.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0c5dee1a61ebc865b045a0f1165d55fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5dee1a61ebc865b045a0f1165d55fb">&#9670;&nbsp;</a></span>SDL_CreateRGBSurfaceWithFormatFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_CreateRGBSurfaceWithFormatFrom </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Allocate a new RGB surface with with a specific pixel format and existing pixel data.</p>
+<p >This function operates mostly like <a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom()</a>, except instead of providing pixel color masks, you provide it with a predefined format from SDL_PixelFormatEnum.</p>
+<p >No copy is made of the pixel data. Pixel data is not managed automatically; you must free the surface before you free the pixel data.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixels</td><td>a pointer to existing pixel data </td></tr>
+    <tr><td class="paramname">width</td><td>the width of the surface </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the surface </td></tr>
+    <tr><td class="paramname">depth</td><td>the depth of the surface in bits </td></tr>
+    <tr><td class="paramname">pitch</td><td>the pitch of the surface in bytes </td></tr>
+    <tr><td class="paramname">format</td><td>the SDL_PixelFormatEnum for the new surface's pixel format. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is created or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.5.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a831ca475e37e6aa41afef1f3c657717d">SDL_CreateRGBSurfaceWithFormat</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a98b3595458c6271303d6470cb2b2c721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b3595458c6271303d6470cb2b2c721">&#9670;&nbsp;</a></span>SDL_FillRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_FillRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform a fast fill of a rectangle with a specific color.</p>
+<p ><code>color</code> should be a pixel of the format used by the surface, and can be generated by <a class="el" href="SDL__pixels_8h.html#a157cf64c250c578722b939ea11a85b39">SDL_MapRGB()</a> or <a class="el" href="SDL__pixels_8h.html#a8cc5000a066e052d4d36070ea91ac942">SDL_MapRGBA()</a>. If the color value contains an alpha component then the destination is simply filled with that alpha information, no blending takes place.</p>
+<p >If there is a clip rectangle set on the destination (set via <a class="el" href="SDL__surface_8h.html#a6cf2c30be55f51fe9e4faf97e3f8d08b">SDL_SetClipRect()</a>), then this function will fill based on the intersection of the clip rectangle and <code>rect</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is the drawing target </td></tr>
+    <tr><td class="paramname">rect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the rectangle to fill, or NULL to fill the entire surface </td></tr>
+    <tr><td class="paramname">color</td><td>the color to fill with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a7b893162f400b8193ff6ca628ec784b6">SDL_FillRects</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7b893162f400b8193ff6ca628ec784b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b893162f400b8193ff6ca628ec784b6">&#9670;&nbsp;</a></span>SDL_FillRects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_FillRects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>rects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform a fast fill of a set of rectangles with a specific color.</p>
+<p ><code>color</code> should be a pixel of the format used by the surface, and can be generated by <a class="el" href="SDL__pixels_8h.html#a157cf64c250c578722b939ea11a85b39">SDL_MapRGB()</a> or <a class="el" href="SDL__pixels_8h.html#a8cc5000a066e052d4d36070ea91ac942">SDL_MapRGBA()</a>. If the color value contains an alpha component then the destination is simply filled with that alpha information, no blending takes place.</p>
+<p >If there is a clip rectangle set on the destination (set via <a class="el" href="SDL__surface_8h.html#a6cf2c30be55f51fe9e4faf97e3f8d08b">SDL_SetClipRect()</a>), then this function will fill based on the intersection of the clip rectangle and <code>rect</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is the drawing target </td></tr>
+    <tr><td class="paramname">rects</td><td>an array of SDL_Rects representing the rectangles to fill. </td></tr>
+    <tr><td class="paramname">count</td><td>the number of rectangles in the array </td></tr>
+    <tr><td class="paramname">color</td><td>the color to fill with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a98b3595458c6271303d6470cb2b2c721">SDL_FillRect</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7b8d4f9cc058822501896a2eed81220e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8d4f9cc058822501896a2eed81220e">&#9670;&nbsp;</a></span>SDL_FreeSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_FreeSurface </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Free an RGB surface.</p>
+<p >It is safe to pass NULL to this function.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> to free.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aac106bf796c828587cce76cb847d11ae">SDL_CreateRGBSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a25c74ddbc73538e9a4accb42e1c09971">SDL_CreateRGBSurfaceFrom</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#ae63aa646481001be542220a8733c3ce0">SDL_LoadBMP</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#aac1d1435b9fa8523d699c3a33264d559">SDL_LoadBMP_RW</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7d7f71b94748a1b0db3b5b769834ed27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7f71b94748a1b0db3b5b769834ed27">&#9670;&nbsp;</a></span>SDL_GetClipRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_GetClipRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>rect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the clipping rectangle for a surface.</p>
+<p >When <code>surface</code> is the destination of a blit, only the area within the clip rectangle is drawn into.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure representing the surface to be clipped </td></tr>
+    <tr><td class="paramname">rect</td><td>an <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure filled in with the clipping rectangle for the surface</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a6cf2c30be55f51fe9e4faf97e3f8d08b">SDL_SetClipRect</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2ff80a244bad20f1c4fa85adf1e1deb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff80a244bad20f1c4fa85adf1e1deb9">&#9670;&nbsp;</a></span>SDL_GetColorKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_GetColorKey </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the color key (transparent pixel) for a surface.</p>
+<p >The color key is a pixel of the format used by the surface, as generated by <a class="el" href="SDL__pixels_8h.html#a157cf64c250c578722b939ea11a85b39">SDL_MapRGB()</a>.</p>
+<p >If the surface doesn't have color key enabled this function returns -1.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+    <tr><td class="paramname">key</td><td>a pointer filled in with the transparent pixel </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a4cbe831b210dc900cb93101352357b73">SDL_SetColorKey</a> </dd></dl>
+
+</div>
+</div>
+<a id="a09a99bb24420857e85071e39607678f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a99bb24420857e85071e39607678f6">&#9670;&nbsp;</a></span>SDL_GetSurfaceAlphaMod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_GetSurfaceAlphaMod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the additional alpha value used in blit operations.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+    <tr><td class="paramname">alpha</td><td>a pointer filled in with the current alpha value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a5db1ae32b7884b598d86424e205c3a86">SDL_GetSurfaceColorMod</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a0035f0239f0588d16c57aff7672be174">SDL_SetSurfaceAlphaMod</a> </dd></dl>
+
+</div>
+</div>
+<a id="a95570c617879f45bf7e2e4d330534f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95570c617879f45bf7e2e4d330534f6b">&#9670;&nbsp;</a></span>SDL_GetSurfaceBlendMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_GetSurfaceBlendMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1e">SDL_BlendMode</a> *&#160;</td>
+          <td class="paramname"><em>blendMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the blend mode used for blit operations.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+    <tr><td class="paramname">blendMode</td><td>a pointer filled in with the current SDL_BlendMode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a35f5b3b64c503c4a8da01566f62976a9">SDL_SetSurfaceBlendMode</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5db1ae32b7884b598d86424e205c3a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db1ae32b7884b598d86424e205c3a86">&#9670;&nbsp;</a></span>SDL_GetSurfaceColorMod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_GetSurfaceColorMod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8 *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the additional color value multiplied into blit operations.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+    <tr><td class="paramname">r</td><td>a pointer filled in with the current red color value </td></tr>
+    <tr><td class="paramname">g</td><td>a pointer filled in with the current green color value </td></tr>
+    <tr><td class="paramname">b</td><td>a pointer filled in with the current blue color value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a09a99bb24420857e85071e39607678f6">SDL_GetSurfaceAlphaMod</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a4edf978396e3f562d43c672630e0ca71">SDL_SetSurfaceColorMod</a> </dd></dl>
+
+</div>
+</div>
+<a id="a61d2c4412423e5d1a0e3426ee678d262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61d2c4412423e5d1a0e3426ee678d262">&#9670;&nbsp;</a></span>SDL_GetYUVConversionMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> SDLCALL SDL_GetYUVConversionMode </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the YUV conversion mode</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.8. </dd></dl>
+
+</div>
+</div>
+<a id="a1cfad98219e074988d0c5731e304cda4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cfad98219e074988d0c5731e304cda4">&#9670;&nbsp;</a></span>SDL_GetYUVConversionModeForResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a> SDLCALL SDL_GetYUVConversionModeForResolution </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the YUV conversion mode, returning the correct mode for the resolution when the current conversion mode is SDL_YUV_CONVERSION_AUTOMATIC</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.8. </dd></dl>
+
+</div>
+</div>
+<a id="a31ca900bd39b6805fc8586472be18c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ca900bd39b6805fc8586472be18c90">&#9670;&nbsp;</a></span>SDL_HasColorKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_HasColorKey </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns whether the surface has a color key</p>
+<p >It is safe to pass a NULL <code>surface</code> here; it will return SDL_FALSE.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the surface has a color key, SDL_FALSE otherwise.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.9.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a4cbe831b210dc900cb93101352357b73">SDL_SetColorKey</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a2ff80a244bad20f1c4fa85adf1e1deb9">SDL_GetColorKey</a> </dd></dl>
+
+</div>
+</div>
+<a id="abdc58e9ce47e2693230a3a1389b1bfb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc58e9ce47e2693230a3a1389b1bfb6">&#9670;&nbsp;</a></span>SDL_HasSurfaceRLE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_HasSurfaceRLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns whether the surface is RLE enabled</p>
+<p >It is safe to pass a NULL <code>surface</code> here; it will return SDL_FALSE.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the surface is RLE enabled, SDL_FALSE otherwise.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.14.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#ae2f6d70b8071e83e0c84241dbdcd3a3b">SDL_SetSurfaceRLE</a> </dd></dl>
+
+</div>
+</div>
+<a id="aac1d1435b9fa8523d699c3a33264d559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1d1435b9fa8523d699c3a33264d559">&#9670;&nbsp;</a></span>SDL_LoadBMP_RW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__Surface.html">SDL_Surface</a>* SDLCALL SDL_LoadBMP_RW </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>freesrc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Load a BMP image from a seekable SDL data stream.</p>
+<p >The new surface should be freed with <a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface()</a>. Not doing so will result in a memory leak.</p>
+<p >src is an open <a class="el" href="structSDL__RWops.html">SDL_RWops</a> buffer, typically loaded with SDL_RWFromFile. Alternitavely, you might also use the macro SDL_LoadBMP to load a bitmap from a file, convert it to an <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> and then close the file.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the data stream for the surface </td></tr>
+    <tr><td class="paramname">freesrc</td><td>non-zero to close the stream after being read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to a new <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure or NULL if there was an error; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a7b8d4f9cc058822501896a2eed81220e">SDL_FreeSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#ae63aa646481001be542220a8733c3ce0">SDL_LoadBMP</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#aadc126a4edeafb5033d5e942cf32db6a">SDL_SaveBMP_RW</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3d1da1c7ecdaa461fac51a10785f5077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1da1c7ecdaa461fac51a10785f5077">&#9670;&nbsp;</a></span>SDL_LockSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_LockSurface </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set up a surface for directly accessing the pixels.</p>
+<p >Between calls to <a class="el" href="SDL__surface_8h.html#a3d1da1c7ecdaa461fac51a10785f5077">SDL_LockSurface()</a> / <a class="el" href="SDL__surface_8h.html#a56b93f51358b55d7fc213a3ba9b02c24">SDL_UnlockSurface()</a>, you can write to and read from <code>surface-&gt;pixels</code>, using the pixel format stored in <code>surface-&gt;format</code>. Once you are done accessing the surface, you should use <a class="el" href="SDL__surface_8h.html#a56b93f51358b55d7fc213a3ba9b02c24">SDL_UnlockSurface()</a> to release it.</p>
+<p >Not all surfaces require locking. If <code><a class="el" href="SDL__surface_8h.html#aba3239116c763175b6ea41ef78b72091">SDL_MUSTLOCK(surface)</a></code> evaluates to 0, then you can read and write to the surface at any time, and the pixel format of the surface will not change.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to be locked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aba3239116c763175b6ea41ef78b72091">SDL_MUSTLOCK</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a56b93f51358b55d7fc213a3ba9b02c24">SDL_UnlockSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a82bd1c0e0886d77e287207fe6351bf87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bd1c0e0886d77e287207fe6351bf87">&#9670;&nbsp;</a></span>SDL_LowerBlit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_LowerBlit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform low-level surface blitting only.</p>
+<p >This is a semi-private blit function and it performs low-level surface blitting, assuming the input rectangles have already been clipped.</p>
+<p >Unless you know what you're doing, you should be using <a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface()</a> instead.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to be copied from </td></tr>
+    <tr><td class="paramname">srcrect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the rectangle to be copied, or NULL to copy the entire surface </td></tr>
+    <tr><td class="paramname">dst</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is the blit target </td></tr>
+    <tr><td class="paramname">dstrect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the rectangle that is copied into </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5c6b2f06726600d41ff75ff259d4383b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6b2f06726600d41ff75ff259d4383b">&#9670;&nbsp;</a></span>SDL_LowerBlitScaled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_LowerBlitScaled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform low-level surface scaled blitting only.</p>
+<p >This is a semi-private function and it performs low-level surface blitting, assuming the input rectangles have already been clipped.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to be copied from </td></tr>
+    <tr><td class="paramname">srcrect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the rectangle to be copied </td></tr>
+    <tr><td class="paramname">dst</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure that is the blit target </td></tr>
+    <tr><td class="paramname">dstrect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the rectangle that is copied into </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd>SDL_BlitScaled </dd></dl>
+
+</div>
+</div>
+<a id="ab6af6b224b687e7c6413106b785743d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6af6b224b687e7c6413106b785743d3">&#9670;&nbsp;</a></span>SDL_PremultiplyAlpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_PremultiplyAlpha </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>src_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>src_pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>dst_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dst_pitch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Premultiply the alpha on a block of pixels.</p>
+<p >This is safe to use with src == dst, but not for other overlapping areas.</p>
+<p >This function is currently only implemented for SDL_PIXELFORMAT_ARGB8888.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>the width of the block to convert, in pixels </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the block to convert, in pixels </td></tr>
+    <tr><td class="paramname">src_format</td><td>an SDL_PixelFormatEnum value of the <code>src</code> pixels format </td></tr>
+    <tr><td class="paramname">src</td><td>a pointer to the source pixels </td></tr>
+    <tr><td class="paramname">src_pitch</td><td>the pitch of the source pixels, in bytes </td></tr>
+    <tr><td class="paramname">dst_format</td><td>an SDL_PixelFormatEnum value of the <code>dst</code> pixels format </td></tr>
+    <tr><td class="paramname">dst</td><td>a pointer to be filled in with premultiplied pixel data </td></tr>
+    <tr><td class="paramname">dst_pitch</td><td>the pitch of the destination pixels, in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.18. </dd></dl>
+
+</div>
+</div>
+<a id="aadc126a4edeafb5033d5e942cf32db6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc126a4edeafb5033d5e942cf32db6a">&#9670;&nbsp;</a></span>SDL_SaveBMP_RW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SaveBMP_RW </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>freedst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Save a surface to a seekable SDL data stream in BMP format.</p>
+<p >Surfaces with a 24-bit, 32-bit and paletted 8-bit format get saved in the BMP directly. Other RGB formats with 8-bit or higher get converted to a 24-bit surface or, if they have an alpha mask or a colorkey, to a 32-bit surface before they are saved. YUV and paletted 1-bit and 4-bit formats are not supported.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure containing the image to be saved </td></tr>
+    <tr><td class="paramname">dst</td><td>a data stream to save to </td></tr>
+    <tr><td class="paramname">freedst</td><td>non-zero to close the stream after being written </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aac1d1435b9fa8523d699c3a33264d559">SDL_LoadBMP_RW</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a425e7a69acbdf2bd9ba46d332d917320">SDL_SaveBMP</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6cf2c30be55f51fe9e4faf97e3f8d08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf2c30be55f51fe9e4faf97e3f8d08b">&#9670;&nbsp;</a></span>SDL_SetClipRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC SDL_bool SDLCALL SDL_SetClipRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>rect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the clipping rectangle for a surface.</p>
+<p >When <code>surface</code> is the destination of a blit, only the area within the clip rectangle is drawn into.</p>
+<p >Note that blits are automatically clipped to the edges of the source and destination surfaces.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to be clipped </td></tr>
+    <tr><td class="paramname">rect</td><td>the <a class="el" href="structSDL__Rect.html">SDL_Rect</a> structure representing the clipping rectangle, or NULL to disable clipping </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_TRUE if the rectangle intersects the surface, otherwise SDL_FALSE and blits will be completely clipped.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a7d7f71b94748a1b0db3b5b769834ed27">SDL_GetClipRect</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4cbe831b210dc900cb93101352357b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbe831b210dc900cb93101352357b73">&#9670;&nbsp;</a></span>SDL_SetColorKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetColorKey </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the color key (transparent pixel) in a surface.</p>
+<p >The color key defines a pixel value that will be treated as transparent in a blit. For example, one can use this to specify that cyan pixels should be considered transparent, and therefore not rendered.</p>
+<p >It is a pixel of the format used by the surface, as generated by <a class="el" href="SDL__pixels_8h.html#a157cf64c250c578722b939ea11a85b39">SDL_MapRGB()</a>.</p>
+<p >RLE acceleration can substantially speed up blitting of images with large horizontal runs of transparent pixels. See <a class="el" href="SDL__surface_8h.html#ae2f6d70b8071e83e0c84241dbdcd3a3b">SDL_SetSurfaceRLE()</a> for details.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to update </td></tr>
+    <tr><td class="paramname">flag</td><td>SDL_TRUE to enable color key, SDL_FALSE to disable color key </td></tr>
+    <tr><td class="paramname">key</td><td>the transparent pixel </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a2ff80a244bad20f1c4fa85adf1e1deb9">SDL_GetColorKey</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0035f0239f0588d16c57aff7672be174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0035f0239f0588d16c57aff7672be174">&#9670;&nbsp;</a></span>SDL_SetSurfaceAlphaMod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetSurfaceAlphaMod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set an additional alpha value used in blit operations.</p>
+<p >When this surface is blitted, during the blit operation the source alpha value is modulated by this alpha value according to the following formula:</p>
+<p ><code>srcA = srcA * (alpha / 255)</code></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to update </td></tr>
+    <tr><td class="paramname">alpha</td><td>the alpha value multiplied into blit operations </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a09a99bb24420857e85071e39607678f6">SDL_GetSurfaceAlphaMod</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a4edf978396e3f562d43c672630e0ca71">SDL_SetSurfaceColorMod</a> </dd></dl>
+
+</div>
+</div>
+<a id="a35f5b3b64c503c4a8da01566f62976a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f5b3b64c503c4a8da01566f62976a9">&#9670;&nbsp;</a></span>SDL_SetSurfaceBlendMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetSurfaceBlendMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="SDL__blendmode_8h.html#a850d3c67a878fd6698a1c8dbb1eabf1e">SDL_BlendMode</a>&#160;</td>
+          <td class="paramname"><em>blendMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the blend mode used for blit operations.</p>
+<p >To copy a surface to another surface (or texture) without blending with the existing data, the blendmode of the SOURCE surface should be set to <code>SDL_BLENDMODE_NONE</code>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to update </td></tr>
+    <tr><td class="paramname">blendMode</td><td>the SDL_BlendMode to use for blit blending </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a95570c617879f45bf7e2e4d330534f6b">SDL_GetSurfaceBlendMode</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4edf978396e3f562d43c672630e0ca71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4edf978396e3f562d43c672630e0ca71">&#9670;&nbsp;</a></span>SDL_SetSurfaceColorMod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetSurfaceColorMod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set an additional color value multiplied into blit operations.</p>
+<p >When this surface is blitted, during the blit operation each source color channel is modulated by the appropriate color value according to the following formula:</p>
+<p ><code>srcC = srcC * (color / 255)</code></p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to update </td></tr>
+    <tr><td class="paramname">r</td><td>the red color value multiplied into blit operations </td></tr>
+    <tr><td class="paramname">g</td><td>the green color value multiplied into blit operations </td></tr>
+    <tr><td class="paramname">b</td><td>the blue color value multiplied into blit operations </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a5db1ae32b7884b598d86424e205c3a86">SDL_GetSurfaceColorMod</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a0035f0239f0588d16c57aff7672be174">SDL_SetSurfaceAlphaMod</a> </dd></dl>
+
+</div>
+</div>
+<a id="a72c780465293acb1f586995943422a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c780465293acb1f586995943422a17">&#9670;&nbsp;</a></span>SDL_SetSurfacePalette()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetSurfacePalette </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Palette.html">SDL_Palette</a> *&#160;</td>
+          <td class="paramname"><em>palette</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the palette used by a surface.</p>
+<p >A single palette can be shared with many surfaces.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to update </td></tr>
+    <tr><td class="paramname">palette</td><td>the <a class="el" href="structSDL__Palette.html">SDL_Palette</a> structure to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+<a id="ae2f6d70b8071e83e0c84241dbdcd3a3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f6d70b8071e83e0c84241dbdcd3a3b">&#9670;&nbsp;</a></span>SDL_SetSurfaceRLE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SetSurfaceRLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the RLE acceleration hint for a surface.</p>
+<p >If RLE is enabled, color key and alpha blending blits are much faster, but the surface must be locked before directly accessing the pixels.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to optimize </td></tr>
+    <tr><td class="paramname">flag</td><td>0 to disable, non-zero to enable RLE acceleration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a3d1da1c7ecdaa461fac51a10785f5077">SDL_LockSurface</a> </dd>
+<dd>
+<a class="el" href="SDL__surface_8h.html#a56b93f51358b55d7fc213a3ba9b02c24">SDL_UnlockSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a35875bf88b2d78e0990f5f13ef1cd0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35875bf88b2d78e0990f5f13ef1cd0e1">&#9670;&nbsp;</a></span>SDL_SetYUVConversionMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_SetYUVConversionMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="SDL__surface_8h.html#a00a564600207cec7a2cb50a6e20d2446">SDL_YUV_CONVERSION_MODE</a>&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set the YUV conversion mode</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.8. </dd></dl>
+
+</div>
+</div>
+<a id="aee44fe7d5dba376a971793d70ffcf55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee44fe7d5dba376a971793d70ffcf55c">&#9670;&nbsp;</a></span>SDL_SoftStretch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SoftStretch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform a fast, low quality, stretch blit between two surfaces of the same format.</p>
+<p >Please use SDL_BlitScaled() instead.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0. </dd></dl>
+
+</div>
+</div>
+<a id="ac2fe0fda20d38a16ec1802da9d6e49a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2fe0fda20d38a16ec1802da9d6e49a0">&#9670;&nbsp;</a></span>SDL_SoftStretchLinear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_SoftStretchLinear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform bilinear scaling between two surfaces of the same format, 32BPP.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.16. </dd></dl>
+
+</div>
+</div>
+<a id="a56b93f51358b55d7fc213a3ba9b02c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b93f51358b55d7fc213a3ba9b02c24">&#9670;&nbsp;</a></span>SDL_UnlockSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_UnlockSurface </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Release a surface after directly accessing the pixels.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">surface</td><td>the <a class="el" href="structSDL__Surface.html" title="A collection of pixels used in software blitting.">SDL_Surface</a> structure to be unlocked</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#a3d1da1c7ecdaa461fac51a10785f5077">SDL_LockSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac418c4404813eeb32f4e1b24f9deae96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac418c4404813eeb32f4e1b24f9deae96">&#9670;&nbsp;</a></span>SDL_UpperBlit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_UpperBlit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform a fast blit from the source surface to the destination surface.</p>
+<p ><a class="el" href="SDL__surface_8h.html#ac418c4404813eeb32f4e1b24f9deae96">SDL_UpperBlit()</a> has been replaced by <a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface()</a>, which is merely a macro for this function with a less confusing name.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__surface_8h.html#aad8d7ebe5e953593cb7d91373e73ba9a">SDL_BlitSurface</a> </dd></dl>
+
+</div>
+</div>
+<a id="a90ac01634e9ee33764fcf5ec7bc43c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ac01634e9ee33764fcf5ec7bc43c46">&#9670;&nbsp;</a></span>SDL_UpperBlitScaled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_UpperBlitScaled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>srcrect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Surface.html">SDL_Surface</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSDL__Rect.html">SDL_Rect</a> *&#160;</td>
+          <td class="paramname"><em>dstrect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Perform a scaled surface copy to a destination surface.</p>
+<p ><a class="el" href="SDL__surface_8h.html#a90ac01634e9ee33764fcf5ec7bc43c46">SDL_UpperBlitScaled()</a> has been replaced by SDL_BlitScaled(), which is merely a macro for this function with a less confusing name.</p>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd>SDL_BlitScaled </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

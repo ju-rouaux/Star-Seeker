@@ -1,0 +1,57 @@
+\hypertarget{structSDL__Keysym}{}\doxysection{Référence de la structure SDL\+\_\+\+Keysym}
+\label{structSDL__Keysym}\index{SDL\_Keysym@{SDL\_Keysym}}
+
+
+The SDL keysym structure, used in key events.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+keyboard.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} \mbox{\hyperlink{structSDL__Keysym_ad47e9120a511e2efc7ec0c6d8a5ec51e}{scancode}}
+\item 
+\mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} \mbox{\hyperlink{structSDL__Keysym_a082ff1fd787b79fa6c3a445deb225f08}{sym}}
+\item 
+Uint16 \mbox{\hyperlink{structSDL__Keysym_ab519d1b8a9939d3d035f7103f3208291}{mod}}
+\item 
+\mbox{\Hypertarget{structSDL__Keysym_ab1d0a50cc619966fb06b92e15cc46dd9}\label{structSDL__Keysym_ab1d0a50cc619966fb06b92e15cc46dd9}} 
+Uint32 {\bfseries unused}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The SDL keysym structure, used in key events. 
+
+\begin{DoxyNote}{Note}
+If you are looking for translated character input, see the \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4fa2570088f6b9cbd109ae91b511368f}{SDL\+\_\+\+TEXTINPUT}} event. 
+\end{DoxyNote}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__Keysym_ab519d1b8a9939d3d035f7103f3208291}\label{structSDL__Keysym_ab519d1b8a9939d3d035f7103f3208291}} 
+\index{SDL\_Keysym@{SDL\_Keysym}!mod@{mod}}
+\index{mod@{mod}!SDL\_Keysym@{SDL\_Keysym}}
+\doxysubsubsection{\texorpdfstring{mod}{mod}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Keysym\+::mod}
+
+current key modifiers \mbox{\Hypertarget{structSDL__Keysym_ad47e9120a511e2efc7ec0c6d8a5ec51e}\label{structSDL__Keysym_ad47e9120a511e2efc7ec0c6d8a5ec51e}} 
+\index{SDL\_Keysym@{SDL\_Keysym}!scancode@{scancode}}
+\index{scancode@{scancode}!SDL\_Keysym@{SDL\_Keysym}}
+\doxysubsubsection{\texorpdfstring{scancode}{scancode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} SDL\+\_\+\+Keysym\+::scancode}
+
+SDL physical key code -\/ see \mbox{\hyperlink{SDL__scancode_8h_a82ab7cff701034fb40a47b5b3a02777b}{SDL\+\_\+\+Scancode}} for details \mbox{\Hypertarget{structSDL__Keysym_a082ff1fd787b79fa6c3a445deb225f08}\label{structSDL__Keysym_a082ff1fd787b79fa6c3a445deb225f08}} 
+\index{SDL\_Keysym@{SDL\_Keysym}!sym@{sym}}
+\index{sym@{sym}!SDL\_Keysym@{SDL\_Keysym}}
+\doxysubsubsection{\texorpdfstring{sym}{sym}}
+{\footnotesize\ttfamily \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} SDL\+\_\+\+Keysym\+::sym}
+
+SDL virtual key code -\/ see \mbox{\hyperlink{SDL__keycode_8h_ae9265f064f13f0f74dfca26a67875171}{SDL\+\_\+\+Keycode}} for details 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__keyboard_8h}{SDL\+\_\+keyboard.\+h}}\end{DoxyCompactItemize}

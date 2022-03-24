@@ -1,0 +1,213 @@
+\hypertarget{liste_8c}{}\doxysection{Référence du fichier src/liste.c}
+\label{liste_8c}\index{src/liste.c@{src/liste.c}}
+
+
+Module de gestion de liste en \mbox{\hyperlink{structt__entite}{t\+\_\+entite}}.  
+
+
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{liste_8c_abe0300eb76c1749fa17534d036708fbb}\label{liste_8c_abe0300eb76c1749fa17534d036708fbb}} 
+void {\bfseries init\+\_\+liste} (t\+\_\+liste $\ast$l)
+\item 
+int \mbox{\hyperlink{liste_8c_adacaeda25716d6afcd72396aca9c16e6}{liste\+\_\+vide}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Booleen, vrai si la liste est vide. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{liste_8c_a6171739f733a119dfb6c6f00ca73bb98}\label{liste_8c_a6171739f733a119dfb6c6f00ca73bb98}} 
+void {\bfseries detruire\+\_\+liste} (t\+\_\+liste $\ast$$\ast$l)
+\item 
+int \mbox{\hyperlink{liste_8c_afc2d7be72b4b2ab98dd1ab559b437ff1}{hors\+\_\+liste}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Booleen, l\textquotesingle{}element courant est hors liste. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a070f533bfd4486def1f9674e47dc168e}{en\+\_\+tete}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant au premier element de la liste. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_ae2372753e3cba6c70881a5d2538fb56b}{en\+\_\+queue}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant au dernier element de la liste. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a0367d75eae41b909ae2d23c9ad66b7e3}{precedent}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant a l\textquotesingle{}element juste avant l\textquotesingle{}element courant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a0c65679dc18a2ba54aa3989b85c44ca0}{suivant}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant a l\textquotesingle{}element juste apres l\textquotesingle{}element courant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{liste_8c_aff849b441759cb0ed9e4a366eb70aad9}\label{liste_8c_aff849b441759cb0ed9e4a366eb70aad9}} 
+void \mbox{\hyperlink{liste_8c_aff849b441759cb0ed9e4a366eb70aad9}{valeur\+\_\+elt}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
+\begin{DoxyCompactList}\small\item\em Recupere la valeur de l\textquotesingle{}element de la liste et \+\_\+entite $\ast$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a27185b0b04b69ee4a9840f0d74e4ac7e}{modif\+\_\+elt}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
+\begin{DoxyCompactList}\small\item\em Recupere la valeur de l\textquotesingle{}element de la liste et l\textquotesingle{}assigne a v. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a3edded1c7bc6e97b1864f9cd57fa9a26}{oter\+\_\+elt}} (t\+\_\+liste $\ast$l)
+\begin{DoxyCompactList}\small\item\em Supprime l\textquotesingle{}element de la liste a l\textquotesingle{}endroit ou est l\textquotesingle{}ec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_a4d1b6c1f4171a3edbf014461811a49c8}{ajout\+\_\+droit}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Ajoute a droite de l\textquotesingle{}element courant une valeur v. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8c_accaa03dd362641247cc87938bd1a39a0}{ajout\+\_\+gauche}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Ajoute a gauche de l\textquotesingle{}element courant une valeur v. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion de liste en \mbox{\hyperlink{structt__entite}{t\+\_\+entite}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{liste_8c_a4d1b6c1f4171a3edbf014461811a49c8}\label{liste_8c_a4d1b6c1f4171a3edbf014461811a49c8}} 
+\index{liste.c@{liste.c}!ajout\_droit@{ajout\_droit}}
+\index{ajout\_droit@{ajout\_droit}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{ajout\_droit()}{ajout\_droit()}}
+{\footnotesize\ttfamily void ajout\+\_\+droit (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Ajoute a droite de l\textquotesingle{}element courant une valeur v. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+{\em v} & une valeur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_accaa03dd362641247cc87938bd1a39a0}\label{liste_8c_accaa03dd362641247cc87938bd1a39a0}} 
+\index{liste.c@{liste.c}!ajout\_gauche@{ajout\_gauche}}
+\index{ajout\_gauche@{ajout\_gauche}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{ajout\_gauche()}{ajout\_gauche()}}
+{\footnotesize\ttfamily void ajout\+\_\+gauche (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Ajoute a gauche de l\textquotesingle{}element courant une valeur v. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+{\em v} & une valeur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_ae2372753e3cba6c70881a5d2538fb56b}\label{liste_8c_ae2372753e3cba6c70881a5d2538fb56b}} 
+\index{liste.c@{liste.c}!en\_queue@{en\_queue}}
+\index{en\_queue@{en\_queue}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{en\_queue()}{en\_queue()}}
+{\footnotesize\ttfamily void en\+\_\+queue (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Met l\textquotesingle{}element courant au dernier element de la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_a070f533bfd4486def1f9674e47dc168e}\label{liste_8c_a070f533bfd4486def1f9674e47dc168e}} 
+\index{liste.c@{liste.c}!en\_tete@{en\_tete}}
+\index{en\_tete@{en\_tete}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{en\_tete()}{en\_tete()}}
+{\footnotesize\ttfamily void en\+\_\+tete (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Met l\textquotesingle{}element courant au premier element de la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_afc2d7be72b4b2ab98dd1ab559b437ff1}\label{liste_8c_afc2d7be72b4b2ab98dd1ab559b437ff1}} 
+\index{liste.c@{liste.c}!hors\_liste@{hors\_liste}}
+\index{hors\_liste@{hors\_liste}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{hors\_liste()}{hors\_liste()}}
+{\footnotesize\ttfamily int hors\+\_\+liste (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Booleen, l\textquotesingle{}element courant est hors liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int booleen 1 \+: vrai, 0 \+: faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{liste_8c_adacaeda25716d6afcd72396aca9c16e6}\label{liste_8c_adacaeda25716d6afcd72396aca9c16e6}} 
+\index{liste.c@{liste.c}!liste\_vide@{liste\_vide}}
+\index{liste\_vide@{liste\_vide}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{liste\_vide()}{liste\_vide()}}
+{\footnotesize\ttfamily int liste\+\_\+vide (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Booleen, vrai si la liste est vide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int booleen 1 \+: vrai, 0 \+: faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{liste_8c_a27185b0b04b69ee4a9840f0d74e4ac7e}\label{liste_8c_a27185b0b04b69ee4a9840f0d74e4ac7e}} 
+\index{liste.c@{liste.c}!modif\_elt@{modif\_elt}}
+\index{modif\_elt@{modif\_elt}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{modif\_elt()}{modif\_elt()}}
+{\footnotesize\ttfamily void modif\+\_\+elt (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Recupere la valeur de l\textquotesingle{}element de la liste et l\textquotesingle{}assigne a v. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+{\em v} & une valeur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_a3edded1c7bc6e97b1864f9cd57fa9a26}\label{liste_8c_a3edded1c7bc6e97b1864f9cd57fa9a26}} 
+\index{liste.c@{liste.c}!oter\_elt@{oter\_elt}}
+\index{oter\_elt@{oter\_elt}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{oter\_elt()}{oter\_elt()}}
+{\footnotesize\ttfamily void oter\+\_\+elt (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Supprime l\textquotesingle{}element de la liste a l\textquotesingle{}endroit ou est l\textquotesingle{}ec. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_a0367d75eae41b909ae2d23c9ad66b7e3}\label{liste_8c_a0367d75eae41b909ae2d23c9ad66b7e3}} 
+\index{liste.c@{liste.c}!precedent@{precedent}}
+\index{precedent@{precedent}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{precedent()}{precedent()}}
+{\footnotesize\ttfamily void precedent (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Met l\textquotesingle{}element courant a l\textquotesingle{}element juste avant l\textquotesingle{}element courant. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_a0c65679dc18a2ba54aa3989b85c44ca0}\label{liste_8c_a0c65679dc18a2ba54aa3989b85c44ca0}} 
+\index{liste.c@{liste.c}!suivant@{suivant}}
+\index{suivant@{suivant}!liste.c@{liste.c}}
+\doxysubsubsection{\texorpdfstring{suivant()}{suivant()}}
+{\footnotesize\ttfamily void suivant (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Met l\textquotesingle{}element courant a l\textquotesingle{}element juste apres l\textquotesingle{}element courant. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une liste \\
+\hline
+\end{DoxyParams}

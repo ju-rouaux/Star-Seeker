@@ -1,0 +1,66 @@
+\hypertarget{structSDL__AudioDeviceEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Audio\+Device\+Event}
+\label{structSDL__AudioDeviceEvent}\index{SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}}
+
+
+Audio device event structure (event.\+adevice.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__AudioDeviceEvent_ae68c3bd49b49608711a17395c7cbfe58}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__AudioDeviceEvent_aa471680486a6103eafc9af569016df57}{timestamp}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__AudioDeviceEvent_ac91d70fd4e1dd596185fed061388896c}{which}}
+\item 
+Uint8 \mbox{\hyperlink{structSDL__AudioDeviceEvent_a1482dcd50b47046ef8e9bfa7cc7457d9}{iscapture}}
+\item 
+\mbox{\Hypertarget{structSDL__AudioDeviceEvent_ad6efdec7189e735f4a05fc123c0cb723}\label{structSDL__AudioDeviceEvent_ad6efdec7189e735f4a05fc123c0cb723}} 
+Uint8 {\bfseries padding1}
+\item 
+\mbox{\Hypertarget{structSDL__AudioDeviceEvent_adf9bebd56d707860045d31359535a2a4}\label{structSDL__AudioDeviceEvent_adf9bebd56d707860045d31359535a2a4}} 
+Uint8 {\bfseries padding2}
+\item 
+\mbox{\Hypertarget{structSDL__AudioDeviceEvent_af3163ba92c77f08a4f0d8f043f24c96c}\label{structSDL__AudioDeviceEvent_af3163ba92c77f08a4f0d8f043f24c96c}} 
+Uint8 {\bfseries padding3}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Audio device event structure (event.\+adevice.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__AudioDeviceEvent_a1482dcd50b47046ef8e9bfa7cc7457d9}\label{structSDL__AudioDeviceEvent_a1482dcd50b47046ef8e9bfa7cc7457d9}} 
+\index{SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}!iscapture@{iscapture}}
+\index{iscapture@{iscapture}!SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}}
+\doxysubsubsection{\texorpdfstring{iscapture}{iscapture}}
+{\footnotesize\ttfamily Uint8 SDL\+\_\+\+Audio\+Device\+Event\+::iscapture}
+
+zero if an output device, non-\/zero if a capture device. \mbox{\Hypertarget{structSDL__AudioDeviceEvent_aa471680486a6103eafc9af569016df57}\label{structSDL__AudioDeviceEvent_aa471680486a6103eafc9af569016df57}} 
+\index{SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Audio\+Device\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__AudioDeviceEvent_ae68c3bd49b49608711a17395c7cbfe58}\label{structSDL__AudioDeviceEvent_ae68c3bd49b49608711a17395c7cbfe58}} 
+\index{SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}!type@{type}}
+\index{type@{type}!SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Audio\+Device\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaadb3154654baf003910e75d74b507a82b}{SDL\+\_\+\+AUDIODEVICEADDED}}, or \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaad56f8934fe24ee4c0cd9329e3c57c0c2}{SDL\+\_\+\+AUDIODEVICEREMOVED}} \mbox{\Hypertarget{structSDL__AudioDeviceEvent_ac91d70fd4e1dd596185fed061388896c}\label{structSDL__AudioDeviceEvent_ac91d70fd4e1dd596185fed061388896c}} 
+\index{SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}!which@{which}}
+\index{which@{which}!SDL\_AudioDeviceEvent@{SDL\_AudioDeviceEvent}}
+\doxysubsubsection{\texorpdfstring{which}{which}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Audio\+Device\+Event\+::which}
+
+The audio device index for the ADDED event (valid until next \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices()}} call), SDL\+\_\+\+Audio\+Device\+ID for the REMOVED event 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

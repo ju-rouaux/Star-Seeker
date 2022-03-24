@@ -1,0 +1,93 @@
+\hypertarget{overlay_8c}{}\doxysection{Référence du fichier src/overlay.c}
+\label{overlay_8c}\index{src/overlay.c@{src/overlay.c}}
+
+
+Module de gestion de l\textquotesingle{}interface utilisateur in-\/game.  
+
+
+{\ttfamily \#include $<$overlay.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{overlay_8c_a0ad357ddc03b5f5132aa6979df6adf64}{dessiner\+\_\+tile\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int type, float x, float y)
+\begin{DoxyCompactList}\small\item\em Dessine une tile de map à la position voulue. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{overlay_8c_a351fc346334328961b7d26c44547d57c}{type\+\_\+salle\+\_\+map}} (int matrice\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}, int x, int y)
+\begin{DoxyCompactList}\small\item\em Attribue un id de tile à chaque salle pour la map \+: est-\/ce une salle simple ? Une salle reliée en haut et à gauche ? \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{overlay_8c_a981c222c503070d57f4edb8ca611561b}{dessiner\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$infos\+Niveau, int id\+Salle)
+\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion de l\textquotesingle{}interface utilisateur in-\/game. 
+
+\begin{DoxyAuthor}{Auteur}
+Camille Remoué 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{overlay_8c_a981c222c503070d57f4edb8ca611561b}\label{overlay_8c_a981c222c503070d57f4edb8ca611561b}} 
+\index{overlay.c@{overlay.c}!dessiner\_map@{dessiner\_map}}
+\index{dessiner\_map@{dessiner\_map}!overlay.c@{overlay.c}}
+\doxysubsubsection{\texorpdfstring{dessiner\_map()}{dessiner\_map()}}
+{\footnotesize\ttfamily void dessiner\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{infos\+Niveau,  }\item[{int}]{id\+Salle }\end{DoxyParamCaption})}
+
+
+
+Dessine toute la map à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Informations d\textquotesingle{}échelle et de taille d\textquotesingle{}écran \\
+\hline
+{\em infos\+Niveau} & Matrice du niveau et couleurs du niveau \\
+\hline
+{\em id\+Salle} & ID de la salle actuelle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{overlay_8c_a0ad357ddc03b5f5132aa6979df6adf64}\label{overlay_8c_a0ad357ddc03b5f5132aa6979df6adf64}} 
+\index{overlay.c@{overlay.c}!dessiner\_tile\_map@{dessiner\_tile\_map}}
+\index{dessiner\_tile\_map@{dessiner\_tile\_map}!overlay.c@{overlay.c}}
+\doxysubsubsection{\texorpdfstring{dessiner\_tile\_map()}{dessiner\_tile\_map()}}
+{\footnotesize\ttfamily static void dessiner\+\_\+tile\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{type,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Dessine une tile de map à la position voulue. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & nécessaire pour dessiner sur l\textquotesingle{}écran \\
+\hline
+{\em type} & Type de salle, voir la fonction \mbox{\hyperlink{overlay_8c_a351fc346334328961b7d26c44547d57c}{type\+\_\+salle\+\_\+map()}} \\
+\hline
+{\em x} & Coordonnée de la salle à dessiner \\
+\hline
+{\em y} & Coordonnée de la salle à dessiner\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un id de tile entre 0 et 15 
+\end{DoxyReturn}
+\mbox{\Hypertarget{overlay_8c_a351fc346334328961b7d26c44547d57c}\label{overlay_8c_a351fc346334328961b7d26c44547d57c}} 
+\index{overlay.c@{overlay.c}!type\_salle\_map@{type\_salle\_map}}
+\index{type\_salle\_map@{type\_salle\_map}!overlay.c@{overlay.c}}
+\doxysubsubsection{\texorpdfstring{type\_salle\_map()}{type\_salle\_map()}}
+{\footnotesize\ttfamily static int type\+\_\+salle\+\_\+map (\begin{DoxyParamCaption}\item[{int}]{matrice\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attribue un id de tile à chaque salle pour la map \+: est-\/ce une salle simple ? Une salle reliée en haut et à gauche ? 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em matrice} & Matrice des IDs des salles du niveau \\
+\hline
+{\em x} & Coordonnée de la salle dont le type doit être déterminé \\
+\hline
+{\em y} & Coordonnée de la salle dont le type doit être déterminé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un id de tile entre 0 et 15 
+\end{DoxyReturn}
