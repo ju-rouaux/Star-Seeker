@@ -111,9 +111,14 @@ e_code_main chargerMenu_Options(t_moteur * moteur) {
                 break;
             case 2: {
                 printf("Muet (on/off)\n");
-                 if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME)
+                 if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME){
+                    Mix_VolumeMusic(0);
                     moteur->parametres.volume_audio = 0;
-                else moteur->parametres.volume_audio = SDL_MIX_MAXVOLUME;
+                 }
+                else{
+                    Mix_VolumeMusic(MIX_MAX_VOLUME);
+                    moteur->parametres.volume_audio = MIX_MAX_VOLUME;
+                }
                 temp = 0;//pour rester sur le menu actuel
                 break;
             }
