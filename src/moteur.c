@@ -111,7 +111,7 @@ t_moteur * chargerMoteur(unsigned int temps)
     initialiserTouches(moteur);
 
     moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    moteur->parametres.volume_audio = 100;
+    moteur->parametres.volume_audio = MIX_MAX_VOLUME;
 
     return moteur;
 }
