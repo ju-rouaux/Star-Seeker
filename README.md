@@ -2,7 +2,7 @@
 Projet d'étudiants en L2 Informatique
 
 ## Compiler le projet
-Pour compiler le projet, changer la variable du Makefile selon votre système d'exploitation.
+Pour compiler le projet, changez la première variable du Makefile selon votre système d'exploitation.
 ```
 #Systeme d'exploitation (win pour windows, sinon n'importe quoi par défaut)
 ARCH = linux
@@ -13,7 +13,7 @@ Ensuite exécutez
 make all
 ```
 
-Sur Windows, il peut être nécessaire d'exécutez la commande suivante pour créer les répertoires obj et save.
+Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires obj et save.
 ```make init```
 obj est nécessaire à la compilation tandis que save est nécessaire à l'exécution du jeu.
 
