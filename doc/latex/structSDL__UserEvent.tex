@@ -1,0 +1,73 @@
+\hypertarget{structSDL__UserEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+User\+Event}
+\label{structSDL__UserEvent}\index{SDL\_UserEvent@{SDL\_UserEvent}}
+
+
+A user-\/defined event type (event.\+user.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__UserEvent_ab7afa8b98dbd7b52bef41155e10f7340}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__UserEvent_adbf1d34c73138a0c549310e5d4ad0c35}{timestamp}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__UserEvent_abccefa10e0e0e3a0801bc6d836a08da7}{window\+ID}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__UserEvent_aef47976781ee82b527a353c5acfa0a34}{code}}
+\item 
+void $\ast$ \mbox{\hyperlink{structSDL__UserEvent_ab2893a12be2f97195f16463a23107913}{data1}}
+\item 
+void $\ast$ \mbox{\hyperlink{structSDL__UserEvent_aae4dbf65c34d654c9edf519eb061b7cf}{data2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A user-\/defined event type (event.\+user.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__UserEvent_aef47976781ee82b527a353c5acfa0a34}\label{structSDL__UserEvent_aef47976781ee82b527a353c5acfa0a34}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!code@{code}}
+\index{code@{code}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+User\+Event\+::code}
+
+User defined event code \mbox{\Hypertarget{structSDL__UserEvent_ab2893a12be2f97195f16463a23107913}\label{structSDL__UserEvent_ab2893a12be2f97195f16463a23107913}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!data1@{data1}}
+\index{data1@{data1}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{data1}{data1}}
+{\footnotesize\ttfamily void$\ast$ SDL\+\_\+\+User\+Event\+::data1}
+
+User defined data pointer \mbox{\Hypertarget{structSDL__UserEvent_aae4dbf65c34d654c9edf519eb061b7cf}\label{structSDL__UserEvent_aae4dbf65c34d654c9edf519eb061b7cf}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!data2@{data2}}
+\index{data2@{data2}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{data2}{data2}}
+{\footnotesize\ttfamily void$\ast$ SDL\+\_\+\+User\+Event\+::data2}
+
+User defined data pointer \mbox{\Hypertarget{structSDL__UserEvent_adbf1d34c73138a0c549310e5d4ad0c35}\label{structSDL__UserEvent_adbf1d34c73138a0c549310e5d4ad0c35}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+User\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__UserEvent_ab7afa8b98dbd7b52bef41155e10f7340}\label{structSDL__UserEvent_ab7afa8b98dbd7b52bef41155e10f7340}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!type@{type}}
+\index{type@{type}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+User\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa4364c23f54802309e83fdb9b1c07c719}{SDL\+\_\+\+USEREVENT}} through \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaaffeac40a4ff366717c0ebc74118ea2ae}{SDL\+\_\+\+LASTEVENT}}-\/1 \mbox{\Hypertarget{structSDL__UserEvent_abccefa10e0e0e3a0801bc6d836a08da7}\label{structSDL__UserEvent_abccefa10e0e0e3a0801bc6d836a08da7}} 
+\index{SDL\_UserEvent@{SDL\_UserEvent}!windowID@{windowID}}
+\index{windowID@{windowID}!SDL\_UserEvent@{SDL\_UserEvent}}
+\doxysubsubsection{\texorpdfstring{windowID}{windowID}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+User\+Event\+::window\+ID}
+
+The associated window if any 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

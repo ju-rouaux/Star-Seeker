@@ -1,0 +1,609 @@
+\hypertarget{SDL__log_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+log.h}
+\label{SDL__log_8h}\index{include/SDL2/SDL\_log.h@{include/SDL2/SDL\_log.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__log_8h_a06c6de264730f257cdba6188b6aaae12}{SDL\+\_\+\+MAX\+\_\+\+LOG\+\_\+\+MESSAGE}}~4096
+\begin{DoxyCompactList}\small\item\em The maximum size of a log message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(SDLCALL $\ast$ \mbox{\hyperlink{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}{SDL\+\_\+\+Log\+Output\+Function}}) (void $\ast$userdata, int category, \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority, const char $\ast$message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__log_8h_ad221d23d6438fe99a781fb04b118039d}{SDL\+\_\+\+Log\+Category}} \{ \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+APPLICATION}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+ERROR}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+ASSERT}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+SYSTEM}
+, \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+AUDIO}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+VIDEO}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RENDER}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+INPUT}
+, \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+TEST}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED1}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED2}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED3}
+, \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED4}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED5}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED6}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED7}
+, \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED8}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED9}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+RESERVED10}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+CUSTOM}
+ \}
+\begin{DoxyCompactList}\small\item\em The predefined log categories. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}\label{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}} 
+enum \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} \{ \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+VERBOSE} = 1
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+DEBUG}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+INFO}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+WARN}
+, \newline
+{\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+ERROR}
+, {\bfseries SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+CRITICAL}
+, {\bfseries SDL\+\_\+\+NUM\+\_\+\+LOG\+\_\+\+PRIORITIES}
+ \}
+\begin{DoxyCompactList}\small\item\em The predefined log priorities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a8f54656094d10994fdb5399f271906ef}{SDL\+\_\+\+Log\+Set\+All\+Priority}} (\mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}{SDL\+\_\+\+Log\+Set\+Priority}} (int category, \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} SDLCALL \mbox{\hyperlink{SDL__log_8h_a26f0cff24dadd97d09808b6aaad3f5f4}{SDL\+\_\+\+Log\+Get\+Priority}} (int category)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_acf17b4ea6a83e308c815fd4d50544eba}{SDL\+\_\+\+Log\+Reset\+Priorities}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} (SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(1)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} (int category, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(2)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} (int category, \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority, SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(3)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} (int category, \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority, const char $\ast$fmt, va\+\_\+list ap)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a074ce8cf644b09454ec112084f9f399e}{SDL\+\_\+\+Log\+Get\+Output\+Function}} (\mbox{\hyperlink{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}{SDL\+\_\+\+Log\+Output\+Function}} $\ast$callback, void $\ast$$\ast$userdata)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__log_8h_a229eb1fdf797f548b20ee98ca8acaac6}{SDL\+\_\+\+Log\+Set\+Output\+Function}} (\mbox{\hyperlink{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}{SDL\+\_\+\+Log\+Output\+Function}} callback, void $\ast$userdata)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Simple log messages with categories and priorities.
+
+By default logs are quiet, but if you\textquotesingle{}re debugging SDL you might want\+: \begin{DoxyVerb}SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);
+\end{DoxyVerb}
+ Here\textquotesingle{}s where the messages go on different platforms\+: Windows\+: debug output stream Android\+: log output Others\+: standard error output (stderr) 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__log_8h_a06c6de264730f257cdba6188b6aaae12}\label{SDL__log_8h_a06c6de264730f257cdba6188b6aaae12}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_MAX\_LOG\_MESSAGE@{SDL\_MAX\_LOG\_MESSAGE}}
+\index{SDL\_MAX\_LOG\_MESSAGE@{SDL\_MAX\_LOG\_MESSAGE}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MAX\_LOG\_MESSAGE}{SDL\_MAX\_LOG\_MESSAGE}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MAX\+\_\+\+LOG\+\_\+\+MESSAGE~4096}
+
+
+
+The maximum size of a log message. 
+
+Messages longer than the maximum size will be truncated 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}\label{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogOutputFunction@{SDL\_LogOutputFunction}}
+\index{SDL\_LogOutputFunction@{SDL\_LogOutputFunction}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogOutputFunction}{SDL\_LogOutputFunction}}
+{\footnotesize\ttfamily typedef void(SDLCALL $\ast$ SDL\+\_\+\+Log\+Output\+Function) (void $\ast$userdata, int category, \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} priority, const char $\ast$message)}
+
+The prototype for the log output callback function.
+
+This function is called by SDL when there is new text to be logged.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em userdata} & what was passed as {\ttfamily userdata} to \mbox{\hyperlink{SDL__log_8h_a229eb1fdf797f548b20ee98ca8acaac6}{SDL\+\_\+\+Log\+Set\+Output\+Function()}} \\
+\hline
+{\em category} & the category of the message \\
+\hline
+{\em priority} & the priority of the message \\
+\hline
+{\em message} & the message being output \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__log_8h_ad221d23d6438fe99a781fb04b118039d}\label{SDL__log_8h_ad221d23d6438fe99a781fb04b118039d}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogCategory@{SDL\_LogCategory}}
+\index{SDL\_LogCategory@{SDL\_LogCategory}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogCategory}{SDL\_LogCategory}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__log_8h_ad221d23d6438fe99a781fb04b118039d}{SDL\+\_\+\+Log\+Category}}}
+
+
+
+The predefined log categories. 
+
+By default the application category is enabled at the INFO level, the assert category is enabled at the WARN level, test is enabled at the VERBOSE level and all other categories are enabled at the CRITICAL level. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}\label{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_Log@{SDL\_Log}}
+\index{SDL\_Log@{SDL\_Log}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Log()}{SDL\_Log()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+CATEGORY\+\_\+\+APPLICATION and SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+INFO.
+
+= $\ast$
+\begin{DoxyParams}{Paramètres}
+{\em fmt} & a printf() style message format string\\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\ttfamily fmt} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}\label{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogCritical@{SDL\_LogCritical}}
+\index{SDL\_LogCritical@{SDL\_LogCritical}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogCritical()}{SDL\_LogCritical()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Critical (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+CRITICAL.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}\label{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogDebug@{SDL\_LogDebug}}
+\index{SDL\_LogDebug@{SDL\_LogDebug}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogDebug()}{SDL\_LogDebug()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Debug (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+DEBUG.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}\label{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogError@{SDL\_LogError}}
+\index{SDL\_LogError@{SDL\_LogError}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogError()}{SDL\_LogError()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Error (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+ERROR.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a074ce8cf644b09454ec112084f9f399e}\label{SDL__log_8h_a074ce8cf644b09454ec112084f9f399e}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogGetOutputFunction@{SDL\_LogGetOutputFunction}}
+\index{SDL\_LogGetOutputFunction@{SDL\_LogGetOutputFunction}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogGetOutputFunction()}{SDL\_LogGetOutputFunction()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Get\+Output\+Function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}{SDL\+\_\+\+Log\+Output\+Function}} $\ast$}]{callback,  }\item[{void $\ast$$\ast$}]{userdata }\end{DoxyParamCaption})}
+
+Get the current log output function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em callback} & an SDL\+\_\+\+Log\+Output\+Function filled in with the current log callback \\
+\hline
+{\em userdata} & a pointer filled in with the pointer that is passed to {\ttfamily callback}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a229eb1fdf797f548b20ee98ca8acaac6}{SDL\+\_\+\+Log\+Set\+Output\+Function}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a26f0cff24dadd97d09808b6aaad3f5f4}\label{SDL__log_8h_a26f0cff24dadd97d09808b6aaad3f5f4}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogGetPriority@{SDL\_LogGetPriority}}
+\index{SDL\_LogGetPriority@{SDL\_LogGetPriority}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogGetPriority()}{SDL\_LogGetPriority()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}} SDLCALL SDL\+\_\+\+Log\+Get\+Priority (\begin{DoxyParamCaption}\item[{int}]{category }\end{DoxyParamCaption})}
+
+Get the priority of a particular log category.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Log\+Priority for the requested category
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}{SDL\+\_\+\+Log\+Set\+Priority}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}\label{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogInfo@{SDL\_LogInfo}}
+\index{SDL\_LogInfo@{SDL\_LogInfo}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogInfo()}{SDL\_LogInfo()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Info (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+INFO.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}\label{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogMessage@{SDL\_LogMessage}}
+\index{SDL\_LogMessage@{SDL\_LogMessage}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogMessage()}{SDL\_LogMessage()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Message (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{\mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}}}]{priority,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with the specified category and priority.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em priority} & the priority of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}\label{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogMessageV@{SDL\_LogMessageV}}
+\index{SDL\_LogMessageV@{SDL\_LogMessageV}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogMessageV()}{SDL\_LogMessageV()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+MessageV (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{\mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}}}]{priority,  }\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{ap }\end{DoxyParamCaption})}
+
+Log a message with the specified category and priority.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em priority} & the priority of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ap} & a variable argument list\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_acf17b4ea6a83e308c815fd4d50544eba}\label{SDL__log_8h_acf17b4ea6a83e308c815fd4d50544eba}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogResetPriorities@{SDL\_LogResetPriorities}}
+\index{SDL\_LogResetPriorities@{SDL\_LogResetPriorities}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogResetPriorities()}{SDL\_LogResetPriorities()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Reset\+Priorities (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Reset all priorities to default.
+
+This is called by \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}}.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a8f54656094d10994fdb5399f271906ef}{SDL\+\_\+\+Log\+Set\+All\+Priority}} 
+
+\mbox{\hyperlink{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}{SDL\+\_\+\+Log\+Set\+Priority}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a8f54656094d10994fdb5399f271906ef}\label{SDL__log_8h_a8f54656094d10994fdb5399f271906ef}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogSetAllPriority@{SDL\_LogSetAllPriority}}
+\index{SDL\_LogSetAllPriority@{SDL\_LogSetAllPriority}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogSetAllPriority()}{SDL\_LogSetAllPriority()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Set\+All\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}}}]{priority }\end{DoxyParamCaption})}
+
+Set the priority of all log categories.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em priority} & the SDL\+\_\+\+Log\+Priority to assign\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}{SDL\+\_\+\+Log\+Set\+Priority}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a229eb1fdf797f548b20ee98ca8acaac6}\label{SDL__log_8h_a229eb1fdf797f548b20ee98ca8acaac6}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogSetOutputFunction@{SDL\_LogSetOutputFunction}}
+\index{SDL\_LogSetOutputFunction@{SDL\_LogSetOutputFunction}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogSetOutputFunction()}{SDL\_LogSetOutputFunction()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Set\+Output\+Function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__log_8h_a11c2a5b3bbfd910cf18fbc70cf513e24}{SDL\+\_\+\+Log\+Output\+Function}}}]{callback,  }\item[{void $\ast$}]{userdata }\end{DoxyParamCaption})}
+
+Replace the default log output function with one of your own.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em callback} & an SDL\+\_\+\+Log\+Output\+Function to call instead of the default \\
+\hline
+{\em userdata} & a pointer that is passed to {\ttfamily callback}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a074ce8cf644b09454ec112084f9f399e}{SDL\+\_\+\+Log\+Get\+Output\+Function}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}\label{SDL__log_8h_a9a4809ac7942e029d0bf17f380d23f73}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogSetPriority@{SDL\_LogSetPriority}}
+\index{SDL\_LogSetPriority@{SDL\_LogSetPriority}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogSetPriority()}{SDL\_LogSetPriority()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Set\+Priority (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{\mbox{\hyperlink{SDL__log_8h_a09e04f1d062a71901f59592c276ad946}{SDL\+\_\+\+Log\+Priority}}}]{priority }\end{DoxyParamCaption})}
+
+Set the priority of a particular log category.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category to assign a priority to \\
+\hline
+{\em priority} & the SDL\+\_\+\+Log\+Priority to assign\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a26f0cff24dadd97d09808b6aaad3f5f4}{SDL\+\_\+\+Log\+Get\+Priority}} 
+
+\mbox{\hyperlink{SDL__log_8h_a8f54656094d10994fdb5399f271906ef}{SDL\+\_\+\+Log\+Set\+All\+Priority}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}\label{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogVerbose@{SDL\_LogVerbose}}
+\index{SDL\_LogVerbose@{SDL\_LogVerbose}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogVerbose()}{SDL\_LogVerbose()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Verbose (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+VERBOSE.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a91a7a09fec470638f028138626b3d126}{SDL\+\_\+\+Log\+Warn}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__log_8h_a91a7a09fec470638f028138626b3d126}\label{SDL__log_8h_a91a7a09fec470638f028138626b3d126}} 
+\index{SDL\_log.h@{SDL\_log.h}!SDL\_LogWarn@{SDL\_LogWarn}}
+\index{SDL\_LogWarn@{SDL\_LogWarn}!SDL\_log.h@{SDL\_log.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LogWarn()}{SDL\_LogWarn()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Log\+Warn (\begin{DoxyParamCaption}\item[{int}]{category,  }\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Log a message with SDL\+\_\+\+LOG\+\_\+\+PRIORITY\+\_\+\+WARN.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em category} & the category of the message \\
+\hline
+{\em fmt} & a printf() style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\bfseries{fmt}} string, if any\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log}} 
+
+\mbox{\hyperlink{SDL__log_8h_a3600cf500a030f892d41a61d9d30de19}{SDL\+\_\+\+Log\+Critical}} 
+
+\mbox{\hyperlink{SDL__log_8h_a0749fe47180b98c04bd82aca7235d703}{SDL\+\_\+\+Log\+Debug}} 
+
+\mbox{\hyperlink{SDL__log_8h_acabe956be51b7a4c877dbfcb0489a02f}{SDL\+\_\+\+Log\+Error}} 
+
+\mbox{\hyperlink{SDL__log_8h_a81c8956ea1a84ad325c3f5ecd2094515}{SDL\+\_\+\+Log\+Info}} 
+
+\mbox{\hyperlink{SDL__log_8h_a7fcfeca9c95069b6432bf1cdb01d0ba4}{SDL\+\_\+\+Log\+Message}} 
+
+\mbox{\hyperlink{SDL__log_8h_a2cacafd4d8e6d258da40e97a3cb3f80b}{SDL\+\_\+\+Log\+MessageV}} 
+
+\mbox{\hyperlink{SDL__log_8h_a34a7d9211a9ced1c1a6db4be0f3fbb7e}{SDL\+\_\+\+Log\+Verbose}} 
+\end{DoxySeeAlso}

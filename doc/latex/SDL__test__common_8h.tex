@@ -1,0 +1,237 @@
+\hypertarget{SDL__test__common_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+common.h}
+\label{SDL__test__common_8h}\index{include/SDL2/SDL\_test\_common.h@{include/SDL2/SDL\_test\_common.h}}
+{\ttfamily \#include \char`\"{}SDL.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}\label{SDL__test__common_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}} 
+\#define {\bfseries DEFAULT\+\_\+\+WINDOW\+\_\+\+WIDTH}~640
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_a030ebc610fddb0a18d62829ab376bf85}\label{SDL__test__common_8h_a030ebc610fddb0a18d62829ab376bf85}} 
+\#define {\bfseries DEFAULT\+\_\+\+WINDOW\+\_\+\+HEIGHT}~480
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_ab5d2ba75c3cd702f1a269c406902ddcb}\label{SDL__test__common_8h_ab5d2ba75c3cd702f1a269c406902ddcb}} 
+\#define {\bfseries VERBOSE\+\_\+\+VIDEO}~0x00000001
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_a3a535ac3889907ff97e556a3cae117cc}\label{SDL__test__common_8h_a3a535ac3889907ff97e556a3cae117cc}} 
+\#define {\bfseries VERBOSE\+\_\+\+MODES}~0x00000002
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_a7bdcd39423e8261d05407ab758feb037}\label{SDL__test__common_8h_a7bdcd39423e8261d05407ab758feb037}} 
+\#define {\bfseries VERBOSE\+\_\+\+RENDER}~0x00000004
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_a3e5a47c9aaa54a2b134b0066f48b4e0c}\label{SDL__test__common_8h_a3e5a47c9aaa54a2b134b0066f48b4e0c}} 
+\#define {\bfseries VERBOSE\+\_\+\+EVENT}~0x00000008
+\item 
+\mbox{\Hypertarget{SDL__test__common_8h_ab607cbf4694150235976fc1ef6e68387}\label{SDL__test__common_8h_ab607cbf4694150235976fc1ef6e68387}} 
+\#define {\bfseries VERBOSE\+\_\+\+AUDIO}~0x00000010
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$ \mbox{\hyperlink{SDL__test__common_8h_a8752973417c10ede61c07fba67c65f7a}{SDLTest\+\_\+\+Common\+Create\+State}} (char $\ast$$\ast$argv, Uint32 flags)
+\begin{DoxyCompactList}\small\item\em Parse command line parameters and create common state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{SDL__test__common_8h_a6ffe001ae2299720a92b80812dbc48b9}{SDLTest\+\_\+\+Common\+Arg}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state, int index)
+\begin{DoxyCompactList}\small\item\em Process one common argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__common_8h_aa048e9175cca826d9dbd6c5d72284e38}{SDLTest\+\_\+\+Common\+Log\+Usage}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state, const char $\ast$argv0, const char $\ast$$\ast$options)
+\begin{DoxyCompactList}\small\item\em Logs command line usage info. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{SDL__test__common_8h_a71ea0036b194df15caae753ca03825b1}{SDLTest\+\_\+\+Common\+Usage}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state)
+\begin{DoxyCompactList}\small\item\em Returns common usage information. \end{DoxyCompactList}\item 
+SDL\+\_\+bool \mbox{\hyperlink{SDL__test__common_8h_a7405405819a77e317a1edda6be974187}{SDLTest\+\_\+\+Common\+Init}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state)
+\begin{DoxyCompactList}\small\item\em Open test window. \end{DoxyCompactList}\item 
+SDL\+\_\+bool \mbox{\hyperlink{SDL__test__common_8h_a39a960ca01f07491d42008a137db6f1c}{SDLTest\+\_\+\+Common\+Default\+Args}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state, const int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Easy argument handling when test app doesn\textquotesingle{}t need any custom args. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__common_8h_a5fb0eb864d62d6d9f6d932c9abccd1f4}{SDLTest\+\_\+\+Common\+Event}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state, \mbox{\hyperlink{unionSDL__Event}{SDL\+\_\+\+Event}} $\ast$event, int $\ast$done)
+\begin{DoxyCompactList}\small\item\em Common event handler for test windows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__common_8h_a2d24c255140a7e90c753eb363ef4d96e}{SDLTest\+\_\+\+Common\+Quit}} (\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$state)
+\begin{DoxyCompactList}\small\item\em Close test window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{SDL__test__common_8h_a2ec5c6d6329602f002d441de8edfdad2}{SDLTest\+\_\+\+Common\+Draw\+Window\+Info}} (SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$window, int $\ast$used\+Height)
+\begin{DoxyCompactList}\small\item\em Draws various window information (position, size, etc.) to the renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__common_8h_a6ffe001ae2299720a92b80812dbc48b9}\label{SDL__test__common_8h_a6ffe001ae2299720a92b80812dbc48b9}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonArg@{SDLTest\_CommonArg}}
+\index{SDLTest\_CommonArg@{SDLTest\_CommonArg}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonArg()}{SDLTest\_CommonArg()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Common\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Process one common argument. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state describing the test window to create. \\
+\hline
+{\em index} & The index of the argument to process in argv\mbox{[}\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of arguments processed (i.\+e. 1 for --fullscreen, 2 for --video \mbox{[}videodriver\mbox{]}, or -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__common_8h_a8752973417c10ede61c07fba67c65f7a}\label{SDL__test__common_8h_a8752973417c10ede61c07fba67c65f7a}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonCreateState@{SDLTest\_CommonCreateState}}
+\index{SDLTest\_CommonCreateState@{SDLTest\_CommonCreateState}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonCreateState()}{SDLTest\_CommonCreateState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}}$\ast$ SDLTest\+\_\+\+Common\+Create\+State (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{argv,  }\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+
+
+Parse command line parameters and create common state. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argv} & Array of command line parameters \\
+\hline
+{\em flags} & Flags indicating which subsystem to initialize (i.\+e. SDL\+\_\+\+INIT\+\_\+\+VIDEO $\vert$ SDL\+\_\+\+INIT\+\_\+\+AUDIO)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a newly allocated common state object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__common_8h_a39a960ca01f07491d42008a137db6f1c}\label{SDL__test__common_8h_a39a960ca01f07491d42008a137db6f1c}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonDefaultArgs@{SDLTest\_CommonDefaultArgs}}
+\index{SDLTest\_CommonDefaultArgs@{SDLTest\_CommonDefaultArgs}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonDefaultArgs()}{SDLTest\_CommonDefaultArgs()}}
+{\footnotesize\ttfamily SDL\+\_\+bool SDLTest\+\_\+\+Common\+Default\+Args (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state,  }\item[{const int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Easy argument handling when test app doesn\textquotesingle{}t need any custom args. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state describing the test window to create. \\
+\hline
+{\em argc} & argc, as supplied to SDL\+\_\+main \\
+\hline
+{\em argv} & argv, as supplied to SDL\+\_\+main\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+FALSE if app should quit, true otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__common_8h_a2ec5c6d6329602f002d441de8edfdad2}\label{SDL__test__common_8h_a2ec5c6d6329602f002d441de8edfdad2}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonDrawWindowInfo@{SDLTest\_CommonDrawWindowInfo}}
+\index{SDLTest\_CommonDrawWindowInfo@{SDLTest\_CommonDrawWindowInfo}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonDrawWindowInfo()}{SDLTest\_CommonDrawWindowInfo()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Common\+Draw\+Window\+Info (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{SDL__video_8h_a55a196c7d3b8497538632c79ae1e6392}{SDL\+\_\+\+Window}} $\ast$}]{window,  }\item[{int $\ast$}]{used\+Height }\end{DoxyParamCaption})}
+
+
+
+Draws various window information (position, size, etc.) to the renderer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & The renderer to draw to. \\
+\hline
+{\em window} & The window whose information should be displayed. \\
+\hline
+{\em used\+Height} & Returns the height used, so the caller can draw more below. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{SDL__test__common_8h_a5fb0eb864d62d6d9f6d932c9abccd1f4}\label{SDL__test__common_8h_a5fb0eb864d62d6d9f6d932c9abccd1f4}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonEvent@{SDLTest\_CommonEvent}}
+\index{SDLTest\_CommonEvent@{SDLTest\_CommonEvent}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonEvent()}{SDLTest\_CommonEvent()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Common\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state,  }\item[{\mbox{\hyperlink{unionSDL__Event}{SDL\+\_\+\+Event}} $\ast$}]{event,  }\item[{int $\ast$}]{done }\end{DoxyParamCaption})}
+
+
+
+Common event handler for test windows. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state used to create test window. \\
+\hline
+{\em event} & The event to handle. \\
+\hline
+{\em done} & Flag indicating we are done. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{SDL__test__common_8h_a7405405819a77e317a1edda6be974187}\label{SDL__test__common_8h_a7405405819a77e317a1edda6be974187}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonInit@{SDLTest\_CommonInit}}
+\index{SDLTest\_CommonInit@{SDLTest\_CommonInit}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonInit()}{SDLTest\_CommonInit()}}
+{\footnotesize\ttfamily SDL\+\_\+bool SDLTest\+\_\+\+Common\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Open test window. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state describing the test window to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if initialization succeeded, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__common_8h_aa048e9175cca826d9dbd6c5d72284e38}\label{SDL__test__common_8h_aa048e9175cca826d9dbd6c5d72284e38}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonLogUsage@{SDLTest\_CommonLogUsage}}
+\index{SDLTest\_CommonLogUsage@{SDLTest\_CommonLogUsage}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonLogUsage()}{SDLTest\_CommonLogUsage()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Common\+Log\+Usage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state,  }\item[{const char $\ast$}]{argv0,  }\item[{const char $\ast$$\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+Logs command line usage info. 
+
+This logs the appropriate command line options for the subsystems in use plus other common options, and then any application-\/specific options. This uses the \mbox{\hyperlink{SDL__log_8h_a712dc42164c67b7f9e23dc0e3b15bd92}{SDL\+\_\+\+Log()}} function and splits up output to be friendly to 80-\/character-\/wide terminals.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state describing the test window for the app. \\
+\hline
+{\em argv0} & argv\mbox{[}0\mbox{]}, as passed to main/\+SDL\+\_\+main. \\
+\hline
+{\em options} & an array of strings for application specific options. The last element of the array should be NULL. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{SDL__test__common_8h_a2d24c255140a7e90c753eb363ef4d96e}\label{SDL__test__common_8h_a2d24c255140a7e90c753eb363ef4d96e}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonQuit@{SDLTest\_CommonQuit}}
+\index{SDLTest\_CommonQuit@{SDLTest\_CommonQuit}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonQuit()}{SDLTest\_CommonQuit()}}
+{\footnotesize\ttfamily void SDLTest\+\_\+\+Common\+Quit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Close test window. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state used to create test window. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{SDL__test__common_8h_a71ea0036b194df15caae753ca03825b1}\label{SDL__test__common_8h_a71ea0036b194df15caae753ca03825b1}} 
+\index{SDL\_test\_common.h@{SDL\_test\_common.h}!SDLTest\_CommonUsage@{SDLTest\_CommonUsage}}
+\index{SDLTest\_CommonUsage@{SDLTest\_CommonUsage}!SDL\_test\_common.h@{SDL\_test\_common.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_CommonUsage()}{SDLTest\_CommonUsage()}}
+{\footnotesize\ttfamily const char$\ast$ SDLTest\+\_\+\+Common\+Usage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__CommonState}{SDLTest\+\_\+\+Common\+State}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Returns common usage information. 
+
+You should (probably) be using \mbox{\hyperlink{SDL__test__common_8h_aa048e9175cca826d9dbd6c5d72284e38}{SDLTest\+\_\+\+Common\+Log\+Usage()}} instead, but this function remains for binary compatibility. Strings returned from this function are valid until \mbox{\hyperlink{SDL__test__common_8h_a2d24c255140a7e90c753eb363ef4d96e}{SDLTest\+\_\+\+Common\+Quit()}} is called, in which case those strings\textquotesingle{} memory is freed and can no longer be used.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em state} & The common state describing the test window to create. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a string with usage information 
+\end{DoxyReturn}

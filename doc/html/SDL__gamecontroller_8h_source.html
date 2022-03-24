@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/SDL2/SDL_gamecontroller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SDL_gamecontroller.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SDL__gamecontroller_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Simple DirectMedia Layer</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C) 1997-2022 Sam Lantinga &lt;slouken@libsdl.org&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  This software is provided &#39;as-is&#39;, without any express or implied</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  warranty.  In no event will the authors be held liable for any damages</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  arising from the use of this software.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  Permission is granted to anyone to use this software for any purpose,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  including commercial applications, and to alter it and redistribute it</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  freely, subject to the following restrictions:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  1. The origin of this software must not be misrepresented; you must not</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">     claim that you wrote the original software. If you use this software</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">     in a product, an acknowledgment in the product documentation would be</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     appreciated but is not required.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  2. Altered source versions must be plainly marked as such, and must not be</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     misrepresented as being the original software.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  3. This notice may not be removed or altered from any source distribution.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef SDL_gamecontroller_h_</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SDL_gamecontroller_h_</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__stdinc_8h.html">SDL_stdinc.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__error_8h.html">SDL_error.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__rwops_8h.html">SDL_rwops.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__sensor_8h.html">SDL_sensor.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__joystick_8h.html">SDL_joystick.h</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="begin__code_8h.html">begin_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/* Set up for C function definitions, even when using C++ */</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">struct </span>_SDL_GameController;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>_SDL_GameController SDL_GameController;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    SDL_CONTROLLER_TYPE_UNKNOWN = 0,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    SDL_CONTROLLER_TYPE_XBOX360,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    SDL_CONTROLLER_TYPE_XBOXONE,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    SDL_CONTROLLER_TYPE_PS3,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    SDL_CONTROLLER_TYPE_PS4,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    SDL_CONTROLLER_TYPE_VIRTUAL,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    SDL_CONTROLLER_TYPE_PS5,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    SDL_CONTROLLER_TYPE_AMAZON_LUNA,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    SDL_CONTROLLER_TYPE_GOOGLE_STADIA</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} SDL_GameControllerType;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SDL_CONTROLLER_BINDTYPE_NONE = 0,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SDL_CONTROLLER_BINDTYPE_BUTTON,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SDL_CONTROLLER_BINDTYPE_AXIS,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    SDL_CONTROLLER_BINDTYPE_HAT</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} SDL_GameControllerBindType;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structSDL__GameControllerButtonBind.html">   86</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structSDL__GameControllerButtonBind.html">SDL_GameControllerButtonBind</a></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    SDL_GameControllerBindType bindType;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">union</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">int</span> button;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">int</span> axis;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">int</span> hat;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordtype">int</span> hat_mask;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } hat;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    } value;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac05d685077e640c887c2f83de995767e">   99</a></span>&#160;} <a class="code" href="SDL__gamecontroller_8h.html#ac05d685077e640c887c2f83de995767e">SDL_GameControllerButtonBind</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a01da8611222d5648872fbb4440c886af">  161</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a01da8611222d5648872fbb4440c886af">SDL_GameControllerAddMappingsFromRW</a>(<a class="code" href="structSDL__RWops.html">SDL_RWops</a> * rw, <span class="keywordtype">int</span> freerw);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a86b050862858714f651a4cf08fea2d3a">  168</a></span>&#160;<span class="preprocessor">#define SDL_GameControllerAddMappingsFromFile(file)   SDL_GameControllerAddMappingsFromRW(SDL_RWFromFile(file, &quot;rb&quot;</span>), 1)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a62cb682b1c589135cd32cce381d403f8">  197</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a62cb682b1c589135cd32cce381d403f8">SDL_GameControllerAddMapping</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* mappingString);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac14eb47ec6097d89c7bec14f6b27ebfe">  206</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ac14eb47ec6097d89c7bec14f6b27ebfe">SDL_GameControllerNumMappings</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac5ddf8927b92d95968f568ec6399bc18">  216</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">char</span> * SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ac5ddf8927b92d95968f568ec6399bc18">SDL_GameControllerMappingForIndex</a>(<span class="keywordtype">int</span> mapping_index);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a2bd404799b40e27d75d3699c866904cf">  232</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">char</span> * SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a2bd404799b40e27d75d3699c866904cf">SDL_GameControllerMappingForGUID</a>(<a class="code" href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a> guid);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a6d56a421a407e4587dfd0be98255fdf7">  251</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">char</span> * SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a6d56a421a407e4587dfd0be98255fdf7">SDL_GameControllerMapping</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a3307c27938a336b83c317b6054d91bd4">  269</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a3307c27938a336b83c317b6054d91bd4">SDL_IsGameController</a>(<span class="keywordtype">int</span> joystick_index);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#aa27333eaf19fbcf39df244aa19c5d043">  290</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#aa27333eaf19fbcf39df244aa19c5d043">SDL_GameControllerNameForIndex</a>(<span class="keywordtype">int</span> joystick_index);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8cab24dcd19022722c306f04fdfc6b6a">  303</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_GameControllerType SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a8cab24dcd19022722c306f04fdfc6b6a">SDL_GameControllerTypeForIndex</a>(<span class="keywordtype">int</span> joystick_index);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a425074be07233d9e116bf6f3ebcb1f11">  317</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">char</span> *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a425074be07233d9e116bf6f3ebcb1f11">SDL_GameControllerMappingForDeviceIndex</a>(<span class="keywordtype">int</span> joystick_index);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac7725e08ac17961bd7d5f8d4eb0c4033">  341</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_GameController *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ac7725e08ac17961bd7d5f8d4eb0c4033">SDL_GameControllerOpen</a>(<span class="keywordtype">int</span> joystick_index);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a34e43c763202a2d7124f24fdaf508a2a">  352</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_GameController *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a34e43c763202a2d7124f24fdaf508a2a">SDL_GameControllerFromInstanceID</a>(<a class="code" href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a> joyid);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac30c5d89ad1c490bbc8d5370885d9c4d">  369</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_GameController *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ac30c5d89ad1c490bbc8d5370885d9c4d">SDL_GameControllerFromPlayerIndex</a>(<span class="keywordtype">int</span> player_index);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#add465dba60b0e2ff4e0b53f15471be1e">  387</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#add465dba60b0e2ff4e0b53f15471be1e">SDL_GameControllerName</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#aab21a8d107d382ce7ff32afbe82b8776">  400</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_GameControllerType SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#aab21a8d107d382ce7ff32afbe82b8776">SDL_GameControllerGetType</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a99740db152ae93bcdc59a8b540c3178d">  412</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a99740db152ae93bcdc59a8b540c3178d">SDL_GameControllerGetPlayerIndex</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a85be71ba10423ad4da459131a13a0f5f">  422</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a85be71ba10423ad4da459131a13a0f5f">SDL_GameControllerSetPlayerIndex</a>(SDL_GameController *gamecontroller, <span class="keywordtype">int</span> player_index);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ab0032725dcea365502694731c37605f7">  434</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ab0032725dcea365502694731c37605f7">SDL_GameControllerGetVendor</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8ea81761681d1666a3b447eb9ef2dee8">  446</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a8ea81761681d1666a3b447eb9ef2dee8">SDL_GameControllerGetProduct</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
+<div class="line"><a name="l00458"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a2e3eda7c9faf9bf0f4e06d89f3859c72">  458</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint16 SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a2e3eda7c9faf9bf0f4e06d89f3859c72">SDL_GameControllerGetProductVersion</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00471"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8427463c67571c4dfb49cc2edcd0027e">  471</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span> * SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a8427463c67571c4dfb49cc2edcd0027e">SDL_GameControllerGetSerial</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#adeeeba5a268842412f6578f38e75d231">  486</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#adeeeba5a268842412f6578f38e75d231">SDL_GameControllerGetAttached</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
+<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#af2aac9107334b73d94b93f9c5ef51eb4">  507</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_Joystick *SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#af2aac9107334b73d94b93f9c5ef51eb4">SDL_GameControllerGetJoystick</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; </div>
+<div class="line"><a name="l00527"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a457fd59b3dec7d1b6ed384973b584bc6">  527</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a457fd59b3dec7d1b6ed384973b584bc6">SDL_GameControllerEventState</a>(<span class="keywordtype">int</span> state);</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a92fe68241a17b60b2240c04d01b73e6b">  538</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a92fe68241a17b60b2240c04d01b73e6b">SDL_GameControllerUpdate</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">  550</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;{</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    SDL_CONTROLLER_AXIS_INVALID = -1,</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    SDL_CONTROLLER_AXIS_LEFTX,</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    SDL_CONTROLLER_AXIS_LEFTY,</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    SDL_CONTROLLER_AXIS_RIGHTX,</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    SDL_CONTROLLER_AXIS_RIGHTY,</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    SDL_CONTROLLER_AXIS_TRIGGERLEFT,</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    SDL_CONTROLLER_AXIS_TRIGGERRIGHT,</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    SDL_CONTROLLER_AXIS_MAX</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;} <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a>;</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="line"><a name="l00582"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a623237e182b87c6def6d7be80a7d71d3">  582</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a623237e182b87c6def6d7be80a7d71d3">SDL_GameControllerGetAxisFromString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
+<div class="line"><a name="l00598"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a66cbcb3062d6e99e896611a2bde88456">  598</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span>* SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a66cbcb3062d6e99e896611a2bde88456">SDL_GameControllerGetStringForAxis</a>(<a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> axis);</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="structSDL__GameControllerButtonBind.html">SDL_GameControllerButtonBind</a> SDLCALL</div>
+<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#acdb9303cc6b67f1a0ec3ee55ad8e29d5">  614</a></span>&#160;<a class="code" href="SDL__gamecontroller_8h.html#acdb9303cc6b67f1a0ec3ee55ad8e29d5">SDL_GameControllerGetBindForAxis</a>(SDL_GameController *gamecontroller,</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                                 <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> axis);</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; </div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL</div>
+<div class="line"><a name="l00630"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8448d364a118ef54ba1d240f318d7a03">  630</a></span>&#160;<a class="code" href="SDL__gamecontroller_8h.html#a8448d364a118ef54ba1d240f318d7a03">SDL_GameControllerHasAxis</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> axis);</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keyword">extern</span> DECLSPEC Sint16 SDLCALL</div>
+<div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a067291389e9a8a1fbc8cb2b0dabb8dd2">  650</a></span>&#160;<a class="code" href="SDL__gamecontroller_8h.html#a067291389e9a8a1fbc8cb2b0dabb8dd2">SDL_GameControllerGetAxis</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> axis);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
+<div class="line"><a name="l00655"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">  655</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;{</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    SDL_CONTROLLER_BUTTON_INVALID = -1,</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    SDL_CONTROLLER_BUTTON_A,</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    SDL_CONTROLLER_BUTTON_B,</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    SDL_CONTROLLER_BUTTON_X,</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    SDL_CONTROLLER_BUTTON_Y,</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    SDL_CONTROLLER_BUTTON_BACK,</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    SDL_CONTROLLER_BUTTON_GUIDE,</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    SDL_CONTROLLER_BUTTON_START,</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    SDL_CONTROLLER_BUTTON_LEFTSTICK,</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    SDL_CONTROLLER_BUTTON_RIGHTSTICK,</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    SDL_CONTROLLER_BUTTON_LEFTSHOULDER,</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    SDL_CONTROLLER_BUTTON_RIGHTSHOULDER,</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    SDL_CONTROLLER_BUTTON_DPAD_UP,</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    SDL_CONTROLLER_BUTTON_DPAD_DOWN,</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    SDL_CONTROLLER_BUTTON_DPAD_LEFT,</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    SDL_CONTROLLER_BUTTON_DPAD_RIGHT,</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    SDL_CONTROLLER_BUTTON_MISC1,    <span class="comment">/* Xbox Series X share button, PS5 microphone button, Nintendo Switch Pro capture button, Amazon Luna microphone button */</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    SDL_CONTROLLER_BUTTON_PADDLE1,  <span class="comment">/* Xbox Elite paddle P1 */</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    SDL_CONTROLLER_BUTTON_PADDLE2,  <span class="comment">/* Xbox Elite paddle P3 */</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    SDL_CONTROLLER_BUTTON_PADDLE3,  <span class="comment">/* Xbox Elite paddle P2 */</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    SDL_CONTROLLER_BUTTON_PADDLE4,  <span class="comment">/* Xbox Elite paddle P4 */</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    SDL_CONTROLLER_BUTTON_TOUCHPAD, <span class="comment">/* PS4/PS5 touchpad button */</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    SDL_CONTROLLER_BUTTON_MAX</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;} <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a>;</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; </div>
+<div class="line"><a name="l00696"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8e072a1f116583ca136be6b609e41d13">  696</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a8e072a1f116583ca136be6b609e41d13">SDL_GameControllerGetButtonFromString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160; </div>
+<div class="line"><a name="l00712"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a5afc30d12ed8c51e24e2ce32eca032de">  712</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span>* SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a5afc30d12ed8c51e24e2ce32eca032de">SDL_GameControllerGetStringForButton</a>(<a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> button);</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160; </div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="structSDL__GameControllerButtonBind.html">SDL_GameControllerButtonBind</a> SDLCALL</div>
+<div class="line"><a name="l00728"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a4ee15324cc28aa53bab9f28e71c96840">  728</a></span>&#160;<a class="code" href="SDL__gamecontroller_8h.html#a4ee15324cc28aa53bab9f28e71c96840">SDL_GameControllerGetBindForButton</a>(SDL_GameController *gamecontroller,</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                                   <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> button);</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
+<div class="line"><a name="l00743"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a761d5b2da1c9aef500cebe401c6ed30f">  743</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a761d5b2da1c9aef500cebe401c6ed30f">SDL_GameControllerHasButton</a>(SDL_GameController *gamecontroller,</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                                                             <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> button);</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160; </div>
+<div class="line"><a name="l00758"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#afa9f025f4262bdfba38c364ec9cc31bf">  758</a></span>&#160;<span class="keyword">extern</span> DECLSPEC Uint8 SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#afa9f025f4262bdfba38c364ec9cc31bf">SDL_GameControllerGetButton</a>(SDL_GameController *gamecontroller,</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;                                                          <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> button);</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
+<div class="line"><a name="l00766"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a5a22ed44ff4c46e2ec8edeea48b8b1ae">  766</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a5a22ed44ff4c46e2ec8edeea48b8b1ae">SDL_GameControllerGetNumTouchpads</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160; </div>
+<div class="line"><a name="l00774"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a80657ada0dcc10e971df3cf07b5c7106">  774</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a80657ada0dcc10e971df3cf07b5c7106">SDL_GameControllerGetNumTouchpadFingers</a>(SDL_GameController *gamecontroller, <span class="keywordtype">int</span> touchpad);</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
+<div class="line"><a name="l00781"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a4a13f3fc8b896356f0bd57edebb4a72c">  781</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a4a13f3fc8b896356f0bd57edebb4a72c">SDL_GameControllerGetTouchpadFinger</a>(SDL_GameController *gamecontroller, <span class="keywordtype">int</span> touchpad, <span class="keywordtype">int</span> finger, Uint8 *state, <span class="keywordtype">float</span> *x, <span class="keywordtype">float</span> *y, <span class="keywordtype">float</span> *pressure);</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160; </div>
+<div class="line"><a name="l00792"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#af84b3cbfe9f9acd9563c0d63cc57247a">  792</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#af84b3cbfe9f9acd9563c0d63cc57247a">SDL_GameControllerHasSensor</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> type);</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#acee01b6bdc79b5dda14b77538b1d34ba">  804</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#acee01b6bdc79b5dda14b77538b1d34ba">SDL_GameControllerSetSensorEnabled</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> type, SDL_bool enabled);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
+<div class="line"><a name="l00815"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a289122b9f72b3e89671fcbfaa6d61699">  815</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a289122b9f72b3e89671fcbfaa6d61699">SDL_GameControllerIsSensorEnabled</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> type);</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
+<div class="line"><a name="l00827"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a8bc636752e61693a6d38bb4b9c999ea2">  827</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">float</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a8bc636752e61693a6d38bb4b9c999ea2">SDL_GameControllerGetSensorDataRate</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> type);</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160; </div>
+<div class="line"><a name="l00843"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#ac258208c13968bac123c18751dc3f198">  843</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#ac258208c13968bac123c18751dc3f198">SDL_GameControllerGetSensorData</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a> type, <span class="keywordtype">float</span> *data, <span class="keywordtype">int</span> num_values);</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160; </div>
+<div class="line"><a name="l00863"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#af656d1c71fe07da1146c376439d9b403">  863</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#af656d1c71fe07da1146c376439d9b403">SDL_GameControllerRumble</a>(SDL_GameController *gamecontroller, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms);</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160; </div>
+<div class="line"><a name="l00887"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a2879f90f77b4de4f73892aef4cf73d26">  887</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a2879f90f77b4de4f73892aef4cf73d26">SDL_GameControllerRumbleTriggers</a>(SDL_GameController *gamecontroller, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms);</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160; </div>
+<div class="line"><a name="l00898"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#aea8e212c4b72bb4e72c4e5f1a25457c6">  898</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#aea8e212c4b72bb4e72c4e5f1a25457c6">SDL_GameControllerHasLED</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160; </div>
+<div class="line"><a name="l00911"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#aa3fb8be22a6781c2b46b79309747978c">  911</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#aa3fb8be22a6781c2b46b79309747978c">SDL_GameControllerHasRumble</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160; </div>
+<div class="line"><a name="l00924"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#aedb548895f677b818901440b759b3a94">  924</a></span>&#160;<span class="keyword">extern</span> DECLSPEC SDL_bool SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#aedb548895f677b818901440b759b3a94">SDL_GameControllerHasRumbleTriggers</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160; </div>
+<div class="line"><a name="l00937"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a5c5e9971086494aeef01c3ee0325a132">  937</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a5c5e9971086494aeef01c3ee0325a132">SDL_GameControllerSetLED</a>(SDL_GameController *gamecontroller, Uint8 red, Uint8 green, Uint8 blue);</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160; </div>
+<div class="line"><a name="l00950"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a2eaa3571798dff5d990be3514c744a99">  950</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">int</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a2eaa3571798dff5d990be3514c744a99">SDL_GameControllerSendEffect</a>(SDL_GameController *gamecontroller, <span class="keyword">const</span> <span class="keywordtype">void</span> *data, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160; </div>
+<div class="line"><a name="l00962"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a97fcf011947b35403c7d5319673a35e9">  962</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a97fcf011947b35403c7d5319673a35e9">SDL_GameControllerClose</a>(SDL_GameController *gamecontroller);</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160; </div>
+<div class="line"><a name="l00976"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a73af21c51483beb20b279b9111839f65">  976</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span>* SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a73af21c51483beb20b279b9111839f65">SDL_GameControllerGetAppleSFSymbolsNameForButton</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a> button);</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160; </div>
+<div class="line"><a name="l00990"></a><span class="lineno"><a class="line" href="SDL__gamecontroller_8h.html#a0e57a7b0f709ba22c6510e014e80c217">  990</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keyword">const</span> <span class="keywordtype">char</span>* SDLCALL <a class="code" href="SDL__gamecontroller_8h.html#a0e57a7b0f709ba22c6510e014e80c217">SDL_GameControllerGetAppleSFSymbolsNameForAxis</a>(SDL_GameController *gamecontroller, <a class="code" href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a> axis);</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160; </div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160; </div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;<span class="comment">/* Ends C function definitions when using C++ */</span></div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;}</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="close__code_8h.html">close_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160; </div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SDL_gamecontroller_h_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160; </div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">/* vi: set ts=4 sw=4 expandtab: */</span></div>
+<div class="ttc" id="aSDL__error_8h_html"><div class="ttname"><a href="SDL__error_8h.html">SDL_error.h</a></div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a01da8611222d5648872fbb4440c886af"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a01da8611222d5648872fbb4440c886af">SDL_GameControllerAddMappingsFromRW</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerAddMappingsFromRW(SDL_RWops *rw, int freerw)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a067291389e9a8a1fbc8cb2b0dabb8dd2"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a067291389e9a8a1fbc8cb2b0dabb8dd2">SDL_GameControllerGetAxis</a></div><div class="ttdeci">DECLSPEC Sint16 SDLCALL SDL_GameControllerGetAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a0e57a7b0f709ba22c6510e014e80c217"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a0e57a7b0f709ba22c6510e014e80c217">SDL_GameControllerGetAppleSFSymbolsNameForAxis</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a2879f90f77b4de4f73892aef4cf73d26"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a2879f90f77b4de4f73892aef4cf73d26">SDL_GameControllerRumbleTriggers</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerRumbleTriggers(SDL_GameController *gamecontroller, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a289122b9f72b3e89671fcbfaa6d61699"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a289122b9f72b3e89671fcbfaa6d61699">SDL_GameControllerIsSensorEnabled</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerIsSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a2bd404799b40e27d75d3699c866904cf"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a2bd404799b40e27d75d3699c866904cf">SDL_GameControllerMappingForGUID</a></div><div class="ttdeci">DECLSPEC char *SDLCALL SDL_GameControllerMappingForGUID(SDL_JoystickGUID guid)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a2e3eda7c9faf9bf0f4e06d89f3859c72"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a2e3eda7c9faf9bf0f4e06d89f3859c72">SDL_GameControllerGetProductVersion</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_GameControllerGetProductVersion(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a2eaa3571798dff5d990be3514c744a99"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a2eaa3571798dff5d990be3514c744a99">SDL_GameControllerSendEffect</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerSendEffect(SDL_GameController *gamecontroller, const void *data, int size)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a3307c27938a336b83c317b6054d91bd4"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a3307c27938a336b83c317b6054d91bd4">SDL_IsGameController</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_IsGameController(int joystick_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a34e43c763202a2d7124f24fdaf508a2a"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a34e43c763202a2d7124f24fdaf508a2a">SDL_GameControllerFromInstanceID</a></div><div class="ttdeci">DECLSPEC SDL_GameController *SDLCALL SDL_GameControllerFromInstanceID(SDL_JoystickID joyid)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a425074be07233d9e116bf6f3ebcb1f11"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a425074be07233d9e116bf6f3ebcb1f11">SDL_GameControllerMappingForDeviceIndex</a></div><div class="ttdeci">DECLSPEC char *SDLCALL SDL_GameControllerMappingForDeviceIndex(int joystick_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a457fd59b3dec7d1b6ed384973b584bc6"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a457fd59b3dec7d1b6ed384973b584bc6">SDL_GameControllerEventState</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerEventState(int state)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a4a13f3fc8b896356f0bd57edebb4a72c"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a4a13f3fc8b896356f0bd57edebb4a72c">SDL_GameControllerGetTouchpadFinger</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerGetTouchpadFinger(SDL_GameController *gamecontroller, int touchpad, int finger, Uint8 *state, float *x, float *y, float *pressure)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a4ee15324cc28aa53bab9f28e71c96840"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a4ee15324cc28aa53bab9f28e71c96840">SDL_GameControllerGetBindForButton</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerButtonBind SDLCALL SDL_GameControllerGetBindForButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a5a22ed44ff4c46e2ec8edeea48b8b1ae"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a5a22ed44ff4c46e2ec8edeea48b8b1ae">SDL_GameControllerGetNumTouchpads</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerGetNumTouchpads(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a5afc30d12ed8c51e24e2ce32eca032de"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a5afc30d12ed8c51e24e2ce32eca032de">SDL_GameControllerGetStringForButton</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerGetStringForButton(SDL_GameControllerButton button)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a5c5e9971086494aeef01c3ee0325a132"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a5c5e9971086494aeef01c3ee0325a132">SDL_GameControllerSetLED</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerSetLED(SDL_GameController *gamecontroller, Uint8 red, Uint8 green, Uint8 blue)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a623237e182b87c6def6d7be80a7d71d3"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a623237e182b87c6def6d7be80a7d71d3">SDL_GameControllerGetAxisFromString</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerAxis SDLCALL SDL_GameControllerGetAxisFromString(const char *str)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a62cb682b1c589135cd32cce381d403f8"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a62cb682b1c589135cd32cce381d403f8">SDL_GameControllerAddMapping</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerAddMapping(const char *mappingString)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a66cbcb3062d6e99e896611a2bde88456"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a66cbcb3062d6e99e896611a2bde88456">SDL_GameControllerGetStringForAxis</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a6d56a421a407e4587dfd0be98255fdf7"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a6d56a421a407e4587dfd0be98255fdf7">SDL_GameControllerMapping</a></div><div class="ttdeci">DECLSPEC char *SDLCALL SDL_GameControllerMapping(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a73af21c51483beb20b279b9111839f65"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a73af21c51483beb20b279b9111839f65">SDL_GameControllerGetAppleSFSymbolsNameForButton</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerGetAppleSFSymbolsNameForButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a761d5b2da1c9aef500cebe401c6ed30f"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a761d5b2da1c9aef500cebe401c6ed30f">SDL_GameControllerHasButton</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a80657ada0dcc10e971df3cf07b5c7106"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a80657ada0dcc10e971df3cf07b5c7106">SDL_GameControllerGetNumTouchpadFingers</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerGetNumTouchpadFingers(SDL_GameController *gamecontroller, int touchpad)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8427463c67571c4dfb49cc2edcd0027e"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8427463c67571c4dfb49cc2edcd0027e">SDL_GameControllerGetSerial</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerGetSerial(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8448d364a118ef54ba1d240f318d7a03"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8448d364a118ef54ba1d240f318d7a03">SDL_GameControllerHasAxis</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a85be71ba10423ad4da459131a13a0f5f"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a85be71ba10423ad4da459131a13a0f5f">SDL_GameControllerSetPlayerIndex</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_GameControllerSetPlayerIndex(SDL_GameController *gamecontroller, int player_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8bc636752e61693a6d38bb4b9c999ea2"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8bc636752e61693a6d38bb4b9c999ea2">SDL_GameControllerGetSensorDataRate</a></div><div class="ttdeci">DECLSPEC float SDLCALL SDL_GameControllerGetSensorDataRate(SDL_GameController *gamecontroller, SDL_SensorType type)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8cab24dcd19022722c306f04fdfc6b6a"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8cab24dcd19022722c306f04fdfc6b6a">SDL_GameControllerTypeForIndex</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerType SDLCALL SDL_GameControllerTypeForIndex(int joystick_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8e072a1f116583ca136be6b609e41d13"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8e072a1f116583ca136be6b609e41d13">SDL_GameControllerGetButtonFromString</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerButton SDLCALL SDL_GameControllerGetButtonFromString(const char *str)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a8ea81761681d1666a3b447eb9ef2dee8"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a8ea81761681d1666a3b447eb9ef2dee8">SDL_GameControllerGetProduct</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_GameControllerGetProduct(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a92fe68241a17b60b2240c04d01b73e6b"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a92fe68241a17b60b2240c04d01b73e6b">SDL_GameControllerUpdate</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_GameControllerUpdate(void)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a96d0bda99d806397e4c697241ccffa1c"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a96d0bda99d806397e4c697241ccffa1c">SDL_GameControllerAxis</a></div><div class="ttdeci">SDL_GameControllerAxis</div><div class="ttdef"><b>Definition:</b> SDL_gamecontroller.h:551</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a97fcf011947b35403c7d5319673a35e9"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a97fcf011947b35403c7d5319673a35e9">SDL_GameControllerClose</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_GameControllerClose(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a99740db152ae93bcdc59a8b540c3178d"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a99740db152ae93bcdc59a8b540c3178d">SDL_GameControllerGetPlayerIndex</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerGetPlayerIndex(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_a9e4d3f8c9c9860064a68a700e0486f98"><div class="ttname"><a href="SDL__gamecontroller_8h.html#a9e4d3f8c9c9860064a68a700e0486f98">SDL_GameControllerButton</a></div><div class="ttdeci">SDL_GameControllerButton</div><div class="ttdef"><b>Definition:</b> SDL_gamecontroller.h:656</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_aa27333eaf19fbcf39df244aa19c5d043"><div class="ttname"><a href="SDL__gamecontroller_8h.html#aa27333eaf19fbcf39df244aa19c5d043">SDL_GameControllerNameForIndex</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerNameForIndex(int joystick_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_aa3fb8be22a6781c2b46b79309747978c"><div class="ttname"><a href="SDL__gamecontroller_8h.html#aa3fb8be22a6781c2b46b79309747978c">SDL_GameControllerHasRumble</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasRumble(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_aab21a8d107d382ce7ff32afbe82b8776"><div class="ttname"><a href="SDL__gamecontroller_8h.html#aab21a8d107d382ce7ff32afbe82b8776">SDL_GameControllerGetType</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerType SDLCALL SDL_GameControllerGetType(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ab0032725dcea365502694731c37605f7"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ab0032725dcea365502694731c37605f7">SDL_GameControllerGetVendor</a></div><div class="ttdeci">DECLSPEC Uint16 SDLCALL SDL_GameControllerGetVendor(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac05d685077e640c887c2f83de995767e"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac05d685077e640c887c2f83de995767e">SDL_GameControllerButtonBind</a></div><div class="ttdeci">struct SDL_GameControllerButtonBind SDL_GameControllerButtonBind</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac14eb47ec6097d89c7bec14f6b27ebfe"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac14eb47ec6097d89c7bec14f6b27ebfe">SDL_GameControllerNumMappings</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerNumMappings(void)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac258208c13968bac123c18751dc3f198"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac258208c13968bac123c18751dc3f198">SDL_GameControllerGetSensorData</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerGetSensorData(SDL_GameController *gamecontroller, SDL_SensorType type, float *data, int num_values)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac30c5d89ad1c490bbc8d5370885d9c4d"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac30c5d89ad1c490bbc8d5370885d9c4d">SDL_GameControllerFromPlayerIndex</a></div><div class="ttdeci">DECLSPEC SDL_GameController *SDLCALL SDL_GameControllerFromPlayerIndex(int player_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac5ddf8927b92d95968f568ec6399bc18"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac5ddf8927b92d95968f568ec6399bc18">SDL_GameControllerMappingForIndex</a></div><div class="ttdeci">DECLSPEC char *SDLCALL SDL_GameControllerMappingForIndex(int mapping_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_ac7725e08ac17961bd7d5f8d4eb0c4033"><div class="ttname"><a href="SDL__gamecontroller_8h.html#ac7725e08ac17961bd7d5f8d4eb0c4033">SDL_GameControllerOpen</a></div><div class="ttdeci">DECLSPEC SDL_GameController *SDLCALL SDL_GameControllerOpen(int joystick_index)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_acdb9303cc6b67f1a0ec3ee55ad8e29d5"><div class="ttname"><a href="SDL__gamecontroller_8h.html#acdb9303cc6b67f1a0ec3ee55ad8e29d5">SDL_GameControllerGetBindForAxis</a></div><div class="ttdeci">DECLSPEC SDL_GameControllerButtonBind SDLCALL SDL_GameControllerGetBindForAxis(SDL_GameController *gamecontroller, SDL_GameControllerAxis axis)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_acee01b6bdc79b5dda14b77538b1d34ba"><div class="ttname"><a href="SDL__gamecontroller_8h.html#acee01b6bdc79b5dda14b77538b1d34ba">SDL_GameControllerSetSensorEnabled</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerSetSensorEnabled(SDL_GameController *gamecontroller, SDL_SensorType type, SDL_bool enabled)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_add465dba60b0e2ff4e0b53f15471be1e"><div class="ttname"><a href="SDL__gamecontroller_8h.html#add465dba60b0e2ff4e0b53f15471be1e">SDL_GameControllerName</a></div><div class="ttdeci">DECLSPEC const char *SDLCALL SDL_GameControllerName(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_adeeeba5a268842412f6578f38e75d231"><div class="ttname"><a href="SDL__gamecontroller_8h.html#adeeeba5a268842412f6578f38e75d231">SDL_GameControllerGetAttached</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerGetAttached(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_aea8e212c4b72bb4e72c4e5f1a25457c6"><div class="ttname"><a href="SDL__gamecontroller_8h.html#aea8e212c4b72bb4e72c4e5f1a25457c6">SDL_GameControllerHasLED</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasLED(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_aedb548895f677b818901440b759b3a94"><div class="ttname"><a href="SDL__gamecontroller_8h.html#aedb548895f677b818901440b759b3a94">SDL_GameControllerHasRumbleTriggers</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasRumbleTriggers(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_af2aac9107334b73d94b93f9c5ef51eb4"><div class="ttname"><a href="SDL__gamecontroller_8h.html#af2aac9107334b73d94b93f9c5ef51eb4">SDL_GameControllerGetJoystick</a></div><div class="ttdeci">DECLSPEC SDL_Joystick *SDLCALL SDL_GameControllerGetJoystick(SDL_GameController *gamecontroller)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_af656d1c71fe07da1146c376439d9b403"><div class="ttname"><a href="SDL__gamecontroller_8h.html#af656d1c71fe07da1146c376439d9b403">SDL_GameControllerRumble</a></div><div class="ttdeci">DECLSPEC int SDLCALL SDL_GameControllerRumble(SDL_GameController *gamecontroller, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_af84b3cbfe9f9acd9563c0d63cc57247a"><div class="ttname"><a href="SDL__gamecontroller_8h.html#af84b3cbfe9f9acd9563c0d63cc57247a">SDL_GameControllerHasSensor</a></div><div class="ttdeci">DECLSPEC SDL_bool SDLCALL SDL_GameControllerHasSensor(SDL_GameController *gamecontroller, SDL_SensorType type)</div></div>
+<div class="ttc" id="aSDL__gamecontroller_8h_html_afa9f025f4262bdfba38c364ec9cc31bf"><div class="ttname"><a href="SDL__gamecontroller_8h.html#afa9f025f4262bdfba38c364ec9cc31bf">SDL_GameControllerGetButton</a></div><div class="ttdeci">DECLSPEC Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button)</div></div>
+<div class="ttc" id="aSDL__joystick_8h_html"><div class="ttname"><a href="SDL__joystick_8h.html">SDL_joystick.h</a></div></div>
+<div class="ttc" id="aSDL__joystick_8h_html_a3c3d32500cb08f76ee8077983912c0bd"><div class="ttname"><a href="SDL__joystick_8h.html#a3c3d32500cb08f76ee8077983912c0bd">SDL_JoystickID</a></div><div class="ttdeci">Sint32 SDL_JoystickID</div><div class="ttdef"><b>Definition:</b> SDL_joystick.h:83</div></div>
+<div class="ttc" id="aSDL__rwops_8h_html"><div class="ttname"><a href="SDL__rwops_8h.html">SDL_rwops.h</a></div></div>
+<div class="ttc" id="aSDL__sensor_8h_html"><div class="ttname"><a href="SDL__sensor_8h.html">SDL_sensor.h</a></div></div>
+<div class="ttc" id="aSDL__sensor_8h_html_a94a441696f7d053dd541ec0b7e00e33a"><div class="ttname"><a href="SDL__sensor_8h.html#a94a441696f7d053dd541ec0b7e00e33a">SDL_SensorType</a></div><div class="ttdeci">SDL_SensorType</div><div class="ttdef"><b>Definition:</b> SDL_sensor.h:70</div></div>
+<div class="ttc" id="aSDL__stdinc_8h_html"><div class="ttname"><a href="SDL__stdinc_8h.html">SDL_stdinc.h</a></div></div>
+<div class="ttc" id="abegin__code_8h_html"><div class="ttname"><a href="begin__code_8h.html">begin_code.h</a></div></div>
+<div class="ttc" id="aclose__code_8h_html"><div class="ttname"><a href="close__code_8h.html">close_code.h</a></div></div>
+<div class="ttc" id="astructSDL__GameControllerButtonBind_html"><div class="ttname"><a href="structSDL__GameControllerButtonBind.html">SDL_GameControllerButtonBind</a></div><div class="ttdef"><b>Definition:</b> SDL_gamecontroller.h:87</div></div>
+<div class="ttc" id="astructSDL__JoystickGUID_html"><div class="ttname"><a href="structSDL__JoystickGUID.html">SDL_JoystickGUID</a></div><div class="ttdef"><b>Definition:</b> SDL_joystick.h:72</div></div>
+<div class="ttc" id="astructSDL__RWops_html"><div class="ttname"><a href="structSDL__RWops.html">SDL_RWops</a></div><div class="ttdef"><b>Definition:</b> SDL_rwops.h:56</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

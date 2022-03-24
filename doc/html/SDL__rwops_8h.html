@@ -1,0 +1,1471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier include/SDL2/SDL_rwops.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier SDL_rwops.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="SDL__stdinc_8h_source.html">SDL_stdinc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__error_8h_source.html">SDL_error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="begin__code_8h_source.html">begin_code.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="close__code_8h_source.html">close_code.h</a>&quot;</code><br />
+</div>
+<p><a href="SDL__rwops_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__RWops.html">SDL_RWops</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abefd1a35086e97620beffc2c069bd97d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#abefd1a35086e97620beffc2c069bd97d">SDL_RWOPS_UNKNOWN</a>&#160;&#160;&#160;0U</td></tr>
+<tr class="separator:abefd1a35086e97620beffc2c069bd97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad979b58d7905cfd8af0bab9ed97c1685"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ad979b58d7905cfd8af0bab9ed97c1685">SDL_RWOPS_WINFILE</a>&#160;&#160;&#160;1U</td></tr>
+<tr class="separator:ad979b58d7905cfd8af0bab9ed97c1685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054a717fd0b1a2f175e2e822e1ecc67d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a054a717fd0b1a2f175e2e822e1ecc67d">SDL_RWOPS_STDFILE</a>&#160;&#160;&#160;2U</td></tr>
+<tr class="separator:a054a717fd0b1a2f175e2e822e1ecc67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e973a8b9f9c6cae33f2870c9f76b7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ad1e973a8b9f9c6cae33f2870c9f76b7d">SDL_RWOPS_JNIFILE</a>&#160;&#160;&#160;3U</td></tr>
+<tr class="separator:ad1e973a8b9f9c6cae33f2870c9f76b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1120765c20af356803b2beb6709e6749"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a1120765c20af356803b2beb6709e6749">SDL_RWOPS_MEMORY</a>&#160;&#160;&#160;4U</td></tr>
+<tr class="separator:a1120765c20af356803b2beb6709e6749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145dd63b72548f37e2fdd9de8bf15bbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a145dd63b72548f37e2fdd9de8bf15bbc">SDL_RWOPS_MEMORY_RO</a>&#160;&#160;&#160;5U</td></tr>
+<tr class="separator:a145dd63b72548f37e2fdd9de8bf15bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a74ae02b3c98390e2792749c53329cc23"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structSDL__RWops.html">SDL_RWops</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a74ae02b3c98390e2792749c53329cc23">SDL_RWops</a></td></tr>
+<tr class="separator:a74ae02b3c98390e2792749c53329cc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Read endian functions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >Read an item of the specified endianness and return in native format. </p>
+</div></td></tr>
+<tr class="memitem:ab864094eb6b80fbf0c77d34ecdde7907"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint8 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ab864094eb6b80fbf0c77d34ecdde7907">SDL_ReadU8</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:ab864094eb6b80fbf0c77d34ecdde7907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7274f5c4b6f22a6b742ec6ef4f9d390b"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint16 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a7274f5c4b6f22a6b742ec6ef4f9d390b">SDL_ReadLE16</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:a7274f5c4b6f22a6b742ec6ef4f9d390b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdf85a50e40dc58536930429b7b4d09"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint16 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a3cdf85a50e40dc58536930429b7b4d09">SDL_ReadBE16</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:a3cdf85a50e40dc58536930429b7b4d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8320334c299a3631fd6beb9937c30f04"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint32 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a8320334c299a3631fd6beb9937c30f04">SDL_ReadLE32</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:a8320334c299a3631fd6beb9937c30f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af023e134e3ae87b1595306e5faeaab76"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint32 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#af023e134e3ae87b1595306e5faeaab76">SDL_ReadBE32</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:af023e134e3ae87b1595306e5faeaab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e5d9b56874b8bd3a8a6a0c5393c33d"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint64 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#af7e5d9b56874b8bd3a8a6a0c5393c33d">SDL_ReadLE64</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:af7e5d9b56874b8bd3a8a6a0c5393c33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4917dc584d162bc5f28b63843557214e"><td class="memItemLeft" align="right" valign="top">DECLSPEC Uint64 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a4917dc584d162bc5f28b63843557214e">SDL_ReadBE64</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src)</td></tr>
+<tr class="separator:a4917dc584d162bc5f28b63843557214e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Write endian functions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >Write an item of native format to the specified endianness. </p>
+</div></td></tr>
+<tr class="memitem:a07c817f8360ddc8c8983d12373306555"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a07c817f8360ddc8c8983d12373306555">SDL_WriteU8</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint8 value)</td></tr>
+<tr class="separator:a07c817f8360ddc8c8983d12373306555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a7df8d967c5751e3f0974743b9c2d4"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#aa4a7df8d967c5751e3f0974743b9c2d4">SDL_WriteLE16</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint16 value)</td></tr>
+<tr class="separator:aa4a7df8d967c5751e3f0974743b9c2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84ea778a5f8f76cd73a52216c2c08f5"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ab84ea778a5f8f76cd73a52216c2c08f5">SDL_WriteBE16</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint16 value)</td></tr>
+<tr class="separator:ab84ea778a5f8f76cd73a52216c2c08f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f37961925773fe8b06ea09ed144568"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a84f37961925773fe8b06ea09ed144568">SDL_WriteLE32</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint32 value)</td></tr>
+<tr class="separator:a84f37961925773fe8b06ea09ed144568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5debf04eeed819018ddd9a2f70d32c89"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a5debf04eeed819018ddd9a2f70d32c89">SDL_WriteBE32</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint32 value)</td></tr>
+<tr class="separator:a5debf04eeed819018ddd9a2f70d32c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f9b45fbb3bf4a40f3f308419307e6b"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ae4f9b45fbb3bf4a40f3f308419307e6b">SDL_WriteLE64</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint64 value)</td></tr>
+<tr class="separator:ae4f9b45fbb3bf4a40f3f308419307e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0422f79e1889750cf99310e968cb76fc"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a0422f79e1889750cf99310e968cb76fc">SDL_WriteBE64</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *dst, Uint64 value)</td></tr>
+<tr class="separator:a0422f79e1889750cf99310e968cb76fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">RWFrom functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p ><a class="anchor" id="amgrp62de7a3fffaa5d9dd1e07f650daede2b"></a>Functions to create <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structures from various data streams. </p>
+</td></tr>
+<tr class="memitem:ac028b032bb8230df64bc6284e04789f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ac028b032bb8230df64bc6284e04789f5">RW_SEEK_SET</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ac028b032bb8230df64bc6284e04789f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5f3b60c197def370ffa2ca1ab1348d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#aba5f3b60c197def370ffa2ca1ab1348d">RW_SEEK_CUR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aba5f3b60c197def370ffa2ca1ab1348d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf141faabd1b8f2ec3c03cf76eaf553"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a6cf141faabd1b8f2ec3c03cf76eaf553">RW_SEEK_END</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a6cf141faabd1b8f2ec3c03cf76eaf553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7e843c3486bd1770667a594aa0b439"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> (const char *file, const char *mode)</td></tr>
+<tr class="separator:aef7e843c3486bd1770667a594aa0b439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e066cae0672b16506a4204bb719e95"><td class="memItemLeft" align="right" valign="top"><a id="a53e066cae0672b16506a4204bb719e95"></a>
+DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_RWFromFP</b> (FILE *fp, SDL_bool autoclose)</td></tr>
+<tr class="separator:a53e066cae0672b16506a4204bb719e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f34841ce63d08597477558ffc0278e"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> (void *mem, int size)</td></tr>
+<tr class="separator:ae6f34841ce63d08597477558ffc0278e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b4be80c4647e8a473b6b9fed03b1a6"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> (const void *mem, int size)</td></tr>
+<tr class="separator:a51b4be80c4647e8a473b6b9fed03b1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d04e13c85cd28706b8c3881c32dd46"><td class="memItemLeft" align="right" valign="top">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a> *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a02d04e13c85cd28706b8c3881c32dd46">SDL_AllocRW</a> (void)</td></tr>
+<tr class="separator:a02d04e13c85cd28706b8c3881c32dd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c87c7bed186ea1a98531164ff1acfa"><td class="memItemLeft" align="right" valign="top">DECLSPEC void SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *area)</td></tr>
+<tr class="separator:ac4c87c7bed186ea1a98531164ff1acfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab311e9e01e66dde338349b5988008f79"><td class="memItemLeft" align="right" valign="top">DECLSPEC Sint64 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ab311e9e01e66dde338349b5988008f79">SDL_RWsize</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context)</td></tr>
+<tr class="separator:ab311e9e01e66dde338349b5988008f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd3bfec48d375b5e761a5f7f3138766"><td class="memItemLeft" align="right" valign="top">DECLSPEC Sint64 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context, Sint64 offset, int whence)</td></tr>
+<tr class="separator:a2bd3bfec48d375b5e761a5f7f3138766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade1cc6bf5cd0972c64f1bc032bdece6"><td class="memItemLeft" align="right" valign="top">DECLSPEC Sint64 SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#aade1cc6bf5cd0972c64f1bc032bdece6">SDL_RWtell</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context)</td></tr>
+<tr class="separator:aade1cc6bf5cd0972c64f1bc032bdece6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7496ce8759fe964ee40cd6fbfa4b82f9"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context, void *ptr, size_t size, size_t maxnum)</td></tr>
+<tr class="separator:a7496ce8759fe964ee40cd6fbfa4b82f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3c6d29d2fc5f0367abdcbfc2f2896a"><td class="memItemLeft" align="right" valign="top">DECLSPEC size_t SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context, const void *ptr, size_t size, size_t num)</td></tr>
+<tr class="separator:ada3c6d29d2fc5f0367abdcbfc2f2896a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e432d6d008ad176b7653b4797de12e9"><td class="memItemLeft" align="right" valign="top">DECLSPEC int SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *context)</td></tr>
+<tr class="separator:a4e432d6d008ad176b7653b4797de12e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80a1b522d2fbbae8ed5610d029fcfda"><td class="memItemLeft" align="right" valign="top">DECLSPEC void *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ab80a1b522d2fbbae8ed5610d029fcfda">SDL_LoadFile_RW</a> (<a class="el" href="structSDL__RWops.html">SDL_RWops</a> *src, size_t *datasize, int freesrc)</td></tr>
+<tr class="separator:ab80a1b522d2fbbae8ed5610d029fcfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac259a2d74dfea39864bf3840ee126837"><td class="memItemLeft" align="right" valign="top">DECLSPEC void *SDLCALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SDL__rwops_8h.html#ac259a2d74dfea39864bf3840ee126837">SDL_LoadFile</a> (const char *file, size_t *datasize)</td></tr>
+<tr class="separator:ac259a2d74dfea39864bf3840ee126837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >This file provides a general interface for SDL to read and write data streams. It can easily be extended to files, memory, etc. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="aba5f3b60c197def370ffa2ca1ab1348d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5f3b60c197def370ffa2ca1ab1348d">&#9670;&nbsp;</a></span>RW_SEEK_CUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RW_SEEK_CUR&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Seek relative to current read point </p>
+
+</div>
+</div>
+<a id="a6cf141faabd1b8f2ec3c03cf76eaf553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf141faabd1b8f2ec3c03cf76eaf553">&#9670;&nbsp;</a></span>RW_SEEK_END</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RW_SEEK_END&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Seek relative to the end of data </p>
+
+</div>
+</div>
+<a id="ac028b032bb8230df64bc6284e04789f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac028b032bb8230df64bc6284e04789f5">&#9670;&nbsp;</a></span>RW_SEEK_SET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RW_SEEK_SET&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Seek from the beginning of data </p>
+
+</div>
+</div>
+<a id="ad1e973a8b9f9c6cae33f2870c9f76b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e973a8b9f9c6cae33f2870c9f76b7d">&#9670;&nbsp;</a></span>SDL_RWOPS_JNIFILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_JNIFILE&#160;&#160;&#160;3U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Android asset </p>
+
+</div>
+</div>
+<a id="a1120765c20af356803b2beb6709e6749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1120765c20af356803b2beb6709e6749">&#9670;&nbsp;</a></span>SDL_RWOPS_MEMORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_MEMORY&#160;&#160;&#160;4U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Memory stream </p>
+
+</div>
+</div>
+<a id="a145dd63b72548f37e2fdd9de8bf15bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145dd63b72548f37e2fdd9de8bf15bbc">&#9670;&nbsp;</a></span>SDL_RWOPS_MEMORY_RO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_MEMORY_RO&#160;&#160;&#160;5U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Read-Only memory stream </p>
+
+</div>
+</div>
+<a id="a054a717fd0b1a2f175e2e822e1ecc67d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054a717fd0b1a2f175e2e822e1ecc67d">&#9670;&nbsp;</a></span>SDL_RWOPS_STDFILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_STDFILE&#160;&#160;&#160;2U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Stdio file </p>
+
+</div>
+</div>
+<a id="abefd1a35086e97620beffc2c069bd97d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefd1a35086e97620beffc2c069bd97d">&#9670;&nbsp;</a></span>SDL_RWOPS_UNKNOWN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_UNKNOWN&#160;&#160;&#160;0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unknown stream type </p>
+
+</div>
+</div>
+<a id="ad979b58d7905cfd8af0bab9ed97c1685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad979b58d7905cfd8af0bab9ed97c1685">&#9670;&nbsp;</a></span>SDL_RWOPS_WINFILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_RWOPS_WINFILE&#160;&#160;&#160;1U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Win32 file </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a74ae02b3c98390e2792749c53329cc23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ae02b3c98390e2792749c53329cc23">&#9670;&nbsp;</a></span>SDL_RWops</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structSDL__RWops.html">SDL_RWops</a> <a class="el" href="structSDL__RWops.html">SDL_RWops</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This is the read/write operation structure &ndash; very basic. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a02d04e13c85cd28706b8c3881c32dd46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d04e13c85cd28706b8c3881c32dd46">&#9670;&nbsp;</a></span>SDL_AllocRW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a>* SDLCALL SDL_AllocRW </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to allocate an empty, unpopulated <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure.</p>
+<p >Applications do not need to use this function unless they are providing their own <a class="el" href="structSDL__RWops.html">SDL_RWops</a> implementation. If you just need a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to read/write a common data source, you should use the built-in implementations in SDL, like <a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile()</a> or <a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem()</a>, etc.</p>
+<p >You must free the returned pointer with <a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW()</a>. Depending on your operating system and compiler, there may be a difference between the malloc() and free() your program uses and the versions SDL calls internally. Trying to mix the two can cause crashing such as segmentation faults. Since all <a class="el" href="structSDL__RWops.html">SDL_RWops</a> must free themselves when their <b>close</b> method is called, all <a class="el" href="structSDL__RWops.html">SDL_RWops</a> must be allocated through this function, so they can all be freed correctly with <a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW()</a>.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to the allocated memory on success, or NULL on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac4c87c7bed186ea1a98531164ff1acfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c87c7bed186ea1a98531164ff1acfa">&#9670;&nbsp;</a></span>SDL_FreeRW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void SDLCALL SDL_FreeRW </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>area</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to free an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure allocated by <a class="el" href="SDL__rwops_8h.html#a02d04e13c85cd28706b8c3881c32dd46">SDL_AllocRW()</a>.</p>
+<p >Applications do not need to use this function unless they are providing their own <a class="el" href="structSDL__RWops.html">SDL_RWops</a> implementation. If you just need a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to read/write a common data source, you should use the built-in implementations in SDL, like <a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile()</a> or <a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem()</a>, etc, and call the <b>close</b> method on those <a class="el" href="structSDL__RWops.html">SDL_RWops</a> pointers when you are done with them.</p>
+<p >Only use <a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW()</a> on pointers returned by <a class="el" href="SDL__rwops_8h.html#a02d04e13c85cd28706b8c3881c32dd46">SDL_AllocRW()</a>. The pointer is invalid as soon as this function returns. Any extra memory allocated during creation of the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> is not freed by <a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW()</a>; the programmer must be responsible for managing that memory in their <b>close</b> method.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">area</td><td>the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure to be freed</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a02d04e13c85cd28706b8c3881c32dd46">SDL_AllocRW</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac259a2d74dfea39864bf3840ee126837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac259a2d74dfea39864bf3840ee126837">&#9670;&nbsp;</a></span>SDL_LoadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void* SDLCALL SDL_LoadFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>datasize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Load all the data from a file path.</p>
+<p >The data is allocated with a zero byte at the end (null terminated) for convenience. This extra byte is not included in the value reported via <code>datasize</code>.</p>
+<p >The data should be freed with SDL_free().</p>
+<p >Prior to SDL 2.0.10, this function was a macro wrapping around SDL_LoadFile_RW.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>the path to read all available data from </td></tr>
+    <tr><td class="paramname">datasize</td><td>if not NULL, will store the number of bytes read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the data, or NULL if there was an error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10. </dd></dl>
+
+</div>
+</div>
+<a id="ab80a1b522d2fbbae8ed5610d029fcfda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80a1b522d2fbbae8ed5610d029fcfda">&#9670;&nbsp;</a></span>SDL_LoadFile_RW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC void* SDLCALL SDL_LoadFile_RW </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>datasize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>freesrc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Load all the data from an SDL data stream.</p>
+<p >The data is allocated with a zero byte at the end (null terminated) for convenience. This extra byte is not included in the value reported via <code>datasize</code>.</p>
+<p >The data should be freed with SDL_free().</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to read all available data from </td></tr>
+    <tr><td class="paramname">datasize</td><td>if not NULL, will store the number of bytes read </td></tr>
+    <tr><td class="paramname">freesrc</td><td>if non-zero, calls <a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose()</a> on <code>src</code> before returning </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the data, or NULL if there was an error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.6. </dd></dl>
+
+</div>
+</div>
+<a id="a3cdf85a50e40dc58536930429b7b4d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdf85a50e40dc58536930429b7b4d09">&#9670;&nbsp;</a></span>SDL_ReadBE16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint16 SDLCALL SDL_ReadBE16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 16 bits of big-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>16 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a7274f5c4b6f22a6b742ec6ef4f9d390b">SDL_ReadLE16</a> </dd></dl>
+
+</div>
+</div>
+<a id="af023e134e3ae87b1595306e5faeaab76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af023e134e3ae87b1595306e5faeaab76">&#9670;&nbsp;</a></span>SDL_ReadBE32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint32 SDLCALL SDL_ReadBE32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 32 bits of big-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>32 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a8320334c299a3631fd6beb9937c30f04">SDL_ReadLE32</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4917dc584d162bc5f28b63843557214e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4917dc584d162bc5f28b63843557214e">&#9670;&nbsp;</a></span>SDL_ReadBE64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint64 SDLCALL SDL_ReadBE64 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 64 bits of big-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>64 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#af7e5d9b56874b8bd3a8a6a0c5393c33d">SDL_ReadLE64</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7274f5c4b6f22a6b742ec6ef4f9d390b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7274f5c4b6f22a6b742ec6ef4f9d390b">&#9670;&nbsp;</a></span>SDL_ReadLE16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint16 SDLCALL SDL_ReadLE16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 16 bits of little-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>16 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a3cdf85a50e40dc58536930429b7b4d09">SDL_ReadBE16</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8320334c299a3631fd6beb9937c30f04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8320334c299a3631fd6beb9937c30f04">&#9670;&nbsp;</a></span>SDL_ReadLE32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint32 SDLCALL SDL_ReadLE32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 32 bits of little-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>32 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#af023e134e3ae87b1595306e5faeaab76">SDL_ReadBE32</a> </dd></dl>
+
+</div>
+</div>
+<a id="af7e5d9b56874b8bd3a8a6a0c5393c33d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e5d9b56874b8bd3a8a6a0c5393c33d">&#9670;&nbsp;</a></span>SDL_ReadLE64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint64 SDLCALL SDL_ReadLE64 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read 64 bits of little-endian data from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> and return in native format.</p>
+<p >SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the stream from which to read data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>64 bits of data in the native byte order of the platform.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4917dc584d162bc5f28b63843557214e">SDL_ReadBE64</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab864094eb6b80fbf0c77d34ecdde7907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab864094eb6b80fbf0c77d34ecdde7907">&#9670;&nbsp;</a></span>SDL_ReadU8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Uint8 SDLCALL SDL_ReadU8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to read a byte from an <a class="el" href="structSDL__RWops.html">SDL_RWops</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to read from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the read byte on success or 0 on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a07c817f8360ddc8c8983d12373306555">SDL_WriteU8</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4e432d6d008ad176b7653b4797de12e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e432d6d008ad176b7653b4797de12e9">&#9670;&nbsp;</a></span>SDL_RWclose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC int SDLCALL SDL_RWclose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Close and free an allocated <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure.</p>
+<p ><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose()</a> closes and cleans up the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> stream. It releases any resources used by the stream and frees the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> itself with <a class="el" href="SDL__rwops_8h.html#ac4c87c7bed186ea1a98531164ff1acfa">SDL_FreeRW()</a>. This returns 0 on success, or -1 if the stream failed to flush to its output (e.g. to disk).</p>
+<p >Note that if this fails to flush the stream to disk, this function reports an error, but the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> is still invalid once this function returns.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td><a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure to close </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 on success or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="a51b4be80c4647e8a473b6b9fed03b1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b4be80c4647e8a473b6b9fed03b1a6">&#9670;&nbsp;</a></span>SDL_RWFromConstMem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a>* SDLCALL SDL_RWFromConstMem </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>mem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to prepare a read-only memory buffer for use with RWops.</p>
+<p >This function sets up an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> struct based on a memory area of a certain size. It assumes the memory area is not writable.</p>
+<p >Attempting to write to this RWops stream will report an error without writing to the memory buffer.</p>
+<p >This memory buffer is not copied by the RWops; the pointer you provide must remain valid until you close the stream. Closing the stream will not free the original buffer.</p>
+<p >If you need to write to a memory buffer, you should use <a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem()</a> with a writable buffer of memory instead.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mem</td><td>a pointer to a read-only buffer to feed an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> stream </td></tr>
+    <tr><td class="paramname">size</td><td>the buffer size, in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to a new <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure, or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aade1cc6bf5cd0972c64f1bc032bdece6">SDL_RWtell</a> </dd></dl>
+
+</div>
+</div>
+<a id="aef7e843c3486bd1770667a594aa0b439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7e843c3486bd1770667a594aa0b439">&#9670;&nbsp;</a></span>SDL_RWFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a>* SDLCALL SDL_RWFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to create a new <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure for reading from and/or writing to a named file.</p>
+<p >The <code>mode</code> string is treated roughly the same as in a call to the C library's fopen(), even if SDL doesn't happen to use fopen() behind the scenes.</p>
+<p >Available <code>mode</code> strings:</p>
+<ul>
+<li>"r": Open a file for reading. The file must exist.</li>
+<li>"w": Create an empty file for writing. If a file with the same name already exists its content is erased and the file is treated as a new empty file.</li>
+<li>"a": Append to a file. Writing operations append data at the end of the file. The file is created if it does not exist.</li>
+<li>"r+": Open a file for update both reading and writing. The file must exist.</li>
+<li>"w+": Create an empty file for both reading and writing. If a file with the same name already exists its content is erased and the file is treated as a new empty file.</li>
+<li>"a+": Open a file for reading and appending. All writing operations are performed at the end of the file, protecting the previous content to be overwritten. You can reposition (fseek, rewind) the internal pointer to anywhere in the file for reading, but writing operations will move it back to the end of file. The file is created if it does not exist.</li>
+</ul>
+<p ><b>NOTE</b>: In order to open a file as a binary file, a "b" character has to be included in the <code>mode</code> string. This additional "b" character can either be appended at the end of the string (thus making the following compound modes: "rb", "wb", "ab", "r+b", "w+b", "a+b") or be inserted between the letter and the "+" sign for the mixed modes ("rb+", "wb+", "ab+"). Additional characters may follow the sequence, although they should have no effect. For example, "t" is sometimes appended to make explicit the file is a text file.</p>
+<p >This function supports Unicode filenames, but they must be encoded in UTF-8 format, regardless of the underlying operating system.</p>
+<p >As a fallback, <a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile()</a> will transparently open a matching filename in an Android app's <code>assets</code>.</p>
+<p >Closing the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> will close the file handle SDL is holding internally.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>a UTF-8 string representing the filename to open </td></tr>
+    <tr><td class="paramname">mode</td><td>an ASCII string representing the mode to be used for opening the file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure that is created, or NULL on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aade1cc6bf5cd0972c64f1bc032bdece6">SDL_RWtell</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae6f34841ce63d08597477558ffc0278e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f34841ce63d08597477558ffc0278e">&#9670;&nbsp;</a></span>SDL_RWFromMem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC <a class="el" href="structSDL__RWops.html">SDL_RWops</a>* SDLCALL SDL_RWFromMem </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>mem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to prepare a read-write memory buffer for use with <a class="el" href="structSDL__RWops.html">SDL_RWops</a>.</p>
+<p >This function sets up an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> struct based on a memory area of a certain size, for both read and write access.</p>
+<p >This memory buffer is not copied by the RWops; the pointer you provide must remain valid until you close the stream. Closing the stream will not free the original buffer.</p>
+<p >If you need to make sure the RWops never writes to the memory buffer, you should use <a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem()</a> with a read-only buffer of memory instead.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mem</td><td>a pointer to a buffer to feed an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> stream </td></tr>
+    <tr><td class="paramname">size</td><td>the buffer size, in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>a pointer to a new <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure, or NULL if it fails; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aade1cc6bf5cd0972c64f1bc032bdece6">SDL_RWtell</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7496ce8759fe964ee40cd6fbfa4b82f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7496ce8759fe964ee40cd6fbfa4b82f9">&#9670;&nbsp;</a></span>SDL_RWread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_RWread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>maxnum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Read from a data source.</p>
+<p >This function reads up to <code>maxnum</code> objects each of size <code>size</code> from the data source to the area pointed at by <code>ptr</code>. This function may read less objects than requested. It will return zero when there has been an error or the data stream is completely read.</p>
+<p ><a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread()</a> is actually a function wrapper that calls the <a class="el" href="structSDL__RWops.html">SDL_RWops</a>'s <code>read</code> method appropriately, to simplify application development.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>a pointer to an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure </td></tr>
+    <tr><td class="paramname">ptr</td><td>a pointer to a buffer to read data into </td></tr>
+    <tr><td class="paramname">size</td><td>the size of each object to read, in bytes </td></tr>
+    <tr><td class="paramname">maxnum</td><td>the maximum number of objects to be read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the number of objects read, or 0 at error or end of file; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2bd3bfec48d375b5e761a5f7f3138766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd3bfec48d375b5e761a5f7f3138766">&#9670;&nbsp;</a></span>SDL_RWseek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Sint64 SDLCALL SDL_RWseek </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sint64&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Seek within an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> data stream.</p>
+<p >This function seeks to byte <code>offset</code>, relative to <code>whence</code>.</p>
+<p ><code>whence</code> may be any of the following values:</p>
+<ul>
+<li><code>RW_SEEK_SET</code>: seek from the beginning of data</li>
+<li><code>RW_SEEK_CUR</code>: seek relative to current read point</li>
+<li><code>RW_SEEK_END</code>: seek relative to the end of data</li>
+</ul>
+<p >If this stream can not seek, it will return -1.</p>
+<p ><a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek()</a> is actually a wrapper function that calls the <a class="el" href="structSDL__RWops.html">SDL_RWops</a>'s <code>seek</code> method appropriately, to simplify application development.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>a pointer to an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure </td></tr>
+    <tr><td class="paramname">offset</td><td>an offset in bytes, relative to <b>whence</b> location; can be negative </td></tr>
+    <tr><td class="paramname">whence</td><td>any of <code>RW_SEEK_SET</code>, <code>RW_SEEK_CUR</code>, <code>RW_SEEK_END</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the final offset in the data stream after the seek or -1 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aade1cc6bf5cd0972c64f1bc032bdece6">SDL_RWtell</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab311e9e01e66dde338349b5988008f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab311e9e01e66dde338349b5988008f79">&#9670;&nbsp;</a></span>SDL_RWsize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Sint64 SDLCALL SDL_RWsize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to get the size of the data stream in an <a class="el" href="structSDL__RWops.html">SDL_RWops</a>.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to get the size of the data stream from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the size of the data stream in the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> on success, -1 if unknown or a negative error code on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10. </dd></dl>
+
+</div>
+</div>
+<a id="aade1cc6bf5cd0972c64f1bc032bdece6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade1cc6bf5cd0972c64f1bc032bdece6">&#9670;&nbsp;</a></span>SDL_RWtell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC Sint64 SDLCALL SDL_RWtell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Determine the current read/write offset in an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> data stream.</p>
+<p >SDL_RWtell is actually a wrapper function that calls the <a class="el" href="structSDL__RWops.html">SDL_RWops</a>'s <code>seek</code> method, with an offset of 0 bytes from <code>RW_SEEK_CUR</code>, to simplify application development.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> data stream object from which to get the current offset </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the current offset in the stream, or -1 if the information can not be determined.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ada3c6d29d2fc5f0367abdcbfc2f2896a">SDL_RWwrite</a> </dd></dl>
+
+</div>
+</div>
+<a id="ada3c6d29d2fc5f0367abdcbfc2f2896a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada3c6d29d2fc5f0367abdcbfc2f2896a">&#9670;&nbsp;</a></span>SDL_RWwrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_RWwrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Write to an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> data stream.</p>
+<p >This function writes exactly <code>num</code> objects each of size <code>size</code> from the area pointed at by <code>ptr</code> to the stream. If this fails for any reason, it'll return less than <code>num</code> to demonstrate how far the write progressed. On success, it returns <code>num</code>.</p>
+<p >SDL_RWwrite is actually a function wrapper that calls the <a class="el" href="structSDL__RWops.html">SDL_RWops</a>'s <code>write</code> method appropriately, to simplify application development.</p>
+<p >Prior to SDL 2.0.10, this function was a macro.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>a pointer to an <a class="el" href="structSDL__RWops.html">SDL_RWops</a> structure </td></tr>
+    <tr><td class="paramname">ptr</td><td>a pointer to a buffer containing data to write </td></tr>
+    <tr><td class="paramname">size</td><td>the size of an object to write, in bytes </td></tr>
+    <tr><td class="paramname">num</td><td>the number of objects to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the number of objects written, which will be less than <b>num</b> on error; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.10.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a4e432d6d008ad176b7653b4797de12e9">SDL_RWclose</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a51b4be80c4647e8a473b6b9fed03b1a6">SDL_RWFromConstMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#aef7e843c3486bd1770667a594aa0b439">SDL_RWFromFile</a> </dd>
+<dd>
+SDL_RWFromFP </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#ae6f34841ce63d08597477558ffc0278e">SDL_RWFromMem</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a7496ce8759fe964ee40cd6fbfa4b82f9">SDL_RWread</a> </dd>
+<dd>
+<a class="el" href="SDL__rwops_8h.html#a2bd3bfec48d375b5e761a5f7f3138766">SDL_RWseek</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab84ea778a5f8f76cd73a52216c2c08f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84ea778a5f8f76cd73a52216c2c08f5">&#9670;&nbsp;</a></span>SDL_WriteBE16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteBE16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint16&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 16 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as big-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#aa4a7df8d967c5751e3f0974743b9c2d4">SDL_WriteLE16</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5debf04eeed819018ddd9a2f70d32c89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5debf04eeed819018ddd9a2f70d32c89">&#9670;&nbsp;</a></span>SDL_WriteBE32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteBE32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 32 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as big-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a84f37961925773fe8b06ea09ed144568">SDL_WriteLE32</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0422f79e1889750cf99310e968cb76fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0422f79e1889750cf99310e968cb76fc">&#9670;&nbsp;</a></span>SDL_WriteBE64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteBE64 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 64 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as big-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in big-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#ae4f9b45fbb3bf4a40f3f308419307e6b">SDL_WriteLE64</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa4a7df8d967c5751e3f0974743b9c2d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a7df8d967c5751e3f0974743b9c2d4">&#9670;&nbsp;</a></span>SDL_WriteLE16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteLE16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint16&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 16 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as little-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#ab84ea778a5f8f76cd73a52216c2c08f5">SDL_WriteBE16</a> </dd></dl>
+
+</div>
+</div>
+<a id="a84f37961925773fe8b06ea09ed144568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f37961925773fe8b06ea09ed144568">&#9670;&nbsp;</a></span>SDL_WriteLE32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteLE32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 32 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as little-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a5debf04eeed819018ddd9a2f70d32c89">SDL_WriteBE32</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae4f9b45fbb3bf4a40f3f308419307e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f9b45fbb3bf4a40f3f308419307e6b">&#9670;&nbsp;</a></span>SDL_WriteLE64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteLE64 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint64&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write 64 bits in native format to a <a class="el" href="structSDL__RWops.html">SDL_RWops</a> as little-endian data.</p>
+<p >SDL byteswaps the data only if necessary, so the application always specifies native format, and the data written will be in little-endian format.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the stream to which data will be written </td></tr>
+    <tr><td class="paramname">value</td><td>the data to be written, in native format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on successful write, 0 on error.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#a0422f79e1889750cf99310e968cb76fc">SDL_WriteBE64</a> </dd></dl>
+
+</div>
+</div>
+<a id="a07c817f8360ddc8c8983d12373306555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c817f8360ddc8c8983d12373306555">&#9670;&nbsp;</a></span>SDL_WriteU8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLSPEC size_t SDLCALL SDL_WriteU8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSDL__RWops.html">SDL_RWops</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint8&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Use this function to write a byte to an <a class="el" href="structSDL__RWops.html">SDL_RWops</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>the <a class="el" href="structSDL__RWops.html">SDL_RWops</a> to write to </td></tr>
+    <tr><td class="paramname">value</td><td>the byte value to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 on success or 0 on failure; call <a class="el" href="SDL__error_8h.html#ac88e1aa404a8f94aaee4ad6b94547647">SDL_GetError()</a> for more information.</dd></dl>
+<dl class="section since"><dt>Depuis</dt><dd>This function is available since SDL 2.0.0.</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="SDL__rwops_8h.html#ab864094eb6b80fbf0c77d34ecdde7907">SDL_ReadU8</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

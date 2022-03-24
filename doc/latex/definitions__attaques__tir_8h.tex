@@ -1,0 +1,73 @@
+\hypertarget{definitions__attaques__tir_8h}{}\doxysection{Référence du fichier include/definitions/definitions\+\_\+attaques\+\_\+tir.h}
+\label{definitions__attaques__tir_8h}\index{include/definitions/definitions\_attaques\_tir.h@{include/definitions/definitions\_attaques\_tir.h}}
+
+
+Fichier de définition des attaques de tir.  
+
+
+{\ttfamily \#include $<$attaque.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{definitions__attaques__tir_8h_a598a3330b3c21701223ee0ca14316eca}\label{definitions__attaques__tir_8h_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~3.\+14159265359
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{definitions__attaques__tir_8h_a159c8f97ba9dbb151a70263fc69ae806}\label{definitions__attaques__tir_8h_a159c8f97ba9dbb151a70263fc69ae806}} 
+static void {\bfseries attaque\+\_\+tir\+\_\+demo} (\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$attaque)
+\item 
+\mbox{\Hypertarget{definitions__attaques__tir_8h_a7c923a55bb1f817bec0108ccd9baa049}\label{definitions__attaques__tir_8h_a7c923a55bb1f817bec0108ccd9baa049}} 
+static void {\bfseries attaque\+\_\+tir\+\_\+sniper} (\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$attaque)
+\item 
+\mbox{\Hypertarget{definitions__attaques__tir_8h_a76b0fa7919f2385aaa7dc63084157ecf}\label{definitions__attaques__tir_8h_a76b0fa7919f2385aaa7dc63084157ecf}} 
+static void {\bfseries attaque\+\_\+tir\+\_\+360\+\_\+shuriken} (\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$attaque)
+\item 
+\mbox{\Hypertarget{definitions__attaques__tir_8h_ad8ded96dbda9e032c4146da454a8a35e}\label{definitions__attaques__tir_8h_ad8ded96dbda9e032c4146da454a8a35e}} 
+static void {\bfseries attaque\+\_\+tir\+\_\+sabre} (\mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}} $\ast$attaque)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier de définition des attaques de tir. 
+
+POUR CREER UNE NOUVELLE ATTAQUE \+:
+\begin{DoxyItemize}
+\item Ajouter le nom de votre attaque dans l\textquotesingle{}enum e\+\_\+nom\+\_\+attaque sous la forme NOMATTAQUE dans le fichier \mbox{\hyperlink{attaque_8h}{attaque.\+h}}
+\item Créer une fonction sous la forme \+: static void attaque\+\_\+tir\+\_\+\+NOMATTAQUE(t\+\_\+attaque\+\_\+tir $\ast$ attaque) \{ attaque-\/$>$type\+\_\+projectile = NOM\+\_\+\+DU\+\_\+\+TYPE\+\_\+\+PROJECTILE; attaque-\/$>$cooldown = INT; attaque-\/$>$nb\+\_\+salves = INT; attaque-\/$>$nb\+\_\+proj\+\_\+salve = INT; attaque-\/$>$tir\+\_\+interval = INT; attaque-\/$>$etalement = FLOAT; \}
+\end{DoxyItemize}
+
+Ajouter la fonction au switch de charger\+Attaque\+Tir \+: case NOMATTAQUE\+: attaque\+\_\+tir\+\_\+\+NOMATTAQUE(attaque); break;
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux
+\end{DoxyAuthor}
+POUR CREER UN NOUVEAU PROJECTILE \+:
+\begin{DoxyItemize}
+\item Ajouter le nom de votre projectile dans l\textquotesingle{}enum e\+\_\+type\+\_\+projectile sous la forme NOMPROJECTILE dans le fichier projectile.\+h
+\item Créer une fonction sous la forme \+: static int proj\+\_\+\+NOMPROJECTILE(t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$animation = creer\+Animation(\+INT, INT); //ou NULL si pas d\textquotesingle{}animation if(projectile-\/$>$animation == NULL) //pas nécéssaire si pas d\textquotesingle{}animation return -\/1;
+
+projectile-\/$>$id\+\_\+animation = INT;
+
+projectile-\/$>$taille = INT; projectile-\/$>$vitesse = INT; projectile-\/$>$dommages = INT; projectile-\/$>$duree\+\_\+de\+\_\+vie = INT;
+
+//\+Fonction générique update\+Projectile ou une fonction personnelle projectile-\/$>$update = (int ($\ast$)(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float)) update\+Projectile;
+
+return 0; \}
+\end{DoxyItemize}
+
+Ajouter la fonction au switch de charger\+Projectile \+: case NOMPROJECTILE\+: return proj\+\_\+\+NOMPROJECTILE(projectile);
+
+
+\begin{DoxyItemize}
+\item Pour donner au projectile un comportement spécifique, créer une fonction sous la forme \+: static int fonction(t\+\_\+moteur $\ast$ moteur, t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$duree\+\_\+de\+\_\+vie -\/= moteur-\/$>$temps -\/ moteur-\/$>$temps\+\_\+precedent; //\+Retirer le temps écoulé à la durée de vie if(projectile-\/$>$duree\+\_\+de\+\_\+vie $<$= 0) return -\/1;
+
+//traitement
+
+return deplacer\+Entite(moteur, (t\+\_\+entite$\ast$) projectile); \} A la place de traitement, changer les paramètres de vitesse, de direction, de taille... Dans l\textquotesingle{}idéal ces changements doivent dépendre de la durée de vie restante. La fonction doit retourner 0 si tout se passe bien, -\/1 lorsque le projectile doit être détruit.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}

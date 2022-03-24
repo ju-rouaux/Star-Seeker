@@ -1,0 +1,80 @@
+\hypertarget{generation__entites_8c}{}\doxysection{Référence du fichier src/generation\+\_\+entites.c}
+\label{generation__entites_8c}\index{src/generation\_entites.c@{src/generation\_entites.c}}
+
+
+Module générant les entités des salles d\textquotesingle{}un niveau.  
+
+
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$monstre.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{generation__entites_8c_a67be7170f31ad7b89fa7ea0f15e46158}{generer\+Entites\+Salle}} (float indice\+\_\+difficulte, int x\+\_\+orig\+\_\+salle, int y\+\_\+orig\+\_\+salle, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$$\ast$liste\+\_\+entites, int $\ast$nb\+\_\+entites)
+\item 
+void \mbox{\hyperlink{generation__entites_8c_acbbeacee20d42375fc1bbbdcd205d03e}{detruire\+Infos\+Entites}} (\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$infos)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux infos sur les entités d\textquotesingle{}une salle en détruisant les entités contenues. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{generation__entites_8c_a78fdf8be0101024b48a67a596bfebe28}{generer\+Entites}} (int indice\+\_\+difficulte, int $\ast$matrice\+\_\+n, int h\+\_\+mat, int l\+\_\+mat, \mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$$\ast$infos\+\_\+entites, int $\ast$nombre\+\_\+infos)
+\begin{DoxyCompactList}\small\item\em A partir de l\textquotesingle{}indice de diffuculté, et de la matrice du niveau, générer une structure infos\+\_\+entites par salle, contenant la liste. des entités de la salle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module générant les entités des salles d\textquotesingle{}un niveau. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{generation__entites_8c_acbbeacee20d42375fc1bbbdcd205d03e}\label{generation__entites_8c_acbbeacee20d42375fc1bbbdcd205d03e}} 
+\index{generation\_entites.c@{generation\_entites.c}!detruireInfosEntites@{detruireInfosEntites}}
+\index{detruireInfosEntites@{detruireInfosEntites}!generation\_entites.c@{generation\_entites.c}}
+\doxysubsubsection{\texorpdfstring{detruireInfosEntites()}{detruireInfosEntites()}}
+{\footnotesize\ttfamily void detruire\+Infos\+Entites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$}]{infos }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée aux infos sur les entités d\textquotesingle{}une salle en détruisant les entités contenues. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em infos} & L\textquotesingle{}adresse de la structure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__entites_8c_a78fdf8be0101024b48a67a596bfebe28}\label{generation__entites_8c_a78fdf8be0101024b48a67a596bfebe28}} 
+\index{generation\_entites.c@{generation\_entites.c}!genererEntites@{genererEntites}}
+\index{genererEntites@{genererEntites}!generation\_entites.c@{generation\_entites.c}}
+\doxysubsubsection{\texorpdfstring{genererEntites()}{genererEntites()}}
+{\footnotesize\ttfamily int generer\+Entites (\begin{DoxyParamCaption}\item[{int}]{indice\+\_\+difficulte,  }\item[{int $\ast$}]{matrice\+\_\+n,  }\item[{int}]{h\+\_\+mat,  }\item[{int}]{l\+\_\+mat,  }\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$$\ast$}]{infos\+\_\+entites,  }\item[{int $\ast$}]{nombre\+\_\+infos }\end{DoxyParamCaption})}
+
+
+
+A partir de l\textquotesingle{}indice de diffuculté, et de la matrice du niveau, générer une structure infos\+\_\+entites par salle, contenant la liste. des entités de la salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em indice\+\_\+difficulte} & Valeur arbitraire faisant varier la quantité et la difficulté des monstres par salles \\
+\hline
+{\em matrice\+\_\+n} & Matrice du niveau \\
+\hline
+{\em h\+\_\+mat} & Hauteur de la matrice \\
+\hline
+{\em l\+\_\+mat} & Largeur de la matrice \\
+\hline
+{\em infos\+\_\+entites} & Retour de la liste des infos\+\_\+entites \\
+\hline
+{\em nombre\+\_\+infos} & Retour du nombre d\textquotesingle{}éléments dans la liste des infos\+\_\+entites\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__entites_8c_a67be7170f31ad7b89fa7ea0f15e46158}\label{generation__entites_8c_a67be7170f31ad7b89fa7ea0f15e46158}} 
+\index{generation\_entites.c@{generation\_entites.c}!genererEntitesSalle@{genererEntitesSalle}}
+\index{genererEntitesSalle@{genererEntitesSalle}!generation\_entites.c@{generation\_entites.c}}
+\doxysubsubsection{\texorpdfstring{genererEntitesSalle()}{genererEntitesSalle()}}
+{\footnotesize\ttfamily static int generer\+Entites\+Salle (\begin{DoxyParamCaption}\item[{float}]{indice\+\_\+difficulte,  }\item[{int}]{x\+\_\+orig\+\_\+salle,  }\item[{int}]{y\+\_\+orig\+\_\+salle,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$$\ast$}]{liste\+\_\+entites,  }\item[{int $\ast$}]{nb\+\_\+entites }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+FONCTION A CODER RETOURNANT LA LISTE DES ENTITES D\textquotesingle{}UNE SALLE 

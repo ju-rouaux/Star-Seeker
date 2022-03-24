@@ -1,0 +1,138 @@
+\hypertarget{camera_8h}{}\doxysection{Référence du fichier include/camera.h}
+\label{camera_8h}\index{include/camera.h@{include/camera.h}}
+
+
+Module de calcul de position de caméra pour savoir où dessiner les éléments sur la fenêtre.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__camera}{t\+\_\+camera}}
+\begin{DoxyCompactList}\small\item\em Modélise une caméra virtuelle qu\textquotesingle{}il suffit de bouger pour déplacer tout l\textquotesingle{}affichage des éléments sur la fenêtre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{camera_8h_a5a3daf0bf964cf6be35cf706dfc7e04c}\label{camera_8h_a5a3daf0bf964cf6be35cf706dfc7e04c}} 
+typedef struct s\+\_\+moteur {\bfseries t\+\_\+moteur}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$ \mbox{\hyperlink{camera_8h_ad5704ec4fcf2885e58f79b68e54e5012}{creer\+Camera}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Alloue la mémoire pour une caméra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{camera_8h_a062833823822b332767bf06838a65bea}{detruire\+Camera}} (\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$$\ast$camera)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une caméra et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{camera_8h_a6e27f4593c942c3426ebb843b903bcef}{update\+Camera}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int largeur, int hauteur, int orig\+\_\+x, int orig\+\_\+y, float j\+\_\+x, float j\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Place la caméra au bon endroit selon la configuration de la salle et de la position du joueur. Le sujet de la caméra sera placé au centre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{camera_8h_a0ad051119219826c6141fc299885fcdf}{update\+Future\+Camera}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int largeur, int hauteur, int orig\+\_\+x, int orig\+\_\+y, float j\+\_\+x, float j\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Place la caméra au bon endroit selon la configuration de la salle et de la position du joueur. Le sujet de la caméra sera placé au centre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de calcul de position de caméra pour savoir où dessiner les éléments sur la fenêtre. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{camera_8h_ad5704ec4fcf2885e58f79b68e54e5012}\label{camera_8h_ad5704ec4fcf2885e58f79b68e54e5012}} 
+\index{camera.h@{camera.h}!creerCamera@{creerCamera}}
+\index{creerCamera@{creerCamera}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{creerCamera()}{creerCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__camera}{t\+\_\+camera}}$\ast$ creer\+Camera (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Alloue la mémoire pour une caméra. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Position de la caméra en x \\
+\hline
+{\em y} & Position de la caméra en y\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur de la caméra, NULL si échec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{camera_8h_a062833823822b332767bf06838a65bea}\label{camera_8h_a062833823822b332767bf06838a65bea}} 
+\index{camera.h@{camera.h}!detruireCamera@{detruireCamera}}
+\index{detruireCamera@{detruireCamera}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{detruireCamera()}{detruireCamera()}}
+{\footnotesize\ttfamily void detruire\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$$\ast$}]{camera }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée à une caméra et mets son pointeur à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em camera} & L\textquotesingle{}adresse du pointeur de la caméra \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{camera_8h_a6e27f4593c942c3426ebb843b903bcef}\label{camera_8h_a6e27f4593c942c3426ebb843b903bcef}} 
+\index{camera.h@{camera.h}!updateCamera@{updateCamera}}
+\index{updateCamera@{updateCamera}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
+{\footnotesize\ttfamily void update\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int}]{orig\+\_\+x,  }\item[{int}]{orig\+\_\+y,  }\item[{float}]{j\+\_\+x,  }\item[{float}]{j\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Place la caméra au bon endroit selon la configuration de la salle et de la position du joueur. Le sujet de la caméra sera placé au centre. 
+
+Les coordonnées de la caméra sont mises à l\textquotesingle{}échelle du jeu car elles prennent en compte la taille de la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Moteur du jeu \\
+\hline
+{\em camera} & Camera à actualiser \\
+\hline
+{\em largeur} & Nombre de sous-\/salles contenues dans la salle en largeur \\
+\hline
+{\em hauteur} & Nombre de sous-\/salles contenues dans la salle en hauteur \\
+\hline
+{\em orig\+\_\+x} & Coordonnées d\textquotesingle{}origine de la salle en x \\
+\hline
+{\em orig\+\_\+y} & Coordonnées d\textquotesingle{}origine de la salle en y \\
+\hline
+{\em j\+\_\+x} & Position en x du joueur relative au niveau \\
+\hline
+{\em j\+\_\+y} & Position en y du joueur relative au niveau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{camera_8h_a0ad051119219826c6141fc299885fcdf}\label{camera_8h_a0ad051119219826c6141fc299885fcdf}} 
+\index{camera.h@{camera.h}!updateFutureCamera@{updateFutureCamera}}
+\index{updateFutureCamera@{updateFutureCamera}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{updateFutureCamera()}{updateFutureCamera()}}
+{\footnotesize\ttfamily void update\+Future\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{largeur,  }\item[{int}]{hauteur,  }\item[{int}]{orig\+\_\+x,  }\item[{int}]{orig\+\_\+y,  }\item[{float}]{j\+\_\+x,  }\item[{float}]{j\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Place la caméra au bon endroit selon la configuration de la salle et de la position du joueur. Le sujet de la caméra sera placé au centre. 
+
+Les coordonnées de la caméra sont mises à l\textquotesingle{}échelle du jeu car elles prennent en compte la taille de la fenêtre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Moteur du jeu \\
+\hline
+{\em camera} & Camera à actualiser \\
+\hline
+{\em largeur} & Nombre de sous-\/salles contenues dans la salle en largeur \\
+\hline
+{\em hauteur} & Nombre de sous-\/salles contenues dans la salle en hauteur \\
+\hline
+{\em orig\+\_\+x} & Coordonnées d\textquotesingle{}origine de la salle en x \\
+\hline
+{\em orig\+\_\+y} & Coordonnées d\textquotesingle{}origine de la salle en y \\
+\hline
+{\em j\+\_\+x} & Position en x du joueur relative au niveau \\
+\hline
+{\em j\+\_\+y} & Position en y du joueur relative au niveau \\
+\hline
+\end{DoxyParams}

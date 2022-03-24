@@ -1,0 +1,109 @@
+\hypertarget{SDL__test__crc32_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+test\+\_\+crc32.h}
+\label{SDL__test__crc32_8h}\index{include/SDL2/SDL\_test\_crc32.h@{include/SDL2/SDL\_test\_crc32.h}}
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_ac0e8fe38fa91e9aa4b32957420795387}\label{SDL__test__crc32_8h_ac0e8fe38fa91e9aa4b32957420795387}} 
+\#define {\bfseries Crc\+Uint32}~unsigned int
+\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_a8f6936196be4a985dadbb0c0549aacf2}\label{SDL__test__crc32_8h_a8f6936196be4a985dadbb0c0549aacf2}} 
+\#define {\bfseries Crc\+Uint8}~unsigned char
+\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_a39e1b7cfc3c0d80ea907e6486d288796}\label{SDL__test__crc32_8h_a39e1b7cfc3c0d80ea907e6486d288796}} 
+\#define {\bfseries CRC32\+\_\+\+POLY}~0x\+EDB88320   /$\ast$ Perl String\+::\+CRC32 compatible $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SDL__test__crc32_8h_a06655d4056d1992fa85a1849b4f3eeeb}{SDLTest\+\_\+\+Crc32\+Init}} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context)
+\begin{DoxyCompactList}\small\item\em Initialize the CRC context. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{SDL__test__crc32_8h_a0397333489338ed3fca5dc0f892070cd}{SDLTest\+\_\+\+Crc32\+Calc}} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context, Crc\+Uint8 $\ast$in\+Buf, Crc\+Uint32 in\+Len, Crc\+Uint32 $\ast$crc32)
+\begin{DoxyCompactList}\small\item\em calculate a crc32 from a data block \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_a4f78079f5b6871a22dc955b3593731d0}\label{SDL__test__crc32_8h_a4f78079f5b6871a22dc955b3593731d0}} 
+int {\bfseries SDLTest\+\_\+\+Crc32\+Calc\+Start} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context, Crc\+Uint32 $\ast$crc32)
+\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_a8e41b3f8fe2e0d8ff591f6a492c6d5b8}\label{SDL__test__crc32_8h_a8e41b3f8fe2e0d8ff591f6a492c6d5b8}} 
+int {\bfseries SDLTest\+\_\+\+Crc32\+Calc\+End} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context, Crc\+Uint32 $\ast$crc32)
+\item 
+\mbox{\Hypertarget{SDL__test__crc32_8h_a19e6816b8d3c2d11214308a301c7164f}\label{SDL__test__crc32_8h_a19e6816b8d3c2d11214308a301c7164f}} 
+int {\bfseries SDLTest\+\_\+\+Crc32\+Calc\+Buffer} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context, Crc\+Uint8 $\ast$in\+Buf, Crc\+Uint32 in\+Len, Crc\+Uint32 $\ast$crc32)
+\item 
+int \mbox{\hyperlink{SDL__test__crc32_8h_a020b58aa3d188466b41b7c9e526c18ec}{SDLTest\+\_\+\+Crc32\+Done}} (\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$crc\+Context)
+\begin{DoxyCompactList}\small\item\em clean up CRC context \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL test framework.
+
+This code is a part of the SDL2\+\_\+test library, not the main SDL library. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__test__crc32_8h_a0397333489338ed3fca5dc0f892070cd}\label{SDL__test__crc32_8h_a0397333489338ed3fca5dc0f892070cd}} 
+\index{SDL\_test\_crc32.h@{SDL\_test\_crc32.h}!SDLTest\_Crc32Calc@{SDLTest\_Crc32Calc}}
+\index{SDLTest\_Crc32Calc@{SDLTest\_Crc32Calc}!SDL\_test\_crc32.h@{SDL\_test\_crc32.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Crc32Calc()}{SDLTest\_Crc32Calc()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Crc32\+Calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$}]{crc\+Context,  }\item[{Crc\+Uint8 $\ast$}]{in\+Buf,  }\item[{Crc\+Uint32}]{in\+Len,  }\item[{Crc\+Uint32 $\ast$}]{crc32 }\end{DoxyParamCaption})}
+
+
+
+calculate a crc32 from a data block 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em crc\+Context} & pointer to context variable \\
+\hline
+{\em in\+Buf} & input buffer to checksum \\
+\hline
+{\em in\+Len} & length of input buffer \\
+\hline
+{\em crc32} & pointer to Uint32 to store the final CRC into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 for OK, -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__crc32_8h_a020b58aa3d188466b41b7c9e526c18ec}\label{SDL__test__crc32_8h_a020b58aa3d188466b41b7c9e526c18ec}} 
+\index{SDL\_test\_crc32.h@{SDL\_test\_crc32.h}!SDLTest\_Crc32Done@{SDLTest\_Crc32Done}}
+\index{SDLTest\_Crc32Done@{SDLTest\_Crc32Done}!SDL\_test\_crc32.h@{SDL\_test\_crc32.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Crc32Done()}{SDLTest\_Crc32Done()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Crc32\+Done (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$}]{crc\+Context }\end{DoxyParamCaption})}
+
+
+
+clean up CRC context 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em crc\+Context} & pointer to context variable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 for OK, -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SDL__test__crc32_8h_a06655d4056d1992fa85a1849b4f3eeeb}\label{SDL__test__crc32_8h_a06655d4056d1992fa85a1849b4f3eeeb}} 
+\index{SDL\_test\_crc32.h@{SDL\_test\_crc32.h}!SDLTest\_Crc32Init@{SDLTest\_Crc32Init}}
+\index{SDLTest\_Crc32Init@{SDLTest\_Crc32Init}!SDL\_test\_crc32.h@{SDL\_test\_crc32.h}}
+\doxysubsubsection{\texorpdfstring{SDLTest\_Crc32Init()}{SDLTest\_Crc32Init()}}
+{\footnotesize\ttfamily int SDLTest\+\_\+\+Crc32\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDLTest__Crc32Context}{SDLTest\+\_\+\+Crc32\+Context}} $\ast$}]{crc\+Context }\end{DoxyParamCaption})}
+
+
+
+Initialize the CRC context. 
+
+Note\+: The function initializes the crc table required for all crc calculations.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em crc\+Context} & pointer to context variable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 for OK, -\/1 on error 
+\end{DoxyReturn}

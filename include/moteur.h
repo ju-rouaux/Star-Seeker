@@ -43,7 +43,12 @@ typedef struct
 {
     t_bool_param reset_sauvegarde_joueur; /**< Vrai si le jeu doit écraser la sauvegarde du joueur au lancement de la partie */
     int volume_audio; //(ou volume musique puis volume sons)
-    
+    SDL_Scancode key_up;
+    SDL_Scancode key_down;
+    SDL_Scancode key_left;
+    SDL_Scancode key_right;
+    SDL_Scancode key_projectile;
+
 } t_parametres;
 
 /**

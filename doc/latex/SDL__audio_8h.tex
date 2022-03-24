@@ -1,0 +1,1625 @@
+\hypertarget{SDL__audio_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+audio.h}
+\label{SDL__audio_8h}\index{include/SDL2/SDL\_audio.h@{include/SDL2/SDL\_audio.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+endian.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+mutex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+thread.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}}
+\item 
+struct \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}}
+\begin{DoxyCompactList}\small\item\em A structure to hold a set of audio conversion filters and buffers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{Indent}\textbf{ Audio flags}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_ade51417b52dbd9511d56066caae0038b}\label{SDL__audio_8h_ade51417b52dbd9511d56066caae0038b}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+BITSIZE}~(0x\+FF)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a50b4779246a7fbf4a39205a396ec7ea6}\label{SDL__audio_8h_a50b4779246a7fbf4a39205a396ec7ea6}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+DATATYPE}~(1$<$$<$8)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_ab070cdd4d92ee3824cafefe24c620326}\label{SDL__audio_8h_ab070cdd4d92ee3824cafefe24c620326}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+ENDIAN}~(1$<$$<$12)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a06fc66d3c421c6c9b733854b73d104ce}\label{SDL__audio_8h_a06fc66d3c421c6c9b733854b73d104ce}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+SIGNED}~(1$<$$<$15)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_abe2f2a9193ad3a8fa822787098df266d}\label{SDL__audio_8h_abe2f2a9193ad3a8fa822787098df266d}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+BITSIZE}(x)~(x \& SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+BITSIZE)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a86ee1651c17955594a547e96b9c94890}\label{SDL__audio_8h_a86ee1651c17955594a547e96b9c94890}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISFLOAT}(x)~(x \& SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+DATATYPE)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a27e82da51370d77f83e4ea2098c9d38c}\label{SDL__audio_8h_a27e82da51370d77f83e4ea2098c9d38c}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISBIGENDIAN}(x)~(x \& SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+ENDIAN)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a518fa9273a6a8b8b6f1d599ccca71434}\label{SDL__audio_8h_a518fa9273a6a8b8b6f1d599ccca71434}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISSIGNED}(x)~(x \& SDL\+\_\+\+AUDIO\+\_\+\+MASK\+\_\+\+SIGNED)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a197decf956e451a5a10e7221974b0548}\label{SDL__audio_8h_a197decf956e451a5a10e7221974b0548}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISINT}(x)~(!SDL\+\_\+\+AUDIO\+\_\+\+ISFLOAT(x))
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a2026be07a23986f2b7681a3500c8c341}\label{SDL__audio_8h_a2026be07a23986f2b7681a3500c8c341}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISLITTLEENDIAN}(x)~(!SDL\+\_\+\+AUDIO\+\_\+\+ISBIGENDIAN(x))
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_aa9f715eb12c43474ad0aae52976e5095}\label{SDL__audio_8h_aa9f715eb12c43474ad0aae52976e5095}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ISUNSIGNED}(x)~(!SDL\+\_\+\+AUDIO\+\_\+\+ISSIGNED(x))
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Audio format flags}\par
+{\em Defaults to LSB byte order. }\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a6468b4b3fc53ada655eca866e491d75f}{AUDIO\+\_\+\+U8}}~0x0008
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a883b3d4539451e49bf014dde0f9cca29}{AUDIO\+\_\+\+S8}}~0x8008
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a06808f806896c4d211314990c354b7fc}{AUDIO\+\_\+\+U16\+LSB}}~0x0010
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a23838d612e88ce72d82c3e51460f831b}{AUDIO\+\_\+\+S16\+LSB}}~0x8010
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a3b8052d0c49d14a2e3edf08eade52d3a}{AUDIO\+\_\+\+U16\+MSB}}~0x1010
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a3109dfb1d7aab29dff2b62d630e690ca}{AUDIO\+\_\+\+S16\+MSB}}~0x9010
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_adee2cdf7dbda44620da17cd58ca819ea}\label{SDL__audio_8h_adee2cdf7dbda44620da17cd58ca819ea}} 
+\#define {\bfseries AUDIO\+\_\+\+U16}~\mbox{\hyperlink{SDL__audio_8h_a06808f806896c4d211314990c354b7fc}{AUDIO\+\_\+\+U16\+LSB}}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a4f4950d8eee757ebed84e50fb9316b12}\label{SDL__audio_8h_a4f4950d8eee757ebed84e50fb9316b12}} 
+\#define {\bfseries AUDIO\+\_\+\+S16}~\mbox{\hyperlink{SDL__audio_8h_a23838d612e88ce72d82c3e51460f831b}{AUDIO\+\_\+\+S16\+LSB}}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ int32 support}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_ac81f9cc5739cea67436daf2689d29559}{AUDIO\+\_\+\+S32\+LSB}}~0x8020
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a30641d7487680630c231b3415ecd47b6}{AUDIO\+\_\+\+S32\+MSB}}~0x9020
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_aaffc0931336d0d79717a144039670223}\label{SDL__audio_8h_aaffc0931336d0d79717a144039670223}} 
+\#define {\bfseries AUDIO\+\_\+\+S32}~\mbox{\hyperlink{SDL__audio_8h_ac81f9cc5739cea67436daf2689d29559}{AUDIO\+\_\+\+S32\+LSB}}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ float32 support}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_afaef57ecb718053b572c539e27e72d61}{AUDIO\+\_\+\+F32\+LSB}}~0x8120
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a2d57382c01fdcd78cbbbb480605d91ef}{AUDIO\+\_\+\+F32\+MSB}}~0x9120
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a4633772ee12935960a25ff8334c29990}\label{SDL__audio_8h_a4633772ee12935960a25ff8334c29990}} 
+\#define {\bfseries AUDIO\+\_\+\+F32}~\mbox{\hyperlink{SDL__audio_8h_afaef57ecb718053b572c539e27e72d61}{AUDIO\+\_\+\+F32\+LSB}}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Native audio byte ordering}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_afafc9f93ee2c583130c4152e243ba5b8}\label{SDL__audio_8h_afafc9f93ee2c583130c4152e243ba5b8}} 
+\#define {\bfseries AUDIO\+\_\+\+U16\+SYS}~\mbox{\hyperlink{SDL__audio_8h_a06808f806896c4d211314990c354b7fc}{AUDIO\+\_\+\+U16\+LSB}}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a4722de7e16982dd078f2b8cc64b9bae7}\label{SDL__audio_8h_a4722de7e16982dd078f2b8cc64b9bae7}} 
+\#define {\bfseries AUDIO\+\_\+\+S16\+SYS}~\mbox{\hyperlink{SDL__audio_8h_a23838d612e88ce72d82c3e51460f831b}{AUDIO\+\_\+\+S16\+LSB}}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_aafcbadd8f6fa14a878178bf18b883675}\label{SDL__audio_8h_aafcbadd8f6fa14a878178bf18b883675}} 
+\#define {\bfseries AUDIO\+\_\+\+S32\+SYS}~\mbox{\hyperlink{SDL__audio_8h_ac81f9cc5739cea67436daf2689d29559}{AUDIO\+\_\+\+S32\+LSB}}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_af001a94efb4bea024c233cae0cf98e6b}\label{SDL__audio_8h_af001a94efb4bea024c233cae0cf98e6b}} 
+\#define {\bfseries AUDIO\+\_\+\+F32\+SYS}~\mbox{\hyperlink{SDL__audio_8h_afaef57ecb718053b572c539e27e72d61}{AUDIO\+\_\+\+F32\+LSB}}
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef Uint16 \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}
+\begin{DoxyCompactList}\small\item\em Audio format flags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{Indent}\textbf{ Driver discovery functions}\par
+{\em These functions return the list of built in audio drivers, in the order that they are normally initialized by default. }\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_ae3cb6a3321d9ee32f3c05ea0794c5fb8}{SDL\+\_\+\+Get\+Num\+Audio\+Drivers}} (void)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__audio_8h_aabc8b6439ff8d1195b9f49e9c00b15c1}{SDL\+\_\+\+Get\+Audio\+Driver}} (int index)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Audio lock functions}\par
+{\em The lock manipulated by these functions protects the callback function. During a \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio()}}/\+SDL\+\_\+\+Unlock\+Audio() pair, you can be guaranteed that the callback function is not running. Do not call these from the callback function or you will cause deadlock. }\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a76d8179bee14dad268e65378058d897d}{SDL\+\_\+\+Unlock\+Audio}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_aa176acc650e66e1d38814cbed3ca258e}{SDL\+\_\+\+Close\+Audio}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}{SDL\+\_\+\+Close\+Audio\+Device}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Allow change flags}
+\label{_amgrp26fc1c9ee882f8e905e88be30d26e4ae}%
+Which audio format changes are allowed when opening a device. \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a4b05381c3f0871e9a88b46959365f796}\label{SDL__audio_8h_a4b05381c3f0871e9a88b46959365f796}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FREQUENCY\+\_\+\+CHANGE}~0x00000001
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a32dbc13d28bdc43d7e07e080e24fb573}\label{SDL__audio_8h_a32dbc13d28bdc43d7e07e080e24fb573}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FORMAT\+\_\+\+CHANGE}~0x00000002
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_aad9eab304c2cee512410508811268575}\label{SDL__audio_8h_aad9eab304c2cee512410508811268575}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+CHANNELS\+\_\+\+CHANGE}~0x00000004
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a2f5fcb9e11d3479e9e987a5d434d88ba}\label{SDL__audio_8h_a2f5fcb9e11d3479e9e987a5d434d88ba}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+SAMPLES\+\_\+\+CHANGE}~0x00000008
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_acbee9b7a641274139377898c21df92e8}\label{SDL__audio_8h_acbee9b7a641274139377898c21df92e8}} 
+\#define {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+ANY\+\_\+\+CHANGE}~(SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FREQUENCY\+\_\+\+CHANGE$\vert$SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FORMAT\+\_\+\+CHANGE$\vert$SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+CHANNELS\+\_\+\+CHANGE$\vert$SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+SAMPLES\+\_\+\+CHANGE)
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a3d38380ac4a45a68a0e1c1a7a02bd290}{SDL\+\_\+\+AUDIOCVT\+\_\+\+MAX\+\_\+\+FILTERS}}~9
+\begin{DoxyCompactList}\small\item\em Upper limit of filters in \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{SDL__audio_8h_ac34fc6df953e2bae89919edaaa740ff3}\label{SDL__audio_8h_ac34fc6df953e2bae89919edaaa740ff3}} 
+\#define {\bfseries SDL\+\_\+\+AUDIOCVT\+\_\+\+PACKED}
+\item 
+typedef void(SDLCALL $\ast$ \mbox{\hyperlink{SDL__audio_8h_a379fcc25845e46bfa80cb3619fc2821c}{SDL\+\_\+\+Audio\+Callback}}) (void $\ast$userdata, Uint8 $\ast$stream, int len)
+\item 
+typedef struct \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} \mbox{\hyperlink{SDL__audio_8h_ae95b698a5abe9ae3b36f0ab4617e9e14}{SDL\+\_\+\+Audio\+Spec}}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a71a65ffd977afe9c3fef116a5bc9ee27}\label{SDL__audio_8h_a71a65ffd977afe9c3fef116a5bc9ee27}} 
+typedef \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} {\bfseries format}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_afc284f22978d12646dbffa692fe0c0ae}\label{SDL__audio_8h_afc284f22978d12646dbffa692fe0c0ae}} 
+typedef struct \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} {\bfseries SDL\+\_\+\+Audio\+CVT}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_aa5cb90967788ada2711894ca158ece01}\label{SDL__audio_8h_aa5cb90967788ada2711894ca158ece01}} 
+typedef {\bfseries void} (SDLCALL $\ast$SDL\+\_\+\+Audio\+Filter)(struct \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} $\ast$cvt
+\end{DoxyCompactItemize}
+\doxysubsection*{Pause audio functions}
+\label{_amgrpaf7b771870771b0302bf26b5414a4319}%
+These functions pause and unpause the audio callback processing. They should be called with a parameter of 0 after opening the audio device to start playing sound. This is so you can safely initialize data for your callback function after opening the audio device. Silence will be written to the audio device during the pause. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV}}(file,  spec,  audio\+\_\+buf,  audio\+\_\+len)~    \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}),1, spec,audio\+\_\+buf,audio\+\_\+len)
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_afa8e5e92d4424b0c599e7c813c91f720}\label{SDL__audio_8h_afa8e5e92d4424b0c599e7c813c91f720}} 
+\#define {\bfseries SDL\+\_\+\+MIX\+\_\+\+MAXVOLUME}~128
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a1f8d82f8013b06777000675a9636071e}\label{SDL__audio_8h_a1f8d82f8013b06777000675a9636071e}} 
+typedef struct \+\_\+\+SDL\+\_\+\+Audio\+Stream {\bfseries SDL\+\_\+\+Audio\+Stream}
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_aa68e60a33666ff4f2d36f3827b1d6061}{SDL\+\_\+\+Pause\+Audio}} (int pause\+\_\+on)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev, int pause\+\_\+on)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$SDLCALL \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW}} (\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$src, int freesrc, \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$spec, Uint8 $\ast$$\ast$audio\+\_\+buf, Uint32 $\ast$audio\+\_\+len)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}{SDL\+\_\+\+Free\+WAV}} (Uint8 $\ast$audio\+\_\+buf)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT}} (\mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} $\ast$cvt, \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} src\+\_\+format, Uint8 src\+\_\+channels, int src\+\_\+rate, \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} dst\+\_\+format, Uint8 dst\+\_\+channels, int dst\+\_\+rate)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}{SDL\+\_\+\+Convert\+Audio}} (\mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} $\ast$cvt)
+\item 
+DECLSPEC SDL\+\_\+\+Audio\+Stream $\ast$SDLCALL \mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} (const \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} src\+\_\+format, const Uint8 src\+\_\+channels, const int src\+\_\+rate, const \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} dst\+\_\+format, const Uint8 dst\+\_\+channels, const int dst\+\_\+rate)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} (SDL\+\_\+\+Audio\+Stream $\ast$stream, const void $\ast$buf, int len)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} (SDL\+\_\+\+Audio\+Stream $\ast$stream, void $\ast$buf, int len)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} (SDL\+\_\+\+Audio\+Stream $\ast$stream)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} (SDL\+\_\+\+Audio\+Stream $\ast$stream)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} (SDL\+\_\+\+Audio\+Stream $\ast$stream)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} (SDL\+\_\+\+Audio\+Stream $\ast$stream)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_ab9ad945b4b15d816802f5a79da06c9f9}{SDL\+\_\+\+Mix\+Audio}} (Uint8 $\ast$dst, const Uint8 $\ast$src, Uint32 len, int volume)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}{SDL\+\_\+\+Mix\+Audio\+Format}} (Uint8 $\ast$dst, const Uint8 $\ast$src, \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}} format, Uint32 len, int volume)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev, const void $\ast$data, Uint32 len)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev, void $\ast$data, Uint32 len)
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}{SDL\+\_\+\+Get\+Queued\+Audio\+Size}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}{SDL\+\_\+\+Clear\+Queued\+Audio}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\end{DoxyCompactItemize}
+\doxysubsection*{Audio state}
+\label{_amgrpcef14621c5df51e9b3ed9d0b005e108e}%
+Get the current audio state. \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__audio_8h_a24a02745f01041dd2825d7e26502eef2}\label{SDL__audio_8h_a24a02745f01041dd2825d7e26502eef2}} 
+enum {\bfseries SDL\+\_\+\+Audio\+Status} \{ {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+STOPPED} = 0
+, {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+PLAYING}
+, {\bfseries SDL\+\_\+\+AUDIO\+\_\+\+PAUSED}
+ \}
+\item 
+DECLSPEC SDL\+\_\+\+Audio\+Status SDLCALL \mbox{\hyperlink{SDL__audio_8h_a568e10207e6ff53f8e238a0d562ef594}{SDL\+\_\+\+Get\+Audio\+Status}} (void)
+\item 
+DECLSPEC SDL\+\_\+\+Audio\+Status SDLCALL \mbox{\hyperlink{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}{SDL\+\_\+\+Get\+Audio\+Device\+Status}} (\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} dev)
+\end{DoxyCompactItemize}
+\doxysubsection*{Initialization and cleanup}
+\begin{DoxyCompactItemize}
+\item 
+typedef Uint32 \mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}{SDL\+\_\+\+Audio\+Init}} (const char $\ast$driver\+\_\+name)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__audio_8h_a478c602cbfaab8663cb4f58a62600323}{SDL\+\_\+\+Audio\+Quit}} (void)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__audio_8h_a15b19f26c314e3640ea396251a1ff010}{SDL\+\_\+\+Get\+Current\+Audio\+Driver}} (void)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio}} (\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$desired, \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$obtained)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices}} (int iscapture)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}{SDL\+\_\+\+Get\+Audio\+Device\+Name}} (int index, int iscapture)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__audio_8h_aab1f29540e28a8638ec08ecccea47c36}{SDL\+\_\+\+Get\+Audio\+Device\+Spec}} (int index, int iscapture, \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$spec)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} SDLCALL \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device}} (const char $\ast$device, int iscapture, const \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$desired, \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$obtained, int allowed\+\_\+changes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Access to the raw audio mixing buffer for the SDL library. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__audio_8h_afaef57ecb718053b572c539e27e72d61}\label{SDL__audio_8h_afaef57ecb718053b572c539e27e72d61}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_F32LSB@{AUDIO\_F32LSB}}
+\index{AUDIO\_F32LSB@{AUDIO\_F32LSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_F32LSB}{AUDIO\_F32LSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+F32\+LSB~0x8120}
+
+32-\/bit floating point samples \mbox{\Hypertarget{SDL__audio_8h_a2d57382c01fdcd78cbbbb480605d91ef}\label{SDL__audio_8h_a2d57382c01fdcd78cbbbb480605d91ef}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_F32MSB@{AUDIO\_F32MSB}}
+\index{AUDIO\_F32MSB@{AUDIO\_F32MSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_F32MSB}{AUDIO\_F32MSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+F32\+MSB~0x9120}
+
+As above, but big-\/endian byte order \mbox{\Hypertarget{SDL__audio_8h_a23838d612e88ce72d82c3e51460f831b}\label{SDL__audio_8h_a23838d612e88ce72d82c3e51460f831b}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_S16LSB@{AUDIO\_S16LSB}}
+\index{AUDIO\_S16LSB@{AUDIO\_S16LSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_S16LSB}{AUDIO\_S16LSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+S16\+LSB~0x8010}
+
+Signed 16-\/bit samples \mbox{\Hypertarget{SDL__audio_8h_a3109dfb1d7aab29dff2b62d630e690ca}\label{SDL__audio_8h_a3109dfb1d7aab29dff2b62d630e690ca}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_S16MSB@{AUDIO\_S16MSB}}
+\index{AUDIO\_S16MSB@{AUDIO\_S16MSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_S16MSB}{AUDIO\_S16MSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+S16\+MSB~0x9010}
+
+As above, but big-\/endian byte order \mbox{\Hypertarget{SDL__audio_8h_ac81f9cc5739cea67436daf2689d29559}\label{SDL__audio_8h_ac81f9cc5739cea67436daf2689d29559}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_S32LSB@{AUDIO\_S32LSB}}
+\index{AUDIO\_S32LSB@{AUDIO\_S32LSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_S32LSB}{AUDIO\_S32LSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+S32\+LSB~0x8020}
+
+32-\/bit integer samples \mbox{\Hypertarget{SDL__audio_8h_a30641d7487680630c231b3415ecd47b6}\label{SDL__audio_8h_a30641d7487680630c231b3415ecd47b6}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_S32MSB@{AUDIO\_S32MSB}}
+\index{AUDIO\_S32MSB@{AUDIO\_S32MSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_S32MSB}{AUDIO\_S32MSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+S32\+MSB~0x9020}
+
+As above, but big-\/endian byte order \mbox{\Hypertarget{SDL__audio_8h_a883b3d4539451e49bf014dde0f9cca29}\label{SDL__audio_8h_a883b3d4539451e49bf014dde0f9cca29}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_S8@{AUDIO\_S8}}
+\index{AUDIO\_S8@{AUDIO\_S8}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_S8}{AUDIO\_S8}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+S8~0x8008}
+
+Signed 8-\/bit samples \mbox{\Hypertarget{SDL__audio_8h_a06808f806896c4d211314990c354b7fc}\label{SDL__audio_8h_a06808f806896c4d211314990c354b7fc}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_U16LSB@{AUDIO\_U16LSB}}
+\index{AUDIO\_U16LSB@{AUDIO\_U16LSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_U16LSB}{AUDIO\_U16LSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+U16\+LSB~0x0010}
+
+Unsigned 16-\/bit samples \mbox{\Hypertarget{SDL__audio_8h_a3b8052d0c49d14a2e3edf08eade52d3a}\label{SDL__audio_8h_a3b8052d0c49d14a2e3edf08eade52d3a}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_U16MSB@{AUDIO\_U16MSB}}
+\index{AUDIO\_U16MSB@{AUDIO\_U16MSB}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_U16MSB}{AUDIO\_U16MSB}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+U16\+MSB~0x1010}
+
+As above, but big-\/endian byte order \mbox{\Hypertarget{SDL__audio_8h_a6468b4b3fc53ada655eca866e491d75f}\label{SDL__audio_8h_a6468b4b3fc53ada655eca866e491d75f}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!AUDIO\_U8@{AUDIO\_U8}}
+\index{AUDIO\_U8@{AUDIO\_U8}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{AUDIO\_U8}{AUDIO\_U8}}
+{\footnotesize\ttfamily \#define AUDIO\+\_\+\+U8~0x0008}
+
+Unsigned 8-\/bit samples \mbox{\Hypertarget{SDL__audio_8h_a3d38380ac4a45a68a0e1c1a7a02bd290}\label{SDL__audio_8h_a3d38380ac4a45a68a0e1c1a7a02bd290}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AUDIOCVT\_MAX\_FILTERS@{SDL\_AUDIOCVT\_MAX\_FILTERS}}
+\index{SDL\_AUDIOCVT\_MAX\_FILTERS@{SDL\_AUDIOCVT\_MAX\_FILTERS}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AUDIOCVT\_MAX\_FILTERS}{SDL\_AUDIOCVT\_MAX\_FILTERS}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+AUDIOCVT\+\_\+\+MAX\+\_\+\+FILTERS~9}
+
+
+
+Upper limit of filters in \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}}. 
+
+The maximum number of SDL\+\_\+\+Audio\+Filter functions in \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} is currently limited to 9. The \mbox{\hyperlink{structSDL__AudioCVT_afeb8dc60716644de3b681653442de1db}{SDL\+\_\+\+Audio\+CVT.\+filters}} array has 10 pointers, one of which is the terminating NULL pointer. \mbox{\Hypertarget{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}\label{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_LoadWAV@{SDL\_LoadWAV}}
+\index{SDL\_LoadWAV@{SDL\_LoadWAV}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadWAV}{SDL\_LoadWAV}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+Load\+WAV(\begin{DoxyParamCaption}\item[{}]{file,  }\item[{}]{spec,  }\item[{}]{audio\+\_\+buf,  }\item[{}]{audio\+\_\+len }\end{DoxyParamCaption})~    \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\+\_\+\+RWFrom\+File}}(file, \char`\"{}rb\char`\"{}),1, spec,audio\+\_\+buf,audio\+\_\+len)}
+
+Loads a WAV from a file. Compatibility convenience function. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__audio_8h_a379fcc25845e46bfa80cb3619fc2821c}\label{SDL__audio_8h_a379fcc25845e46bfa80cb3619fc2821c}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioCallback@{SDL\_AudioCallback}}
+\index{SDL\_AudioCallback@{SDL\_AudioCallback}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioCallback}{SDL\_AudioCallback}}
+{\footnotesize\ttfamily typedef void(SDLCALL $\ast$ SDL\+\_\+\+Audio\+Callback) (void $\ast$userdata, Uint8 $\ast$stream, int len)}
+
+This function is called when the audio device needs more data.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em userdata} & An application-\/specific parameter saved in the \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} structure \\
+\hline
+{\em stream} & A pointer to the audio data buffer. \\
+\hline
+{\em len} & The length of that buffer in bytes.\\
+\hline
+\end{DoxyParams}
+Once the callback returns, the buffer will no longer be valid. Stereo samples are stored in a LRLRLR ordering.
+
+You can choose to avoid callbacks and use \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio()}} instead, if you like. Just open your audio device with a NULL callback. \mbox{\Hypertarget{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}\label{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioDeviceID@{SDL\_AudioDeviceID}}
+\index{SDL\_AudioDeviceID@{SDL\_AudioDeviceID}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioDeviceID}{SDL\_AudioDeviceID}}
+{\footnotesize\ttfamily typedef Uint32 \mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}
+
+SDL Audio Device IDs.
+
+A successful call to \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} is always device id 1, and legacy SDL audio APIs assume you want this device ID. \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}} calls always returns devices $>$= 2 on success. The legacy calls are good both for backwards compatibility and when you don\textquotesingle{}t care about multiple, specific, or capture devices. \mbox{\Hypertarget{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}\label{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioFormat@{SDL\_AudioFormat}}
+\index{SDL\_AudioFormat@{SDL\_AudioFormat}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioFormat}{SDL\_AudioFormat}}
+{\footnotesize\ttfamily typedef Uint16 \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}
+
+
+
+Audio format flags. 
+
+These are what the 16 bits in SDL\+\_\+\+Audio\+Format currently mean... (Unspecified bits are always zero).
+
+\begin{DoxyVerb}++-----------------------sample is signed if set
+||
+||       ++-----------sample is bigendian if set
+||       ||
+||       ||          ++---sample is float if set
+||       ||          ||
+||       ||          || +---sample bit size---+
+||       ||          || |                     |
+15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+\end{DoxyVerb}
+
+
+There are macros in SDL 2.\+0 and later to query these bits. \mbox{\Hypertarget{SDL__audio_8h_ae95b698a5abe9ae3b36f0ab4617e9e14}\label{SDL__audio_8h_ae95b698a5abe9ae3b36f0ab4617e9e14}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioSpec@{SDL\_AudioSpec}}
+\index{SDL\_AudioSpec@{SDL\_AudioSpec}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioSpec}{SDL\_AudioSpec}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}}}
+
+The calculated values in this structure are calculated by \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}}.
+
+For multi-\/channel audio, the default SDL channel mapping is\+: 2\+: FL FR (stereo) 3\+: FL FR LFE (2.\+1 surround) 4\+: FL FR BL BR (quad) 5\+: FL FR FC BL BR (quad + center) 6\+: FL FR FC LFE SL SR (5.\+1 surround -\/ last two can also be BL BR) 7\+: FL FR FC LFE BC SL SR (6.\+1 surround) 8\+: FL FR FC LFE BL BR SL SR (7.\+1 surround) 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}\label{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioInit@{SDL\_AudioInit}}
+\index{SDL\_AudioInit@{SDL\_AudioInit}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioInit()}{SDL\_AudioInit()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Audio\+Init (\begin{DoxyParamCaption}\item[{const char $\ast$}]{driver\+\_\+name }\end{DoxyParamCaption})}
+
+Use this function to initialize a particular audio driver.
+
+This function is used internally, and should not be used unless you have a specific need to designate the audio driver you want to use. You should normally use \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} or \mbox{\hyperlink{SDL_8h_adfbfddc0ec609b5e5e5cb1c89298e4db}{SDL\+\_\+\+Init\+Sub\+System()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em driver\+\_\+name} & the name of the desired audio driver \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a478c602cbfaab8663cb4f58a62600323}{SDL\+\_\+\+Audio\+Quit}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a478c602cbfaab8663cb4f58a62600323}\label{SDL__audio_8h_a478c602cbfaab8663cb4f58a62600323}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioQuit@{SDL\_AudioQuit}}
+\index{SDL\_AudioQuit@{SDL\_AudioQuit}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioQuit()}{SDL\_AudioQuit()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Audio\+Quit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use this function to shut down audio if you initialized it with \mbox{\hyperlink{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}{SDL\+\_\+\+Audio\+Init()}}.
+
+This function is used internally, and should not be used unless you have a specific need to specify the audio driver you want to use. You should normally use \mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}} or \mbox{\hyperlink{SDL_8h_a14e9091982e09097985e10e3ca65debb}{SDL\+\_\+\+Quit\+Sub\+System()}}.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}{SDL\+\_\+\+Audio\+Init}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}\label{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioStreamAvailable@{SDL\_AudioStreamAvailable}}
+\index{SDL\_AudioStreamAvailable@{SDL\_AudioStreamAvailable}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioStreamAvailable()}{SDL\_AudioStreamAvailable()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Audio\+Stream\+Available (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream }\end{DoxyParamCaption})}
+
+Get the number of converted/resampled bytes available.
+
+The stream may be buffering data behind the scenes until it has enough to resample correctly, so this number might be lower than what you expect, or even be zero. Add more data or flush the stream if you need the data now.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}\label{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioStreamClear@{SDL\_AudioStreamClear}}
+\index{SDL\_AudioStreamClear@{SDL\_AudioStreamClear}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioStreamClear()}{SDL\_AudioStreamClear()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Audio\+Stream\+Clear (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream }\end{DoxyParamCaption})}
+
+Clear any pending data in the stream without converting it
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}\label{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioStreamFlush@{SDL\_AudioStreamFlush}}
+\index{SDL\_AudioStreamFlush@{SDL\_AudioStreamFlush}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioStreamFlush()}{SDL\_AudioStreamFlush()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Audio\+Stream\+Flush (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream }\end{DoxyParamCaption})}
+
+Tell the stream that you\textquotesingle{}re done sending data, and anything being buffered should be converted/resampled and made available immediately.
+
+It is legal to add more data to a stream after flushing, but there will be audio gaps in the output. Generally this is intended to signal the end of input, so the complete output becomes available.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}\label{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioStreamGet@{SDL\_AudioStreamGet}}
+\index{SDL\_AudioStreamGet@{SDL\_AudioStreamGet}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioStreamGet()}{SDL\_AudioStreamGet()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Audio\+Stream\+Get (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+Get converted/resampled data from the stream
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & The stream the audio is being requested from \\
+\hline
+{\em buf} & A buffer to fill with audio data \\
+\hline
+{\em len} & The maximum number of bytes to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of bytes read from the stream, or -\/1 on error
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}\label{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_AudioStreamPut@{SDL\_AudioStreamPut}}
+\index{SDL\_AudioStreamPut@{SDL\_AudioStreamPut}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AudioStreamPut()}{SDL\_AudioStreamPut()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Audio\+Stream\+Put (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream,  }\item[{const void $\ast$}]{buf,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+Add data to be converted/resampled to the stream.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & The stream the audio data is being added to \\
+\hline
+{\em buf} & A pointer to the audio data to add \\
+\hline
+{\em len} & The number of bytes to write to the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}\label{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_BuildAudioCVT@{SDL\_BuildAudioCVT}}
+\index{SDL\_BuildAudioCVT@{SDL\_BuildAudioCVT}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_BuildAudioCVT()}{SDL\_BuildAudioCVT()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Build\+Audio\+CVT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} $\ast$}]{cvt,  }\item[{\mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}]{src\+\_\+format,  }\item[{Uint8}]{src\+\_\+channels,  }\item[{int}]{src\+\_\+rate,  }\item[{\mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}]{dst\+\_\+format,  }\item[{Uint8}]{dst\+\_\+channels,  }\item[{int}]{dst\+\_\+rate }\end{DoxyParamCaption})}
+
+Initialize an \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} structure for conversion.
+
+Before an \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} structure can be used to convert audio data it must be initialized with source and destination information.
+
+This function will zero out every field of the \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}}, so it must be called before the application fills in the final buffer information.
+
+Once this function has returned successfully, and reported that a conversion is necessary, the application fills in the rest of the fields in \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}}, now that it knows how large a buffer it needs to allocate, and then can call \mbox{\hyperlink{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}{SDL\+\_\+\+Convert\+Audio()}} to complete the conversion.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cvt} & an \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} structure filled in with audio conversion information \\
+\hline
+{\em src\+\_\+format} & the source format of the audio data; for more info see SDL\+\_\+\+Audio\+Format \\
+\hline
+{\em src\+\_\+channels} & the number of channels in the source \\
+\hline
+{\em src\+\_\+rate} & the frequency (sample-\/frames-\/per-\/second) of the source \\
+\hline
+{\em dst\+\_\+format} & the destination format of the audio data; for more info see SDL\+\_\+\+Audio\+Format \\
+\hline
+{\em dst\+\_\+channels} & the number of channels in the destination \\
+\hline
+{\em dst\+\_\+rate} & the frequency (sample-\/frames-\/per-\/second) of the destination \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 if the audio filter is prepared, 0 if no conversion is needed, or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}{SDL\+\_\+\+Convert\+Audio}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}\label{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_ClearQueuedAudio@{SDL\_ClearQueuedAudio}}
+\index{SDL\_ClearQueuedAudio@{SDL\_ClearQueuedAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ClearQueuedAudio()}{SDL\_ClearQueuedAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Clear\+Queued\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Drop any queued audio data waiting to be sent to the hardware.
+
+Immediately after this call, \mbox{\hyperlink{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}{SDL\+\_\+\+Get\+Queued\+Audio\+Size()}} will return 0. For output devices, the hardware will start playing silence if more audio isn\textquotesingle{}t queued. For capture devices, the hardware will start filling the empty queue with new data if the capture device isn\textquotesingle{}t paused.
+
+This will not prevent playback of queued audio that\textquotesingle{}s already been sent to the hardware, as we can not undo that, so expect there to be some fraction of a second of audio that might still be heard. This can be useful if you want to, say, drop any pending music or any unprocessed microphone input during a level change in your game.
+
+You may not queue or dequeue audio on a device that is using an application-\/supplied callback; calling this function on such a device always returns 0. You have to use the audio callback or queue audio, but not both.
+
+You should not call \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio()}} on the device before clearing the queue; SDL handles locking internally for this function.
+
+This function always succeeds and thus returns void.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the device ID of which to clear the audio queue\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}{SDL\+\_\+\+Get\+Queued\+Audio\+Size}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_aa176acc650e66e1d38814cbed3ca258e}\label{SDL__audio_8h_aa176acc650e66e1d38814cbed3ca258e}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_CloseAudio@{SDL\_CloseAudio}}
+\index{SDL\_CloseAudio@{SDL\_CloseAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CloseAudio()}{SDL\_CloseAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Close\+Audio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is a legacy means of closing the audio device.
+
+This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}{SDL\_CloseAudioDevice}}(1);}
+
+\end{DoxyCode}
+
+
+...and is only useful if you used the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}\label{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_CloseAudioDevice@{SDL\_CloseAudioDevice}}
+\index{SDL\_CloseAudioDevice@{SDL\_CloseAudioDevice}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_CloseAudioDevice()}{SDL\_CloseAudioDevice()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Close\+Audio\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Use this function to shut down audio processing and close the audio device.
+
+The application should close open audio devices once they are no longer needed. Calling this function will wait until the device\textquotesingle{}s audio callback is not running, release the audio hardware and then clean up internal state. No further audio will play from this device once this function returns.
+
+This function may block briefly while pending audio data is played by the hardware, so that applications don\textquotesingle{}t drop the last buffer of data they supplied.
+
+The device ID is invalid as soon as the device is closed, and is eligible for reuse in a new \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}} call immediately.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & an audio device previously opened with \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}\label{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_ConvertAudio@{SDL\_ConvertAudio}}
+\index{SDL\_ConvertAudio@{SDL\_ConvertAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ConvertAudio()}{SDL\_ConvertAudio()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Convert\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} $\ast$}]{cvt }\end{DoxyParamCaption})}
+
+Convert audio data to a desired audio format.
+
+This function does the actual audio data conversion, after the application has called \mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT()}} to prepare the conversion information and then filled in the buffer details.
+
+Once the application has initialized the {\ttfamily cvt} structure using \mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT()}}, allocated an audio buffer and filled it with audio data in the source format, this function will convert the buffer, in-\/place, to the desired format.
+
+The data conversion may go through several passes; any given pass may possibly temporarily increase the size of the data. For example, SDL might expand 16-\/bit data to 32 bits before resampling to a lower frequency, shrinking the data size after having grown it briefly. Since the supplied buffer will be both the source and destination, converting as necessary in-\/place, the application must allocate a buffer that will fully contain the data during its largest conversion pass. After \mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT()}} returns, the application should set the {\ttfamily cvt-\/$>$len} field to the size, in bytes, of the source data, and allocate a buffer that is {\ttfamily cvt-\/$>$len $\ast$ cvt-\/$>$len\+\_\+mult} bytes long for the {\ttfamily buf} field.
+
+The source data should be copied into this buffer before the call to \mbox{\hyperlink{SDL__audio_8h_a8e8660222356e07002dde4928118b7df}{SDL\+\_\+\+Convert\+Audio()}}. Upon successful return, this buffer will contain the converted audio, and {\ttfamily cvt-\/$>$len\+\_\+cvt} will be the size of the converted data, in bytes. Any bytes in the buffer past {\ttfamily cvt-\/$>$len\+\_\+cvt} are undefined once this function returns.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cvt} & an \mbox{\hyperlink{structSDL__AudioCVT}{SDL\+\_\+\+Audio\+CVT}} structure that was previously set up by \mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT()}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if the conversion was completed successfully or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a41e1602bc7cd4edb87ca779cf01d40bb}{SDL\+\_\+\+Build\+Audio\+CVT}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}\label{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_DequeueAudio@{SDL\_DequeueAudio}}
+\index{SDL\_DequeueAudio@{SDL\_DequeueAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_DequeueAudio()}{SDL\_DequeueAudio()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Dequeue\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev,  }\item[{void $\ast$}]{data,  }\item[{Uint32}]{len }\end{DoxyParamCaption})}
+
+Dequeue more audio on non-\/callback devices.
+
+If you are looking to queue audio for output on a non-\/callback playback device, you want \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio()}} instead. \mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio()}} will always return 0 if you use it with playback devices.
+
+SDL offers two ways to retrieve audio from a capture device\+: you can either supply a callback that SDL triggers with some frequency as the device records more audio data, (push method), or you can supply no callback, and then SDL will expect you to retrieve data at regular intervals (pull method) with this function.
+
+There are no limits on the amount of data you can queue, short of exhaustion of address space. Data from the device will keep queuing as necessary without further intervention from you. This means you will eventually run out of memory if you aren\textquotesingle{}t routinely dequeueing data.
+
+Capture devices will not queue data when paused; if you are expecting to not need captured audio for some length of time, use \mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device()}} to stop the capture device from queueing more data. This can be useful during, say, level loading times. When unpaused, capture devices will start queueing data from that point, having flushed any capturable data available while paused.
+
+This function is thread-\/safe, but dequeueing from the same device from two threads at once does not promise which thread will dequeue data first.
+
+You may not dequeue audio from a device that is using an application-\/supplied callback; doing so returns an error. You have to use the audio callback, or dequeue audio with this function, but not both.
+
+You should not call \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio()}} on the device before dequeueing; SDL handles locking internally for this function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the device ID from which we will dequeue audio \\
+\hline
+{\em data} & a pointer into where audio data should be copied \\
+\hline
+{\em len} & the number of bytes (not samples!) to which (data) points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of bytes dequeued, which could be less than requested; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+5.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}{SDL\+\_\+\+Clear\+Queued\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}{SDL\+\_\+\+Get\+Queued\+Audio\+Size}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}\label{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_FreeAudioStream@{SDL\_FreeAudioStream}}
+\index{SDL\_FreeAudioStream@{SDL\_FreeAudioStream}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreeAudioStream()}{SDL\_FreeAudioStream()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+Audio\+Stream (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Audio\+Stream $\ast$}]{stream }\end{DoxyParamCaption})}
+
+Free an audio stream
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}{SDL\+\_\+\+New\+Audio\+Stream}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}\label{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_FreeWAV@{SDL\_FreeWAV}}
+\index{SDL\_FreeWAV@{SDL\_FreeWAV}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_FreeWAV()}{SDL\_FreeWAV()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Free\+WAV (\begin{DoxyParamCaption}\item[{Uint8 $\ast$}]{audio\+\_\+buf }\end{DoxyParamCaption})}
+
+Free data previously allocated with \mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV()}} or \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW()}}.
+
+After a WAVE file has been opened with \mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV()}} or \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW()}} its data can eventually be freed with \mbox{\hyperlink{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}{SDL\+\_\+\+Free\+WAV()}}. It is safe to call this function with a NULL pointer.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em audio\+\_\+buf} & a pointer to the buffer created by \mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV()}} or \mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW()}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\+\_\+\+Load\+WAV\+\_\+\+RW}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}\label{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetAudioDeviceName@{SDL\_GetAudioDeviceName}}
+\index{SDL\_GetAudioDeviceName@{SDL\_GetAudioDeviceName}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetAudioDeviceName()}{SDL\_GetAudioDeviceName()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Audio\+Device\+Name (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{iscapture }\end{DoxyParamCaption})}
+
+Get the human-\/readable name of a specific audio device.
+
+This function is only valid after successfully initializing the audio subsystem. The values returned by this function reflect the latest call to \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices()}}; re-\/call that function to redetect available hardware.
+
+The string returned by this function is UTF-\/8 encoded, read-\/only, and managed internally. You are not to free it. If you need to keep the string for any length of time, you should make your own copy of it, as it will be invalid next time any of several other SDL functions are called.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & the index of the audio device; valid values range from 0 to \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices()}} -\/ 1 \\
+\hline
+{\em iscapture} & non-\/zero to query the list of recording devices, zero to query the list of output devices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the name of the audio device at the requested index, or NULL on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_aab1f29540e28a8638ec08ecccea47c36}\label{SDL__audio_8h_aab1f29540e28a8638ec08ecccea47c36}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetAudioDeviceSpec@{SDL\_GetAudioDeviceSpec}}
+\index{SDL\_GetAudioDeviceSpec@{SDL\_GetAudioDeviceSpec}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetAudioDeviceSpec()}{SDL\_GetAudioDeviceSpec()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Audio\+Device\+Spec (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{iscapture,  }\item[{\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{spec }\end{DoxyParamCaption})}
+
+Get the preferred audio format of a specific audio device.
+
+This function is only valid after a successfully initializing the audio subsystem. The values returned by this function reflect the latest call to \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices()}}; re-\/call that function to redetect available hardware.
+
+{\ttfamily spec} will be filled with the sample rate, sample format, and channel count. All other values in the structure are filled with 0. When the supported struct members are 0, SDL was unable to get the property from the backend.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & the index of the audio device; valid values range from 0 to \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices()}} -\/ 1 \\
+\hline
+{\em iscapture} & non-\/zero to query the list of recording devices, zero to query the list of output devices. \\
+\hline
+{\em spec} & The \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} to be initialized by this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, nonzero on error
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+16.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\+\_\+\+Get\+Num\+Audio\+Devices}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}\label{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetAudioDeviceStatus@{SDL\_GetAudioDeviceStatus}}
+\index{SDL\_GetAudioDeviceStatus@{SDL\_GetAudioDeviceStatus}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetAudioDeviceStatus()}{SDL\_GetAudioDeviceStatus()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Audio\+Status SDLCALL SDL\+\_\+\+Get\+Audio\+Device\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Use this function to get the current audio state of an audio device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the ID of an audio device previously opened with \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Audio\+Status of the specified audio device.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_aabc8b6439ff8d1195b9f49e9c00b15c1}\label{SDL__audio_8h_aabc8b6439ff8d1195b9f49e9c00b15c1}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetAudioDriver@{SDL\_GetAudioDriver}}
+\index{SDL\_GetAudioDriver@{SDL\_GetAudioDriver}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetAudioDriver()}{SDL\_GetAudioDriver()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Audio\+Driver (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Use this function to get the name of a built in audio driver.
+
+The list of audio drivers is given in the order that they are normally initialized by default; the drivers that seem more reasonable to choose first (as far as the SDL developers believe) are earlier in the list.
+
+The names of drivers are all simple, low-\/\+ASCII identifiers, like \char`\"{}alsa\char`\"{}, \char`\"{}coreaudio\char`\"{} or \char`\"{}xaudio2\char`\"{}. These never have Unicode characters, and are not meant to be proper names.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & the index of the audio driver; the value ranges from 0 to \mbox{\hyperlink{SDL__audio_8h_ae3cb6a3321d9ee32f3c05ea0794c5fb8}{SDL\+\_\+\+Get\+Num\+Audio\+Drivers()}} -\/ 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the name of the audio driver at the requested index, or NULL if an invalid index was specified.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae3cb6a3321d9ee32f3c05ea0794c5fb8}{SDL\+\_\+\+Get\+Num\+Audio\+Drivers}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a568e10207e6ff53f8e238a0d562ef594}\label{SDL__audio_8h_a568e10207e6ff53f8e238a0d562ef594}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetAudioStatus@{SDL\_GetAudioStatus}}
+\index{SDL\_GetAudioStatus@{SDL\_GetAudioStatus}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetAudioStatus()}{SDL\_GetAudioStatus()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Audio\+Status SDLCALL SDL\+\_\+\+Get\+Audio\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is a legacy means of querying the audio device.
+
+New programs might want to use \mbox{\hyperlink{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}{SDL\+\_\+\+Get\+Audio\+Device\+Status()}} instead. This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}{SDL\_GetAudioDeviceStatus}}(1);}
+
+\end{DoxyCode}
+
+
+...and is only useful if you used the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+\begin{DoxyReturn}{Renvoie}
+the SDL\+\_\+\+Audio\+Status of the audio device opened by \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ac86fde79b1afda3f0fb8e9a027434a69}{SDL\+\_\+\+Get\+Audio\+Device\+Status}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a15b19f26c314e3640ea396251a1ff010}\label{SDL__audio_8h_a15b19f26c314e3640ea396251a1ff010}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetCurrentAudioDriver@{SDL\_GetCurrentAudioDriver}}
+\index{SDL\_GetCurrentAudioDriver@{SDL\_GetCurrentAudioDriver}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetCurrentAudioDriver()}{SDL\_GetCurrentAudioDriver()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Current\+Audio\+Driver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the name of the current audio driver.
+
+The returned string points to internal static memory and thus never becomes invalid, even if you quit the audio subsystem and initialize a new driver (although such a case would return a different static string from another call to this function, of course). As such, you should not modify or free the returned string.
+
+\begin{DoxyReturn}{Renvoie}
+the name of the current audio driver or NULL if no driver has been initialized.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae3667d6ba706a3ca7affd8611632fa2c}{SDL\+\_\+\+Audio\+Init}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}\label{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetNumAudioDevices@{SDL\_GetNumAudioDevices}}
+\index{SDL\_GetNumAudioDevices@{SDL\_GetNumAudioDevices}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetNumAudioDevices()}{SDL\_GetNumAudioDevices()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Num\+Audio\+Devices (\begin{DoxyParamCaption}\item[{int}]{iscapture }\end{DoxyParamCaption})}
+
+Get the number of built-\/in audio devices.
+
+This function is only valid after successfully initializing the audio subsystem.
+
+Note that audio capture support is not implemented as of SDL 2.\+0.\+4, so the {\ttfamily iscapture} parameter is for future expansion and should always be zero for now.
+
+This function will return -\/1 if an explicit list of devices can\textquotesingle{}t be determined. Returning -\/1 is not an error. For example, if SDL is set up to talk to a remote audio server, it can\textquotesingle{}t list every one available on the Internet, but it will still allow a specific host to be specified in \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}.
+
+In many common cases, when this function returns a value $<$= 0, it can still successfully open the default device (NULL for first argument of \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}).
+
+This function may trigger a complete redetect of available hardware. It should not be called for each iteration of a loop, but rather once at the start of a loop\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Don't do this:}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\_GetNumAudioDevices}}(0); i++)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// do this instead:}}
+\DoxyCodeLine{\textcolor{keyword}{const} \textcolor{keywordtype}{int} count = \mbox{\hyperlink{SDL__audio_8h_ae165f64b3f0fecfebe1c97731600ca59}{SDL\_GetNumAudioDevices}}(0);}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < count; ++i) \{ do\_something\_here(); \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em iscapture} & zero to request playback devices, non-\/zero to request recording devices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of available devices exposed by the current driver or -\/1 if an explicit list of devices can\textquotesingle{}t be determined. A return value of -\/1 does not necessarily mean an error condition.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}{SDL\+\_\+\+Get\+Audio\+Device\+Name}} 
+
+\mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ae3cb6a3321d9ee32f3c05ea0794c5fb8}\label{SDL__audio_8h_ae3cb6a3321d9ee32f3c05ea0794c5fb8}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetNumAudioDrivers@{SDL\_GetNumAudioDrivers}}
+\index{SDL\_GetNumAudioDrivers@{SDL\_GetNumAudioDrivers}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetNumAudioDrivers()}{SDL\_GetNumAudioDrivers()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Num\+Audio\+Drivers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use this function to get the number of built-\/in audio drivers.
+
+This function returns a hardcoded number. This never returns a negative value; if there are no drivers compiled into this build of SDL, this function returns zero. The presence of a driver in this list does not mean it will function, it just means SDL is capable of interacting with that interface. For example, a build of SDL might have esound support, but if there\textquotesingle{}s no esound server available, SDL\textquotesingle{}s esound driver would fail if used.
+
+By default, SDL tries all drivers, in its preferred order, until one is found to be usable.
+
+\begin{DoxyReturn}{Renvoie}
+the number of built-\/in audio drivers.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_aabc8b6439ff8d1195b9f49e9c00b15c1}{SDL\+\_\+\+Get\+Audio\+Driver}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}\label{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_GetQueuedAudioSize@{SDL\_GetQueuedAudioSize}}
+\index{SDL\_GetQueuedAudioSize@{SDL\_GetQueuedAudioSize}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetQueuedAudioSize()}{SDL\_GetQueuedAudioSize()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Get\+Queued\+Audio\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Get the number of bytes of still-\/queued audio.
+
+For playback devices\+: this is the number of bytes that have been queued for playback with \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio()}}, but have not yet been sent to the hardware.
+
+Once we\textquotesingle{}ve sent it to the hardware, this function can not decide the exact byte boundary of what has been played. It\textquotesingle{}s possible that we just gave the hardware several kilobytes right before you called this function, but it hasn\textquotesingle{}t played any of it yet, or maybe half of it, etc.
+
+For capture devices, this is the number of bytes that have been captured by the device and are waiting for you to dequeue. This number may grow at any time, so this only informs of the lower-\/bound of available data.
+
+You may not queue or dequeue audio on a device that is using an application-\/supplied callback; calling this function on such a device always returns 0. You have to use the audio callback or queue audio, but not both.
+
+You should not call \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio()}} on the device before querying; SDL handles locking internally for this function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the device ID of which we will query queued audio size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of bytes (not samples!) of queued audio.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}{SDL\+\_\+\+Clear\+Queued\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}\label{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_LoadWAV\_RW@{SDL\_LoadWAV\_RW}}
+\index{SDL\_LoadWAV\_RW@{SDL\_LoadWAV\_RW}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadWAV\_RW()}{SDL\_LoadWAV\_RW()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}}$\ast$ SDLCALL SDL\+\_\+\+Load\+WAV\+\_\+\+RW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__RWops}{SDL\+\_\+\+RWops}} $\ast$}]{src,  }\item[{int}]{freesrc,  }\item[{\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{spec,  }\item[{Uint8 $\ast$$\ast$}]{audio\+\_\+buf,  }\item[{Uint32 $\ast$}]{audio\+\_\+len }\end{DoxyParamCaption})}
+
+Load the audio data of a WAVE file into memory.
+
+Loading a WAVE file requires {\ttfamily src}, {\ttfamily spec}, {\ttfamily audio\+\_\+buf} and {\ttfamily audio\+\_\+len} to be valid pointers. The entire data portion of the file is then loaded into memory and decoded if necessary.
+
+If {\ttfamily freesrc} is non-\/zero, the data source gets automatically closed and freed before the function returns.
+
+Supported formats are RIFF WAVE files with the formats PCM (8, 16, 24, and 32 bits), IEEE Float (32 bits), Microsoft ADPCM and IMA ADPCM (4 bits), and A-\/law and mu-\/law (8 bits). Other formats are currently unsupported and cause an error.
+
+If this function succeeds, the pointer returned by it is equal to {\ttfamily spec} and the pointer to the audio data allocated by the function is written to {\ttfamily audio\+\_\+buf} and its length in bytes to {\ttfamily audio\+\_\+len}. The \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} members {\ttfamily freq}, {\ttfamily channels}, and {\ttfamily format} are set to the values of the audio data in the buffer. The {\ttfamily samples} member is set to a sane default and all others are set to zero.
+
+It\textquotesingle{}s necessary to use \mbox{\hyperlink{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}{SDL\+\_\+\+Free\+WAV()}} to free the audio data returned in {\ttfamily audio\+\_\+buf} when it is no longer used.
+
+Because of the underspecification of the .WAV format, there are many problematic files in the wild that cause issues with strict decoders. To provide compatibility with these files, this decoder is lenient in regards to the truncation of the file, the fact chunk, and the size of the RIFF chunk. The hints {\ttfamily SDL\+\_\+\+HINT\+\_\+\+WAVE\+\_\+\+RIFF\+\_\+\+CHUNK\+\_\+\+SIZE}, {\ttfamily SDL\+\_\+\+HINT\+\_\+\+WAVE\+\_\+\+TRUNCATION}, and {\ttfamily SDL\+\_\+\+HINT\+\_\+\+WAVE\+\_\+\+FACT\+\_\+\+CHUNK} can be used to tune the behavior of the loading process.
+
+Any file that is invalid (due to truncation, corruption, or wrong values in the headers), too big, or unsupported causes an error. Additionally, any critical I/O error from the data source will terminate the loading process with an error. The function returns NULL on error and in all cases (with the exception of {\ttfamily src} being NULL), an appropriate error message will be set.
+
+It is required that the data source supports seeking.
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_a7e5d38e8c1f8951704a76330c3b1ac81}{SDL\_LoadWAV\_RW}}(\mbox{\hyperlink{SDL__rwops_8h_aef7e843c3486bd1770667a594aa0b439}{SDL\_RWFromFile}}(\textcolor{stringliteral}{"{}sample.wav"{}}, \textcolor{stringliteral}{"{}rb"{}}), 1, \&spec, \&buf, \&len);}
+
+\end{DoxyCode}
+
+
+Note that the SDL\+\_\+\+Load\+WAV macro does this same thing for you, but in a less messy way\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\_LoadWAV}}(\textcolor{stringliteral}{"{}sample.wav"{}}, \&spec, \&buf, \&len);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & The data source for the WAVE data \\
+\hline
+{\em freesrc} & If non-\/zero, SDL will {\itshape always} free the data source \\
+\hline
+{\em spec} & An \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} that will be filled in with the wave file\textquotesingle{}s format details \\
+\hline
+{\em audio\+\_\+buf} & A pointer filled with the audio data, allocated by the function. \\
+\hline
+{\em audio\+\_\+len} & A pointer filled with the length of the audio data buffer in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+This function, if successfully called, returns {\ttfamily spec}, which will be filled with the audio data format of the wave source data. {\ttfamily audio\+\_\+buf} will be filled with a pointer to an allocated buffer containing the audio data, and {\ttfamily audio\+\_\+len} is filled with the length of that audio buffer in bytes.
+\end{DoxyReturn}
+This function returns NULL if the .WAV file cannot be opened, uses an unknown data format, or is corrupt; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+
+When the application is done with the data returned in {\ttfamily audio\+\_\+buf}, it should call \mbox{\hyperlink{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}{SDL\+\_\+\+Free\+WAV()}} to dispose of it.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a631aa8624575603df2c5ab9257feee59}{SDL\+\_\+\+Free\+WAV}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a611f76dc30ba9891239bcce3f9b472b5}{SDL\+\_\+\+Load\+WAV}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}\label{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_LockAudio@{SDL\_LockAudio}}
+\index{SDL\_LockAudio@{SDL\_LockAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockAudio()}{SDL\_LockAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Lock\+Audio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is a legacy means of locking the audio device.
+
+New programs might want to use \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}} instead. This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\_LockAudioDevice}}(1);}
+
+\end{DoxyCode}
+
+
+...and is only useful if you used the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a76d8179bee14dad268e65378058d897d}{SDL\+\_\+\+Unlock\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}\label{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_LockAudioDevice@{SDL\_LockAudioDevice}}
+\index{SDL\_LockAudioDevice@{SDL\_LockAudioDevice}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LockAudioDevice()}{SDL\_LockAudioDevice()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Lock\+Audio\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Use this function to lock out the audio callback function for a specified device.
+
+The lock manipulated by these functions protects the audio callback function specified in \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}. During a \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}}/\+SDL\+\_\+\+Unlock\+Audio\+Device() pair, you can be guaranteed that the callback function for that device is not running, even if the device is not paused. While a device is locked, any other unpaused, unlocked devices may still run their callbacks.
+
+Calling this function from inside your audio callback is unnecessary. SDL obtains this lock before calling your function, and releases it when the function returns.
+
+You should not hold the lock longer than absolutely necessary. If you hold it too long, you\textquotesingle{}ll experience dropouts in your audio playback. Ideally, your application locks the device, sets a few variables and unlocks again. Do not do heavy work while holding the lock for a device.
+
+It is safe to lock the audio device multiple times, as long as you unlock it an equivalent number of times. The callback will not run until the device has been unlocked completely in this way. If your application fails to unlock the device appropriately, your callback will never run, you might hear repeating bursts of audio, and \mbox{\hyperlink{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}{SDL\+\_\+\+Close\+Audio\+Device()}} will probably deadlock.
+
+Internally, the audio device lock is a mutex; if you lock from two threads at once, not only will you block the audio callback, you\textquotesingle{}ll block the other thread.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the ID of the device to be locked\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ab9ad945b4b15d816802f5a79da06c9f9}\label{SDL__audio_8h_ab9ad945b4b15d816802f5a79da06c9f9}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_MixAudio@{SDL\_MixAudio}}
+\index{SDL\_MixAudio@{SDL\_MixAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MixAudio()}{SDL\_MixAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Mix\+Audio (\begin{DoxyParamCaption}\item[{Uint8 $\ast$}]{dst,  }\item[{const Uint8 $\ast$}]{src,  }\item[{Uint32}]{len,  }\item[{int}]{volume }\end{DoxyParamCaption})}
+
+This function is a legacy means of mixing audio.
+
+This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}{SDL\_MixAudioFormat}}(dst, src, format, len, volume);}
+
+\end{DoxyCode}
+
+
+...where {\ttfamily format} is the obtained format of the audio device from the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the destination for the mixed audio \\
+\hline
+{\em src} & the source audio buffer to be mixed \\
+\hline
+{\em len} & the length of the audio buffer in bytes \\
+\hline
+{\em volume} & ranges from 0 -\/ 128, and should be set to SDL\+\_\+\+MIX\+\_\+\+MAXVOLUME for full audio volume\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}{SDL\+\_\+\+Mix\+Audio\+Format}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}\label{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_MixAudioFormat@{SDL\_MixAudioFormat}}
+\index{SDL\_MixAudioFormat@{SDL\_MixAudioFormat}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_MixAudioFormat()}{SDL\_MixAudioFormat()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Mix\+Audio\+Format (\begin{DoxyParamCaption}\item[{Uint8 $\ast$}]{dst,  }\item[{const Uint8 $\ast$}]{src,  }\item[{\mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}]{format,  }\item[{Uint32}]{len,  }\item[{int}]{volume }\end{DoxyParamCaption})}
+
+Mix audio data in a specified format.
+
+This takes an audio buffer {\ttfamily src} of {\ttfamily len} bytes of {\ttfamily format} data and mixes it into {\ttfamily dst}, performing addition, volume adjustment, and overflow clipping. The buffer pointed to by {\ttfamily dst} must also be {\ttfamily len} bytes of {\ttfamily format} data.
+
+This is provided for convenience -- you can mix your own audio data.
+
+Do not use this function for mixing together more than two streams of sample data. The output from repeated application of this function may be distorted by clipping, because there is no accumulator with greater range than the input (not to mention this being an inefficient way of doing it).
+
+It is a common misconception that this function is required to write audio data to an output stream in an audio callback. While you can do that, \mbox{\hyperlink{SDL__audio_8h_a27a0ad33d17f87a2d7574be78d2f39b7}{SDL\+\_\+\+Mix\+Audio\+Format()}} is really only needed when you\textquotesingle{}re mixing a single audio stream with a volume adjustment.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dst} & the destination for the mixed audio \\
+\hline
+{\em src} & the source audio buffer to be mixed \\
+\hline
+{\em format} & the SDL\+\_\+\+Audio\+Format structure representing the desired audio format \\
+\hline
+{\em len} & the length of the audio buffer in bytes \\
+\hline
+{\em volume} & ranges from 0 -\/ 128, and should be set to SDL\+\_\+\+MIX\+\_\+\+MAXVOLUME for full audio volume\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}\label{SDL__audio_8h_a5d9be9cdf2dc76ae541f9013c16a94f4}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_NewAudioStream@{SDL\_NewAudioStream}}
+\index{SDL\_NewAudioStream@{SDL\_NewAudioStream}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_NewAudioStream()}{SDL\_NewAudioStream()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Audio\+Stream$\ast$ SDLCALL SDL\+\_\+\+New\+Audio\+Stream (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}]{src\+\_\+format,  }\item[{const Uint8}]{src\+\_\+channels,  }\item[{const int}]{src\+\_\+rate,  }\item[{const \mbox{\hyperlink{SDL__audio_8h_a491ed103fd25d920c4e6b7495217ce66}{SDL\+\_\+\+Audio\+Format}}}]{dst\+\_\+format,  }\item[{const Uint8}]{dst\+\_\+channels,  }\item[{const int}]{dst\+\_\+rate }\end{DoxyParamCaption})}
+
+Create a new audio stream.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src\+\_\+format} & The format of the source audio \\
+\hline
+{\em src\+\_\+channels} & The number of channels of the source audio \\
+\hline
+{\em src\+\_\+rate} & The sampling rate of the source audio \\
+\hline
+{\em dst\+\_\+format} & The format of the desired audio output \\
+\hline
+{\em dst\+\_\+channels} & The number of channels of the desired audio output \\
+\hline
+{\em dst\+\_\+rate} & The sampling rate of the desired audio output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success, or -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+7.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_ae1cb87e81c853b21f025f42f336ad814}{SDL\+\_\+\+Audio\+Stream\+Put}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a6a8996f0cb3adf37d4c1c5ed4eef5b18}{SDL\+\_\+\+Audio\+Stream\+Get}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a4667c3464058d7be76c1f8349d7656de}{SDL\+\_\+\+Audio\+Stream\+Available}} 
+
+\mbox{\hyperlink{SDL__audio_8h_add31a8f8ccd99c87b71bef2a9cf93f9b}{SDL\+\_\+\+Audio\+Stream\+Flush}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7a74da30372d4a2c3db7ceef406d65fb}{SDL\+\_\+\+Audio\+Stream\+Clear}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab093ff9871e917dac8d2fa5169970cf5}{SDL\+\_\+\+Free\+Audio\+Stream}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}\label{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_OpenAudio@{SDL\_OpenAudio}}
+\index{SDL\_OpenAudio@{SDL\_OpenAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_OpenAudio()}{SDL\_OpenAudio()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Open\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{desired,  }\item[{\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{obtained }\end{DoxyParamCaption})}
+
+This function is a legacy means of opening the audio device.
+
+This function remains for compatibility with SDL 1.\+2, but also because it\textquotesingle{}s slightly easier to use than the new functions in SDL 2.\+0. The new, more powerful, and preferred way to do this is \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}.
+
+This function is roughly equivalent to\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\_OpenAudioDevice}}(NULL, 0, desired, obtained, SDL\_AUDIO\_ALLOW\_ANY\_CHANGE);}
+
+\end{DoxyCode}
+
+
+With two notable exceptions\+:
+
+
+\begin{DoxyItemize}
+\item If {\ttfamily obtained} is NULL, we use {\ttfamily desired} (and allow no changes), which means desired will be modified to have the correct values for silence, etc, and SDL will convert any differences between your app\textquotesingle{}s specific request and the hardware behind the scenes.
+\item The return value is always success or failure, and not a device ID, which means you can only have one device open at a time with this function.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em desired} & an \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} structure representing the desired output format. Please refer to the SDL\+\_\+\+Open\+Audio\+Device documentation for details on how to prepare this structure. \\
+\hline
+{\em obtained} & an \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} structure filled in with the actual parameters, or NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 if successful, placing the actual hardware parameters in the structure pointed to by {\ttfamily obtained}.
+\end{DoxyReturn}
+If {\ttfamily obtained} is NULL, the audio data passed to the callback function will be guaranteed to be in the requested format, and will be automatically converted to the actual hardware audio format if necessary. If {\ttfamily obtained} is NULL, {\ttfamily desired} will have fields modified.
+
+This function returns a negative error code on failure to open the audio device or failure to set up the audio thread; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_aa176acc650e66e1d38814cbed3ca258e}{SDL\+\_\+\+Close\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_aa68e60a33666ff4f2d36f3827b1d6061}{SDL\+\_\+\+Pause\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a76d8179bee14dad268e65378058d897d}{SDL\+\_\+\+Unlock\+Audio}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}\label{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_OpenAudioDevice@{SDL\_OpenAudioDevice}}
+\index{SDL\_OpenAudioDevice@{SDL\_OpenAudioDevice}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_OpenAudioDevice()}{SDL\_OpenAudioDevice()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}} SDLCALL SDL\+\_\+\+Open\+Audio\+Device (\begin{DoxyParamCaption}\item[{const char $\ast$}]{device,  }\item[{int}]{iscapture,  }\item[{const \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{desired,  }\item[{\mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} $\ast$}]{obtained,  }\item[{int}]{allowed\+\_\+changes }\end{DoxyParamCaption})}
+
+Open a specific audio device.
+
+\mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}}, unlike this function, always acts on device ID 1. As such, this function will never return a 1 so as not to conflict with the legacy function.
+
+Please note that SDL 2.\+0 before 2.\+0.\+5 did not support recording; as such, this function would fail if {\ttfamily iscapture} was not zero. Starting with SDL 2.\+0.\+5, recording is implemented and this value can be non-\/zero.
+
+Passing in a {\ttfamily device} name of NULL requests the most reasonable default (and is equivalent to what \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} does to choose a device). The {\ttfamily device} name is a UTF-\/8 string reported by \mbox{\hyperlink{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}{SDL\+\_\+\+Get\+Audio\+Device\+Name()}}, but some drivers allow arbitrary and driver-\/specific strings, such as a hostname/\+IP address for a remote audio server, or a filename in the diskaudio driver.
+
+An opened audio device starts out paused, and should be enabled for playing by calling SDL\+\_\+\+Pause\+Audio\+Device(devid, 0) when you are ready for your audio callback function to be called. Since the audio driver may modify the requested size of the audio buffer, you should allocate any local mixing buffers after you open the audio device.
+
+The audio callback runs in a separate thread in most cases; you can prevent race conditions between your callback and other threads without fully pausing playback with \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}}. For more information about the callback, see \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}}.
+
+Managing the audio spec via \textquotesingle{}desired\textquotesingle{} and \textquotesingle{}obtained\textquotesingle{}\+:
+
+When filling in the desired audio spec structure\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily desired-\/$>$freq} should be the frequency in sample-\/frames-\/per-\/second (Hz).
+\item {\ttfamily desired-\/$>$format} should be the audio format ({\ttfamily AUDIO\+\_\+\+S16\+SYS}, etc).
+\item {\ttfamily desired-\/$>$samples} is the desired size of the audio buffer, in {\itshape sample frames} (with stereo output, two samples--left and right--would make a single sample frame). This number should be a power of two, and may be adjusted by the audio driver to a value more suitable for the hardware. Good values seem to range between 512 and 8096 inclusive, depending on the application and CPU speed. Smaller values reduce latency, but can lead to underflow if the application is doing heavy processing and cannot fill the audio buffer in time. Note that the number of sample frames is directly related to time by the following formula\+: {\ttfamily ms = (sampleframes$\ast$1000)/freq}
+\item {\ttfamily desired-\/$>$size} is the size in {\itshape bytes} of the audio buffer, and is calculated by \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}. You don\textquotesingle{}t initialize this.
+\item {\ttfamily desired-\/$>$silence} is the value used to set the buffer to silence, and is calculated by \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}}. You don\textquotesingle{}t initialize this.
+\item {\ttfamily desired-\/$>$callback} should be set to a function that will be called when the audio device is ready for more data. It is passed a pointer to the audio buffer, and the length in bytes of the audio buffer. This function usually runs in a separate thread, and so you should protect data structures that it accesses by calling \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}} and \mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device()}} in your code. Alternately, you may pass a NULL pointer here, and call \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio()}} with some frequency, to queue more audio samples to be played (or for capture devices, call \mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio()}} with some frequency, to obtain audio samples).
+\item {\ttfamily desired-\/$>$userdata} is passed as the first parameter to your callback function. If you passed a NULL callback, this value is ignored.
+\end{DoxyItemize}
+
+{\ttfamily allowed\+\_\+changes} can have the following flags OR\textquotesingle{}d together\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FREQUENCY\+\_\+\+CHANGE}
+\item {\ttfamily SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FORMAT\+\_\+\+CHANGE}
+\item {\ttfamily SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+CHANNELS\+\_\+\+CHANGE}
+\item {\ttfamily SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+ANY\+\_\+\+CHANGE}
+\end{DoxyItemize}
+
+These flags specify how SDL should behave when a device cannot offer a specific feature. If the application requests a feature that the hardware doesn\textquotesingle{}t offer, SDL will always try to get the closest equivalent.
+
+For example, if you ask for float32 audio format, but the sound card only supports int16, SDL will set the hardware to int16. If you had set SDL\+\_\+\+AUDIO\+\_\+\+ALLOW\+\_\+\+FORMAT\+\_\+\+CHANGE, SDL will change the format in the {\ttfamily obtained} structure. If that flag was {\itshape not} set, SDL will prepare to convert your callback\textquotesingle{}s float32 audio to int16 before feeding it to the hardware and will keep the originally requested format in the {\ttfamily obtained} structure.
+
+The resulting audio specs, varying depending on hardware and on what changes were allowed, will then be written back to {\ttfamily obtained}.
+
+If your application can only handle one specific data format, pass a zero for {\ttfamily allowed\+\_\+changes} and let SDL transparently handle any differences.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em device} & a UTF-\/8 string reported by \mbox{\hyperlink{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}{SDL\+\_\+\+Get\+Audio\+Device\+Name()}} or a driver-\/specific name as appropriate. NULL requests the most reasonable default device. \\
+\hline
+{\em iscapture} & non-\/zero to specify a device should be opened for recording, not playback \\
+\hline
+{\em desired} & an \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} structure representing the desired output format; see \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} for more information \\
+\hline
+{\em obtained} & an \mbox{\hyperlink{structSDL__AudioSpec}{SDL\+\_\+\+Audio\+Spec}} structure filled in with the actual output format; see \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} for more information \\
+\hline
+{\em allowed\+\_\+changes} & 0, or one or more flags OR\textquotesingle{}d together \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a valid device ID that is $>$ 0 on success or 0 on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+For compatibility with SDL 1.\+2, this will never return 1, since SDL reserves that ID for the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_abd910f31079d53b6c0ea8bf32dac0ce6}{SDL\+\_\+\+Close\+Audio\+Device}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a846bae7fa1183b644c96cbb49e2c8cf5}{SDL\+\_\+\+Get\+Audio\+Device\+Name}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_aa68e60a33666ff4f2d36f3827b1d6061}\label{SDL__audio_8h_aa68e60a33666ff4f2d36f3827b1d6061}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_PauseAudio@{SDL\_PauseAudio}}
+\index{SDL\_PauseAudio@{SDL\_PauseAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PauseAudio()}{SDL\_PauseAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Pause\+Audio (\begin{DoxyParamCaption}\item[{int}]{pause\+\_\+on }\end{DoxyParamCaption})}
+
+This function is a legacy means of pausing the audio device.
+
+New programs might want to use \mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device()}} instead. This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\_PauseAudioDevice}}(1, pause\_on);}
+
+\end{DoxyCode}
+
+
+...and is only useful if you used the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pause\+\_\+on} & non-\/zero to pause, 0 to unpause\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a568e10207e6ff53f8e238a0d562ef594}{SDL\+\_\+\+Get\+Audio\+Status}} 
+
+\mbox{\hyperlink{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}{SDL\+\_\+\+Pause\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}\label{SDL__audio_8h_ab4c8e2a896ccf86599435af81fca928c}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_PauseAudioDevice@{SDL\_PauseAudioDevice}}
+\index{SDL\_PauseAudioDevice@{SDL\_PauseAudioDevice}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PauseAudioDevice()}{SDL\_PauseAudioDevice()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Pause\+Audio\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev,  }\item[{int}]{pause\+\_\+on }\end{DoxyParamCaption})}
+
+Use this function to pause and unpause audio playback on a specified device.
+
+This function pauses and unpauses the audio callback processing for a given device. Newly-\/opened audio devices start in the paused state, so you must call this function with {\bfseries{pause\+\_\+on}}=0 after opening the specified audio device to start playing sound. This allows you to safely initialize data for your callback function after opening the audio device. Silence will be written to the audio device while paused, and the audio callback is guaranteed to not be called. Pausing one device does not prevent other unpaused devices from running their callbacks.
+
+Pausing state does not stack; even if you pause a device several times, a single unpause will start the device playing again, and vice versa. This is different from how \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}} works.
+
+If you just need to protect a few variables from race conditions vs your callback, you shouldn\textquotesingle{}t pause the audio device, as it will lead to dropouts in the audio playback. Instead, you should use \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & a device opened by \mbox{\hyperlink{SDL__audio_8h_af54523e415de7c7fdd0d48a76ab58bb3}{SDL\+\_\+\+Open\+Audio\+Device()}} \\
+\hline
+{\em pause\+\_\+on} & non-\/zero to pause, 0 to unpause\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}\label{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_QueueAudio@{SDL\_QueueAudio}}
+\index{SDL\_QueueAudio@{SDL\_QueueAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_QueueAudio()}{SDL\_QueueAudio()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Queue\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev,  }\item[{const void $\ast$}]{data,  }\item[{Uint32}]{len }\end{DoxyParamCaption})}
+
+Queue more audio on non-\/callback devices.
+
+If you are looking to retrieve queued audio from a non-\/callback capture device, you want \mbox{\hyperlink{SDL__audio_8h_a6ed6333b8b294eafb6a9435fd8ff89fa}{SDL\+\_\+\+Dequeue\+Audio()}} instead. \mbox{\hyperlink{SDL__audio_8h_a19ef6fa2396f581aaf4d9a9512972268}{SDL\+\_\+\+Queue\+Audio()}} will return -\/1 to signify an error if you use it with capture devices.
+
+SDL offers two ways to feed audio to the device\+: you can either supply a callback that SDL triggers with some frequency to obtain more audio (pull method), or you can supply no callback, and then SDL will expect you to supply data at regular intervals (push method) with this function.
+
+There are no limits on the amount of data you can queue, short of exhaustion of address space. Queued data will drain to the device as necessary without further intervention from you. If the device needs audio but there is not enough queued, it will play silence to make up the difference. This means you will have skips in your audio playback if you aren\textquotesingle{}t routinely queueing sufficient data.
+
+This function copies the supplied data, so you are safe to free it when the function returns. This function is thread-\/safe, but queueing to the same device from two threads at once does not promise which buffer will be queued first.
+
+You may not queue audio on a device that is using an application-\/supplied callback; doing so returns an error. You have to use the audio callback or queue audio with this function, but not both.
+
+You should not call \mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio()}} on the device before queueing; SDL handles locking internally for this function.
+
+Note that SDL2 does not support planar audio. You will need to resample from planar audio formats into a non-\/planar one (see SDL\+\_\+\+Audio\+Format) before queuing audio.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the device ID to which we will queue audio \\
+\hline
+{\em data} & the data to queue to the device for later playback \\
+\hline
+{\em len} & the number of bytes (not samples!) to which {\ttfamily data} points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 on success or a negative error code on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a073ed5d40cce01e839b34570c1c7ed50}{SDL\+\_\+\+Clear\+Queued\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a11a1d59fd68f8a416fa72bf14f5c9ec3}{SDL\+\_\+\+Get\+Queued\+Audio\+Size}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a76d8179bee14dad268e65378058d897d}\label{SDL__audio_8h_a76d8179bee14dad268e65378058d897d}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_UnlockAudio@{SDL\_UnlockAudio}}
+\index{SDL\_UnlockAudio@{SDL\_UnlockAudio}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnlockAudio()}{SDL\_UnlockAudio()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Unlock\+Audio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is a legacy means of unlocking the audio device.
+
+New programs might want to use \mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device()}} instead. This function is equivalent to calling...
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\_UnlockAudioDevice}}(1);}
+
+\end{DoxyCode}
+
+
+...and is only useful if you used the legacy \mbox{\hyperlink{SDL__audio_8h_a2edf30e7747584e28041b4986f89f440}{SDL\+\_\+\+Open\+Audio()}} function.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a7ffa484f230f6085e271a4f43e678f06}{SDL\+\_\+\+Lock\+Audio}} 
+
+\mbox{\hyperlink{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}{SDL\+\_\+\+Unlock\+Audio\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}\label{SDL__audio_8h_a37427a5d47e10103f2fff8165d5f9000}} 
+\index{SDL\_audio.h@{SDL\_audio.h}!SDL\_UnlockAudioDevice@{SDL\_UnlockAudioDevice}}
+\index{SDL\_UnlockAudioDevice@{SDL\_UnlockAudioDevice}!SDL\_audio.h@{SDL\_audio.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnlockAudioDevice()}{SDL\_UnlockAudioDevice()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Unlock\+Audio\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__audio_8h_a677d9d2a6f77a7502a0dc8b45ad211bb}{SDL\+\_\+\+Audio\+Device\+ID}}}]{dev }\end{DoxyParamCaption})}
+
+Use this function to unlock the audio callback function for a specified device.
+
+This function should be paired with a previous \mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device()}} call.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dev} & the ID of the device to be unlocked\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__audio_8h_a9769845303f88f084f051b99e55b62a1}{SDL\+\_\+\+Lock\+Audio\+Device}} 
+\end{DoxySeeAlso}

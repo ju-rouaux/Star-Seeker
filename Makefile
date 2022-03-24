@@ -1,10 +1,14 @@
+#Systeme d'exploitation (win pour windows, sinon n'importe quoi par défaut)
+ARCH = linux
+
+include Makefile.compilation
+
 # Parametres de la compilation
 CC = gcc
 CXXFLAGS = -Wall -g 
-LDFLAGS = -I./include -Llib -lSDL2main -lSDL2 -lSDL2_ttf -lm
 
 # Parametres du makefile
-APPNAME = ./bin/save
+APPNAME = ./bin/star-seeker
 EXT = .c
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -14,40 +18,50 @@ OBJDIR = ./obj
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 
-# UNIX-based OS variables & settings
 RM = rm
-DELOBJ = $(OBJ)
-# Windows OS variables & settings
-DEL = del
-EXE = .exe
-WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 
-all: $(APPNAME)
-	@echo Compilation reussie
+# Compiler le projet
+all: $(CIBLE_ARCH) $(APPNAME)
+	@echo -- Compilation reussie --
 
-#Test algo génération
+# Générer les répertoires nécéssaires s'ils sont manquants
+init:
+	mkdir $(PARAM_INIT) obj save
+
+# Test algo génération
 algogen: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ obj/test_niveau.o $(LDFLAGS)
 
-# Compile
+# Compiler
 $(APPNAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
-	@echo Tout les fichiers objets ont bien ete generes
+	@echo -- Tout les fichiers objets ont bien ete generes --
 
-# Construit les fichiers .o avec les .h
+# Construire les fichiers .o avec les .h
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(LDFLAGS)
 
-################### Cleaning rules for Unix-based OS ###################
-# Cleans complete project
+########################################################################
+
+# Supprimer les fichiers du projet (.exe pour Windows)
 .PHONY: clean
 clean:
-	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+	$(RM) $(PARAM_CLEAN) $(OBJDIR)/*.o
+	@echo -- Objets supprimes ! --
+	$(RM) $(PARAM_CLEAN) $(APPNAME)$(EXTAPP)
+	@echo -- Executable supprime ! --
 
-#################### Cleaning rules for Windows OS #####################
-# Cleans complete project
-.PHONY: cleanw
-cleanw:
-	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
+########################################################################
+#Macros
+
+.PHONY: doc
+doc:
+	doxygen gen_doxygen
+	@echo Documentation generee
+
+#Compiler et lancer le programme
+.PHONY: start
+start: all
+	$(APPNAME)

@@ -1,0 +1,147 @@
+\hypertarget{unionSDL__HapticEffect}{}\doxysection{Référence de l\textquotesingle{}union SDL\+\_\+\+Haptic\+Effect}
+\label{unionSDL__HapticEffect}\index{SDL\_HapticEffect@{SDL\_HapticEffect}}
+
+
+The generic template for any haptic effect.  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \mbox{\hyperlink{unionSDL__HapticEffect_a5ff6cfd8da91537091e9a6c2108cb179}{type}}
+\item 
+\mbox{\hyperlink{structSDL__HapticConstant}{SDL\+\_\+\+Haptic\+Constant}} \mbox{\hyperlink{unionSDL__HapticEffect_ac435275e9683d6cc5d65b9c7cc2ec659}{constant}}
+\item 
+\mbox{\hyperlink{structSDL__HapticPeriodic}{SDL\+\_\+\+Haptic\+Periodic}} \mbox{\hyperlink{unionSDL__HapticEffect_a8320ec4db6ec1dc1d30feb62ee2a2f04}{periodic}}
+\item 
+\mbox{\hyperlink{structSDL__HapticCondition}{SDL\+\_\+\+Haptic\+Condition}} \mbox{\hyperlink{unionSDL__HapticEffect_aa8fdd1ba202ccd7e61f48ef9977080d2}{condition}}
+\item 
+\mbox{\hyperlink{structSDL__HapticRamp}{SDL\+\_\+\+Haptic\+Ramp}} \mbox{\hyperlink{unionSDL__HapticEffect_a1d32ef4c2d1cc89dc938b392f6ad81bd}{ramp}}
+\item 
+\mbox{\hyperlink{structSDL__HapticLeftRight}{SDL\+\_\+\+Haptic\+Left\+Right}} \mbox{\hyperlink{unionSDL__HapticEffect_a3c254b81c1ff41c7888eee0cd0076a12}{leftright}}
+\item 
+\mbox{\hyperlink{structSDL__HapticCustom}{SDL\+\_\+\+Haptic\+Custom}} \mbox{\hyperlink{unionSDL__HapticEffect_a0b2d2af28c515cc39896b2b7c23019d2}{custom}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The generic template for any haptic effect. 
+
+All values max at 32767 (0x7\+FFF). Signed values also can be negative. Time values unless specified otherwise are in milliseconds.
+
+You can also pass \mbox{\hyperlink{SDL__haptic_8h_a648896e9e14cb27fa8a4b6632d3f3882}{SDL\+\_\+\+HAPTIC\+\_\+\+INFINITY}} to length instead of a 0-\/32767 value. Neither delay, interval, attack\+\_\+length nor fade\+\_\+length support \mbox{\hyperlink{SDL__haptic_8h_a648896e9e14cb27fa8a4b6632d3f3882}{SDL\+\_\+\+HAPTIC\+\_\+\+INFINITY}}. Fade will also not be used since effect never ends.
+
+Additionally, the \mbox{\hyperlink{SDL__haptic_8h_af10eb937a64a8f602e9c46682ac0d868}{SDL\+\_\+\+HAPTIC\+\_\+\+RAMP}} effect does not support a duration of \mbox{\hyperlink{SDL__haptic_8h_a648896e9e14cb27fa8a4b6632d3f3882}{SDL\+\_\+\+HAPTIC\+\_\+\+INFINITY}}.
+
+Button triggers may not be supported on all devices, it is advised to not use them if possible. Buttons start at index 1 instead of index 0 like the joystick.
+
+If both attack\+\_\+length and fade\+\_\+level are 0, the envelope is not used, otherwise both values are used.
+
+Common parts\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Replay -\/ All effects have this}}
+\DoxyCodeLine{Uint32 length;        \textcolor{comment}{// Duration of effect (ms).}}
+\DoxyCodeLine{Uint16 delay;         \textcolor{comment}{// Delay before starting effect.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Trigger -\/ All effects have this}}
+\DoxyCodeLine{Uint16 button;        \textcolor{comment}{// Button that triggers effect.}}
+\DoxyCodeLine{Uint16 interval;      \textcolor{comment}{// How soon before effect can be triggered again.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Envelope -\/ All effects except condition effects have this}}
+\DoxyCodeLine{Uint16 attack\_length; \textcolor{comment}{// Duration of the attack (ms).}}
+\DoxyCodeLine{Uint16 attack\_level;  \textcolor{comment}{// Level at the start of the attack.}}
+\DoxyCodeLine{Uint16 fade\_length;   \textcolor{comment}{// Duration of the fade out (ms).}}
+\DoxyCodeLine{Uint16 fade\_level;    \textcolor{comment}{// Level at the end of the fade.}}
+
+\end{DoxyCode}
+
+
+Here we have an example of a constant effect evolution in time\+: \begin{DoxyVerb}Strength
+^
+|
+|    effect level -->  _________________
+|                     /                 \
+|                    /                   \
+|                   /                     \
+|                  /                       \
+| attack_level --> |                        \
+|                  |                        |  <---  fade_level
+|
++--------------------------------------------------> Time
+                   [--]                 [---]
+                   attack_length        fade_length
+
+[------------------][-----------------------]
+delay               length
+\end{DoxyVerb}
+
+
+Note either the attack\+\_\+level or the fade\+\_\+level may be above the actual effect level.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{structSDL__HapticConstant}{SDL\+\_\+\+Haptic\+Constant}} 
+
+\mbox{\hyperlink{structSDL__HapticPeriodic}{SDL\+\_\+\+Haptic\+Periodic}} 
+
+\mbox{\hyperlink{structSDL__HapticCondition}{SDL\+\_\+\+Haptic\+Condition}} 
+
+\mbox{\hyperlink{structSDL__HapticRamp}{SDL\+\_\+\+Haptic\+Ramp}} 
+
+\mbox{\hyperlink{structSDL__HapticLeftRight}{SDL\+\_\+\+Haptic\+Left\+Right}} 
+
+\mbox{\hyperlink{structSDL__HapticCustom}{SDL\+\_\+\+Haptic\+Custom}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{unionSDL__HapticEffect_aa8fdd1ba202ccd7e61f48ef9977080d2}\label{unionSDL__HapticEffect_aa8fdd1ba202ccd7e61f48ef9977080d2}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!condition@{condition}}
+\index{condition@{condition}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{condition}{condition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticCondition}{SDL\+\_\+\+Haptic\+Condition}} SDL\+\_\+\+Haptic\+Effect\+::condition}
+
+Condition effect. \mbox{\Hypertarget{unionSDL__HapticEffect_ac435275e9683d6cc5d65b9c7cc2ec659}\label{unionSDL__HapticEffect_ac435275e9683d6cc5d65b9c7cc2ec659}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!constant@{constant}}
+\index{constant@{constant}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{constant}{constant}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticConstant}{SDL\+\_\+\+Haptic\+Constant}} SDL\+\_\+\+Haptic\+Effect\+::constant}
+
+Constant effect. \mbox{\Hypertarget{unionSDL__HapticEffect_a0b2d2af28c515cc39896b2b7c23019d2}\label{unionSDL__HapticEffect_a0b2d2af28c515cc39896b2b7c23019d2}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!custom@{custom}}
+\index{custom@{custom}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{custom}{custom}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticCustom}{SDL\+\_\+\+Haptic\+Custom}} SDL\+\_\+\+Haptic\+Effect\+::custom}
+
+Custom effect. \mbox{\Hypertarget{unionSDL__HapticEffect_a3c254b81c1ff41c7888eee0cd0076a12}\label{unionSDL__HapticEffect_a3c254b81c1ff41c7888eee0cd0076a12}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!leftright@{leftright}}
+\index{leftright@{leftright}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{leftright}{leftright}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticLeftRight}{SDL\+\_\+\+Haptic\+Left\+Right}} SDL\+\_\+\+Haptic\+Effect\+::leftright}
+
+Left/\+Right effect. \mbox{\Hypertarget{unionSDL__HapticEffect_a8320ec4db6ec1dc1d30feb62ee2a2f04}\label{unionSDL__HapticEffect_a8320ec4db6ec1dc1d30feb62ee2a2f04}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!periodic@{periodic}}
+\index{periodic@{periodic}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{periodic}{periodic}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticPeriodic}{SDL\+\_\+\+Haptic\+Periodic}} SDL\+\_\+\+Haptic\+Effect\+::periodic}
+
+Periodic effect. \mbox{\Hypertarget{unionSDL__HapticEffect_a1d32ef4c2d1cc89dc938b392f6ad81bd}\label{unionSDL__HapticEffect_a1d32ef4c2d1cc89dc938b392f6ad81bd}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!ramp@{ramp}}
+\index{ramp@{ramp}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{ramp}{ramp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSDL__HapticRamp}{SDL\+\_\+\+Haptic\+Ramp}} SDL\+\_\+\+Haptic\+Effect\+::ramp}
+
+Ramp effect. \mbox{\Hypertarget{unionSDL__HapticEffect_a5ff6cfd8da91537091e9a6c2108cb179}\label{unionSDL__HapticEffect_a5ff6cfd8da91537091e9a6c2108cb179}} 
+\index{SDL\_HapticEffect@{SDL\_HapticEffect}!type@{type}}
+\index{type@{type}!SDL\_HapticEffect@{SDL\_HapticEffect}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint16 SDL\+\_\+\+Haptic\+Effect\+::type}
+
+Effect type. 
+
+La documentation de cette union a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__haptic_8h}{SDL\+\_\+haptic.\+h}}\end{DoxyCompactItemize}

@@ -2,7 +2,9 @@
 #define _JEU_EVENTS_
 
 #include <joueur.h>
+#include <moteur.h>
+#include <main.h>
 
-int handleEvents(t_joueur * joueur);
+e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur);
 
 #endif

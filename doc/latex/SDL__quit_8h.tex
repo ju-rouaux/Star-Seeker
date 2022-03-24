@@ -1,0 +1,22 @@
+\hypertarget{SDL__quit_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+quit.h}
+\label{SDL__quit_8h}\index{include/SDL2/SDL\_quit.h@{include/SDL2/SDL\_quit.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__quit_8h_a28f0e45d1be91312001526ec45d9dc83}\label{SDL__quit_8h_a28f0e45d1be91312001526ec45d9dc83}} 
+\#define {\bfseries SDL\+\_\+\+Quit\+Requested}()~        (\mbox{\hyperlink{SDL__events_8h_aa15403d1c8fc341cd9cf750e27a66d19}{SDL\+\_\+\+Pump\+Events}}(), (\mbox{\hyperlink{SDL__events_8h_a83618a672f963892ddd0eef74a402e75}{SDL\+\_\+\+Peep\+Events}}(NULL,0,SDL\+\_\+\+PEEKEVENT,\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{SDL\+\_\+\+QUIT}},\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{SDL\+\_\+\+QUIT}}) $>$ 0))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL quit event handling.
+
+An \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{SDL\+\_\+\+QUIT}} event is generated when the user tries to close the application window. If it is ignored or filtered out, the window will remain open. If it is not ignored or filtered, it is queued normally and the window is allowed to close. When the window is closed, screen updates will complete, but have no effect.
+
+\mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}} installs signal handlers for SIGINT (keyboard interrupt) and SIGTERM (system termination request), if handlers do not already exist, that generate \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{SDL\+\_\+\+QUIT}} events as well. There is no way to determine the cause of an \mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa31acc5fdafc86ebe2c1f5c3cae48d603}{SDL\+\_\+\+QUIT}} event, but setting a signal handler in your application will override the default generation of quit events for that signal.
+
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL_8h_afdabaf714781099083592051f2d9ac11}{SDL\+\_\+\+Quit()}} 
+\end{DoxySeeAlso}

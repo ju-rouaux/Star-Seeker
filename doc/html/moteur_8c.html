@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/moteur.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier moteur.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une structure.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="window_8h_source.html">window.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="textures_8h_source.html">textures.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab9c8794de98e6e3d33ee1a9b8833b240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8c.html#ab9c8794de98e6e3d33ee1a9b8833b240">initialiserTouches</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:ab9c8794de98e6e3d33ee1a9b8833b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les touches du clavier.  <a href="moteur_8c.html#ab9c8794de98e6e3d33ee1a9b8833b240">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab9c8794de98e6e3d33ee1a9b8833b240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a980e14a5af12b07ba4baf701b77954ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8c.html#a980e14a5af12b07ba4baf701b77954ae">chargerMoteur</a> (unsigned int temps)</td></tr>
+<tr class="memdesc:a980e14a5af12b07ba4baf701b77954ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une fenêtre, un rendu, les textures, et une caméra.  <a href="moteur_8c.html#a980e14a5af12b07ba4baf701b77954ae">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a980e14a5af12b07ba4baf701b77954ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8c.html#aa8ba0a1a326f5f885b9f58d650c5f50c">detruireMoteur</a> (<a class="el" href="structt__moteur.html">t_moteur</a> **moteur)</td></tr>
+<tr class="memdesc:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL.  <a href="moteur_8c.html#aa8ba0a1a326f5f885b9f58d650c5f50c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb3e2a0bb730dfb9391c82bf2c37d7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8c.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">updateEchelle</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:aebb3e2a0bb730dfb9391c82bf2c37d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la taille en pixel d'un bloc selon la taille de l'écran et actualise les champs du moteur.  <a href="moteur_8c.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aebb3e2a0bb730dfb9391c82bf2c37d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une structure. </p>
+<p >Le moteur contient aussi les collisions</p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a980e14a5af12b07ba4baf701b77954ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980e14a5af12b07ba4baf701b77954ae">&#9670;&nbsp;</a></span>chargerMoteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__moteur.html">t_moteur</a>* chargerMoteur </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>temps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une fenêtre, un rendu, les textures, et une caméra. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Structure moteur, NULL si échec. </dd></dl>
+
+</div>
+</div>
+<a id="aa8ba0a1a326f5f885b9f58d650c5f50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ba0a1a326f5f885b9f58d650c5f50c">&#9670;&nbsp;</a></span>detruireMoteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireMoteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> **&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>L'adresse du pointeur du moteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9c8794de98e6e3d33ee1a9b8833b240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c8794de98e6e3d33ee1a9b8833b240">&#9670;&nbsp;</a></span>initialiserTouches()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initialiserTouches </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les touches du clavier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>moteur du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aebb3e2a0bb730dfb9391c82bf2c37d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb3e2a0bb730dfb9391c82bf2c37d7c">&#9670;&nbsp;</a></span>updateEchelle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateEchelle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la taille en pixel d'un bloc selon la taille de l'écran et actualise les champs du moteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>La structure moteur du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

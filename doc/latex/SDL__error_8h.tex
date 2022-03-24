@@ -1,0 +1,158 @@
+\hypertarget{SDL__error_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+error.h}
+\label{SDL__error_8h}\index{include/SDL2/SDL\_error.h@{include/SDL2/SDL\_error.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}{SDL\+\_\+\+Set\+Error}} (SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$fmt,...) SDL\+\_\+\+PRINTF\+\_\+\+VARARG\+\_\+\+FUNC(1)
+\item 
+DECLSPEC const char $\ast$SDLCALL \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error}} (void)
+\item 
+DECLSPEC char $\ast$SDLCALL \mbox{\hyperlink{SDL__error_8h_a41e9f4f81899e7a2755e8a3f6f2bf166}{SDL\+\_\+\+Get\+Error\+Msg}} (char $\ast$errstr, int maxlen)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}{SDL\+\_\+\+Clear\+Error}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Internal error functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__error_8h_a440edcb93dba4e39c88ecf8dc676b6c1}\label{SDL__error_8h_a440edcb93dba4e39c88ecf8dc676b6c1}} 
+\#define {\bfseries SDL\+\_\+\+Out\+Of\+Memory}()~SDL\+\_\+\+Error(SDL\+\_\+\+ENOMEM)
+\item 
+\mbox{\Hypertarget{SDL__error_8h_a45dc695e3a906dd40f00e204ace3bcf5}\label{SDL__error_8h_a45dc695e3a906dd40f00e204ace3bcf5}} 
+\#define {\bfseries SDL\+\_\+\+Unsupported}()~SDL\+\_\+\+Error(SDL\+\_\+\+UNSUPPORTED)
+\item 
+\mbox{\Hypertarget{SDL__error_8h_a5875c9c083a88408e11abeaa8391dfa5}\label{SDL__error_8h_a5875c9c083a88408e11abeaa8391dfa5}} 
+\#define {\bfseries SDL\+\_\+\+Invalid\+Param\+Error}(param)~\mbox{\hyperlink{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}{SDL\+\_\+\+Set\+Error}}(\char`\"{}Parameter \textquotesingle{}\%s\textquotesingle{} is invalid\char`\"{}, (param))
+\item 
+\mbox{\Hypertarget{SDL__error_8h_a5c417ba725f086b33390a5e5d5dabfe1}\label{SDL__error_8h_a5c417ba725f086b33390a5e5d5dabfe1}} 
+enum {\bfseries SDL\+\_\+errorcode} \{ \newline
+{\bfseries SDL\+\_\+\+ENOMEM}
+, {\bfseries SDL\+\_\+\+EFREAD}
+, {\bfseries SDL\+\_\+\+EFWRITE}
+, {\bfseries SDL\+\_\+\+EFSEEK}
+, \newline
+{\bfseries SDL\+\_\+\+UNSUPPORTED}
+, {\bfseries SDL\+\_\+\+LASTERROR}
+ \}
+\item 
+\mbox{\Hypertarget{SDL__error_8h_a0ec05915c315049ed2ab74cfe1ff980f}\label{SDL__error_8h_a0ec05915c315049ed2ab74cfe1ff980f}} 
+DECLSPEC int SDLCALL {\bfseries SDL\+\_\+\+Error} (SDL\+\_\+errorcode code)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Simple error message routines for SDL. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}\label{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_ClearError@{SDL\_ClearError}}
+\index{SDL\_ClearError@{SDL\_ClearError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ClearError()}{SDL\_ClearError()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Clear\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Clear any previous error message for this thread.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error}} 
+
+\mbox{\hyperlink{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}{SDL\+\_\+\+Set\+Error}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}\label{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_GetError@{SDL\_GetError}}
+\index{SDL\_GetError@{SDL\_GetError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetError()}{SDL\_GetError()}}
+{\footnotesize\ttfamily DECLSPEC const char$\ast$ SDLCALL SDL\+\_\+\+Get\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Retrieve a message about the last error that occurred on the current thread.
+
+It is possible for multiple errors to occur before calling \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}}. Only the last error is returned.
+
+The message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriately call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}}. You should {\itshape not} use the results of \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} to decide if an error has occurred! Sometimes SDL will set an error string even when reporting success.
+
+SDL will {\itshape not} clear the error string for successful API calls. You {\itshape must} check return values for failure cases before you can assume the error string applies.
+
+Error strings are set per-\/thread, so an error set in a different thread will not interfere with the current thread\textquotesingle{}s operation.
+
+The returned string is internally allocated and must not be freed by the application.
+
+\begin{DoxyReturn}{Renvoie}
+a message with information about the specific error that occurred, or an empty string if there hasn\textquotesingle{}t been an error message set since the last call to \mbox{\hyperlink{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}{SDL\+\_\+\+Clear\+Error()}}. The message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriately call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}}.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}{SDL\+\_\+\+Clear\+Error}} 
+
+\mbox{\hyperlink{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}{SDL\+\_\+\+Set\+Error}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__error_8h_a41e9f4f81899e7a2755e8a3f6f2bf166}\label{SDL__error_8h_a41e9f4f81899e7a2755e8a3f6f2bf166}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_GetErrorMsg@{SDL\_GetErrorMsg}}
+\index{SDL\_GetErrorMsg@{SDL\_GetErrorMsg}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetErrorMsg()}{SDL\_GetErrorMsg()}}
+{\footnotesize\ttfamily DECLSPEC char$\ast$ SDLCALL SDL\+\_\+\+Get\+Error\+Msg (\begin{DoxyParamCaption}\item[{char $\ast$}]{errstr,  }\item[{int}]{maxlen }\end{DoxyParamCaption})}
+
+Get the last error message that was set for the current thread.
+
+This allows the caller to copy the error string into a provided buffer, but otherwise operates exactly the same as \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em errstr} & A buffer to fill with the last error message that was set for the current thread \\
+\hline
+{\em maxlen} & The size of the buffer pointed to by the errstr parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the pointer passed in as the {\ttfamily errstr} parameter.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+14.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}\label{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_SetError@{SDL\_SetError}}
+\index{SDL\_SetError@{SDL\_SetError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_SetError()}{SDL\_SetError()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Set\+Error (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+PRINTF\+\_\+\+FORMAT\+\_\+\+STRING const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Set the SDL error message for the current thread.
+
+Calling this function will replace any previous error message that was set.
+
+This function always returns -\/1, since SDL frequently uses -\/1 to signify an failing result, leading to this idiom\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (error\_code) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \mbox{\hyperlink{SDL__error_8h_a26775853eaf43390bbceb27eb21a2240}{SDL\_SetError}}(\textcolor{stringliteral}{"{}This operation has failed: \%d"{}}, error\_code);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fmt} & a printf()-\/style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\ttfamily fmt} string, if any \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+always -\/1.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__error_8h_a007ed517953a99a46e46be567ef5609e}{SDL\+\_\+\+Clear\+Error}} 
+
+\mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error}} 
+\end{DoxySeeAlso}

@@ -43,8 +43,8 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
     case SABRE_LASER:
         attaque_tir_sabre(attaque);
         break;
-    case LASER_CONTINU:
-        attaque_laser(attaque);
+    //case LASER_CONTINU:
+    //    attaque_laser(attaque);
     case DEMO:
         attaque_tir_demo(attaque);
         break;
@@ -121,7 +121,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
             projectile = creerProjectile(attaque->type_projectile, 
                                     personnage->x, personnage->y, 
                                     cos(angle_proj), sin(angle_proj), 
-                                    !personnage->type, //Le type de personnage opposé à celui actuel
+                                    !personnage->type, //Le type de personnage opposé à celui actuel (car joueur = 0 et monstre = 1)
                                     moteur->textures->projectiles);
             ajouterEntiteListe(moteur->liste_entites, (t_entite*) projectile);
             projectile = NULL;

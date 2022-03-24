@@ -1,0 +1,164 @@
+\hypertarget{SDL__touch_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+touch.h}
+\label{SDL__touch_8h}\index{include/SDL2/SDL\_touch.h@{include/SDL2/SDL\_touch.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDL__Finger}{SDL\+\_\+\+Finger}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_ac24e2ec23c2ac1675fec8f327ef45efe}\label{SDL__touch_8h_ac24e2ec23c2ac1675fec8f327ef45efe}} 
+\#define {\bfseries SDL\+\_\+\+TOUCH\+\_\+\+MOUSEID}~((Uint32)-\/1)
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_a014b4d4442ccb50ec471a7a6081b75d0}\label{SDL__touch_8h_a014b4d4442ccb50ec471a7a6081b75d0}} 
+\#define {\bfseries SDL\+\_\+\+MOUSE\+\_\+\+TOUCHID}~((Sint64)-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_a10f5f86abe4ea8308a8706bd5d3b337a}\label{SDL__touch_8h_a10f5f86abe4ea8308a8706bd5d3b337a}} 
+typedef Sint64 {\bfseries SDL\+\_\+\+Touch\+ID}
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_a5fa58141f78415ca09645af359ad2250}\label{SDL__touch_8h_a5fa58141f78415ca09645af359ad2250}} 
+typedef Sint64 {\bfseries SDL\+\_\+\+Finger\+ID}
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_ab870bc362a74d92227b8bc9c9654d25e}\label{SDL__touch_8h_ab870bc362a74d92227b8bc9c9654d25e}} 
+typedef struct \mbox{\hyperlink{structSDL__Finger}{SDL\+\_\+\+Finger}} {\bfseries SDL\+\_\+\+Finger}
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{SDL__touch_8h_a63f6b605841f681e036a96d9b2790cff}\label{SDL__touch_8h_a63f6b605841f681e036a96d9b2790cff}} 
+enum {\bfseries SDL\+\_\+\+Touch\+Device\+Type} \{ {\bfseries SDL\+\_\+\+TOUCH\+\_\+\+DEVICE\+\_\+\+INVALID} = -\/1
+, {\bfseries SDL\+\_\+\+TOUCH\+\_\+\+DEVICE\+\_\+\+DIRECT}
+, {\bfseries SDL\+\_\+\+TOUCH\+\_\+\+DEVICE\+\_\+\+INDIRECT\+\_\+\+ABSOLUTE}
+, {\bfseries SDL\+\_\+\+TOUCH\+\_\+\+DEVICE\+\_\+\+INDIRECT\+\_\+\+RELATIVE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}{SDL\+\_\+\+Get\+Num\+Touch\+Devices}} (void)
+\item 
+DECLSPEC SDL\+\_\+\+Touch\+ID SDLCALL \mbox{\hyperlink{SDL__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a}{SDL\+\_\+\+Get\+Touch\+Device}} (int index)
+\item 
+DECLSPEC SDL\+\_\+\+Touch\+Device\+Type SDLCALL \mbox{\hyperlink{SDL__touch_8h_acb47d9bf9103c6c039127cea040d89a7}{SDL\+\_\+\+Get\+Touch\+Device\+Type}} (SDL\+\_\+\+Touch\+ID touch\+ID)
+\item 
+DECLSPEC int SDLCALL \mbox{\hyperlink{SDL__touch_8h_a7dcd1494c8dd433b7ef7b24c2926e721}{SDL\+\_\+\+Get\+Num\+Touch\+Fingers}} (SDL\+\_\+\+Touch\+ID touch\+ID)
+\item 
+DECLSPEC \mbox{\hyperlink{structSDL__Finger}{SDL\+\_\+\+Finger}} $\ast$SDLCALL \mbox{\hyperlink{SDL__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41}{SDL\+\_\+\+Get\+Touch\+Finger}} (SDL\+\_\+\+Touch\+ID touch\+ID, int index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Include file for SDL touch event handling. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}\label{SDL__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetNumTouchDevices@{SDL\_GetNumTouchDevices}}
+\index{SDL\_GetNumTouchDevices@{SDL\_GetNumTouchDevices}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetNumTouchDevices()}{SDL\_GetNumTouchDevices()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Num\+Touch\+Devices (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of registered touch devices.
+
+On some platforms SDL first sees the touch device if it was actually used. Therefore \mbox{\hyperlink{SDL__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}{SDL\+\_\+\+Get\+Num\+Touch\+Devices()}} may return 0 although devices are available. After using all devices at least once the number will be correct.
+
+This was fixed for Android in SDL 2.\+0.\+1.
+
+\begin{DoxyReturn}{Renvoie}
+the number of registered touch devices.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a}{SDL\+\_\+\+Get\+Touch\+Device}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__touch_8h_a7dcd1494c8dd433b7ef7b24c2926e721}\label{SDL__touch_8h_a7dcd1494c8dd433b7ef7b24c2926e721}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetNumTouchFingers@{SDL\_GetNumTouchFingers}}
+\index{SDL\_GetNumTouchFingers@{SDL\_GetNumTouchFingers}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetNumTouchFingers()}{SDL\_GetNumTouchFingers()}}
+{\footnotesize\ttfamily DECLSPEC int SDLCALL SDL\+\_\+\+Get\+Num\+Touch\+Fingers (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Touch\+ID}]{touch\+ID }\end{DoxyParamCaption})}
+
+Get the number of active fingers for a given touch device.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em touch\+ID} & the ID of a touch device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the number of active fingers for a given touch device on success or 0 on failure; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41}{SDL\+\_\+\+Get\+Touch\+Finger}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a}\label{SDL__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchDevice@{SDL\_GetTouchDevice}}
+\index{SDL\_GetTouchDevice@{SDL\_GetTouchDevice}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetTouchDevice()}{SDL\_GetTouchDevice()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Touch\+ID SDLCALL SDL\+\_\+\+Get\+Touch\+Device (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the touch ID with the given index.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & the touch device index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the touch ID with the given index on success or 0 if the index is invalid; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}{SDL\+\_\+\+Get\+Num\+Touch\+Devices}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__touch_8h_acb47d9bf9103c6c039127cea040d89a7}\label{SDL__touch_8h_acb47d9bf9103c6c039127cea040d89a7}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchDeviceType@{SDL\_GetTouchDeviceType}}
+\index{SDL\_GetTouchDeviceType@{SDL\_GetTouchDeviceType}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetTouchDeviceType()}{SDL\_GetTouchDeviceType()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+\+Touch\+Device\+Type SDLCALL SDL\+\_\+\+Get\+Touch\+Device\+Type (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Touch\+ID}]{touch\+ID }\end{DoxyParamCaption})}
+
+Get the type of the given touch device.
+
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+10. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41}\label{SDL__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchFinger@{SDL\_GetTouchFinger}}
+\index{SDL\_GetTouchFinger@{SDL\_GetTouchFinger}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetTouchFinger()}{SDL\_GetTouchFinger()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{structSDL__Finger}{SDL\+\_\+\+Finger}}$\ast$ SDLCALL SDL\+\_\+\+Get\+Touch\+Finger (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Touch\+ID}]{touch\+ID,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the finger object for specified touch device ID and finger index.
+
+The returned resource is owned by SDL and should not be deallocated.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em touch\+ID} & the ID of the requested touch device \\
+\hline
+{\em index} & the index of the requested finger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to the \mbox{\hyperlink{structSDL__Finger}{SDL\+\_\+\+Finger}} object or NULL if no object at the given ID and index could be found.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__gesture_8h_ad06776e2e199d5d48e466a0ecbbb06c3}{SDL\+\_\+\+Record\+Gesture}} 
+\end{DoxySeeAlso}

@@ -1,0 +1,84 @@
+\hypertarget{structs__moteur}{}\doxysection{Référence de la structure s\+\_\+moteur}
+\label{structs__moteur}\index{s\_moteur@{s\_moteur}}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structs__moteur_a5e3316b77214a8b6af140fafd36dc872}\label{structs__moteur_a5e3316b77214a8b6af140fafd36dc872}} 
+SDL\+\_\+\+Window $\ast$ {\bfseries window}
+\item 
+\mbox{\Hypertarget{structs__moteur_a3def9cb4c9002ab3f38b73ea21940596}\label{structs__moteur_a3def9cb4c9002ab3f38b73ea21940596}} 
+SDL\+\_\+\+Renderer $\ast$ {\bfseries renderer}
+\item 
+\mbox{\Hypertarget{structs__moteur_aaca3eb3ffdf266c04d9cb4d5cea42e38}\label{structs__moteur_aaca3eb3ffdf266c04d9cb4d5cea42e38}} 
+\mbox{\hyperlink{structt__textures}{t\+\_\+textures}} $\ast$ {\bfseries textures}
+\item 
+unsigned int \mbox{\hyperlink{structs__moteur_ab995b4f7d7bda6dd34ea55f44ec62c9b}{temps}}
+\item 
+\mbox{\Hypertarget{structs__moteur_ab192de3ab15bd142a513bf907dda964b}\label{structs__moteur_ab192de3ab15bd142a513bf907dda964b}} 
+unsigned int {\bfseries temps\+\_\+precedent}
+\item 
+\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$ \mbox{\hyperlink{structs__moteur_a796d95e449107717c3f8df6a141a3d80}{camera}}
+\item 
+\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$ \mbox{\hyperlink{structs__moteur_a3f81e9ec4209d5357ced68bcb404fa74}{niveau\+\_\+charge}}
+\item 
+\mbox{\hyperlink{structs__liste}{t\+\_\+liste}} $\ast$ \mbox{\hyperlink{structs__moteur_a9b086b629cb8b610568144ffd62225c3}{liste\+\_\+entites}}
+\item 
+int \mbox{\hyperlink{structs__moteur_a0e5cf5df852097c9c5031d36c5a50d62}{echelle}}
+\item 
+int \mbox{\hyperlink{structs__moteur_a76572d3008cbe247aaf2b0276f742957}{window\+\_\+width}}
+\item 
+int \mbox{\hyperlink{structs__moteur_a458af7bb6a7ce0446c69e0b18ddc136c}{window\+\_\+height}}
+\item 
+\mbox{\Hypertarget{structs__moteur_a4febd06a0f89006408deb4c59f300ab1}\label{structs__moteur_a4febd06a0f89006408deb4c59f300ab1}} 
+\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} {\bfseries parametres}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structs__moteur_a796d95e449107717c3f8df6a141a3d80}\label{structs__moteur_a796d95e449107717c3f8df6a141a3d80}} 
+\index{s\_moteur@{s\_moteur}!camera@{camera}}
+\index{camera@{camera}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__camera}{t\+\_\+camera}}$\ast$ s\+\_\+moteur\+::camera}
+
+Temps au début de la frame précédente \mbox{\Hypertarget{structs__moteur_a0e5cf5df852097c9c5031d36c5a50d62}\label{structs__moteur_a0e5cf5df852097c9c5031d36c5a50d62}} 
+\index{s\_moteur@{s\_moteur}!echelle@{echelle}}
+\index{echelle@{echelle}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{echelle}{echelle}}
+{\footnotesize\ttfamily int s\+\_\+moteur\+::echelle}
+
+Echelle du jeu, c\textquotesingle{}est à dire la taille des éléments \mbox{\Hypertarget{structs__moteur_a9b086b629cb8b610568144ffd62225c3}\label{structs__moteur_a9b086b629cb8b610568144ffd62225c3}} 
+\index{s\_moteur@{s\_moteur}!liste\_entites@{liste\_entites}}
+\index{liste\_entites@{liste\_entites}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{liste\_entites}{liste\_entites}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structs__liste}{t\+\_\+liste}}$\ast$ s\+\_\+moteur\+::liste\+\_\+entites}
+
+Niveau actuellement chargé Liste des entités rendues \char`\"{}vivantes\char`\"{} \mbox{\Hypertarget{structs__moteur_a3f81e9ec4209d5357ced68bcb404fa74}\label{structs__moteur_a3f81e9ec4209d5357ced68bcb404fa74}} 
+\index{s\_moteur@{s\_moteur}!niveau\_charge@{niveau\_charge}}
+\index{niveau\_charge@{niveau\_charge}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{niveau\_charge}{niveau\_charge}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}}$\ast$ s\+\_\+moteur\+::niveau\+\_\+charge}
+
+Caméra du jeu \mbox{\Hypertarget{structs__moteur_ab995b4f7d7bda6dd34ea55f44ec62c9b}\label{structs__moteur_ab995b4f7d7bda6dd34ea55f44ec62c9b}} 
+\index{s\_moteur@{s\_moteur}!temps@{temps}}
+\index{temps@{temps}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{temps}{temps}}
+{\footnotesize\ttfamily unsigned int s\+\_\+moteur\+::temps}
+
+Temps au début d\textquotesingle{}une frame \mbox{\Hypertarget{structs__moteur_a458af7bb6a7ce0446c69e0b18ddc136c}\label{structs__moteur_a458af7bb6a7ce0446c69e0b18ddc136c}} 
+\index{s\_moteur@{s\_moteur}!window\_height@{window\_height}}
+\index{window\_height@{window\_height}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{window\_height}{window\_height}}
+{\footnotesize\ttfamily int s\+\_\+moteur\+::window\+\_\+height}
+
+Hauteur de la fenêtre \mbox{\Hypertarget{structs__moteur_a76572d3008cbe247aaf2b0276f742957}\label{structs__moteur_a76572d3008cbe247aaf2b0276f742957}} 
+\index{s\_moteur@{s\_moteur}!window\_width@{window\_width}}
+\index{window\_width@{window\_width}!s\_moteur@{s\_moteur}}
+\doxysubsubsection{\texorpdfstring{window\_width}{window\_width}}
+{\footnotesize\ttfamily int s\+\_\+moteur\+::window\+\_\+width}
+
+Largeur de la fenêtre 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{moteur_8h}{moteur.\+h}}\end{DoxyCompactItemize}

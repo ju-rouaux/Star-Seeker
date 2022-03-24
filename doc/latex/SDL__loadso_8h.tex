@@ -1,0 +1,104 @@
+\hypertarget{SDL__loadso_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+loadso.h}
+\label{SDL__loadso_8h}\index{include/SDL2/SDL\_loadso.h@{include/SDL2/SDL\_loadso.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}{SDL\+\_\+\+Load\+Object}} (const char $\ast$sofile)
+\item 
+DECLSPEC void $\ast$SDLCALL \mbox{\hyperlink{SDL__loadso_8h_a926a605bda55d8d3d66ff6389bc98941}{SDL\+\_\+\+Load\+Function}} (void $\ast$handle, const char $\ast$name)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}{SDL\+\_\+\+Unload\+Object}} (void $\ast$handle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+System dependent library loading routines
+
+Some things to keep in mind\+: \begin{DoxyItemize}
+\item These functions only work on C function names. Other languages may have name mangling and intrinsic language support that varies from compiler to compiler. \item Make sure you declare your function pointers with the same calling convention as the actual library function. Your code will crash mysteriously if you do not do this. \item Avoid namespace collisions. If you load a symbol from the library, it is not defined whether or not it goes into the global symbol namespace for the application. If it does and it conflicts with symbols in your code or other shared libraries, you will not get the results you expect. \+:) \end{DoxyItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__loadso_8h_a926a605bda55d8d3d66ff6389bc98941}\label{SDL__loadso_8h_a926a605bda55d8d3d66ff6389bc98941}} 
+\index{SDL\_loadso.h@{SDL\_loadso.h}!SDL\_LoadFunction@{SDL\_LoadFunction}}
+\index{SDL\_LoadFunction@{SDL\_LoadFunction}!SDL\_loadso.h@{SDL\_loadso.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadFunction()}{SDL\_LoadFunction()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Load\+Function (\begin{DoxyParamCaption}\item[{void $\ast$}]{handle,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Look up the address of the named function in a shared object.
+
+This function pointer is no longer valid after calling \mbox{\hyperlink{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}{SDL\+\_\+\+Unload\+Object()}}.
+
+This function can only look up C function names. Other languages may have name mangling and intrinsic language support that varies from compiler to compiler.
+
+Make sure you declare your function pointers with the same calling convention as the actual library function. Your code will crash mysteriously if you do not do this.
+
+If the requested function doesn\textquotesingle{}t exist, NULL is returned.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em handle} & a valid shared object handle returned by \mbox{\hyperlink{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}{SDL\+\_\+\+Load\+Object()}} \\
+\hline
+{\em name} & the name of the function to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a pointer to the function or NULL if there was an error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}{SDL\+\_\+\+Load\+Object}} 
+
+\mbox{\hyperlink{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}{SDL\+\_\+\+Unload\+Object}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}\label{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}} 
+\index{SDL\_loadso.h@{SDL\_loadso.h}!SDL\_LoadObject@{SDL\_LoadObject}}
+\index{SDL\_LoadObject@{SDL\_LoadObject}!SDL\_loadso.h@{SDL\_loadso.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_LoadObject()}{SDL\_LoadObject()}}
+{\footnotesize\ttfamily DECLSPEC void$\ast$ SDLCALL SDL\+\_\+\+Load\+Object (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sofile }\end{DoxyParamCaption})}
+
+Dynamically load a shared object.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sofile} & a system-\/dependent name of the object file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an opaque pointer to the object handle or NULL if there was an error; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__loadso_8h_a926a605bda55d8d3d66ff6389bc98941}{SDL\+\_\+\+Load\+Function}} 
+
+\mbox{\hyperlink{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}{SDL\+\_\+\+Unload\+Object}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}\label{SDL__loadso_8h_a041e43c276cb826c2034eff220be7fe4}} 
+\index{SDL\_loadso.h@{SDL\_loadso.h}!SDL\_UnloadObject@{SDL\_UnloadObject}}
+\index{SDL\_UnloadObject@{SDL\_UnloadObject}!SDL\_loadso.h@{SDL\_loadso.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_UnloadObject()}{SDL\_UnloadObject()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Unload\+Object (\begin{DoxyParamCaption}\item[{void $\ast$}]{handle }\end{DoxyParamCaption})}
+
+Unload a shared object from memory.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em handle} & a valid shared object handle returned by \mbox{\hyperlink{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}{SDL\+\_\+\+Load\+Object()}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__loadso_8h_a926a605bda55d8d3d66ff6389bc98941}{SDL\+\_\+\+Load\+Function}} 
+
+\mbox{\hyperlink{SDL__loadso_8h_a278c5f3a6bb4f141680ef164e94b12b0}{SDL\+\_\+\+Load\+Object}} 
+\end{DoxySeeAlso}

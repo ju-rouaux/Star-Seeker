@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/joueur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">joueur.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="joueur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _JEU_JOUEUR_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _JEU_JOUEUR_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="entite_8h.html">entite.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="personnage_8h.html">personnage.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="attaque_8h.html">attaque.h</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="joueur_8h.html#a356b59b347562c683291691f5aa4dca0">   18</a></span>&#160;<span class="preprocessor">#define PROPORTION_JOUEUR 1.6 </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="joueur_8h.html#a2ffc1a78b3ae6e72377a2641899ae51c">   19</a></span>&#160;<span class="preprocessor">#define VITESSE_JOUEUR_DEFAULT 6.5 </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> to_up;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> to_down;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> to_left;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> to_right;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Temporaire</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> shooting;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//Attaque, dash, ...</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Overlay</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> map_showing;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> interaction;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_joueur</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    #include &lt;attributs_personnages.h&gt;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a> * flags;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//Autres données comme l&#39;expererience, l&#39;inventaire...</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <a class="code" href="structt__joueur.html">t_joueur</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<a class="code" href="structt__joueur.html">t_joueur</a> * <a class="code" href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, SDL_Texture * apparence);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> <a class="code" href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> ** joueur);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_JOUEUR_</span></div>
+<div class="ttc" id="aattaque_8h_html"><div class="ttname"><a href="attaque_8h.html">attaque.h</a></div><div class="ttdoc">Module gérant les attaques des personnages.</div></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Module de manipulation des entites.</div></div>
+<div class="ttc" id="ajoueur_8h_html_a1e9013c729e9fe43289429dc9df96d0e"><div class="ttname"><a href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a></div><div class="ttdeci">void detruireJoueur(t_joueur **joueur)</div><div class="ttdoc">Libère la mémoire allouée au joueur et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> joueur.c:179</div></div>
+<div class="ttc" id="ajoueur_8h_html_abede277b4d13650249d6ef69b267f2a8"><div class="ttname"><a href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a></div><div class="ttdeci">t_joueur * creerJoueur(float x, float y, SDL_Texture *apparence)</div><div class="ttdoc">Génère une structure joueur.</div><div class="ttdef"><b>Definition:</b> joueur.c:199</div></div>
+<div class="ttc" id="apersonnage_8h_html"><div class="ttname"><a href="personnage_8h.html">personnage.h</a></div><div class="ttdoc">Module.</div></div>
+<div class="ttc" id="astructt__joueur__flags_html"><div class="ttname"><a href="structt__joueur__flags.html">t_joueur_flags</a></div><div class="ttdoc">Structure contenant les entrées clavier/souris actives du joueur.</div><div class="ttdef"><b>Definition:</b> joueur.h:27</div></div>
+<div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

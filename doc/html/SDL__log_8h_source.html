@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/SDL2/SDL_log.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Test doxygen</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6eb94fcaf1241cf7490c09812b4ab44b.html">SDL2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">SDL_log.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SDL__log_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Simple DirectMedia Layer</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C) 1997-2022 Sam Lantinga &lt;slouken@libsdl.org&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  This software is provided &#39;as-is&#39;, without any express or implied</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  warranty.  In no event will the authors be held liable for any damages</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  arising from the use of this software.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  Permission is granted to anyone to use this software for any purpose,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  including commercial applications, and to alter it and redistribute it</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  freely, subject to the following restrictions:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  1. The origin of this software must not be misrepresented; you must not</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">     claim that you wrote the original software. If you use this software</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">     in a product, an acknowledgment in the product documentation would be</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     appreciated but is not required.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  2. Altered source versions must be plainly marked as such, and must not be</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     misrepresented as being the original software.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  3. This notice may not be removed or altered from any source distribution.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef SDL_log_h_</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define SDL_log_h_</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SDL__stdinc_8h.html">SDL_stdinc.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="begin__code_8h.html">begin_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/* Set up for C function definitions, even when using C++ */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a06c6de264730f257cdba6188b6aaae12">   54</a></span>&#160;<span class="preprocessor">#define SDL_MAX_LOG_MESSAGE 4096</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">   64</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    SDL_LOG_CATEGORY_APPLICATION,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    SDL_LOG_CATEGORY_ERROR,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    SDL_LOG_CATEGORY_ASSERT,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    SDL_LOG_CATEGORY_SYSTEM,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    SDL_LOG_CATEGORY_AUDIO,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    SDL_LOG_CATEGORY_VIDEO,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    SDL_LOG_CATEGORY_RENDER,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    SDL_LOG_CATEGORY_INPUT,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    SDL_LOG_CATEGORY_TEST,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">/* Reserved for future SDL library use */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SDL_LOG_CATEGORY_RESERVED1,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SDL_LOG_CATEGORY_RESERVED2,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SDL_LOG_CATEGORY_RESERVED3,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    SDL_LOG_CATEGORY_RESERVED4,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    SDL_LOG_CATEGORY_RESERVED5,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    SDL_LOG_CATEGORY_RESERVED6,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    SDL_LOG_CATEGORY_RESERVED7,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    SDL_LOG_CATEGORY_RESERVED8,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    SDL_LOG_CATEGORY_RESERVED9,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    SDL_LOG_CATEGORY_RESERVED10,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">/* Beyond this point is reserved for application use, e.g.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">       enum {</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">           MYAPP_CATEGORY_AWESOME1 = SDL_LOG_CATEGORY_CUSTOM,</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">           MYAPP_CATEGORY_AWESOME2,</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">           MYAPP_CATEGORY_AWESOME3,</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">           ...</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">       };</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    SDL_LOG_CATEGORY_CUSTOM</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <a class="code" href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">SDL_LogCategory</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">  102</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    SDL_LOG_PRIORITY_VERBOSE = 1,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    SDL_LOG_PRIORITY_DEBUG,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    SDL_LOG_PRIORITY_INFO,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    SDL_LOG_PRIORITY_WARN,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    SDL_LOG_PRIORITY_ERROR,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    SDL_LOG_PRIORITY_CRITICAL,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    SDL_NUM_LOG_PRIORITIES</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">  123</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">SDL_LogSetAllPriority</a>(<a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">  136</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a>(<span class="keywordtype">int</span> category,</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                                <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a26f0cff24dadd97d09808b6aaad3f5f4">  149</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> SDLCALL <a class="code" href="SDL__log_8h.html#a26f0cff24dadd97d09808b6aaad3f5f4">SDL_LogGetPriority</a>(<span class="keywordtype">int</span> category);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#acf17b4ea6a83e308c815fd4d50544eba">  161</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#acf17b4ea6a83e308c815fd4d50544eba">SDL_LogResetPriorities</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">  182</a></span>&#160;<span class="keyword">extern</span> DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a>(SDL_PRINTF_FORMAT_STRING <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(1);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">  203</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">  224</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">  245</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">  266</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">  287</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">  308</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a>(<span class="keywordtype">int</span> category, SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(2);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">  330</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a>(<span class="keywordtype">int</span> category,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                                            <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                                            SDL_PRINTF_FORMAT_STRING const <span class="keywordtype">char</span> *fmt, ...) SDL_PRINTF_VARARG_FUNC(3);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">  353</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a>(<span class="keywordtype">int</span> category,</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                                             <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority,</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                                             const <span class="keywordtype">char</span> *fmt, va_list ap);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">  367</a></span>&#160;typedef <span class="keywordtype">void</span> (SDLCALL *<a class="code" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a>)(<span class="keywordtype">void</span> *userdata, <span class="keywordtype">int</span> category, <a class="code" href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a> priority, const <span class="keywordtype">char</span> *message);</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a074ce8cf644b09454ec112084f9f399e">  381</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a074ce8cf644b09454ec112084f9f399e">SDL_LogGetOutputFunction</a>(<a class="code" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a> *callback, <span class="keywordtype">void</span> **userdata);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno"><a class="line" href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">  393</a></span>&#160;extern DECLSPEC <span class="keywordtype">void</span> SDLCALL <a class="code" href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">SDL_LogSetOutputFunction</a>(<a class="code" href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a> callback, <span class="keywordtype">void</span> *userdata);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">/* Ends C function definitions when using C++ */</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;}</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="close__code_8h.html">close_code.h</a>&quot;</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SDL_log_h_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">/* vi: set ts=4 sw=4 expandtab: */</span></div>
+<div class="ttc" id="aSDL__log_8h_html_a0749fe47180b98c04bd82aca7235d703"><div class="ttname"><a href="SDL__log_8h.html#a0749fe47180b98c04bd82aca7235d703">SDL_LogDebug</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogDebug(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a074ce8cf644b09454ec112084f9f399e"><div class="ttname"><a href="SDL__log_8h.html#a074ce8cf644b09454ec112084f9f399e">SDL_LogGetOutputFunction</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback, void **userdata)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a09e04f1d062a71901f59592c276ad946"><div class="ttname"><a href="SDL__log_8h.html#a09e04f1d062a71901f59592c276ad946">SDL_LogPriority</a></div><div class="ttdeci">SDL_LogPriority</div><div class="ttdoc">The predefined log priorities.</div><div class="ttdef"><b>Definition:</b> SDL_log.h:103</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a11c2a5b3bbfd910cf18fbc70cf513e24"><div class="ttname"><a href="SDL__log_8h.html#a11c2a5b3bbfd910cf18fbc70cf513e24">SDL_LogOutputFunction</a></div><div class="ttdeci">void(SDLCALL * SDL_LogOutputFunction)(void *userdata, int category, SDL_LogPriority priority, const char *message)</div><div class="ttdef"><b>Definition:</b> SDL_log.h:367</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a229eb1fdf797f548b20ee98ca8acaac6"><div class="ttname"><a href="SDL__log_8h.html#a229eb1fdf797f548b20ee98ca8acaac6">SDL_LogSetOutputFunction</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogSetOutputFunction(SDL_LogOutputFunction callback, void *userdata)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a26f0cff24dadd97d09808b6aaad3f5f4"><div class="ttname"><a href="SDL__log_8h.html#a26f0cff24dadd97d09808b6aaad3f5f4">SDL_LogGetPriority</a></div><div class="ttdeci">DECLSPEC SDL_LogPriority SDLCALL SDL_LogGetPriority(int category)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a2cacafd4d8e6d258da40e97a3cb3f80b"><div class="ttname"><a href="SDL__log_8h.html#a2cacafd4d8e6d258da40e97a3cb3f80b">SDL_LogMessageV</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogMessageV(int category, SDL_LogPriority priority, const char *fmt, va_list ap)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a34a7d9211a9ced1c1a6db4be0f3fbb7e"><div class="ttname"><a href="SDL__log_8h.html#a34a7d9211a9ced1c1a6db4be0f3fbb7e">SDL_LogVerbose</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogVerbose(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a3600cf500a030f892d41a61d9d30de19"><div class="ttname"><a href="SDL__log_8h.html#a3600cf500a030f892d41a61d9d30de19">SDL_LogCritical</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogCritical(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a712dc42164c67b7f9e23dc0e3b15bd92"><div class="ttname"><a href="SDL__log_8h.html#a712dc42164c67b7f9e23dc0e3b15bd92">SDL_Log</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_Log(SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(1)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a7fcfeca9c95069b6432bf1cdb01d0ba4"><div class="ttname"><a href="SDL__log_8h.html#a7fcfeca9c95069b6432bf1cdb01d0ba4">SDL_LogMessage</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogMessage(int category, SDL_LogPriority priority, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(3)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a81c8956ea1a84ad325c3f5ecd2094515"><div class="ttname"><a href="SDL__log_8h.html#a81c8956ea1a84ad325c3f5ecd2094515">SDL_LogInfo</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogInfo(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a8f54656094d10994fdb5399f271906ef"><div class="ttname"><a href="SDL__log_8h.html#a8f54656094d10994fdb5399f271906ef">SDL_LogSetAllPriority</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogSetAllPriority(SDL_LogPriority priority)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a91a7a09fec470638f028138626b3d126"><div class="ttname"><a href="SDL__log_8h.html#a91a7a09fec470638f028138626b3d126">SDL_LogWarn</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogWarn(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_a9a4809ac7942e029d0bf17f380d23f73"><div class="ttname"><a href="SDL__log_8h.html#a9a4809ac7942e029d0bf17f380d23f73">SDL_LogSetPriority</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogSetPriority(int category, SDL_LogPriority priority)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_acabe956be51b7a4c877dbfcb0489a02f"><div class="ttname"><a href="SDL__log_8h.html#acabe956be51b7a4c877dbfcb0489a02f">SDL_LogError</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogError(int category, SDL_PRINTF_FORMAT_STRING const char *fmt,...) SDL_PRINTF_VARARG_FUNC(2)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_acf17b4ea6a83e308c815fd4d50544eba"><div class="ttname"><a href="SDL__log_8h.html#acf17b4ea6a83e308c815fd4d50544eba">SDL_LogResetPriorities</a></div><div class="ttdeci">DECLSPEC void SDLCALL SDL_LogResetPriorities(void)</div></div>
+<div class="ttc" id="aSDL__log_8h_html_ad221d23d6438fe99a781fb04b118039d"><div class="ttname"><a href="SDL__log_8h.html#ad221d23d6438fe99a781fb04b118039d">SDL_LogCategory</a></div><div class="ttdeci">SDL_LogCategory</div><div class="ttdoc">The predefined log categories.</div><div class="ttdef"><b>Definition:</b> SDL_log.h:65</div></div>
+<div class="ttc" id="aSDL__stdinc_8h_html"><div class="ttname"><a href="SDL__stdinc_8h.html">SDL_stdinc.h</a></div></div>
+<div class="ttc" id="abegin__code_8h_html"><div class="ttname"><a href="begin__code_8h.html">begin_code.h</a></div></div>
+<div class="ttc" id="aclose__code_8h_html"><div class="ttname"><a href="close__code_8h.html">close_code.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

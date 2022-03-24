@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/generation_niveau.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier generation_niveau.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Génération d'un niveau : l'agencement des salles et leurs ids.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
+<code>#include &lt;generation_entites.h&gt;</code><br />
+<code>#include &lt;outils.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a66270fcdcb042a93aac889629746d29e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a66270fcdcb042a93aac889629746d29e">coordonnees_valides</a> (int i, int j)</td></tr>
+<tr class="separator:a66270fcdcb042a93aac889629746d29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b12fae0ea4f875e2140b4b8c90cfdb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a88b12fae0ea4f875e2140b4b8c90cfdb">nb_salles_adjacentes_dispo</a> (int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int i, int j, int compterDiagonales)</td></tr>
+<tr class="memdesc:a88b12fae0ea4f875e2140b4b8c90cfdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compter les salles VIDE à côté de la salle (i, j). Possibilité de compter les voisines diagonales ou pas.  <a href="generation__niveau_8c.html#a88b12fae0ea4f875e2140b4b8c90cfdb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a88b12fae0ea4f875e2140b4b8c90cfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d7a012e8a19020adeb3b54c9206704"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a24d7a012e8a19020adeb3b54c9206704">ajout_salle_adjacente</a> (int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int i, int j)</td></tr>
+<tr class="memdesc:a24d7a012e8a19020adeb3b54c9206704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée une salle adjacente à un côté aléatoire de (i, j).  <a href="generation__niveau_8c.html#a24d7a012e8a19020adeb3b54c9206704">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a24d7a012e8a19020adeb3b54c9206704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a569dea663f9c1d3a915208cfec1ee204"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a569dea663f9c1d3a915208cfec1ee204">identificationSalles</a> (int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX])</td></tr>
+<tr class="memdesc:a569dea663f9c1d3a915208cfec1ee204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne.  <a href="generation__niveau_8c.html#a569dea663f9c1d3a915208cfec1ee204">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a569dea663f9c1d3a915208cfec1ee204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2cbe39a51e047a5f86aca1c5b1a8e9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#abe2cbe39a51e047a5f86aca1c5b1a8e9">definir_coordonnees_salle_de_fin</a> (const int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int *i_fin, int *j_fin)</td></tr>
+<tr class="memdesc:abe2cbe39a51e047a5f86aca1c5b1a8e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribue à i_fin et j_fin les coordonnées de la salle finale du niveau.  <a href="generation__niveau_8c.html#abe2cbe39a51e047a5f86aca1c5b1a8e9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe2cbe39a51e047a5f86aca1c5b1a8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473bbe4bf876fe0199c27d10089c7914"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a473bbe4bf876fe0199c27d10089c7914">init_niveau</a> (int niv[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX])</td></tr>
+<tr class="memdesc:a473bbe4bf876fe0199c27d10089c7914"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise la matrice avec un niveau aléatoirement généré  <a href="generation__niveau_8c.html#a473bbe4bf876fe0199c27d10089c7914">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a473bbe4bf876fe0199c27d10089c7914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12a4ac49cc571e2c925822363bd328f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#ad12a4ac49cc571e2c925822363bd328f">seed_depuis_mot</a> (const char *mot)</td></tr>
+<tr class="memdesc:ad12a4ac49cc571e2c925822363bd328f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforme arbitrairement un mot (lettres) en seed (entier)  <a href="generation__niveau_8c.html#ad12a4ac49cc571e2c925822363bd328f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad12a4ac49cc571e2c925822363bd328f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6d9619346b3ac2f5c2ae1afb783774"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#a4e6d9619346b3ac2f5c2ae1afb783774">couleur_aleatoire</a> (<a class="el" href="structt__couleurRVB.html">t_couleurRVB</a> *couleur)</td></tr>
+<tr class="memdesc:a4e6d9619346b3ac2f5c2ae1afb783774"><td class="mdescLeft">&#160;</td><td class="mdescRight">génère une couleur aléatoire en évitant les nuances de gris.  <a href="generation__niveau_8c.html#a4e6d9619346b3ac2f5c2ae1afb783774">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4e6d9619346b3ac2f5c2ae1afb783774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adec97d0d2112b3247d1a5d6a39f094f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#adec97d0d2112b3247d1a5d6a39f094f7">detruire_niveau_info</a> (niveau_informations_t **niveau)</td></tr>
+<tr class="memdesc:adec97d0d2112b3247d1a5d6a39f094f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée à une information de niveau.  <a href="generation__niveau_8c.html#adec97d0d2112b3247d1a5d6a39f094f7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adec97d0d2112b3247d1a5d6a39f094f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="memItemLeft" align="right" valign="top">niveau_informations_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#adf7304357c3cd12ea6d7c3ee7b07ca36">creer_niveau_info</a> (const char *nom_planete)</td></tr>
+<tr class="memdesc:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale : crée le niveau et l'écrit dans une structure.  <a href="generation__niveau_8c.html#adf7304357c3cd12ea6d7c3ee7b07ca36">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Génération d'un niveau : l'agencement des salles et leurs ids. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Camille REMOUÉ </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a24d7a012e8a19020adeb3b54c9206704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d7a012e8a19020adeb3b54c9206704">&#9670;&nbsp;</a></span>ajout_salle_adjacente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int ajout_salle_adjacente </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>niv</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Crée une salle adjacente à un côté aléatoire de (i, j). </p>
+<p >Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN : Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDE. Attention : la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niv</td><td>Matrice principale </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée i </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée j</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>VRAI seulement si une nouvelle salle a été créée. </dd></dl>
+
+</div>
+</div>
+<a id="a66270fcdcb042a93aac889629746d29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66270fcdcb042a93aac889629746d29e">&#9670;&nbsp;</a></span>coordonnees_valides()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int coordonnees_valides </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Coordonnée i </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée j</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>VRAI seulement si les coordonnées sont à l'intérieur de la matrice </dd></dl>
+
+</div>
+</div>
+<a id="a4e6d9619346b3ac2f5c2ae1afb783774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6d9619346b3ac2f5c2ae1afb783774">&#9670;&nbsp;</a></span>couleur_aleatoire()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void couleur_aleatoire </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__couleurRVB.html">t_couleurRVB</a> *&#160;</td>
+          <td class="paramname"><em>couleur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>génère une couleur aléatoire en évitant les nuances de gris. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">couleur</td><td>La structure de retour </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adf7304357c3cd12ea6d7c3ee7b07ca36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf7304357c3cd12ea6d7c3ee7b07ca36">&#9670;&nbsp;</a></span>creer_niveau_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">niveau_informations_t* creer_niveau_info </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>nom_planete</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale : crée le niveau et l'écrit dans une structure. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom_planete</td><td>Nom associé à un niveau unique : il génère la seed </td></tr>
+  </table>
+  </dd>
+</dl>
+<p >!! A CALCULER</p>
+
+</div>
+</div>
+<a id="abe2cbe39a51e047a5f86aca1c5b1a8e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2cbe39a51e047a5f86aca1c5b1a8e9">&#9670;&nbsp;</a></span>definir_coordonnees_salle_de_fin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void definir_coordonnees_salle_de_fin </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>niv</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>i_fin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>j_fin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attribue à i_fin et j_fin les coordonnées de la salle finale du niveau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_fin</td><td></td></tr>
+    <tr><td class="paramname">j_fin</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adec97d0d2112b3247d1a5d6a39f094f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec97d0d2112b3247d1a5d6a39f094f7">&#9670;&nbsp;</a></span>detruire_niveau_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_niveau_info </td>
+          <td>(</td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>niveau</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée à une information de niveau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>L'adresse de la structure à libérer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a569dea663f9c1d3a915208cfec1ee204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569dea663f9c1d3a915208cfec1ee204">&#9670;&nbsp;</a></span>identificationSalles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void identificationSalles </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>niv</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attribue un identifiant entier à chaque salle. En donnant le même id à plusieurs salles adjacentes, on les fusionne. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niv</td><td>La matrice du niveau </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a473bbe4bf876fe0199c27d10089c7914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a473bbe4bf876fe0199c27d10089c7914">&#9670;&nbsp;</a></span>init_niveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_niveau </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>niv</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initialise la matrice avec un niveau aléatoirement généré </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niv</td><td>La matrice de sortie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a88b12fae0ea4f875e2140b4b8c90cfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88b12fae0ea4f875e2140b4b8c90cfdb">&#9670;&nbsp;</a></span>nb_salles_adjacentes_dispo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int nb_salles_adjacentes_dispo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>niv</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>compterDiagonales</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compter les salles VIDE à côté de la salle (i, j). Possibilité de compter les voisines diagonales ou pas. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niv</td><td>Matrice principale </td></tr>
+    <tr><td class="paramname">i</td><td>Coordonnée i </td></tr>
+    <tr><td class="paramname">j</td><td>Coordonnée j </td></tr>
+    <tr><td class="paramname">compterDiagonales</td><td>Si égal à 0, ne pas compter les voisines diagonales. Toute autre valeur les prend en compte.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nombre de cases VIDE adjacentes à la case (i, j) : </dd></dl>
+
+</div>
+</div>
+<a id="ad12a4ac49cc571e2c925822363bd328f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12a4ac49cc571e2c925822363bd328f">&#9670;&nbsp;</a></span>seed_depuis_mot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int seed_depuis_mot </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforme arbitrairement un mot (lettres) en seed (entier) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mot</td><td>chaine de caractères en entrée</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La seed correspondant au mot. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

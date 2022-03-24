@@ -1,0 +1,63 @@
+\hypertarget{window_8h}{}\doxysection{Référence du fichier include/window.h}
+\label{window_8h}\index{include/window.h@{include/window.h}}
+
+
+Module de création de la fenêtre du jeu et son rendu.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{window_8h_abe030b8f3d50bd96d812ffe870beffe6}{creer\+Fenetre\+Et\+Rendu}} (SDL\+\_\+\+Window $\ast$$\ast$window, SDL\+\_\+\+Renderer $\ast$$\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Génère une fenêtre et son rendu, pour les mettre dans les pointeurs donnés en paramètre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{window_8h_a5126ee66e020aef511facbd374979bb4}{detruire\+Fenetre\+Et\+Rendu}} (SDL\+\_\+\+Window $\ast$$\ast$window, SDL\+\_\+\+Renderer $\ast$$\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la fenêtre et son rendu, et met les pointeurs à NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de création de la fenêtre du jeu et son rendu. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{window_8h_abe030b8f3d50bd96d812ffe870beffe6}\label{window_8h_abe030b8f3d50bd96d812ffe870beffe6}} 
+\index{window.h@{window.h}!creerFenetreEtRendu@{creerFenetreEtRendu}}
+\index{creerFenetreEtRendu@{creerFenetreEtRendu}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{creerFenetreEtRendu()}{creerFenetreEtRendu()}}
+{\footnotesize\ttfamily int creer\+Fenetre\+Et\+Rendu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Génère une fenêtre et son rendu, pour les mettre dans les pointeurs donnés en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & L\textquotesingle{}adresse du pointeur de fenêtre \\
+\hline
+{\em renderer} & L\textquotesingle{}adresse du pointeur de rendu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, sinon une valeur négative. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{window_8h_a5126ee66e020aef511facbd374979bb4}\label{window_8h_a5126ee66e020aef511facbd374979bb4}} 
+\index{window.h@{window.h}!detruireFenetreEtRendu@{detruireFenetreEtRendu}}
+\index{detruireFenetreEtRendu@{detruireFenetreEtRendu}!window.h@{window.h}}
+\doxysubsubsection{\texorpdfstring{detruireFenetreEtRendu()}{detruireFenetreEtRendu()}}
+{\footnotesize\ttfamily void detruire\+Fenetre\+Et\+Rendu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée pour la fenêtre et son rendu, et met les pointeurs à NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & L\textquotesingle{}adresse du pointeur de fenêtre \\
+\hline
+{\em renderer} & L\textquotesingle{}adresse du pointeur de rendu \\
+\hline
+\end{DoxyParams}

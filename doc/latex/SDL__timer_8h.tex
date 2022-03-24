@@ -1,0 +1,246 @@
+\hypertarget{SDL__timer_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+timer.h}
+\label{SDL__timer_8h}\index{include/SDL2/SDL\_timer.h@{include/SDL2/SDL\_timer.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SDL__timer_8h_a5cc109e24ba0c46f6becb28353cd8921}{SDL\+\_\+\+TICKS\+\_\+\+PASSED}}(A,  B)~((Sint32)((B) -\/ (A)) $<$= 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef Uint32(SDLCALL $\ast$ \mbox{\hyperlink{SDL__timer_8h_a3c5c867db975d245e4a82fcf0cd7de80}{SDL\+\_\+\+Timer\+Callback}}) (Uint32 interval, void $\ast$param)
+\item 
+typedef int \mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC Uint32 SDLCALL \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks}} (void)
+\item 
+DECLSPEC Uint64 SDLCALL \mbox{\hyperlink{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}{SDL\+\_\+\+Get\+Ticks64}} (void)
+\item 
+DECLSPEC Uint64 SDLCALL \mbox{\hyperlink{SDL__timer_8h_a2dbeb63c4f0564811a4adf3938808977}{SDL\+\_\+\+Get\+Performance\+Counter}} (void)
+\item 
+DECLSPEC Uint64 SDLCALL \mbox{\hyperlink{SDL__timer_8h_a507ebea12e31dacc9f85f7d9febe0efb}{SDL\+\_\+\+Get\+Performance\+Frequency}} (void)
+\item 
+DECLSPEC void SDLCALL \mbox{\hyperlink{SDL__timer_8h_ae8050b95373b95249064467592ab4e21}{SDL\+\_\+\+Delay}} (Uint32 ms)
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}} SDLCALL \mbox{\hyperlink{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}{SDL\+\_\+\+Add\+Timer}} (Uint32 interval, \mbox{\hyperlink{SDL__timer_8h_a3c5c867db975d245e4a82fcf0cd7de80}{SDL\+\_\+\+Timer\+Callback}} callback, void $\ast$param)
+\item 
+DECLSPEC SDL\+\_\+bool SDLCALL \mbox{\hyperlink{SDL__timer_8h_afe8d418e59a24ae6ad820b92137ab9b2}{SDL\+\_\+\+Remove\+Timer}} (\mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}} id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header for the SDL time management routines. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{SDL__timer_8h_a5cc109e24ba0c46f6becb28353cd8921}\label{SDL__timer_8h_a5cc109e24ba0c46f6becb28353cd8921}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_TICKS\_PASSED@{SDL\_TICKS\_PASSED}}
+\index{SDL\_TICKS\_PASSED@{SDL\_TICKS\_PASSED}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TICKS\_PASSED}{SDL\_TICKS\_PASSED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+TICKS\+\_\+\+PASSED(\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{B }\end{DoxyParamCaption})~((Sint32)((B) -\/ (A)) $<$= 0)}
+
+Compare 32-\/bit SDL ticks values, and return true if {\ttfamily A} has passed {\ttfamily B}.
+
+This should be used with results from \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}}, as this macro attempts to deal with the 32-\/bit counter wrapping back to zero every $\sim$49 days, but should {\itshape not} be used with \mbox{\hyperlink{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}{SDL\+\_\+\+Get\+Ticks64()}}, which does not have that problem.
+
+For example, with \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}}, if you want to wait 100 ms, you could do this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const} Uint32 timeout = \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\_GetTicks}}() + 100;}
+\DoxyCodeLine{\textcolor{keywordflow}{while} (!\mbox{\hyperlink{SDL__timer_8h_a5cc109e24ba0c46f6becb28353cd8921}{SDL\_TICKS\_PASSED}}(\mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\_GetTicks}}(), timeout)) \{}
+\DoxyCodeLine{    \textcolor{comment}{// ... do work until timeout has elapsed}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Note that this does not handle tick differences greater than 2$^\wedge$31 so take care when using the above kind of code with large timeout delays (tens of days). 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{SDL__timer_8h_a3c5c867db975d245e4a82fcf0cd7de80}\label{SDL__timer_8h_a3c5c867db975d245e4a82fcf0cd7de80}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_TimerCallback@{SDL\_TimerCallback}}
+\index{SDL\_TimerCallback@{SDL\_TimerCallback}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TimerCallback}{SDL\_TimerCallback}}
+{\footnotesize\ttfamily typedef Uint32(SDLCALL $\ast$ SDL\+\_\+\+Timer\+Callback) (Uint32 interval, void $\ast$param)}
+
+Function prototype for the timer callback function.
+
+The callback function is passed the current timer interval and returns the next timer interval. If the returned value is the same as the one passed in, the periodic alarm continues, otherwise a new alarm is scheduled. If the callback returns 0, the periodic alarm is cancelled. \mbox{\Hypertarget{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}\label{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_TimerID@{SDL\_TimerID}}
+\index{SDL\_TimerID@{SDL\_TimerID}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_TimerID}{SDL\_TimerID}}
+{\footnotesize\ttfamily typedef int \mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}}}
+
+Definition of the timer ID type. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}\label{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_AddTimer@{SDL\_AddTimer}}
+\index{SDL\_AddTimer@{SDL\_AddTimer}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_AddTimer()}{SDL\_AddTimer()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}} SDLCALL SDL\+\_\+\+Add\+Timer (\begin{DoxyParamCaption}\item[{Uint32}]{interval,  }\item[{\mbox{\hyperlink{SDL__timer_8h_a3c5c867db975d245e4a82fcf0cd7de80}{SDL\+\_\+\+Timer\+Callback}}}]{callback,  }\item[{void $\ast$}]{param }\end{DoxyParamCaption})}
+
+Call a callback function at a future time.
+
+If you use this function, you must pass {\ttfamily SDL\+\_\+\+INIT\+\_\+\+TIMER} to \mbox{\hyperlink{SDL_8h_a8fc8d35348d7c74bad8392d776c937b8}{SDL\+\_\+\+Init()}}.
+
+The callback function is passed the current timer interval and the user supplied parameter from the \mbox{\hyperlink{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}{SDL\+\_\+\+Add\+Timer()}} call and should return the next timer interval. If the value returned from the callback is 0, the timer is canceled.
+
+The callback is run on a separate thread.
+
+Timers take into account the amount of time it took to execute the callback. For example, if the callback took 250 ms to execute and returned 1000 (ms), the timer would only wait another 750 ms before its next iteration.
+
+Timing may be inexact due to OS scheduling. Be sure to note the current time with \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} or \mbox{\hyperlink{SDL__timer_8h_a2dbeb63c4f0564811a4adf3938808977}{SDL\+\_\+\+Get\+Performance\+Counter()}} in case your callback needs to adjust for variances.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em interval} & the timer delay, in milliseconds, passed to {\ttfamily callback} \\
+\hline
+{\em callback} & the SDL\+\_\+\+Timer\+Callback function to call when the specified {\ttfamily interval} elapses \\
+\hline
+{\em param} & a pointer that is passed to {\ttfamily callback} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a timer ID or 0 if an error occurs; call \mbox{\hyperlink{SDL__error_8h_ac88e1aa404a8f94aaee4ad6b94547647}{SDL\+\_\+\+Get\+Error()}} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__timer_8h_afe8d418e59a24ae6ad820b92137ab9b2}{SDL\+\_\+\+Remove\+Timer}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__timer_8h_ae8050b95373b95249064467592ab4e21}\label{SDL__timer_8h_ae8050b95373b95249064467592ab4e21}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_Delay@{SDL\_Delay}}
+\index{SDL\_Delay@{SDL\_Delay}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_Delay()}{SDL\_Delay()}}
+{\footnotesize\ttfamily DECLSPEC void SDLCALL SDL\+\_\+\+Delay (\begin{DoxyParamCaption}\item[{Uint32}]{ms }\end{DoxyParamCaption})}
+
+Wait a specified number of milliseconds before returning.
+
+This function waits a specified number of milliseconds before returning. It waits at least the specified time, but possibly longer due to OS scheduling.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ms} & the number of milliseconds to delay\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__timer_8h_a2dbeb63c4f0564811a4adf3938808977}\label{SDL__timer_8h_a2dbeb63c4f0564811a4adf3938808977}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_GetPerformanceCounter@{SDL\_GetPerformanceCounter}}
+\index{SDL\_GetPerformanceCounter@{SDL\_GetPerformanceCounter}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPerformanceCounter()}{SDL\_GetPerformanceCounter()}}
+{\footnotesize\ttfamily DECLSPEC Uint64 SDLCALL SDL\+\_\+\+Get\+Performance\+Counter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the current value of the high resolution counter.
+
+This function is typically used for profiling.
+
+The counter values are only meaningful relative to each other. Differences between values can be converted to times by using \mbox{\hyperlink{SDL__timer_8h_a507ebea12e31dacc9f85f7d9febe0efb}{SDL\+\_\+\+Get\+Performance\+Frequency()}}.
+
+\begin{DoxyReturn}{Renvoie}
+the current counter value.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__timer_8h_a507ebea12e31dacc9f85f7d9febe0efb}{SDL\+\_\+\+Get\+Performance\+Frequency}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__timer_8h_a507ebea12e31dacc9f85f7d9febe0efb}\label{SDL__timer_8h_a507ebea12e31dacc9f85f7d9febe0efb}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_GetPerformanceFrequency@{SDL\_GetPerformanceFrequency}}
+\index{SDL\_GetPerformanceFrequency@{SDL\_GetPerformanceFrequency}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPerformanceFrequency()}{SDL\_GetPerformanceFrequency()}}
+{\footnotesize\ttfamily DECLSPEC Uint64 SDLCALL SDL\+\_\+\+Get\+Performance\+Frequency (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the count per second of the high resolution counter.
+
+\begin{DoxyReturn}{Renvoie}
+a platform-\/specific count per second.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__timer_8h_a2dbeb63c4f0564811a4adf3938808977}{SDL\+\_\+\+Get\+Performance\+Counter}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}\label{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_GetTicks@{SDL\_GetTicks}}
+\index{SDL\_GetTicks@{SDL\_GetTicks}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetTicks()}{SDL\_GetTicks()}}
+{\footnotesize\ttfamily DECLSPEC Uint32 SDLCALL SDL\+\_\+\+Get\+Ticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of milliseconds since SDL library initialization.
+
+This value wraps if the program runs for more than $\sim$49 days.
+
+This function is not recommended as of SDL 2.\+0.\+18; use \mbox{\hyperlink{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}{SDL\+\_\+\+Get\+Ticks64()}} instead, where the value doesn\textquotesingle{}t wrap every $\sim$49 days. There are places in SDL where we provide a 32-\/bit timestamp that can not change without breaking binary compatibility, though, so this function isn\textquotesingle{}t officially deprecated.
+
+\begin{DoxyReturn}{Renvoie}
+an unsigned 32-\/bit value representing the number of milliseconds since the SDL library initialized.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__timer_8h_a5cc109e24ba0c46f6becb28353cd8921}{SDL\+\_\+\+TICKS\+\_\+\+PASSED}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}\label{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_GetTicks64@{SDL\_GetTicks64}}
+\index{SDL\_GetTicks64@{SDL\_GetTicks64}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetTicks64()}{SDL\_GetTicks64()}}
+{\footnotesize\ttfamily DECLSPEC Uint64 SDLCALL SDL\+\_\+\+Get\+Ticks64 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of milliseconds since SDL library initialization.
+
+Note that you should not use the SDL\+\_\+\+TICKS\+\_\+\+PASSED macro with values returned by this function, as that macro does clever math to compensate for the 32-\/bit overflow every $\sim$49 days that \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} suffers from. 64-\/bit values from this function can be safely compared directly.
+
+For example, if you want to wait 100 ms, you could do this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const} Uint64 timeout = \mbox{\hyperlink{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}{SDL\_GetTicks64}}() + 100;}
+\DoxyCodeLine{\textcolor{keywordflow}{while} (\mbox{\hyperlink{SDL__timer_8h_abf49cb0e55ee7685699893d251468861}{SDL\_GetTicks64}}() < timeout) \{}
+\DoxyCodeLine{    \textcolor{comment}{// ... do work until timeout has elapsed}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyReturn}{Renvoie}
+an unsigned 64-\/bit value representing the number of milliseconds since the SDL library initialized.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+18. 
+\end{DoxySince}
+\mbox{\Hypertarget{SDL__timer_8h_afe8d418e59a24ae6ad820b92137ab9b2}\label{SDL__timer_8h_afe8d418e59a24ae6ad820b92137ab9b2}} 
+\index{SDL\_timer.h@{SDL\_timer.h}!SDL\_RemoveTimer@{SDL\_RemoveTimer}}
+\index{SDL\_RemoveTimer@{SDL\_RemoveTimer}!SDL\_timer.h@{SDL\_timer.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_RemoveTimer()}{SDL\_RemoveTimer()}}
+{\footnotesize\ttfamily DECLSPEC SDL\+\_\+bool SDLCALL SDL\+\_\+\+Remove\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SDL__timer_8h_a412e8ff8a6c89615ba8f9486b292213a}{SDL\+\_\+\+Timer\+ID}}}]{id }\end{DoxyParamCaption})}
+
+Remove a timer created with \mbox{\hyperlink{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}{SDL\+\_\+\+Add\+Timer()}}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & the ID of the timer to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SDL\+\_\+\+TRUE if the timer is removed or SDL\+\_\+\+FALSE if the timer wasn\textquotesingle{}t found.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{SDL__timer_8h_a56ceea49587e3fa5796b2e4bf85603b8}{SDL\+\_\+\+Add\+Timer}} 
+\end{DoxySeeAlso}

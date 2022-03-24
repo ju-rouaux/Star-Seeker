@@ -1,0 +1,97 @@
+\hypertarget{structSDL__MouseMotionEvent}{}\doxysection{Référence de la structure SDL\+\_\+\+Mouse\+Motion\+Event}
+\label{structSDL__MouseMotionEvent}\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+
+
+Mouse motion event structure (event.\+motion.$\ast$)  
+
+
+
+
+{\ttfamily \#include $<$SDL\+\_\+events.\+h$>$}
+
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a431dd28cd6db6a7335cf633dbeb80cfb}{type}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_af530bc0ef327ea6d497c5b1da119841c}{timestamp}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_aa9976725242ada93a9e18e7fdf5796e6}{window\+ID}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a6f04c17b4305683915e2fd2dc3c36dbc}{which}}
+\item 
+Uint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a3f6e9bad9d959b824881ba09e05b7024}{state}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a36398bb4a5308446a262b0bfc8baa80a}{x}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a7e6a7b1f8713d1968dc913908e8ea448}{y}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a1c01d9aba2a20778fb45a15dca39ef58}{xrel}}
+\item 
+Sint32 \mbox{\hyperlink{structSDL__MouseMotionEvent_a7674c8b92d039ab948f671a180fa7b30}{yrel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Mouse motion event structure (event.\+motion.$\ast$) 
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structSDL__MouseMotionEvent_a3f6e9bad9d959b824881ba09e05b7024}\label{structSDL__MouseMotionEvent_a3f6e9bad9d959b824881ba09e05b7024}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!state@{state}}
+\index{state@{state}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::state}
+
+The current button state \mbox{\Hypertarget{structSDL__MouseMotionEvent_af530bc0ef327ea6d497c5b1da119841c}\label{structSDL__MouseMotionEvent_af530bc0ef327ea6d497c5b1da119841c}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::timestamp}
+
+In milliseconds, populated using \mbox{\hyperlink{SDL__timer_8h_a0b9bc71d6287e0ffafdc3419760fe2b3}{SDL\+\_\+\+Get\+Ticks()}} \mbox{\Hypertarget{structSDL__MouseMotionEvent_a431dd28cd6db6a7335cf633dbeb80cfb}\label{structSDL__MouseMotionEvent_a431dd28cd6db6a7335cf633dbeb80cfb}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!type@{type}}
+\index{type@{type}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::type}
+
+\mbox{\hyperlink{SDL__events_8h_a3b589e89be6b35c02e0dd34a55f3fccaa04c436ef80fef38fb77a89e0e9124c30}{SDL\+\_\+\+MOUSEMOTION}} \mbox{\Hypertarget{structSDL__MouseMotionEvent_a6f04c17b4305683915e2fd2dc3c36dbc}\label{structSDL__MouseMotionEvent_a6f04c17b4305683915e2fd2dc3c36dbc}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!which@{which}}
+\index{which@{which}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{which}{which}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::which}
+
+The mouse instance id, or SDL\+\_\+\+TOUCH\+\_\+\+MOUSEID \mbox{\Hypertarget{structSDL__MouseMotionEvent_aa9976725242ada93a9e18e7fdf5796e6}\label{structSDL__MouseMotionEvent_aa9976725242ada93a9e18e7fdf5796e6}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!windowID@{windowID}}
+\index{windowID@{windowID}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{windowID}{windowID}}
+{\footnotesize\ttfamily Uint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::window\+ID}
+
+The window with mouse focus, if any \mbox{\Hypertarget{structSDL__MouseMotionEvent_a36398bb4a5308446a262b0bfc8baa80a}\label{structSDL__MouseMotionEvent_a36398bb4a5308446a262b0bfc8baa80a}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!x@{x}}
+\index{x@{x}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::x}
+
+X coordinate, relative to window \mbox{\Hypertarget{structSDL__MouseMotionEvent_a1c01d9aba2a20778fb45a15dca39ef58}\label{structSDL__MouseMotionEvent_a1c01d9aba2a20778fb45a15dca39ef58}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!xrel@{xrel}}
+\index{xrel@{xrel}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{xrel}{xrel}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::xrel}
+
+The relative motion in the X direction \mbox{\Hypertarget{structSDL__MouseMotionEvent_a7e6a7b1f8713d1968dc913908e8ea448}\label{structSDL__MouseMotionEvent_a7e6a7b1f8713d1968dc913908e8ea448}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!y@{y}}
+\index{y@{y}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::y}
+
+Y coordinate, relative to window \mbox{\Hypertarget{structSDL__MouseMotionEvent_a7674c8b92d039ab948f671a180fa7b30}\label{structSDL__MouseMotionEvent_a7674c8b92d039ab948f671a180fa7b30}} 
+\index{SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}!yrel@{yrel}}
+\index{yrel@{yrel}!SDL\_MouseMotionEvent@{SDL\_MouseMotionEvent}}
+\doxysubsubsection{\texorpdfstring{yrel}{yrel}}
+{\footnotesize\ttfamily Sint32 SDL\+\_\+\+Mouse\+Motion\+Event\+::yrel}
+
+The relative motion in the Y direction 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\+SDL2/\mbox{\hyperlink{SDL__events_8h}{SDL\+\_\+events.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/attaque.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">attaque.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="attaque_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _JEU_ATTAQUE_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _JEU_ATTAQUE_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="moteur_8h.html">moteur.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="projectiles_8h.html">projectiles.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_personnage <a class="code" href="structt__personnage.html">t_personnage</a>; <span class="comment">//Pour les prototypes de fonction</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    DEMO, SNIPER, A_360, SABRE_LASER, LASER_CONTINU</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} e_nom_attaque;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">//Définition de l&#39;attaque de tir</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    e_type_projectile type_projectile;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> cooldown; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">nb_salves</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">nb_proj_salve</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">tir_interval</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">   36</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">etalement</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Variables pour l&#39;exécution</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#a5a2ac8ce5fd96cac17c537d57c607dae">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__attaque__tir.html#a5a2ac8ce5fd96cac17c537d57c607dae">nb_salves_restantes</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structt__attaque__tir.html#adf292cac506397cf51109a251bd652d1">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__attaque__tir.html#adf292cac506397cf51109a251bd652d1">temps_debut_attaque</a>; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <a class="code" href="structt__attaque__tir.html">t_attaque_tir</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structt__attaque__corps.html">   49</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> cooldown;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> cooldown_restant;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <a class="code" href="structt__attaque__corps.html">t_attaque_corps</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> <a class="code" href="attaque_8h.html#adb931616942b8e32011135199dc287c3">chargerAttaqueTir</a>(<a class="code" href="structt__attaque__tir.html">t_attaque_tir</a> * attaque, e_nom_attaque nouvelle_attaque);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> <a class="code" href="attaque_8h.html#a8f4acf25e5f918118744d8ea52d33d57">updateAttaqueTir</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur, <a class="code" href="structt__personnage.html">t_personnage</a> * personnage, <span class="keywordtype">int</span> attaquer);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_ATTAQUE_</span></div>
+<div class="ttc" id="aattaque_8h_html_a8f4acf25e5f918118744d8ea52d33d57"><div class="ttname"><a href="attaque_8h.html#a8f4acf25e5f918118744d8ea52d33d57">updateAttaqueTir</a></div><div class="ttdeci">void updateAttaqueTir(t_moteur *moteur, t_personnage *personnage, int attaquer)</div><div class="ttdoc">Cette fonction devant être appelée à chaque actualisation d'un personnage permet à une attaque de con...</div><div class="ttdef"><b>Definition:</b> attaque.c:155</div></div>
+<div class="ttc" id="aattaque_8h_html_adb931616942b8e32011135199dc287c3"><div class="ttname"><a href="attaque_8h.html#adb931616942b8e32011135199dc287c3">chargerAttaqueTir</a></div><div class="ttdeci">void chargerAttaqueTir(t_attaque_tir *attaque, e_nom_attaque nouvelle_attaque)</div><div class="ttdoc">Actualise les champs de la structure attaque vers les paramètres décrits par le nom de la future atta...</div><div class="ttdef"><b>Definition:</b> attaque.c:33</div></div>
+<div class="ttc" id="amoteur_8h_html"><div class="ttname"><a href="moteur_8h.html">moteur.h</a></div><div class="ttdoc">Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une...</div></div>
+<div class="ttc" id="aprojectiles_8h_html"><div class="ttname"><a href="projectiles_8h.html">projectiles.h</a></div><div class="ttdoc">Module de définition de projectiles.</div></div>
+<div class="ttc" id="astructt__attaque__corps_html"><div class="ttname"><a href="structt__attaque__corps.html">t_attaque_corps</a></div><div class="ttdoc">Modélise une arme de corps à corps.</div><div class="ttdef"><b>Definition:</b> attaque.h:50</div></div>
+<div class="ttc" id="astructt__attaque__tir_html"><div class="ttname"><a href="structt__attaque__tir.html">t_attaque_tir</a></div><div class="ttdoc">Modélise une arme générant des projectiles.</div><div class="ttdef"><b>Definition:</b> attaque.h:28</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_a4816f78a3d4b9e2f7793bdd05e5a863a"><div class="ttname"><a href="structt__attaque__tir.html#a4816f78a3d4b9e2f7793bdd05e5a863a">t_attaque_tir::etalement</a></div><div class="ttdeci">float etalement</div><div class="ttdef"><b>Definition:</b> attaque.h:36</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_a5a2ac8ce5fd96cac17c537d57c607dae"><div class="ttname"><a href="structt__attaque__tir.html#a5a2ac8ce5fd96cac17c537d57c607dae">t_attaque_tir::nb_salves_restantes</a></div><div class="ttdeci">int nb_salves_restantes</div><div class="ttdef"><b>Definition:</b> attaque.h:40</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_a654379393a4ac09f78c10e556038c3bc"><div class="ttname"><a href="structt__attaque__tir.html#a654379393a4ac09f78c10e556038c3bc">t_attaque_tir::tir_interval</a></div><div class="ttdeci">int tir_interval</div><div class="ttdef"><b>Definition:</b> attaque.h:35</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_aa9ff1170ae3b69d969c62005381ea530"><div class="ttname"><a href="structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530">t_attaque_tir::nb_proj_salve</a></div><div class="ttdeci">int nb_proj_salve</div><div class="ttdef"><b>Definition:</b> attaque.h:34</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_ad7a799864f764222e79d5aedc1d4ab12"><div class="ttname"><a href="structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12">t_attaque_tir::nb_salves</a></div><div class="ttdeci">int nb_salves</div><div class="ttdef"><b>Definition:</b> attaque.h:33</div></div>
+<div class="ttc" id="astructt__attaque__tir_html_adf292cac506397cf51109a251bd652d1"><div class="ttname"><a href="structt__attaque__tir.html#adf292cac506397cf51109a251bd652d1">t_attaque_tir::temps_debut_attaque</a></div><div class="ttdeci">int temps_debut_attaque</div><div class="ttdef"><b>Definition:</b> attaque.h:41</div></div>
+<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécéssaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
+<div class="ttc" id="astructt__personnage_html"><div class="ttname"><a href="structt__personnage.html">t_personnage</a></div><div class="ttdoc">Modélise un personnage (joueur ou ennemi).</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

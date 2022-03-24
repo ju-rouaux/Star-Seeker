@@ -1,0 +1,86 @@
+\hypertarget{SDL__power_8h}{}\doxysection{Référence du fichier include/\+SDL2/\+SDL\+\_\+power.h}
+\label{SDL__power_8h}\index{include/SDL2/SDL\_power.h@{include/SDL2/SDL\_power.h}}
+{\ttfamily \#include \char`\"{}SDL\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}{SDL\+\_\+\+Power\+State}} \{ \newline
+\mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa5c20e9c8a8c455a9ed9c66167ac2df61}{SDL\+\_\+\+POWERSTATE\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa864da7f4b32af694cb94c9ba58dab985}{SDL\+\_\+\+POWERSTATE\+\_\+\+ON\+\_\+\+BATTERY}}
+, \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa03bcd1ca770f703d834d67756fdafbeb}{SDL\+\_\+\+POWERSTATE\+\_\+\+NO\+\_\+\+BATTERY}}
+, \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa051d2e5681ad1647ff274ef17fc7ca1e}{SDL\+\_\+\+POWERSTATE\+\_\+\+CHARGING}}
+, \newline
+\mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa320ceff2db32f9bc2e1b8d644d1fb0b4}{SDL\+\_\+\+POWERSTATE\+\_\+\+CHARGED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+DECLSPEC \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}{SDL\+\_\+\+Power\+State}} SDLCALL \mbox{\hyperlink{SDL__power_8h_aed0dded691bb8ec94b119a90a1126049}{SDL\+\_\+\+Get\+Power\+Info}} (int $\ast$secs, int $\ast$pct)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Header for the SDL power management routines. 
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}} 
+\index{SDL\_power.h@{SDL\_power.h}!SDL\_PowerState@{SDL\_PowerState}}
+\index{SDL\_PowerState@{SDL\_PowerState}!SDL\_power.h@{SDL\_power.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_PowerState}{SDL\_PowerState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}{SDL\+\_\+\+Power\+State}}}
+
+The basic state for the system\textquotesingle{}s power supply. \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_POWERSTATE\_UNKNOWN@{SDL\_POWERSTATE\_UNKNOWN}!SDL\_power.h@{SDL\_power.h}}\index{SDL\_power.h@{SDL\_power.h}!SDL\_POWERSTATE\_UNKNOWN@{SDL\_POWERSTATE\_UNKNOWN}}}\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa5c20e9c8a8c455a9ed9c66167ac2df61}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa5c20e9c8a8c455a9ed9c66167ac2df61}} 
+SDL\+\_\+\+POWERSTATE\+\_\+\+UNKNOWN&cannot determine power status \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_POWERSTATE\_ON\_BATTERY@{SDL\_POWERSTATE\_ON\_BATTERY}!SDL\_power.h@{SDL\_power.h}}\index{SDL\_power.h@{SDL\_power.h}!SDL\_POWERSTATE\_ON\_BATTERY@{SDL\_POWERSTATE\_ON\_BATTERY}}}\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa864da7f4b32af694cb94c9ba58dab985}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa864da7f4b32af694cb94c9ba58dab985}} 
+SDL\+\_\+\+POWERSTATE\+\_\+\+ON\+\_\+\+BATTERY&Not plugged in, running on the battery \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_POWERSTATE\_NO\_BATTERY@{SDL\_POWERSTATE\_NO\_BATTERY}!SDL\_power.h@{SDL\_power.h}}\index{SDL\_power.h@{SDL\_power.h}!SDL\_POWERSTATE\_NO\_BATTERY@{SDL\_POWERSTATE\_NO\_BATTERY}}}\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa03bcd1ca770f703d834d67756fdafbeb}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa03bcd1ca770f703d834d67756fdafbeb}} 
+SDL\+\_\+\+POWERSTATE\+\_\+\+NO\+\_\+\+BATTERY&Plugged in, no battery available \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_POWERSTATE\_CHARGING@{SDL\_POWERSTATE\_CHARGING}!SDL\_power.h@{SDL\_power.h}}\index{SDL\_power.h@{SDL\_power.h}!SDL\_POWERSTATE\_CHARGING@{SDL\_POWERSTATE\_CHARGING}}}\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa051d2e5681ad1647ff274ef17fc7ca1e}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa051d2e5681ad1647ff274ef17fc7ca1e}} 
+SDL\+\_\+\+POWERSTATE\+\_\+\+CHARGING&Plugged in, charging battery \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_POWERSTATE\_CHARGED@{SDL\_POWERSTATE\_CHARGED}!SDL\_power.h@{SDL\_power.h}}\index{SDL\_power.h@{SDL\_power.h}!SDL\_POWERSTATE\_CHARGED@{SDL\_POWERSTATE\_CHARGED}}}\mbox{\Hypertarget{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa320ceff2db32f9bc2e1b8d644d1fb0b4}\label{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7effa320ceff2db32f9bc2e1b8d644d1fb0b4}} 
+SDL\+\_\+\+POWERSTATE\+\_\+\+CHARGED&Plugged in, battery charged \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{SDL__power_8h_aed0dded691bb8ec94b119a90a1126049}\label{SDL__power_8h_aed0dded691bb8ec94b119a90a1126049}} 
+\index{SDL\_power.h@{SDL\_power.h}!SDL\_GetPowerInfo@{SDL\_GetPowerInfo}}
+\index{SDL\_GetPowerInfo@{SDL\_GetPowerInfo}!SDL\_power.h@{SDL\_power.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_GetPowerInfo()}{SDL\_GetPowerInfo()}}
+{\footnotesize\ttfamily DECLSPEC \mbox{\hyperlink{SDL__power_8h_aa6d67208a8d30ececf84b158a2ab7eff}{SDL\+\_\+\+Power\+State}} SDLCALL SDL\+\_\+\+Get\+Power\+Info (\begin{DoxyParamCaption}\item[{int $\ast$}]{secs,  }\item[{int $\ast$}]{pct }\end{DoxyParamCaption})}
+
+Get the current power supply details.
+
+You should never take a battery status as absolute truth. Batteries (especially failing batteries) are delicate hardware, and the values reported here are best estimates based on what that hardware reports. It\textquotesingle{}s not uncommon for older batteries to lose stored power much faster than it reports, or completely drain when reporting it has 20 percent left, etc.
+
+Battery status can change at any time; if you are concerned with power state, you should call this function frequently, and perhaps ignore changes until they seem to be stable for a few seconds.
+
+It\textquotesingle{}s possible a platform can only report battery percentage or time left but not both.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em secs} & seconds of battery life left, you can pass a NULL here if you don\textquotesingle{}t care, will return -\/1 if we can\textquotesingle{}t determine a value, or we\textquotesingle{}re not running on a battery \\
+\hline
+{\em pct} & percentage of battery life left, between 0 and 100, you can pass a NULL here if you don\textquotesingle{}t care, will return -\/1 if we can\textquotesingle{}t determine a value, or we\textquotesingle{}re not running on a battery \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+an SDL\+\_\+\+Power\+State enum representing the current battery state.
+\end{DoxyReturn}
+\begin{DoxySince}{Depuis}
+This function is available since SDL 2.\+0.\+0. 
+\end{DoxySince}

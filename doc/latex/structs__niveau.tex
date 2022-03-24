@@ -1,0 +1,73 @@
+\hypertarget{structs__niveau}{}\doxysection{Référence de la structure s\+\_\+niveau}
+\label{structs__niveau}\index{s\_niveau@{s\_niveau}}
+\doxysubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$$\ast$ \mbox{\hyperlink{structs__niveau_aa5ba37236d3f9ec3138494104241a4f0}{salles}}
+\item 
+int \mbox{\hyperlink{structs__niveau_ab5b0761833c262f9df78e33c9f924822}{h}}
+\item 
+int \mbox{\hyperlink{structs__niveau_a5a1ae3afc5b4d3830288e6c14200e6fc}{l}}
+\item 
+\mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ \mbox{\hyperlink{structs__niveau_a850adfb7c9fdc4156c5027015a958f5d}{salle\+\_\+chargee}}
+\item 
+\mbox{\Hypertarget{structs__niveau_abc058a7f00a93aeaa8e421a883bca284}\label{structs__niveau_abc058a7f00a93aeaa8e421a883bca284}} 
+int {\bfseries i\+\_\+charge}
+\item 
+int \mbox{\hyperlink{structs__niveau_a815c1dd0324356aac320b9540dfbf04a}{j\+\_\+charge}}
+\item 
+SDL\+\_\+\+Rect $\ast$ \mbox{\hyperlink{structs__niveau_aa3eee3f80e490d561632e8604b997a48}{collisions}}
+\item 
+int \mbox{\hyperlink{structs__niveau_a5a78924f6a23730d0794247a0669c84f}{taille\+\_\+collisions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{structs__niveau_aa3eee3f80e490d561632e8604b997a48}\label{structs__niveau_aa3eee3f80e490d561632e8604b997a48}} 
+\index{s\_niveau@{s\_niveau}!collisions@{collisions}}
+\index{collisions@{collisions}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{collisions}{collisions}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect$\ast$ s\+\_\+niveau\+::collisions}
+
+Position en j dans la matrice de salle de la salle chargée (utile à update\+Niveau) Tableau des zones non accessibles au joueur ~\newline
+ \mbox{\Hypertarget{structs__niveau_ab5b0761833c262f9df78e33c9f924822}\label{structs__niveau_ab5b0761833c262f9df78e33c9f924822}} 
+\index{s\_niveau@{s\_niveau}!h@{h}}
+\index{h@{h}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily int s\+\_\+niveau\+::h}
+
+Hauteur du niveau (dimensions de la matrice en i) \mbox{\Hypertarget{structs__niveau_a815c1dd0324356aac320b9540dfbf04a}\label{structs__niveau_a815c1dd0324356aac320b9540dfbf04a}} 
+\index{s\_niveau@{s\_niveau}!j\_charge@{j\_charge}}
+\index{j\_charge@{j\_charge}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{j\_charge}{j\_charge}}
+{\footnotesize\ttfamily int s\+\_\+niveau\+::j\+\_\+charge}
+
+Position en i dans la matrice de salle de la salle chargée (utile à update\+Niveau) \mbox{\Hypertarget{structs__niveau_a5a1ae3afc5b4d3830288e6c14200e6fc}\label{structs__niveau_a5a1ae3afc5b4d3830288e6c14200e6fc}} 
+\index{s\_niveau@{s\_niveau}!l@{l}}
+\index{l@{l}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily int s\+\_\+niveau\+::l}
+
+Largeur du niveau (dimensions de la matrice en j) \mbox{\Hypertarget{structs__niveau_a850adfb7c9fdc4156c5027015a958f5d}\label{structs__niveau_a850adfb7c9fdc4156c5027015a958f5d}} 
+\index{s\_niveau@{s\_niveau}!salle\_chargee@{salle\_chargee}}
+\index{salle\_chargee@{salle\_chargee}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{salle\_chargee}{salle\_chargee}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__salle}{t\+\_\+salle}}$\ast$ s\+\_\+niveau\+::salle\+\_\+chargee}
+
+Salle ou sous salle où se situe le joueur \mbox{\Hypertarget{structs__niveau_aa5ba37236d3f9ec3138494104241a4f0}\label{structs__niveau_aa5ba37236d3f9ec3138494104241a4f0}} 
+\index{s\_niveau@{s\_niveau}!salles@{salles}}
+\index{salles@{salles}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{salles}{salles}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__salle}{t\+\_\+salle}}$\ast$$\ast$ s\+\_\+niveau\+::salles}
+
+Matrice des salles du niveau \mbox{\Hypertarget{structs__niveau_a5a78924f6a23730d0794247a0669c84f}\label{structs__niveau_a5a78924f6a23730d0794247a0669c84f}} 
+\index{s\_niveau@{s\_niveau}!taille\_collisions@{taille\_collisions}}
+\index{taille\_collisions@{taille\_collisions}!s\_niveau@{s\_niveau}}
+\doxysubsubsection{\texorpdfstring{taille\_collisions}{taille\_collisions}}
+{\footnotesize\ttfamily int s\+\_\+niveau\+::taille\+\_\+collisions}
+
+Taille du tableau de collisions 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{niveau_8h}{niveau.\+h}}\end{DoxyCompactItemize}
