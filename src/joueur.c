@@ -234,7 +234,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->update = (int (*)(t_moteur *, t_entite *, float, float)) updateJoueur;
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
-    joueur->pv = 100;
+    joueur->pv = 20;
 
     chargerAttaqueTir(&joueur->attaque_tir_equipee, SABRE_LASER);
 

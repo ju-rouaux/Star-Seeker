@@ -111,3 +111,43 @@ void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int id
     }
 
 }
+
+
+
+
+
+
+/**
+ * \brief Dessine le HUD
+ *  
+ * \param moteur Informations d'échelle et de taille d'écran
+ * \param joueur Points de vie
+ *  
+ */
+void dessiner_hud(t_moteur * moteur, t_joueur * joueur){
+   
+   
+    SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
+
+    SDL_Rect source; //Partie de du tileset à affiche
+    SDL_Rect destination; //Position dans la fenetre où afficher
+
+
+
+    //Points de vie
+    destination.h = moteur->echelle/2;
+    destination.w = moteur->echelle/2;
+    destination.y = 16;
+  
+
+    for(int i = 0; i < joueur->pv; i += 2){
+
+        destination.x = i*moteur->echelle/4;
+
+        splitTexture(&source, (joueur->pv - i) == 1, 1, 16, 16, 16,16);
+        SDL_RenderCopy(moteur->renderer, moteur->textures->overlay, &source, &destination);
+
+    }
+
+
+}

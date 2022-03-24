@@ -313,6 +313,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
         }
 
+        dessiner_hud(moteur, joueur);
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
