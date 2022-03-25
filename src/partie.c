@@ -256,7 +256,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                     if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
                         if(entite_courante->type == E_MONSTRE) //Particule pour indiquer la mort du monstre
-                            ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->projectiles));
+                            ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
         
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
@@ -281,7 +281,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 {
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
                     {
-                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->projectiles));
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->particules));
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }

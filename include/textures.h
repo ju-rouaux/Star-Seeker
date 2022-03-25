@@ -38,6 +38,7 @@ typedef struct
     SDL_Texture * monstres_haut;
     SDL_Texture * monstres_bas;
     SDL_Texture * overlay;
+    SDL_Texture * particules;
 
 } t_textures;
 
