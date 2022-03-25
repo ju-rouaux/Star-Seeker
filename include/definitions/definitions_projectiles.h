@@ -90,18 +90,18 @@ static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * project
     if(projectile->duree_de_vie <= 0)
         return -1;
 
-    if((projectile->x < x+0.5 && projectile->x > x-0.5) && (projectile->y < y+0.5 && projectile->y > y-0.5) && (projectile->duree_de_vie < 1900))
+    if((projectile->x < x+0.4 && projectile->x > x-0.4) && (projectile->y < y+0.4 && projectile->y > y-0.4) && (projectile->duree_de_vie < 1920))
         return -1;
-    
+
     if(projectile->duree_de_vie < 4*2000/5){
         projectile->direction_vx = x - projectile->x;
         projectile->direction_vy = y - projectile->y;
-        projectile->vitesse = 12;
-    }   
+        projectile->vitesse = 8;
+    }
+
     if(deplacerEntite(moteur, (t_entite*) projectile) == -1){
         projectile->direction_vx = x - projectile->x;
         projectile->direction_vy = y - projectile->y;
-    
     }
     return 0;
 }
@@ -215,7 +215,7 @@ static int proj_sabre(t_projectile * projectile)
         return -1;
     projectile->id_animation = 4;
 
-    projectile->taille = 1;
+    projectile->taille = 0.8;
     projectile->vitesse = 14;
     projectile->dommages = 30;
     projectile->duree_de_vie = 2000;

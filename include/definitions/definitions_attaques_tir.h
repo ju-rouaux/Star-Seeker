@@ -70,11 +70,11 @@ static void attaque_tir_360_shuriken(t_attaque_tir * attaque)
 static void attaque_tir_sabre(t_attaque_tir * attaque)
 {
     attaque->type_projectile = SABRE;
-    attaque->cooldown = 1000;
+    attaque->cooldown = 1500;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve =1;
-    attaque->tir_interval = 300;
-    attaque->etalement = PI/4;
+    attaque->tir_interval = 0;
+    attaque->etalement = 0;
 }
 
 

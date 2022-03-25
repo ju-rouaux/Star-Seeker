@@ -36,8 +36,14 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
     for(int i = 0; i < *nb_entites; i++){
         x_alea = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
         y_alea = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
-        attaque_alea = rand() % (NB_ATTAQUE +1);
-        (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.1, attaque_alea, STATIQUE);
+        attaque_alea = rand() % (NB_ATTAQUE + 1);
+        if(attaque_alea == 1)
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.3, attaque_alea, STATIQUE);
+        else if(attaque_alea == 2)
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.5, attaque_alea, STATIQUE);
+        else if(attaque_alea == 3)
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 0.9, attaque_alea, STATIQUE);
+        else (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.1, attaque_alea, STATIQUE);
     }
     return 0;
 }
