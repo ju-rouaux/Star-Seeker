@@ -13,7 +13,7 @@
 
 typedef enum
 {
-    P_MORT, P_TOUCHE
+    P_MORT, P_TOUCHE, P_XP
 } e_type_particule;
 
 /**
@@ -25,6 +25,7 @@ struct s_particule
 {
     #include <attributs_entites.h>
     int duree_de_vie; /**< Temps en milisecondes avant l'auto-destruction de la particule */
+    e_type_particule type_particule;
 } ;
 
 t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Texture * texture);

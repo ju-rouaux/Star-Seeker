@@ -52,6 +52,7 @@ typedef struct s_joueur
     t_joueur_flags * flags;
 
     //Autres données comme l'expererience, l'inventaire...
+    int xp;
 } t_joueur;
 
 

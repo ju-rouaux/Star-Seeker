@@ -255,9 +255,17 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 {
                     if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
-                        if(entite_courante->type == E_MONSTRE) //Particule pour indiquer la mort du monstre
+                        if(entite_courante->type == E_MONSTRE)
+                        {
+                            //Particule pour indiquer la mort du monstre
                             ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
-        
+                            //Ajouter l'xp gagné au joueur
+                            int xp_lache = de(5);
+                            for(int xp = 0; xp < xp_lache; xp++)
+                                ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            joueur->xp += xp_lache;
+                        }
+
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
@@ -269,7 +277,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 entite_courante = NULL;
             }
         }
-
+        printf("%i\n", joueur->xp);
         // --- Faire subir les dégâts par les projectiles ---
         en_tete(liste_entites);
         if(!liste_vide(liste_entites))

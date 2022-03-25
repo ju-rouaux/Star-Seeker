@@ -75,6 +75,7 @@ err_save chargerSaveJoueur(t_joueur * joueur)
     joueur->direction_vx = tmp->direction_vx;
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
+    joueur->xp = tmp->xp;
 
     free(tmp);
     fclose (fichier);

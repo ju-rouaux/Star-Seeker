@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <moteur.h>
 #include <particules.h>
+#include <math.h>
+#include <outils.h>
 
 
 /** 
@@ -18,14 +20,28 @@
  * 
  * \param moteur Le moteur du jeu
  * \param projectile La particule à actualiser
+ * \param j_x Position en x du joueur
+ * \param j_y Position en y du joueur
  * 
  * \return -1 si la particule doit être détruite, sinon 0.
  */
-static int updateParticule(t_moteur * moteur, t_particule * particule)
+static int updateParticule(t_moteur * moteur, t_particule * particule, float j_x, float j_y)
 {
     particule->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie 
     if(particule->duree_de_vie <= 0)
         return -1;
+
+    if(particule->type_particule == P_XP)
+    {
+        int norme;
+        particule->direction_vx = j_x - particule->x;
+        particule->direction_vy = j_y - particule->y;
+        norme = sqrt(pow(particule->direction_vx, 2) + pow(particule->direction_vy, 2));
+        if(norme == 0)
+            return -1;
+        else
+            particule->vitesse = 15.0 / norme;
+    }
 
     return deplacerEntite(moteur, (t_entite*) particule);
 }
@@ -63,12 +79,23 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
         particule->duree_de_vie = 800;
         particule->direction_vy = -1;
         particule->vitesse = 0.5;
+        particule->type_particule = P_MORT;
         break;
     
     case P_TOUCHE:
         particule->id_animation = 1;
         particule->taille = 0.5;
-        particule->duree_de_vie = 100;
+        particule->duree_de_vie = 300;
+        particule->type_particule = P_TOUCHE;
+        break;
+
+    case P_XP:
+        particule->id_animation = 2;
+        particule->taille = 0.5;
+        particule->duree_de_vie = 10000;
+        particule->type_particule = P_XP;
+        particule->x += (-5.0 + de(10)) / 5;
+        particule->y += (-5.0 + de(10)) / 5;
         break;
 
     default:
