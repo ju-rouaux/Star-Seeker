@@ -237,7 +237,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->pv = 100;
     joueur->xp = 0;
 
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, SABRE_LASER);
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
 
     return joueur;
 }

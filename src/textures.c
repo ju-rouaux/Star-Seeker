@@ -136,7 +136,7 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     surface = NULL;
 
     //Particules
-    surface = SDL_LoadBMP("./assets/img/projectiles.bmp");
+    surface = SDL_LoadBMP("./assets/img/particules.bmp");
     if(surface == NULL)
     {
         printf("Impossible de charger la surface particules.bmp : %s\n", SDL_GetError());

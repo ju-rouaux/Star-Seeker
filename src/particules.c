@@ -84,14 +84,14 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
     
     case P_TOUCHE:
         particule->id_animation = 1;
-        particule->taille = 0.5;
+        particule->taille = 0.3;
         particule->duree_de_vie = 300;
         particule->type_particule = P_TOUCHE;
         break;
 
     case P_XP:
         particule->id_animation = 2;
-        particule->taille = 0.5;
+        particule->taille = 0.3;
         particule->duree_de_vie = 10000;
         particule->type_particule = P_XP;
         particule->x += (-5.0 + de(10)) / 5;

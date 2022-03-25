@@ -84,7 +84,7 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    initialiserTouches(&moteur->parametres);
+    initialiserParams(&moteur->parametres);
 
     if(chargerAudio(moteur->parametres.volume_audio, &moteur->musiques, &moteur->bruitages) != 0)
     {
@@ -117,7 +117,6 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
-    initialiserParams(&moteur->parametres);
 
     return moteur;
 }

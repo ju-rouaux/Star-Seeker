@@ -77,7 +77,7 @@ int faireDegats(t_projectile * projectile, t_joueur * joueur, t_liste * liste)
     hitbox_joueur.x = joueur->hitbox.x + joueur->hitbox.w/3;
     hitbox_joueur.y = joueur->hitbox.y;
     hitbox_joueur.w = joueur->hitbox.w/3;
-    hitbox_joueur.h = joueur->hitbox.h;
+    hitbox_joueur.h = 9*joueur->hitbox.h/10;
     if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &hitbox_joueur))
     {
         joueur->pv -= projectile->dommages;
