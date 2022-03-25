@@ -20,15 +20,18 @@
 
 #define TAILLE_MAX 17
 
-#define NB_B_MENU 4
+#define NB_B_MENU 5
 #define T_LARGEUR 2
 #define T_LONGUEUR 1.5
 #define B_LARGEUR 2.5
 #define B_LONGUEUR 1
 
-#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Options","Quitter"}
+#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Reset Sauvegarde","Options","Quitter"}
 
-
+/**
+ * \struct t_bouton
+ * \brief Modelise un bouton avec du texte
+ */
 typedef struct s_bouton {
     SDL_Texture * texture;
     SDL_Rect rect;

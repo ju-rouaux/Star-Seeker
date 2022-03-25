@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
+#include <audio.h>
 #include <window.h>
 #include <textures.h>
 #include <camera.h>
@@ -33,8 +34,8 @@ static void initialiserParams(t_parametres * parametres)
         parametres->key_left = 4; //SDL_SCANCODE_Q
         parametres->key_right = 7;//SDL_SCANCODE_D
         parametres->key_projectile = 15; //SDL_SCANCODE_L
-        parametres->reset_sauvegarde_joueur = FAUX;
-        parametres->volume_audio = 100;
+        parametres->reset_sauvegarde_joueur = FAUX; //
+        parametres->volume_audio = MIX_MAX_VOLUME; //
     }
 }
 
@@ -83,15 +84,31 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    //Allouer la liste des entités "vivantes"
-    moteur->liste_entites = malloc(sizeof(t_liste));
-    if(moteur->liste_entites == NULL)
+    initialiserTouches(&moteur->parametres);
+
+    if(chargerAudio(moteur->parametres.volume_audio, &moteur->musiques, &moteur->bruitages) != 0)
     {
+        printf("Moteur non chargé\n");
+        detruireCamera(&moteur->camera);
         detruireTextures(&moteur->textures);
         detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
         free(moteur);
         return NULL;
     }
+
+    //Allouer la liste des entités "vivantes"
+    moteur->liste_entites = malloc(sizeof(t_liste));
+    if(moteur->liste_entites == NULL)
+    {
+        printf("Moteur non chargé\n");
+        detruireAudio(&moteur->musiques, &moteur->bruitages);
+        detruireCamera(&moteur->camera);
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+
     init_liste(moteur->liste_entites);
 
     moteur->temps_precedent = temps;
@@ -120,6 +137,7 @@ void detruireMoteur(t_moteur ** moteur)
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
+        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages);
         detruire_liste(&(*moteur)->liste_entites);
     }
     free(*moteur);

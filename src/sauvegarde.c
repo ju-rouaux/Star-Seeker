@@ -333,7 +333,7 @@ err_save sauvegarderParametres(t_parametres * parametres)
 }
 
 /**
- * \brief Sauvegarde des paramètres du joueur
+ * \brief Charge les paramètres du joueur
  * 
  * \param parametres La structure des paramètres à sauvegarder
  * 

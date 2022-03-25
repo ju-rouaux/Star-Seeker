@@ -324,9 +324,12 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-        //Dessiner map si demandé
-        if(joueur->flags->map_showing == 1)
+
+        //Map
+        if(joueur->flags->map_showing == 1){
+            Mix_PlayMusic(moteur->bruitages->treasure, 1);
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+        }
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
@@ -341,7 +344,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
     //Sauver l'état des entités
     viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
-    return code_sortie;;
+    return code_sortie;
 }
 
 
