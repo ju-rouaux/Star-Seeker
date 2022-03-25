@@ -277,7 +277,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 entite_courante = NULL;
             }
         }
-        printf("%i\n", joueur->xp);
+
         // --- Faire subir les dégâts par les projectiles ---
         en_tete(liste_entites);
         if(!liste_vide(liste_entites))

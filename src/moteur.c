@@ -117,7 +117,6 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
-
     return moteur;
 }
 

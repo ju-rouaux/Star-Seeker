@@ -9,6 +9,7 @@
 #include <math.h>
 #include <monstre.h>
 #include <outils.h>
+#include <math.h>
 
 int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
 {
@@ -18,10 +19,15 @@ int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float pos_jo
     monstre->direction_vx = pos_joueur_x - monstre->x;
     monstre->direction_vy = pos_joueur_y - monstre->y;
 
-    updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
-    
-    return 0;
+    //Ne pas se diriger le monstre vers le joueur s'il est à plus d'une salle et quart du joueur
+    int norme = sqrt(pow(monstre->direction_vx, 2) + pow(monstre->direction_vy, 2));
+    if(norme < (NB_TILE_LARGEUR + NB_TILE_LARGEUR / 4) && norme > -(NB_TILE_LARGEUR + NB_TILE_LARGEUR / 4))
+    {
+        updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
+        deplacerEntite(moteur, (t_entite*) monstre);
+    }
 
+    return 0;
 }
 
 int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
@@ -37,6 +43,8 @@ int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joue
 
     return 0;
 }
+
+
 
 int dessinerMonstre(t_moteur * moteur, t_monstre * monstre)
 {
@@ -56,6 +64,9 @@ static int (*getDeplacement(e_deplacement_monstre deplacement))(t_moteur *, t_en
 {
     switch (deplacement)
     {
+    case VERS_J:
+        return (int (*)(t_moteur *, t_entite *, float, float)) updateMonstreVersJoueur;
+
     case STATIQUE:
         return (int (*)(t_moteur *, t_entite *, float, float)) updateMonstreStatique;
     

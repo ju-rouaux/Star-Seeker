@@ -16,7 +16,7 @@
 
 typedef enum
 {
-    STATIQUE
+    STATIQUE, VERS_J
 } e_deplacement_monstre;
 
 /**
