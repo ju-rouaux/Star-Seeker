@@ -26,6 +26,7 @@
 #include <outils.h>
 #include <generation_entites.h>
 #include <overlay.h>
+#include <particules.h>
 #include <main.h>
 
 
@@ -57,7 +58,7 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
             while(!hors_liste(liste_entites) && cpt < info_entites[i]->nb_entites) //Si jamais il y a plus d'entités que prévu à la base, on ne note pas l'info
             {
                 valeur_elt(liste_entites, &entite_courante);
-                if(entite_courante != NULL && entite_courante->type != E_PROJECTILE) //Ne pas sauvegarder les projectiles
+                if(entite_courante != NULL && entite_courante->type == E_MONSTRE) //Ne sauvegarder que les monstres
                     info_entites[i]->entites[cpt++] = entite_courante;
 
                 entite_courante = NULL;
@@ -73,8 +74,8 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
     {
         valeur_elt(liste_entites, &entite_courante);
 
-        if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
-            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles
+        if(entite_courante != NULL && (entite_courante->type == E_PROJECTILE || entite_courante->type == E_PARTICULE))
+            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles et particules
 
         //Enlever les entités de la liste
         oter_elt(liste_entites); 
@@ -254,6 +255,9 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 {
                     if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
+                        if(entite_courante->type == E_MONSTRE) //Particule pour indiquer la mort du monstre
+                            ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->projectiles));
+        
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
@@ -277,6 +281,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                 {
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
                     {
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->projectiles));
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
