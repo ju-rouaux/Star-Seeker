@@ -111,8 +111,14 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                     joueur->flags->to_right = joueur->flags->to_left + 1;
                 else if  (parametres->key_projectile == event.key.keysym.scancode)
                     joueur->flags->shooting = 1;
-
-                switch (event.key.keysym.scancode)
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
+                {
+                    if(joueur->flags->interaction == 0)
+                        joueur->flags->interaction = 1;
+                    else    //Passer le flag à -1 si la touche est maintenue
+                        joueur->flags->interaction = -1;
+                }
+                else switch (event.key.keysym.scancode)
                 {
                    /* A comment. */
                     case SDL_SCANCODE_ESCAPE: //ESC
@@ -135,16 +141,18 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
             case SDL_KEYUP: /*touche relachée*/
 
                 if(parametres->key_up == event.key.keysym.scancode)
-                        joueur->flags->to_up = 0;
+                    joueur->flags->to_up = 0;
                 else if(parametres->key_left == event.key.keysym.scancode)
-                        joueur->flags->to_left = 0;
+                    joueur->flags->to_left = 0;
                 else if (parametres->key_down == event.key.keysym.scancode)
-                        joueur->flags->to_down = 0;
+                    joueur->flags->to_down = 0;
                 else if (parametres->key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = 0;
+                    joueur->flags->to_right = 0;
                 else if (parametres->key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 0;
-                switch (event.key.keysym.scancode)
+                    joueur->flags->shooting = 0;
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
+                    joueur->flags->interaction = 0;
+                else switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_showing = 0;

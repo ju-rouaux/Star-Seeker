@@ -10,7 +10,7 @@
 #include <entite.h>
 #include <monstre.h>
 #include <generation_niveau.h>
-
+#include <interaction.h>
 
 /**
  * 
@@ -26,8 +26,12 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
 
+    data_inter data;
+    data.nb_pv = 1;
+
     //générer entités
     for(int i = 0; i < *nb_entites; i++)
+        //(*liste_entites)[i] = (t_entite*) creerInteraction(de(2)-1, x_orig_salle + 6, y_orig_salle + 4, data);
         (*liste_entites)[i] = (t_entite*) creerMonstre(x_orig_salle + 6, y_orig_salle + 4, 2, 2, 1.5, A_360, VERS_J);
 
     return 0;

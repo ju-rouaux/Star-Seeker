@@ -76,6 +76,8 @@ err_save chargerSaveJoueur(t_joueur * joueur)
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
     joueur->xp = tmp->xp;
+    joueur->nom_attaque = tmp->nom_attaque;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, joueur->nom_attaque);
 
     free(tmp);
     fclose (fichier);
@@ -127,6 +129,7 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
 
     e_type_entite type_c; //type entité courante;
     t_monstre * monstre_temp;
+    t_interaction * inter_temp;
 
     if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
@@ -170,12 +173,20 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
                 {
                 case E_MONSTRE:
                     monstre_temp = malloc(sizeof(t_monstre));
-                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1) //Lecture infos niveaux
+                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1)
                         return READ_OR_WRITE_FAIL;
                     tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
                     free(monstre_temp);
                     break;
-                
+
+                case E_INTERACTION:
+                    inter_temp = malloc(sizeof(t_interaction));
+                    if(fread(inter_temp, sizeof(t_interaction), 1, fichier) != 1)
+                        return READ_OR_WRITE_FAIL;
+                    tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerInteraction(inter_temp->type_inter, inter_temp->x, inter_temp->y, inter_temp->data);
+                    free(inter_temp);
+                    break;
+
                 default:
                     break;
                 }
@@ -232,7 +243,12 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
                         if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
                             return READ_OR_WRITE_FAIL;
                         break;
-                    
+                        
+                    case E_INTERACTION:
+                        if(fwrite((t_interaction*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_interaction), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+
                     default:
                         break;
                     }

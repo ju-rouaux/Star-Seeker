@@ -1,5 +1,5 @@
 /**
- * \file menu.c
+ * \file menu.h
  * \author Guillaume
  * \brief Menu principal
  * 

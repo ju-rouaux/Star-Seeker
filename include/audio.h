@@ -2,7 +2,7 @@
 /**
  * \file audio.h
  * 
- * \brief Librairie de audio.c
+ * \brief Librairie de audio.h
  *
  * \author Camille REMOUÉ
  *  

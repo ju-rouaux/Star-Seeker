@@ -28,14 +28,14 @@ static void initialiserParams(t_parametres * parametres)
 {
     if(chargerSaveParametres(parametres) != SUCCESS)
     {
-        //probleme entre la valeur des SDL_SCANCODE_.. et la réalité
-        parametres->key_up = 26; //SDL_SCANCODE_Z
-        parametres->key_down = 22; //SDL_SCANCODE_S
-        parametres->key_left = 4; //SDL_SCANCODE_Q
-        parametres->key_right = 7;//SDL_SCANCODE_D
-        parametres->key_projectile = 15; //SDL_SCANCODE_L
-        parametres->reset_sauvegarde_joueur = FAUX; //
-        parametres->volume_audio = MIX_MAX_VOLUME; //
+        parametres->key_up = SDL_SCANCODE_W; 
+        parametres->key_down = SDL_SCANCODE_S; 
+        parametres->key_left = SDL_SCANCODE_A;
+        parametres->key_right = SDL_SCANCODE_D;
+        parametres->key_projectile = SDL_SCANCODE_L; 
+        parametres->key_interaction = SDL_SCANCODE_E;
+        parametres->reset_sauvegarde_joueur = FAUX;
+        parametres->volume_audio = MIX_MAX_VOLUME; 
     }
 }
 

@@ -58,7 +58,7 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
             while(!hors_liste(liste_entites) && cpt < info_entites[i]->nb_entites) //Si jamais il y a plus d'entités que prévu à la base, on ne note pas l'info
             {
                 valeur_elt(liste_entites, &entite_courante);
-                if(entite_courante != NULL && entite_courante->type == E_MONSTRE) //Ne sauvegarder que les monstres
+                if(entite_courante != NULL && (entite_courante->type == E_MONSTRE || entite_courante->type == E_INTERACTION)) //Ne sauvegarder que les monstres ou les interactions
                     info_entites[i]->entites[cpt++] = entite_courante;
 
                 entite_courante = NULL;
@@ -278,12 +278,13 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
             }
         }
 
-        // --- Faire subir les dégâts par les projectiles ---
+        // --- Faire subir les dégâts par les projectiles ou réaliser une interaction ---
         en_tete(liste_entites);
         if(!liste_vide(liste_entites))
         {
             while(!hors_liste(liste_entites))
             {
+                //Dégâts projectiles
                 valeur_elt(liste_entites, &entite_courante);
                 if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
                 {
@@ -294,6 +295,25 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                         oter_elt(liste_entites);
                     }
                 }
+                
+                //Interactions
+                if(entite_courante != NULL && entite_courante->type == E_INTERACTION)
+                {
+                    int interact = interagir((t_interaction*) entite_courante, joueur);
+                    if(interact != 0) //Si une interaction a eu lieu
+                    {
+                        //Lancer un feedback au joueur
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+
+                        //Si l'interaction est unique, la détruire
+                        if(interact == -1)
+                        {
+                            entite_courante->detruire((t_entite**) &entite_courante);
+                            oter_elt(liste_entites);
+                        }
+                    }
+                }
+
                 if(hors_liste(liste_entites))
                     en_tete(liste_entites);
                 else

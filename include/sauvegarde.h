@@ -16,6 +16,7 @@
 #include <joueur.h>
 #include <generation_niveau.h>
 #include <monstre.h>
+#include <interaction.h>
 
 typedef enum
 {

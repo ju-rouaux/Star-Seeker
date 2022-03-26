@@ -1,7 +1,7 @@
 /**
  * \file generation_niveau.h
  * 
- * \brief Librairie de generation.c
+ * \brief Librairie de generation
  *
  * \author Camille REMOUÉ
  *  
