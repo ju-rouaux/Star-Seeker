@@ -37,6 +37,7 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
         x_alea = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
         y_alea = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
         attaque_alea = rand() % (NB_ATTAQUE + 1);
+        //Selon les attaques, la taille du monstre change
         if(attaque_alea == 1)
             (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.3, attaque_alea, STATIQUE);
         else if(attaque_alea == 2)
