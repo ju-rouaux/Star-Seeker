@@ -19,6 +19,27 @@
 #include <liste.h>
 #include <sauvegarde.h>
 
+
+/**
+ * \brief Fonction bloquante destinée à bloquer l'exécution du programme pour qu'il
+ * puisse tourner à 60 images par secondes, au maximum.
+ *
+ * Cette fonction actualise les champs du moteur qui concernent le temps. Elle est
+ * destinée à être appelée au début de chaque boucles du jeu.
+ * 
+ * \param moteur Le moteur
+ */
+void regulerFPS(t_moteur * moteur)
+{
+    //Réguler FPS
+    int tempsEcoule = tempsEcoule = SDL_GetTicks() - moteur->temps;
+    if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
+        SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+    moteur->temps_precedent = moteur->temps;
+    moteur->temps = SDL_GetTicks();
+}
+
+
 /**
  * \brief Initialise les parametres.
  * 

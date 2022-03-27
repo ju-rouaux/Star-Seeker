@@ -122,13 +122,7 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                 {
                    /* A comment. */
                     case SDL_SCANCODE_ESCAPE: //ESC
-                        return M_PRINCIPAL;
-                        break;
-                    case SDL_SCANCODE_O: //O !!! Temporaire
-                        return NIVEAU_PRECEDENT;
-                        break;
-                    case SDL_SCANCODE_P: //P !!! Temporaire
-                        return NIVEAU_SUIVANT;
+                        return M_NIVEAU;
                         break;
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_showing = 1;

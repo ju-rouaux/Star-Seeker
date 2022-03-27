@@ -53,8 +53,6 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
-
-
     //Player
     surface = SDL_LoadBMP("./assets/img/personnage.bmp");
     if(surface == NULL)
@@ -147,6 +145,22 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     if(textures->particules == NULL)
     {
         printf("Impossible de charger la texture de particules.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Planete
+    surface = SDL_LoadBMP("./assets/img/planete.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface planete.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->planete = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->particules == NULL)
+    {
+        printf("Impossible de charger la texture de planete.bmp : %s\n", SDL_GetError());
         return NULL;
     }
     surface = NULL;

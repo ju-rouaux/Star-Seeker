@@ -3,7 +3,7 @@
  * 
  * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
  * 
- * \author Guillaume Richard & Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 #ifndef _JEU_SAUVEGARDE_
@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <joueur.h>

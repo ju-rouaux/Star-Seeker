@@ -3,7 +3,7 @@
  * 
  * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
  * 
- * \author Guillaume Richard & Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -124,6 +124,8 @@ err_save sauvegarderJoueur(t_joueur * joueur)
  */
 static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     niveau_informations_t * tmp = NULL;
     niveau_informations_t ** infos = NULL;
 
@@ -143,8 +145,15 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
 
     for(int i = 0; i < (*nb_niveaux); i++)
     {
-        tmp  = malloc(sizeof(niveau_informations_t));
+        tmp = malloc(sizeof(niveau_informations_t));
         if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1) //Lecture infos niveaux
+            return READ_OR_WRITE_FAIL;
+
+        if(fread(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Lecture taille de la chaine du nom du niveau
+            return READ_OR_WRITE_FAIL;
+
+        tmp->nom_planete = malloc(sizeof(char)*taille_chaine_nom);
+        if(fread(tmp->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Lecture du nom du niveau
             return READ_OR_WRITE_FAIL;
 
         tmp->liste_infos_entites = malloc(sizeof(t_info_entites*) * tmp->nb_infos_entite);
@@ -214,6 +223,8 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
  */
 static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     if(fwrite(&indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
 
@@ -223,6 +234,14 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
     for(int i = 0; i < nb_niveaux; i++)
     {
         if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1) //Ecriture structure
+            return READ_OR_WRITE_FAIL;
+        
+        taille_chaine_nom = strlen(niveaux[i]->nom_planete) + 1;
+
+        if(fwrite(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Ecriture taille chaine
+            return READ_OR_WRITE_FAIL;
+
+        if(fwrite(niveaux[i]->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Ecriture nom du niveau chaine
             return READ_OR_WRITE_FAIL;
 
         for(int j = 0; j < niveaux[i]->nb_infos_entite; j++)

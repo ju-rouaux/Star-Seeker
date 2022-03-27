@@ -15,7 +15,7 @@
 #include <personnage.h>
 #include <attaque.h>
 
-#define PROPORTION_JOUEUR 1.6 /**< Taille du joueur par rapport à la taille d'une tile */
+#define PROPORTION_JOUEUR 1.2 /**< Taille du joueur par rapport à la taille d'une tile */
 #define VITESSE_JOUEUR_DEFAULT 6.5 /**< La vitesse du joueur par défaut */
 
 

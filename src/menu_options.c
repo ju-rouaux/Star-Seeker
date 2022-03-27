@@ -91,6 +91,7 @@ e_code_main chargerMenu_Options(t_moteur * moteur) {
     int temp = 0;
 
     while (temp == 0) {
+        regulerFPS(moteur);
         if (SDL_RenderClear(moteur -> renderer) != 0) {
             printf("Erreur lors du SDL_RenderClear dans le menu");
             return ERROR_MENU_TEXTURE;//Retourne cas d'erreur

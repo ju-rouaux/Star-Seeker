@@ -80,6 +80,7 @@ typedef struct s_moteur
 } t_moteur;
 
 
+void regulerFPS(t_moteur * moteur);
 t_moteur * chargerMoteur(unsigned int temps);
 void detruireMoteur(t_moteur ** moteur);
 void updateEchelle(t_moteur * moteur);

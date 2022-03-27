@@ -28,6 +28,7 @@
 #include <overlay.h>
 #include <particules.h>
 #include <main.h>
+#include <menu_niveau.h>
 
 
 
@@ -140,7 +141,6 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
     int direction_x, direction_y;
-    int tempsEcoule;
 
     //Sauver les entités de l'ancienne salle
     viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
@@ -162,7 +162,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
     //Animer tant que la caméra n'atteint pas son objectif
     while(moteur->camera->x != moteur->camera->futur_x || moteur->camera->y != moteur->camera->futur_y)
     {
-        moteur->temps = SDL_GetTicks();
+        regulerFPS(moteur);
 
         //Calcul position caméra
         direction_x = moteur->camera->x == moteur->camera->futur_x ? 0 : (moteur->camera->x < moteur->camera->futur_x ? 1 : -1); //Sens où se diriger
@@ -191,11 +191,6 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
 
         SDL_RenderPresent(moteur->renderer);
-
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
     }
 
     //Reset la future position
@@ -220,7 +215,6 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
 
     t_entite * entite_courante;
-    int tempsEcoule;
     int id_ancienne_salle = 0;
     int code_sortie = 0;
 
@@ -231,12 +225,8 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
     //Traiter les événements
     while((code_sortie = handleEvents(joueur, &moteur->parametres)) == NIVEAU_CONTINUER)
     {
-        //Traitements de début de boucle
-        moteur->temps_precedent = moteur->temps;
-        moteur->temps = SDL_GetTicks();
-        SDL_RenderClear(moteur->renderer);
+        regulerFPS(moteur);
         updateEchelle(moteur);
-
 
     // ~~~ LOGIQUE
 
@@ -353,12 +343,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
-
-
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+        SDL_RenderClear(moteur->renderer);
     }
 
     //Sauver l'état des entités
@@ -413,27 +398,17 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
         infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
         detruireNiveau(&niveau);
 
+        if(code_sortie == M_NIVEAU)
+            code_sortie = afficherMenuNiveau(&indice_niveau_charge, moteur, infos_niveaux, nb_niveaux);
+
         //Changer de niveau si souhaité
         switch (code_sortie)
         {
-        case NIVEAU_SUIVANT:
-            if(indice_niveau_charge < nb_niveaux - 1)
-            {
-                joueur->x = 0;
-                joueur->y = 0;
-                indice_niveau_charge++;
-            }
+        case NIVEAU_CHANGER:
+            joueur->x = 0;
+            joueur->y = 0;
             break;
-
-        case NIVEAU_PRECEDENT:
-            if(indice_niveau_charge > 0)
-            {
-                joueur->x = 0;
-                joueur->y = 0;
-                indice_niveau_charge--;
-            }
-            break;   
-
+ 
         case JEU_QUITTER:
         case M_PRINCIPAL:
             break;
@@ -505,7 +480,6 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
         free(infos);
         return -1;
     }
-
 
     for(i = 0; i < nb_niveaux; i++)
     {
