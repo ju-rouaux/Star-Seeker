@@ -384,7 +384,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
             return -1;
         }
         niveau = moteur->niveau_charge;
-        if(joueur->x == 0 && joueur->y == 0) //Si la sauvegarde du joueur est vierge, placer le joueur sur la map
+        if(joueur->x == 0 && joueur->y == 0) //Si la position du joueur est vierge, placer le joueur sur la map
         {
             joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
             joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;

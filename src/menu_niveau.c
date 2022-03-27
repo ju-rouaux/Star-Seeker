@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <sdl2/SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 #include <generation_niveau.h>
 #include <main.h>
 
@@ -33,13 +33,13 @@ static int indiceSelection(t_selection ** selections, int nb_selects, SDL_Point 
 static void renduSelection(t_moteur * moteur, t_selection * select, SDL_Texture * apparence, int quantite)
 {
     SDL_SetTextureColorMod(select->rendu_texte, 255,255,255);
-    int x = moteur->window_width / 3 + (select->indice * (moteur->window_width - moteur->window_width / 3) / quantite);
+    int x = moteur->window_width / 4 + (select->indice * (moteur->window_width - moteur->window_width / 4) / quantite);
     int y = moteur->window_height / 2;
     //Rendu planète
     select->position_planete.h = moteur->echelle * select->taille_planete;
     select->position_planete.w = moteur->echelle * select->taille_planete;
     select->position_planete.x = x - select->position_planete.w / 2;
-    select->position_planete.y = y + (select->indice % 2 ? y/2 : -y/2) - select->position_planete.h / 2;
+    select->position_planete.y = y + (select->indice % 2 ? y/3 : -y/3) - select->position_planete.h / 2;
     SDL_RenderCopy(moteur->renderer, apparence, NULL, &select->position_planete);
     
     //Rendu texte
@@ -85,16 +85,29 @@ static t_selection * creerSelection(SDL_Renderer * renderer, TTF_Font * police, 
     surface = NULL;
 
     //Autres données
-    select->taille_planete = taille_planete;
+    select->taille_planete = de(3);
     select->indice = indice;
 
     return select;
 }
 
 
-void detruireSelection(t_selection ** selection)
+void detruireSelections(t_selection *** selections, int nb_selections)
 {
-    printf("Detruction\n");
+    if(*selections != NULL)
+    {
+        for(int i = 0; i < nb_selections; i++)
+        {
+            if((*selections)[i] != NULL)
+            {
+               SDL_DestroyTexture((*selections)[i]->rendu_texte);
+               free((*selections)[i]);
+            }
+            (*selections)[i] = NULL;
+        }
+        free(*selections);
+    }
+    *selections = NULL;
 }
 
 t_selection ** initSelections(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos)
@@ -118,11 +131,8 @@ t_selection ** initSelections(t_moteur * moteur, niveau_informations_t ** infos_
         selections[i] = creerSelection(moteur->renderer, police, infos_niveaux[i]->nom_planete, i, infos_niveaux[i]->longueur/10);
         if(selections[i] == NULL)
         {
-            i--;
-            while(i >= 0)
-                detruireSelection(&(selections[i--]));
             TTF_CloseFont(police);
-            free(selections);
+            detruireSelections(&selections, i-1);
             return NULL;
         }
     }
@@ -138,19 +148,21 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
     SDL_Event event;
     SDL_Point souris;
 
-    int sortie = 0;
-    int indice_selection = -1;
+    int sortie = 0; //Code de sortie du menu
+    int indice_selection = -1; //Niveau selectionné (-1 si aucun)
 
-
+    //Initialisation
     t_selection ** selections = initSelections(moteur, infos_niveaux, nb_infos);
     if(selections == NULL)
         return M_PRINCIPAL;
 
+    //Boucle principale
     while(sortie == 0)
     {
-        SDL_GetMouseState(&souris.x, &souris.y);
         regulerFPS(moteur);
         updateEchelle(moteur);
+
+        //Events
         while(SDL_PollEvent(&event))
         {
             switch(event.type)
@@ -162,23 +174,28 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
                     switch (event.key.keysym.scancode)
                     {
                     case SDL_SCANCODE_ESCAPE :
+                        detruireSelections(&selections, nb_infos);
                         return M_PRINCIPAL;
-                
-
                     default:
                         break;
                     }
+
                 case SDL_MOUSEBUTTONDOWN:
                     if(indice_selection != -1)
                     {
                         *retour_niveau = indice_selection;
+                        detruireSelections(&selections, nb_infos);
                         return NIVEAU_CHANGER;
                     }
                     break;
 
+                default:
+                    break;
             }
         }
 
+        //Rendu des selections puis obtenir la selection
+        SDL_GetMouseState(&souris.x, &souris.y);
         for(int i = 0; i < nb_infos; i++)
         {
             if(indice_selection == i)
@@ -189,10 +206,12 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
         }
         indice_selection = indiceSelection(selections, nb_infos, &souris);
 
+        //Rendu
         SDL_RenderPresent(moteur->renderer);
         SDL_RenderClear(moteur->renderer);
     }
     
-    return M_PRINCIPAL;
 
+    detruireSelections(&selections, nb_infos);
+    return M_PRINCIPAL;
 }
