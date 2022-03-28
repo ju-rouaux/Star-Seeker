@@ -39,6 +39,8 @@ static int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float p
 {
     if(monstre->pv <= 0)
         return -1;
+
+    monstre->vitesse = 0;
     
     monstre->direction_vx = pos_joueur_x - monstre->x;
     monstre->direction_vy = pos_joueur_y - monstre->y;

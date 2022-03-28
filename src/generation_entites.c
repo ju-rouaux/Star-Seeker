@@ -12,6 +12,7 @@
 #include <generation_niveau.h>
 #include <interaction.h>
 
+
 /**
  * 
  * 
@@ -21,35 +22,56 @@
 static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
 {
     int nb_alea = rand() % 4 + 1;
+    int i = 0;
+    int arme= 0, vie = 0;
 
     //générer un nombre d'entité selon difficulté
-    *nb_entites = 0.35 * (indice_difficulte + nb_alea);
+    // *nb_entites = 0.35 * (indice_difficulte + nb_alea);
+    //Nombre d'entités pour le tests
+    *nb_entites = 10;
 
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
-
-    float x_alea;
-    float y_alea;
+    
     int attaque_alea;
     data_inter data;
-    data.nb_pv = 1;
 
-    //(*liste_entites)[i] = (t_entite*) creerInteraction(de(2)-1, x_orig_salle + 6, y_orig_salle + 4, data);
+    float x_alea_objet;
+    float y_alea_objet ;
+    x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
+    y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
+    if(de(12) == 1){
+        data.nb_pv = de(2);
+        (*liste_entites)[i] = (t_entite*) creerInteraction(0, x_alea_objet, y_alea_objet, data);
+        i++;
+        arme++;
+    }
+
+    x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
+    y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
+
+    if(de(30) == 1){
+        data.attaque = de(4);
+        (*liste_entites)[i] = (t_entite*) creerInteraction(1, x_alea_objet, y_alea_objet, data);
+        i++;
+        vie++;
+    }
 
     //générer entités
-    for(int i = 0; i < *nb_entites; i++){
-        x_alea = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
-        y_alea = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
+    for(; i < *nb_entites; i++){
+        float x_alea_monstres = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
+        float y_alea_monstres = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
         attaque_alea = rand() % (NB_ATTAQUE -1);
+
         //Selon les attaques, la taille du monstre change
         if(attaque_alea == 1)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.3, attaque_alea, STATIQUE);
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.2, attaque_alea, de(2)-1);
         else if(attaque_alea == 2)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.5, attaque_alea, STATIQUE);
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.3, attaque_alea, de(2)-1);
         else if(attaque_alea == 3)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 0.9, attaque_alea, STATIQUE);
-        else (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea,y_alea, 0, 2, 1.1, attaque_alea, STATIQUE);
+            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 0.9, attaque_alea, de(2)-1);
+        else (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.1, attaque_alea, de(2)-1);
     }
     return 0;
 }
