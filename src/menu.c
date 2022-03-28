@@ -66,11 +66,6 @@ int update_textureBouton(t_moteur * moteur, t_bouton * bouton, int rect_x, int r
     bouton -> rect.w = moteur -> echelle * (bouton -> longueur / B_LARGEUR); //Maj de la longeur du bouton selon l'echelle
     bouton -> rect.h = moteur -> echelle * B_LONGUEUR;//Maj de la largeur du bouton selon l'echelle
 
-    if (SDL_RenderDrawRect(moteur -> renderer, & bouton -> rect) != 0) {
-        printf("Erreur lors de l'affichage d'un bouton\n");
-        return -1;//Retourne cas d'erreur'
-    }
-
     if (SDL_RenderCopy(moteur -> renderer, bouton -> texture, NULL, & bouton -> rect) != 0) {
         printf("Erreur du SDL_RenderCopy dans le menu\n");
         return -1;//Retourne cas d'erreur'
@@ -273,11 +268,6 @@ int maj_TextureTexte(t_moteur * moteur,SDL_Rect * rect, SDL_Texture ** texture,i
     rect->y = rect_y;//Maj des coordonnées x du bouton
     rect->w = moteur -> echelle * (strlen(texte)/ T_LARGEUR); //Maj de la longeur du bouton selon l'echelle
     rect->h = moteur -> echelle * T_LONGUEUR;//Maj de la largeur du bouton selon l'echelle
-
-    if (SDL_RenderDrawRect(moteur -> renderer,rect) != 0) {
-        printf("Erreur lors de l'affichage du texte : %s\n",texte);
-        return -1;//Retourne cas d'erreur'
-    }
 
     if (SDL_RenderCopy(moteur -> renderer,*texture, NULL, rect) != 0) {
         printf("Erreur du SDL_RenderCopy pour la texture texte : %s\n",texte);
