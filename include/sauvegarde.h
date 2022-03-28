@@ -24,10 +24,10 @@ typedef enum
     NO_FILE = -5, MALLOC_FAIL = -4, READ_OR_WRITE_FAIL = -3, FOPEN_FAIL = -2, SAVE_ERROR = -1, SUCCESS = 0
 } err_save;
 
-err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge);
+err_save sauvegarderPartie(char * nom_galaxie, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge);
 err_save sauvegarderJoueur(t_joueur * joueur);
 err_save sauvegarderParametres(t_parametres * parametres);
 err_save chargerSaveJoueur(t_joueur * joueur);
-err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge);
+err_save chargerSavePartie(char ** nom_galaxie, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge);
 err_save chargerSaveParametres(t_parametres * parametres);
 #endif //_JEU_SAUVEGARDE_

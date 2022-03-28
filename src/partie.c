@@ -374,6 +374,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
 {
     t_niveau * niveau;
     e_code_main code_sortie;
+    int ancien_indice_niveau_charge;
 
     do
     { 
@@ -398,15 +399,19 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
         infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
         detruireNiveau(&niveau);
 
+        ancien_indice_niveau_charge = indice_niveau_charge;
         if(code_sortie == M_NIVEAU)
-            code_sortie = afficherMenuNiveau(&indice_niveau_charge, moteur, infos_niveaux, nb_niveaux);
+            code_sortie = afficherMenuNiveau(&indice_niveau_charge, moteur, infos_niveaux, nb_niveaux, ancien_indice_niveau_charge);
 
         //Changer de niveau si souhaité
         switch (code_sortie)
         {
         case NIVEAU_CHANGER:
-            joueur->x = 0;
-            joueur->y = 0;
+            if(ancien_indice_niveau_charge != indice_niveau_charge)
+            {
+                joueur->x = 0;
+                joueur->y = 0;
+            }
             break;
  
         case JEU_QUITTER:
@@ -424,7 +429,11 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
     //Fin de du jeu
     sauvegarderJoueur(joueur);
-    sauvegarderPartie(infos_niveaux, nb_niveaux, indice_niveau_charge);
+    sauvegarderPartie(moteur->galaxie, infos_niveaux, nb_niveaux, indice_niveau_charge);
+
+    if(moteur->galaxie != NULL)
+        free(moteur->galaxie);
+    moteur->galaxie = NULL;
 
     for(int i = 0; i < nb_niveaux; i++)
         detruire_niveau_info(&infos_niveaux[i]);
@@ -455,7 +464,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
  * 
  * \return 0 si succès, une valeur négative si echec.
  */
-static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nomGalaxie)
+static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nom_galaxie)
 {
     int i;
     
@@ -468,15 +477,15 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
 
     
     //Générer un nom de partie et le nom des niveaux
-    char * nom_galaxie = creer_nom(5 + de(5));
+    *nom_galaxie = creer_nom(5 + de(5));
     if(nom_galaxie == NULL)
         return -1;
 
-    char ** noms_planetes = creer_noms_planetes(nom_galaxie, nb_niveaux);
+    char ** noms_planetes = creer_noms_planetes(*nom_galaxie, nb_niveaux);
     if(noms_planetes == NULL)
     {
         printf("Impossible de générer une partie\n");
-        free(nom_galaxie);
+        free(*nom_galaxie);
         free(infos);
         return -1;
     }
@@ -493,15 +502,18 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
             while(i >= 0)
             {
                 detruire_niveau_info(&infos[i]);
-                detruireNomsPlanetes(&noms_planetes, nb_niveaux);
-                free(nom_galaxie);
-                free(infos);
                 i--;
             }
+            detruireNomsPlanetes(&noms_planetes, nb_niveaux);
+            free(noms_planetes);
+            free(*nom_galaxie);
+            *nom_galaxie = NULL;
+            free(infos);
             return -1;
         }
     }
     
+    free(noms_planetes);
     (*adr_infos) = infos;
 
     return 0;
@@ -523,10 +535,10 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
     niveau_informations_t ** infos;
     t_joueur * joueur = NULL;
     int retour;
-    char * nomGalaxie;
+
     //S'occuper du niveau
     srand(time(NULL));
-    retour = genererPartie(nb_niveaux, &infos, &nomGalaxie);
+    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie);
     if(retour != 0)
     {
         printf("Impossible de générer une nouvelle partie\n");
@@ -540,8 +552,10 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
         printf("Le niveau n'a pas pu être chargé\n");
         for(int i = 0; i < nb_niveaux; i++)
             detruire_niveau_info(&infos[i]);
+        free(moteur->galaxie);
+        moteur->galaxie = NULL;
         free(infos);
-        return -1;
+        return M_PRINCIPAL;
     }
     if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
     {   //Ecraser joueur
@@ -553,19 +567,21 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
     {   //Charger joueur
         if(chargerSaveJoueur(joueur) != 0)
         {
-            printf("Le niveau n'a pas pu être chargé car le joueur n'a pas pu etre chargé\n");
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
             for(int i = 0; i < nb_niveaux; i++)
                 detruire_niveau_info(&infos[i]);
+            free(moteur->galaxie);
+            moteur->galaxie = NULL;
             free(infos);
             detruireJoueur(&joueur);
-            return -1;
+            return M_PRINCIPAL;
         }
         joueur->x = 0;
         joueur->y = 0;
     }
 
     //Sauvegarde de la partie générée
-    sauvegarderPartie(infos, nb_niveaux, 0);
+    sauvegarderPartie(moteur->galaxie, infos, nb_niveaux, 0);
     return jouerPartie(moteur, joueur, infos, nb_niveaux, 0);
 }
 
@@ -601,17 +617,17 @@ int chargerPartie(t_moteur * moteur)
     //Charger joueur
     if(chargerSaveJoueur(joueur) != 0)
     {
-        printf("Le niveau n'a pas pu être chargé car le joueur n'a pas pu etre chargé\n");
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
         detruireJoueur(&joueur);
-        return -1;
+        return M_PRINCIPAL;
     }
 
     //Charger partie
-    if(chargerSavePartie(&infos, &nb_niveaux, &indice_niveau_charge) != 0)
+    if(chargerSavePartie(&moteur->galaxie, &infos, &nb_niveaux, &indice_niveau_charge) != 0)
     {
-        printf("Le niveau n'a pas pu être chargé car la sauvegarde de la partie n'a pas pu être chargé\n");
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde de la partie.\nVeuillez lancer une nouvelle partie.", moteur->window);
         detruireJoueur(&joueur);
-        return -1;
+        return M_PRINCIPAL;
     }
     
     return jouerPartie(moteur, joueur, infos, nb_niveaux, indice_niveau_charge);

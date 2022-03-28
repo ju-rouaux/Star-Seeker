@@ -13,6 +13,7 @@
 #include <moteur.h>
 #include <generation_niveau.h>
 
+#define PRECISION_RENDU_TEXTE 1000
 
 /**
  * \struct t_selection
@@ -34,6 +35,20 @@ typedef struct
     SDL_Rect position_planete;
     SDL_Rect position_texte;
 } t_selection;
+
+
+/**
+ * \struct t_texte
+ * \brief Modélise un simple élément textuel du menu.
+ */
+typedef struct
+{
+    SDL_Texture * rendu_texte;
+    int largeur;
+    int hauteur;
+} t_texte;
+
+
 
 
 /**
@@ -77,8 +92,8 @@ static void renduSelection(t_moteur * moteur, t_selection * select, SDL_Texture 
     SDL_RenderCopy(moteur->renderer, apparence, NULL, &select->position_planete);
     
     //Rendu texte
-    select->position_texte.w = (float)select->largeur_texte/1000 * moteur->echelle/2;
-    select->position_texte.h = (float)select->hauteur_texte/1000 * moteur->echelle/2;
+    select->position_texte.w = (float)select->largeur_texte/PRECISION_RENDU_TEXTE * moteur->echelle/2;
+    select->position_texte.h = (float)select->hauteur_texte/PRECISION_RENDU_TEXTE * moteur->echelle/2;
     select->position_texte.x = x - select->position_texte.w / 2;
     select->position_texte.y = select->position_planete.y + select->position_planete.h;
     SDL_RenderCopy(moteur->renderer, select->rendu_texte, NULL, &select->position_texte);
@@ -114,7 +129,6 @@ static t_selection * creerSelection(SDL_Renderer * renderer, TTF_Font * police, 
     SDL_Surface * surface = TTF_RenderText_Solid(police, texte, couleur);
     if(surface == NULL)
     {
-        printf("erreur surface\n");
         free(select);
         return NULL;
     }
@@ -122,7 +136,6 @@ static t_selection * creerSelection(SDL_Renderer * renderer, TTF_Font * police, 
     SDL_FreeSurface(surface);
     if(select->rendu_texte == NULL)
     {
-        printf("erreur texture\n");
         free(select);
         return NULL;
     }
@@ -165,42 +178,195 @@ void detruireSelections(t_selection *** selections, int nb_selections)
  * \brief Alloue la liste infos_niveau les différents choix du menu.
  * 
  * \param moteur Le moteur
+ * \param police La police du texte à afficher
  * \param infos_niveaux La liste des informations sur la structure des niveaux de la partie
  * \param nb_infos Le nombre d'éléments de la liste
  * 
  * \return La liste des différents choix contextuels du menu.
  */
-t_selection ** initSelections(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos)
+t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos)
 {
     //Matrice des sélections possibles du menu
     t_selection ** selections = malloc(sizeof(t_selection*) * nb_infos);
     if(selections == NULL)
         return NULL;
 
-    //Police d'affichage
-    TTF_Font * police = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", 1000);
-    if(police == NULL)
-    {
-        printf("Impossible d'ouvrir la police\n");
-        free(selections);
-        return NULL;
-    }
-    
     for(int i = 0; i < nb_infos; i++)
     {
         selections[i] = creerSelection(moteur->renderer, police, infos_niveaux[i]->nom_planete, i, infos_niveaux[i]->longueur/10);
         if(selections[i] == NULL)
         {
-            TTF_CloseFont(police);
             detruireSelections(&selections, i-1);
             return NULL;
         }
     }
 
-    TTF_CloseFont(police);
     return selections;
 }
 
+
+/**
+ * \brief Affiche le nom de la galaxie en guise de titre du menu
+ * 
+ * \param moteur Le moteur
+ * \param titre Le titre à afficher
+ */
+static void renduTitre(t_moteur * moteur, t_texte * titre)
+{
+    SDL_Rect dest;
+    dest.w = (float)titre->largeur/PRECISION_RENDU_TEXTE * moteur->echelle*1.5;
+    dest.h = (float)titre->hauteur/PRECISION_RENDU_TEXTE * moteur->echelle*1.5;
+    dest.x = 20; //offset de 20 px
+    dest.y = 20; //offset de 20 px
+    SDL_RenderCopy(moteur->renderer, titre->rendu_texte, NULL, &dest);
+}
+
+
+/**
+ * 
+ * 
+ * \return Vrai si la souris survole le bouton, faux sinon.
+ */
+static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Point * souris)
+{
+    int survole = 0;
+
+    SDL_Rect dest;
+    dest.w = (float)bouton->largeur/PRECISION_RENDU_TEXTE * moteur->echelle;
+    dest.h = (float)bouton->hauteur/PRECISION_RENDU_TEXTE * moteur->echelle;
+    dest.x = 20; //offset de 20 px
+    dest.y = moteur->window_height - dest.h - 20; //offset de 20 px
+
+    SDL_PointInRect(souris, &dest);
+    if( (survole = SDL_PointInRect(souris, &dest)) )
+        SDL_SetTextureColorMod(bouton->rendu_texte, 255,0,0);
+    else
+        SDL_SetTextureColorMod(bouton->rendu_texte, 255,255,255);
+
+    SDL_RenderCopy(moteur->renderer, bouton->rendu_texte, NULL, &dest);
+
+    return survole;
+}
+
+
+/**
+ * 
+ */
+t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu)
+{
+    //Police d'affichage
+    TTF_Font * police = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", PRECISION_RENDU_TEXTE);
+    if(police == NULL)
+    {
+        printf("Impossible d'ouvrir la police\n");
+        return NULL;
+    }
+
+
+    //Générer les sélections
+    t_selection ** selections = initSelections(moteur, police, infos_niveaux, nb_infos);
+    if(selections == NULL)
+    {
+        TTF_CloseFont(police);
+        return NULL;
+    }
+
+
+    SDL_Color couleur = {255,255,255,255};
+    SDL_Surface * surface = NULL;
+
+
+    //Générer le titre
+    *titre = malloc(sizeof(t_texte));
+    if(*titre == NULL)
+    {
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    if(TTF_SizeText(police, moteur->galaxie, &(*titre)->largeur, &(*titre)->hauteur) != 0)
+    {
+        (*titre)->largeur = 4;
+        (*titre)->hauteur = 1;
+    }
+    surface = TTF_RenderText_Solid(police, moteur->galaxie, couleur);
+    if(surface == NULL)
+    {
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    (*titre)->rendu_texte = SDL_CreateTextureFromSurface(moteur->renderer, surface);
+    SDL_FreeSurface(surface);
+    if((*titre)->rendu_texte == NULL)
+    {
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    surface = NULL;
+
+
+    //Générer bouton menu principal
+    *menu = malloc(sizeof(t_texte));
+    if(*menu == NULL)
+    {
+        SDL_DestroyTexture((*titre)->rendu_texte);
+        free(*titre);
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    if(TTF_SizeText(police, "Partir", &(*menu)->largeur, &(*menu)->hauteur) != 0)
+    {
+        (*menu)->largeur = 4;
+        (*menu)->hauteur = 1;
+    }
+    surface = TTF_RenderText_Solid(police, "Partir", couleur);
+    if(surface == NULL)
+    {
+        free(*menu);
+        SDL_DestroyTexture((*titre)->rendu_texte);
+        free(*titre);
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    (*menu)->rendu_texte = SDL_CreateTextureFromSurface(moteur->renderer, surface);
+    SDL_FreeSurface(surface);
+    if((*menu)->rendu_texte == NULL)
+    {
+        free(*menu);
+        SDL_DestroyTexture((*titre)->rendu_texte);
+        free(*titre);
+        detruireSelections(&selections, nb_infos);
+        TTF_CloseFont(police);
+        return NULL;
+    }
+    surface = NULL;
+
+    TTF_CloseFont(police);
+
+    return selections;
+}
+
+
+void freeMenu(t_selection *** selections, int nb_selections, t_texte ** titre, t_texte ** menu)
+{
+    detruireSelections(selections, nb_selections);
+    if(*menu != NULL)
+    {
+        SDL_DestroyTexture((*menu)->rendu_texte);
+        free(*menu);
+    }
+    if(*titre != NULL)
+    {
+        SDL_DestroyTexture((*titre)->rendu_texte);
+        free(*titre);
+    }
+    *titre = NULL;
+    *menu = NULL;
+}
 
 /**
  * \brief Affiche le menu de sélection d'une planète.
@@ -209,10 +375,11 @@ t_selection ** initSelections(t_moteur * moteur, niveau_informations_t ** infos_
  * \param moteur Le moteur
  * \param infos_niveaux La liste des informations sur la structure des niveaux de la partie
  * \param nb_infos Le nombre d'éléments de la liste
+ * \param ancien_niveau_charge Indice du niveau précédemment chargé
  * 
  * \return L'action réalisée, l'indice du niveau choisi est retourné dans retour_niveau si NIVEAU_CHANGER est retourné.
  */
-e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos)
+e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, int ancien_niveau_charge)
 {
     SDL_Event event;
     SDL_Point souris;
@@ -220,8 +387,10 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
     int sortie = 0; //Code de sortie du menu
     int indice_selection = -1; //Niveau selectionné (-1 si aucun)
 
+    t_texte * titre, *menu;
+
     //Initialisation
-    t_selection ** selections = initSelections(moteur, infos_niveaux, nb_infos);
+    t_selection ** selections = initMenu(moteur, infos_niveaux, nb_infos, &titre, &menu);
     if(selections == NULL)
         return M_PRINCIPAL;
 
@@ -237,24 +406,31 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
             switch(event.type)
             {
                 case SDL_QUIT:
-                    detruireSelections(&selections, nb_infos);
+                    freeMenu(&selections, nb_infos, &titre, &menu);
                     return JEU_QUITTER;
                 
                 case SDL_KEYDOWN:
                     switch (event.key.keysym.scancode)
                     {
                     case SDL_SCANCODE_ESCAPE :
-                        detruireSelections(&selections, nb_infos);
-                        return M_PRINCIPAL;
+                        *retour_niveau = ancien_niveau_charge;
+                        freeMenu(&selections, nb_infos, &titre, &menu);
+                        return NIVEAU_CHANGER;
+                        
                     default:
                         break;
                     }
 
                 case SDL_MOUSEBUTTONDOWN:
-                    if(indice_selection != -1)
+                    if(indice_selection == -2)
+                    {
+                        freeMenu(&selections, nb_infos, &titre, &menu);
+                        return M_PRINCIPAL;
+                    }
+                    else if(indice_selection != -1)
                     {
                         *retour_niveau = indice_selection;
-                        detruireSelections(&selections, nb_infos);
+                        freeMenu(&selections, nb_infos, &titre, &menu);
                         return NIVEAU_CHANGER;
                     }
                     break;
@@ -282,6 +458,10 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
         }
         indice_selection = indiceSelection(selections, nb_infos, &souris);
 
+        renduTitre(moteur, titre);
+        if(renduBoutonMenuPrincipal(moteur, menu, &souris))
+            indice_selection = -2;
+        
         //Rendu
         SDL_RenderPresent(moteur->renderer);
         SDL_RenderClear(moteur->renderer);

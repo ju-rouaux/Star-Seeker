@@ -293,13 +293,27 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
+err_save sauvegarderPartie(char * nom_galaxie, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
 {
     err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "wb");
     if(fichier == NULL)
         return FOPEN_FAIL;
 
+    //Sauvegarder nom galaxie (nom de la partie)
+    int taille_chaine_nom = strlen(nom_galaxie) + 1;
+    if(fwrite(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Ecriture taille nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+    if(fwrite(nom_galaxie, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Ecriture nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+
+    //Sauvegarde de la structure du niveau
     retour = sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
     if(retour != SUCCESS)
     {
@@ -324,17 +338,36 @@ err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveau
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
+err_save chargerSavePartie(char ** nom_galaxie, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
     err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "rb");
     if(fichier == NULL)
         return FOPEN_FAIL;
 
+    //Charger nom galaxie (nom de la partie)
+    int taille_chaine_nom;
+    if(fread(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Lecture taille nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+    *nom_galaxie = malloc(sizeof(char)*taille_chaine_nom);
+    if(fread(*nom_galaxie, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Lecture nom de la partie
+    {
+        free(*nom_galaxie);
+        *nom_galaxie = NULL;
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+
+    //Charger la structure du niveau
     retour = chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
     if(retour != SUCCESS)
     {
-        printf("code %i", retour);
+        free(*nom_galaxie);
+        *nom_galaxie = NULL;
+        fclose(fichier);
         return retour;
     }
 

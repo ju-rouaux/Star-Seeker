@@ -74,6 +74,7 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
     switch (type)
     {
     case P_MORT:
+        particule->animation = creerAnimation(50, 16);
         particule->id_animation = 0;
         particule->taille = 0.8;
         particule->duree_de_vie = 800;
