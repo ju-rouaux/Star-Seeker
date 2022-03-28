@@ -49,6 +49,7 @@ static void initialiserParams(t_parametres * parametres)
 {
     if(chargerSaveParametres(parametres) != SUCCESS)
     {
+        printf("Sauvegarde du moteur réinitialisée\n");
         parametres->key_up = SDL_SCANCODE_W; 
         parametres->key_down = SDL_SCANCODE_S; 
         parametres->key_left = SDL_SCANCODE_A;
@@ -137,6 +138,8 @@ t_moteur * chargerMoteur(unsigned int temps)
 
     moteur->echelle = 0;
     updateEchelle(moteur);
+
+    moteur->galaxie = NULL;
 
     return moteur;
 }

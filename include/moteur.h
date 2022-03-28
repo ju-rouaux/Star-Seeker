@@ -68,6 +68,7 @@ typedef struct s_moteur
     unsigned int temps; /**< Temps au début d'une frame */
     unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
+    char * galaxie; /** Nom de la partie */
     t_camera * camera; /** Caméra du jeu */
     t_niveau * niveau_charge; /** Niveau actuellement chargé */
     t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
