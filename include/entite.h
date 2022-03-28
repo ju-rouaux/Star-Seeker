@@ -25,7 +25,7 @@
  */
 typedef enum
 {
-    E_AUCUN = -1, E_JOUEUR, E_MONSTRE, E_PROJECTILE
+    E_AUCUN = -1, E_JOUEUR, E_MONSTRE, E_PROJECTILE, E_PARTICULE, E_INTERACTION
 }e_type_entite;
 
 

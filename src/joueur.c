@@ -235,8 +235,10 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
     joueur->pv = 100;
+    joueur->xp = 0;
 
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, SABRE_LASER);
+    joueur->nom_attaque = DEMO;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
 
     return joueur;
 }

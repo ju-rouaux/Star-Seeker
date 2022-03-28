@@ -1,7 +1,7 @@
 /**
  * \file generation_niveau.h
  * 
- * \brief Librairie de generation.c
+ * \brief Librairie de generation
  *
  * \author Camille REMOUÉ
  *  
@@ -82,11 +82,12 @@ typedef struct {
     int i_fin;
     int j_fin;
 
+    char * nom_planete;
 
 } niveau_informations_t;
 
 
-niveau_informations_t * creer_niveau_info(const char * nom_planete);
+niveau_informations_t * creer_niveau_info(char * nom_planete);
 void detruire_niveau_info(niveau_informations_t ** niveau);
 int seed_depuis_mot(const char * mot);
 

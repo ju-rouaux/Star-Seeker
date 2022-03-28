@@ -284,6 +284,7 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
 
             free((*niveau)->liste_infos_entites);
         }
+        free((*niveau)->nom_planete);
         free(*niveau);
     }
     *niveau = NULL;
@@ -295,7 +296,7 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
  * 
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
  */
-niveau_informations_t * creer_niveau_info(const char * nom_planete){
+niveau_informations_t * creer_niveau_info(char * nom_planete){
 
     int indice_difficulte = 3; //!!! A CALCULER
 
@@ -332,6 +333,8 @@ niveau_informations_t * creer_niveau_info(const char * nom_planete){
     niveau->liste_infos_entites = NULL;
     niveau->nb_infos_entite = 0;
     genererEntites(indice_difficulte, (int*) niveau->matrice, HAUTEUR_NIVEAU_MAX, LONGUEUR_NIVEAU_MAX, &niveau->liste_infos_entites, &niveau->nb_infos_entite);
+
+    niveau->nom_planete = nom_planete;
 
     return niveau;
 }

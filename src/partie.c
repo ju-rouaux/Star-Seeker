@@ -26,7 +26,9 @@
 #include <outils.h>
 #include <generation_entites.h>
 #include <overlay.h>
+#include <particules.h>
 #include <main.h>
+#include <menu_niveau.h>
 
 
 
@@ -57,7 +59,7 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
             while(!hors_liste(liste_entites) && cpt < info_entites[i]->nb_entites) //Si jamais il y a plus d'entités que prévu à la base, on ne note pas l'info
             {
                 valeur_elt(liste_entites, &entite_courante);
-                if(entite_courante != NULL && entite_courante->type != E_PROJECTILE) //Ne pas sauvegarder les projectiles
+                if(entite_courante != NULL && (entite_courante->type == E_MONSTRE || entite_courante->type == E_INTERACTION)) //Ne sauvegarder que les monstres ou les interactions
                     info_entites[i]->entites[cpt++] = entite_courante;
 
                 entite_courante = NULL;
@@ -73,8 +75,8 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
     {
         valeur_elt(liste_entites, &entite_courante);
 
-        if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
-            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles
+        if(entite_courante != NULL && (entite_courante->type == E_PROJECTILE || entite_courante->type == E_PARTICULE))
+            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles et particules
 
         //Enlever les entités de la liste
         oter_elt(liste_entites); 
@@ -134,18 +136,17 @@ static void renduEntites(t_moteur * moteur)
  * \brief Libère et charge les entités 
  * 
  */
-void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, int id_ancienne_salle)
+void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau, int id_ancienne_salle)
 {
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
     int direction_x, direction_y;
-    int tempsEcoule;
 
     //Sauver les entités de l'ancienne salle
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
 
     //Charger les entités de la nouvelle salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
     //Detruire anciennes collisions
     if(niveau->collisions != NULL)
@@ -161,7 +162,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
     //Animer tant que la caméra n'atteint pas son objectif
     while(moteur->camera->x != moteur->camera->futur_x || moteur->camera->y != moteur->camera->futur_y)
     {
-        moteur->temps = SDL_GetTicks();
+        regulerFPS(moteur);
 
         //Calcul position caméra
         direction_x = moteur->camera->x == moteur->camera->futur_x ? 0 : (moteur->camera->x < moteur->camera->futur_x ? 1 : -1); //Sens où se diriger
@@ -186,12 +187,10 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-        SDL_RenderPresent(moteur->renderer);
+        if(joueur->flags->map_showing == 1)
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
 
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+        SDL_RenderPresent(moteur->renderer);
     }
 
     //Reset la future position
@@ -208,7 +207,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, niveau_informations_t * infos_niveau)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau)
 {
     //Variables pour faciliter les appels
     t_niveau * niveau = moteur->niveau_charge;
@@ -216,23 +215,18 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
 
 
     t_entite * entite_courante;
-    int tempsEcoule;
     int id_ancienne_salle = 0;
     int code_sortie = 0;
 
     
     //Charger les entités de la salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
-    while((code_sortie = handleEvents(joueur,moteur)) == NIVEAU_CONTINUER)
+    while((code_sortie = handleEvents(joueur, &moteur->parametres)) == NIVEAU_CONTINUER)
     {
-        //Traitements de début de boucle
-        moteur->temps_precedent = moteur->temps;
-        moteur->temps = SDL_GetTicks();
-        SDL_RenderClear(moteur->renderer);
+        regulerFPS(moteur);
         updateEchelle(moteur);
-
 
     // ~~~ LOGIQUE
 
@@ -251,6 +245,17 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
                 {
                     if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
+                        if(entite_courante->type == E_MONSTRE)
+                        {
+                            //Particule pour indiquer la mort du monstre
+                            ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            //Ajouter l'xp gagné au joueur
+                            int xp_lache = de(5);
+                            for(int xp = 0; xp < xp_lache; xp++)
+                                ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            joueur->xp += xp_lache;
+                        }
+
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
@@ -263,21 +268,42 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
             }
         }
 
-        // --- Faire subir les dégâts par les projectiles ---
+        // --- Faire subir les dégâts par les projectiles ou réaliser une interaction ---
         en_tete(liste_entites);
         if(!liste_vide(liste_entites))
         {
             while(!hors_liste(liste_entites))
             {
+                //Dégâts projectiles
                 valeur_elt(liste_entites, &entite_courante);
                 if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
                 {
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
                     {
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->particules));
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
                 }
+                
+                //Interactions
+                if(entite_courante != NULL && entite_courante->type == E_INTERACTION)
+                {
+                    int interact = interagir((t_interaction*) entite_courante, joueur);
+                    if(interact != 0) //Si une interaction a eu lieu
+                    {
+                        //Lancer un feedback au joueur
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+
+                        //Si l'interaction est unique, la détruire
+                        if(interact == -1)
+                        {
+                            entite_courante->detruire((t_entite**) &entite_courante);
+                            oter_elt(liste_entites);
+                        }
+                    }
+                }
+
                 if(hors_liste(liste_entites))
                     en_tete(liste_entites);
                 else
@@ -287,11 +313,11 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         }
 
 
-        // --- Changement de salle si nécéssaire ---
+        // --- Changement de salle si nécessaire ---
         id_ancienne_salle = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
         if(id_ancienne_salle != niveau->salle_chargee->id_salle)
-            transitionChangementSalle(moteur, joueur, info_entites, nb_info_entites, id_ancienne_salle);
+            transitionChangementSalle(moteur, joueur, infos_niveau, id_ancienne_salle);
 
 
     // ~~~ RENDU
@@ -308,26 +334,22 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-  
+
+        //Map
         if(joueur->flags->map_showing == 1){
+            Mix_PlayMusic(moteur->bruitages->treasure, 1);
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
         }
 
-
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
-
-
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+        SDL_RenderClear(moteur->renderer);
     }
 
     //Sauver l'état des entités
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
-    return code_sortie;;
+    return code_sortie;
 }
 
 
@@ -362,41 +384,31 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
             return -1;
         }
         niveau = moteur->niveau_charge;
-        if(joueur->x == 0 && joueur->y == 0) //Si la sauvegarde du joueur est vierge, placer le joueur sur la map
+        if(joueur->x == 0 && joueur->y == 0) //Si la position du joueur est vierge, placer le joueur sur la map
         {
             joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
             joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
         }
 
         //Jouer le niveau
-        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite, infos_niveaux[indice_niveau_charge]);
+        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]);
     
         //Fin du niveau
         infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
         infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
         detruireNiveau(&niveau);
 
+        if(code_sortie == M_NIVEAU)
+            code_sortie = afficherMenuNiveau(&indice_niveau_charge, moteur, infos_niveaux, nb_niveaux);
+
         //Changer de niveau si souhaité
         switch (code_sortie)
         {
-        case NIVEAU_SUIVANT:
-            if(indice_niveau_charge < nb_niveaux - 1)
-            {
-                joueur->x = 0;
-                joueur->y = 0;
-                indice_niveau_charge++;
-            }
+        case NIVEAU_CHANGER:
+            joueur->x = 0;
+            joueur->y = 0;
             break;
-
-        case NIVEAU_PRECEDENT:
-            if(indice_niveau_charge > 0)
-            {
-                joueur->x = 0;
-                joueur->y = 0;
-                indice_niveau_charge--;
-            }
-            break;   
-
+ 
         case JEU_QUITTER:
         case M_PRINCIPAL:
             break;
@@ -468,7 +480,6 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
         free(infos);
         return -1;
     }
-
 
     for(i = 0; i < nb_niveaux; i++)
     {

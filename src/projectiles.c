@@ -73,7 +73,12 @@ int faireDegats(t_projectile * projectile, t_joueur * joueur, t_liste * liste)
     t_personnage * monstre;
     
     //Si joueur est cible
-    if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &joueur->hitbox))
+    SDL_Rect hitbox_joueur; //Calculer une hitbox plus petite pour le joueur
+    hitbox_joueur.x = joueur->hitbox.x + joueur->hitbox.w/3;
+    hitbox_joueur.y = joueur->hitbox.y;
+    hitbox_joueur.w = joueur->hitbox.w/3;
+    hitbox_joueur.h = 9*joueur->hitbox.h/10;
+    if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &hitbox_joueur))
     {
         joueur->pv -= projectile->dommages;
         return -1;

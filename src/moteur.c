@@ -12,29 +12,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <moteur.h>
+#include <audio.h>
 #include <window.h>
 #include <textures.h>
 #include <camera.h>
 #include <liste.h>
+#include <sauvegarde.h>
+
 
 /**
- * \brief Initialise les touches du clavier
+ * \brief Fonction bloquante destinée à bloquer l'exécution du programme pour qu'il
+ * puisse tourner à 60 images par secondes, au maximum.
+ *
+ * Cette fonction actualise les champs du moteur qui concernent le temps. Elle est
+ * destinée à être appelée au début de chaque boucles du jeu.
  * 
- * \param moteur moteur du jeu
+ * \param moteur Le moteur
  */
-void initialiserTouches(t_moteur * moteur){
-    //probleme entre la valeur des SDL_SCANCODE_.. et la réalité
-    moteur->parametres.key_up = 26; //SDL_SCANCODE_Z
-    moteur->parametres.key_down = 22; //SDL_SCANCODE_S
-    moteur->parametres.key_left = 4; //SDL_SCANCODE_Q
-    moteur->parametres.key_right = 7;//SDL_SCANCODE_D
-    moteur->parametres.key_projectile = 15; //SDL_SCANCODE_L
+void regulerFPS(t_moteur * moteur)
+{
+    //Réguler FPS
+    int tempsEcoule = tempsEcoule = SDL_GetTicks() - moteur->temps;
+    if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
+        SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+    moteur->temps_precedent = moteur->temps;
+    moteur->temps = SDL_GetTicks();
 }
 
+
+/**
+ * \brief Initialise les parametres.
+ * 
+ * \param parametres Paramètres du moteur
+ */
+static void initialiserParams(t_parametres * parametres)
+{
+    if(chargerSaveParametres(parametres) != SUCCESS)
+    {
+        parametres->key_up = SDL_SCANCODE_W; 
+        parametres->key_down = SDL_SCANCODE_S; 
+        parametres->key_left = SDL_SCANCODE_A;
+        parametres->key_right = SDL_SCANCODE_D;
+        parametres->key_projectile = SDL_SCANCODE_L; 
+        parametres->key_interaction = SDL_SCANCODE_E;
+        parametres->reset_sauvegarde_joueur = FAUX;
+        parametres->volume_audio = MIX_MAX_VOLUME; 
+    }
+}
 
 
 /**
  * \brief Charge une fenêtre, un rendu, les textures, et une caméra.
+ * Charge les paramètres depuis la sauvegarde.
  * 
  * \return Structure moteur, NULL si échec.
  */
@@ -76,15 +105,31 @@ t_moteur * chargerMoteur(unsigned int temps)
         return NULL;
     }
 
-    //Allouer la liste des entités "vivantes"
-    moteur->liste_entites = malloc(sizeof(t_liste));
-    if(moteur->liste_entites == NULL)
+    initialiserParams(&moteur->parametres);
+
+    if(chargerAudio(moteur->parametres.volume_audio, &moteur->musiques, &moteur->bruitages) != 0)
     {
+        printf("Moteur non chargé\n");
+        detruireCamera(&moteur->camera);
         detruireTextures(&moteur->textures);
         detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
         free(moteur);
         return NULL;
     }
+
+    //Allouer la liste des entités "vivantes"
+    moteur->liste_entites = malloc(sizeof(t_liste));
+    if(moteur->liste_entites == NULL)
+    {
+        printf("Moteur non chargé\n");
+        detruireAudio(&moteur->musiques, &moteur->bruitages);
+        detruireCamera(&moteur->camera);
+        detruireTextures(&moteur->textures);
+        detruireFenetreEtRendu(&moteur->window, &moteur->renderer);
+        free(moteur);
+        return NULL;
+    }
+
     init_liste(moteur->liste_entites);
 
     moteur->temps_precedent = temps;
@@ -93,18 +138,13 @@ t_moteur * chargerMoteur(unsigned int temps)
     moteur->echelle = 0;
     updateEchelle(moteur);
 
-    initialiserTouches(moteur);
-
-    moteur->parametres.reset_sauvegarde_joueur = FAUX;
-    moteur->parametres.volume_audio = 100;
-
     return moteur;
 }
 
 
 /**
  * \brief Libère la mémoire allouée pour la structure moteur et mets son 
- * pointeur à NULL. 
+ * pointeur à NULL. Sauvegarde aussi les paramètres.
  * 
  * \param moteur L'adresse du pointeur du moteur.
  */
@@ -112,9 +152,11 @@ void detruireMoteur(t_moteur ** moteur)
 {
     if(*moteur != NULL)
     {
+        sauvegarderParametres(&(*moteur)->parametres);
         detruireCamera(&(*moteur)->camera);
         detruireTextures(&(*moteur)->textures);
         detruireFenetreEtRendu(&(*moteur)->window, &(*moteur)->renderer);
+        detruireAudio(&(*moteur)->musiques, &(*moteur)->bruitages);
         detruire_liste(&(*moteur)->liste_entites);
     }
     free(*moteur);

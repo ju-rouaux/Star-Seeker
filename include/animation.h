@@ -15,7 +15,7 @@
 
 /**
  * \struct t_animation
- * \brief Structure contenant les données nécéssaires
+ * \brief Structure contenant les données nécessaires
  * à la réalisation d'une animation.
  * 
  * Les champs de cette structure ne sont pas destinés à être changés

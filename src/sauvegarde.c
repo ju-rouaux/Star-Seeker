@@ -3,7 +3,7 @@
  * 
  * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
  * 
- * \author Guillaume Richard & Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -11,11 +11,12 @@
 
 #define filename_joueur "./save/save_joueur.save"
 #define filename_niveau "./save/save_niveau.save"
+#define filename_param  "./save/save_parametres.save"
 
 // OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Retourne la taille d'une fichier, utile pour savoir s'il est vide ou s'il existe.
+ * \brief Retourne la taille d'un fichier, utile pour savoir s'il est vide ou s'il existe.
  *
  * \param filename nom du fichier
  * 
@@ -74,6 +75,9 @@ err_save chargerSaveJoueur(t_joueur * joueur)
     joueur->direction_vx = tmp->direction_vx;
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
+    joueur->xp = tmp->xp;
+    joueur->nom_attaque = tmp->nom_attaque;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, joueur->nom_attaque);
 
     free(tmp);
     fclose (fichier);
@@ -120,11 +124,14 @@ err_save sauvegarderJoueur(t_joueur * joueur)
  */
 static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     niveau_informations_t * tmp = NULL;
     niveau_informations_t ** infos = NULL;
 
     e_type_entite type_c; //type entité courante;
     t_monstre * monstre_temp;
+    t_interaction * inter_temp;
 
     if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
@@ -138,8 +145,15 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
 
     for(int i = 0; i < (*nb_niveaux); i++)
     {
-        tmp  = malloc(sizeof(niveau_informations_t));
+        tmp = malloc(sizeof(niveau_informations_t));
         if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1) //Lecture infos niveaux
+            return READ_OR_WRITE_FAIL;
+
+        if(fread(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Lecture taille de la chaine du nom du niveau
+            return READ_OR_WRITE_FAIL;
+
+        tmp->nom_planete = malloc(sizeof(char)*taille_chaine_nom);
+        if(fread(tmp->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Lecture du nom du niveau
             return READ_OR_WRITE_FAIL;
 
         tmp->liste_infos_entites = malloc(sizeof(t_info_entites*) * tmp->nb_infos_entite);
@@ -168,12 +182,20 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
                 {
                 case E_MONSTRE:
                     monstre_temp = malloc(sizeof(t_monstre));
-                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1) //Lecture infos niveaux
+                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1)
                         return READ_OR_WRITE_FAIL;
                     tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
                     free(monstre_temp);
                     break;
-                
+
+                case E_INTERACTION:
+                    inter_temp = malloc(sizeof(t_interaction));
+                    if(fread(inter_temp, sizeof(t_interaction), 1, fichier) != 1)
+                        return READ_OR_WRITE_FAIL;
+                    tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerInteraction(inter_temp->type_inter, inter_temp->x, inter_temp->y, inter_temp->data);
+                    free(inter_temp);
+                    break;
+
                 default:
                     break;
                 }
@@ -201,6 +223,8 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
  */
 static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     if(fwrite(&indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
 
@@ -211,6 +235,14 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
     {
         if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1) //Ecriture structure
             return READ_OR_WRITE_FAIL;
+        
+        taille_chaine_nom = strlen(niveaux[i]->nom_planete) + 1;
+
+        if(fwrite(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Ecriture taille chaine
+            return READ_OR_WRITE_FAIL;
+
+        if(fwrite(niveaux[i]->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Ecriture nom du niveau chaine
+            return READ_OR_WRITE_FAIL;
 
         for(int j = 0; j < niveaux[i]->nb_infos_entite; j++)
         {
@@ -219,18 +251,26 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 
             for(int k = 0; k < niveaux[i]->liste_infos_entites[j]->nb_entites; k++)
             {
-                if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
-                    return READ_OR_WRITE_FAIL;
-                
-                switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                if(niveaux[i]->liste_infos_entites[j]->entites[k] != NULL)
                 {
-                case E_MONSTRE:
-                    if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                    if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
                         return READ_OR_WRITE_FAIL;
-                    break;
-                
-                default:
-                    break;
+                    
+                    switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                    {
+                    case E_MONSTRE:
+                        if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+                        
+                    case E_INTERACTION:
+                        if(fwrite((t_interaction*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_interaction), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+
+                    default:
+                        break;
+                    }
                 }
                 
             }
@@ -245,7 +285,7 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 /**
  * \brief Sauvegarde les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
  * \param infos_niveaux La matrice des structures de donnée de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
@@ -276,7 +316,7 @@ err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveau
 /**
  * \brief Charge les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
  * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
  * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
@@ -302,6 +342,48 @@ err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niv
 
     fclose(fichier);
 
+    return SUCCESS;
+}
+
+// SAUVEGARDE PARAMETRES ---------------------------------------------------------------------------------------------
+
+/**
+ * \brief Sauvegarde des paramètres du joueur
+ * 
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save sauvegarderParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "wb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fwrite(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    fclose(fichier);
+    return SUCCESS;
+}
+
+/**
+ * \brief Charge les paramètres du joueur
+ * 
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save chargerSaveParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "rb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fread(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    fclose(fichier);
     return SUCCESS;
 }
 

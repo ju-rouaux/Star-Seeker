@@ -10,7 +10,7 @@
  *              static int proj_NOMPROJECTILE(t_projectile * projectile)
  *              {
  *                  projectile->animation = creerAnimation(INT, INT);  //ou NULL si pas d'animation
- *                  if(projectile->animation == NULL)                  //pas nécéssaire si pas d'animation
+ *                  if(projectile->animation == NULL)                  //pas nécessaire si pas d'animation
  *                      return -1;
  *                  
  *                  projectile->id_animation = INT;

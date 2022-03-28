@@ -19,7 +19,7 @@
  * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
  */
 
-e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
+e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
 
     //const char * key_code, * key_name; /*nom de la touche azerty, qwerty*/
     //int mouse_x, mouse_y; /*Coordonnées du curseur*/
@@ -101,28 +101,28 @@ e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
             //Gestion du clavier
             case SDL_KEYDOWN:
 
-                if(moteur->parametres.key_up == event.key.keysym.scancode)
-                            joueur->flags->to_up = joueur->flags->to_down + 1;
-                else if(moteur->parametres.key_left == event.key.keysym.scancode)
-                            joueur->flags->to_left = joueur->flags->to_right + 1;
-                else if (moteur->parametres.key_down == event.key.keysym.scancode)
-                            joueur->flags->to_down = joueur->flags->to_up + 1;
-                else if  (moteur->parametres.key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = joueur->flags->to_left + 1;
-                else if  (moteur->parametres.key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 1;
-
-                switch (event.key.keysym.scancode)
+                if(parametres->key_up == event.key.keysym.scancode)
+                    joueur->flags->to_up = joueur->flags->to_down + 1;
+                else if(parametres->key_left == event.key.keysym.scancode)
+                    joueur->flags->to_left = joueur->flags->to_right + 1;
+                else if (parametres->key_down == event.key.keysym.scancode)
+                    joueur->flags->to_down = joueur->flags->to_up + 1;
+                else if  (parametres->key_right == event.key.keysym.scancode)
+                    joueur->flags->to_right = joueur->flags->to_left + 1;
+                else if  (parametres->key_projectile == event.key.keysym.scancode)
+                    joueur->flags->shooting = 1;
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
+                {
+                    if(joueur->flags->interaction == 0)
+                        joueur->flags->interaction = 1;
+                    else    //Passer le flag à -1 si la touche est maintenue
+                        joueur->flags->interaction = -1;
+                }
+                else switch (event.key.keysym.scancode)
                 {
                    /* A comment. */
                     case SDL_SCANCODE_ESCAPE: //ESC
-                        return M_PRINCIPAL;
-                        break;
-                    case SDL_SCANCODE_O: //O !!! Temporaire
-                        return NIVEAU_PRECEDENT;
-                        break;
-                    case SDL_SCANCODE_P: //P !!! Temporaire
-                        return NIVEAU_SUIVANT;
+                        return M_NIVEAU;
                         break;
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_showing = 1;
@@ -134,17 +134,19 @@ e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
 
             case SDL_KEYUP: /*touche relachée*/
 
-                if(moteur->parametres.key_up == event.key.keysym.scancode)
-                        joueur->flags->to_up = 0;
-                else if(moteur->parametres.key_left == event.key.keysym.scancode)
-                        joueur->flags->to_left = 0;
-                else if (moteur->parametres.key_down == event.key.keysym.scancode)
-                        joueur->flags->to_down = 0;
-                else if (moteur->parametres.key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = 0;
-                else if (moteur->parametres.key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 0;
-                switch (event.key.keysym.scancode)
+                if(parametres->key_up == event.key.keysym.scancode)
+                    joueur->flags->to_up = 0;
+                else if(parametres->key_left == event.key.keysym.scancode)
+                    joueur->flags->to_left = 0;
+                else if (parametres->key_down == event.key.keysym.scancode)
+                    joueur->flags->to_down = 0;
+                else if (parametres->key_right == event.key.keysym.scancode)
+                    joueur->flags->to_right = 0;
+                else if (parametres->key_projectile == event.key.keysym.scancode)
+                    joueur->flags->shooting = 0;
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
+                    joueur->flags->interaction = 0;
+                else switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_showing = 0;

@@ -13,6 +13,7 @@
 
 #include <SDL2/SDL.h>
 #include <textures.h>
+#include <audio.h>
 #include <camera.h>
 
 typedef struct s_liste t_liste;
@@ -48,12 +49,13 @@ typedef struct
     SDL_Scancode key_left;
     SDL_Scancode key_right;
     SDL_Scancode key_projectile;
+    SDL_Scancode key_interaction;
 
 } t_parametres;
 
 /**
  * \struct t_moteur
- * \brief Objet contenant les données nécéssaires au rendu du jeu, aussi
+ * \brief Objet contenant les données nécessaires au rendu du jeu, aussi
  * pour la gestion des collisions.
  */
 typedef struct s_moteur
@@ -61,6 +63,8 @@ typedef struct s_moteur
     SDL_Window * window;
     SDL_Renderer * renderer;
     t_textures * textures;
+    t_bruitages * bruitages;
+    t_musiques * musiques;
     unsigned int temps; /**< Temps au début d'une frame */
     unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
@@ -76,6 +80,7 @@ typedef struct s_moteur
 } t_moteur;
 
 
+void regulerFPS(t_moteur * moteur);
 t_moteur * chargerMoteur(unsigned int temps);
 void detruireMoteur(t_moteur ** moteur);
 void updateEchelle(t_moteur * moteur);
