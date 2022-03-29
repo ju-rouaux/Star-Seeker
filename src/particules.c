@@ -79,6 +79,7 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
         particule->id_animation = 0;
         particule->taille = 0.8;
         particule->duree_de_vie = 800;
+        particule->direction_vx = 0;
         particule->direction_vy = -1;
         particule->vitesse = 0.5;
         break;

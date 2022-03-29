@@ -76,6 +76,7 @@ err_save chargerSaveJoueur(t_joueur * joueur)
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
     joueur->xp = tmp->xp;
+    joueur->pv = tmp->pv;
     joueur->nom_attaque = tmp->nom_attaque;
     chargerAttaqueTir(&joueur->attaque_tir_equipee, joueur->nom_attaque);
 

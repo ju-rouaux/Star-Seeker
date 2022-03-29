@@ -36,6 +36,45 @@
 /* ################################ Fonctions principales du jeu ################################ */
 
 
+static void animationMort(t_moteur * moteur, t_joueur * joueur)
+{
+    int tempsEcoule = 0;
+    joueur->id_animation = 8;
+
+    t_particule * particule = creerParticule(P_MORT, joueur->x, joueur->y, moteur->textures->particules);
+    if(particule == NULL)
+        return;
+
+    while(tempsEcoule < 4000)
+    {
+        regulerFPS(moteur);
+        updateEchelle(moteur);
+
+        if(tempsEcoule > 2500)
+        {
+            if(particule != NULL)
+            {
+                particule->dessiner(moteur, (t_entite*) particule);
+                if(particule->update(moteur, (t_entite*) particule, joueur->x, joueur->y) == -1)
+                    particule->detruire((t_entite**) &particule);
+            }
+        }
+        else
+            dessinerEntite(moteur, (t_entite*) joueur);
+
+
+
+        //Afficher frame
+        SDL_RenderPresent(moteur->renderer);
+        SDL_RenderClear(moteur->renderer);
+
+        tempsEcoule += moteur->temps - moteur->temps_precedent;
+    }
+
+}
+
+
+
 /**
  * \brief Vide la liste de ses entités et note dans info_entites les entités qui doivent être sauvegardées.
  * 
@@ -345,6 +384,15 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
         SDL_RenderClear(moteur->renderer);
+
+        
+        //Mettre fin à la partie si le joueur est mort
+        if(joueur->pv <= 0)
+        {
+            animationMort(moteur, joueur);
+            code_sortie = M_PRINCIPAL;
+            break;
+        }
     }
 
     //Sauver l'état des entités
@@ -579,6 +627,7 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
         }
         joueur->x = 0;
         joueur->y = 0;
+        joueur->pv = PV_JOUEUR_DEFAULT; //Restaurer la vie du joueur pour la nouvelle partie
     }
 
     //Sauvegarde de la partie générée
@@ -619,6 +668,14 @@ int chargerPartie(t_moteur * moteur)
     if(chargerSaveJoueur(joueur) != 0)
     {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
+        detruireJoueur(&joueur);
+        return M_PRINCIPAL;
+    }
+
+    //Restreindre le joueur de relancer la partie s'il est mort
+    if(joueur->pv <= 0)
+    {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Vous êtes mort durant votre dernière partie. Veuillez lancer une nouvelle partie.", moteur->window);
         detruireJoueur(&joueur);
         return M_PRINCIPAL;
     }
