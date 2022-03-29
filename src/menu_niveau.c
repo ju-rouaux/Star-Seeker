@@ -11,6 +11,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <main.h>
 #include <moteur.h>
+#include <audio.h>
 #include <generation_niveau.h>
 
 #define PRECISION_RENDU_TEXTE 1000
@@ -181,10 +182,11 @@ void detruireSelections(t_selection *** selections, int nb_selections)
  * \param police La police du texte à afficher
  * \param infos_niveaux La liste des informations sur la structure des niveaux de la partie
  * \param nb_infos Le nombre d'éléments de la liste
+ * \param ancien_niveau_charge Indice du niveau précédemment chargé
  * 
  * \return La liste des différents choix contextuels du menu.
  */
-t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos)
+t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos, int ancien_niveau_charge)
 {
     float taille_planete;
 
@@ -198,12 +200,18 @@ t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_infor
         //Taille proportionelle à la surface de la planète
         taille_planete = (infos_niveaux[i]->hauteur * infos_niveaux[i]->longueur)*3.0/900;
         
+        if(i == ancien_niveau_charge) //Indiquer au joueur le niveau où il est situé mettent le nom de la planète en italique
+            TTF_SetFontStyle(police, TTF_STYLE_ITALIC);
+
         selections[i] = creerSelection(moteur->renderer, police, infos_niveaux[i]->nom_planete, i, taille_planete);
         if(selections[i] == NULL)
         {
             detruireSelections(&selections, i-1);
             return NULL;
         }
+
+        if(i == ancien_niveau_charge)
+            TTF_SetFontStyle(police, TTF_STYLE_NORMAL);
     }
 
     return selections;
@@ -255,9 +263,11 @@ static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Poi
 
 
 /**
- * 
+ *
+ *
+ * \param ancien_niveau_charge Indice du niveau précédemment chargé
  */
-t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu)
+t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu, int ancien_niveau_charge)
 {
     //Police d'affichage
     TTF_Font * police = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", PRECISION_RENDU_TEXTE);
@@ -269,7 +279,7 @@ t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveau
 
 
     //Générer les sélections
-    t_selection ** selections = initSelections(moteur, police, infos_niveaux, nb_infos);
+    t_selection ** selections = initSelections(moteur, police, infos_niveaux, nb_infos, ancien_niveau_charge);
     if(selections == NULL)
     {
         TTF_CloseFont(police);
@@ -395,7 +405,7 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
     t_texte * titre, *menu;
 
     //Initialisation
-    t_selection ** selections = initMenu(moteur, infos_niveaux, nb_infos, &titre, &menu);
+    t_selection ** selections = initMenu(moteur, infos_niveaux, nb_infos, &titre, &menu, ancien_niveau_charge);
     if(selections == NULL)
         return M_PRINCIPAL;
 
@@ -430,6 +440,7 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
                     if(indice_selection == -2)
                     {
                         freeMenu(&selections, nb_infos, &titre, &menu);
+                        Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
                         return M_PRINCIPAL;
                     }
                     else if(indice_selection != -1)

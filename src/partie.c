@@ -39,19 +39,26 @@
 static void animationMort(t_moteur * moteur, t_joueur * joueur)
 {
     int tempsEcoule = 0;
+    int son_joue = 0;
     joueur->id_animation = 8;
 
     t_particule * particule = creerParticule(P_MORT, joueur->x, joueur->y, moteur->textures->particules);
     if(particule == NULL)
         return;
 
-    while(tempsEcoule < 4000)
+    while(tempsEcoule < 3000)
     {
         regulerFPS(moteur);
         updateEchelle(moteur);
 
-        if(tempsEcoule > 2500)
+        if(tempsEcoule > 1500)
         {
+            if(!son_joue)
+            {
+                Mix_PlayMusic(moteur->bruitages->mort, 1);
+                son_joue = 1;
+            }
+            
             if(particule != NULL)
             {
                 particule->dessiner(moteur, (t_entite*) particule);
@@ -61,7 +68,6 @@ static void animationMort(t_moteur * moteur, t_joueur * joueur)
         }
         else
             dessinerEntite(moteur, (t_entite*) joueur);
-
 
 
         //Afficher frame
@@ -288,6 +294,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                         {
                             //Particule pour indiquer la mort du monstre
                             ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            Mix_PlayMusic(moteur->bruitages->mort, 1);
                             //Ajouter l'xp gagné au joueur
                             int xp_lache = de(5);
                             for(int xp = 0; xp < xp_lache; xp++)
@@ -320,6 +327,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
                     {
                         ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                        Mix_PlayMusic(moteur->bruitages->hit, 1);
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
@@ -333,6 +341,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                     {
                         //Lancer un feedback au joueur
                         ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_DASH, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                        Mix_PlayMusic(moteur->bruitages->treasure, 1);
 
                         //Si l'interaction est unique, la détruire
                         if(interact == -1)

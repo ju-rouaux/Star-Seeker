@@ -45,6 +45,11 @@ int chargerAudio(int volume, t_musiques ** musiques, t_bruitages ** bruitages){
 
     b -> treasure =  Mix_LoadMUS("assets/audio/bruitages/treasure.wav");
     b -> boiling =  Mix_LoadMUS("assets/audio/bruitages/boiling.wav");
+    b -> dash =  Mix_LoadMUS("assets/audio/bruitages/dash.wav");
+    b -> hit =  Mix_LoadMUS("assets/audio/bruitages/hit.wav");
+    b -> mort =  Mix_LoadMUS("assets/audio/bruitages/mort.wav");
+    b -> menu_selection =  Mix_LoadMUS("assets/audio/bruitages/menu_select.wav");
+
 
 
     *bruitages = b;

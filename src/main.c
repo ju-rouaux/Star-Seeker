@@ -39,8 +39,12 @@ int main(int argc, char * argv[])
         switch(code)
         {
             case M_PRINCIPAL : code = chargerMenu(moteur); break;
-            case M_JEU : code = nouvellePartie(moteur, 8); break;
-            case M_CHARGER : code = chargerPartie(moteur); break;
+            case M_JEU : 
+                Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
+                code = nouvellePartie(moteur, 8); break;
+            case M_CHARGER : 
+                Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
+                code = chargerPartie(moteur); break;
             case M_OPTIONS : code = chargerMenu_Options(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
 

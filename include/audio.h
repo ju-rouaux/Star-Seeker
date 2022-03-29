@@ -26,6 +26,11 @@ typedef struct{
 
     Mix_Music * boiling;
     Mix_Music * treasure;
+    Mix_Music * dash;
+    Mix_Music * hit;
+    Mix_Music * mort;
+    Mix_Music * menu_selection;
+    
 
 } t_bruitages;
 
