@@ -11,6 +11,7 @@
 #include <monstre.h>
 #include <generation_niveau.h>
 #include <interaction.h>
+#include <generation_entites.h>
 
 
 /**
@@ -28,7 +29,7 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
     //générer un nombre d'entité selon difficulté
     // *nb_entites = 0.35 * (indice_difficulte + nb_alea);
     //Nombre d'entités pour le tests
-    *nb_entites = 10;
+    *nb_entites = 2;
 
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
@@ -116,7 +117,7 @@ void detruireInfosEntites(t_info_entites ** infos)
  * 
  * \return 0 si succès, valeur négative si échec.
  */
-int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos)
+int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos, int i_dep, int j_dep)
 {
     int nb_infos = 0;
 
@@ -133,7 +134,7 @@ int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat,
     {
         for(int j = 0; j < l_mat; j++)
         {
-            if(matrice_n[i*l_mat + j] != 0) //Si salle
+            if(matrice_n[i*l_mat + j] != 0 && !(i == i_dep && j == j_dep)) //Si salle, et éviter salle où l'on apparait
             {
                 //Vérifier qu'on n'a pas déjà des données pour cet identifiant
                 for(k = 0; k < nb_infos && infos[k]->id_salle != matrice_n[i*l_mat + j]; k++);

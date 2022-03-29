@@ -179,7 +179,7 @@ t_entite * creerEntite(float x, float y, SDL_Texture * texture)
     
     entite->x = x;
     entite->y = y;
-    entite->direction_vx = 0;
+    entite->direction_vx = 1;
     entite->direction_vy = 0;
     entite->vitesse = 0;
     entite->type = AUCUN;

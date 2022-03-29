@@ -150,8 +150,8 @@ e_code_main chargerMenu_Options_keymap(t_moteur * moteur) {
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 6:
-                printf("Key mapped for projectile : %d\n",key_temp);
-                moteur->parametres.key_projectile = key_temp;
+                printf("Key mapped for interaction : %d\n",key_temp);
+                moteur->parametres.key_interaction = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
             case 7: {

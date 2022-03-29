@@ -1,6 +1,6 @@
 float x; /**< Position en abscisse sur le niveau (renseignée) */
 float y; /**< Position en ordonné sur le niveau (renseignée) */
-float direction_vx; /**< Vecteur direction de l'entité en x (0 par défaut) */
+float direction_vx; /**< Vecteur direction de l'entité en x (1 par défaut) */
 float direction_vy; /**< Vecteur direction de l'entité en y (0 par défaut) */
 float vitesse; /**< Vitesse exprimée en tile par secondes (0 par défaut) */
 e_type_entite type; /**< Type de l'entité (AUCUN par défaut)*/

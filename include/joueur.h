@@ -16,7 +16,7 @@
 #include <attaque.h>
 
 #define PROPORTION_JOUEUR 1.2 /**< Taille du joueur par rapport à la taille d'une tile */
-#define VITESSE_JOUEUR_DEFAULT 20.5 /**< La vitesse du joueur par défaut */
+#define VITESSE_JOUEUR_DEFAULT 6.5 /**< La vitesse du joueur par défaut */
 
 
 /**
@@ -25,19 +25,19 @@
  */
 typedef struct
 {
+    //Déplacements
     int to_up;
     int to_down;
     int to_left;
     int to_right;
+    int dash;
 
-    //Temporaire
+    //Actions
     int shooting;
-    //Attaque, dash, ...
-
+    int interaction;
 
     //Overlay
-    int map_showing;
-    int interaction;
+    int map_shown;
 
 } t_joueur_flags;
 
@@ -51,8 +51,9 @@ typedef struct s_joueur
     #include <attributs_personnages.h>
     t_joueur_flags * flags;
 
-    //Autres données comme l'expererience, l'inventaire...
     int xp;
+    int temps_restant_dash;
+    int cooldown_dash;
 } t_joueur;
 
 

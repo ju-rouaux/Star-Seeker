@@ -181,13 +181,13 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
 
         //Rafraichir rendu
         SDL_RenderClear(moteur->renderer);
-        afficherNiveau(moteur, joueur->x, joueur->y);
+        afficherNiveau(moteur);
 
         //Dessiner entités
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-        if(joueur->flags->map_showing == 1)
+        if(joueur->flags->map_shown == 1)
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
 
         SDL_RenderPresent(moteur->renderer);
@@ -327,7 +327,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
         
         
         //Rendu niveau
-        afficherNiveau(moteur, joueur->x, joueur->y);
+        afficherNiveau(moteur);
 
 
         //Rendu joueur et entites
@@ -336,7 +336,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
 
         //Map
-        if(joueur->flags->map_showing == 1)
+        if(joueur->flags->map_shown == 1)
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
         
         //Afficher les pv du joueur

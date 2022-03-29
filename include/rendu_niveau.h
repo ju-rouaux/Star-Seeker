@@ -12,7 +12,7 @@
 #include <moteur.h>
 #include <niveau.h>
 
-int afficherNiveau(t_moteur * moteur, float j_x, float j_y);
+int afficherNiveau(t_moteur * moteur);
 
 #endif //_JEU_RENDU_NIVEAU_
 

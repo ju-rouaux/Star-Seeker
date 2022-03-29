@@ -54,7 +54,6 @@ static void initialiserParams(t_parametres * parametres)
         parametres->key_down = SDL_SCANCODE_S; 
         parametres->key_left = SDL_SCANCODE_A;
         parametres->key_right = SDL_SCANCODE_D;
-        parametres->key_projectile = SDL_SCANCODE_L; 
         parametres->key_interaction = SDL_SCANCODE_E;
         parametres->reset_sauvegarde_joueur = FAUX;
         parametres->volume_audio = MIX_MAX_VOLUME; 

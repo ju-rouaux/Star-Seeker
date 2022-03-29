@@ -40,43 +40,33 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                 {
                     case SDL_BUTTON_LEFT: /**Bouton gauche*/
                         //printf("\nMouse left button pressed");
+                        joueur->flags->shooting = 1;
                         break;
                     case SDL_BUTTON_MIDDLE: /**Molette*/
                         //printf("\nMouse scroll button pressed");
                         break;
                     case SDL_BUTTON_RIGHT: /**Bouton droit*/
+                        if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
                         //printf("\nMouse right button pressed");
                         break;
                     default: /**Cas d'erreur*/
                         //printf("\nMouse got unknown event");
                         break;
                 };
-                switch (event.button.clicks)
-                { /*Nombre de clics*/
-                    case 1: /*Clic simple*/
-                        //printf("\nSimple click");
-                        break;
-                    case 2: /*Double clic*/
-                        //printf("\nDouble click");
-                        break;
-                    default: /*Si plus qu'un double clic*/
-                        printf("\nClicked too many times hahaha");
-                        break;
-                };
-                break;
 
             /*Si un des boutons de la souris est relaché*/
             case SDL_MOUSEBUTTONUP:
                 switch (event.button.button)
                 {
                     case SDL_BUTTON_LEFT: /*Bouton gauche*/
-                        //printf("\nMouse left button released");
+                        joueur->flags->shooting = 0;
                         break;
                     case SDL_BUTTON_MIDDLE: /*Molette*/
                         //printf("\nMouse scroll button released");
                         break;
                     case SDL_BUTTON_RIGHT: /*Bouton droit*/
-                        printf("\nMouse right button released");
+                        //printf("\nMouse right button released");
                         break;
                     default:
                         //printf("\nMouse got unknown event");
@@ -109,8 +99,6 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                     joueur->flags->to_down = joueur->flags->to_up + 1;
                 else if  (parametres->key_right == event.key.keysym.scancode)
                     joueur->flags->to_right = joueur->flags->to_left + 1;
-                else if  (parametres->key_projectile == event.key.keysym.scancode)
-                    joueur->flags->shooting = 1;
                 else if  (parametres->key_interaction == event.key.keysym.scancode)
                 {
                     if(joueur->flags->interaction == 0)
@@ -125,7 +113,7 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                         return M_NIVEAU;
                         break;
                     case SDL_SCANCODE_TAB: //TAB
-                        joueur->flags->map_showing = 1;
+                        joueur->flags->map_shown = 1;
                         break;
                     default:
                         break;
@@ -142,14 +130,12 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres) {
                     joueur->flags->to_down = 0;
                 else if (parametres->key_right == event.key.keysym.scancode)
                     joueur->flags->to_right = 0;
-                else if (parametres->key_projectile == event.key.keysym.scancode)
-                    joueur->flags->shooting = 0;
                 else if  (parametres->key_interaction == event.key.keysym.scancode)
                     joueur->flags->interaction = 0;
                 else switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_TAB: //TAB
-                        joueur->flags->map_showing = 0;
+                        joueur->flags->map_shown = 0;
                         break;
                     default:
                         break;

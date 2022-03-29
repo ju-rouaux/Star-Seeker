@@ -22,7 +22,7 @@ typedef struct
     t_entite ** entites; /**< La liste des entités */
 } t_info_entites;
 
-int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos);
+int genererEntites(int indice_difficulte, int * matrice_n, int h_mat, int l_mat, t_info_entites *** infos_entites, int * nombre_infos, int i_dep, int j_dep);
 void detruireInfosEntites(t_info_entites ** infos);
 
 #endif //_JEU_GENERATION_ENTITES_
