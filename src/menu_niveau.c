@@ -440,7 +440,7 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
                     if(indice_selection == -2)
                     {
                         freeMenu(&selections, nb_infos, &titre, &menu);
-                        Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
+                        Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
                         return M_PRINCIPAL;
                     }
                     else if(indice_selection != -1)

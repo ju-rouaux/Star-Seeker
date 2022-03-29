@@ -138,6 +138,8 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
         ajouterEntiteListe(moteur->liste_entites, (t_entite*) projectile);
         projectile = NULL;
     }
+
+    Mix_PlayChannel(6, moteur->bruitages->tir, 0);
 }
 
 

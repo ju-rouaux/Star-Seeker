@@ -178,7 +178,7 @@ static int handleEvents_menu(t_moteur * moteur, t_bouton ** boutons) {
                 }
                 break;
             default:
-                return -1;
+                break;
             }
             break;
         case SDL_MOUSEMOTION: //Si la souris bouge

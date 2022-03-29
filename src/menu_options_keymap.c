@@ -50,7 +50,6 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
                 }
                 break;
             default:
-                return -1;
                 break;
             };
             break;

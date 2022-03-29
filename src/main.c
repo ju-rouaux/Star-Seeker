@@ -35,16 +35,24 @@ int main(int argc, char * argv[])
 
     moteur = chargerMoteur(SDL_GetTicks());
 
+    Mix_PlayMusic(moteur->musiques->menu_principal, -1);
+
     while(code != JEU_QUITTER){
         switch(code)
         {
             case M_PRINCIPAL : code = chargerMenu(moteur); break;
             case M_JEU : 
-                Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
-                code = nouvellePartie(moteur, 8); break;
+                Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
+                code = nouvellePartie(moteur, 8);
+                if(code != JEU_QUITTER)
+                    Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
+                break;
             case M_CHARGER : 
-                Mix_PlayMusic(moteur->bruitages->menu_selection, 1);
-                code = chargerPartie(moteur); break;
+                Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
+                code = chargerPartie(moteur); 
+                if(code != JEU_QUITTER)
+                    Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
+                break;
             case M_OPTIONS : code = chargerMenu_Options(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
 

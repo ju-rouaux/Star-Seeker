@@ -37,7 +37,6 @@ static int handleEvents_options(t_moteur * moteur, t_bouton ** boutons) {
                 }
                 break;
             default:
-                return -1;
                 break;
             };
             break;
@@ -113,11 +112,11 @@ e_code_main chargerMenu_Options(t_moteur * moteur) {
             case 2: {
                 printf("Muet (on/off)\n");
                 if(moteur->parametres.volume_audio == SDL_MIX_MAXVOLUME){
-                    Mix_VolumeMusic(0);
+                    changerVolume(0);
                     moteur->parametres.volume_audio = 0;
                 }
                 else{
-                    Mix_VolumeMusic(MIX_MAX_VOLUME);
+                    changerVolume(MIX_MAX_VOLUME);
                     moteur->parametres.volume_audio = MIX_MAX_VOLUME;
                 }
                 temp = 0;//pour rester sur le menu actuel

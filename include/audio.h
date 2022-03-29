@@ -24,13 +24,13 @@
 
 typedef struct{
 
-    Mix_Music * boiling;
-    Mix_Music * treasure;
-    Mix_Music * dash;
-    Mix_Music * hit;
-    Mix_Music * mort;
-    Mix_Music * menu_selection;
-    
+    Mix_Chunk  * treasure;
+    Mix_Chunk  * dash;
+    Mix_Chunk  * hit;
+    Mix_Chunk  * mort;
+    Mix_Chunk  * menu_selection;
+    Mix_Chunk  * swoop;
+    Mix_Chunk  * tir;
 
 } t_bruitages;
 
@@ -38,11 +38,12 @@ typedef struct{
 typedef struct{
 
     Mix_Music * menu_principal;
-
+    Mix_Music * ambiant;
 
 } t_musiques;
 
 int chargerAudio(int volume, t_musiques ** musiques, t_bruitages ** bruitages);
 void detruireAudio(t_musiques ** m, t_bruitages ** b);
+void changerVolume(int volume);
 
 #endif // _JEU_AUDIO_

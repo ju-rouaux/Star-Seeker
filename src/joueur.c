@@ -120,7 +120,8 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
         joueur->flags->dash = -1;
         joueur->vitesse = VITESSE_JOUEUR_DEFAULT + 18;
         ajouterEntiteListe(moteur->liste_entites, (t_entite*) creerParticule(P_DASH, joueur->x, joueur->y, moteur->textures->particules));
-        Mix_PlayMusic(moteur->bruitages->dash, 1);
+        printf("appel");
+        Mix_PlayChannel(1, moteur->bruitages->dash, 0);
     }
 
     if(joueur->flags->dash == -1) //Etat dash en cours
