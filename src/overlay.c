@@ -53,20 +53,20 @@ static void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
  *  
  * \return un id de tile entre 0 et 15 
  */
-static int type_salle_map(int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int x, int y){
+static int type_salle_map(int * matrice, int hauteur, int longueur, int x, int y){
 
     int type = 15;
     
-    if(y >= 0 && matrice[x][y] == matrice[x][y-1])
+    if(y >= 0 && matrice[x*longueur + y] == matrice[x*longueur + (y-1)])
         type -= 8;
 
-    if(x+1 < HAUTEUR_NIVEAU_MAX && matrice[x][y] == matrice[x+1][y])
+    if(x+1 < hauteur && matrice[x*longueur + y] == matrice[(x+1) * longueur + y])
         type -= 4;
 
-    if(y+1 < LONGUEUR_NIVEAU_MAX && matrice[x][y] == matrice[x][y+1])
+    if(y+1 < longueur && matrice[x*longueur + y] == matrice[x*longueur + (y+1)])
         type -= 2;
 
-    if(x-1 >= 0 && matrice[x][y] == matrice[x-1][y])
+    if(x-1 >= 0 && matrice[x*longueur + y] == matrice[(x-1)*longueur + y])
         type -= 1;
 
         
@@ -83,23 +83,25 @@ static int type_salle_map(int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], 
  */
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle){
 
+    int hauteur = infosNiveau->hauteur;
+    int longueur = infosNiveau->longueur;
     SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
 
-    for (int i = 0; i < HAUTEUR_NIVEAU_MAX; i++){
+    for (int i = 0; i < hauteur; i++){
 
-        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++){
+        for(int j = 0; j < longueur; j++){
 
-            if(infosNiveau->matrice[i][j] != VIDE){
+            if(infosNiveau->matrice[i*longueur + j] != VIDE){
 
 
-                if(infosNiveau->matrice[i][j] == idSalle){
+                if(infosNiveau->matrice[i*longueur + j] == idSalle){
                     SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
                 }
 
-                int type = type_salle_map(infosNiveau->matrice, i, j);
-                dessiner_tile_map(moteur, type, j - LONGUEUR_NIVEAU_MAX/2, i - HAUTEUR_NIVEAU_MAX/2);
+                int type = type_salle_map(infosNiveau->matrice, hauteur, longueur, i, j);
+                dessiner_tile_map(moteur, type, j - longueur/2, i - hauteur/2);
 
-                if(infosNiveau->matrice[i][j] == idSalle){
+                if(infosNiveau->matrice[i*longueur + j] == idSalle){
                     SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
                 }
 

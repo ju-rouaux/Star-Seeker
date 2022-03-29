@@ -142,7 +142,7 @@ static t_selection * creerSelection(SDL_Renderer * renderer, TTF_Font * police, 
     surface = NULL;
 
     //Autres données
-    select->taille_planete = de(3);
+    select->taille_planete = taille_planete;
     select->indice = indice;
 
     return select;
@@ -186,6 +186,8 @@ void detruireSelections(t_selection *** selections, int nb_selections)
  */
 t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos)
 {
+    float taille_planete;
+
     //Matrice des sélections possibles du menu
     t_selection ** selections = malloc(sizeof(t_selection*) * nb_infos);
     if(selections == NULL)
@@ -193,7 +195,10 @@ t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_infor
 
     for(int i = 0; i < nb_infos; i++)
     {
-        selections[i] = creerSelection(moteur->renderer, police, infos_niveaux[i]->nom_planete, i, infos_niveaux[i]->longueur/10);
+        //Taille proportionelle à la surface de la planète
+        taille_planete = (infos_niveaux[i]->hauteur * infos_niveaux[i]->longueur)*3.0/900;
+        
+        selections[i] = creerSelection(moteur->renderer, police, infos_niveaux[i]->nom_planete, i, taille_planete);
         if(selections[i] == NULL)
         {
             detruireSelections(&selections, i-1);

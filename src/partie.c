@@ -336,10 +336,8 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
 
         //Map
-        if(joueur->flags->map_showing == 1){
-            Mix_PlayMusic(moteur->bruitages->treasure, 1);
+        if(joueur->flags->map_showing == 1)
             dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
-        }
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);

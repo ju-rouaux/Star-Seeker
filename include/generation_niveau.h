@@ -64,6 +64,7 @@ typedef struct {
  */
 typedef struct {
 
+    int * matrice;
     int hauteur;
     int longueur;
 
@@ -71,7 +72,6 @@ typedef struct {
     int vert;
     int bleu;
 
-    int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX];
     t_info_entites ** liste_infos_entites; /**< Liste des entités présentes dans le niveau */
     int nb_infos_entite;
 

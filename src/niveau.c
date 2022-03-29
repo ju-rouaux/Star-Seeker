@@ -225,7 +225,7 @@ static t_niveau * chargerSalles(niveau_informations_t * info)
     {
         for(int j = 0; j < largeur; j++)
         {
-            id_salle = info->matrice[i][j];
+            id_salle = info->matrice[i*niveau->l + j];
 
             if(id_salle == 0) //S'il n'y a pas de salle
                niveau->salles[i*largeur + j] = NULL;
