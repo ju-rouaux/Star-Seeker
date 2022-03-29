@@ -77,10 +77,10 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
         float angle_proj;
 
         //Norme du vecteur direction
-        float norme_vect_dirct = sqrt( pow(personnage->direction_vx, 2) + pow(personnage->direction_vy, 2) );
+        float norme_vect_dirct = sqrt( pow(personnage->attaque_vx, 2) + pow(personnage->attaque_vy, 2) );
 
         //Angle en radian du vecteur direction par rapport à l'axe x
-        float angle_vect_dirct = acos(personnage->direction_vx / norme_vect_dirct);
+        float angle_vect_dirct = acos(personnage->attaque_vx / norme_vect_dirct);
 
         //Une unité, angle d'un projectile par rapport à l'axe x, si nombre de proj impaire : retirer 1 car ce projectile sera placé sur l'axe de direction
         float unit_angle_proj = attaque->etalement / (attaque->nb_proj_salve % 2 ? attaque->nb_proj_salve - 1 : attaque->nb_proj_salve);
@@ -89,7 +89,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
         for(int i = 0; i < attaque->nb_proj_salve / 2; i++)
         { 
             //Se décaler de i fois l'angle unité par rapport au vecteur direction (si il est positif par rapport à y, ajouter la différence avc l'axe x, sinon soustraire)
-            angle_proj = (i+1) * unit_angle_proj + (personnage->direction_vy > 0 ? angle_vect_dirct : -angle_vect_dirct);
+            angle_proj = (i+1) * unit_angle_proj + (personnage->attaque_vy > 0 ? angle_vect_dirct : -angle_vect_dirct);
 
             projectile = creerProjectile(attaque->type_projectile, 
                                     personnage->x, personnage->y, 
@@ -105,7 +105,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
         {
             projectile = creerProjectile(attaque->type_projectile, 
                                         personnage->x, personnage->y, 
-                                        personnage->direction_vx, personnage->direction_vy, 
+                                        personnage->attaque_vx, personnage->attaque_vy, 
                                         !personnage->type, //Le type de personnage opposé à celui actuel
                                         moteur->textures->projectiles);
             ajouterEntiteListe(moteur->liste_entites, (t_entite*) projectile);
@@ -116,7 +116,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
         for(int i = 0; i < attaque->nb_proj_salve / 2; i++)
         { 
             //Se décaler de i fois l'angle unité par rapport au vecteur direction (si il est positif par rapport à y, ajouter la différence avc l'axe x, sinon soustraire)
-            angle_proj = -(i+1) * unit_angle_proj - (personnage->direction_vy < 0 ? angle_vect_dirct : -angle_vect_dirct);
+            angle_proj = -(i+1) * unit_angle_proj - (personnage->attaque_vy < 0 ? angle_vect_dirct : -angle_vect_dirct);
 
             projectile = creerProjectile(attaque->type_projectile, 
                                     personnage->x, personnage->y, 
@@ -132,7 +132,7 @@ static void tirer(t_moteur * moteur, t_personnage * personnage)
     {
         projectile = creerProjectile(attaque->type_projectile, 
                                     personnage->x, personnage->y, 
-                                    personnage->direction_vx, personnage->direction_vy, 
+                                    personnage->attaque_vx, personnage->attaque_vy, 
                                     !personnage->type, //Le type de personnage opposé à celui actuel
                                     moteur->textures->projectiles);
         ajouterEntiteListe(moteur->liste_entites, (t_entite*) projectile);

@@ -19,8 +19,8 @@ static int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float
     if(monstre->pv <= 0)
         return -1;
     
-    monstre->direction_vx = pos_joueur_x - monstre->x;
-    monstre->direction_vy = pos_joueur_y - monstre->y;
+    monstre->attaque_vx = monstre->direction_vx = pos_joueur_x - monstre->x;
+    monstre->attaque_vy = monstre->direction_vy = pos_joueur_y - monstre->y;
 
     //Ne pas se diriger le monstre vers le joueur s'il est à plus d'une salle et quart du joueur
     float norme = sqrt(pow(monstre->direction_vx, 2) + pow(monstre->direction_vy, 2));
@@ -42,8 +42,8 @@ static int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float p
 
     monstre->vitesse = 0;
     
-    monstre->direction_vx = pos_joueur_x - monstre->x;
-    monstre->direction_vy = pos_joueur_y - monstre->y;
+    monstre->attaque_vx = pos_joueur_x - monstre->x;
+    monstre->attaque_vy = pos_joueur_y - monstre->y;
 
     updateAttaqueTir(moteur, (t_personnage*) monstre, de(60) == 60);
     deplacerEntite(moteur, (t_entite*) monstre);
@@ -139,6 +139,9 @@ t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, 
     monstre->vitesse = vitesse;
     monstre->taille = taille;
     monstre->pv = pv;
+
+    monstre->attaque_vx = monstre->direction_vx;
+    monstre->attaque_vy = monstre->direction_vy;
 
     monstre->update = getDeplacement(deplacement);
     monstre->dessiner = (int (*)(t_moteur*, t_entite*)) dessinerMonstre;

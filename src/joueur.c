@@ -120,7 +120,6 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
         joueur->flags->dash = -1;
         joueur->vitesse = VITESSE_JOUEUR_DEFAULT + 18;
         ajouterEntiteListe(moteur->liste_entites, (t_entite*) creerParticule(P_DASH, joueur->x, joueur->y, moteur->textures->particules));
-        printf("appel");
         Mix_PlayChannel(1, moteur->bruitages->dash, 0);
     }
 
@@ -152,6 +151,10 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else
         joueur->animation->vitesse = 250;
     
+
+    //Direction de l'attaque
+    joueur->attaque_vx = joueur->direction_vx;
+    joueur->attaque_vy = joueur->direction_vy;
     
     //Tirer ou poursuivre l'attaque
     updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
@@ -269,6 +272,9 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
 
     joueur->pv = PV_JOUEUR_DEFAULT;
     joueur->xp = 0;
+
+    joueur->attaque_vx = joueur->direction_vx;
+    joueur->attaque_vy = joueur->direction_vy;
 
     joueur->nom_attaque = DEMO;
     chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
