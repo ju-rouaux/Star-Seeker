@@ -91,6 +91,7 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
         break;
 
     case P_XP:
+        particule->animation = creerAnimation(70, 16);
         particule->id_animation = 2;
         particule->taille = 0.3;
         particule->duree_de_vie = 10000;
