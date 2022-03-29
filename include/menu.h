@@ -26,7 +26,7 @@
 #define B_LARGEUR 2.5
 #define B_LONGUEUR 1
 
-#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Reset Sauvegarde","Options","Quitter"}
+#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Reset Joueur","Options","Quitter"}
 
 /**
  * \struct t_bouton

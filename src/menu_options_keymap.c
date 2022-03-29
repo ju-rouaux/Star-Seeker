@@ -56,11 +56,14 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
             break;
 
         case SDL_MOUSEMOTION:
-            for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP; i++) {
+            for (int i = 0; i < NB_B_MENU_OPTIONS_KEYMAP - 1; i++) {
                 if (SDL_PointInRect(&mouse,&boutons[i]->rect))
                     SDL_SetTextureColorMod(boutons[i] -> texture, 125, 255, 0);
                 else SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);
             }
+             if (SDL_PointInRect(&mouse,&boutons[NB_B_MENU_OPTIONS_KEYMAP - 1]->rect))
+                    SDL_SetTextureColorMod(boutons[NB_B_MENU_OPTIONS_KEYMAP -1] -> texture, 255, 0, 0);
+                else SDL_SetTextureColorMod(boutons[NB_B_MENU_OPTIONS_KEYMAP - 1] -> texture, 0, 0, 255);
             break;
         }
     }
