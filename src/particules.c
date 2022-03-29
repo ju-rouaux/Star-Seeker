@@ -70,6 +70,7 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
 
     particule->type = E_PARTICULE;
     particule->update = (int (*)(t_moteur *, t_entite *, float, float)) updateParticule;
+    particule->type_particule = type;
 
     switch (type)
     {
@@ -80,24 +81,28 @@ t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Textur
         particule->duree_de_vie = 800;
         particule->direction_vy = -1;
         particule->vitesse = 0.5;
-        particule->type_particule = P_MORT;
         break;
     
     case P_TOUCHE:
         particule->id_animation = 1;
         particule->taille = 0.3;
         particule->duree_de_vie = 300;
-        particule->type_particule = P_TOUCHE;
         break;
 
     case P_XP:
         particule->animation = creerAnimation(70, 16);
         particule->id_animation = 2;
-        particule->taille = 0.3;
+        particule->taille = 0.4;
         particule->duree_de_vie = 10000;
-        particule->type_particule = P_XP;
         particule->x += (-5.0 + de(10)) / 5;
         particule->y += (-5.0 + de(10)) / 5;
+        break;
+
+    case P_DASH:
+        particule->animation = creerAnimation(100, 4);
+        particule->id_animation = 3;
+        particule->taille = 0.9;
+        particule->duree_de_vie = 400;
         break;
 
     default:

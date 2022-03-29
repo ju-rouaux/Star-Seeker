@@ -26,7 +26,7 @@
  */
 static int dessinerInteraction(t_moteur * moteur, t_interaction * interaction)
 {
-    interaction->texture = moteur->textures->particules;
+    interaction->texture = moteur->textures->collectibles;
     return dessinerEntite(moteur, (t_entite*) interaction);
 }
 
@@ -95,12 +95,15 @@ t_interaction * creerInteraction(e_type_inter type, float x, float y, data_inter
 
     if(type == VIE)
     {
-        interaction->id_animation = 2;
+        interaction->id_animation = 1;
+        interaction->animation = creerAnimation(50, 16);
         interaction->data.nb_pv = data.nb_pv;
     }
     else if(type == ARME)
     {
-        interaction->id_animation = 1;
+        interaction->taille = 0.5;
+        interaction->id_animation = 0;
+        interaction->animation = creerAnimation(100, 4);
         interaction->data.attaque = data.attaque;
     }
 

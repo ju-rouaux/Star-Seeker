@@ -40,6 +40,7 @@ typedef struct
     SDL_Texture * overlay;
     SDL_Texture * particules;
     SDL_Texture * planete;
+    SDL_Texture * collectibles;
 
 } t_textures;
 

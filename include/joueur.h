@@ -17,7 +17,7 @@
 
 #define PROPORTION_JOUEUR 1.2 /**< Taille du joueur par rapport à la taille d'une tile */
 #define VITESSE_JOUEUR_DEFAULT 6.5 /**< La vitesse du joueur par défaut */
-
+#define PV_JOUEUR_DEFAULT 20 /**< Nombre de points de vie du joueur par défaut */
 
 /**
  * \struct t_joueur_flags

@@ -165,6 +165,22 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
+    //Collectibles
+    surface = SDL_LoadBMP("./assets/img/collectibles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface collectibles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->collectibles = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->collectibles == NULL)
+    {
+        printf("Impossible de charger la texture de collectibles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
     return textures;
 }
 

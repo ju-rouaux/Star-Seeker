@@ -18,6 +18,7 @@
 #include <joueur.h>
 #include <attaque.h>
 #include <monstre.h>
+#include <particules.h>
 
 /**
  * \brief Calcule l'animation à joueur selon l'orientation du joueur.
@@ -118,6 +119,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
         joueur->temps_restant_dash = 100 + (moteur->temps - moteur->temps_precedent); //100ms + le temps qu'on va soustraire après
         joueur->flags->dash = -1;
         joueur->vitesse = VITESSE_JOUEUR_DEFAULT + 18;
+        ajouterEntiteListe(moteur->liste_entites, (t_entite*) creerParticule(P_DASH, joueur->x, joueur->y, moteur->textures->particules));
     }
 
     if(joueur->flags->dash == -1) //Etat dash en cours
@@ -263,7 +265,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->update = (int (*)(t_moteur *, t_entite *, float, float)) updateJoueur;
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
-    joueur->pv = 20;
+    joueur->pv = PV_JOUEUR_DEFAULT;
     joueur->xp = 0;
 
     joueur->nom_attaque = DEMO;

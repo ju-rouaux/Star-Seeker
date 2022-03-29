@@ -293,7 +293,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                     if(interact != 0) //Si une interaction a eu lieu
                     {
                         //Lancer un feedback au joueur
-                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_DASH, entite_courante->x, entite_courante->y, moteur->textures->particules));
 
                         //Si l'interaction est unique, la détruire
                         if(interact == -1)

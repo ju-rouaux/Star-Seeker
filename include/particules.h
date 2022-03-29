@@ -13,7 +13,7 @@
 
 typedef enum
 {
-    P_MORT, P_TOUCHE, P_XP
+    P_MORT, P_TOUCHE, P_XP, P_DASH
 } e_type_particule;
 
 /**
