@@ -21,7 +21,7 @@
 
 
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle);
-
+void dessiner_hud(t_moteur * moteur, t_joueur * joueur);
 
 
 

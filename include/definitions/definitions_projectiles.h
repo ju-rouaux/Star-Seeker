@@ -126,7 +126,7 @@ static int proj_balle(t_projectile * projectile)
 
     projectile->taille = 0.4;
     projectile->vitesse = 8;
-    projectile->dommages = 20;
+    projectile->dommages = 1;
     projectile->duree_de_vie = 1500;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -151,7 +151,7 @@ static int proj_boule_feu(t_projectile * projectile)
 
     projectile->taille = 0.7;
     projectile->vitesse = 2;
-    projectile->dommages = 30;
+    projectile->dommages = 2;
     projectile->duree_de_vie = 3000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -172,7 +172,7 @@ static int proj_boule_metal(t_projectile * projectile)
 
     projectile->taille = 0.5;
     projectile->vitesse = 12;
-    projectile->dommages = 55;
+    projectile->dommages = 3;
     projectile->duree_de_vie = 2500;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -194,7 +194,7 @@ static int proj_shuriken(t_projectile * projectile)
 
     projectile->taille = 0.6;
     projectile->vitesse = 6;
-    projectile->dommages = 15;
+    projectile->dommages = 1;
     projectile->duree_de_vie = 250;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -217,7 +217,7 @@ static int proj_sabre(t_projectile * projectile)
 
     projectile->taille = 1;
     projectile->vitesse = 14;
-    projectile->dommages = 30;
+    projectile->dommages = 2;
     projectile->duree_de_vie = 2000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_RetourProj;
