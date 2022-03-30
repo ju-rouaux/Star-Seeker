@@ -10,11 +10,9 @@
 #ifndef _JEU_MONSTRE_
 #define _JEU_MONSTRE_
 
-
 #include <SDL2/SDL.h>
 #include <entite.h>
 #include <attaque.h>
-
 
 /**
  * \enum e_deplacement_monstre

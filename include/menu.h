@@ -1,7 +1,7 @@
 /**
- * \file menu.h
+ * \file menu.c
  * \author Guillaume
- * \brief Menu principal
+ * \brief Menu principal du jeu
  * 
  */
 

@@ -7,8 +7,6 @@
  *  
  */
 
-
-
 #ifndef _NOMS_GENERATEUR_
 #define _NOMS_GENERATEUR_
 

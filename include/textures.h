@@ -14,7 +14,6 @@
 
 #define TAILLE_TILE 16
 
-
 /**
  * \enum t_tile_type
  * \brief Identifiants des tiles d'un niveau

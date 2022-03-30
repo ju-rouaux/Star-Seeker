@@ -29,7 +29,10 @@ typedef struct s_liste t_liste;
 
 typedef struct s_niveau t_niveau; 
 
-
+/**
+ * \struct t_bool_param
+ * \brief Idenetifant modelisant un booléen
+ */
 typedef enum
 {
     FAUX, VRAI

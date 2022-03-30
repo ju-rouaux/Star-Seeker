@@ -19,6 +19,10 @@
 #include <monstre.h>
 #include <interaction.h>
 
+/**
+ * \enum err_save
+ * \brief Modélise les erreurs possibles lors des différentes sauvegarde
+ */
 typedef enum
 {
     NO_FILE = -5, MALLOC_FAIL = -4, READ_OR_WRITE_FAIL = -3, FOPEN_FAIL = -2, SAVE_ERROR = -1, SUCCESS = 0

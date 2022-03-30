@@ -9,9 +9,6 @@
  */
 
 
-
-
-
 #ifndef _JEU_AUDIO_
 #define _JEU_AUDIO_
 
@@ -21,7 +18,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/**
+ * \struct t_bruitages
+ * \brief Modelise les bruitages
+ * 
+ */
 typedef struct{
 
     Mix_Chunk  * treasure;
@@ -34,7 +35,11 @@ typedef struct{
 
 } t_bruitages;
 
-
+/**
+ * \struct t_musiques
+ * \brief Modelise les musiques
+ * 
+ */
 typedef struct{
 
     Mix_Music * menu_principal;

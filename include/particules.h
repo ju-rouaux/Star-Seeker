@@ -11,6 +11,10 @@
 
 #include <entite.h>
 
+/**
+ * \enum e_type_particule
+ * \brief Modélise le type de particule
+ */
 typedef enum
 {
     P_MORT, P_TOUCHE, P_XP, P_DASH
