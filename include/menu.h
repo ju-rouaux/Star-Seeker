@@ -33,9 +33,9 @@
  * \brief Modelise un bouton avec du texte
  */
 typedef struct s_bouton {
-    SDL_Texture * texture;
-    SDL_Rect rect;
-    int longueur;
+    SDL_Texture * texture;/**<Texture a un bouton*/
+    SDL_Rect rect;/**<Hitbox d'un bouton*/
+    int longueur;/**<Longeur de la chaine de caractères*/
 }t_bouton;
 
 

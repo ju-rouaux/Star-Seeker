@@ -33,7 +33,7 @@ typedef struct s_monstre t_monstre;
 struct s_monstre
 {
     #include <attributs_personnages.h>
-    e_deplacement_monstre deplacement;
+    e_deplacement_monstre deplacement;/**<Type de déplacement d'un monstre*/
 };
 
 

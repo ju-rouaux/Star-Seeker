@@ -66,11 +66,11 @@ typedef struct
  */
 typedef struct s_moteur
 {
-    SDL_Window * window;
-    SDL_Renderer * renderer;
-    t_textures * textures;
-    t_bruitages * bruitages;
-    t_musiques * musiques;
+    SDL_Window * window;/**<la fenetre du jeu*/
+    SDL_Renderer * renderer;/**<Le rendu du jeu*/
+    t_textures * textures;/**<Les principales texture*/
+    t_bruitages * bruitages;/**<Les bruitages du jeu*/
+    t_musiques * musiques;/**<Musique du jeu*/
     unsigned int temps; /**< Temps au début d'une frame */
     unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
@@ -83,7 +83,7 @@ typedef struct s_moteur
     int window_width; /**< Largeur de la fenêtre */
     int window_height; /**< Hauteur de la fenêtre */
 
-    t_parametres parametres;
+    t_parametres parametres;/**<Les différents paramètres*/
 } t_moteur;
 
 

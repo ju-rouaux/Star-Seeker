@@ -54,9 +54,9 @@ typedef struct s_joueur
     #include <attributs_personnages.h>
     t_joueur_flags * flags;
 
-    int xp;
-    int temps_restant_dash;
-    int cooldown_dash;
+    int xp;/**<Niveau d'xp du joueur*/
+    int temps_restant_dash;/**<Temps qui reste avant la fin du dash*/
+    int cooldown_dash;/**<Temps restant avant la possibilité de dash*/
 } t_joueur;
 
 

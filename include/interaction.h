@@ -42,7 +42,7 @@ typedef union
 typedef struct
 {
     #include <attributs_entites.h>
-    e_type_inter type_inter;
+    e_type_inter type_inter;/**< Coordonnée j (longueur) de la salle de fin*/
     data_inter data;
 } t_interaction;
 

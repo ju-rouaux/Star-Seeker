@@ -53,6 +53,7 @@
 
 #include <projectiles.h>
 #include <animation.h>
+#include <math.h>
 
 
 //--------- Fonctions de comportement ---------
@@ -118,7 +119,7 @@ static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * project
  */
 static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile, float x, float y)
 {
-    projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie 
+    projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie
     if(projectile->duree_de_vie <= 0)
         return -1;
 

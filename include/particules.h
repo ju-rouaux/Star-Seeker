@@ -29,7 +29,7 @@ struct s_particule
 {
     #include <attributs_entites.h>
     int duree_de_vie; /**< Temps en milisecondes avant l'auto-destruction de la particule */
-    e_type_particule type_particule;
+    e_type_particule type_particule;/**<Le type de particule*/
 } ;
 
 t_particule * creerParticule(e_type_particule type, float x, float y, SDL_Texture * texture);
