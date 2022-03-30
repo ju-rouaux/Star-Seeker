@@ -598,25 +598,11 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
     t_joueur * joueur = NULL;
     int retour;
 
-    //S'occuper du niveau
-    srand(time(NULL));
-    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie);
-    if(retour != 0)
-    {
-        printf("Impossible de générer une nouvelle partie\n");
-        return -1;
-    }
-
     //S'occuper du joueur
     joueur = creerJoueur(0, 0, moteur->textures->player);
     if(joueur == NULL)
     {
-        printf("Le niveau n'a pas pu être chargé\n");
-        for(int i = 0; i < nb_niveaux; i++)
-            detruire_niveau_info(&infos[i]);
-        free(moteur->galaxie);
-        moteur->galaxie = NULL;
-        free(infos);
+        printf("Le joueur n'a pas pu être alloué\n");
         return M_PRINCIPAL;
     }
     if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
@@ -630,17 +616,22 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
         if(chargerSaveJoueur(joueur) != 0)
         {
             SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
-            for(int i = 0; i < nb_niveaux; i++)
-                detruire_niveau_info(&infos[i]);
-            free(moteur->galaxie);
-            moteur->galaxie = NULL;
-            free(infos);
             detruireJoueur(&joueur);
             return M_PRINCIPAL;
         }
         joueur->x = 0;
         joueur->y = 0;
         joueur->pv = PV_JOUEUR_DEFAULT; //Restaurer la vie du joueur pour la nouvelle partie
+    }
+
+    //S'occuper du niveau
+    srand(time(NULL));
+    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie);
+    if(retour != 0)
+    {
+        printf("Impossible de générer une nouvelle partie\n");
+        detruireJoueur(&joueur);
+        return -1;
     }
 
     //Sauvegarde de la partie générée
