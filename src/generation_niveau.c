@@ -298,6 +298,7 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
 
             free((*niveau)->liste_infos_entites);
         }
+        free((*niveau)->matrice);
         free((*niveau)->nom_planete);
         free(*niveau);
     }

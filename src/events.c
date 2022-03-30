@@ -70,22 +70,18 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                         break;
 
                     case SDL_SCANCODE_UP:
-                        printf("up\n");
                         joueur->flags->attack_up = joueur->flags->attack_down + 1;
                         break;
 
                     case SDL_SCANCODE_DOWN:
-                        printf("down\n");
                         joueur->flags->attack_down = joueur->flags->attack_up + 1;
                         break;
 
                     case SDL_SCANCODE_LEFT:
-                        printf("left\n");
                         joueur->flags->attack_left = joueur->flags->attack_right + 1;
                         break;
 
                     case SDL_SCANCODE_RIGHT:
-                        printf("right\n");
                         joueur->flags->attack_right = joueur->flags->attack_left + 1;
                         break;
 
@@ -123,22 +119,18 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                         break;
 
                     case SDL_SCANCODE_UP:
-                        printf("up up\n");
                         joueur->flags->attack_up = 0;
                         break;
 
                     case SDL_SCANCODE_DOWN:
-                        printf("down up\n");
                         joueur->flags->attack_down = 0;
                         break;
 
                     case SDL_SCANCODE_LEFT:
-                        printf("left up\n");
                         joueur->flags->attack_left = 0;
                         break;
 
                     case SDL_SCANCODE_RIGHT:
-                        printf("right up\n");
                         joueur->flags->attack_right = 0;
                         break;
 
