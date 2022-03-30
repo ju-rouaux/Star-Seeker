@@ -210,12 +210,18 @@ void detruireTextures(t_textures ** textures)
     *textures = NULL;
 }
 
+
+
 /**
  * \brief Outil permettant de découper une tileset et récupérer une partie de la texture.
  * 
  * \param rectangle Rectangle où stocker le résultat de calcul
  * \param x Position en x de la tile désirée
  * \param y Position en y de la tile désirée
+ * \param tailleX Longeur du rect
+ * \param tailleY hauteur du rect
+ * \param decalageX decalage x entre 2 posiitons dans une animation
+ * \param decalageY decalage y entre 2 posiitons dans une animation
  */
 void splitTexture(SDL_Rect * rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)
 {

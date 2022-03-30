@@ -220,7 +220,7 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
  * \brief Sauvegarde les informations relatives à la structure des niveaux.
  * 
  * \param fichier Le fichier contenant les données
- * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param niveaux La matrice des structures de données de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
  * 
@@ -295,6 +295,7 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
  * 
  * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
+ * \param nom_galaxie le nom de la galaxie
  * \param infos_niveaux La matrice des structures de donnée de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
@@ -339,7 +340,7 @@ err_save sauvegarderPartie(char * nom_galaxie, niveau_informations_t ** infos_ni
  * \brief Charge les informations relatives à la partie
  * 
  * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
- * 
+ * \param nom_galaxie le nom de la galaxie
  * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
  * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'adresse de l'indice du niveau qui est actuellement chargé

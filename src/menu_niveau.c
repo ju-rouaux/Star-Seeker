@@ -164,8 +164,8 @@ void detruireSelections(t_selection *** selections, int nb_selections)
         {
             if((*selections)[i] != NULL)
             {
-               SDL_DestroyTexture((*selections)[i]->rendu_texte);
-               free((*selections)[i]);
+                SDL_DestroyTexture((*selections)[i]->rendu_texte);
+                free((*selections)[i]);
             }
             (*selections)[i] = NULL;
         }
@@ -236,8 +236,11 @@ static void renduTitre(t_moteur * moteur, t_texte * titre)
 
 
 /**
+ * \brief 
  * 
- * 
+ * \param moteur le moteur
+ * \param bouton le bouton
+ * \param souris Coordonnées de la souris
  * \return Vrai si la souris survole le bouton, faux sinon.
  */
 static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Point * souris)
@@ -262,10 +265,17 @@ static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Poi
 }
 
 
+
 /**
- *
- *
+ * \brief Initialise le menu
+ * 
+ * \param moteur le moteur
+ * \param infos_niveaux La liste des informations sur la structure des niveaux de la partie
+ * \param nb_infos Le nombre d'éléments de la liste
+ * \param titre L'adresse du titre a initialiser
+ * \param menu L'adresse du menu a initialiser
  * \param ancien_niveau_charge Indice du niveau précédemment chargé
+ * \return la structure du menu allouée
  */
 t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu, int ancien_niveau_charge)
 {
@@ -365,7 +375,14 @@ t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveau
     return selections;
 }
 
-
+/**
+ * \brief Detruit et libère la mémoire allouée
+ * 
+ * \param selections Adresse de la liste des sélections à libérer
+ * \param nb_selections Nombre d'éléments dans la liste
+ * \param titre adresse du titre a detruire
+ * \param menu adresse du menu a detruire
+ */
 void freeMenu(t_selection *** selections, int nb_selections, t_texte ** titre, t_texte ** menu)
 {
     detruireSelections(selections, nb_selections);

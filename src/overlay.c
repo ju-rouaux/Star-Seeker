@@ -47,6 +47,8 @@ static void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
  * \brief Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en haut et à gauche ? 
  *  
  * \param matrice Matrice des IDs des salles du niveau
+ * \param hauteur taille en hauteur de la matrice
+ * \param longueur taille en longueur de la matrice
  * \param x Coordonnée de la salle dont le type doit être déterminé 
  * \param y Coordonnée de la salle dont le type doit être déterminé 
  *
@@ -117,8 +119,6 @@ void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int id
 
 
 
-
-
 /**
  * \brief Dessine le HUD
  *  
@@ -127,20 +127,17 @@ void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int id
  *  
  */
 void dessiner_hud(t_moteur * moteur, t_joueur * joueur){
-   
-   
+
     SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
 
     SDL_Rect source; //Partie de du tileset à affiche
     SDL_Rect destination; //Position dans la fenetre où afficher
 
 
-
     //Points de vie
     destination.h = moteur->echelle/2;
     destination.w = moteur->echelle/2;
     destination.y = 16;
-  
 
     for(int i = 0; i < joueur->pv; i += 2){
 

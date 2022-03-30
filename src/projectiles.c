@@ -28,7 +28,7 @@
  * \brief Actualise les champs de la structure projectile vers les paramètres décrits par le type.
  * 
  * \param projectile Le projectile à actualiser
- * \param nouvelle_attaque La description désirée 
+ * \param type Le type de projectile
  */
 int chargerProjectile(t_projectile * projectile, e_type_projectile type)
 {

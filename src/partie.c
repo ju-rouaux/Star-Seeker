@@ -35,7 +35,12 @@
 
 /* ################################ Fonctions principales du jeu ################################ */
 
-
+/**
+ * \brief Genere une animation lors de la mort du joueur
+ * 
+ * \param moteur le moteur
+ * \param joueur le joueur
+ */
 static void animationMort(t_moteur * moteur, t_joueur * joueur)
 {
     int tempsEcoule = 0;
@@ -177,9 +182,14 @@ static void renduEntites(t_moteur * moteur)
 }
 
 
+
 /**
  * \brief Libère et charge les entités 
  * 
+ * \param moteur le moteur
+ * \param joueur le joueur
+ * \param infos_niveau La liste des informations sur la structure des niveaux de la partie
+ * \param id_ancienne_salle L'identifiant de l'ancienne salle où sauvegarder les entités vidées
  */
 void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau, int id_ancienne_salle)
 {
@@ -249,6 +259,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_info
  * 
  * \param moteur Moteur du jeu
  * \param joueur Le joueur
+ * \param infos_niveau La liste des informations sur la structure des niveaux de la partie
  * 
  * \return L'action ayant mis fin au niveau.
  */
@@ -523,6 +534,8 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
  * 
  * \param nb_niveaux Le nombre de niveaux désiré
  * \param adr_infos L'adresse de la matrice des infos sur la structure des niveaux, à NULL de préférance
+ * \param nom_galaxie le nom de la galaxie
+ * \param indice_difficulte Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles
  * 
  * \return 0 si succès, une valeur négative si echec.
  */
