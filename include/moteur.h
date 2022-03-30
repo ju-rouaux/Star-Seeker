@@ -49,7 +49,11 @@ typedef struct
     SDL_Scancode key_left;
     SDL_Scancode key_right;
     SDL_Scancode key_interaction;
-
+    SDL_Scancode attack_up;
+    SDL_Scancode attack_down;
+    SDL_Scancode attack_right;
+    SDL_Scancode attack_left;
+    SDL_Scancode dash;
 } t_parametres;
 
 /**

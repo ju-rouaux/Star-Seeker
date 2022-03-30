@@ -153,7 +153,32 @@ e_code_main chargerMenu_Options_keymap(t_moteur * moteur) {
                 moteur->parametres.key_interaction = key_temp;
                 temp = 0;//pour rester sur le menu actuel
                 break;
-            case 7: {
+            case 7:
+                printf("Key mapped for attaque haut : %d\n",key_temp);
+                moteur->parametres.attack_up = key_temp;
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 8: 
+                printf("Key mapped for attaque bas : %d\n",key_temp);
+                moteur->parametres.attack_down = key_temp;
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 9 :
+                printf("Key mapped for attaque droite : %d\n",key_temp);
+                moteur->parametres.attack_right = key_temp;
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 10 : 
+             printf("Key mapped for attaque gauche : %d\n",key_temp);
+                moteur->parametres.attack_left = key_temp;
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 11:
+             printf("Key mapped for dash : %d\n",key_temp);
+                moteur->parametres.dash = key_temp;
+                temp = 0;//pour rester sur le menu actuel
+                break;
+            case 12: {
                 printf("Retour\n");
                 detruireBoutons( & boutons, NB_B_MENU_OPTIONS_KEYMAP);
                 detruireTexte(&rect_titre,texture_titre);

@@ -25,21 +25,41 @@ int maj_TextureMenu(t_moteur * moteur, t_bouton ** boutons, int nb_boutons) {
     }
 
     for (int i = 0; i < nb_boutons; i++) {
-        if (nb_boutons > 5) {
+        if (nb_boutons > 5 && nb_boutons <= 8) {
             if (i < (nb_boutons / 2)) //On divise par 2 le nombre de boutons pour les mettres sur 2 colonnes et on met la premiere moité sur une premiere colonne
             {                                                                                                      //utiliser pour definir l'espacement entre les boutons
                 if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 5, moteur -> window_height * (float)(i + 1.2) / ((nb_boutons + 2.2) / 2)) != 0) {
                     printf("Erreur update texture bouton\n");                                                       //i + cste pour commencer a i !=0 et 
                     return -1;//Retourne cas d'erreur
                 }
-            } else if (i >= (nb_boutons / 2)) //on repartie la deuxieme moitié des boutons sur la 2eme colonne
-    {                                                                                                               //utiliser pour definir l'espacement entre les boutons
+            } else if (i >= (nb_boutons / 2)){ //on repartie la deuxieme moitié des boutons sur la 2eme colonne
+                                                                                                                        //utiliser pour definir l'espacement entre les boutons
                 if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 2, moteur -> window_height * (float)(i + 1.2 - (nb_boutons / 2)) / ((nb_boutons + 2.2) / 2)) != 0) {
                     printf("Erreur update texture bouton\n");
                     return -1;//Retourne cas d'erreur
                 }
             }
-        } else if (nb_boutons <= 5) //Si il y a peu de bouton, on les mets tous sur une meme colonne
+        }else if(nb_boutons > 8){
+            if (i < (nb_boutons * 0.33)){ //On divise par 3 le nombre de boutons pour les mettres sur 3 colonnes et on met la premiere moité sur une premiere colonne
+                                                                                                                  //utiliser pour definir l'espacement entre les boutons
+                if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 7, moteur -> window_height * (float)(i + 1.2) / ((nb_boutons + (nb_boutons /3) + 3) / 3)) != 0) {
+                    printf("Erreur update texture bouton\n");                                                       //i + cste pour commencer a i !=0 et 
+                    return -1;//Retourne cas d'erreur
+                }
+            }else if (i >= (nb_boutons * 0.33) && i < (nb_boutons * 0.66)){ //on repartie la deuxieme moitié des boutons sur la 2eme colonne
+                                                                                                                        //utiliser pour definir l'espacement entre les boutons
+                if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 3, moteur -> window_height * (float)(i + 1.2) / (nb_boutons + (nb_boutons * 0.33))) != 0) {
+                    printf("Erreur update texture bouton\n");
+                    return -1;//Retourne cas d'erreur
+                }
+            }else if (i >= (nb_boutons * 0.66)){ //on repartie la deuxieme moitié des boutons sur la 3eme colonne
+                                                                                                                        //utiliser pour definir l'espacement entre les boutons
+                if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 1.5 , moteur -> window_height * (float)(i + 1.2) / (nb_boutons + (nb_boutons * 0.33))) != 0) {
+                    printf("Erreur update texture bouton\n");
+                    return -1;//Retourne cas d'erreur
+                }
+            }
+        }else if (nb_boutons <= 5) //Si il y a peu de bouton, on les mets tous sur une meme colonne
         {                                                                                                       //utiliser pour definir l'espacement entre les boutons
             if (update_textureBouton(moteur, boutons[i], moteur -> window_width / 4, moteur -> window_height * (float)(i + 1.7) / (nb_boutons + 2.2 )) != 0) {
                 printf("Erreur update texture bouton\n");
