@@ -39,7 +39,7 @@
 
 //Probabilité qu'une salle sans id prenne l'id d'une salle adjacente au lieu d'un nouvel id
 //En d'autres termes, probabilité de générer une extension de salle au lieu d'une nouvelle salle
-#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
+#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 25
 
 
 /**
