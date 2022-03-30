@@ -10,11 +10,9 @@
 #ifndef _JEU_MONSTRE_
 #define _JEU_MONSTRE_
 
-
 #include <SDL2/SDL.h>
 #include <entite.h>
 #include <attaque.h>
-
 
 /**
  * \enum e_deplacement_monstre
@@ -35,7 +33,7 @@ typedef struct s_monstre t_monstre;
 struct s_monstre
 {
     #include <attributs_personnages.h>
-    e_deplacement_monstre deplacement;
+    e_deplacement_monstre deplacement;/**<Type de déplacement d'un monstre*/
 };
 
 
