@@ -25,10 +25,10 @@
  *  
  * \brief Vérifie si les coordonnées i et j sont dans la matrice de taille hauteur * longueur
  * 
- * \param longueur longueur de la matrice du niveau
- * \param hauteur hauteur de la matrice du niveau
  * \param i Coordonnée i (hauteur)
  * \param j Coordonnée j (longueur)
+ * \param hauteur hauteur de la matrice du niveau
+ * \param longueur longueur de la matrice du niveau
  * 
  * \return VRAI seulement si les coordonnées sont à l'intérieur de la matrice
 */
@@ -131,10 +131,9 @@ static int ajout_salle_adjacente(int * niv, int hauteur, int longueur, int i, in
 
 /**
  * \brief Attribue un identifiant entier (int) à chaque case. En donnant le même id à plusieurs case adjacentes, on les fusionne en une grande salle.
- *
- * \param longueur longueur de la matrice du niveau
- * \param hauteur hauteur de la matrice du niveau
  * \param niv Pointeur sur le premier élément de la matrice du niveau
+ * \param hauteur hauteur de la matrice du niveau
+ * \param longueur longueur de la matrice du niveau
  *
  */
 static void identificationSalles(int * niv, int hauteur, int longueur){
@@ -171,6 +170,7 @@ static void identificationSalles(int * niv, int hauteur, int longueur){
 /**
  * \brief Attribue à i_fin et j_fin les coordonnées de la salle finale du niveau
  *  
+ * \param niv Pointeur sur le premier élément de la matrice du niveau
  * \param longueur longueur de la matrice du niveau
  * \param hauteur hauteur de la matrice du niveau
  * \param i_fin coordonnée i (hauteur) de la salle de fin
@@ -198,6 +198,8 @@ static void definir_coordonnees_salle_de_fin(const int * niv, int hauteur, int l
  * \brief initialise une matrice avec un niveau aléatoirement généré
  * 
  * \param niv Pointeur sur le premier élément de la matrice du niveau
+ * \param longueur longueur de la matrice du niveau
+ * \param hauteur hauteur de la matrice du niveau
  * 
  */
 static void init_niveau(int * niv, int hauteur, int longueur){
@@ -307,12 +309,11 @@ void detruire_niveau_info(niveau_informations_t ** niveau){
  * \brief Fonction principale : crée le niveau et l'écrit dans une structure niveau_informations_t
  * 
  * \param nom_planete Nom associé à un niveau unique : il génère la seed
+ * \param indice_difficulte Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles
  * 
  * \return Les informations du niveau dans une structure niveau_informations_t
  */
-niveau_informations_t * creer_niveau_info(char * nom_planete){
-
-    int indice_difficulte = 3; //!!! A CALCULER
+niveau_informations_t * creer_niveau_info(char * nom_planete, int indice_difficulte){
 
     //Initialisation de la seed
     unsigned int seed = seed_depuis_mot(nom_planete);

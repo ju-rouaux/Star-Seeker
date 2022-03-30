@@ -2,6 +2,7 @@
  * \file events.c
  * \author Guillaume
  * \brief Module de gestion des evenements (souris/clavier/fenetre)
+ * Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter
  */
 
 #include <stdio.h>
@@ -15,8 +16,9 @@
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
- * 
- * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
+ * \param joueur le joueur
+ * \param parametres parametres du jeu (touches et volume)
+ * \return code de succès et d'erreur personnalisé
  */
 
 e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)

@@ -10,8 +10,8 @@
 
 #include <menu.h>
 
-#define NB_B_MENU_OPTIONS_KEYMAP 6
-#define NOMS_B_MENU_OPTIONS_KEYMAP {"Haut","Bas","Droite","Gauche","Interaction","Retour"}
+#define NB_B_MENU_OPTIONS_KEYMAP 10
+#define NOMS_B_MENU_OPTIONS_KEYMAP {"Haut","Bas","Droite","Gauche","Interaction","Keymap 1", "Keymap 2","Keymap 3","Keymap 4","Retour"}
 
 e_code_main chargerMenu_Options_keymap(t_moteur * moteur);
 

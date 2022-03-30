@@ -526,7 +526,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
  * 
  * \return 0 si succès, une valeur négative si echec.
  */
-static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nom_galaxie)
+static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nom_galaxie, int indice_difficulte)
 {
     int i;
     
@@ -554,7 +554,7 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
 
     for(i = 0; i < nb_niveaux; i++)
     {
-        infos[i] = creer_niveau_info(noms_planetes[i]);
+        infos[i] = creer_niveau_info(noms_planetes[i], indice_difficulte);
 
         if(infos[i] == NULL)
         {
@@ -626,7 +626,7 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
 
     //S'occuper du niveau
     srand(time(NULL));
-    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie);
+    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie,joueur->xp);
     if(retour != 0)
     {
         printf("Impossible de générer une nouvelle partie\n");

@@ -15,24 +15,32 @@
 
 
 /**
+ * \brief Genere les entités, les objets au sol (armes et vie)
  * 
- * 
- *  FONCTION A CODER RETOURNANT LA LISTE DES ENTITES D'UNE SALLE
- * 
+ * \param indice_difficulte Xp faisant varier la quantité et la difficulté des monstres par salles
+ * \param x_orig_salle origine x de la salle
+ * \param y_orig_salle origine y de la salle
+ * \param liste_entites adresse de la structure
+ * \param nb_entites nombre d'entités
+ * \return booleen, 0 si succes, negatif si echec
  */
-static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
+static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
 {
-    int nb_alea = rand() % 4 + 1;
+    int nb_alea = rand() % 5 + 2;
     int i = 0;
-    int arme= 0, vie = 0;
 
     //générer un nombre d'entité selon difficulté
-    // *nb_entites = 0.35 * (indice_difficulte + nb_alea);
+    *nb_entites = 0.35 * ((indice_difficulte / 15) + nb_alea);
     //Nombre d'entités pour le tests
-    *nb_entites = 2;
+    //*nb_entites = 2;
 
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
+    if(*liste_entites == NULL)
+    {
+        printf("Erreur d'allocation de la liste des entités\n");
+        return -1;
+    }
     
     int attaque_alea;
     data_inter data;
@@ -42,11 +50,10 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
     x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
     y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
-    if(de(12) == 1){
-        data.nb_pv = de(2);
+    if(de(8) == 1){
+        data.nb_pv = de(7);
         (*liste_entites)[i] = (t_entite*) creerInteraction(0, x_alea_objet, y_alea_objet, data);
         i++;
-        arme++;
     }
 
     x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
@@ -56,7 +63,6 @@ static int genererEntitesSalle(float indice_difficulte, int x_orig_salle, int y_
         data.attaque = de(4);
         (*liste_entites)[i] = (t_entite*) creerInteraction(1, x_alea_objet, y_alea_objet, data);
         i++;
-        vie++;
     }
 
     //générer entités
@@ -108,12 +114,14 @@ void detruireInfosEntites(t_info_entites ** infos)
  * \brief A partir de l'indice de diffuculté, et de la matrice du niveau, générer une structure infos_entites par salle, contenant la liste.
  * des entités de la salle.
  * 
- * \param indice_difficulte Valeur arbitraire faisant varier la quantité et la difficulté des monstres par salles
+ * \param indice_difficulte Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles
  * \param matrice_n Matrice du niveau
  * \param h_mat Hauteur de la matrice
  * \param l_mat Largeur de la matrice
  * \param infos_entites Retour de la liste des infos_entites
  * \param nombre_infos Retour du nombre d'éléments dans la liste des infos_entites
+ * \param i_dep coordonnées i dans la matrice de la salle de départ
+ * \param j_dep coordonnées j dans la matrice de la salle de départ
  * 
  * \return 0 si succès, valeur négative si échec.
  */

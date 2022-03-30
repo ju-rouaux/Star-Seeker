@@ -87,7 +87,7 @@ typedef struct {
 } niveau_informations_t;
 
 
-niveau_informations_t * creer_niveau_info(char * nom_planete);
+niveau_informations_t * creer_niveau_info(char * nom_planete, int indice_difficulte);
 void detruire_niveau_info(niveau_informations_t ** niveau);
 int seed_depuis_mot(const char * mot);
 
