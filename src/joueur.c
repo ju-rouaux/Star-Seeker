@@ -286,8 +286,8 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->attaque_vx = joueur->direction_vx;
     joueur->attaque_vy = joueur->direction_vy;
 
-    joueur->nom_attaque = DEMO;
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, SNIPER);
+    joueur->nom_attaque = A_DEFAUT;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, A_DEFAUT);
 
     return joueur;
 }

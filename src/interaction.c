@@ -95,6 +95,7 @@ t_interaction * creerInteraction(e_type_inter type, float x, float y, data_inter
 
     if(type == VIE)
     {
+        interaction->taille = 0.7;
         interaction->id_animation = 1;
         interaction->animation = creerAnimation(50, 16);
         interaction->data.nb_pv = data.nb_pv;

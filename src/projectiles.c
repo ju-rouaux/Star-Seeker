@@ -42,6 +42,8 @@ int chargerProjectile(t_projectile * projectile, e_type_projectile type)
         return proj_boule_metal(projectile);
     case SHURIKEN:
         return proj_shuriken(projectile);
+    case TOURNER:
+        return proj_tourner(projectile);
     case SABRE:
         return proj_sabre(projectile);
     //case LASER:
