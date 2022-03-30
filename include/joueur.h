@@ -33,7 +33,10 @@ typedef struct
     int dash;
 
     //Actions
-    int shooting;
+    int attack_up;
+    int attack_down;
+    int attack_left;
+    int attack_right;
     int interaction;
 
     //Overlay

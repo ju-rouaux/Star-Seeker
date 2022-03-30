@@ -28,39 +28,6 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
         {
             case SDL_QUIT:
                 return JEU_QUITTER;
-            
-            // -- Gestion de la souris --
-            //Appui
-            case SDL_MOUSEBUTTONDOWN:
-                switch (event.button.button)
-                {
-                    case SDL_BUTTON_LEFT:
-                        joueur->flags->shooting = 1;
-                        break;
-
-                    case SDL_BUTTON_RIGHT:
-                        if(joueur->flags->dash == 0)
-                            joueur->flags->dash = 1;
-                        break;
-
-                    default:
-                        break;
-                };
-                break;
-
-            //Relachement
-            case SDL_MOUSEBUTTONUP:
-                switch (event.button.button)
-                {
-                    case SDL_BUTTON_LEFT:
-                        joueur->flags->shooting = 0;
-                        break;
-
-                    default:
-                        break;
-                };
-                break;
-
 
             // -- Gestion du clavier --
             //Appui
@@ -99,6 +66,32 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_shown = 1;
                         break;
+
+                    case SDL_SCANCODE_UP:
+                        printf("up\n");
+                        joueur->flags->attack_up = joueur->flags->attack_down + 1;
+                        break;
+
+                    case SDL_SCANCODE_DOWN:
+                        printf("down\n");
+                        joueur->flags->attack_down = joueur->flags->attack_up + 1;
+                        break;
+
+                    case SDL_SCANCODE_LEFT:
+                        printf("left\n");
+                        joueur->flags->attack_left = joueur->flags->attack_right + 1;
+                        break;
+
+                    case SDL_SCANCODE_RIGHT:
+                        printf("right\n");
+                        joueur->flags->attack_right = joueur->flags->attack_left + 1;
+                        break;
+
+                    case SDL_SCANCODE_SPACE:
+                        if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
+                        break;
+                    
                     default:
                         break;
                 }
@@ -113,7 +106,7 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                     joueur->flags->to_left = 0;
                 
                 else if (parametres->key_down == event.key.keysym.scancode)
-                    joueur->flags->to_down = 0;
+                    joueur->flags->to_down = 0; 
                 
                 else if (parametres->key_right == event.key.keysym.scancode)
                     joueur->flags->to_right = 0;
@@ -126,6 +119,27 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_shown = 0;
                         break;
+
+                    case SDL_SCANCODE_UP:
+                        printf("up up\n");
+                        joueur->flags->attack_up = 0;
+                        break;
+
+                    case SDL_SCANCODE_DOWN:
+                        printf("down up\n");
+                        joueur->flags->attack_down = 0;
+                        break;
+
+                    case SDL_SCANCODE_LEFT:
+                        printf("left up\n");
+                        joueur->flags->attack_left = 0;
+                        break;
+
+                    case SDL_SCANCODE_RIGHT:
+                        printf("right up\n");
+                        joueur->flags->attack_right = 0;
+                        break;
+
                     default:
                         break;
                 }

@@ -71,11 +71,13 @@ static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation
  * \param vecteur_x Retour du vecteur en x
  * \param vecteur_y Retour du vecteur en y
  */
-static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y)
+static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y, float * attaque_vx, float * attaque_vy, int * shooting)
 {
     //Conversion des flags en vecteur
     int direction_x = flags->to_right == flags->to_left ? 0 : (flags->to_right > flags->to_left ? 1 : -1);
     int direction_y = flags->to_down == flags->to_up ? 0 : (flags->to_down > flags->to_up ? 1 : -1);
+    int attaque_x = flags->attack_right == flags->attack_left ? 0 : (flags->attack_right > flags->attack_left ? 1 : -1);
+    int attaque_y = flags->attack_down == flags->attack_up ? 0 : (flags->attack_down > flags->attack_up ? 1 : -1);
     
     //Seulement si le joueur se dirige dans une direction, actualiser les vecteurs.
     //Ainsi le joueur restera dans sa dernière direction s'il ne bouge pas.
@@ -85,6 +87,15 @@ static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, 
                 *vecteur_x = direction_x;
         if(vecteur_y != NULL)
                 *vecteur_y = direction_y;
+    }
+    //Meme chose pour la visée, garder la dernière position
+    if(attaque_x || attaque_y)
+    {
+        *shooting = 1;
+        if(attaque_vx != NULL)
+                *attaque_vx = attaque_x;
+        if(attaque_vy != NULL)
+                *attaque_vy = attaque_y;
     }
 }
 
@@ -103,6 +114,7 @@ static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, 
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
     int etat = 0;
+    int shooting = 0;
 
     // ---- Dash
 
@@ -135,7 +147,7 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else //Etat aucun dash : ne pas bloquer la direction du joueur
     {
         joueur->vitesse = VITESSE_JOUEUR_DEFAULT;
-        getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy);
+        getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy, &joueur->attaque_vx, &joueur->attaque_vy, &shooting);
     }
 
     // ---- Fin dash
@@ -151,13 +163,8 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else
         joueur->animation->vitesse = 250;
     
-
-    //Direction de l'attaque
-    joueur->attaque_vx = joueur->direction_vx;
-    joueur->attaque_vy = joueur->direction_vy;
-    
     //Tirer ou poursuivre l'attaque
-    updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
+    updateAttaqueTir(moteur, (t_personnage*) joueur, shooting);
     
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
 
@@ -185,7 +192,10 @@ static t_joueur_flags * creerJoueurFlags()
     flags->to_right = 0;
     flags->dash = 0;
 
-    flags->shooting = 0;
+    flags->attack_up = 0;
+    flags->attack_down = 0;
+    flags->attack_left = 0;
+    flags->attack_right = 0;
     flags->interaction = 0;
 
     flags->map_shown = 0;
@@ -277,7 +287,7 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->attaque_vy = joueur->direction_vy;
 
     joueur->nom_attaque = DEMO;
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, DEMO);
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, SNIPER);
 
     return joueur;
 }
