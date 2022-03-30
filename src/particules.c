@@ -19,7 +19,7 @@
  * \brief Mets à jour la particule ou la détruit si sa durée de vie est terminée.
  * 
  * \param moteur Le moteur du jeu
- * \param projectile La particule à actualiser
+ * \param particule La particule à actualiser
  * \param j_x Position en x du joueur
  * \param j_y Position en y du joueur
  * 

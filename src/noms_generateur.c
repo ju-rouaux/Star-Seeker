@@ -167,7 +167,7 @@ void detruireNomsPlanetes(char *** noms_planetes, int nombre)
  * 
  * \param nombre le nombre de noms à générer
  * \param nom_galaxie nom qui va générer la seed
- * \param noms_planetes tableau des noms des planètes
+ * \return char** tableau de chaines de caractères contenant les noms de planètes
  */
 char ** creer_noms_planetes(char * nom_galaxie, int nombre)
 {

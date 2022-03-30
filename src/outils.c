@@ -9,12 +9,10 @@
 #include <stdlib.h>
 
 
-
 /**
  * Lancer de dé avec un nombre de faces personnalisé .
  * \param nbFaces Nombre de faces du dé à lancer
 */ 
-
 int de(const int nbFaces){
     return(rand() % nbFaces + 1);
 }

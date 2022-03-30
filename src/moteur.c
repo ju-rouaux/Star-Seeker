@@ -70,6 +70,7 @@ static void initialiserParams(t_parametres * parametres)
  * \brief Charge une fenêtre, un rendu, les textures, et une caméra.
  * Charge les paramètres depuis la sauvegarde.
  * 
+ * \param temps le temps actuel du jeu
  * \return Structure moteur, NULL si échec.
  */
 t_moteur * chargerMoteur(unsigned int temps)

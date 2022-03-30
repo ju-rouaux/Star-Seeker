@@ -13,7 +13,15 @@
 #include <outils.h>
 #include <math.h>
 
-
+/**
+ * \brief Met a jour la direction du vecteur pour que le monstre attaque et se déplace dans la direction du joueur
+ * 
+ * \param moteur le moteur
+ * \param monstre un monstre
+ * \param pos_joueur_x coordonées x du joueur
+ * \param pos_joueur_y coordonées y du joueur
+ * \return 0 si succès, -1 sinon
+ */
 static int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
 {
     if(monstre->pv <= 0)
@@ -34,7 +42,15 @@ static int updateMonstreVersJoueur(t_moteur * moteur, t_monstre * monstre, float
     return 0;
 }
 
-
+/**
+ * \brief Met a jour le vecteur pour que le monstre attaque dans la direction du joueur
+ * 
+ * \param moteur le moteur
+ * \param monstre un monstre
+ * \param pos_joueur_x coordonées x du joueur
+ * \param pos_joueur_y coordonées y du joueur
+ * \return 0 si succès, -1 sinon 
+ */
 static int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float pos_joueur_x, float pos_joueur_y)
 {
     if(monstre->pv <= 0)

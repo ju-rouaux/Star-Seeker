@@ -70,6 +70,9 @@ static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation
  * \param flags Les flags du joueur
  * \param vecteur_x Retour du vecteur en x
  * \param vecteur_y Retour du vecteur en y
+ * \param attaque_vx Retour du vecteur de l'attaque en x
+ * \param attaque_vy Retour du vecteur de l'attaque en y
+ * \param shooting Retour si le joueur doit tirer
  */
 static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y, float * attaque_vx, float * attaque_vy, int * shooting)
 {
