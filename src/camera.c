@@ -104,7 +104,6 @@ static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, in
 }
 
 
-//Attention ce qui suit pique les yeux...
 
 /**
  * \brief Place la caméra au bon endroit selon la configuration de la salle et 
@@ -114,7 +113,6 @@ static void calculerPosCamera(float * x, float * y, int largeur, int hauteur, in
  * la taille de la fenêtre.
  * 
  * \param moteur Moteur du jeu
- * \param camera Camera à actualiser
  * \param largeur Nombre de sous-salles contenues dans la salle en largeur
  * \param hauteur Nombre de sous-salles contenues dans la salle en hauteur
  * \param orig_x Coordonnées d'origine de la salle en x
@@ -142,7 +140,6 @@ void updateCamera(t_moteur * moteur, int largeur, int hauteur, int orig_x, int o
  * la taille de la fenêtre.
  * 
  * \param moteur Moteur du jeu
- * \param camera Camera à actualiser
  * \param largeur Nombre de sous-salles contenues dans la salle en largeur
  * \param hauteur Nombre de sous-salles contenues dans la salle en hauteur
  * \param orig_x Coordonnées d'origine de la salle en x

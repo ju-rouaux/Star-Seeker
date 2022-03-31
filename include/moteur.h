@@ -13,6 +13,7 @@
 
 #include <SDL2/SDL.h>
 #include <textures.h>
+#include <audio.h>
 #include <camera.h>
 
 typedef struct s_liste t_liste;
@@ -28,7 +29,10 @@ typedef struct s_liste t_liste;
 
 typedef struct s_niveau t_niveau; 
 
-
+/**
+ * \struct t_bool_param
+ * \brief Idenetifant modelisant un booléen
+ */
 typedef enum
 {
     FAUX, VRAI
@@ -47,23 +51,30 @@ typedef struct
     SDL_Scancode key_down;
     SDL_Scancode key_left;
     SDL_Scancode key_right;
-    SDL_Scancode key_projectile;
-
+    SDL_Scancode key_interaction;
+    SDL_Scancode attack_up;
+    SDL_Scancode attack_down;
+    SDL_Scancode attack_right;
+    SDL_Scancode attack_left;
+    SDL_Scancode dash;
 } t_parametres;
 
 /**
  * \struct t_moteur
- * \brief Objet contenant les données nécéssaires au rendu du jeu, aussi
+ * \brief Objet contenant les données nécessaires au rendu du jeu, aussi
  * pour la gestion des collisions.
  */
 typedef struct s_moteur
 {
-    SDL_Window * window;
-    SDL_Renderer * renderer;
-    t_textures * textures;
+    SDL_Window * window;/**<la fenetre du jeu*/
+    SDL_Renderer * renderer;/**<Le rendu du jeu*/
+    t_textures * textures;/**<Les principales texture*/
+    t_bruitages * bruitages;/**<Les bruitages du jeu*/
+    t_musiques * musiques;/**<Musique du jeu*/
     unsigned int temps; /**< Temps au début d'une frame */
     unsigned int temps_precedent; /** Temps au début de la frame précédente */
 
+    char * galaxie; /** Nom de la partie */
     t_camera * camera; /** Caméra du jeu */
     t_niveau * niveau_charge; /** Niveau actuellement chargé */
     t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
@@ -72,10 +83,11 @@ typedef struct s_moteur
     int window_width; /**< Largeur de la fenêtre */
     int window_height; /**< Hauteur de la fenêtre */
 
-    t_parametres parametres;
+    t_parametres parametres;/**<Les différents paramètres*/
 } t_moteur;
 
 
+void regulerFPS(t_moteur * moteur);
 t_moteur * chargerMoteur(unsigned int temps);
 void detruireMoteur(t_moteur ** moteur);
 void updateEchelle(t_moteur * moteur);

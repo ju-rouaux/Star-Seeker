@@ -2,6 +2,7 @@
  * \file events.c
  * \author Guillaume
  * \brief Module de gestion des evenements (souris/clavier/fenetre)
+ * Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter
  */
 
 #include <stdio.h>
@@ -15,16 +16,13 @@
 
 /**
  * \brief Gere tout les evenements liés a la souris, au clavier et a la fenetre
- * 
- * \return Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0
+ * \param joueur le joueur
+ * \param parametres parametres du jeu (touches et volume)
+ * \return code de succès et d'erreur personnalisé
  */
 
-e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
-
-    //const char * key_code, * key_name; /*nom de la touche azerty, qwerty*/
-    //int mouse_x, mouse_y; /*Coordonnées du curseur*/
-    int scrolling; /*Boléen, 1 si on scrolle vers le haut, 0 si on scrolle vers le bas*/
-
+e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
+{
     SDL_Event event;
     while(SDL_PollEvent(&event))
     {
@@ -32,143 +30,115 @@ e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur) {
         {
             case SDL_QUIT:
                 return JEU_QUITTER;
-            
-            /*gestion de la souris*/
-            /*Si un des boutons de la souris est appuyé*/
-            case SDL_MOUSEBUTTONDOWN:
-                switch (event.button.button)
-                {
-                    case SDL_BUTTON_LEFT: /**Bouton gauche*/
-                        //printf("\nMouse left button pressed");
-                        break;
-                    case SDL_BUTTON_MIDDLE: /**Molette*/
-                        //printf("\nMouse scroll button pressed");
-                        break;
-                    case SDL_BUTTON_RIGHT: /**Bouton droit*/
-                        //printf("\nMouse right button pressed");
-                        break;
-                    default: /**Cas d'erreur*/
-                        //printf("\nMouse got unknown event");
-                        break;
-                };
-                switch (event.button.clicks)
-                { /*Nombre de clics*/
-                    case 1: /*Clic simple*/
-                        //printf("\nSimple click");
-                        break;
-                    case 2: /*Double clic*/
-                        //printf("\nDouble click");
-                        break;
-                    default: /*Si plus qu'un double clic*/
-                        printf("\nClicked too many times hahaha");
-                        break;
-                };
-                break;
 
-            /*Si un des boutons de la souris est relaché*/
-            case SDL_MOUSEBUTTONUP:
-                switch (event.button.button)
-                {
-                    case SDL_BUTTON_LEFT: /*Bouton gauche*/
-                        //printf("\nMouse left button released");
-                        break;
-                    case SDL_BUTTON_MIDDLE: /*Molette*/
-                        //printf("\nMouse scroll button released");
-                        break;
-                    case SDL_BUTTON_RIGHT: /*Bouton droit*/
-                        printf("\nMouse right button released");
-                        break;
-                    default:
-                        //printf("\nMouse got unknown event");
-                        break;
-                };
-                break;
-            case SDL_MOUSEMOTION:
-                //mouse_x = event.button.x, mouse_y = event.button.y;
-                /*Recupere les coordonées x et y relative a la fenetre*/
-                //printf("\nMouse has moved : Mouse coordinates relative to window : x = %d, y = %d", mouse_x, mouse_y);
-                break;
-            case SDL_MOUSEWHEEL:
-                scrolling = event.wheel.y; /*Recupere la valeur de la molette, 1 si on scrolle vers le haut, 0 si on scrolle vers le bas */
-                if (scrolling < 0)
-                    //printf("\nScrolling down");
-                if (scrolling > 0)
-                    //printf("\nScrolling up");
-
-                break;
-
-
-            //Gestion du clavier
+            // -- Gestion du clavier --
+            //Appui
             case SDL_KEYDOWN:
 
-                if(moteur->parametres.key_up == event.key.keysym.scancode)
-                            joueur->flags->to_up = joueur->flags->to_down + 1;
-                else if(moteur->parametres.key_left == event.key.keysym.scancode)
-                            joueur->flags->to_left = joueur->flags->to_right + 1;
-                else if (moteur->parametres.key_down == event.key.keysym.scancode)
-                            joueur->flags->to_down = joueur->flags->to_up + 1;
-                else if  (moteur->parametres.key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = joueur->flags->to_left + 1;
-                else if  (moteur->parametres.key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 1;
+/*------------------------------------------------- Déplacements du joueur  -------------------------------------------------------------------*/
 
-                switch (event.key.keysym.scancode)
+                //Avancer vers le haut
+                if(parametres->key_up == event.key.keysym.scancode)
+                    joueur->flags->to_up = joueur->flags->to_down + 1;
+
+                //Avancer vers la gauche
+                else if(parametres->key_left == event.key.keysym.scancode)
+                    joueur->flags->to_left = joueur->flags->to_right + 1;
+
+                //Avancer vers le bas
+                else if (parametres->key_down == event.key.keysym.scancode)
+                    joueur->flags->to_down = joueur->flags->to_up + 1;
+                
+                //Avancer vers la droite
+                else if  (parametres->key_right == event.key.keysym.scancode)
+                    joueur->flags->to_right = joueur->flags->to_left + 1;
+
+/*------------------------------------------------- Attaques du joueurs et autre compétence(s)  -------------------------------------------------------------------*/
+ 
+                 //Attaque vers le haut
+                else if  (parametres->attack_up == event.key.keysym.scancode)
+                    joueur->flags->attack_up = joueur->flags->attack_down + 1;
+                //Attaque vers le bas
+                else if  (parametres->attack_down == event.key.keysym.scancode)
+                    joueur->flags->attack_down = joueur->flags->attack_up + 1;
+                //Attaque vers la droite
+                else if  (parametres->attack_right == event.key.keysym.scancode)
+                    joueur->flags->attack_right = joueur->flags->attack_left + 1;
+                //Attaque vers la gauche
+                else if  (parametres->attack_left == event.key.keysym.scancode)
+                    joueur->flags->attack_left = joueur->flags->attack_right + 1;
+                //Dash
+                else if  (parametres->dash == event.key.keysym.scancode){
+                    if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
+                }
+
+                //Interaction
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
                 {
-                   /* A comment. */
+                    if(joueur->flags->interaction == 0)
+                        joueur->flags->interaction = 1;
+                    else    //Passer le flag à -1 si la touche est maintenue
+                        joueur->flags->interaction = -1;
+                }
+
+                //Autres touches
+                else switch (event.key.keysym.scancode)
+                {
                     case SDL_SCANCODE_ESCAPE: //ESC
-                        return M_PRINCIPAL;
-                        break;
-                    case SDL_SCANCODE_O: //O !!! Temporaire
-                        return NIVEAU_PRECEDENT;
-                        break;
-                    case SDL_SCANCODE_P: //P !!! Temporaire
-                        return NIVEAU_SUIVANT;
+                        return M_NIVEAU;
                         break;
                     case SDL_SCANCODE_TAB: //TAB
-                        joueur->flags->map_showing = 1;
+                        joueur->flags->map_shown = 1;
                         break;
                     default:
                         break;
                 }
                 break;
 
-            case SDL_KEYUP: /*touche relachée*/
+            //Relachement
+            case SDL_KEYUP:
+/*------------------------------------------------- Déplacements du joueur  -------------------------------------------------------------------*/
+                if(parametres->key_up == event.key.keysym.scancode)
+                    joueur->flags->to_up = 0;
 
-                if(moteur->parametres.key_up == event.key.keysym.scancode)
-                        joueur->flags->to_up = 0;
-                else if(moteur->parametres.key_left == event.key.keysym.scancode)
-                        joueur->flags->to_left = 0;
-                else if (moteur->parametres.key_down == event.key.keysym.scancode)
-                        joueur->flags->to_down = 0;
-                else if (moteur->parametres.key_right == event.key.keysym.scancode)
-                        joueur->flags->to_right = 0;
-                else if (moteur->parametres.key_projectile == event.key.keysym.scancode)
-                        joueur->flags->shooting = 0;
-                switch (event.key.keysym.scancode)
+                else if(parametres->key_left == event.key.keysym.scancode)
+                    joueur->flags->to_left = 0;
+                
+                else if (parametres->key_down == event.key.keysym.scancode)
+                    joueur->flags->to_down = 0; 
+                
+                else if (parametres->key_right == event.key.keysym.scancode)
+                    joueur->flags->to_right = 0;
+                
+                else if  (parametres->key_interaction == event.key.keysym.scancode)
+                    joueur->flags->interaction = 0;
+                
+/*------------------------------------------------- Attaques du joueurs et autre compétence(s)  -------------------------------------------------------------------*/
+                 //Attaque vers le haut
+                else if  (parametres->attack_up == event.key.keysym.scancode)
+                    joueur->flags->attack_up = 0;
+                //Attaque vers le bas
+                else if  (parametres->attack_down == event.key.keysym.scancode)
+                    joueur->flags->attack_down = 0;
+                //Attaque vers la droite
+                else if  (parametres->attack_right == event.key.keysym.scancode)
+                    joueur->flags->attack_right = 0;
+                //Attaque vers la gauche
+                else if  (parametres->attack_left == event.key.keysym.scancode)
+                    joueur->flags->attack_left = 0;
+                //Dash
+                else if  (parametres->dash == event.key.keysym.scancode){
+                    if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
+                }
+                
+                else switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_TAB: //TAB
-                        joueur->flags->map_showing = 0;
+                        joueur->flags->map_shown = 0;
                         break;
                     default:
-                        break;
-                }
-
-
-            //Gestion de la fenetre
-            case SDL_WINDOWEVENT:
-                switch (event.window.event)
-                {
-                    case SDL_WINDOWEVENT_SHOWN: /*Fenetre montrée*/
-                        printf("Window shown\n");
-                        break;
-                    case SDL_WINDOWEVENT_HIDDEN: /*Fenetre cachée*/
-                        printf("Window hidden\n");
-                        break;
-                    case SDL_WINDOWEVENT_MAXIMIZED: /*Fenetre maximisée*/
-                        printf("Window maximized\n");
-                        break;
-                    case SDL_WINDOWEVENT_MINIMIZED: /**Fenetre minimisée*/
-                        printf("Window minimized\n");
                         break;
                 }
                 break;

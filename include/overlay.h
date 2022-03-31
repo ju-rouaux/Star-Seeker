@@ -3,7 +3,6 @@
  * 
  * \brief Module de gestion de l'interface utilisateur in-game
  * 
- * 
  * \author Camille Remoué
  */
 
@@ -21,9 +20,7 @@
 
 
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle);
-
-
-
+void dessiner_hud(t_moteur * moteur, t_joueur * joueur);
 
 
 #endif //_OVERLAY_

@@ -12,10 +12,6 @@
 #include <generation_niveau.h>
 #include <niveau.h>
 
-//A faire
-//static void chargerMonstres();
-//static void chargerObstacles();
-
 
 /**
  * \brief Génère une structure dimensions de salle.
@@ -123,13 +119,13 @@ static int lierSalles(t_niveau * niveau)
                 
                 if( !liee )
                 {
-                   salle_courante->dimensions = creerDimensions(i, j);
-                   if(salle_courante->dimensions == NULL)
-                   {
-                       printf("La liaison des salles a échoué\n");
-                       return -1;
-                   }
-                } 
+                    salle_courante->dimensions = creerDimensions(i, j);
+                    if(salle_courante->dimensions == NULL)
+                    {
+                        printf("La liaison des salles a échoué\n");
+                        return -1;
+                    }
+                }
                 else
                     (salle_courante->dimensions->nombre)++;
 
@@ -229,7 +225,7 @@ static t_niveau * chargerSalles(niveau_informations_t * info)
     {
         for(int j = 0; j < largeur; j++)
         {
-            id_salle = info->matrice[i][j];
+            id_salle = info->matrice[i*niveau->l + j];
 
             if(id_salle == 0) //S'il n'y a pas de salle
                niveau->salles[i*largeur + j] = NULL;
@@ -294,7 +290,8 @@ void detruireNiveau(t_niveau ** niveau)
 /**
  * \brief Lance un niveau s couleurs du niveau sont aussi chargées
  * 
- * 
+ * \param moteur le moteur
+ * \param info La liste des informations sur la structure des niveaux de la partie
  */
 int chargerNiveau(t_moteur * moteur, niveau_informations_t * info)
 {
@@ -323,7 +320,8 @@ int chargerNiveau(t_moteur * moteur, niveau_informations_t * info)
  * dépasse ces limites.
  * 
  * \param niveau Le niveau chargé
- * \param joueur Le joueur
+ * \param j_x Coordonnée x du joueur
+ * \param j_y Coordonnée y du joueur
  * \param echelle L'échelle du rendu
  */
 void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
@@ -369,5 +367,5 @@ void updateNiveau(t_niveau * niveau, float j_x, float j_y, int echelle)
             niveau->salle_chargee = niveau->salle_chargee->portes[UP];
             (niveau->i_charge)--;
         }
-    }      
+    }
 }

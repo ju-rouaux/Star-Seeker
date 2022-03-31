@@ -53,8 +53,6 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
-
-
     //Player
     surface = SDL_LoadBMP("./assets/img/personnage.bmp");
     if(surface == NULL)
@@ -135,6 +133,54 @@ t_textures * chargerTextures(SDL_Renderer * renderer)
     }
     surface = NULL;
 
+    //Particules
+    surface = SDL_LoadBMP("./assets/img/particules.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface particules.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->particules = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->particules == NULL)
+    {
+        printf("Impossible de charger la texture de particules.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Planete
+    surface = SDL_LoadBMP("./assets/img/planete.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface planete.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->planete = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->particules == NULL)
+    {
+        printf("Impossible de charger la texture de planete.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
+    //Collectibles
+    surface = SDL_LoadBMP("./assets/img/collectibles.bmp");
+    if(surface == NULL)
+    {
+        printf("Impossible de charger la surface collectibles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    textures->collectibles = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    if(textures->collectibles == NULL)
+    {
+        printf("Impossible de charger la texture de collectibles.bmp : %s\n", SDL_GetError());
+        return NULL;
+    }
+    surface = NULL;
+
     return textures;
 }
 
@@ -164,12 +210,18 @@ void detruireTextures(t_textures ** textures)
     *textures = NULL;
 }
 
+
+
 /**
  * \brief Outil permettant de découper une tileset et récupérer une partie de la texture.
  * 
  * \param rectangle Rectangle où stocker le résultat de calcul
  * \param x Position en x de la tile désirée
  * \param y Position en y de la tile désirée
+ * \param tailleX Longeur du rect
+ * \param tailleY hauteur du rect
+ * \param decalageX decalage x entre 2 posiitons dans une animation
+ * \param decalageY decalage y entre 2 posiitons dans une animation
  */
 void splitTexture(SDL_Rect * rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)
 {

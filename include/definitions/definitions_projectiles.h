@@ -10,7 +10,7 @@
  *              static int proj_NOMPROJECTILE(t_projectile * projectile)
  *              {
  *                  projectile->animation = creerAnimation(INT, INT);  //ou NULL si pas d'animation
- *                  if(projectile->animation == NULL)                  //pas nécéssaire si pas d'animation
+ *                  if(projectile->animation == NULL)                  //pas nécessaire si pas d'animation
  *                      return -1;
  *                  
  *                  projectile->id_animation = INT;
@@ -53,6 +53,10 @@
 
 #include <projectiles.h>
 #include <animation.h>
+#include <math.h>
+
+
+#define PI 3.14159265359
 
 
 //--------- Fonctions de comportement ---------
@@ -90,24 +94,47 @@ static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * project
     if(projectile->duree_de_vie <= 0)
         return -1;
 
-    if((projectile->x < x+0.5 && projectile->x > x-0.5) && (projectile->y < y+0.5 && projectile->y > y-0.5) && (projectile->duree_de_vie < 1900))
+    if((projectile->x < x+0.4 && projectile->x > x-0.4) && (projectile->y < y+0.4 && projectile->y > y-0.4) && (projectile->duree_de_vie < 1920))
         return -1;
-    
+
     if(projectile->duree_de_vie < 4*2000/5){
         projectile->direction_vx = x - projectile->x;
         projectile->direction_vy = y - projectile->y;
-        projectile->vitesse = 12;
-    }   
+        projectile->vitesse = 8;
+    }
+
     if(deplacerEntite(moteur, (t_entite*) projectile) == -1){
         projectile->direction_vx = x - projectile->x;
         projectile->direction_vy = y - projectile->y;
-    
     }
     return 0;
 }
 
 
+/**
+ * \brief Projectile tournoyant en cercle
+ * 
+ * \param moteur Le moteur du jeu
+ * \param projectile Le projectile à actualiser
+ * \param x position du joueur x
+ * \param y position du joueur y
+ * \return -1 si le projectile doit être détruit, sinon 0.
+ */
+static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile, float x, float y)
+{
+    projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie
+    if(projectile->duree_de_vie <= 0)
+        return -1;
 
+    float signal = -1 + (moteur->temps % 2000)/1000.0; //Signal oscillant entre -1 et 1 à partir du temps
+
+    projectile->direction_vx = cos(signal*PI);
+    projectile->direction_vy = sin(signal*PI);
+
+    projectile->vitesse = ((8000-projectile->duree_de_vie)/8000.0)*11;
+
+    return deplacerEntite(moteur, (t_entite*) projectile);
+}
 
 
 //--------- Définitions ---------
@@ -126,8 +153,8 @@ static int proj_balle(t_projectile * projectile)
 
     projectile->taille = 0.4;
     projectile->vitesse = 8;
-    projectile->dommages = 20;
-    projectile->duree_de_vie = 1500;
+    projectile->dommages = 1;
+    projectile->duree_de_vie = 1000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
@@ -149,9 +176,9 @@ static int proj_boule_feu(t_projectile * projectile)
         return -1;
     projectile->id_animation = 1;
 
-    projectile->taille = 0.7;
-    projectile->vitesse = 2;
-    projectile->dommages = 30;
+    projectile->taille = 0.8;
+    projectile->vitesse = 4;
+    projectile->dommages = 4;
     projectile->duree_de_vie = 3000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -170,9 +197,9 @@ static int proj_boule_metal(t_projectile * projectile)
     projectile->animation = NULL; //Pas d'animation
     projectile->id_animation = 3;
 
-    projectile->taille = 0.5;
+    projectile->taille = 0.4;
     projectile->vitesse = 12;
-    projectile->dommages = 55;
+    projectile->dommages = 3;
     projectile->duree_de_vie = 2500;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -194,7 +221,7 @@ static int proj_shuriken(t_projectile * projectile)
 
     projectile->taille = 0.6;
     projectile->vitesse = 6;
-    projectile->dommages = 15;
+    projectile->dommages = 1;
     projectile->duree_de_vie = 250;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
@@ -208,6 +235,26 @@ static int proj_shuriken(t_projectile * projectile)
  * \param projectile Le projectile
  * \return 0 si succès, une valeur négative si echec.
  */
+static int proj_tourner(t_projectile * projectile)
+{
+    projectile->animation = NULL; //Pas d'animation
+    projectile->id_animation = 5;
+
+    projectile->taille = 1;
+    projectile->vitesse = 2;
+    projectile->dommages = 4;
+    projectile->duree_de_vie = 8000;
+
+    projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_tourner;
+
+    return 0;
+}
+
+/**
+ * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \param projectile Le projectile
+ * \return 0 si succès, une valeur négative si echec.
+ */
 static int proj_sabre(t_projectile * projectile)
 {
     projectile->animation = creerAnimation(75, 2);
@@ -215,9 +262,9 @@ static int proj_sabre(t_projectile * projectile)
         return -1;
     projectile->id_animation = 4;
 
-    projectile->taille = 1;
+    projectile->taille = 0.8;
     projectile->vitesse = 14;
-    projectile->dommages = 30;
+    projectile->dommages = 2;
     projectile->duree_de_vie = 2000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_RetourProj;
@@ -225,27 +272,5 @@ static int proj_sabre(t_projectile * projectile)
     return 0;
 }
 
-
-// /**
-//  * \brief Rend un projectile rapide mais avec un tres courte portée
-//  * \param projectile Le projectile
-//  * \return 0 si succès, une valeur négative si echec.
-//  */
-// static int proj_laser(t_projectile * projectile)
-// {
-//     projectile->animation = creerAnimation(75, 2);
-//     if(projectile->animation == NULL)
-//         return -1;
-//     projectile->id_animation = 5;
-
-//     projectile->taille = 1;
-//     projectile->vitesse = 12;
-//     projectile->dommages = 30;
-//     projectile->duree_de_vie = 3000;
-
-//     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_RetourProj;
-
-//     return 0;
-// }
 
 #endif //_JEU_DEF_PROJECTILE_

@@ -3,7 +3,7 @@
  * 
  * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
  * 
- * \author Guillaume Richard & Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -11,11 +11,12 @@
 
 #define filename_joueur "./save/save_joueur.save"
 #define filename_niveau "./save/save_niveau.save"
+#define filename_param  "./save/save_parametres.save"
 
 // OUTILS ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Retourne la taille d'une fichier, utile pour savoir s'il est vide ou s'il existe.
+ * \brief Retourne la taille d'un fichier, utile pour savoir s'il est vide ou s'il existe.
  *
  * \param filename nom du fichier
  * 
@@ -74,6 +75,10 @@ err_save chargerSaveJoueur(t_joueur * joueur)
     joueur->direction_vx = tmp->direction_vx;
     joueur-> direction_vy = tmp->direction_vy;
     joueur->vitesse = tmp->vitesse;
+    joueur->xp = tmp->xp;
+    joueur->pv = tmp->pv;
+    joueur->nom_attaque = tmp->nom_attaque;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, joueur->nom_attaque);
 
     free(tmp);
     fclose (fichier);
@@ -120,11 +125,14 @@ err_save sauvegarderJoueur(t_joueur * joueur)
  */
 static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     niveau_informations_t * tmp = NULL;
     niveau_informations_t ** infos = NULL;
 
     e_type_entite type_c; //type entité courante;
     t_monstre * monstre_temp;
+    t_interaction * inter_temp;
 
     if(fread(indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
@@ -138,8 +146,19 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
 
     for(int i = 0; i < (*nb_niveaux); i++)
     {
-        tmp  = malloc(sizeof(niveau_informations_t));
+        tmp = malloc(sizeof(niveau_informations_t));
         if(fread(tmp, sizeof(niveau_informations_t), 1, fichier) != 1) //Lecture infos niveaux
+            return READ_OR_WRITE_FAIL;
+
+        tmp->matrice = malloc(sizeof(int) * tmp->hauteur * tmp->longueur);
+        if(fread(tmp->matrice, sizeof(int) * tmp->hauteur * tmp->longueur, 1, fichier) != 1) //Lecture matrice
+            return READ_OR_WRITE_FAIL;
+
+        if(fread(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Lecture taille de la chaine du nom du niveau
+            return READ_OR_WRITE_FAIL;
+
+        tmp->nom_planete = malloc(sizeof(char)*taille_chaine_nom);
+        if(fread(tmp->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Lecture du nom du niveau
             return READ_OR_WRITE_FAIL;
 
         tmp->liste_infos_entites = malloc(sizeof(t_info_entites*) * tmp->nb_infos_entite);
@@ -168,12 +187,20 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
                 {
                 case E_MONSTRE:
                     monstre_temp = malloc(sizeof(t_monstre));
-                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1) //Lecture infos niveaux
+                    if(fread(monstre_temp, sizeof(t_monstre), 1, fichier) != 1)
                         return READ_OR_WRITE_FAIL;
                     tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerMonstre(monstre_temp->x, monstre_temp->y, monstre_temp->vitesse, monstre_temp->pv, monstre_temp->taille, monstre_temp->nom_attaque, monstre_temp->deplacement);
                     free(monstre_temp);
                     break;
-                
+
+                case E_INTERACTION:
+                    inter_temp = malloc(sizeof(t_interaction));
+                    if(fread(inter_temp, sizeof(t_interaction), 1, fichier) != 1)
+                        return READ_OR_WRITE_FAIL;
+                    tmp->liste_infos_entites[j]->entites[k] = (t_entite*) creerInteraction(inter_temp->type_inter, inter_temp->x, inter_temp->y, inter_temp->data);
+                    free(inter_temp);
+                    break;
+
                 default:
                     break;
                 }
@@ -193,7 +220,7 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
  * \brief Sauvegarde les informations relatives à la structure des niveaux.
  * 
  * \param fichier Le fichier contenant les données
- * \param infos_niveaux La matrice des structures de donnée de niveau
+ * \param niveaux La matrice des structures de données de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
  * 
@@ -201,6 +228,8 @@ static err_save chargerInfosNiveaux(FILE * fichier, niveau_informations_t *** in
  */
 static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t ** niveaux, int nb_niveaux, int indice_niveau_charge)
 {
+    int taille_chaine_nom;
+
     if(fwrite(&indice_niveau_charge, sizeof(int), 1, fichier) != 1)
         return READ_OR_WRITE_FAIL;
 
@@ -212,6 +241,17 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
         if(fwrite(niveaux[i], sizeof(niveau_informations_t), 1, fichier) != 1) //Ecriture structure
             return READ_OR_WRITE_FAIL;
 
+        if(fwrite(niveaux[i]->matrice, sizeof(int) * niveaux[i]->hauteur * niveaux[i]->longueur, 1, fichier) != 1) //Ecriture matrice
+            return READ_OR_WRITE_FAIL;
+        
+        taille_chaine_nom = strlen(niveaux[i]->nom_planete) + 1;
+
+        if(fwrite(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Ecriture taille chaine
+            return READ_OR_WRITE_FAIL;
+
+        if(fwrite(niveaux[i]->nom_planete, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Ecriture nom du niveau chaine
+            return READ_OR_WRITE_FAIL;
+
         for(int j = 0; j < niveaux[i]->nb_infos_entite; j++)
         {
             if(fwrite(niveaux[i]->liste_infos_entites[j], sizeof(t_info_entites), 1, fichier) != 1) //Ecriture des données sur les entités d'une salle
@@ -219,18 +259,26 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 
             for(int k = 0; k < niveaux[i]->liste_infos_entites[j]->nb_entites; k++)
             {
-                if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
-                    return READ_OR_WRITE_FAIL;
-                
-                switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                if(niveaux[i]->liste_infos_entites[j]->entites[k] != NULL)
                 {
-                case E_MONSTRE:
-                    if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                    if(fwrite(&niveaux[i]->liste_infos_entites[j]->entites[k]->type, sizeof(e_type_entite), 1, fichier) != 1) //Ecriture du type de l'entité
                         return READ_OR_WRITE_FAIL;
-                    break;
-                
-                default:
-                    break;
+                    
+                    switch (niveaux[i]->liste_infos_entites[j]->entites[k]->type) //Ecriture de l'entité
+                    {
+                    case E_MONSTRE:
+                        if(fwrite((t_monstre*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_monstre), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+                        
+                    case E_INTERACTION:
+                        if(fwrite((t_interaction*) niveaux[i]->liste_infos_entites[j]->entites[k], sizeof(t_interaction), 1, fichier) != 1)
+                            return READ_OR_WRITE_FAIL;
+                        break;
+
+                    default:
+                        break;
+                    }
                 }
                 
             }
@@ -245,21 +293,36 @@ static err_save sauvegarderInfosNiveaux(FILE * fichier, niveau_informations_t **
 /**
  * \brief Sauvegarde les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
  * 
+ * \param nom_galaxie le nom de la galaxie
  * \param infos_niveaux La matrice des structures de donnée de niveau
  * \param nb_niveaux Le nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'indice du niveau qui est actuellement chargé
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
+err_save sauvegarderPartie(char * nom_galaxie, niveau_informations_t ** infos_niveaux, int nb_niveaux, int indice_niveau_charge)
 {
     err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "wb");
     if(fichier == NULL)
         return FOPEN_FAIL;
 
+    //Sauvegarder nom galaxie (nom de la partie)
+    int taille_chaine_nom = strlen(nom_galaxie) + 1;
+    if(fwrite(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Ecriture taille nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+    if(fwrite(nom_galaxie, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Ecriture nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+
+    //Sauvegarde de la structure du niveau
     retour = sauvegarderInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
     if(retour != SUCCESS)
     {
@@ -276,25 +339,44 @@ err_save sauvegarderPartie(niveau_informations_t ** infos_niveaux, int nb_niveau
 /**
  * \brief Charge les informations relatives à la partie
  * 
- * D'autres paramètres viendront s'ajouter lorsque ce sera nécéssaire.
- * 
+ * D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.
+ * \param nom_galaxie le nom de la galaxie
  * \param infos_niveaux L'adresse de la matrice des structures de donnée de niveau
  * \param nb_niveaux L'adresse du nombre de structures contenues dans la matrice
  * \param indice_niveau_charge L'adresse de l'indice du niveau qui est actuellement chargé
  * 
  * \return SUCCESS ou la nature de l'erreur.
  */
-err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
+err_save chargerSavePartie(char ** nom_galaxie, niveau_informations_t *** infos_niveaux, int * nb_niveaux, int * indice_niveau_charge)
 {
     err_save retour = SAVE_ERROR;
     FILE * fichier = fopen(filename_niveau, "rb");
     if(fichier == NULL)
         return FOPEN_FAIL;
 
+    //Charger nom galaxie (nom de la partie)
+    int taille_chaine_nom;
+    if(fread(&taille_chaine_nom, sizeof(int), 1, fichier) != 1) //Lecture taille nom de la partie
+    {
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+    *nom_galaxie = malloc(sizeof(char)*taille_chaine_nom);
+    if(fread(*nom_galaxie, sizeof(char)*taille_chaine_nom, 1, fichier) != 1) //Lecture nom de la partie
+    {
+        free(*nom_galaxie);
+        *nom_galaxie = NULL;
+        fclose(fichier);
+        return READ_OR_WRITE_FAIL;
+    }
+
+    //Charger la structure du niveau
     retour = chargerInfosNiveaux(fichier, infos_niveaux, nb_niveaux, indice_niveau_charge);
     if(retour != SUCCESS)
     {
-        printf("code %i", retour);
+        free(*nom_galaxie);
+        *nom_galaxie = NULL;
+        fclose(fichier);
         return retour;
     }
 
@@ -305,58 +387,44 @@ err_save chargerSavePartie(niveau_informations_t *** infos_niveaux, int * nb_niv
     return SUCCESS;
 }
 
-
-// DEBUG ---------------------------------------------------------------------------------------------
-
-/**
- * \brief Affiche toutes les informations de la strcuture joueur
- *
- * \param tmp joueur
- */
-/*
-static void print_struct_player(const t_joueur * tmp){
-    printf("\n\nAffichage de la structure joueur\n\n");
-    printf("\npos x : %f , pos y : %f",tmp->x,tmp->y);
-    printf("\npv : %d",tmp->pv);
-    printf("\nfloat direction_vy : %f , float direction_vx : %f",tmp->direction_vy,tmp->direction_vx);
-    printf("\nvitesse : %f",tmp->vitesse);
-    printf("\nType entite : %d",tmp->type);
-    printf("\nTaille du joueur : %f",tmp->taille);
-
-    printf("\nId animation : %d",tmp->id_animation);
-
-    printf("\n\n Partie Flags \n\n");
-    printf("\nflags : \ndown : %d, \nup : %d, \nleft : %d, \nright : %d",tmp->flags->to_down,tmp->flags->to_up,tmp->flags->to_left,tmp->flags->to_right);
-
-    printf("\n\n Partie Animation \n\n");
-
-    printf("\nDernier update : %ud",tmp->animation->dernier_update);
-    printf("\nid_max : %d",tmp->animation->id_max);
-    printf("\nIndice tetxure : %d",tmp->animation->indice_texture);
-    printf("\nNb texture : %d ",tmp->animation->nb_textures);
-    printf("\nVitesse : %d\n",tmp->animation->vitesse);
-
-}
-*/
+// SAUVEGARDE PARAMETRES ---------------------------------------------------------------------------------------------
 
 /**
- * \brief Affiche toutes les informations de la strcuture du niveau
+ * \brief Sauvegarde des paramètres du joueur
  * 
- * \param tmp niveau
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
  */
-/*
-static void print_struct_niveau(const niveau_informations_t * tmp){
-    printf("\n\nAffichage de la structure joueur\n\n");
-    printf("\nhauteur %d, longueur %d",tmp->hauteur,tmp->longueur);
+err_save sauvegarderParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "wb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
 
-    printf("\n\n Affichage Matrice \n\n");
+    if(fwrite(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
 
-    for(int i = 0; i < HAUTEUR_NIVEAU_MAX; i++ ){
-        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j ++){
-            printf("%d\t", tmp->matrice[i][j]);
-        }
-        printf("\n");
-    }
-
+    fclose(fichier);
+    return SUCCESS;
 }
-*/
+
+/**
+ * \brief Charge les paramètres du joueur
+ * 
+ * \param parametres La structure des paramètres à sauvegarder
+ * 
+ * \return SUCCESS ou la nature de l'erreur.
+ */
+err_save chargerSaveParametres(t_parametres * parametres)
+{
+    FILE * fichier = fopen(filename_param, "rb");
+    if(fichier == NULL)
+        return FOPEN_FAIL;
+
+    if(fread(parametres, sizeof(t_parametres), 1, fichier) != 1)
+        return READ_OR_WRITE_FAIL;
+
+    fclose(fichier);
+    return SUCCESS;
+}

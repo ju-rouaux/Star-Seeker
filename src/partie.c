@@ -26,12 +26,66 @@
 #include <outils.h>
 #include <generation_entites.h>
 #include <overlay.h>
+#include <particules.h>
 #include <main.h>
+#include <menu_niveau.h>
 
 
 
 
 /* ################################ Fonctions principales du jeu ################################ */
+
+/**
+ * \brief Genere une animation lors de la mort du joueur
+ * 
+ * \param moteur le moteur
+ * \param joueur le joueur
+ */
+static void animationMort(t_moteur * moteur, t_joueur * joueur)
+{
+    int tempsEcoule = 0;
+    int son_joue = 0;
+    joueur->id_animation = 8;
+    joueur->xp /= 1.5;
+    joueur->nom_attaque = A_DEFAUT;
+
+    t_particule * particule = creerParticule(P_MORT, joueur->x, joueur->y, moteur->textures->particules);
+    if(particule == NULL)
+        return;
+
+    while(tempsEcoule < 3000)
+    {
+        regulerFPS(moteur);
+        updateEchelle(moteur);
+
+        if(tempsEcoule > 1500)
+        {
+            if(!son_joue)
+            {
+                Mix_PlayChannel(3, moteur->bruitages->mort, 0);
+                son_joue = 1;
+            }
+            
+            if(particule != NULL)
+            {
+                particule->dessiner(moteur, (t_entite*) particule);
+                if(particule->update(moteur, (t_entite*) particule, joueur->x, joueur->y) == -1)
+                    particule->detruire((t_entite**) &particule);
+            }
+        }
+        else
+            dessinerEntite(moteur, (t_entite*) joueur);
+
+
+        //Afficher frame
+        SDL_RenderPresent(moteur->renderer);
+        SDL_RenderClear(moteur->renderer);
+
+        tempsEcoule += moteur->temps - moteur->temps_precedent;
+    }
+
+}
+
 
 
 /**
@@ -57,7 +111,7 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
             while(!hors_liste(liste_entites) && cpt < info_entites[i]->nb_entites) //Si jamais il y a plus d'entités que prévu à la base, on ne note pas l'info
             {
                 valeur_elt(liste_entites, &entite_courante);
-                if(entite_courante != NULL && entite_courante->type != E_PROJECTILE) //Ne pas sauvegarder les projectiles
+                if(entite_courante != NULL && (entite_courante->type == E_MONSTRE || entite_courante->type == E_INTERACTION)) //Ne sauvegarder que les monstres ou les interactions
                     info_entites[i]->entites[cpt++] = entite_courante;
 
                 entite_courante = NULL;
@@ -73,8 +127,8 @@ static void viderEntitesDeListe(t_liste * liste_entites, t_info_entites ** info_
     {
         valeur_elt(liste_entites, &entite_courante);
 
-        if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
-            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles
+        if(entite_courante != NULL && (entite_courante->type == E_PROJECTILE || entite_courante->type == E_PARTICULE))
+            entite_courante->detruire((t_entite**) &entite_courante); //Détruire les projectiles et particules
 
         //Enlever les entités de la liste
         oter_elt(liste_entites); 
@@ -130,22 +184,26 @@ static void renduEntites(t_moteur * moteur)
 }
 
 
+
 /**
  * \brief Libère et charge les entités 
  * 
+ * \param moteur le moteur
+ * \param joueur le joueur
+ * \param infos_niveau La liste des informations sur la structure des niveaux de la partie
+ * \param id_ancienne_salle L'identifiant de l'ancienne salle où sauvegarder les entités vidées
  */
-void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, int id_ancienne_salle)
+void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau, int id_ancienne_salle)
 {
     t_niveau * niveau = moteur->niveau_charge;
     t_liste * liste_entites = moteur->liste_entites;
     int direction_x, direction_y;
-    int tempsEcoule;
 
     //Sauver les entités de l'ancienne salle
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, id_ancienne_salle);
 
     //Charger les entités de la nouvelle salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
     //Detruire anciennes collisions
     if(niveau->collisions != NULL)
@@ -161,7 +219,7 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
     //Animer tant que la caméra n'atteint pas son objectif
     while(moteur->camera->x != moteur->camera->futur_x || moteur->camera->y != moteur->camera->futur_y)
     {
-        moteur->temps = SDL_GetTicks();
+        regulerFPS(moteur);
 
         //Calcul position caméra
         direction_x = moteur->camera->x == moteur->camera->futur_x ? 0 : (moteur->camera->x < moteur->camera->futur_x ? 1 : -1); //Sens où se diriger
@@ -180,18 +238,16 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
 
         //Rafraichir rendu
         SDL_RenderClear(moteur->renderer);
-        afficherNiveau(moteur, joueur->x, joueur->y);
+        afficherNiveau(moteur);
 
         //Dessiner entités
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-        SDL_RenderPresent(moteur->renderer);
+        if(joueur->flags->map_shown == 1)
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
 
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+        SDL_RenderPresent(moteur->renderer);
     }
 
     //Reset la future position
@@ -205,10 +261,11 @@ void transitionChangementSalle(t_moteur * moteur, t_joueur * joueur, t_info_enti
  * 
  * \param moteur Moteur du jeu
  * \param joueur Le joueur
+ * \param infos_niveau La liste des informations sur la structure des niveaux de la partie
  * 
  * \return L'action ayant mis fin au niveau.
  */
-static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** info_entites, int nb_info_entites, niveau_informations_t * infos_niveau)
+static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations_t * infos_niveau)
 {
     //Variables pour faciliter les appels
     t_niveau * niveau = moteur->niveau_charge;
@@ -216,23 +273,19 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
 
 
     t_entite * entite_courante;
-    int tempsEcoule;
     int id_ancienne_salle = 0;
     int code_sortie = 0;
 
-    
+    Mix_PlayMusic(moteur->musiques->ambiant, -1);
+
     //Charger les entités de la salle
-    chargerEntitesVersListe(liste_entites, info_entites, nb_info_entites, niveau->salle_chargee->id_salle);
+    chargerEntitesVersListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
     
     //Traiter les événements
-    while((code_sortie = handleEvents(joueur,moteur)) == NIVEAU_CONTINUER)
+    while((code_sortie = handleEvents(joueur, &moteur->parametres)) == NIVEAU_CONTINUER)
     {
-        //Traitements de début de boucle
-        moteur->temps_precedent = moteur->temps;
-        moteur->temps = SDL_GetTicks();
-        SDL_RenderClear(moteur->renderer);
+        regulerFPS(moteur);
         updateEchelle(moteur);
-
 
     // ~~~ LOGIQUE
 
@@ -251,6 +304,18 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
                 {
                     if(entite_courante->update(moteur, entite_courante, joueur->x, joueur->y) == -1)
                     {
+                        if(entite_courante->type == E_MONSTRE)
+                        {
+                            //Particule pour indiquer la mort du monstre
+                            ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            Mix_PlayChannel(3, moteur->bruitages->mort, 0);
+                            //Ajouter l'xp gagné au joueur
+                            int xp_lache = de(10);
+                            for(int xp = 0; xp < xp_lache; xp++)
+                                ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                            joueur->xp += xp_lache;
+                        }
+
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
@@ -263,21 +328,44 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
             }
         }
 
-        // --- Faire subir les dégâts par les projectiles ---
+        // --- Faire subir les dégâts par les projectiles ou réaliser une interaction ---
         en_tete(liste_entites);
         if(!liste_vide(liste_entites))
         {
             while(!hors_liste(liste_entites))
             {
+                //Dégâts projectiles
                 valeur_elt(liste_entites, &entite_courante);
                 if(entite_courante != NULL && entite_courante->type == E_PROJECTILE)
                 {
                     if(faireDegats((t_projectile*) entite_courante, joueur, liste_entites) == -1)
                     {
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_TOUCHE, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                        Mix_PlayChannel(2, moteur->bruitages->hit, 0);
                         entite_courante->detruire((t_entite**) &entite_courante);
                         oter_elt(liste_entites);
                     }
                 }
+                
+                //Interactions
+                if(entite_courante != NULL && entite_courante->type == E_INTERACTION)
+                {
+                    int interact = interagir((t_interaction*) entite_courante, joueur);
+                    if(interact != 0) //Si une interaction a eu lieu
+                    {
+                        //Lancer un feedback au joueur
+                        ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_DASH, entite_courante->x, entite_courante->y, moteur->textures->particules));
+                        Mix_PlayChannel(0, moteur->bruitages->treasure, 0);
+
+                        //Si l'interaction est unique, la détruire
+                        if(interact == -1)
+                        {
+                            entite_courante->detruire((t_entite**) &entite_courante);
+                            oter_elt(liste_entites);
+                        }
+                    }
+                }
+
                 if(hors_liste(liste_entites))
                     en_tete(liste_entites);
                 else
@@ -287,11 +375,14 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         }
 
 
-        // --- Changement de salle si nécéssaire ---
+        // --- Changement de salle si nécessaire ---
         id_ancienne_salle = niveau->salle_chargee->id_salle;
         updateNiveau(niveau, joueur->x, joueur->y, moteur->echelle);
         if(id_ancienne_salle != niveau->salle_chargee->id_salle)
-            transitionChangementSalle(moteur, joueur, info_entites, nb_info_entites, id_ancienne_salle);
+        {
+            Mix_PlayChannel(5, moteur->bruitages->swoop, 0);
+            transitionChangementSalle(moteur, joueur, infos_niveau, id_ancienne_salle);
+        }
 
 
     // ~~~ RENDU
@@ -301,33 +392,39 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, t_info_entites ** i
         
         
         //Rendu niveau
-        afficherNiveau(moteur, joueur->x, joueur->y);
+        afficherNiveau(moteur);
 
 
         //Rendu joueur et entites
         dessinerEntite(moteur, (t_entite*) joueur);
         renduEntites(moteur);
 
-  
-        if(joueur->flags->map_showing == 1){
-            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
-        }
 
+        //Map
+        if(joueur->flags->map_shown == 1)
+            dessiner_map(moteur, infos_niveau, niveau->salle_chargee->id_salle);
+        
+        //Afficher les pv du joueur
+        dessiner_hud(moteur, joueur);
 
         //Afficher frame
         SDL_RenderPresent(moteur->renderer);
+        SDL_RenderClear(moteur->renderer);
 
-
-        //Réguler FPS
-        tempsEcoule = SDL_GetTicks() - moteur->temps;
-        if(TEMPS_POUR_CHAQUE_SECONDE > tempsEcoule)
-            SDL_Delay(TEMPS_POUR_CHAQUE_SECONDE - tempsEcoule);
+        
+        //Mettre fin à la partie si le joueur est mort
+        if(joueur->pv <= 0)
+        {
+            animationMort(moteur, joueur);
+            code_sortie = M_PRINCIPAL;
+            break;
+        }
     }
 
     //Sauver l'état des entités
-    viderEntitesDeListe(liste_entites, info_entites, nb_info_entites, id_ancienne_salle);
+    viderEntitesDeListe(liste_entites, infos_niveau->liste_infos_entites, infos_niveau->nb_infos_entite, niveau->salle_chargee->id_salle);
 
-    return code_sortie;;
+    return code_sortie;
 }
 
 
@@ -352,6 +449,7 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
 {
     t_niveau * niveau;
     e_code_main code_sortie;
+    int ancien_indice_niveau_charge;
 
     do
     { 
@@ -362,41 +460,35 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
             return -1;
         }
         niveau = moteur->niveau_charge;
-        if(joueur->x == 0 && joueur->y == 0) //Si la sauvegarde du joueur est vierge, placer le joueur sur la map
+        if(joueur->x == 0 && joueur->y == 0) //Si la position du joueur est vierge, placer le joueur sur la map
         {
             joueur->x = niveau->salle_chargee->dimensions->j*NB_TILE_LARGEUR + NB_TILE_LARGEUR / 2; 
             joueur->y = niveau->salle_chargee->dimensions->i*NB_TILE_HAUTEUR + NB_TILE_HAUTEUR / 2;
         }
 
         //Jouer le niveau
-        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]->liste_infos_entites, infos_niveaux[indice_niveau_charge]->nb_infos_entite, infos_niveaux[indice_niveau_charge]);
+        code_sortie = jouerNiveau(moteur, joueur, infos_niveaux[indice_niveau_charge]);
     
         //Fin du niveau
         infos_niveaux[indice_niveau_charge]->i_dep = niveau->i_charge;
         infos_niveaux[indice_niveau_charge]->j_dep = niveau->j_charge;
         detruireNiveau(&niveau);
 
+        ancien_indice_niveau_charge = indice_niveau_charge;
+        if(code_sortie == M_NIVEAU)
+            code_sortie = afficherMenuNiveau(&indice_niveau_charge, moteur, infos_niveaux, nb_niveaux, ancien_indice_niveau_charge);
+
         //Changer de niveau si souhaité
         switch (code_sortie)
         {
-        case NIVEAU_SUIVANT:
-            if(indice_niveau_charge < nb_niveaux - 1)
+        case NIVEAU_CHANGER:
+            if(ancien_indice_niveau_charge != indice_niveau_charge)
             {
                 joueur->x = 0;
                 joueur->y = 0;
-                indice_niveau_charge++;
             }
             break;
-
-        case NIVEAU_PRECEDENT:
-            if(indice_niveau_charge > 0)
-            {
-                joueur->x = 0;
-                joueur->y = 0;
-                indice_niveau_charge--;
-            }
-            break;   
-
+ 
         case JEU_QUITTER:
         case M_PRINCIPAL:
             break;
@@ -412,7 +504,11 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
 
     //Fin de du jeu
     sauvegarderJoueur(joueur);
-    sauvegarderPartie(infos_niveaux, nb_niveaux, indice_niveau_charge);
+    sauvegarderPartie(moteur->galaxie, infos_niveaux, nb_niveaux, indice_niveau_charge);
+
+    if(moteur->galaxie != NULL)
+        free(moteur->galaxie);
+    moteur->galaxie = NULL;
 
     for(int i = 0; i < nb_niveaux; i++)
         detruire_niveau_info(&infos_niveaux[i]);
@@ -440,10 +536,12 @@ static int jouerPartie(t_moteur * moteur, t_joueur * joueur, niveau_informations
  * 
  * \param nb_niveaux Le nombre de niveaux désiré
  * \param adr_infos L'adresse de la matrice des infos sur la structure des niveaux, à NULL de préférance
+ * \param nom_galaxie le nom de la galaxie
+ * \param indice_difficulte Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles
  * 
  * \return 0 si succès, une valeur négative si echec.
  */
-static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nomGalaxie)
+static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, char ** nom_galaxie, int indice_difficulte)
 {
     int i;
     
@@ -456,23 +554,22 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
 
     
     //Générer un nom de partie et le nom des niveaux
-    char * nom_galaxie = creer_nom(5 + de(5));
+    *nom_galaxie = creer_nom(5 + de(5));
     if(nom_galaxie == NULL)
         return -1;
 
-    char ** noms_planetes = creer_noms_planetes(nom_galaxie, nb_niveaux);
+    char ** noms_planetes = creer_noms_planetes(*nom_galaxie, nb_niveaux);
     if(noms_planetes == NULL)
     {
         printf("Impossible de générer une partie\n");
-        free(nom_galaxie);
+        free(*nom_galaxie);
         free(infos);
         return -1;
     }
 
-
     for(i = 0; i < nb_niveaux; i++)
     {
-        infos[i] = creer_niveau_info(noms_planetes[i]);
+        infos[i] = creer_niveau_info(noms_planetes[i], indice_difficulte);
 
         if(infos[i] == NULL)
         {
@@ -482,15 +579,18 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
             while(i >= 0)
             {
                 detruire_niveau_info(&infos[i]);
-                detruireNomsPlanetes(&noms_planetes, nb_niveaux);
-                free(nom_galaxie);
-                free(infos);
                 i--;
             }
+            detruireNomsPlanetes(&noms_planetes, nb_niveaux);
+            free(noms_planetes);
+            free(*nom_galaxie);
+            *nom_galaxie = NULL;
+            free(infos);
             return -1;
         }
     }
     
+    free(noms_planetes);
     (*adr_infos) = infos;
 
     return 0;
@@ -507,30 +607,18 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
  * 
  * \return 0 si succès, valeur négative si echec.
  */
-int nouvellePartie(t_moteur * moteur, int nb_niveaux)
+int nouvellePartie(t_moteur * moteur)
 {
     niveau_informations_t ** infos;
     t_joueur * joueur = NULL;
     int retour;
-    char * nomGalaxie;
-    //S'occuper du niveau
-    srand(time(NULL));
-    retour = genererPartie(nb_niveaux, &infos, &nomGalaxie);
-    if(retour != 0)
-    {
-        printf("Impossible de générer une nouvelle partie\n");
-        return -1;
-    }
 
     //S'occuper du joueur
     joueur = creerJoueur(0, 0, moteur->textures->player);
     if(joueur == NULL)
     {
-        printf("Le niveau n'a pas pu être chargé\n");
-        for(int i = 0; i < nb_niveaux; i++)
-            detruire_niveau_info(&infos[i]);
-        free(infos);
-        return -1;
+        printf("Le joueur n'a pas pu être alloué\n");
+        return M_PRINCIPAL;
     }
     if(moteur->parametres.reset_sauvegarde_joueur == VRAI)
     {   //Ecraser joueur
@@ -542,19 +630,33 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
     {   //Charger joueur
         if(chargerSaveJoueur(joueur) != 0)
         {
-            printf("Le niveau n'a pas pu être chargé car le joueur n'a pas pu etre chargé\n");
-            for(int i = 0; i < nb_niveaux; i++)
-                detruire_niveau_info(&infos[i]);
-            free(infos);
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
             detruireJoueur(&joueur);
-            return -1;
+            return M_PRINCIPAL;
         }
         joueur->x = 0;
         joueur->y = 0;
+        if(joueur->pv <= 0)
+            joueur->pv = PV_JOUEUR_DEFAULT; //Restaurer la vie du joueur pour la nouvelle partie s'il était mort
+    }
+
+    //S'occuper du niveau
+    srand(time(NULL));
+    int nb_niveaux = calculDifficulte(joueur->xp) + 1;
+    if(nb_niveaux < 2)
+        nb_niveaux = 3;
+    if(nb_niveaux >= 10)
+        nb_niveaux = 10;
+    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie,calculDifficulte(joueur->xp));
+    if(retour != 0)
+    {
+        printf("Impossible de générer une nouvelle partie\n");
+        detruireJoueur(&joueur);
+        return -1;
     }
 
     //Sauvegarde de la partie générée
-    sauvegarderPartie(infos, nb_niveaux, 0);
+    sauvegarderPartie(moteur->galaxie, infos, nb_niveaux, 0);
     return jouerPartie(moteur, joueur, infos, nb_niveaux, 0);
 }
 
@@ -590,17 +692,25 @@ int chargerPartie(t_moteur * moteur)
     //Charger joueur
     if(chargerSaveJoueur(joueur) != 0)
     {
-        printf("Le niveau n'a pas pu être chargé car le joueur n'a pas pu etre chargé\n");
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde du joueur.\nVeuillez lancer une nouvelle partie avec RESET JOUEUR sélectionné.", moteur->window);
         detruireJoueur(&joueur);
-        return -1;
+        return M_PRINCIPAL;
+    }
+
+    //Restreindre le joueur de relancer la partie s'il est mort
+    if(joueur->pv <= 0)
+    {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Vous êtes mort durant votre dernière partie. Veuillez lancer une nouvelle partie.", moteur->window);
+        detruireJoueur(&joueur);
+        return M_PRINCIPAL;
     }
 
     //Charger partie
-    if(chargerSavePartie(&infos, &nb_niveaux, &indice_niveau_charge) != 0)
+    if(chargerSavePartie(&moteur->galaxie, &infos, &nb_niveaux, &indice_niveau_charge) != 0)
     {
-        printf("Le niveau n'a pas pu être chargé car la sauvegarde de la partie n'a pas pu être chargé\n");
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Attention", "Impossible de charger la sauvegarde de la partie.\nVeuillez lancer une nouvelle partie.", moteur->window);
         detruireJoueur(&joueur);
-        return -1;
+        return M_PRINCIPAL;
     }
     
     return jouerPartie(moteur, joueur, infos, nb_niveaux, indice_niveau_charge);

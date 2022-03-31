@@ -1,7 +1,7 @@
 /**
  * \file menu.c
  * \author Guillaume
- * \brief Menu principal
+ * \brief Menu principal du jeu
  * 
  */
 
@@ -20,19 +20,22 @@
 
 #define TAILLE_MAX 17
 
-#define NB_B_MENU 4
+#define NB_B_MENU 5
 #define T_LARGEUR 2
 #define T_LONGUEUR 1.5
 #define B_LARGEUR 2.5
 #define B_LONGUEUR 1
 
-#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Options","Quitter"}
+#define NOMS_B_MENU {"Nouvelle Partie","Charger Partie","Reset Joueur","Options","Quitter"}
 
-
+/**
+ * \struct t_bouton
+ * \brief Modelise un bouton avec du texte
+ */
 typedef struct s_bouton {
-    SDL_Texture * texture;
-    SDL_Rect rect;
-    int longueur;
+    SDL_Texture * texture;/**<Texture a un bouton*/
+    SDL_Rect rect;/**<Hitbox d'un bouton*/
+    int longueur;/**<Longeur de la chaine de caractères*/
 }t_bouton;
 
 

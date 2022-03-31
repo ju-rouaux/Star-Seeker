@@ -1,3 +1,10 @@
+/**
+ * \file events.h
+ * \author Guillaume
+ * \brief Module de gestion des evenements (souris/clavier/fenetre)
+ * Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter
+ */
+
 #ifndef _JEU_EVENTS_
 #define _JEU_EVENTS_
 
@@ -5,6 +12,6 @@
 #include <moteur.h>
 #include <main.h>
 
-e_code_main handleEvents(t_joueur * joueur, t_moteur * moteur);
+e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres);
 
-#endif
+#endif //_JEU_EVENTS_

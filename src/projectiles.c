@@ -28,7 +28,7 @@
  * \brief Actualise les champs de la structure projectile vers les paramètres décrits par le type.
  * 
  * \param projectile Le projectile à actualiser
- * \param nouvelle_attaque La description désirée 
+ * \param type Le type de projectile
  */
 int chargerProjectile(t_projectile * projectile, e_type_projectile type)
 {
@@ -42,10 +42,10 @@ int chargerProjectile(t_projectile * projectile, e_type_projectile type)
         return proj_boule_metal(projectile);
     case SHURIKEN:
         return proj_shuriken(projectile);
+    case TOURNER:
+        return proj_tourner(projectile);
     case SABRE:
         return proj_sabre(projectile);
-    //case LASER:
-    //    return proj_laser(projectile);
     default:
         printf("Type projectile inconnu, annulation...\n");
         return -1;
@@ -73,7 +73,12 @@ int faireDegats(t_projectile * projectile, t_joueur * joueur, t_liste * liste)
     t_personnage * monstre;
     
     //Si joueur est cible
-    if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &joueur->hitbox))
+    SDL_Rect hitbox_joueur; //Calculer une hitbox plus petite pour le joueur
+    hitbox_joueur.x = joueur->hitbox.x + joueur->hitbox.w/3;
+    hitbox_joueur.y = joueur->hitbox.y;
+    hitbox_joueur.w = joueur->hitbox.w/3;
+    hitbox_joueur.h = 9*joueur->hitbox.h/10;
+    if(projectile->cible == E_JOUEUR && SDL_HasIntersection(&projectile->hitbox, &hitbox_joueur))
     {
         joueur->pv -= projectile->dommages;
         return -1;

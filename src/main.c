@@ -1,26 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <moteur.h>
+#include <audio.h>
 #include <partie.h>
 #include <generation_niveau.h>
 #include <menu.h>
 #include <menu_options.h>
+#include <menu_credits.h>
 #include <menu_options_keymap.h>
-
-/**
- * \brief Indique au module de sauvegarde d'écraser la sauvegarde du joueur pour recommencer
- * sa partie.
- * 
- * \param moteur Le moteur du jeu
- */
-void resetSauvegardeJoueur(t_moteur * moteur)
-{
-    //Afficher un menu d'avertissement
-    moteur->parametres.reset_sauvegarde_joueur = VRAI;
-}
+#include <main.h>
 
 int main(int argc, char * argv[])
 {
@@ -33,21 +25,37 @@ int main(int argc, char * argv[])
         return EXIT_FAILURE;
     }
 
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+        printf("WARNING : Erreur d'initialisation de SDL MIXER : %s\n", Mix_GetError());
+
     if(TTF_Init()==-1) {
         printf("TTF_Init: %s\n", TTF_GetError());
         return EXIT_FAILURE;
     }
 
     moteur = chargerMoteur(SDL_GetTicks());
-    moteur->parametres.reset_sauvegarde_joueur = VRAI;
+
+    Mix_PlayMusic(moteur->musiques->menu_principal, -1);
 
     while(code != JEU_QUITTER){
         switch(code)
         {
             case M_PRINCIPAL : code = chargerMenu(moteur); break;
-            case M_JEU : code = nouvellePartie(moteur, 5); break;
-            case M_CHARGER : code = chargerPartie(moteur); break;
+            case M_JEU : 
+                Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
+                code = nouvellePartie(moteur);
+                if(code != JEU_QUITTER)
+                    Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
+                break;
+            case M_CHARGER : 
+                Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
+                code = chargerPartie(moteur); 
+                if(code != JEU_QUITTER)
+                    Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
+                break;
             case M_OPTIONS : code = chargerMenu_Options(moteur); break;
+            case M_CREDITS : code = afficherMenuCredits(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
 
             default : 
@@ -57,6 +65,8 @@ int main(int argc, char * argv[])
     }
 
     detruireMoteur(&moteur);
+    
+    Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();
 

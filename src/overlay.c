@@ -47,26 +47,28 @@ static void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
  * \brief Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en haut et à gauche ? 
  *  
  * \param matrice Matrice des IDs des salles du niveau
+ * \param hauteur taille en hauteur de la matrice
+ * \param longueur taille en longueur de la matrice
  * \param x Coordonnée de la salle dont le type doit être déterminé 
  * \param y Coordonnée de la salle dont le type doit être déterminé 
  *
  *  
  * \return un id de tile entre 0 et 15 
  */
-static int type_salle_map(int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int x, int y){
+static int type_salle_map(int * matrice, int hauteur, int longueur, int x, int y){
 
     int type = 15;
     
-    if(y >= 0 && matrice[x][y] == matrice[x][y-1])
+    if(y >= 0 && matrice[x*longueur + y] == matrice[x*longueur + (y-1)])
         type -= 8;
 
-    if(x+1 < HAUTEUR_NIVEAU_MAX && matrice[x][y] == matrice[x+1][y])
+    if(x+1 < hauteur && matrice[x*longueur + y] == matrice[(x+1) * longueur + y])
         type -= 4;
 
-    if(y+1 < LONGUEUR_NIVEAU_MAX && matrice[x][y] == matrice[x][y+1])
+    if(y+1 < longueur && matrice[x*longueur + y] == matrice[x*longueur + (y+1)])
         type -= 2;
 
-    if(x-1 >= 0 && matrice[x][y] == matrice[x-1][y])
+    if(x-1 >= 0 && matrice[x*longueur + y] == matrice[(x-1)*longueur + y])
         type -= 1;
 
         
@@ -83,23 +85,25 @@ static int type_salle_map(int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], 
  */
 void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int idSalle){
 
+    int hauteur = infosNiveau->hauteur;
+    int longueur = infosNiveau->longueur;
     SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
 
-    for (int i = 0; i < HAUTEUR_NIVEAU_MAX; i++){
+    for (int i = 0; i < hauteur; i++){
 
-        for(int j = 0; j < LONGUEUR_NIVEAU_MAX; j++){
+        for(int j = 0; j < longueur; j++){
 
-            if(infosNiveau->matrice[i][j] != VIDE){
+            if(infosNiveau->matrice[i*longueur + j] != VIDE){
 
 
-                if(infosNiveau->matrice[i][j] == idSalle){
+                if(infosNiveau->matrice[i*longueur + j] == idSalle){
                     SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
                 }
 
-                int type = type_salle_map(infosNiveau->matrice, i, j);
-                dessiner_tile_map(moteur, type, j - LONGUEUR_NIVEAU_MAX/2, i - HAUTEUR_NIVEAU_MAX/2);
+                int type = type_salle_map(infosNiveau->matrice, hauteur, longueur, i, j);
+                dessiner_tile_map(moteur, type, j - longueur/2, i - hauteur/2);
 
-                if(infosNiveau->matrice[i][j] == idSalle){
+                if(infosNiveau->matrice[i*longueur + j] == idSalle){
                     SDL_SetTextureColorMod(moteur->textures->overlay, (infosNiveau->rouge/4) - 32 + 100,  (infosNiveau->vert/4) - 32 + 100, (infosNiveau->bleu/4) - 32 + 100);
                 }
 
@@ -109,5 +113,40 @@ void dessiner_map(t_moteur * moteur, niveau_informations_t * infosNiveau, int id
         }
 
     }
+
+}
+
+
+
+
+/**
+ * \brief Dessine le HUD
+ *  
+ * \param moteur Informations d'échelle et de taille d'écran
+ * \param joueur Points de vie
+ *  
+ */
+void dessiner_hud(t_moteur * moteur, t_joueur * joueur){
+
+    SDL_SetTextureColorMod(moteur->textures->overlay, 255, 255, 255);
+
+    SDL_Rect source; //Partie de du tileset à affiche
+    SDL_Rect destination; //Position dans la fenetre où afficher
+
+
+    //Points de vie
+    destination.h = moteur->echelle/2;
+    destination.w = moteur->echelle/2;
+    destination.y = 16;
+
+    for(int i = 0; i < joueur->pv; i += 2){
+
+        destination.x = i*moteur->echelle/4;
+
+        splitTexture(&source, (joueur->pv - i) == 1, 1, 16, 16, 16,16);
+        SDL_RenderCopy(moteur->renderer, moteur->textures->overlay, &source, &destination);
+
+    }
+
 
 }

@@ -14,16 +14,25 @@
 
 typedef struct s_entite t_entite;
 
+/**
+ * \struct t_element
+ * \brief Modelise un element de la liste
+ */
 typedef struct element {
-    t_entite * valeur ;
-    struct element* pred ;
-    struct element* succ ;
+    t_entite * valeur ; /**<valeur */
+    struct element* pred ;/**<element precedant l'element courant*/
+    struct element* succ ;/**<element succedant l'element courant*/
 } t_element;
 
+/**
+ *\struct t_liste
+ *\brief Modelise l'emplacement actuel dans la liste
+ * 
+ */
 typedef struct s_liste t_liste;
 struct s_liste{
-    t_element * drapeau;
-    t_element * ec;
+    t_element * drapeau;/**<drapeau de la liste*/
+    t_element * ec;/**<l'element courant*/
 } ;
 
 

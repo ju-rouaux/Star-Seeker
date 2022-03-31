@@ -7,6 +7,11 @@
 
 #include <liste.h>
 
+/**
+ * \brief Initialise la liste
+ * 
+ * \param l la liste à initialiser
+ */
 void init_liste(t_liste* l){
 // Crée la liste constituée du seul drapeau
     l->drapeau = malloc(sizeof(t_element));
@@ -25,9 +30,8 @@ int liste_vide(t_liste * l){
 }
 
 /**
- * 
- * 
- * 
+ * \brief Détruit la liste et libere la mémoire allouée
+ * \param l la liste a détruire
  */
 void detruire_liste(t_liste ** l)
 {

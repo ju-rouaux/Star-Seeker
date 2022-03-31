@@ -18,6 +18,7 @@
 #include <joueur.h>
 #include <attaque.h>
 #include <monstre.h>
+#include <particules.h>
 
 /**
  * \brief Calcule l'animation à joueur selon l'orientation du joueur.
@@ -69,12 +70,17 @@ static int getIdAnimationJoueur(int vecteur_x, int vecteur_y, int code_animation
  * \param flags Les flags du joueur
  * \param vecteur_x Retour du vecteur en x
  * \param vecteur_y Retour du vecteur en y
+ * \param attaque_vx Retour du vecteur de l'attaque en x
+ * \param attaque_vy Retour du vecteur de l'attaque en y
+ * \param shooting Retour si le joueur doit tirer
  */
-static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y)
+static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, float * vecteur_y, float * attaque_vx, float * attaque_vy, int * shooting)
 {
     //Conversion des flags en vecteur
     int direction_x = flags->to_right == flags->to_left ? 0 : (flags->to_right > flags->to_left ? 1 : -1);
     int direction_y = flags->to_down == flags->to_up ? 0 : (flags->to_down > flags->to_up ? 1 : -1);
+    int attaque_x = flags->attack_right == flags->attack_left ? 0 : (flags->attack_right > flags->attack_left ? 1 : -1);
+    int attaque_y = flags->attack_down == flags->attack_up ? 0 : (flags->attack_down > flags->attack_up ? 1 : -1);
     
     //Seulement si le joueur se dirige dans une direction, actualiser les vecteurs.
     //Ainsi le joueur restera dans sa dernière direction s'il ne bouge pas.
@@ -84,6 +90,15 @@ static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, 
                 *vecteur_x = direction_x;
         if(vecteur_y != NULL)
                 *vecteur_y = direction_y;
+    }
+    //Meme chose pour la visée, garder la dernière position
+    if(attaque_x || attaque_y)
+    {
+        *shooting = 1;
+        if(attaque_vx != NULL)
+                *attaque_vx = attaque_x;
+        if(attaque_vy != NULL)
+                *attaque_vy = attaque_y;
     }
 }
 
@@ -102,10 +117,47 @@ static void getDirectionJoueur(const t_joueur_flags * flags, float * vecteur_x, 
 static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
 {
     int etat = 0;
-    getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy);
+    int shooting = 0;
 
-    //Déterminer l'état du joueur
-    if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up) //Si joueur bouge
+    // ---- Dash
+
+    //Cooldown du dash
+    if(joueur->flags->dash == -2)
+    {
+        joueur->cooldown_dash -= moteur->temps - moteur->temps_precedent;
+        if(joueur->cooldown_dash <= 0) //Fin du cooldown
+            joueur->flags->dash = 0;
+    }
+    else if(joueur->flags->dash == 1)  //Etat dash lancé
+    {
+        //Bloquer le dash
+        joueur->temps_restant_dash = 100 + (moteur->temps - moteur->temps_precedent); //100ms + le temps qu'on va soustraire après
+        joueur->flags->dash = -1;
+        joueur->vitesse = VITESSE_JOUEUR_DEFAULT + 18;
+        ajouterEntiteListe(moteur->liste_entites, (t_entite*) creerParticule(P_DASH, joueur->x, joueur->y, moteur->textures->particules));
+        Mix_PlayChannel(1, moteur->bruitages->dash, 0);
+    }
+
+    if(joueur->flags->dash == -1) //Etat dash en cours
+    {
+        joueur->temps_restant_dash -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé
+        if(joueur->temps_restant_dash <= 0) //Fin du dash
+        {
+            joueur->cooldown_dash = 500; //500 ms de cooldown
+            joueur->flags->dash = -2; //lancer cooldown
+        }
+    }
+    else //Etat aucun dash : ne pas bloquer la direction du joueur
+    {
+        joueur->vitesse = VITESSE_JOUEUR_DEFAULT;
+        getDirectionJoueur(joueur->flags, &joueur->direction_vx, &joueur->direction_vy, &joueur->attaque_vx, &joueur->attaque_vy, &shooting);
+    }
+
+    // ---- Fin dash
+
+    //Avancer le joueur s'il se déplace volontairement
+    if(joueur->flags->to_down || joueur->flags->to_left || joueur->flags->to_right || joueur->flags->to_up || 
+    joueur->flags->dash == -1) //Si joueur bouge, ou dash en cours
     {
         joueur->animation->vitesse = 50;
         deplacerEntite(moteur, (t_entite*) joueur);
@@ -114,18 +166,9 @@ static int updateJoueur(t_moteur * moteur, t_joueur * joueur)
     else
         joueur->animation->vitesse = 250;
     
-    updateAttaqueTir(moteur, (t_personnage*) joueur, joueur->flags->shooting);
+    //Tirer ou poursuivre l'attaque
+    updateAttaqueTir(moteur, (t_personnage*) joueur, shooting);
     
-    /*if(joueur->flags->shooting == 1) //Prétendons que celà signifie une attaque pour la démo
-    {
-        t_monstre * monstre = creerMonstre(joueur->x, joueur->y, 2, 100, 2, DEMO, STATIQUE);
-        en_queue(moteur->liste_entites);
-        if(monstre != NULL)
-            ajout_droit(moteur->liste_entites, (t_entite*) monstre);
-        
-    }*/
-    
-
     joueur->id_animation = getIdAnimationJoueur((int)joueur->direction_vx, (int)joueur->direction_vy, etat);
 
     return 0;
@@ -150,9 +193,15 @@ static t_joueur_flags * creerJoueurFlags()
     flags->to_up = 0;
     flags->to_left = 0;
     flags->to_right = 0;
+    flags->dash = 0;
 
-    flags->shooting = 0; // !!! Temporaire
-    flags->map_showing = 0;
+    flags->attack_up = 0;
+    flags->attack_down = 0;
+    flags->attack_left = 0;
+    flags->attack_right = 0;
+    flags->interaction = 0;
+
+    flags->map_shown = 0;
 
     return flags;
 }
@@ -234,9 +283,14 @@ t_joueur * creerJoueur(float x, float y, SDL_Texture * apparence)
     joueur->update = (int (*)(t_moteur *, t_entite *, float, float)) updateJoueur;
     joueur->detruire = (void (*)(t_entite**)) detruireJoueur;
 
-    joueur->pv = 100;
+    joueur->pv = PV_JOUEUR_DEFAULT;
+    joueur->xp = 0;
 
-    chargerAttaqueTir(&joueur->attaque_tir_equipee, SABRE_LASER);
+    joueur->attaque_vx = joueur->direction_vx;
+    joueur->attaque_vy = joueur->direction_vy;
+
+    joueur->nom_attaque = A_DEFAUT;
+    chargerAttaqueTir(&joueur->attaque_tir_equipee, A_DEFAUT);
 
     return joueur;
 }

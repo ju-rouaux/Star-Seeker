@@ -16,7 +16,7 @@
 
 
 /**
- * \brief Actualise l'animation si nécéssaire selon la configuration de la structure.
+ * \brief Actualise l'animation si nécessaire selon la configuration de la structure.
  * 
  * \param animation L'animation à actualiser
  * \param temps Le temps actuel du jeu
@@ -28,7 +28,7 @@ void updateAnimation(t_animation * animation, unsigned int temps)
         if(temps > animation->dernier_update + animation->vitesse) //Si on a avancé de "vitesse" dans le temps, passer à l'image suivante
         {
             (animation->indice_texture)++;
-            if(animation->indice_texture >= animation->nb_textures) //Reboucler si nécéssaire
+            if(animation->indice_texture >= animation->nb_textures) //Reboucler si nécessaire
                 animation->indice_texture = 0;
             animation->dernier_update = temps; //Enregistrer le temps 
         }

@@ -202,8 +202,15 @@ static int afficherSalle(t_moteur * moteur, const t_salle * salle, float x, floa
 }
 
 
-//Fonction temporaire affichant le niveau
-int afficherNiveau(t_moteur * moteur, float j_x, float j_y)
+
+/**
+ * \brief Affiche le niveau (la salle chargée)
+ * 
+ * \param moteur Le moteur
+ * 
+ * \return 0 si succès, -1 si echec.
+ */
+int afficherNiveau(t_moteur * moteur)
 {
     int resultat = 0;
     t_camera * camera = moteur->camera;

@@ -14,9 +14,15 @@
 
 typedef struct s_personnage t_personnage; //Pour les prototypes de fonction
 
+#define NB_ATTAQUE 10
+
+/**
+ * \enum e_nom_attaque 
+ * \brief Identifiant pour reconnaitre le type de l'attaque
+ */
 typedef enum
 {
-    DEMO, SNIPER, A_360, SABRE_LASER, LASER_CONTINU
+    A_DEFAUT, A_FEU_SIMPLE, A_360, A_SNIPER, A_SNIPER_3, A_DEFAUT_LARGE, A_FEU, A_360_MORE, A_TOURNER, A_SABRE,
 } e_nom_attaque;
 
 
