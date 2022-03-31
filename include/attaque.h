@@ -14,7 +14,7 @@
 
 typedef struct s_personnage t_personnage; //Pour les prototypes de fonction
 
-#define NB_ATTAQUE 4
+#define NB_ATTAQUE 8
 
 /**
  * \enum e_nom_attaque 

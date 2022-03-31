@@ -8,5 +8,6 @@
 #define _JEU_OUTILS_
 
 int de(const int nbFaces);
+int calculDifficulte(int xp);
 
 #endif //_JEU_OUTILS_
