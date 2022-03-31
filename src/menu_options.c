@@ -128,7 +128,12 @@ e_code_main chargerMenu_Options(t_moteur * moteur) {
                 detruireTexte(&rect_titre,texture_titre);
                 return M_KEYMAP;
                 break;
-            case 4: //pour retourner au menu principal
+            case 4: //Menu pour le keymapping
+                printf("Crédits\n");
+                detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
+                detruireTexte(&rect_titre,texture_titre);
+                return M_CREDITS;
+            case 5: //pour retourner au menu principal
                 printf("Retour\n");
                 detruireBoutons( & boutons, NB_B_MENU_OPTIONS);
                 detruireTexte(&rect_titre,texture_titre);

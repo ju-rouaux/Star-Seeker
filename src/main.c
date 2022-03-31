@@ -10,9 +10,9 @@
 #include <generation_niveau.h>
 #include <menu.h>
 #include <menu_options.h>
+#include <menu_credits.h>
 #include <menu_options_keymap.h>
 #include <main.h>
-#include <menu_credits.h>
 
 int main(int argc, char * argv[])
 {
@@ -55,6 +55,7 @@ int main(int argc, char * argv[])
                     Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
                 break;
             case M_OPTIONS : code = chargerMenu_Options(moteur); break;
+            case M_CREDITS : code = afficherMenuCredits(moteur); break;
             case M_KEYMAP : code = chargerMenu_Options_keymap(moteur); break;
 
             default : 
