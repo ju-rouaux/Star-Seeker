@@ -58,6 +58,10 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
         attaque_tir_360_shuriken(attaque);
         break;
 
+    case A_360_MORE:
+        attaque_tir_360_shuriken_more(attaque);
+        break;
+
     case A_TOURNER:
         attaque_tir_tourner(attaque);
         break;
