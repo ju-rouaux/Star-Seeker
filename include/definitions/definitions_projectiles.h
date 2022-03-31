@@ -55,6 +55,9 @@
 #include <animation.h>
 
 
+#define PI 3.14159265359
+
+
 //--------- Fonctions de comportement ---------
 
 /** 
@@ -108,7 +111,7 @@ static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * project
 
 
 /**
- * \brief Revient vers le joueur apres un certain temps ou lors d'une collision
+ * \brief Projectile tournoyant en cercle
  * 
  * \param moteur Le moteur du jeu
  * \param projectile Le projectile à actualiser
@@ -122,13 +125,15 @@ static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile
     if(projectile->duree_de_vie <= 0)
         return -1;
 
-    projectile->direction_vx = 1;
-    projectile->direction_vy = sin((moteur->temps % 100)/100)*10;
+    float signal = -1 + (moteur->temps % 2000)/1000.0; //Signal oscillant entre -1 et 1 à partir du temps
+
+    projectile->direction_vx = cos(signal*PI);
+    projectile->direction_vy = sin(signal*PI);
+
+    projectile->vitesse = ((8000-projectile->duree_de_vie)/8000.0)*11;
 
     return deplacerEntite(moteur, (t_entite*) projectile);
 }
-
-
 
 
 //--------- Définitions ---------
@@ -234,10 +239,10 @@ static int proj_tourner(t_projectile * projectile)
     projectile->animation = NULL; //Pas d'animation
     projectile->id_animation = 5;
 
-    projectile->taille = 0.4;
-    projectile->vitesse = 8;
-    projectile->dommages = 1;
-    projectile->duree_de_vie = 1000;
+    projectile->taille = 1;
+    projectile->vitesse = 2;
+    projectile->dommages = 4;
+    projectile->duree_de_vie = 8000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_tourner;
 

@@ -101,7 +101,7 @@ static void attaque_tir_tourner(t_attaque_tir * attaque)
     attaque->type_projectile = TOURNER;
     attaque->cooldown = 2000;
     attaque->nb_salves = 1;
-    attaque->nb_proj_salve = 3;
+    attaque->nb_proj_salve = 1;
     attaque->tir_interval = 0;
     attaque->etalement = PI;
 }
