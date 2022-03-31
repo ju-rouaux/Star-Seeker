@@ -46,7 +46,7 @@ static void animationMort(t_moteur * moteur, t_joueur * joueur)
     int tempsEcoule = 0;
     int son_joue = 0;
     joueur->id_animation = 8;
-    joueur->xp /= 3;
+    joueur->xp /= 1.5;
     joueur->nom_attaque = A_DEFAUT;
 
     t_particule * particule = creerParticule(P_MORT, joueur->x, joueur->y, moteur->textures->particules);
@@ -310,7 +310,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                             ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             Mix_PlayChannel(3, moteur->bruitages->mort, 0);
                             //Ajouter l'xp gagné au joueur
-                            int xp_lache = de(8);
+                            int xp_lache = de(10);
                             for(int xp = 0; xp < xp_lache; xp++)
                                 ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             joueur->xp += xp_lache;
@@ -641,7 +641,7 @@ int nouvellePartie(t_moteur * moteur)
 
     //S'occuper du niveau
     srand(time(NULL));
-    int nb_niveaux = calculDifficulte(joueur->xp) / 2;
+    int nb_niveaux = calculDifficulte(joueur->xp) + 1;
     if(nb_niveaux < 2)
         nb_niveaux = 3;
     if(nb_niveaux >= 10)

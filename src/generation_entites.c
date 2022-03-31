@@ -30,11 +30,15 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     int i = 0;
 
     //générer un nombre d'entité selon difficulté
-    *nb_entites = indice_difficulte <=1 ? 1 : indice_difficulte * 0.5;
-    //printf("indice_difficulte : %d\n nb_entites : %d\n", indice_difficulte, *nb_entites);
+    *nb_entites = indice_difficulte * 0.6;
+    if(*nb_entites < 1)
+        *nb_entites = 1;
+    else if(*nb_entites >= 4)
+        *nb_entites = 4;
+
     //Nombre d'entités pour le tests
     //*nb_entites = 2;
-
+    
     //allouer liste les entites
     *liste_entites = malloc(sizeof(t_entite*) * (*nb_entites));
     if(*liste_entites == NULL)
@@ -51,7 +55,7 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
     y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
-    if(de(7) == 1){
+    if(de(10) == 1){
         data.nb_pv = de(2) * 2;
         (*liste_entites)[i] = (t_entite*) creerInteraction(0, x_alea_objet, y_alea_objet, data);
         i++;
@@ -76,13 +80,19 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
         attaque_alea = rand() % (NB_ATTAQUE - 1);
 
         //Selon les attaques, la taille du monstre change
-        if(attaque_alea == 1)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.2, attaque_alea, de(2)-1);
-        else if(attaque_alea == 2)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.3, attaque_alea, de(2)-1);
-        else if(attaque_alea == 3)
-            (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 0.9, attaque_alea, de(2)-1);
-        else (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2, 1.1, attaque_alea, de(2)-1);
+        switch(attaque_alea){
+            case 0:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 1 + (indice_difficulte * 0.6), 1, attaque_alea, de(2)-1);
+            case 1:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2 + (indice_difficulte * 0.6), 1.1, attaque_alea, de(2)-1);
+            case 2:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 1 + (indice_difficulte * 0.6), 1.3, attaque_alea, de(2)-1);
+            case 3:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 0 + (indice_difficulte * 0.6), 1.4, attaque_alea, de(2)-1);
+            case 4:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 0 + (indice_difficulte * 0.6), 0.8, attaque_alea, de(2)-1);
+            case 5:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 0 + (indice_difficulte * 0.6), 0.9, attaque_alea, de(2)-1);
+            case 6:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 1 + (indice_difficulte * 0.6), 1.1, attaque_alea, de(2)-1);
+            case 7:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 1 + (indice_difficulte * 0.6), 1.3, attaque_alea, de(2)-1);
+            case 8:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 2 + (indice_difficulte * 0.6), 1.5, attaque_alea, de(2)-1);
+            case 9:(*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 3 + (indice_difficulte * 0.6), 1.8, attaque_alea, de(2)-1);
+            default : (*liste_entites)[i] = (t_entite*) creerMonstre(x_alea_monstres,y_alea_monstres, 2, 1 + (indice_difficulte * 0.6), 1.1, attaque_alea, de(2)-1);
+        }
     }
     return 0;
 }
