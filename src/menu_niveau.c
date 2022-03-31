@@ -156,7 +156,7 @@ static t_selection * creerSelection(SDL_Renderer * renderer, TTF_Font * police, 
  * \param selections Adresse de la liste des sélections à libérer
  * \param nb_selections Nombre d'éléments dans la liste
  */
-void detruireSelections(t_selection *** selections, int nb_selections)
+static void detruireSelections(t_selection *** selections, int nb_selections)
 {
     if(*selections != NULL)
     {
@@ -186,7 +186,7 @@ void detruireSelections(t_selection *** selections, int nb_selections)
  * 
  * \return La liste des différents choix contextuels du menu.
  */
-t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos, int ancien_niveau_charge)
+static t_selection ** initSelections(t_moteur * moteur, TTF_Font * police, niveau_informations_t ** infos_niveaux, int nb_infos, int ancien_niveau_charge)
 {
     float taille_planete;
 
@@ -253,7 +253,6 @@ static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Poi
     dest.x = 20; //offset de 20 px
     dest.y = moteur->window_height - dest.h - 20; //offset de 20 px
 
-    SDL_PointInRect(souris, &dest);
     if( (survole = SDL_PointInRect(souris, &dest)) )
         SDL_SetTextureColorMod(bouton->rendu_texte, 255,0,0);
     else
@@ -277,7 +276,7 @@ static int renduBoutonMenuPrincipal(t_moteur * moteur, t_texte * bouton, SDL_Poi
  * \param ancien_niveau_charge Indice du niveau précédemment chargé
  * \return la structure du menu allouée
  */
-t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu, int ancien_niveau_charge)
+static t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveaux, int nb_infos, t_texte ** titre, t_texte ** menu, int ancien_niveau_charge)
 {
     //Police d'affichage
     TTF_Font * police = TTF_OpenFont("./assets/font/KidpixiesRegular-p0Z1.ttf", PRECISION_RENDU_TEXTE);
@@ -383,7 +382,7 @@ t_selection ** initMenu(t_moteur * moteur, niveau_informations_t ** infos_niveau
  * \param titre adresse du titre a detruire
  * \param menu adresse du menu a detruire
  */
-void freeMenu(t_selection *** selections, int nb_selections, t_texte ** titre, t_texte ** menu)
+static void freeMenu(t_selection *** selections, int nb_selections, t_texte ** titre, t_texte ** menu)
 {
     detruireSelections(selections, nb_selections);
     if(*menu != NULL)

@@ -12,6 +12,7 @@
 #include <menu_options.h>
 #include <menu_options_keymap.h>
 #include <main.h>
+#include <menu_credits.h>
 
 int main(int argc, char * argv[])
 {
