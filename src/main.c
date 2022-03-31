@@ -43,7 +43,7 @@ int main(int argc, char * argv[])
             case M_PRINCIPAL : code = chargerMenu(moteur); break;
             case M_JEU : 
                 Mix_PlayChannel(4, moteur->bruitages->menu_selection, 0);
-                code = nouvellePartie(moteur, 8);
+                code = nouvellePartie(moteur);
                 if(code != JEU_QUITTER)
                     Mix_PlayMusic(moteur->musiques->menu_principal, -1); //Lancer la musique au retour sur le menu, sauf si on quitte le programme
                 break;

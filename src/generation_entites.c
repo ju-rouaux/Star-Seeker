@@ -12,6 +12,7 @@
 #include <generation_niveau.h>
 #include <interaction.h>
 #include <generation_entites.h>
+#include <outils.h>
 
 
 /**
@@ -26,11 +27,11 @@
  */
 static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_orig_salle, t_entite *** liste_entites, int * nb_entites)
 {
-    int nb_alea = rand() % 5 + 2;
     int i = 0;
 
     //générer un nombre d'entité selon difficulté
-    *nb_entites = 0.35 * ((indice_difficulte / 15) + nb_alea);
+    *nb_entites = indice_difficulte <=1 ? 1 : indice_difficulte * 0.5;
+    //printf("indice_difficulte : %d\n nb_entites : %d\n", indice_difficulte, *nb_entites);
     //Nombre d'entités pour le tests
     //*nb_entites = 2;
 
@@ -50,8 +51,8 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     x_alea_objet = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
     y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
-    if(de(8) == 1){
-        data.nb_pv = de(7);
+    if(de(7) == 1){
+        data.nb_pv = de(2) * 2;
         (*liste_entites)[i] = (t_entite*) creerInteraction(0, x_alea_objet, y_alea_objet, data);
         i++;
     }
@@ -60,7 +61,10 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     y_alea_objet = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
     if(de(30) == 1){
-        data.attaque = de(4);
+        do{
+        data.attaque = de(NB_ATTAQUE);
+        }while(data.attaque == A_TOURNER); //attaque a exclure pour le joueur
+
         (*liste_entites)[i] = (t_entite*) creerInteraction(1, x_alea_objet, y_alea_objet, data);
         i++;
     }
@@ -69,7 +73,7 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     for(; i < *nb_entites; i++){
         float x_alea_monstres = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
         float y_alea_monstres = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
-        attaque_alea = rand() % (NB_ATTAQUE -1);
+        attaque_alea = rand() % (NB_ATTAQUE - 1);
 
         //Selon les attaques, la taille du monstre change
         if(attaque_alea == 1)

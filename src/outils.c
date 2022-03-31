@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <outils.h>
 #include <stdlib.h>
+#include <math.h>
 
 
 /**
@@ -16,3 +17,18 @@
 int de(const int nbFaces){
     return(rand() % nbFaces + 1);
 }
+
+/**
+ * \brief Calcul la difficulté a partir de l'xp que le joueur possède
+ * 
+ * \param xp xp du joueur
+ * \return indice de difficulté
+ */
+int calculDifficulte(int xp){
+    if(xp < 10)
+        return 1;
+    return sqrt(xp/10);
+}
+
+
+//print the meaning of life

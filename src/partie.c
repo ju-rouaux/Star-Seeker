@@ -46,6 +46,8 @@ static void animationMort(t_moteur * moteur, t_joueur * joueur)
     int tempsEcoule = 0;
     int son_joue = 0;
     joueur->id_animation = 8;
+    joueur->xp /= 3;
+    joueur->nom_attaque = A_DEFAUT;
 
     t_particule * particule = creerParticule(P_MORT, joueur->x, joueur->y, moteur->textures->particules);
     if(particule == NULL)
@@ -308,7 +310,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                             ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             Mix_PlayChannel(3, moteur->bruitages->mort, 0);
                             //Ajouter l'xp gagné au joueur
-                            int xp_lache = de(5);
+                            int xp_lache = de(8);
                             for(int xp = 0; xp < xp_lache; xp++)
                                 ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             joueur->xp += xp_lache;
@@ -605,7 +607,7 @@ static int genererPartie(int nb_niveaux, niveau_informations_t *** adr_infos, ch
  * 
  * \return 0 si succès, valeur négative si echec.
  */
-int nouvellePartie(t_moteur * moteur, int nb_niveaux)
+int nouvellePartie(t_moteur * moteur)
 {
     niveau_informations_t ** infos;
     t_joueur * joueur = NULL;
@@ -639,7 +641,12 @@ int nouvellePartie(t_moteur * moteur, int nb_niveaux)
 
     //S'occuper du niveau
     srand(time(NULL));
-    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie,joueur->xp);
+    int nb_niveaux = calculDifficulte(joueur->xp) / 2;
+    if(nb_niveaux < 2)
+        nb_niveaux = 3;
+    if(nb_niveaux >= 10)
+        nb_niveaux = 10;
+    retour = genererPartie(nb_niveaux, &infos, &moteur->galaxie,calculDifficulte(joueur->xp));
     if(retour != 0)
     {
         printf("Impossible de générer une nouvelle partie\n");
