@@ -636,7 +636,8 @@ int nouvellePartie(t_moteur * moteur)
         }
         joueur->x = 0;
         joueur->y = 0;
-        joueur->pv = PV_JOUEUR_DEFAULT; //Restaurer la vie du joueur pour la nouvelle partie
+        if(joueur->pv <= 0)
+            joueur->pv = PV_JOUEUR_DEFAULT; //Restaurer la vie du joueur pour la nouvelle partie s'il était mort
     }
 
     //S'occuper du niveau

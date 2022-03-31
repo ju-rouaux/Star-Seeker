@@ -348,7 +348,7 @@ niveau_informations_t * creer_niveau_info(char * nom_planete, int indice_difficu
     
     niveau->liste_infos_entites = NULL;
     niveau->nb_infos_entite = 0;
-    genererEntites(indice_difficulte, (int*) niveau->matrice, niveau->hauteur, niveau->longueur, &niveau->liste_infos_entites, &niveau->nb_infos_entite, niveau->i_dep, niveau->j_dep);
+    genererEntites(indice_difficulte, (int*) niveau->matrice, niveau->hauteur, niveau->longueur, &niveau->liste_infos_entites, &niveau->nb_infos_entite, niveau->matrice[niveau->i_dep*niveau->longueur + niveau->j_dep]);
 
     niveau->nom_planete = nom_planete;
 
