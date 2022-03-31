@@ -42,6 +42,10 @@ void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque)
         attaque_tir_defaut_large(attaque);
         break;
 
+    case A_FEU_SIMPLE:
+        attaque_tir_feu_simple(attaque);
+        break;
+
     case A_FEU:
         attaque_tir_feu(attaque);
         break;

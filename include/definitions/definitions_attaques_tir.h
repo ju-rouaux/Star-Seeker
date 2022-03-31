@@ -50,20 +50,6 @@ static void attaque_tir_defaut(t_attaque_tir * attaque)
     attaque->etalement = 0;
 }
 
-/**
- * \brief Attaque pquit tire une boule de feu
- * 
- * \param attaque Retour l'attaque
- */
-static void attaque_tir_feu_simple(t_attaque_tir * attaque)
-{
-    attaque->type_projectile = BOULE_FEU;
-    attaque->cooldown = 1000;
-    attaque->nb_salves = 1;
-    attaque->nb_proj_salve = 1;
-    attaque->tir_interval = 100;
-    attaque->etalement = 0;
-}
 
 /**
  * \brief Attaque qui tire 2 balle dans un rayon restreint
@@ -78,6 +64,21 @@ static void attaque_tir_defaut_large(t_attaque_tir * attaque)
     attaque->nb_proj_salve = 2;
     attaque->tir_interval = 200;
     attaque->etalement = PI/10;
+}
+
+/**
+ * \brief Attaque pquit tire une boule de feu
+ * 
+ * \param attaque Retour l'attaque
+ */
+static void attaque_tir_feu_simple(t_attaque_tir * attaque)
+{
+    attaque->type_projectile = BOULE_FEU;
+    attaque->cooldown = 1000;
+    attaque->nb_salves = 1;
+    attaque->nb_proj_salve = 1;
+    attaque->tir_interval = 100;
+    attaque->etalement = 0;
 }
 
 /**
