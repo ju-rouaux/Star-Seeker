@@ -19,9 +19,9 @@ typedef struct s_entite t_entite;
  * \brief Modelise un element de la liste
  */
 typedef struct element {
-    t_entite * valeur ;
-    struct element* pred ;
-    struct element* succ ;
+    t_entite * valeur ; /**<valeur */
+    struct element* pred ;/**<element precedant l'element courant*/
+    struct element* succ ;/**<element succedant l'element courant*/
 } t_element;
 
 /**
@@ -31,8 +31,8 @@ typedef struct element {
  */
 typedef struct s_liste t_liste;
 struct s_liste{
-    t_element * drapeau;
-    t_element * ec;
+    t_element * drapeau;/**<drapeau de la liste*/
+    t_element * ec;/**<l'element courant*/
 } ;
 
 

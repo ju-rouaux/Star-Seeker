@@ -39,7 +39,7 @@
 
 //Probabilité qu'une salle sans id prenne l'id d'une salle adjacente au lieu d'un nouvel id
 //En d'autres termes, probabilité de générer une extension de salle au lieu d'une nouvelle salle
-#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 15
+#define CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE 25
 
 
 /**
@@ -64,25 +64,25 @@ typedef struct {
  */
 typedef struct {
 
-    int * matrice;
-    int hauteur;
-    int longueur;
+    int * matrice; /**<la matrice de niveau*/
+    int hauteur;/**<la hauteur de la matrice*/
+    int longueur;/**<la largeur de la matrice*/
 
-    int rouge;
-    int vert;
-    int bleu;
+    int rouge;/**<Entier entre 0 et 255 representant la quantité de rouge*/
+    int vert;/**<Entier entre 0 et 255 representant la quantité de vert*/
+    int bleu;/**<Entier entre 0 et 255 representant la quantité de bleu*/
 
     t_info_entites ** liste_infos_entites; /**< Liste des entités présentes dans le niveau */
-    int nb_infos_entite;
+    int nb_infos_entite;/**<nombre de liste_infos_entites*/
 
     //Positions des salles de départ et de fin
 
-    int i_dep;
-    int j_dep;
-    int i_fin;
-    int j_fin;
+    int i_dep;/**<Coordonnée i (hauteur) de la salle initiale */
+    int j_dep;/**< Coordonnée j (longueur) de la salle initiale*/
+    int i_fin;/**< Coordonnée i (hauteur) de la salle de fin*/
+    int j_fin;/**< Coordonnée j (longueur) de la salle de fin*/
 
-    char * nom_planete;
+    char * nom_planete;/**< nom de la planète*/
 
 } niveau_informations_t;
 

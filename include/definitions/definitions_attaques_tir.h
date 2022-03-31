@@ -35,7 +35,11 @@
 #define PI 3.14159265359
 
 
-
+/**
+ * \brief Attaque par defaut
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_defaut(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BALLE;
@@ -46,6 +50,11 @@ static void attaque_tir_defaut(t_attaque_tir * attaque)
     attaque->etalement = 0;
 }
 
+/**
+ * \brief Attaque qui tire 2 balle dans un rayon restreint
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_defaut_large(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BALLE;
@@ -56,6 +65,11 @@ static void attaque_tir_defaut_large(t_attaque_tir * attaque)
     attaque->etalement = PI/10;
 }
 
+/**
+ * \brief Attaque pquit tire 3 boules de feu
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_feu(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BOULE_FEU;
@@ -66,6 +80,11 @@ static void attaque_tir_feu(t_attaque_tir * attaque)
     attaque->etalement = PI/3;
 }
 
+/**
+ * \brief Attaque type sniper
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_sniper(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BOULET;
@@ -76,6 +95,11 @@ static void attaque_tir_sniper(t_attaque_tir * attaque)
     attaque->etalement = 0.349066;
 }
 
+/**
+ * \brief Attaque type sniper dans 2 directions simultanées
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_sniper_3(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BOULET;
@@ -86,6 +110,11 @@ static void attaque_tir_sniper_3(t_attaque_tir * attaque)
     attaque->etalement = PI;
 }
 
+/**
+ * \brief Attaque qui tir des shuriken a 360 degres
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_360_shuriken(t_attaque_tir * attaque)
 {
     attaque->type_projectile = SHURIKEN;
@@ -96,6 +125,11 @@ static void attaque_tir_360_shuriken(t_attaque_tir * attaque)
     attaque->etalement = 2*PI;
 }
 
+/**
+ * \brief 
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_tourner(t_attaque_tir * attaque)
 {
     attaque->type_projectile = TOURNER;
@@ -106,6 +140,11 @@ static void attaque_tir_tourner(t_attaque_tir * attaque)
     attaque->etalement = PI;
 }
 
+/**
+ * \brief Lance un sabre et revient sur le joueur apres x temps ou s'il touche un mur 
+ * 
+ * \param attaque Retour l'attaque
+ */
 static void attaque_tir_sabre(t_attaque_tir * attaque)
 {
     attaque->type_projectile = SABRE;

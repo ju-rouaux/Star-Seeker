@@ -34,6 +34,9 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
             // -- Gestion du clavier --
             //Appui
             case SDL_KEYDOWN:
+
+/*------------------------------------------------- Déplacements du joueur  -------------------------------------------------------------------*/
+
                 //Avancer vers le haut
                 if(parametres->key_up == event.key.keysym.scancode)
                     joueur->flags->to_up = joueur->flags->to_down + 1;
@@ -49,7 +52,27 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                 //Avancer vers la droite
                 else if  (parametres->key_right == event.key.keysym.scancode)
                     joueur->flags->to_right = joueur->flags->to_left + 1;
-               
+
+/*------------------------------------------------- Attaques du joueurs et autre compétence(s)  -------------------------------------------------------------------*/
+ 
+                 //Attaque vers le haut
+                else if  (parametres->attack_up == event.key.keysym.scancode)
+                    joueur->flags->attack_up = joueur->flags->attack_down + 1;
+                //Attaque vers le bas
+                else if  (parametres->attack_down == event.key.keysym.scancode)
+                    joueur->flags->attack_down = joueur->flags->attack_up + 1;
+                //Attaque vers la droite
+                else if  (parametres->attack_right == event.key.keysym.scancode)
+                    joueur->flags->attack_right = joueur->flags->attack_left + 1;
+                //Attaque vers la gauche
+                else if  (parametres->attack_left == event.key.keysym.scancode)
+                    joueur->flags->attack_left = joueur->flags->attack_right + 1;
+                //Dash
+                else if  (parametres->dash == event.key.keysym.scancode){
+                    if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
+                }
+
                 //Interaction
                 else if  (parametres->key_interaction == event.key.keysym.scancode)
                 {
@@ -58,7 +81,7 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                     else    //Passer le flag à -1 si la touche est maintenue
                         joueur->flags->interaction = -1;
                 }
-                
+
                 //Autres touches
                 else switch (event.key.keysym.scancode)
                 {
@@ -68,28 +91,6 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_shown = 1;
                         break;
-
-                    case SDL_SCANCODE_UP:
-                        joueur->flags->attack_up = joueur->flags->attack_down + 1;
-                        break;
-
-                    case SDL_SCANCODE_DOWN:
-                        joueur->flags->attack_down = joueur->flags->attack_up + 1;
-                        break;
-
-                    case SDL_SCANCODE_LEFT:
-                        joueur->flags->attack_left = joueur->flags->attack_right + 1;
-                        break;
-
-                    case SDL_SCANCODE_RIGHT:
-                        joueur->flags->attack_right = joueur->flags->attack_left + 1;
-                        break;
-
-                    case SDL_SCANCODE_SPACE:
-                        if(joueur->flags->dash == 0)
-                            joueur->flags->dash = 1;
-                        break;
-                    
                     default:
                         break;
                 }
@@ -97,6 +98,7 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
 
             //Relachement
             case SDL_KEYUP:
+/*------------------------------------------------- Déplacements du joueur  -------------------------------------------------------------------*/
                 if(parametres->key_up == event.key.keysym.scancode)
                     joueur->flags->to_up = 0;
 
@@ -112,28 +114,30 @@ e_code_main handleEvents(t_joueur * joueur, t_parametres * parametres)
                 else if  (parametres->key_interaction == event.key.keysym.scancode)
                     joueur->flags->interaction = 0;
                 
+/*------------------------------------------------- Attaques du joueurs et autre compétence(s)  -------------------------------------------------------------------*/
+                 //Attaque vers le haut
+                else if  (parametres->attack_up == event.key.keysym.scancode)
+                    joueur->flags->attack_up = 0;
+                //Attaque vers le bas
+                else if  (parametres->attack_down == event.key.keysym.scancode)
+                    joueur->flags->attack_down = 0;
+                //Attaque vers la droite
+                else if  (parametres->attack_right == event.key.keysym.scancode)
+                    joueur->flags->attack_right = 0;
+                //Attaque vers la gauche
+                else if  (parametres->attack_left == event.key.keysym.scancode)
+                    joueur->flags->attack_left = 0;
+                //Dash
+                else if  (parametres->dash == event.key.keysym.scancode){
+                    if(joueur->flags->dash == 0)
+                            joueur->flags->dash = 1;
+                }
+                
                 else switch (event.key.keysym.scancode)
                 {
                     case SDL_SCANCODE_TAB: //TAB
                         joueur->flags->map_shown = 0;
                         break;
-
-                    case SDL_SCANCODE_UP:
-                        joueur->flags->attack_up = 0;
-                        break;
-
-                    case SDL_SCANCODE_DOWN:
-                        joueur->flags->attack_down = 0;
-                        break;
-
-                    case SDL_SCANCODE_LEFT:
-                        joueur->flags->attack_left = 0;
-                        break;
-
-                    case SDL_SCANCODE_RIGHT:
-                        joueur->flags->attack_right = 0;
-                        break;
-
                     default:
                         break;
                 }

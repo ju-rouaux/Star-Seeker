@@ -13,8 +13,13 @@
 #include <entite.h>
 #include <liste.h>
 
- struct s_joueur;
+struct s_joueur;
 
+/**
+ * \enum e_type_projectile
+ * \brief Modélise le type de projectile
+ * 
+ */
 typedef enum
 {
     BALLE, BOULE_FEU, BOULET, SHURIKEN, TOURNER, SABRE
