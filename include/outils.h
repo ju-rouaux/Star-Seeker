@@ -1,7 +1,7 @@
 /**
  * \file outils.c
  * \brief Bibliothèque de petites fonctions pratiques dans de nombreux cas.
- * \author Camille
+ * \author Camille Remoué
 */
 
 #ifndef _JEU_OUTILS_

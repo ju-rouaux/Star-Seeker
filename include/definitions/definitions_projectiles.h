@@ -1,11 +1,11 @@
 /**
- * \file definitions_attaques_tir.h
+ * \file definitions_projectiles.h
  * 
- * \brief Fichier de définition des attaques de tir.
+ * \brief Fichier de définition des projectiles.
  * 
  * 
  * POUR CREER UN NOUVEAU PROJECTILE :
- *      - Ajouter le nom de votre projectile dans l'enum e_type_projectile sous la forme NOMPROJECTILE dans le fichier projectile.h
+ *      - Ajouter le nom du projectile dans l'enum e_type_projectile sous la forme NOMPROJECTILE dans le fichier projectile.h
  *      - Créer une fonction sous la forme :
  *              static int proj_NOMPROJECTILE(t_projectile * projectile)
  *              {
@@ -44,7 +44,7 @@
  *        de la durée de vie restante.
  *        La fonction doit retourner 0 si tout se passe bien, -1 lorsque le projectile doit être détruit.
  * 
- * \author Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -79,13 +79,15 @@ static int updateProjectile(t_moteur * moteur, t_projectile * projectile)
     return deplacerEntite(moteur, (t_entite*) projectile);
 }
 
+
 /**
- * \brief Revient vers le joueur apres un certain temps ou lors d'une collision
+ * \brief Fait revenir le projectile vers le joueur apres un certain temps ou lors d'une collision.
  * 
  * \param moteur Le moteur du jeu
  * \param projectile Le projectile à actualiser
  * \param x position du joueur x
  * \param y position du joueur y
+ * 
  * \return -1 si le projectile doit être détruit, sinon 0.
  */
 static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * projectile, float x, float y)
@@ -112,26 +114,25 @@ static int updateProjectile_RetourProj(t_moteur * moteur, t_projectile * project
 
 
 /**
- * \brief Projectile tournoyant en cercle
+ * \brief Fait trourner le projectile en cercle.
  * 
  * \param moteur Le moteur du jeu
  * \param projectile Le projectile à actualiser
- * \param x position du joueur x
- * \param y position du joueur y
+ * 
  * \return -1 si le projectile doit être détruit, sinon 0.
  */
-static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile, float x, float y)
+static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile)
 {
     projectile->duree_de_vie -= moteur->temps - moteur->temps_precedent; //Retirer le temps écoulé à la durée de vie
     if(projectile->duree_de_vie <= 0)
         return -1;
 
-    float signal = -1 + (moteur->temps % 2000)/1000.0; //Signal oscillant entre -1 et 1 à partir du temps
+    float signal = -1 + (moteur->temps % 1000)/500.0; //Signal oscillant entre -1 et 1 à partir du temps
 
     projectile->direction_vx = cos(signal*PI);
     projectile->direction_vy = sin(signal*PI);
 
-    projectile->vitesse = ((8000-projectile->duree_de_vie)/8000.0)*11;
+    projectile->vitesse = ((8000-projectile->duree_de_vie)/8000.0)*20;
 
     return deplacerEntite(moteur, (t_entite*) projectile);
 }
@@ -140,7 +141,7 @@ static int updateProjectile_tourner(t_moteur * moteur, t_projectile * projectile
 //--------- Définitions ---------
 
 /**
- * \brief Rend un projectile de petite taille mais rapide.
+ * \brief Rend un projectile de petite taille, simple.
  * 
  * \param projectile Le projectile
  * 
@@ -152,9 +153,9 @@ static int proj_balle(t_projectile * projectile)
     projectile->id_animation = 0;
 
     projectile->taille = 0.4;
-    projectile->vitesse = 8;
+    projectile->vitesse = 6;
     projectile->dommages = 1;
-    projectile->duree_de_vie = 1000;
+    projectile->duree_de_vie = 1200;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile;
 
@@ -163,7 +164,7 @@ static int proj_balle(t_projectile * projectile)
 
 
 /**
- * \brief Rend un projectile de grande taille mais lent.
+ * \brief Rend un projectile de grande taille, lent, mais infligeant pas mal de dégats
  * 
  * \param projectile Le projectile
  * 
@@ -177,7 +178,7 @@ static int proj_boule_feu(t_projectile * projectile)
     projectile->id_animation = 1;
 
     projectile->taille = 0.8;
-    projectile->vitesse = 4;
+    projectile->vitesse = 3;
     projectile->dommages = 4;
     projectile->duree_de_vie = 3000;
 
@@ -188,8 +189,10 @@ static int proj_boule_feu(t_projectile * projectile)
 
 
 /**
- * \brief Rend un projectile tres rapide, avec une tres longue portée
+ * \brief Rend un projectile tres rapide, avec une tres longue portée.
+ * 
  * \param projectile Le projectile
+ * 
  * \return 0 si succès, une valeur négative si echec.
  */
 static int proj_boule_metal(t_projectile * projectile)
@@ -207,9 +210,12 @@ static int proj_boule_metal(t_projectile * projectile)
     return 0;
 }
 
+
 /**
- * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \brief Rend un projectile très rapide mais avec une très courte portée et infligeant peu de dégats
+ * 
  * \param projectile Le projectile
+ * 
  * \return 0 si succès, une valeur négative si echec.
  */
 static int proj_shuriken(t_projectile * projectile)
@@ -231,8 +237,10 @@ static int proj_shuriken(t_projectile * projectile)
 
 
 /**
- * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \brief Rend un projectile lent, avec une longue durée de vie mais infligeant beaucoup de dégats
+ * 
  * \param projectile Le projectile
+ * 
  * \return 0 si succès, une valeur négative si echec.
  */
 static int proj_tourner(t_projectile * projectile)
@@ -242,7 +250,7 @@ static int proj_tourner(t_projectile * projectile)
 
     projectile->taille = 1;
     projectile->vitesse = 2;
-    projectile->dommages = 4;
+    projectile->dommages = 6;
     projectile->duree_de_vie = 8000;
 
     projectile->update = (int (*)(t_moteur *, t_entite *, float, float)) updateProjectile_tourner;
@@ -250,9 +258,12 @@ static int proj_tourner(t_projectile * projectile)
     return 0;
 }
 
+
 /**
- * \brief Rend un projectile rapide mais avec un tres courte portée
+ * \brief Rend un projectile très rapide.
+ * 
  * \param projectile Le projectile
+ * 
  * \return 0 si succès, une valeur négative si echec.
  */
 static int proj_sabre(t_projectile * projectile)

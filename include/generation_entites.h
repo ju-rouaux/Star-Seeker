@@ -3,7 +3,7 @@
  * 
  * \brief Module générant les entités des salles d'un niveau.
  * 
- * \author Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 #ifndef _JEU_GENERATION_ENTITES_

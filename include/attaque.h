@@ -34,12 +34,12 @@ typedef struct
 {
     //Définition de l'attaque de tir
 
-    e_type_projectile type_projectile;
-    int cooldown; /** Temps en ms avant de pouvoir réutiliser l'attaque */
-    int nb_salves; /** Nombre de salves */
-    int nb_proj_salve; /** Nombre de projectiles par salves */
-    int tir_interval; /** Temps en ms entre le tir de chaque salve */
-    float etalement; /** Angle exprimé en radiant représentant le niveau d'étalement d'une salve de projectiles (ignoré lorsqu'une salve ne contient qu'un projectile) */
+    e_type_projectile type_projectile; /**< Nom du projectile lancé */
+    int cooldown; /**< Temps en ms avant de pouvoir réutiliser l'attaque */
+    int nb_salves; /**< Nombre de salves */
+    int nb_proj_salve; /**< Nombre de projectiles par salves */
+    int tir_interval; /**< Temps en ms entre le tir de chaque salve */
+    float etalement; /**< Angle exprimé en radiant représentant le niveau d'étalement d'une salve de projectiles (ignoré lorsqu'une salve ne contient qu'un projectile) */
 
     //Variables pour l'exécution
 
@@ -47,18 +47,6 @@ typedef struct
     int temps_debut_attaque; /** Temps qu'il était au début de l'exécution de l'attaque */
 } t_attaque_tir;
 
-
-/**
- * \struct t_attaque_corps
- * \brief Modélise une arme de corps à corps.
- */
-typedef struct
-{
-    int cooldown;
-
-    int cooldown_restant;
-
-} t_attaque_corps;
 
 void chargerAttaqueTir(t_attaque_tir * attaque, e_nom_attaque nouvelle_attaque);
 void updateAttaqueTir(t_moteur * moteur, t_personnage * personnage, int attaquer);

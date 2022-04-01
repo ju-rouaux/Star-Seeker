@@ -1,7 +1,7 @@
 /**
  * \file outils.c
  * \brief Bibliothèque de petites fonctions pratiques dans de nombreux cas.
- * \author Camille
+ * \author Camille Remoué
 */
 
 #include <stdlib.h>

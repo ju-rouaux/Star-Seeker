@@ -119,7 +119,7 @@ int deplacerEntite(const t_moteur * moteur, t_entite * entite)
 
 
 /**
- * \brief Ajoute une entité à la liste sans perturber son fonctionnement.
+ * \brief Ajoute une entité à la liste sans perturber l'emplacement de la tete.
  * 
  * \param liste La liste où ajouter l'entité
  * \param entite L'entité à ajouter

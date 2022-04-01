@@ -21,7 +21,7 @@
 
 /**
  * \enum err_save
- * \brief Modélise les erreurs possibles lors des différentes sauvegarde
+ * \brief Erreurs possibles lors des différentes sauvegarde
  */
 typedef enum
 {

@@ -3,7 +3,7 @@
  * 
  * \brief Module générant les entités des salles d'un niveau.
  * 
- * \author Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -60,13 +60,14 @@ static int genererEntitesSalle(int indice_difficulte, int x_orig_salle, int y_or
     }
 
     //generation aleatoire d'une arme
-    if(de(30) == 1 && i < *nb_entites)
+    if(de(20) == 1 && i < *nb_entites)
     {
         x_alea = rand() % (NB_TILE_LARGEUR - 1) + x_orig_salle + 1;
         y_alea = rand() % (NB_TILE_HAUTEUR - 1) + y_orig_salle + 1;
 
-        do{
-        data.attaque = de(NB_ATTAQUE);
+        do
+        {
+            data.attaque = de(NB_ATTAQUE)-1;
         }while(data.attaque == A_TOURNER); //attaque a exclure pour le joueur
 
         (*liste_entites)[i] = (t_entite*) creerInteraction(ARME, x_alea, y_alea, data);

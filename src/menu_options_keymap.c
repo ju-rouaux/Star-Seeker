@@ -1,6 +1,6 @@
 /**
  * \file menu_options_keymap.c
- * \author Guillaume
+ * \author Guillaume Richard
  * \brief Sous menu pour le mapping des touches
  * Permet au joueur de redéfinir ses touches
  * 

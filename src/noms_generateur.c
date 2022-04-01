@@ -3,7 +3,7 @@
  * 
  * \brief Générateur de nom de planète et de galaxie aléatoire
  *
- * \author camille
+ * \author Camille Remoué
  */
 
 #include <stdio.h>

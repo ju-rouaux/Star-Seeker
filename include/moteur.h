@@ -31,7 +31,7 @@ typedef struct s_niveau t_niveau;
 
 /**
  * \struct t_bool_param
- * \brief Idenetifant modelisant un booléen
+ * \brief Valeurs booléennes
  */
 typedef enum
 {
@@ -46,17 +46,21 @@ typedef enum
 typedef struct
 {
     t_bool_param reset_sauvegarde_joueur; /**< Vrai si le jeu doit écraser la sauvegarde du joueur au lancement de la partie */
-    int volume_audio; //(ou volume musique puis volume sons)
-    SDL_Scancode key_up;
-    SDL_Scancode key_down;
-    SDL_Scancode key_left;
-    SDL_Scancode key_right;
-    SDL_Scancode key_interaction;
-    SDL_Scancode attack_up;
-    SDL_Scancode attack_down;
-    SDL_Scancode attack_right;
-    SDL_Scancode attack_left;
-    SDL_Scancode dash;
+
+    int volume_audio; /**< Volume audio du jeu */
+
+    SDL_Scancode key_up; /**< Touche du clavier associé au déplacement vers le haut */
+    SDL_Scancode key_down; /**< Touche du clavier associé au déplacement vers le bas */
+    SDL_Scancode key_left; /**< Touche du clavier associé au déplacement vers la gauche */
+    SDL_Scancode key_right; /**< Touche du clavier associé au déplacement vers la droite */
+
+    SDL_Scancode attack_up; /**< Touche du clavier associé au lancement d'une attaque vers le haut */
+    SDL_Scancode attack_down; /**< Touche du clavier associé au lancement d'une attaque vers le bas */
+    SDL_Scancode attack_right; /**< Touche du clavier associé au lancement d'une attaque vers la droite */
+    SDL_Scancode attack_left; /**< Touche du clavier associé au lancement d'une attaque vers la gauche */
+
+    SDL_Scancode dash; /**< Touche du clavier associé au lancement d'une esquive */
+    SDL_Scancode key_interaction; /**< Touche du clavier associé au lancement d'une interaction */
 } t_parametres;
 
 /**
@@ -66,17 +70,17 @@ typedef struct
  */
 typedef struct s_moteur
 {
-    SDL_Window * window;/**<la fenetre du jeu*/
-    SDL_Renderer * renderer;/**<Le rendu du jeu*/
-    t_textures * textures;/**<Les principales texture*/
-    t_bruitages * bruitages;/**<Les bruitages du jeu*/
-    t_musiques * musiques;/**<Musique du jeu*/
+    SDL_Window * window;/**< La fenetre du jeu*/
+    SDL_Renderer * renderer;/**< Le renderer du jeu*/
+    t_textures * textures;/**< Les textures du jeu */
+    t_bruitages * bruitages;/**< Les bruitages du jeu*/
+    t_musiques * musiques;/**< Les musiques du jeu*/
     unsigned int temps; /**< Temps au début d'une frame */
-    unsigned int temps_precedent; /** Temps au début de la frame précédente */
+    unsigned int temps_precedent; /**< Temps au début de la frame précédente */
 
-    char * galaxie; /** Nom de la partie */
-    t_camera * camera; /** Caméra du jeu */
-    t_niveau * niveau_charge; /** Niveau actuellement chargé */
+    char * galaxie; /**< Nom de la partie */
+    t_camera * camera; /**< Caméra du jeu */
+    t_niveau * niveau_charge; /**< Niveau actuellement chargé */
     t_liste * liste_entites; /**< Liste des entités rendues "vivantes" */
     int echelle; /**< Echelle du jeu, c'est à dire la taille des éléments */
 

@@ -1,6 +1,6 @@
 /**
  * \file events.c
- * \author Guillaume
+ * \author Guillaume Richard
  * \brief Module de gestion des evenements (souris/clavier/fenetre)
  * Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter
  */

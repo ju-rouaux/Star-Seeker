@@ -26,14 +26,14 @@ typedef enum
 
 
 /**
- * \struct t_joueur
- * \brief Structure modélisant le joueur, hérite des attributs d'entité et de personnage.
+ * \struct t_monstre
+ * \brief Structure modélisant un monstre, hérite des attributs d'entité et de personnage.
  */
 typedef struct s_monstre t_monstre;
 struct s_monstre
 {
     #include <attributs_personnages.h>
-    e_deplacement_monstre deplacement;/**<Type de déplacement d'un monstre*/
+    e_deplacement_monstre deplacement; /**< Méthode de déplacement d'un monstre*/
 };
 
 

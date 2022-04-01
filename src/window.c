@@ -46,6 +46,13 @@ int creerFenetreEtRendu(SDL_Window ** window, SDL_Renderer ** renderer)
 
     SDL_SetWindowMinimumSize(*window, 640, 370);
 
+    SDL_Surface * icon = SDL_LoadBMP("./assets/img/icon.bmp");
+    if(icon != NULL)
+    {
+        SDL_SetWindowIcon(*window, icon);
+        SDL_FreeSurface(icon);
+    }
+
     return 0;
 }
 

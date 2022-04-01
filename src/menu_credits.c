@@ -15,6 +15,10 @@
 #define PRECISION_RENDU_TEXTE 1000
 
 
+/**
+ * \struct t_texte
+ * \brief Structure facilitant la manipulation des textes affichés
+ */
 typedef struct
 {
     SDL_Texture * rendu_texte;
@@ -24,29 +28,40 @@ typedef struct
 } t_texte;
 
 
-//Souris peut etre NULL et rect_retour
+/**
+ * \brief Affiche a l'écran du texte.
+ * 
+ * \param moteur Le moteur
+ * \param texte Le texte à afficher
+ * \param souris L'emplacement de la souris (ou NULL) si une variation de couleur est souhaitée lorsque la souris survole le texte
+ * \param rect_retour Le rectangle où retourner l'emplacement du rendu du texte (ou NULL si pas nécéssaire)
+
+ */
 static void renduTexte(t_moteur * moteur, t_texte * texte, SDL_Point * souris, SDL_Rect * rect_retour)
 {
     SDL_Rect dest;
     dest.w = (float)texte->largeur/PRECISION_RENDU_TEXTE * moteur->echelle;
     dest.h = (float)texte->hauteur/PRECISION_RENDU_TEXTE * moteur->echelle;
-    dest.x = moteur->window_width / 2 - dest.w / 2;
+    dest.x = moteur->window_width / 2 - dest.w / 2 - 25;
     dest.y = texte->indice * moteur->window_height / 6 - 50;
 
     SDL_SetTextureColorMod(texte->rendu_texte, 224, 130, 16);
+
     if(texte->indice == 1 || texte->indice == 5) //Titre ou retour
         SDL_SetTextureColorMod(texte->rendu_texte, 0, 0, 255);
 
-    if(souris != NULL && rect_retour != NULL)
-    {
+    if(souris != NULL)
         if(SDL_PointInRect(souris, &dest))
             SDL_SetTextureColorMod(texte->rendu_texte, 255,0,0);
 
+    if(rect_retour != NULL)
+    {
         rect_retour->h = dest.h;
         rect_retour->w = dest.w;
         rect_retour->x = dest.x;
         rect_retour->y = dest.y;
     }
+
     SDL_RenderCopy(moteur->renderer, texte->rendu_texte, NULL, &dest);
 }
 

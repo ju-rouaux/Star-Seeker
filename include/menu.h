@@ -1,6 +1,6 @@
 /**
  * \file menu.c
- * \author Guillaume
+ * \author Guillaume Richard
  * \brief Menu principal du jeu
  * 
  */

@@ -5,7 +5,7 @@
  *
  * 
  * POUR CREER UNE NOUVELLE ATTAQUE :
- *      - Ajouter le nom de votre attaque dans l'enum e_nom_attaque sous la forme NOMATTAQUE dans le fichier attaque.h
+ *      - Ajouter le nom de l'attaque dans l'enum e_nom_attaque sous la forme NOMATTAQUE dans le fichier attaque.h
  *      - Créer une fonction sous la forme :
  *              static void attaque_tir_NOMATTAQUE(t_attaque_tir * attaque)
  *              {
@@ -22,7 +22,7 @@
  *                  break;
  * 
  * 
- * \author Julien Rouaux
+ * \author Julien Rouaux & Guillaume Richard
  */
 
 
@@ -38,7 +38,7 @@
 /**
  * \brief Attaque par defaut
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_defaut(t_attaque_tir * attaque)
 {
@@ -52,9 +52,9 @@ static void attaque_tir_defaut(t_attaque_tir * attaque)
 
 
 /**
- * \brief Attaque qui tire 2 balle dans un rayon restreint
+ * \brief Attaque qui tire 2 balles dans un angle restreint
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_defaut_large(t_attaque_tir * attaque)
 {
@@ -66,10 +66,11 @@ static void attaque_tir_defaut_large(t_attaque_tir * attaque)
     attaque->etalement = PI/10;
 }
 
+
 /**
- * \brief Attaque pquit tire une boule de feu
+ * \brief Attaque qui tire une boule de feu
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_feu_simple(t_attaque_tir * attaque)
 {
@@ -81,25 +82,27 @@ static void attaque_tir_feu_simple(t_attaque_tir * attaque)
     attaque->etalement = 0;
 }
 
+
 /**
- * \brief Attaque pquit tire 3 boules de feu
+ * \brief Attaque qui tire 3 boules de feu
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_feu(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BOULE_FEU;
-    attaque->cooldown = 1000;
+    attaque->cooldown = 1100;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 3;
     attaque->tir_interval = 100;
     attaque->etalement = PI/2;
 }
 
+
 /**
  * \brief Attaque type sniper
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_sniper(t_attaque_tir * attaque)
 {
@@ -111,45 +114,48 @@ static void attaque_tir_sniper(t_attaque_tir * attaque)
     attaque->etalement = 0.349066;
 }
 
+
 /**
- * \brief Attaque type sniper dans 2 directions simultanées
+ * \brief Attaque type sniper dans 3 directions
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_sniper_3(t_attaque_tir * attaque)
 {
     attaque->type_projectile = BOULET;
-    attaque->cooldown = 2000;
+    attaque->cooldown = 2100;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 3;
     attaque->tir_interval = 0;
     attaque->etalement = PI;
 }
 
+
 /**
- * \brief Attaque qui tir des shuriken a 360 degres
+ * \brief Attaque qui tir des shurikens à 360 degres
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_360_shuriken(t_attaque_tir * attaque)
 {
     attaque->type_projectile = SHURIKEN;
-    attaque->cooldown = 2000;
+    attaque->cooldown = 1800;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 13;
     attaque->tir_interval = 300;
     attaque->etalement = 2*PI;
 }
 
+
 /**
- * \brief Attaque qui tir des shuriken a 360 degres, moins, mais plus de salves
+ * \brief Attaque qui tir des shurikens à 360 degres, moins, mais plus de salves
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_360_shuriken_more(t_attaque_tir * attaque)
 {
     attaque->type_projectile = SHURIKEN;
-    attaque->cooldown = 2000;
+    attaque->cooldown = 2100;
     attaque->nb_salves = 3;
     attaque->nb_proj_salve = 5;
     attaque->tir_interval = 200;
@@ -158,14 +164,14 @@ static void attaque_tir_360_shuriken_more(t_attaque_tir * attaque)
 
 
 /**
- * \brief 
+ * \brief Depose un projectile tournant autour de l'endroit où il a été déposé
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_tourner(t_attaque_tir * attaque)
 {
     attaque->type_projectile = TOURNER;
-    attaque->cooldown = 2000;
+    attaque->cooldown = 2200;
     attaque->nb_salves = 1;
     attaque->nb_proj_salve = 1;
     attaque->tir_interval = 0;
@@ -175,7 +181,7 @@ static void attaque_tir_tourner(t_attaque_tir * attaque)
 /**
  * \brief Lance un sabre et revient sur le joueur apres x temps ou s'il touche un mur 
  * 
- * \param attaque Retour l'attaque
+ * \param attaque L'attaque à charger
  */
 static void attaque_tir_sabre(t_attaque_tir * attaque)
 {
@@ -186,5 +192,6 @@ static void attaque_tir_sabre(t_attaque_tir * attaque)
     attaque->tir_interval = 0;
     attaque->etalement = 0;
 }
+
 
 #endif //JEU_DEF_ATTAQUE_TIR_

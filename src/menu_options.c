@@ -1,6 +1,6 @@
 /**
  * \file menu.c
- * \author Guillaume
+ * \author Guillaume Richard
  * \brief Sous menu, volume et acces au menu pour le mapping des touches
  * Permet au joueur de choisir s'il veut du son et d'acceder au menu pour reparamétrer ses touches
  * 

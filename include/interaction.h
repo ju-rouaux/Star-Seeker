@@ -42,8 +42,8 @@ typedef union
 typedef struct
 {
     #include <attributs_entites.h>
-    e_type_inter type_inter;/**Type de l'interaction*/
-    data_inter data;/**Donnée associée a l'interaction*/
+    e_type_inter type_inter;/**< Type de l'interaction*/
+    data_inter data;/**< Donnée associée à l'interaction*/
 } t_interaction;
 
 

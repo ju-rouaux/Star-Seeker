@@ -3,7 +3,7 @@
  * 
  * \brief Librairie de generation
  *
- * \author Camille REMOUÉ
+ * \author Camille Remoué
  *  
  */
 
@@ -64,25 +64,25 @@ typedef struct {
  */
 typedef struct {
 
-    int * matrice; /**<la matrice de niveau*/
-    int hauteur;/**<la hauteur de la matrice*/
-    int longueur;/**<la largeur de la matrice*/
+    int * matrice; /**< La matrice du niveau*/
+    int hauteur; /**< La hauteur de la matrice*/
+    int longueur; /**< La largeur de la matrice*/
 
-    int rouge;/**<Entier entre 0 et 255 representant la quantité de rouge*/
-    int vert;/**<Entier entre 0 et 255 representant la quantité de vert*/
-    int bleu;/**<Entier entre 0 et 255 representant la quantité de bleu*/
+    int rouge; /**< Entier entre 0 et 255 representant la quantité de rouge pour le rendu du niveau */
+    int vert; /**< Entier entre 0 et 255 representant la quantité de vert pour le rendu du niveau */
+    int bleu; /**< Entier entre 0 et 255 representant la quantité de bleu pour le rendu du niveau */
 
     t_info_entites ** liste_infos_entites; /**< Liste des entités présentes dans le niveau */
-    int nb_infos_entite;/**<nombre de liste_infos_entites*/
+    int nb_infos_entite; /**< Nombre de liste_infos_entites */
 
     //Positions des salles de départ et de fin
 
-    int i_dep;/**<Coordonnée i (hauteur) de la salle initiale */
-    int j_dep;/**< Coordonnée j (longueur) de la salle initiale*/
-    int i_fin;/**< Coordonnée i (hauteur) de la salle de fin*/
-    int j_fin;/**< Coordonnée j (longueur) de la salle de fin*/
+    int i_dep; /**< Coordonnée i (hauteur) de la salle initiale */
+    int j_dep; /**< Coordonnée j (longueur) de la salle initiale*/
+    int i_fin; /**< Coordonnée i (hauteur) de la salle de fin*/
+    int j_fin; /**< Coordonnée j (longueur) de la salle de fin*/
 
-    char * nom_planete;/**< nom de la planète*/
+    char * nom_planete;/**< Nom de la planète*/
 
 } niveau_informations_t;
 

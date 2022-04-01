@@ -4,7 +4,7 @@
  * 
  * \brief Librairie de audio.h
  *
- * \author Camille REMOUÉ
+ * \author Camille Remoué
  *  
  */
 
@@ -20,8 +20,7 @@
 
 /**
  * \struct t_bruitages
- * \brief Modelise les bruitages
- * 
+ * \brief Structure comportant tous les sons du jeu
  */
 typedef struct{
 
@@ -37,8 +36,7 @@ typedef struct{
 
 /**
  * \struct t_musiques
- * \brief Modelise les musiques
- * 
+ * \brief Structure comportant toutes les musiques du jeu
  */
 typedef struct{
 

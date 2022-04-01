@@ -26,21 +26,24 @@
 typedef struct
 {
     //Déplacements
-    int to_up;
-    int to_down;
-    int to_left;
-    int to_right;
-    int dash;
 
+    int to_up; /**< Déplacement vers le haut */
+    int to_down; /**< Déplacement vers le bas */
+    int to_left; /**< Déplacement vers la gauche */
+    int to_right; /**< Déplacement vers la droite */
+    int dash; /**< Esquive */
+ 
     //Actions
-    int attack_up;
-    int attack_down;
-    int attack_left;
-    int attack_right;
-    int interaction;
+
+    int attack_up; /**< Attaque vers le haut */
+    int attack_down; /**< Attaque vers le bas */
+    int attack_left; /**< Attaque vers la gauche */
+    int attack_right; /**< Attaque vers la droite */
+    int interaction; /**< Récupération d'un objet au sol */
 
     //Overlay
-    int map_shown;
+
+    int map_shown; /**< Afficher la carte du niveau */
 
 } t_joueur_flags;
 
@@ -52,11 +55,11 @@ typedef struct
 typedef struct s_joueur
 {
     #include <attributs_personnages.h>
-    t_joueur_flags * flags;
 
-    int xp;/**<Niveau d'xp du joueur*/
-    int temps_restant_dash;/**<Temps qui reste avant la fin du dash*/
-    int cooldown_dash;/**<Temps restant avant la possibilité de dash*/
+    t_joueur_flags * flags; /**< Informations sur l'état du clavier du joueur */
+    int xp; /**< Niveau d'expérience du joueur*/
+    int temps_restant_dash;/** <Temps restant avant la fin d'une esquive */
+    int cooldown_dash; /**< Temps restant avant la possibilité de pouvoir réaliser de nouveau une esquive */
 } t_joueur;
 
 

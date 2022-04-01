@@ -1,9 +1,10 @@
 /**
  * \file menu_options_keymap.c
- * \author Guillaume
+ * 
  * \brief Sous menu pour le mapping des touches
  * Permet au joueur de redéfinir ses touches
  * 
+ * \author Guillaume Richard
  */
 
 #ifndef _JEU_MENU_OPTIONS_KEYMAP_

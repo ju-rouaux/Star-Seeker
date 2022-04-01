@@ -31,15 +31,15 @@ typedef enum
  */
 typedef struct
 {
-    SDL_Texture * map;/**<Le tileset pour la map*/
-    SDL_Texture * player;/**<Le tileset pour le joueur*/
-    SDL_Texture * projectiles;/**<Le tileset pour un projectile*/
-    SDL_Texture * monstres_haut;/**<Le tileset pour la partie haute du monstre*/
-    SDL_Texture * monstres_bas;/**<Le tileset pour la partie basse du monstre*/
-    SDL_Texture * overlay;/**<Le tileset pour l'overlay*/
-    SDL_Texture * particules;/**<Le tileset pour les particules*/
-    SDL_Texture * planete;/**<Le tileset pour les planetes*/
-    SDL_Texture * collectibles;/**<Le tileset pour les collectibles*/
+    SDL_Texture * map; /**< Le tileset pour la map */
+    SDL_Texture * player; /**< Le tileset pour le joueur */
+    SDL_Texture * projectiles; /**< Le tileset pour les projectiles */
+    SDL_Texture * monstres_haut; /**< Le tileset pour le corps d'un monstre */
+    SDL_Texture * monstres_bas; /**< Le tileset pour les jambes d'un monstre */
+    SDL_Texture * overlay; /**< Le tileset pour l'overlay */
+    SDL_Texture * particules; /**< Le tileset pour les particules */
+    SDL_Texture * planete; /**< L'apparence des planètes du menu de sélection de niveau */
+    SDL_Texture * collectibles; /**< Le tileset pour les interactions*/
 
 } t_textures;
 

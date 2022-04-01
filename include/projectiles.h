@@ -17,8 +17,7 @@ struct s_joueur;
 
 /**
  * \enum e_type_projectile
- * \brief Modélise le type de projectile
- * 
+ * \brief Les différents types de projectiles pouvant être générés
  */
 typedef enum
 {
@@ -27,7 +26,7 @@ typedef enum
 
 /**
  * \struct t_projectile
- * \brief Modélise une entité.
+ * \brief Modélise un projectile.
  */
 typedef struct s_projectile t_projectile;
 struct s_projectile
