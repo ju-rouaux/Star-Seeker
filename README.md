@@ -42,3 +42,5 @@ Sur son chemin, il rencontre des monstres qu’il doit combattre pour avancer da
 #### ----- Autres compétences -----
 ```ESPACE``` : Esquive (dash)<br />
 ```E``` : Interaction<br />
+```ESC``` : Voyage sur une autre planètes, et accès menu principal<br />
+```TAB``` : Afficher la map<br />
