@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -67,17 +67,39 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier audio.c</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Gestion des bruitages et de la musique.  
+<p>Gestion des musiques et des bruitages.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="audio_8h_source.html">audio.h</a>&gt;</code><br />
-</div><a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Gestion des bruitages et de la musique. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Camille REMOUÉ </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a4559069a0477805f310137e5a551b7a0"><td class="memItemLeft" align="right" valign="top"><a id="a4559069a0477805f310137e5a551b7a0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_CHANNELS</b>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a4559069a0477805f310137e5a551b7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4ccf7bcc3afa505c7e893a4017706569"><td class="memItemLeft" align="right" valign="top"><a id="a4ccf7bcc3afa505c7e893a4017706569"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changerVolume</b> (int volume)</td></tr>
+<tr class="separator:a4ccf7bcc3afa505c7e893a4017706569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab208cb811e41308fe78e1665c0476600"><td class="memItemLeft" align="right" valign="top"><a id="ab208cb811e41308fe78e1665c0476600"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>chargerAudio</b> (int volume, <a class="el" href="structt__musiques.html">t_musiques</a> **musiques, <a class="el" href="structt__bruitages.html">t_bruitages</a> **bruitages)</td></tr>
+<tr class="separator:ab208cb811e41308fe78e1665c0476600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memItemLeft" align="right" valign="top"><a id="adaf0fca24a49ad3e4e5d4b40e65f344b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruireAudio</b> (<a class="el" href="structt__musiques.html">t_musiques</a> **m, <a class="el" href="structt__bruitages.html">t_bruitages</a> **b)</td></tr>
+<tr class="separator:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Gestion des musiques et des bruitages. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

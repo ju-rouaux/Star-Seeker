@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -88,10 +88,10 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8c.html#a48d76eceb81b1e6477d3bb1f80060b7b">detruireTextures</a> (<a class="el" href="structt__textures.html">t_textures</a> **textures)</td></tr>
 <tr class="memdesc:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour les textures et mets son pointeur à NULL.  <a href="textures_8c.html#a48d76eceb81b1e6477d3bb1f80060b7b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a48d76eceb81b1e6477d3bb1f80060b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7f9546af007eb8aa8382f6a097a48a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8c.html#af7f9546af007eb8aa8382f6a097a48a1">splitTexture</a> (SDL_Rect *rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)</td></tr>
+<tr class="memitem:af7f9546af007eb8aa8382f6a097a48a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8c.html#af7f9546af007eb8aa8382f6a097a48a1">splitTexture</a> (SDL_Rect *rectangle, int <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, int <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, int tailleX, int tailleY, int decalageX, int decalageY)</td></tr>
 <tr class="memdesc:af7f9546af007eb8aa8382f6a097a48a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outil permettant de découper une tileset et récupérer une partie de la texture.  <a href="textures_8c.html#af7f9546af007eb8aa8382f6a097a48a1">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af7f9546af007eb8aa8382f6a097a48a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37932c13d71c8796a36f8d86b6a7718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8c.html#af37932c13d71c8796a36f8d86b6a7718">tileNiveau</a> (SDL_Rect *rectangle, <a class="el" href="textures_8h.html#aa8ef9b33c5c731be9eb0f229a920f3ff">t_tile_type</a> type)</td></tr>
+<tr class="memitem:af37932c13d71c8796a36f8d86b6a7718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="textures_8c.html#af37932c13d71c8796a36f8d86b6a7718">tileNiveau</a> (SDL_Rect *rectangle, <a class="el" href="textures_8h.html#aa8ef9b33c5c731be9eb0f229a920f3ff">t_tile_type</a> <a class="el" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>)</td></tr>
 <tr class="memdesc:af37932c13d71c8796a36f8d86b6a7718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré.  <a href="textures_8c.html#af37932c13d71c8796a36f8d86b6a7718">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af37932c13d71c8796a36f8d86b6a7718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -214,6 +214,10 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">rectangle</td><td>Rectangle où stocker le résultat de calcul </td></tr>
     <tr><td class="paramname">x</td><td>Position en x de la tile désirée </td></tr>
     <tr><td class="paramname">y</td><td>Position en y de la tile désirée </td></tr>
+    <tr><td class="paramname">tailleX</td><td>Longeur du rect </td></tr>
+    <tr><td class="paramname">tailleY</td><td>hauteur du rect </td></tr>
+    <tr><td class="paramname">decalageX</td><td>decalage x entre 2 posiitons dans une animation </td></tr>
+    <tr><td class="paramname">decalageY</td><td>decalage y entre 2 posiitons dans une animation </td></tr>
   </table>
   </dd>
 </dl>

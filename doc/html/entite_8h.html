@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -81,7 +81,7 @@ $(function() {
 <code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="animation_8h_source.html">animation.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
-<code>#include &lt;attributs_entites.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="attributs__entites_8h_source.html">attributs_entites.h</a>&gt;</code><br />
 </div>
 <p><a href="entite_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -93,10 +93,15 @@ typedef struct s_entite&#160;</td><td class="memItemRight" valign="bottom"><b>t_
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
-<tr class="memitem:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memItemLeft" align="right" valign="top"><a id="aaafe4b6a828c515418ebc7c038ac55b2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> { <b>E_AUCUN</b> = -1
+<tr class="memitem:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memItemLeft" align="right" valign="top"><a id="aaafe4b6a828c515418ebc7c038ac55b2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> { <br />
+&#160;&#160;<b>E_AUCUN</b> = -1
 , <b>E_JOUEUR</b>
 , <b>E_MONSTRE</b>
 , <b>E_PROJECTILE</b>
+, <br />
+&#160;&#160;<b>E_PARTICULE</b>
+, <b>E_INTERACTION</b>
+<br />
  }</td></tr>
 <tr class="memdesc:aaafe4b6a828c515418ebc7c038ac55b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant permettant de reconnaitre la nature d'une entité. <br /></td></tr>
 <tr class="separator:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,10 +114,10 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a6a8da1bb938d887eff7742638a20f63f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a> (const <a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
 <tr class="memdesc:a6a8da1bb938d887eff7742638a20f63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position entraine une collision avec un mur.  <a href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6a8da1bb938d887eff7742638a20f63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a513005586a3e271551d04be4fabbcbcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">ajouterEntiteListe</a> (t_liste *liste, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
-<tr class="memdesc:a513005586a3e271551d04be4fabbcbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une entité à la liste sans perturber son fonctionnement.  <a href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a513005586a3e271551d04be4fabbcbcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">ajouterEntiteListe</a> (<a class="el" href="structt__liste.html">t_liste</a> *liste, <a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
+<tr class="memdesc:a513005586a3e271551d04be4fabbcbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une entité à la liste sans perturber l'emplacement de la tete.  <a href="entite_8h.html#a513005586a3e271551d04be4fabbcbcc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a513005586a3e271551d04be4fabbcbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a0fcc0be31f136b0b50fc2cd0ad80bb32">creerEntite</a> (float x, float y, SDL_Texture *texture)</td></tr>
+<tr class="memitem:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a0fcc0be31f136b0b50fc2cd0ad80bb32">creerEntite</a> (float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, SDL_Texture *<a class="el" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>)</td></tr>
 <tr class="memdesc:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une entité générique.  <a href="entite_8h.html#a0fcc0be31f136b0b50fc2cd0ad80bb32">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0fcc0be31f136b0b50fc2cd0ad80bb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29f11ad700be8e6e8dc23d460863f78a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#a29f11ad700be8e6e8dc23d460863f78a">detruireEntite</a> (<a class="el" href="structt__entite.html">t_entite</a> **entite)</td></tr>
@@ -133,7 +138,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void ajouterEntiteListe </td>
           <td>(</td>
-          <td class="paramtype">t_liste *&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
           <td class="paramname"><em>liste</em>, </td>
         </tr>
         <tr>
@@ -150,7 +155,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ajoute une entité à la liste sans perturber son fonctionnement. </p>
+<p>Ajoute une entité à la liste sans perturber l'emplacement de la tete. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">liste</td><td>La liste où ajouter l'entité </td></tr>

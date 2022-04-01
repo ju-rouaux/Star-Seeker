@@ -1,3 +1,11 @@
+/**
+ * \file attributs_personnages.h
+ * 
+ * \brief Fichier à inclure dans une structure héritant des attributs des personnages.
+ * 
+ * \author Julien Rouaux
+ */
+
 #include <attributs_entites.h>
 int pv; /**< Points de vie */
 

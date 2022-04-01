@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -80,47 +80,67 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="personnage_8h.html">personnage.h</a>&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="attaque_8h.html">attaque.h</a>&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="joueur_8h.html#a356b59b347562c683291691f5aa4dca0">   18</a></span>&#160;<span class="preprocessor">#define PROPORTION_JOUEUR 1.6 </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="joueur_8h.html#a356b59b347562c683291691f5aa4dca0">   18</a></span>&#160;<span class="preprocessor">#define PROPORTION_JOUEUR 1.2 </span></div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="joueur_8h.html#a2ffc1a78b3ae6e72377a2641899ae51c">   19</a></span>&#160;<span class="preprocessor">#define VITESSE_JOUEUR_DEFAULT 6.5 </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="joueur_8h.html#abd85826b77aa438c8057cce731f559b3">   20</a></span>&#160;<span class="preprocessor">#define PV_JOUEUR_DEFAULT 20 </span></div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> to_up;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> to_down;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> to_left;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> to_right;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Temporaire</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> shooting;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//Attaque, dash, ...</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//Déplacements</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a5a35703d4a0fbf02168a9bd4a5db61d1">   30</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a5a35703d4a0fbf02168a9bd4a5db61d1">to_up</a>; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#ad5bd82d89f51be81e6f2d80b547ed681">   31</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#ad5bd82d89f51be81e6f2d80b547ed681">to_down</a>; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a45a6a433d9acdec419f385b713d9ff5c">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a45a6a433d9acdec419f385b713d9ff5c">to_left</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a2f567eed9f88bf6c3f9dc6e9bc80d2a1">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a2f567eed9f88bf6c3f9dc6e9bc80d2a1">to_right</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a87b35e6e3ae4392fd6692113ae1960ea">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a87b35e6e3ae4392fd6692113ae1960ea">dash</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//Actions</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Overlay</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> map_showing;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> interaction;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_joueur</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    #include &lt;attributs_personnages.h&gt;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a> * flags;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//Autres données comme l&#39;expererience, l&#39;inventaire...</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <a class="code" href="structt__joueur.html">t_joueur</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<a class="code" href="structt__joueur.html">t_joueur</a> * <a class="code" href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, SDL_Texture * apparence);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> <a class="code" href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> ** joueur);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_JOUEUR_</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a9e0225ad984f387a79a93532de1bc799">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a9e0225ad984f387a79a93532de1bc799">attack_up</a>; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a0caed6ea69c693eccd42d3d2f254bb6d">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a0caed6ea69c693eccd42d3d2f254bb6d">attack_down</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a29952e93fe1cd995a0a613fa354ffd6c">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a29952e93fe1cd995a0a613fa354ffd6c">attack_left</a>; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#a0b6f21eff9dca2ee6bd5409140dce61a">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#a0b6f21eff9dca2ee6bd5409140dce61a">attack_right</a>; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#af589bc01e1796d92bb917ff40a7d0855">   42</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#af589bc01e1796d92bb917ff40a7d0855">interaction</a>; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//Overlay</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structt__joueur__flags.html#af63cceb8fc0cbed7f162a311a5ba6d50">   46</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structt__joueur__flags.html#af63cceb8fc0cbed7f162a311a5ba6d50">map_shown</a>; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>s_joueur</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">    #include &lt;<a class="code" href="attributs__personnages_8h.html">attributs_personnages.h</a>&gt;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="structt__joueur__flags.html">t_joueur_flags</a> * flags; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> xp; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> temps_restant_dash;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> cooldown_dash; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <a class="code" href="structt__joueur.html">t_joueur</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<a class="code" href="structt__joueur.html">t_joueur</a> * <a class="code" href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a>(<span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, SDL_Texture * apparence);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> <a class="code" href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> ** joueur);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_JOUEUR_</span></div>
 <div class="ttc" id="aattaque_8h_html"><div class="ttname"><a href="attaque_8h.html">attaque.h</a></div><div class="ttdoc">Module gérant les attaques des personnages.</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_aa4f0d3eebc3c443f9be81bf48561a217"><div class="ttname"><a href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:10</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_ad0da36b2558901e21e7a30f6c227a45e"><div class="ttname"><a href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:9</div></div>
+<div class="ttc" id="aattributs__personnages_8h_html"><div class="ttname"><a href="attributs__personnages_8h.html">attributs_personnages.h</a></div><div class="ttdoc">Fichier à inclure dans une structure héritant des attributs des personnages.</div></div>
 <div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Module de manipulation des entites.</div></div>
-<div class="ttc" id="ajoueur_8h_html_a1e9013c729e9fe43289429dc9df96d0e"><div class="ttname"><a href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a></div><div class="ttdeci">void detruireJoueur(t_joueur **joueur)</div><div class="ttdoc">Libère la mémoire allouée au joueur et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> joueur.c:179</div></div>
-<div class="ttc" id="ajoueur_8h_html_abede277b4d13650249d6ef69b267f2a8"><div class="ttname"><a href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a></div><div class="ttdeci">t_joueur * creerJoueur(float x, float y, SDL_Texture *apparence)</div><div class="ttdoc">Génère une structure joueur.</div><div class="ttdef"><b>Definition:</b> joueur.c:199</div></div>
+<div class="ttc" id="ajoueur_8h_html_a1e9013c729e9fe43289429dc9df96d0e"><div class="ttname"><a href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a></div><div class="ttdeci">void detruireJoueur(t_joueur **joueur)</div><div class="ttdoc">Libère la mémoire allouée au joueur et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> joueur.c:228</div></div>
+<div class="ttc" id="ajoueur_8h_html_abede277b4d13650249d6ef69b267f2a8"><div class="ttname"><a href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a></div><div class="ttdeci">t_joueur * creerJoueur(float x, float y, SDL_Texture *apparence)</div><div class="ttdoc">Génère une structure joueur.</div><div class="ttdef"><b>Definition:</b> joueur.c:248</div></div>
 <div class="ttc" id="apersonnage_8h_html"><div class="ttname"><a href="personnage_8h.html">personnage.h</a></div><div class="ttdoc">Module.</div></div>
 <div class="ttc" id="astructt__joueur__flags_html"><div class="ttname"><a href="structt__joueur__flags.html">t_joueur_flags</a></div><div class="ttdoc">Structure contenant les entrées clavier/souris actives du joueur.</div><div class="ttdef"><b>Definition:</b> joueur.h:27</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a0b6f21eff9dca2ee6bd5409140dce61a"><div class="ttname"><a href="structt__joueur__flags.html#a0b6f21eff9dca2ee6bd5409140dce61a">t_joueur_flags::attack_right</a></div><div class="ttdeci">int attack_right</div><div class="ttdef"><b>Definition:</b> joueur.h:41</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a0caed6ea69c693eccd42d3d2f254bb6d"><div class="ttname"><a href="structt__joueur__flags.html#a0caed6ea69c693eccd42d3d2f254bb6d">t_joueur_flags::attack_down</a></div><div class="ttdeci">int attack_down</div><div class="ttdef"><b>Definition:</b> joueur.h:39</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a29952e93fe1cd995a0a613fa354ffd6c"><div class="ttname"><a href="structt__joueur__flags.html#a29952e93fe1cd995a0a613fa354ffd6c">t_joueur_flags::attack_left</a></div><div class="ttdeci">int attack_left</div><div class="ttdef"><b>Definition:</b> joueur.h:40</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a2f567eed9f88bf6c3f9dc6e9bc80d2a1"><div class="ttname"><a href="structt__joueur__flags.html#a2f567eed9f88bf6c3f9dc6e9bc80d2a1">t_joueur_flags::to_right</a></div><div class="ttdeci">int to_right</div><div class="ttdef"><b>Definition:</b> joueur.h:33</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a45a6a433d9acdec419f385b713d9ff5c"><div class="ttname"><a href="structt__joueur__flags.html#a45a6a433d9acdec419f385b713d9ff5c">t_joueur_flags::to_left</a></div><div class="ttdeci">int to_left</div><div class="ttdef"><b>Definition:</b> joueur.h:32</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a5a35703d4a0fbf02168a9bd4a5db61d1"><div class="ttname"><a href="structt__joueur__flags.html#a5a35703d4a0fbf02168a9bd4a5db61d1">t_joueur_flags::to_up</a></div><div class="ttdeci">int to_up</div><div class="ttdef"><b>Definition:</b> joueur.h:30</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a87b35e6e3ae4392fd6692113ae1960ea"><div class="ttname"><a href="structt__joueur__flags.html#a87b35e6e3ae4392fd6692113ae1960ea">t_joueur_flags::dash</a></div><div class="ttdeci">int dash</div><div class="ttdef"><b>Definition:</b> joueur.h:34</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_a9e0225ad984f387a79a93532de1bc799"><div class="ttname"><a href="structt__joueur__flags.html#a9e0225ad984f387a79a93532de1bc799">t_joueur_flags::attack_up</a></div><div class="ttdeci">int attack_up</div><div class="ttdef"><b>Definition:</b> joueur.h:38</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_ad5bd82d89f51be81e6f2d80b547ed681"><div class="ttname"><a href="structt__joueur__flags.html#ad5bd82d89f51be81e6f2d80b547ed681">t_joueur_flags::to_down</a></div><div class="ttdeci">int to_down</div><div class="ttdef"><b>Definition:</b> joueur.h:31</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_af589bc01e1796d92bb917ff40a7d0855"><div class="ttname"><a href="structt__joueur__flags.html#af589bc01e1796d92bb917ff40a7d0855">t_joueur_flags::interaction</a></div><div class="ttdeci">int interaction</div><div class="ttdef"><b>Definition:</b> joueur.h:42</div></div>
+<div class="ttc" id="astructt__joueur__flags_html_af63cceb8fc0cbed7f162a311a5ba6d50"><div class="ttname"><a href="structt__joueur__flags.html#af63cceb8fc0cbed7f162a311a5ba6d50">t_joueur_flags::map_shown</a></div><div class="ttdeci">int map_shown</div><div class="ttdef"><b>Definition:</b> joueur.h:46</div></div>
 <div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

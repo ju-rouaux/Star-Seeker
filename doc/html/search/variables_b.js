@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['x_355',['x',['../structt__camera.html#a4436231bb0033d882f9474dcf6b4065b',1,'t_camera']]]
+  ['nb_5fentites_578',['nb_entites',['../structt__info__entites.html#a793286dd43d2380676ada1beb509e771',1,'t_info_entites']]],
+  ['nb_5fproj_5fsalve_579',['nb_proj_salve',['../structt__attaque__tir.html#aa9ff1170ae3b69d969c62005381ea530',1,'t_attaque_tir']]],
+  ['nb_5fpv_580',['nb_pv',['../uniondata__inter.html#a9d4e69de9222577e2bd3447f6943d44b',1,'data_inter']]],
+  ['nb_5fsalves_581',['nb_salves',['../structt__attaque__tir.html#ad7a799864f764222e79d5aedc1d4ab12',1,'t_attaque_tir']]],
+  ['nom_5fattaque_582',['nom_attaque',['../attributs__personnages_8h.html#a353e5ba4e8652f09716ad55440c9bf0e',1,'attributs_personnages.h']]],
+  ['nombre_583',['nombre',['../structt__dimensions__salle.html#ac3d52a2b365b1bce6524cb766bffc92e',1,'t_dimensions_salle']]]
 ];

@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -67,17 +67,46 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier audio.h</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Librairie de <a class="el" href="audio_8c.html" title="Gestion des bruitages et de la musique.">audio.c</a>.  
+<p>Librairie de <a class="el" href="audio_8h.html" title="Librairie de audio.h.">audio.h</a>.  
 <a href="#details">Plus de détails...</a></p>
-
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+</div>
 <p><a href="audio_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__bruitages.html">t_bruitages</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure comportant tous les sons du jeu.  <a href="structt__bruitages.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__musiques.html">t_musiques</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure comportant toutes les musiques du jeu.  <a href="structt__musiques.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab208cb811e41308fe78e1665c0476600"><td class="memItemLeft" align="right" valign="top"><a id="ab208cb811e41308fe78e1665c0476600"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>chargerAudio</b> (int volume, <a class="el" href="structt__musiques.html">t_musiques</a> **musiques, <a class="el" href="structt__bruitages.html">t_bruitages</a> **bruitages)</td></tr>
+<tr class="separator:ab208cb811e41308fe78e1665c0476600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memItemLeft" align="right" valign="top"><a id="adaf0fca24a49ad3e4e5d4b40e65f344b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruireAudio</b> (<a class="el" href="structt__musiques.html">t_musiques</a> **m, <a class="el" href="structt__bruitages.html">t_bruitages</a> **b)</td></tr>
+<tr class="separator:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccf7bcc3afa505c7e893a4017706569"><td class="memItemLeft" align="right" valign="top"><a id="a4ccf7bcc3afa505c7e893a4017706569"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changerVolume</b> (int volume)</td></tr>
+<tr class="separator:a4ccf7bcc3afa505c7e893a4017706569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Librairie de <a class="el" href="audio_8c.html" title="Gestion des bruitages et de la musique.">audio.c</a>. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Camille REMOUÉ </dd></dl>
+<div class="textblock"><p >Librairie de <a class="el" href="audio_8h.html" title="Librairie de audio.h.">audio.h</a>. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -19,15 +19,15 @@ typedef struct s\+\_\+monstre {\bfseries t\+\_\+monstre}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}\label{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}} 
-enum {\bfseries e\+\_\+deplacement\+\_\+monstre} \{ {\bfseries STATIQUE}
+enum \mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}} \{ {\bfseries STATIQUE}
+, {\bfseries VERS\+\_\+J}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Type de déplacement pouvant être associé à un monstre, permet de définir son comportement. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}\label{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}} 
-t\+\_\+monstre $\ast$ {\bfseries creer\+Monstre} (float x, float y, float vitesse, int pv, float taille, e\+\_\+nom\+\_\+attaque type\+\_\+attaque, e\+\_\+deplacement\+\_\+monstre deplacement)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$ \mbox{\hyperlink{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}{creer\+Monstre}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, float \mbox{\hyperlink{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}{vitesse}}, int \mbox{\hyperlink{attributs__personnages_8h_af1b58e608320ff939118a2a719ba3e6b}{pv}}, float \mbox{\hyperlink{attributs__entites_8h_a117a40becce0ce457e4ca4a705461882}{taille}}, \mbox{\hyperlink{attaque_8h_ac7dcc833fc35572565d511b3875d7880}{e\+\_\+nom\+\_\+attaque}} type\+\_\+attaque, \mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}} deplacement)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -36,3 +36,36 @@ Module de gestion des monstres.
 \begin{DoxyAuthor}{Auteur}
 Julien Rouaux 
 \end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}\label{monstre_8h_ae6d9e9ba039bfa6b61191ef778fbc6bf}} 
+\index{monstre.h@{monstre.h}!creerMonstre@{creerMonstre}}
+\index{creerMonstre@{creerMonstre}!monstre.h@{monstre.h}}
+\doxysubsubsection{\texorpdfstring{creerMonstre()}{creerMonstre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}}$\ast$ creer\+Monstre (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{vitesse,  }\item[{int}]{pv,  }\item[{float}]{taille,  }\item[{\mbox{\hyperlink{attaque_8h_ac7dcc833fc35572565d511b3875d7880}{e\+\_\+nom\+\_\+attaque}}}]{type\+\_\+attaque,  }\item[{\mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}}}]{deplacement }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un monstre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & La position en x \\
+\hline
+{\em y} & La position en y \\
+\hline
+{\em vitesse} & Sa vitesse en tiles par secondes \\
+\hline
+{\em pv} & Son nombre de points de vie \\
+\hline
+{\em taille} & Sa taille à l\textquotesingle{}échelle d\textquotesingle{}une tile \\
+\hline
+{\em type\+\_\+attaque} & L\textquotesingle{}attaque équipée \\
+\hline
+{\em deplacement} & La méthode de déplacement équipée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur projectile (NULL si echec). 
+\end{DoxyReturn}

@@ -8,19 +8,23 @@ Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures,
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$audio.\+h$>$}\newline
 {\ttfamily \#include $<$window.\+h$>$}\newline
 {\ttfamily \#include $<$textures.\+h$>$}\newline
 {\ttfamily \#include $<$camera.\+h$>$}\newline
 {\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$sauvegarde.\+h$>$}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}{initialiser\+Touches}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
-\begin{DoxyCompactList}\small\item\em Initialise les touches du clavier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moteur_8c_a2cd613591520b21b4e6859b18ca7845e}{reguler\+FPS}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Fonction bloquante destinée à bloquer l\textquotesingle{}exécution du programme pour qu\textquotesingle{}il puisse tourner à 60 images par secondes, au maximum. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{moteur_8c_a4f3bfe3a3ec1fc0245a846151bf733ba}{initialiser\+Params}} (\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$parametres)
+\begin{DoxyCompactList}\small\item\em Initialise les parametres. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$ \mbox{\hyperlink{moteur_8c_a980e14a5af12b07ba4baf701b77954ae}{charger\+Moteur}} (unsigned int temps)
-\begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}{detruire\+Moteur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$moteur)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}{update\+Echelle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -44,8 +48,13 @@ Julien Rouaux
 
 
 
-Charge une fenêtre, un rendu, les textures, et une caméra. 
+Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em temps} & le temps actuel du jeu \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 Structure moteur, NULL si échec. 
 \end{DoxyReturn}
@@ -57,26 +66,43 @@ Structure moteur, NULL si échec.
 
 
 
-Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. 
+Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em moteur} & L\textquotesingle{}adresse du pointeur du moteur. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}\label{moteur_8c_ab9c8794de98e6e3d33ee1a9b8833b240}} 
-\index{moteur.c@{moteur.c}!initialiserTouches@{initialiserTouches}}
-\index{initialiserTouches@{initialiserTouches}!moteur.c@{moteur.c}}
-\doxysubsubsection{\texorpdfstring{initialiserTouches()}{initialiserTouches()}}
-{\footnotesize\ttfamily void initialiser\+Touches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{moteur_8c_a4f3bfe3a3ec1fc0245a846151bf733ba}\label{moteur_8c_a4f3bfe3a3ec1fc0245a846151bf733ba}} 
+\index{moteur.c@{moteur.c}!initialiserParams@{initialiserParams}}
+\index{initialiserParams@{initialiserParams}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{initialiserParams()}{initialiserParams()}}
+{\footnotesize\ttfamily static void initialiser\+Params (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$}]{parametres }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Initialise les touches du clavier. 
+Initialise les parametres. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em moteur} & moteur du jeu \\
+{\em parametres} & Paramètres du moteur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{moteur_8c_a2cd613591520b21b4e6859b18ca7845e}\label{moteur_8c_a2cd613591520b21b4e6859b18ca7845e}} 
+\index{moteur.c@{moteur.c}!regulerFPS@{regulerFPS}}
+\index{regulerFPS@{regulerFPS}!moteur.c@{moteur.c}}
+\doxysubsubsection{\texorpdfstring{regulerFPS()}{regulerFPS()}}
+{\footnotesize\ttfamily void reguler\+FPS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Fonction bloquante destinée à bloquer l\textquotesingle{}exécution du programme pour qu\textquotesingle{}il puisse tourner à 60 images par secondes, au maximum. 
+
+Cette fonction actualise les champs du moteur qui concernent le temps. Elle est destinée à être appelée au début de chaque boucles du jeu.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}\label{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}} 

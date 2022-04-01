@@ -16,9 +16,9 @@ Module de chargement de textures. Propose aussi quelques outils relatifs aux ter
 \begin{DoxyCompactList}\small\item\em Charge les textures du jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{textures_8c_a48d76eceb81b1e6477d3bb1f80060b7b}{detruire\+Textures}} (\mbox{\hyperlink{structt__textures}{t\+\_\+textures}} $\ast$$\ast$textures)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour les textures et mets son pointeur à NULL. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{textures_8c_af7f9546af007eb8aa8382f6a097a48a1}{split\+Texture}} (SDL\+\_\+\+Rect $\ast$rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY)
+void \mbox{\hyperlink{textures_8c_af7f9546af007eb8aa8382f6a097a48a1}{split\+Texture}} (SDL\+\_\+\+Rect $\ast$rectangle, int \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, int \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, int tailleX, int tailleY, int decalageX, int decalageY)
 \begin{DoxyCompactList}\small\item\em Outil permettant de découper une tileset et récupérer une partie de la texture. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{textures_8c_af37932c13d71c8796a36f8d86b6a7718}{tile\+Niveau}} (SDL\+\_\+\+Rect $\ast$rectangle, \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} type)
+void \mbox{\hyperlink{textures_8c_af37932c13d71c8796a36f8d86b6a7718}{tile\+Niveau}} (SDL\+\_\+\+Rect $\ast$rectangle, \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}})
 \begin{DoxyCompactList}\small\item\em Permet de récupérer la bonne partie du tileset de niveau en fonction du type de tile désiré. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -81,6 +81,14 @@ Outil permettant de découper une tileset et récupérer une partie de la textur
 {\em x} & Position en x de la tile désirée \\
 \hline
 {\em y} & Position en y de la tile désirée \\
+\hline
+{\em tailleX} & Longeur du rect \\
+\hline
+{\em tailleY} & hauteur du rect \\
+\hline
+{\em decalageX} & decalage x entre 2 posiitons dans une animation \\
+\hline
+{\em decalageY} & decalage y entre 2 posiitons dans une animation \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{textures_8c_af37932c13d71c8796a36f8d86b6a7718}\label{textures_8c_af37932c13d71c8796a36f8d86b6a7718}} 

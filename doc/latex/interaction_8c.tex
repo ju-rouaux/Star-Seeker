@@ -1,0 +1,97 @@
+\hypertarget{interaction_8c}{}\doxysection{Référence du fichier src/interaction.c}
+\label{interaction_8c}\index{src/interaction.c@{src/interaction.c}}
+
+
+Entités supportant une interaction par le joueur.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$joueur.\+h$>$}\newline
+{\ttfamily \#include $<$attaque.\+h$>$}\newline
+{\ttfamily \#include $<$interaction.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{interaction_8c_ae26d1ffa090f2392e7a543fed740ba40}{dessiner\+Interaction}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}} $\ast$interaction)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}encapsulation pour dessiner une interaction et ainsi lui ajouter la donnée de texture car la fonction de création ne permet d\textquotesingle{}en ajouter une. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interaction_8c_a50431ff4708e4c33e3aeb37f9a9bbe6a}{interagir}} (\mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}} $\ast$interaction, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Exécute l\textquotesingle{}interaction sur le joueur si elle est possible et si elle est demandée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}} $\ast$ \mbox{\hyperlink{interaction_8c_a080e59822cd87213be0039f71059bfe3}{creer\+Interaction}} (\mbox{\hyperlink{interaction_8h_a198380557efe68f0279cd18b34f20960}{e\+\_\+type\+\_\+inter}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, \mbox{\hyperlink{uniondata__inter}{data\+\_\+inter}} data)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une interaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Entités supportant une interaction par le joueur. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{interaction_8c_a080e59822cd87213be0039f71059bfe3}\label{interaction_8c_a080e59822cd87213be0039f71059bfe3}} 
+\index{interaction.c@{interaction.c}!creerInteraction@{creerInteraction}}
+\index{creerInteraction@{creerInteraction}!interaction.c@{interaction.c}}
+\doxysubsubsection{\texorpdfstring{creerInteraction()}{creerInteraction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}}$\ast$ creer\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interaction_8h_a198380557efe68f0279cd18b34f20960}{e\+\_\+type\+\_\+inter}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{\mbox{\hyperlink{uniondata__inter}{data\+\_\+inter}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une interaction. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & La nature de l\textquotesingle{}interaction désirée \\
+\hline
+{\em x} & La position en x \\
+\hline
+{\em y} & La position en y \\
+\hline
+{\em data} & La donnée associée à l\textquotesingle{}interaction\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur interaction (NULL si echec). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interaction_8c_ae26d1ffa090f2392e7a543fed740ba40}\label{interaction_8c_ae26d1ffa090f2392e7a543fed740ba40}} 
+\index{interaction.c@{interaction.c}!dessinerInteraction@{dessinerInteraction}}
+\index{dessinerInteraction@{dessinerInteraction}!interaction.c@{interaction.c}}
+\doxysubsubsection{\texorpdfstring{dessinerInteraction()}{dessinerInteraction()}}
+{\footnotesize\ttfamily static int dessiner\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}} $\ast$}]{interaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fonction d\textquotesingle{}encapsulation pour dessiner une interaction et ainsi lui ajouter la donnée de texture car la fonction de création ne permet d\textquotesingle{}en ajouter une. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em interaction} & L\textquotesingle{}interaction à traiter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, sinon une valeur négative (SDL\+\_\+\+Error() pour connaitre l\textquotesingle{}erreur). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interaction_8c_a50431ff4708e4c33e3aeb37f9a9bbe6a}\label{interaction_8c_a50431ff4708e4c33e3aeb37f9a9bbe6a}} 
+\index{interaction.c@{interaction.c}!interagir@{interagir}}
+\index{interagir@{interagir}!interaction.c@{interaction.c}}
+\doxysubsubsection{\texorpdfstring{interagir()}{interagir()}}
+{\footnotesize\ttfamily int interagir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__interaction}{t\+\_\+interaction}} $\ast$}]{interaction,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Exécute l\textquotesingle{}interaction sur le joueur si elle est possible et si elle est demandée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em interaction} & L\textquotesingle{}interaction à exécuter \\
+\hline
+{\em joueur} & Le joueur\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si aucune interaction n\textquotesingle{}a eu lieu, 1 si elle a eu lieu mais -\/1 si destruction. 
+\end{DoxyReturn}

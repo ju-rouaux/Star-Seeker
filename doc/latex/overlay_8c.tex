@@ -9,12 +9,14 @@ Module de gestion de l\textquotesingle{}interface utilisateur in-\/game.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{overlay_8c_a0ad357ddc03b5f5132aa6979df6adf64}{dessiner\+\_\+tile\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int type, float x, float y)
+static void \mbox{\hyperlink{overlay_8c_a0ad357ddc03b5f5132aa6979df6adf64}{dessiner\+\_\+tile\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}})
 \begin{DoxyCompactList}\small\item\em Dessine une tile de map à la position voulue. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{overlay_8c_a351fc346334328961b7d26c44547d57c}{type\+\_\+salle\+\_\+map}} (int matrice\mbox{[}HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}, int x, int y)
+static int \mbox{\hyperlink{overlay_8c_ae43ff8520270751309c5b9a3b900953b}{type\+\_\+salle\+\_\+map}} (int $\ast$matrice, int hauteur, int longueur, int \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, int \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}})
 \begin{DoxyCompactList}\small\item\em Attribue un id de tile à chaque salle pour la map \+: est-\/ce une salle simple ? Une salle reliée en haut et à gauche ? \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{overlay_8c_a981c222c503070d57f4edb8ca611561b}{dessiner\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$infos\+Niveau, int id\+Salle)
-\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{overlay_8c_a5d5c962ab2bacf2671b8833ad1de8c83}{dessiner\+\_\+hud}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Dessine le HUD. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -26,6 +28,23 @@ Camille Remoué
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{overlay_8c_a5d5c962ab2bacf2671b8833ad1de8c83}\label{overlay_8c_a5d5c962ab2bacf2671b8833ad1de8c83}} 
+\index{overlay.c@{overlay.c}!dessiner\_hud@{dessiner\_hud}}
+\index{dessiner\_hud@{dessiner\_hud}!overlay.c@{overlay.c}}
+\doxysubsubsection{\texorpdfstring{dessiner\_hud()}{dessiner\_hud()}}
+{\footnotesize\ttfamily void dessiner\+\_\+hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Dessine le HUD. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Informations d\textquotesingle{}échelle et de taille d\textquotesingle{}écran \\
+\hline
+{\em joueur} & Points de vie \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{overlay_8c_a981c222c503070d57f4edb8ca611561b}\label{overlay_8c_a981c222c503070d57f4edb8ca611561b}} 
 \index{overlay.c@{overlay.c}!dessiner\_map@{dessiner\_map}}
 \index{dessiner\_map@{dessiner\_map}!overlay.c@{overlay.c}}
@@ -59,7 +78,7 @@ Dessine une tile de map à la position voulue.
 \begin{DoxyParams}{Paramètres}
 {\em moteur} & nécessaire pour dessiner sur l\textquotesingle{}écran \\
 \hline
-{\em type} & Type de salle, voir la fonction \mbox{\hyperlink{overlay_8c_a351fc346334328961b7d26c44547d57c}{type\+\_\+salle\+\_\+map()}} \\
+{\em type} & Type de salle, voir la fonction \mbox{\hyperlink{overlay_8c_ae43ff8520270751309c5b9a3b900953b}{type\+\_\+salle\+\_\+map()}} \\
 \hline
 {\em x} & Coordonnée de la salle à dessiner \\
 \hline
@@ -69,11 +88,11 @@ Dessine une tile de map à la position voulue.
 \begin{DoxyReturn}{Renvoie}
 un id de tile entre 0 et 15 
 \end{DoxyReturn}
-\mbox{\Hypertarget{overlay_8c_a351fc346334328961b7d26c44547d57c}\label{overlay_8c_a351fc346334328961b7d26c44547d57c}} 
+\mbox{\Hypertarget{overlay_8c_ae43ff8520270751309c5b9a3b900953b}\label{overlay_8c_ae43ff8520270751309c5b9a3b900953b}} 
 \index{overlay.c@{overlay.c}!type\_salle\_map@{type\_salle\_map}}
 \index{type\_salle\_map@{type\_salle\_map}!overlay.c@{overlay.c}}
 \doxysubsubsection{\texorpdfstring{type\_salle\_map()}{type\_salle\_map()}}
-{\footnotesize\ttfamily static int type\+\_\+salle\+\_\+map (\begin{DoxyParamCaption}\item[{int}]{matrice\mbox{[}\+HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]}\mbox{[}\+LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static int type\+\_\+salle\+\_\+map (\begin{DoxyParamCaption}\item[{int $\ast$}]{matrice,  }\item[{int}]{hauteur,  }\item[{int}]{longueur,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -82,6 +101,10 @@ Attribue un id de tile à chaque salle pour la map \+: est-\/ce une salle simple
 
 \begin{DoxyParams}{Paramètres}
 {\em matrice} & Matrice des IDs des salles du niveau \\
+\hline
+{\em hauteur} & taille en hauteur de la matrice \\
+\hline
+{\em longueur} & taille en longueur de la matrice \\
 \hline
 {\em x} & Coordonnée de la salle dont le type doit être déterminé \\
 \hline

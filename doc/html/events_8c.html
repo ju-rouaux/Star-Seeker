@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Module de gestion des evenements (souris/clavier/fenetre)  
+<p>Module de gestion des evenements (souris/clavier/fenetre) Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -81,21 +81,21 @@ $(function() {
 <code>#include &lt;<a class="el" href="joueur_8h_source.html">joueur.h</a>&gt;</code><br />
 <code>#include &lt;menu.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
-<code>#include &lt;event.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="events_8h_source.html">events.h</a>&gt;</code><br />
 <code>#include &lt;main.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ac967ece5100ae12d2a1e45fd6d33d9bd"><td class="memItemLeft" align="right" valign="top">e_code_main&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8c.html#ac967ece5100ae12d2a1e45fd6d33d9bd">handleEvents</a> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur, <a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
-<tr class="memdesc:ac967ece5100ae12d2a1e45fd6d33d9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gere tout les evenements liés a la souris, au clavier et a la fenetre.  <a href="events_8c.html#ac967ece5100ae12d2a1e45fd6d33d9bd">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac967ece5100ae12d2a1e45fd6d33d9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e932e4b469e56d473c4fb5a3706b7ad"><td class="memItemLeft" align="right" valign="top">e_code_main&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8c.html#a3e932e4b469e56d473c4fb5a3706b7ad">handleEvents</a> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur, <a class="el" href="structt__parametres.html">t_parametres</a> *parametres)</td></tr>
+<tr class="memdesc:a3e932e4b469e56d473c4fb5a3706b7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gere tout les evenements liés a la souris, au clavier et a la fenetre.  <a href="events_8c.html#a3e932e4b469e56d473c4fb5a3706b7ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3e932e4b469e56d473c4fb5a3706b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Module de gestion des evenements (souris/clavier/fenetre) </p>
-<dl class="section author"><dt>Auteur</dt><dd>Guillaume </dd></dl>
+<div class="textblock"><p >Module de gestion des evenements (souris/clavier/fenetre) Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Guillaume Richard </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ac967ece5100ae12d2a1e45fd6d33d9bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac967ece5100ae12d2a1e45fd6d33d9bd">&#9670;&nbsp;</a></span>handleEvents()</h2>
+<a id="a3e932e4b469e56d473c4fb5a3706b7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e932e4b469e56d473c4fb5a3706b7ad">&#9670;&nbsp;</a></span>handleEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -109,8 +109,8 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
-          <td class="paramname"><em>moteur</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__parametres.html">t_parametres</a> *&#160;</td>
+          <td class="paramname"><em>parametres</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -121,12 +121,14 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gere tout les evenements liés a la souris, au clavier et a la fenetre. </p>
-<dl class="section return"><dt>Renvoie</dt><dd>Boleen, vrai si l'utilisateur ferme la fenetre avec la croix, par defaut 0 </dd></dl>
-<p >Bouton gauche</p>
-<p >Molette</p>
-<p >Bouton droit</p>
-<p >Cas d'erreur</p>
-<p >Fenetre minimisée</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joueur</td><td>le joueur </td></tr>
+    <tr><td class="paramname">parametres</td><td>parametres du jeu (touches et volume) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>code de succès et d'erreur personnalisé </dd></dl>
 
 </div>
 </div>

@@ -16,12 +16,13 @@ Module de gestion du joueur.
 {\ttfamily \#include $<$joueur.\+h$>$}\newline
 {\ttfamily \#include $<$attaque.\+h$>$}\newline
 {\ttfamily \#include $<$monstre.\+h$>$}\newline
+{\ttfamily \#include $<$particules.\+h$>$}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 static int \mbox{\hyperlink{joueur_8c_a79711b7021e018f0a6d6860714c8c868}{get\+Id\+Animation\+Joueur}} (int vecteur\+\_\+x, int vecteur\+\_\+y, int code\+\_\+animation)
 \begin{DoxyCompactList}\small\item\em Calcule l\textquotesingle{}animation à joueur selon l\textquotesingle{}orientation du joueur. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{joueur_8c_a75449b60b872b9360251331233ddd0f4}{get\+Direction\+Joueur}} (const \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$flags, float $\ast$vecteur\+\_\+x, float $\ast$vecteur\+\_\+y)
+static void \mbox{\hyperlink{joueur_8c_af47da0153d6c9be702b93e6ee6e1ec05}{get\+Direction\+Joueur}} (const \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$flags, float $\ast$vecteur\+\_\+x, float $\ast$vecteur\+\_\+y, float $\ast$\mbox{\hyperlink{attributs__personnages_8h_a95c515c2a679fab084635ca14854d831}{attaque\+\_\+vx}}, float $\ast$\mbox{\hyperlink{attributs__personnages_8h_a6ea5cc98f944d5bfde3f27ded7f7a91d}{attaque\+\_\+vy}}, int $\ast$shooting)
 \begin{DoxyCompactList}\small\item\em Remplissage du vecteur selon l\textquotesingle{}orientation du joueur donné par ses flags. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{joueur_8c_aa58c1f0fe0f4136b3a2567b8c25b95ce}{update\+Joueur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
 \begin{DoxyCompactList}\small\item\em Méthode appelée à chaque frame, actualisant le joueur. \end{DoxyCompactList}\item 
@@ -31,7 +32,7 @@ static void \mbox{\hyperlink{joueur_8c_ae049d186bdc14bc896e1ada6d90983a8}{detrui
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux flags et mets le pointeur à NULL. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{joueur_8c_a1e9013c729e9fe43289429dc9df96d0e}{detruire\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$$\ast$joueur)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à NULL. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8c_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float x, float y, SDL\+\_\+\+Texture $\ast$apparence)
+\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8c_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$apparence)
 \begin{DoxyCompactList}\small\item\em Génère une structure joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -109,11 +110,11 @@ Libère la mémoire allouée aux flags et mets le pointeur à NULL.
 {\em flags} & L\textquotesingle{}adresse du pointeur flags \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{joueur_8c_a75449b60b872b9360251331233ddd0f4}\label{joueur_8c_a75449b60b872b9360251331233ddd0f4}} 
+\mbox{\Hypertarget{joueur_8c_af47da0153d6c9be702b93e6ee6e1ec05}\label{joueur_8c_af47da0153d6c9be702b93e6ee6e1ec05}} 
 \index{joueur.c@{joueur.c}!getDirectionJoueur@{getDirectionJoueur}}
 \index{getDirectionJoueur@{getDirectionJoueur}!joueur.c@{joueur.c}}
 \doxysubsubsection{\texorpdfstring{getDirectionJoueur()}{getDirectionJoueur()}}
-{\footnotesize\ttfamily static void get\+Direction\+Joueur (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$}]{flags,  }\item[{float $\ast$}]{vecteur\+\_\+x,  }\item[{float $\ast$}]{vecteur\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void get\+Direction\+Joueur (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$}]{flags,  }\item[{float $\ast$}]{vecteur\+\_\+x,  }\item[{float $\ast$}]{vecteur\+\_\+y,  }\item[{float $\ast$}]{attaque\+\_\+vx,  }\item[{float $\ast$}]{attaque\+\_\+vy,  }\item[{int $\ast$}]{shooting }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -126,6 +127,12 @@ Remplissage du vecteur selon l\textquotesingle{}orientation du joueur donné par
 {\em vecteur\+\_\+x} & Retour du vecteur en x \\
 \hline
 {\em vecteur\+\_\+y} & Retour du vecteur en y \\
+\hline
+{\em attaque\+\_\+vx} & Retour du vecteur de l\textquotesingle{}attaque en x \\
+\hline
+{\em attaque\+\_\+vy} & Retour du vecteur de l\textquotesingle{}attaque en y \\
+\hline
+{\em shooting} & Retour si le joueur doit tirer \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{joueur_8c_a79711b7021e018f0a6d6860714c8c868}\label{joueur_8c_a79711b7021e018f0a6d6860714c8c868}} 

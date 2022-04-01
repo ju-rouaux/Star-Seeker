@@ -1,0 +1,112 @@
+\hypertarget{generation__noms_8c}{}\doxysection{Référence du fichier src/generation\+\_\+noms.c}
+\label{generation__noms_8c}\index{src/generation\_noms.c@{src/generation\_noms.c}}
+
+
+Générateur de nom de planète et de galaxie aléatoire.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$outils.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+noms.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static char \mbox{\hyperlink{generation__noms_8c_a8b01bd89708a2822c1529d8521ede1b2}{lettre\+\_\+suivante}} (int chances\mbox{[}26\mbox{]}\mbox{[}26\mbox{]}, char c1)
+\begin{DoxyCompactList}\small\item\em Prend une lettre en entrée, et renvoie une autre lettre qui \char`\"{}sonne bien\char`\"{} pour former un mot. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{generation__noms_8c_acea764dd680ccaa39dda7a969d33376f}{creer\+\_\+nom}} (int taille\+\_\+mot)
+\begin{DoxyCompactList}\small\item\em Crée un nom semblable au français et à l\textquotesingle{}anglais aléatoirement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{generation__noms_8c_a46859a0d2ae7f53657dac213280cb881}{detruire\+Noms\+Planetes}} (char $\ast$$\ast$$\ast$noms\+\_\+planetes, int nombre)
+\begin{DoxyCompactList}\small\item\em Détruit la mémoire allouée pour le tableau de chaines de noms de planètes. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{generation__noms_8c_a8a8d19c706a718a921eb77a6fbc4b1fa}{creer\+\_\+noms\+\_\+planetes}} (char $\ast$nom\+\_\+galaxie, int nombre)
+\begin{DoxyCompactList}\small\item\em Crée des noms de planètes à partir d\textquotesingle{}une seed (nom de galaxie) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Générateur de nom de planète et de galaxie aléatoire. 
+
+\begin{DoxyAuthor}{Auteur}
+Camille Remoué 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{generation__noms_8c_acea764dd680ccaa39dda7a969d33376f}\label{generation__noms_8c_acea764dd680ccaa39dda7a969d33376f}} 
+\index{generation\_noms.c@{generation\_noms.c}!creer\_nom@{creer\_nom}}
+\index{creer\_nom@{creer\_nom}!generation\_noms.c@{generation\_noms.c}}
+\doxysubsubsection{\texorpdfstring{creer\_nom()}{creer\_nom()}}
+{\footnotesize\ttfamily char$\ast$ creer\+\_\+nom (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+mot }\end{DoxyParamCaption})}
+
+
+
+Crée un nom semblable au français et à l\textquotesingle{}anglais aléatoirement. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+mot} & Nombre de lettres du nom généré\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nom généré 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__noms_8c_a8a8d19c706a718a921eb77a6fbc4b1fa}\label{generation__noms_8c_a8a8d19c706a718a921eb77a6fbc4b1fa}} 
+\index{generation\_noms.c@{generation\_noms.c}!creer\_noms\_planetes@{creer\_noms\_planetes}}
+\index{creer\_noms\_planetes@{creer\_noms\_planetes}!generation\_noms.c@{generation\_noms.c}}
+\doxysubsubsection{\texorpdfstring{creer\_noms\_planetes()}{creer\_noms\_planetes()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ creer\+\_\+noms\+\_\+planetes (\begin{DoxyParamCaption}\item[{char $\ast$}]{nom\+\_\+galaxie,  }\item[{int}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Crée des noms de planètes à partir d\textquotesingle{}une seed (nom de galaxie) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nombre} & le nombre de noms à générer \\
+\hline
+{\em nom\+\_\+galaxie} & nom qui va générer la seed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char$\ast$$\ast$ tableau de chaines de caractères contenant les noms de planètes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__noms_8c_a46859a0d2ae7f53657dac213280cb881}\label{generation__noms_8c_a46859a0d2ae7f53657dac213280cb881}} 
+\index{generation\_noms.c@{generation\_noms.c}!detruireNomsPlanetes@{detruireNomsPlanetes}}
+\index{detruireNomsPlanetes@{detruireNomsPlanetes}!generation\_noms.c@{generation\_noms.c}}
+\doxysubsubsection{\texorpdfstring{detruireNomsPlanetes()}{detruireNomsPlanetes()}}
+{\footnotesize\ttfamily void detruire\+Noms\+Planetes (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{noms\+\_\+planetes,  }\item[{int}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Détruit la mémoire allouée pour le tableau de chaines de noms de planètes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em noms\+\_\+planetes} & L\textquotesingle{}adresse du tableau de chaines à libérer \\
+\hline
+{\em nombre} & Le nombre de chaines du tableau \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__noms_8c_a8b01bd89708a2822c1529d8521ede1b2}\label{generation__noms_8c_a8b01bd89708a2822c1529d8521ede1b2}} 
+\index{generation\_noms.c@{generation\_noms.c}!lettre\_suivante@{lettre\_suivante}}
+\index{lettre\_suivante@{lettre\_suivante}!generation\_noms.c@{generation\_noms.c}}
+\doxysubsubsection{\texorpdfstring{lettre\_suivante()}{lettre\_suivante()}}
+{\footnotesize\ttfamily static char lettre\+\_\+suivante (\begin{DoxyParamCaption}\item[{int}]{chances\mbox{[}26\mbox{]}\mbox{[}26\mbox{]},  }\item[{char}]{c1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prend une lettre en entrée, et renvoie une autre lettre qui \char`\"{}sonne bien\char`\"{} pour former un mot. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em chances} & la matrice de fréquences de chaque lettre après chaque autre dans le dictionnaire \\
+\hline
+{\em c1} & la lettre précédente\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la lettre qui va suivre c1. 
+\end{DoxyReturn}

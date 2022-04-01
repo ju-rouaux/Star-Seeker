@@ -1,5 +1,5 @@
 /**
- * \file generation_entites.c
+ * \file generation_entites.h
  * 
  * \brief Module générant les entités des salles d'un niveau.
  * 

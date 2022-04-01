@@ -1,5 +1,10 @@
 \hypertarget{attributs__entites_8h}{}\doxysection{Référence du fichier include/attributs\+\_\+entites.h}
 \label{attributs__entites_8h}\index{include/attributs\_entites.h@{include/attributs\_entites.h}}
+
+
+Fichier à inclure dans une structure héritant des attributs des entités.  
+
+
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,11 +27,11 @@ SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8
 \item 
 float \mbox{\hyperlink{attributs__entites_8h_a117a40becce0ce457e4ca4a705461882}{taille}}
 \item 
-\mbox{\hyperlink{animation_8h_a16b8fb64ee762fcc60ee22284e546339}{t\+\_\+animation}} $\ast$ \mbox{\hyperlink{attributs__entites_8h_aaa3c2a4d179666e4da09f5a3cd1019cb}{animation}}
+\mbox{\hyperlink{structt__animation}{t\+\_\+animation}} $\ast$ \mbox{\hyperlink{attributs__entites_8h_aaa3c2a4d179666e4da09f5a3cd1019cb}{animation}}
 \item 
 int \mbox{\hyperlink{attributs__entites_8h_a9810dd8daa344eac72f84fbc7714cb63}{id\+\_\+animation}}
 \item 
-int($\ast$ \mbox{\hyperlink{attributs__entites_8h_a0e93ec7c3b2b371a8fec611a77423fdf}{update}} )(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$)
+int($\ast$ \mbox{\hyperlink{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}{update}} )(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float)
 \item 
 int($\ast$ \mbox{\hyperlink{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}{dessiner}} )(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$)
 \item 
@@ -34,12 +39,20 @@ void($\ast$ \mbox{\hyperlink{attributs__entites_8h_a57f57759ccbb882d8e5584543342
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Fichier à inclure dans une structure héritant des attributs des entités. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
 \doxysubsection{Documentation des variables}
 \mbox{\Hypertarget{attributs__entites_8h_aaa3c2a4d179666e4da09f5a3cd1019cb}\label{attributs__entites_8h_aaa3c2a4d179666e4da09f5a3cd1019cb}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!animation@{animation}}
 \index{animation@{animation}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{animation}{animation}}
-{\footnotesize\ttfamily \mbox{\hyperlink{animation_8h_a16b8fb64ee762fcc60ee22284e546339}{t\+\_\+animation}}$\ast$ animation}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__animation}{t\+\_\+animation}}$\ast$ animation}
 
 L\textquotesingle{}animation de l\textquotesingle{}entité (NULL par défaut) \mbox{\Hypertarget{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}\label{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!dessiner@{dessiner}}
@@ -59,7 +72,7 @@ Destruction de l\textquotesingle{}entité (detruire\+Entite par défaut) \mbox{\
 \doxysubsubsection{\texorpdfstring{direction\_vx}{direction\_vx}}
 {\footnotesize\ttfamily float direction\+\_\+vx}
 
-Vecteur direction de l\textquotesingle{}entité en x (0 par défaut) \mbox{\Hypertarget{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}\label{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}} 
+Vecteur direction de l\textquotesingle{}entité en x (1 par défaut) \mbox{\Hypertarget{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}\label{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!direction\_vy@{direction\_vy}}
 \index{direction\_vy@{direction\_vy}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{direction\_vy}{direction\_vy}}
@@ -89,11 +102,11 @@ Zone où l\textquotesingle{}entité est présent physiquement. Elle est actualis
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} type}
 
-Type de l\textquotesingle{}entité (AUCUN par défaut) \mbox{\Hypertarget{attributs__entites_8h_a0e93ec7c3b2b371a8fec611a77423fdf}\label{attributs__entites_8h_a0e93ec7c3b2b371a8fec611a77423fdf}} 
+Type de l\textquotesingle{}entité (AUCUN par défaut) \mbox{\Hypertarget{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}\label{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!update@{update}}
 \index{update@{update}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{update}{update}}
-{\footnotesize\ttfamily int($\ast$ update) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int($\ast$ update) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{,  }\item[{float}]{,  }\item[{float}]{ }\end{DoxyParamCaption})}
 
 Actualise les données sur l\textquotesingle{}entité, retourne -\/1 si l\textquotesingle{}entité doit être détruite (NULL par défaut) \mbox{\Hypertarget{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}\label{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!vitesse@{vitesse}}

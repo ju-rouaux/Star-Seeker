@@ -2,7 +2,7 @@
 \label{events_8c}\index{src/events.c@{src/events.c}}
 
 
-Module de gestion des evenements (souris/clavier/fenetre)  
+Module de gestion des evenements (souris/clavier/fenetre) Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter.  
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
@@ -11,43 +11,41 @@ Module de gestion des evenements (souris/clavier/fenetre)
 {\ttfamily \#include $<$joueur.\+h$>$}\newline
 {\ttfamily \#include $<$menu.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
-{\ttfamily \#include $<$event.\+h$>$}\newline
+{\ttfamily \#include $<$events.\+h$>$}\newline
 {\ttfamily \#include $<$main.\+h$>$}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-e\+\_\+code\+\_\+main \mbox{\hyperlink{events_8c_ac967ece5100ae12d2a1e45fd6d33d9bd}{handle\+Events}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+e\+\_\+code\+\_\+main \mbox{\hyperlink{events_8c_a3e932e4b469e56d473c4fb5a3706b7ad}{handle\+Events}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$parametres)
 \begin{DoxyCompactList}\small\item\em Gere tout les evenements liés a la souris, au clavier et a la fenetre. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Module de gestion des evenements (souris/clavier/fenetre) 
+Module de gestion des evenements (souris/clavier/fenetre) Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter. 
 
 \begin{DoxyAuthor}{Auteur}
-Guillaume 
+Guillaume Richard 
 \end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{events_8c_ac967ece5100ae12d2a1e45fd6d33d9bd}\label{events_8c_ac967ece5100ae12d2a1e45fd6d33d9bd}} 
+\mbox{\Hypertarget{events_8c_a3e932e4b469e56d473c4fb5a3706b7ad}\label{events_8c_a3e932e4b469e56d473c4fb5a3706b7ad}} 
 \index{events.c@{events.c}!handleEvents@{handleEvents}}
 \index{handleEvents@{handleEvents}!events.c@{events.c}}
 \doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
-{\footnotesize\ttfamily e\+\_\+code\+\_\+main handle\+Events (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main handle\+Events (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$}]{parametres }\end{DoxyParamCaption})}
 
 
 
 Gere tout les evenements liés a la souris, au clavier et a la fenetre. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & le joueur \\
+\hline
+{\em parametres} & parametres du jeu (touches et volume) \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Boleen, vrai si l\textquotesingle{}utilisateur ferme la fenetre avec la croix, par defaut 0 
+code de succès et d\textquotesingle{}erreur personnalisé 
 \end{DoxyReturn}
-Bouton gauche
-
-Molette
-
-Bouton droit
-
-Cas d\textquotesingle{}erreur
-
-Fenetre minimisée

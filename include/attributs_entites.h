@@ -1,3 +1,11 @@
+/**
+ * \file attributs_entites.h
+ * 
+ * \brief Fichier à inclure dans une structure héritant des attributs des entités.
+ * 
+ * \author Julien Rouaux
+ */
+
 float x; /**< Position en abscisse sur le niveau (renseignée) */
 float y; /**< Position en ordonné sur le niveau (renseignée) */
 float direction_vx; /**< Vecteur direction de l'entité en x (1 par défaut) */

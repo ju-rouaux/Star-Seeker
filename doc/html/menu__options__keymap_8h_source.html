@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -71,19 +71,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="menu__options__keymap_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef _JEU_MENU_OPTIONS_KEYMAP_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define _JEU_MENU_OPTIONS_KEYMAP_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;menu.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _JEU_MENU_OPTIONS_KEYMAP_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define _JEU_MENU_OPTIONS_KEYMAP_</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define NB_B_MENU_OPTIONS_KEYMAP 6</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define NOMS_B_MENU_OPTIONS_KEYMAP {&quot;Haut&quot;</span>,&quot;Bas&quot;,&quot;Droite&quot;,&quot;Gauche&quot;,&quot;Projectile&quot;,&quot;Retour&quot;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;e_code_main <a class="code" href="menu__options__keymap_8h.html#ab94bfb1aa0b34089f558410dbaba3e1a">chargerMenu_Options_keymap</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;menu.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define NB_B_MENU_OPTIONS_KEYMAP 11</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define NOMS_B_MENU_OPTIONS_KEYMAP {&quot;Haut&quot;</span>,&quot;Bas&quot;,&quot;Droite&quot;,&quot;Gauche&quot;,&quot;Interaction&quot;,&quot;Attaque haut&quot;, &quot;Attaque Bas&quot;,&quot;Attaque Droite&quot;,&quot;Attaque Gauche&quot;,&quot;Dash&quot;,&quot;Retour&quot;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_MENU_OPTIONS_KEYMAP_</span></div>
-<div class="ttc" id="amenu__options__keymap_8h_html_ab94bfb1aa0b34089f558410dbaba3e1a"><div class="ttname"><a href="menu__options__keymap_8h.html#ab94bfb1aa0b34089f558410dbaba3e1a">chargerMenu_Options_keymap</a></div><div class="ttdeci">e_code_main chargerMenu_Options_keymap(t_moteur *moteur)</div><div class="ttdoc">Charge tout les boutons / fonctionnalités du sous menu pour les keymap.</div><div class="ttdef"><b>Definition:</b> menu_options_keymap.c:75</div></div>
-<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécéssaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;e_code_main <a class="code" href="menu__options__keymap_8h.html#ab94bfb1aa0b34089f558410dbaba3e1a">chargerMenu_Options_keymap</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_MENU_OPTIONS_KEYMAP_</span></div>
+<div class="ttc" id="amenu__options__keymap_8h_html_ab94bfb1aa0b34089f558410dbaba3e1a"><div class="ttname"><a href="menu__options__keymap_8h.html#ab94bfb1aa0b34089f558410dbaba3e1a">chargerMenu_Options_keymap</a></div><div class="ttdeci">e_code_main chargerMenu_Options_keymap(t_moteur *moteur)</div><div class="ttdoc">Charge tous les boutons / fonctionnalités du sous menu pour les keymap.</div><div class="ttdef"><b>Definition:</b> menu_options_keymap.c:78</div></div>
+<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécessaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

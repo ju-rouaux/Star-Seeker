@@ -1,0 +1,282 @@
+\hypertarget{menu__niveau_8c}{}\doxysection{Référence du fichier src/menu\+\_\+niveau.c}
+\label{menu__niveau_8c}\index{src/menu\_niveau.c@{src/menu\_niveau.c}}
+
+
+Menu de sélection d\textquotesingle{}un niveau d\textquotesingle{}une partie.  
+
+
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$main.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$audio.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__selection}{t\+\_\+selection}}
+\begin{DoxyCompactList}\small\item\em Représente un choix sur le menu de sélection de niveau. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__texte}{t\+\_\+texte}}
+\begin{DoxyCompactList}\small\item\em Structure facilitant la manipulation des textes affichés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu__niveau_8c_a44557b5181fff2d6ab54461c574c25de}\label{menu__niveau_8c_a44557b5181fff2d6ab54461c574c25de}} 
+\#define {\bfseries PRECISION\+\_\+\+RENDU\+\_\+\+TEXTE}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{menu__niveau_8c_a5df673444946c038b9fc9d9e8f6473ec}{indice\+Selection}} (\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$selections, int nb\+\_\+selects, SDL\+\_\+\+Point $\ast$souris)
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}indice du niveau étant survolé par la souris. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menu__niveau_8c_adfa22a6e6fcc402f62dce5a34793386f}{rendu\+Selection}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$select, SDL\+\_\+\+Texture $\ast$apparence, int quantite)
+\begin{DoxyCompactList}\small\item\em Affiche une sélection du menu en fonction de son indice. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$ \mbox{\hyperlink{menu__niveau_8c_adc9675b4125377a57443ef50eb280d74}{creer\+Selection}} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$police, char $\ast$texte, int indice, float taille\+\_\+planete)
+\begin{DoxyCompactList}\small\item\em Créer un bouton pour sélectionner un niveau. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menu__niveau_8c_a03ec48816673b56ee5943e6fc7e400ae}{detruire\+Selections}} (\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$$\ast$selections, int nb\+\_\+selections)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à la liste de sélections du menu. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$ \mbox{\hyperlink{menu__niveau_8c_a870acbe50ef3f25ba2367af8ac62ae01}{init\+Selections}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, TTF\+\_\+\+Font $\ast$police, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+infos, int ancien\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Alloue la liste infos\+\_\+niveau les différents choix du menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menu__niveau_8c_ace26974a0a56624a3672ed0e3a48d598}{rendu\+Titre}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$titre)
+\begin{DoxyCompactList}\small\item\em Affiche le nom de la galaxie en guise de titre du menu. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{menu__niveau_8c_adb2dde669ccde80b5d1fc71d4338de52}{rendu\+Bouton\+Menu\+Principal}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$bouton, SDL\+\_\+\+Point $\ast$souris)
+\item 
+static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$ \mbox{\hyperlink{menu__niveau_8c_a91c263d53bf2d6719c007e49081a3920}{init\+Menu}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+infos, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$titre, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$menu, int ancien\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Initialise le menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menu__niveau_8c_a01bdb5e12f93fc241ca7df391e2a722e}{free\+Menu}} (\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$$\ast$selections, int nb\+\_\+selections, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$titre, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$menu)
+\begin{DoxyCompactList}\small\item\em Detruit et libère la mémoire allouée. \end{DoxyCompactList}\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__niveau_8c_aa46c6202b0ecdf76025f9b8c590915ab}{afficher\+Menu\+Niveau}} (int $\ast$retour\+\_\+niveau, \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+infos, int ancien\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Affiche le menu de sélection d\textquotesingle{}une planète. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Menu de sélection d\textquotesingle{}un niveau d\textquotesingle{}une partie. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__niveau_8c_aa46c6202b0ecdf76025f9b8c590915ab}\label{menu__niveau_8c_aa46c6202b0ecdf76025f9b8c590915ab}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!afficherMenuNiveau@{afficherMenuNiveau}}
+\index{afficherMenuNiveau@{afficherMenuNiveau}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{afficherMenuNiveau()}{afficherMenuNiveau()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main afficher\+Menu\+Niveau (\begin{DoxyParamCaption}\item[{int $\ast$}]{retour\+\_\+niveau,  }\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+infos,  }\item[{int}]{ancien\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu de sélection d\textquotesingle{}une planète. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em retour\+\_\+niveau} & Valeur de sortie, retourne l\textquotesingle{}indice du niveau à charger si un choix est fait \\
+\hline
+{\em moteur} & Le moteur \\
+\hline
+{\em infos\+\_\+niveaux} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+{\em nb\+\_\+infos} & Le nombre d\textquotesingle{}éléments de la liste \\
+\hline
+{\em ancien\+\_\+niveau\+\_\+charge} & Indice du niveau précédemment chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}action réalisée, l\textquotesingle{}indice du niveau choisi est retourné dans retour\+\_\+niveau si NIVEAU\+\_\+\+CHANGER est retourné. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_adc9675b4125377a57443ef50eb280d74}\label{menu__niveau_8c_adc9675b4125377a57443ef50eb280d74}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!creerSelection@{creerSelection}}
+\index{creerSelection@{creerSelection}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{creerSelection()}{creerSelection()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}}$\ast$ creer\+Selection (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{police,  }\item[{char $\ast$}]{texte,  }\item[{int}]{indice,  }\item[{float}]{taille\+\_\+planete }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Créer un bouton pour sélectionner un niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer du jeu \\
+\hline
+{\em police} & La police d\textquotesingle{}affichage du nom de la planète \\
+\hline
+{\em texte} & Le nom de la planète \\
+\hline
+{\em indice} & L\textquotesingle{}indice du niveau \\
+\hline
+{\em taille\+\_\+planete} & La taille d\textquotesingle{}affichage de la planète\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le bouton, NULl si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_a03ec48816673b56ee5943e6fc7e400ae}\label{menu__niveau_8c_a03ec48816673b56ee5943e6fc7e400ae}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!detruireSelections@{detruireSelections}}
+\index{detruireSelections@{detruireSelections}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{detruireSelections()}{detruireSelections()}}
+{\footnotesize\ttfamily static void detruire\+Selections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$$\ast$}]{selections,  }\item[{int}]{nb\+\_\+selections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Libère la mémoire allouée à la liste de sélections du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em selections} & Adresse de la liste des sélections à libérer \\
+\hline
+{\em nb\+\_\+selections} & Nombre d\textquotesingle{}éléments dans la liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__niveau_8c_a01bdb5e12f93fc241ca7df391e2a722e}\label{menu__niveau_8c_a01bdb5e12f93fc241ca7df391e2a722e}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!freeMenu@{freeMenu}}
+\index{freeMenu@{freeMenu}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{freeMenu()}{freeMenu()}}
+{\footnotesize\ttfamily static void free\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$$\ast$}]{selections,  }\item[{int}]{nb\+\_\+selections,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$}]{titre,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$}]{menu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Detruit et libère la mémoire allouée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em selections} & Adresse de la liste des sélections à libérer \\
+\hline
+{\em nb\+\_\+selections} & Nombre d\textquotesingle{}éléments dans la liste \\
+\hline
+{\em titre} & adresse du titre a detruire \\
+\hline
+{\em menu} & adresse du menu a detruire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__niveau_8c_a5df673444946c038b9fc9d9e8f6473ec}\label{menu__niveau_8c_a5df673444946c038b9fc9d9e8f6473ec}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!indiceSelection@{indiceSelection}}
+\index{indiceSelection@{indiceSelection}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{indiceSelection()}{indiceSelection()}}
+{\footnotesize\ttfamily static int indice\+Selection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$$\ast$}]{selections,  }\item[{int}]{nb\+\_\+selects,  }\item[{SDL\+\_\+\+Point $\ast$}]{souris }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retourne l\textquotesingle{}indice du niveau étant survolé par la souris. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em selections} & La liste différentes options du menu \\
+\hline
+{\em nb\+\_\+selects} & Le nombre de sélections différentes \\
+\hline
+{\em souris} & La position du curseur de la souris\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}indice du niveau survolé par la souris, ou -\/1 si aucun. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_a91c263d53bf2d6719c007e49081a3920}\label{menu__niveau_8c_a91c263d53bf2d6719c007e49081a3920}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!initMenu@{initMenu}}
+\index{initMenu@{initMenu}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{initMenu()}{initMenu()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}}$\ast$$\ast$ init\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+infos,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$}]{titre,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$}]{menu,  }\item[{int}]{ancien\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialise le menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em infos\+\_\+niveaux} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+{\em nb\+\_\+infos} & Le nombre d\textquotesingle{}éléments de la liste \\
+\hline
+{\em titre} & L\textquotesingle{}adresse du titre a initialiser \\
+\hline
+{\em menu} & L\textquotesingle{}adresse du menu a initialiser \\
+\hline
+{\em ancien\+\_\+niveau\+\_\+charge} & Indice du niveau précédemment chargé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la structure du menu allouée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_a870acbe50ef3f25ba2367af8ac62ae01}\label{menu__niveau_8c_a870acbe50ef3f25ba2367af8ac62ae01}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!initSelections@{initSelections}}
+\index{initSelections@{initSelections}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{initSelections()}{initSelections()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__selection}{t\+\_\+selection}}$\ast$$\ast$ init\+Selections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{TTF\+\_\+\+Font $\ast$}]{police,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+infos,  }\item[{int}]{ancien\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Alloue la liste infos\+\_\+niveau les différents choix du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em police} & La police du texte à afficher \\
+\hline
+{\em infos\+\_\+niveaux} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+{\em nb\+\_\+infos} & Le nombre d\textquotesingle{}éléments de la liste \\
+\hline
+{\em ancien\+\_\+niveau\+\_\+charge} & Indice du niveau précédemment chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La liste des différents choix contextuels du menu. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_adb2dde669ccde80b5d1fc71d4338de52}\label{menu__niveau_8c_adb2dde669ccde80b5d1fc71d4338de52}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!renduBoutonMenuPrincipal@{renduBoutonMenuPrincipal}}
+\index{renduBoutonMenuPrincipal@{renduBoutonMenuPrincipal}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{renduBoutonMenuPrincipal()}{renduBoutonMenuPrincipal()}}
+{\footnotesize\ttfamily static int rendu\+Bouton\+Menu\+Principal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$}]{bouton,  }\item[{SDL\+\_\+\+Point $\ast$}]{souris }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em bouton} & le bouton \\
+\hline
+{\em souris} & Coordonnées de la souris \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Vrai si la souris survole le bouton, faux sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__niveau_8c_adfa22a6e6fcc402f62dce5a34793386f}\label{menu__niveau_8c_adfa22a6e6fcc402f62dce5a34793386f}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!renduSelection@{renduSelection}}
+\index{renduSelection@{renduSelection}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{renduSelection()}{renduSelection()}}
+{\footnotesize\ttfamily static void rendu\+Selection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__selection}{t\+\_\+selection}} $\ast$}]{select,  }\item[{SDL\+\_\+\+Texture $\ast$}]{apparence,  }\item[{int}]{quantite }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche une sélection du menu en fonction de son indice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em select} & La sélection à afficher \\
+\hline
+{\em apparence} & L\textquotesingle{}apparence de la planète affichée sur la sélection \\
+\hline
+{\em quantite} & Le nombre de sélections total qui sera affiché sur l\textquotesingle{}écran \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__niveau_8c_ace26974a0a56624a3672ed0e3a48d598}\label{menu__niveau_8c_ace26974a0a56624a3672ed0e3a48d598}} 
+\index{menu\_niveau.c@{menu\_niveau.c}!renduTitre@{renduTitre}}
+\index{renduTitre@{renduTitre}!menu\_niveau.c@{menu\_niveau.c}}
+\doxysubsubsection{\texorpdfstring{renduTitre()}{renduTitre()}}
+{\footnotesize\ttfamily static void rendu\+Titre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$}]{titre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche le nom de la galaxie en guise de titre du menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em titre} & Le titre à afficher \\
+\hline
+\end{DoxyParams}

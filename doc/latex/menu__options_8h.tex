@@ -1,0 +1,51 @@
+\hypertarget{menu__options_8h}{}\doxysection{Référence du fichier include/menu\+\_\+options.h}
+\label{menu__options_8h}\index{include/menu\_options.h@{include/menu\_options.h}}
+
+
+Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s\textquotesingle{}il veut du son et d\textquotesingle{}acceder au menu pour reparamétrer ses touches.  
+
+
+{\ttfamily \#include $<$menu.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu__options_8h_a7cd44e0e6424e492353640742b58f480}\label{menu__options_8h_a7cd44e0e6424e492353640742b58f480}} 
+\#define {\bfseries NB\+\_\+\+B\+\_\+\+MENU\+\_\+\+OPTIONS}~4
+\item 
+\mbox{\Hypertarget{menu__options_8h_ac78dc285b61fa1ce594ac3c2de73eefd}\label{menu__options_8h_ac78dc285b61fa1ce594ac3c2de73eefd}} 
+\#define {\bfseries NOMS\+\_\+\+B\+\_\+\+MENU\+\_\+\+OPTIONS}~\{\char`\"{}Toggle volume\char`\"{},\char`\"{}Keymap\char`\"{},\char`\"{}Credits\char`\"{},\char`\"{}Retour\char`\"{}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__options_8h_aa9f5f83f24e0b890fa76c3ed33ba31b7}{charger\+Menu\+\_\+\+Options}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Charge le sous menu des options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s\textquotesingle{}il veut du son et d\textquotesingle{}acceder au menu pour reparamétrer ses touches. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__options_8h_aa9f5f83f24e0b890fa76c3ed33ba31b7}\label{menu__options_8h_aa9f5f83f24e0b890fa76c3ed33ba31b7}} 
+\index{menu\_options.h@{menu\_options.h}!chargerMenu\_Options@{chargerMenu\_Options}}
+\index{chargerMenu\_Options@{chargerMenu\_Options}!menu\_options.h@{menu\_options.h}}
+\doxysubsubsection{\texorpdfstring{chargerMenu\_Options()}{chargerMenu\_Options()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main charger\+Menu\+\_\+\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Charge le sous menu des options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+code de sortie personnalisé selon l\textquotesingle{}evenement 
+\end{DoxyReturn}

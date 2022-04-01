@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -81,6 +81,7 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="textures_8h_source.html">textures.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="audio_8h_source.html">audio.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code><br />
 </div>
 <p><a href="moteur_8h_source.html">Aller au code source de ce fichier.</a></p>
@@ -128,11 +129,14 @@ typedef struct s_moteur&#160;</td><td class="memItemRight" valign="bottom"><b>t_
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:a2cd613591520b21b4e6859b18ca7845e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a2cd613591520b21b4e6859b18ca7845e">regulerFPS</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:a2cd613591520b21b4e6859b18ca7845e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction bloquante destinée à bloquer l'exécution du programme pour qu'il puisse tourner à 60 images par secondes, au maximum.  <a href="moteur_8h.html#a2cd613591520b21b4e6859b18ca7845e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2cd613591520b21b4e6859b18ca7845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a980e14a5af12b07ba4baf701b77954ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a980e14a5af12b07ba4baf701b77954ae">chargerMoteur</a> (unsigned int temps)</td></tr>
-<tr class="memdesc:a980e14a5af12b07ba4baf701b77954ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une fenêtre, un rendu, les textures, et une caméra.  <a href="moteur_8h.html#a980e14a5af12b07ba4baf701b77954ae">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a980e14a5af12b07ba4baf701b77954ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde.  <a href="moteur_8h.html#a980e14a5af12b07ba4baf701b77954ae">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a980e14a5af12b07ba4baf701b77954ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#aa8ba0a1a326f5f885b9f58d650c5f50c">detruireMoteur</a> (<a class="el" href="structt__moteur.html">t_moteur</a> **moteur)</td></tr>
-<tr class="memdesc:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL.  <a href="moteur_8h.html#aa8ba0a1a326f5f885b9f58d650c5f50c">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres.  <a href="moteur_8h.html#aa8ba0a1a326f5f885b9f58d650c5f50c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa8ba0a1a326f5f885b9f58d650c5f50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebb3e2a0bb730dfb9391c82bf2c37d7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">updateEchelle</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
 <tr class="memdesc:aebb3e2a0bb730dfb9391c82bf2c37d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la taille en pixel d'un bloc selon la taille de l'écran et actualise les champs du moteur.  <a href="moteur_8h.html#aebb3e2a0bb730dfb9391c82bf2c37d7c">Plus de détails...</a><br /></td></tr>
@@ -235,7 +239,13 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Charge une fenêtre, un rendu, les textures, et une caméra. </p>
+<p>Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temps</td><td>le temps actuel du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Structure moteur, NULL si échec. </dd></dl>
 
 </div>
@@ -256,10 +266,37 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. </p>
+<p>Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>L'adresse du pointeur du moteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2cd613591520b21b4e6859b18ca7845e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd613591520b21b4e6859b18ca7845e">&#9670;&nbsp;</a></span>regulerFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void regulerFPS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction bloquante destinée à bloquer l'exécution du programme pour qu'il puisse tourner à 60 images par secondes, au maximum. </p>
+<p >Cette fonction actualise les champs du moteur qui concernent le temps. Elle est destinée à être appelée au début de chaque boucles du jeu.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
   </table>
   </dd>
 </dl>

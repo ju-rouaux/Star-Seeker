@@ -1,0 +1,245 @@
+\hypertarget{definitions__projectiles_8h}{}\doxysection{Référence du fichier include/definitions/definitions\+\_\+projectiles.h}
+\label{definitions__projectiles_8h}\index{include/definitions/definitions\_projectiles.h@{include/definitions/definitions\_projectiles.h}}
+
+
+Fichier de définition des projectiles.  
+
+
+{\ttfamily \#include $<$projectiles.\+h$>$}\newline
+{\ttfamily \#include $<$animation.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{definitions__projectiles_8h_a598a3330b3c21701223ee0ca14316eca}\label{definitions__projectiles_8h_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~3.\+14159265359
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a9d51402ae282c2cb881fdeedd1c56f9e}{update\+Projectile}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Fonction générique de projectile lui donnant une trajectoire en ligne à vitesse constante. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_ac803a63ea2ce6ea0d124b0b542747440}{update\+Projectile\+\_\+\+Retour\+Proj}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}})
+\begin{DoxyCompactList}\small\item\em Fait revenir le projectile vers le joueur apres un certain temps ou lors d\textquotesingle{}une collision. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a1e96802c5b26b204f501833bd0490ebe}{update\+Projectile\+\_\+tourner}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Fait trourner le projectile en cercle. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a8154c552954ced07ffcf9afda0c36141}{proj\+\_\+balle}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile de petite taille, simple. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a956fc9a6681257b45f931a5bb3b25c80}{proj\+\_\+boule\+\_\+feu}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile de grande taille, lent, mais infligeant pas mal de dégats. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a353344bce09f4983133c5587ef9d461f}{proj\+\_\+boule\+\_\+metal}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile tres rapide, avec une tres longue portée. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_ab082233cd1dca89e9cddf51cd084dbeb}{proj\+\_\+shuriken}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile très rapide mais avec une très courte portée et infligeant peu de dégats. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_ae5da1ec8b94bdacb91f0d2867861597b}{proj\+\_\+tourner}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile lent, avec une longue durée de vie mais infligeant beaucoup de dégats. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{definitions__projectiles_8h_a54b9d4c59d2232d07b6d7555d6ac570f}{proj\+\_\+sabre}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Rend un projectile très rapide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier de définition des projectiles. 
+
+POUR CREER UN NOUVEAU PROJECTILE \+:
+\begin{DoxyItemize}
+\item Ajouter le nom du projectile dans l\textquotesingle{}enum e\+\_\+type\+\_\+projectile sous la forme NOMPROJECTILE dans le fichier projectile.\+h
+\item Créer une fonction sous la forme \+: static int proj\+\_\+\+NOMPROJECTILE(t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$animation = creer\+Animation(\+INT, INT); //ou NULL si pas d\textquotesingle{}animation if(projectile-\/$>$animation == NULL) //pas nécessaire si pas d\textquotesingle{}animation return -\/1;
+
+projectile-\/$>$id\+\_\+animation = INT;
+
+projectile-\/$>$taille = INT; projectile-\/$>$vitesse = INT; projectile-\/$>$dommages = INT; projectile-\/$>$duree\+\_\+de\+\_\+vie = INT;
+
+//\+Fonction générique update\+Projectile ou une fonction personnelle projectile-\/$>$update = (int ($\ast$)(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float)) update\+Projectile;
+
+return 0; \}
+\end{DoxyItemize}
+
+Ajouter la fonction au switch de charger\+Projectile \+: case NOMPROJECTILE\+: return proj\+\_\+\+NOMPROJECTILE(projectile);
+
+
+\begin{DoxyItemize}
+\item Pour donner au projectile un comportement spécifique, créer une fonction sous la forme \+: static int fonction(t\+\_\+moteur $\ast$ moteur, t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$duree\+\_\+de\+\_\+vie -\/= moteur-\/$>$temps -\/ moteur-\/$>$temps\+\_\+precedent; //\+Retirer le temps écoulé à la durée de vie if(projectile-\/$>$duree\+\_\+de\+\_\+vie $<$= 0) return -\/1;
+
+//traitement
+
+return deplacer\+Entite(moteur, (t\+\_\+entite$\ast$) projectile); \} A la place de traitement, changer les paramètres de vitesse, de direction, de taille... Dans l\textquotesingle{}idéal ces changements doivent dépendre de la durée de vie restante. La fonction doit retourner 0 si tout se passe bien, -\/1 lorsque le projectile doit être détruit.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux \& Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{definitions__projectiles_8h_a8154c552954ced07ffcf9afda0c36141}\label{definitions__projectiles_8h_a8154c552954ced07ffcf9afda0c36141}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_balle@{proj\_balle}}
+\index{proj\_balle@{proj\_balle}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_balle()}{proj\_balle()}}
+{\footnotesize\ttfamily static int proj\+\_\+balle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile de petite taille, simple. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_a956fc9a6681257b45f931a5bb3b25c80}\label{definitions__projectiles_8h_a956fc9a6681257b45f931a5bb3b25c80}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_boule\_feu@{proj\_boule\_feu}}
+\index{proj\_boule\_feu@{proj\_boule\_feu}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_boule\_feu()}{proj\_boule\_feu()}}
+{\footnotesize\ttfamily static int proj\+\_\+boule\+\_\+feu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile de grande taille, lent, mais infligeant pas mal de dégats. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_a353344bce09f4983133c5587ef9d461f}\label{definitions__projectiles_8h_a353344bce09f4983133c5587ef9d461f}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_boule\_metal@{proj\_boule\_metal}}
+\index{proj\_boule\_metal@{proj\_boule\_metal}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_boule\_metal()}{proj\_boule\_metal()}}
+{\footnotesize\ttfamily static int proj\+\_\+boule\+\_\+metal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile tres rapide, avec une tres longue portée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_a54b9d4c59d2232d07b6d7555d6ac570f}\label{definitions__projectiles_8h_a54b9d4c59d2232d07b6d7555d6ac570f}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_sabre@{proj\_sabre}}
+\index{proj\_sabre@{proj\_sabre}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_sabre()}{proj\_sabre()}}
+{\footnotesize\ttfamily static int proj\+\_\+sabre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile très rapide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_ab082233cd1dca89e9cddf51cd084dbeb}\label{definitions__projectiles_8h_ab082233cd1dca89e9cddf51cd084dbeb}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_shuriken@{proj\_shuriken}}
+\index{proj\_shuriken@{proj\_shuriken}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_shuriken()}{proj\_shuriken()}}
+{\footnotesize\ttfamily static int proj\+\_\+shuriken (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile très rapide mais avec une très courte portée et infligeant peu de dégats. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_ae5da1ec8b94bdacb91f0d2867861597b}\label{definitions__projectiles_8h_ae5da1ec8b94bdacb91f0d2867861597b}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!proj\_tourner@{proj\_tourner}}
+\index{proj\_tourner@{proj\_tourner}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{proj\_tourner()}{proj\_tourner()}}
+{\footnotesize\ttfamily static int proj\+\_\+tourner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Rend un projectile lent, avec une longue durée de vie mais infligeant beaucoup de dégats. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_a9d51402ae282c2cb881fdeedd1c56f9e}\label{definitions__projectiles_8h_a9d51402ae282c2cb881fdeedd1c56f9e}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!updateProjectile@{updateProjectile}}
+\index{updateProjectile@{updateProjectile}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{updateProjectile()}{updateProjectile()}}
+{\footnotesize\ttfamily static int update\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fonction générique de projectile lui donnant une trajectoire en ligne à vitesse constante. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em projectile} & Le projectile à actualiser\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si le projectile doit être détruit, sinon 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_ac803a63ea2ce6ea0d124b0b542747440}\label{definitions__projectiles_8h_ac803a63ea2ce6ea0d124b0b542747440}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!updateProjectile\_RetourProj@{updateProjectile\_RetourProj}}
+\index{updateProjectile\_RetourProj@{updateProjectile\_RetourProj}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{updateProjectile\_RetourProj()}{updateProjectile\_RetourProj()}}
+{\footnotesize\ttfamily static int update\+Projectile\+\_\+\+Retour\+Proj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fait revenir le projectile vers le joueur apres un certain temps ou lors d\textquotesingle{}une collision. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em projectile} & Le projectile à actualiser \\
+\hline
+{\em x} & position du joueur x \\
+\hline
+{\em y} & position du joueur y\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si le projectile doit être détruit, sinon 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{definitions__projectiles_8h_a1e96802c5b26b204f501833bd0490ebe}\label{definitions__projectiles_8h_a1e96802c5b26b204f501833bd0490ebe}} 
+\index{definitions\_projectiles.h@{definitions\_projectiles.h}!updateProjectile\_tourner@{updateProjectile\_tourner}}
+\index{updateProjectile\_tourner@{updateProjectile\_tourner}!definitions\_projectiles.h@{definitions\_projectiles.h}}
+\doxysubsubsection{\texorpdfstring{updateProjectile\_tourner()}{updateProjectile\_tourner()}}
+{\footnotesize\ttfamily static int update\+Projectile\+\_\+tourner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fait trourner le projectile en cercle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em projectile} & Le projectile à actualiser\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si le projectile doit être détruit, sinon 0. 
+\end{DoxyReturn}

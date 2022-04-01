@@ -1,5 +1,5 @@
 /**
- * \file generateur_nom_planete
+ * \file generation_noms.c
  * 
  * \brief Générateur de nom de planète et de galaxie aléatoire
  *
@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <outils.h>
-#include <noms_generateur.h>
+#include <generation_noms.h>
 #include <generation_niveau.h>
 #include <string.h>
 

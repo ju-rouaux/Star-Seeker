@@ -2,7 +2,7 @@
 \label{generation__niveau_8h}\index{include/generation\_niveau.h@{include/generation\_niveau.h}}
 
 
-Librairie de generation.\+c.  
+Librairie de generation.  
 
 
 {\ttfamily \#include $<$generation\+\_\+entites.\+h$>$}\newline
@@ -60,13 +60,13 @@ struct \mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}}
 \#define {\bfseries NOMBRE\+\_\+\+VOISINES\+\_\+\+DISPO\+\_\+\+NOUVELLE\+\_\+\+SALLE\+\_\+\+MIN}~4
 \item 
 \mbox{\Hypertarget{generation__niveau_8h_a95c2cd64a5ecb089958db0d662a08083}\label{generation__niveau_8h_a95c2cd64a5ecb089958db0d662a08083}} 
-\#define {\bfseries CHANCE\+\_\+\+DE\+\_\+\+GENERER\+\_\+\+EXTENSION\+\_\+\+DE\+\_\+\+ID\+\_\+\+DE\+\_\+\+SALLE}~15
+\#define {\bfseries CHANCE\+\_\+\+DE\+\_\+\+GENERER\+\_\+\+EXTENSION\+\_\+\+DE\+\_\+\+ID\+\_\+\+DE\+\_\+\+SALLE}~25
 \end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-niveau\+\_\+informations\+\_\+t $\ast$ \mbox{\hyperlink{generation__niveau_8h_adf7304357c3cd12ea6d7c3ee7b07ca36}{creer\+\_\+niveau\+\_\+info}} (const char $\ast$nom\+\_\+planete)
-\begin{DoxyCompactList}\small\item\em Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure. \end{DoxyCompactList}\item 
+niveau\+\_\+informations\+\_\+t $\ast$ \mbox{\hyperlink{generation__niveau_8h_a1c3e79b3cece398d7034c947809dff61}{creer\+\_\+niveau\+\_\+info}} (char $\ast$nom\+\_\+planete, int indice\+\_\+difficulte)
+\begin{DoxyCompactList}\small\item\em Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure niveau\+\_\+informations\+\_\+t. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{generation__niveau_8h_adec97d0d2112b3247d1a5d6a39f094f7}{detruire\+\_\+niveau\+\_\+info}} (niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveau)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une information de niveau. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{generation__niveau_8h_ad12a4ac49cc571e2c925822363bd328f}{seed\+\_\+depuis\+\_\+mot}} (const char $\ast$mot)
@@ -74,30 +74,35 @@ int \mbox{\hyperlink{generation__niveau_8h_ad12a4ac49cc571e2c925822363bd328f}{se
 
 
 \doxysubsection{Description détaillée}
-Librairie de generation.\+c. 
+Librairie de generation. 
 
 \begin{DoxyAuthor}{Auteur}
-Camille REMOUÉ 
+Camille Remoué 
 \end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{generation__niveau_8h_adf7304357c3cd12ea6d7c3ee7b07ca36}\label{generation__niveau_8h_adf7304357c3cd12ea6d7c3ee7b07ca36}} 
+\mbox{\Hypertarget{generation__niveau_8h_a1c3e79b3cece398d7034c947809dff61}\label{generation__niveau_8h_a1c3e79b3cece398d7034c947809dff61}} 
 \index{generation\_niveau.h@{generation\_niveau.h}!creer\_niveau\_info@{creer\_niveau\_info}}
 \index{creer\_niveau\_info@{creer\_niveau\_info}!generation\_niveau.h@{generation\_niveau.h}}
 \doxysubsubsection{\texorpdfstring{creer\_niveau\_info()}{creer\_niveau\_info()}}
-{\footnotesize\ttfamily niveau\+\_\+informations\+\_\+t$\ast$ creer\+\_\+niveau\+\_\+info (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nom\+\_\+planete }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily niveau\+\_\+informations\+\_\+t$\ast$ creer\+\_\+niveau\+\_\+info (\begin{DoxyParamCaption}\item[{char $\ast$}]{nom\+\_\+planete,  }\item[{int}]{indice\+\_\+difficulte }\end{DoxyParamCaption})}
 
 
 
-Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure. 
+Fonction principale \+: crée le niveau et l\textquotesingle{}écrit dans une structure niveau\+\_\+informations\+\_\+t. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em nom\+\_\+planete} & Nom associé à un niveau unique \+: il génère la seed \\
 \hline
+{\em indice\+\_\+difficulte} & Calculée a partir de l\textquotesingle{}xp du joueur, faisant varier la quantité et la difficulté des monstres par salles\\
+\hline
 \end{DoxyParams}
-!! A CALCULER\mbox{\Hypertarget{generation__niveau_8h_adec97d0d2112b3247d1a5d6a39f094f7}\label{generation__niveau_8h_adec97d0d2112b3247d1a5d6a39f094f7}} 
+\begin{DoxyReturn}{Renvoie}
+Les informations du niveau dans une structure niveau\+\_\+informations\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__niveau_8h_adec97d0d2112b3247d1a5d6a39f094f7}\label{generation__niveau_8h_adec97d0d2112b3247d1a5d6a39f094f7}} 
 \index{generation\_niveau.h@{generation\_niveau.h}!detruire\_niveau\_info@{detruire\_niveau\_info}}
 \index{detruire\_niveau\_info@{detruire\_niveau\_info}!generation\_niveau.h@{generation\_niveau.h}}
 \doxysubsubsection{\texorpdfstring{detruire\_niveau\_info()}{detruire\_niveau\_info()}}
@@ -124,7 +129,7 @@ Transforme arbitrairement un mot (lettres) en seed (entier)
 
 
 \begin{DoxyParams}{Paramètres}
-{\em mot} & chaine de caractères en entrée\\
+{\em mot} & chaîne de caractères en entrée\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -80,7 +80,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="attaque_8h_source.html">attaque.h</a>&gt;</code><br />
-<code>#include &lt;attributs_personnages.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="attributs__personnages_8h_source.html">attributs_personnages.h</a>&gt;</code><br />
 </div>
 <p><a href="monstre_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -92,20 +92,96 @@ typedef struct s_monstre&#160;</td><td class="memItemRight" valign="bottom"><b>t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
-<tr class="memitem:a36fdff9a23b289ff657d6dadf78941a7"><td class="memItemLeft" align="right" valign="top"><a id="a36fdff9a23b289ff657d6dadf78941a7"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>e_deplacement_monstre</b> { <b>STATIQUE</b>
+<tr class="memitem:a36fdff9a23b289ff657d6dadf78941a7"><td class="memItemLeft" align="right" valign="top"><a id="a36fdff9a23b289ff657d6dadf78941a7"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monstre_8h.html#a36fdff9a23b289ff657d6dadf78941a7">e_deplacement_monstre</a> { <b>STATIQUE</b>
+, <b>VERS_J</b>
  }</td></tr>
+<tr class="memdesc:a36fdff9a23b289ff657d6dadf78941a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type de déplacement pouvant être associé à un monstre, permet de définir son comportement. <br /></td></tr>
 <tr class="separator:a36fdff9a23b289ff657d6dadf78941a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae6d9e9ba039bfa6b61191ef778fbc6bf"><td class="memItemLeft" align="right" valign="top"><a id="ae6d9e9ba039bfa6b61191ef778fbc6bf"></a>
-t_monstre *&#160;</td><td class="memItemRight" valign="bottom"><b>creerMonstre</b> (float x, float y, float vitesse, int pv, float taille, e_nom_attaque type_attaque, e_deplacement_monstre deplacement)</td></tr>
+<tr class="memitem:ae6d9e9ba039bfa6b61191ef778fbc6bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__monstre.html">t_monstre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="monstre_8h.html#ae6d9e9ba039bfa6b61191ef778fbc6bf">creerMonstre</a> (float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, float <a class="el" href="attributs__entites_8h.html#aef55e1775d611bfea0196692da1a0bc5">vitesse</a>, int <a class="el" href="attributs__personnages_8h.html#af1b58e608320ff939118a2a719ba3e6b">pv</a>, float <a class="el" href="attributs__entites_8h.html#a117a40becce0ce457e4ca4a705461882">taille</a>, <a class="el" href="attaque_8h.html#ac7dcc833fc35572565d511b3875d7880">e_nom_attaque</a> type_attaque, <a class="el" href="monstre_8h.html#a36fdff9a23b289ff657d6dadf78941a7">e_deplacement_monstre</a> deplacement)</td></tr>
+<tr class="memdesc:ae6d9e9ba039bfa6b61191ef778fbc6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un monstre.  <a href="monstre_8h.html#ae6d9e9ba039bfa6b61191ef778fbc6bf">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae6d9e9ba039bfa6b61191ef778fbc6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p >Module de gestion des monstres. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae6d9e9ba039bfa6b61191ef778fbc6bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6d9e9ba039bfa6b61191ef778fbc6bf">&#9670;&nbsp;</a></span>creerMonstre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__monstre.html">t_monstre</a>* creerMonstre </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>vitesse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>taille</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="attaque_8h.html#ac7dcc833fc35572565d511b3875d7880">e_nom_attaque</a>&#160;</td>
+          <td class="paramname"><em>type_attaque</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="monstre_8h.html#a36fdff9a23b289ff657d6dadf78941a7">e_deplacement_monstre</a>&#160;</td>
+          <td class="paramname"><em>deplacement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un monstre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>La position en x </td></tr>
+    <tr><td class="paramname">y</td><td>La position en y </td></tr>
+    <tr><td class="paramname">vitesse</td><td>Sa vitesse en tiles par secondes </td></tr>
+    <tr><td class="paramname">pv</td><td>Son nombre de points de vie </td></tr>
+    <tr><td class="paramname">taille</td><td>Sa taille à l'échelle d'une tile </td></tr>
+    <tr><td class="paramname">type_attaque</td><td>L'attaque équipée </td></tr>
+    <tr><td class="paramname">deplacement</td><td>La méthode de déplacement équipée</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur projectile (NULL si echec). </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2

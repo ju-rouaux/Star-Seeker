@@ -7,22 +7,43 @@ Bibliothèque de petites fonctions pratiques dans de nombreux cas.
 
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$outils.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{outils_8c_a1c7e045899fef698f17ac6ae5116421d}{de}} (const int nb\+Faces)
-\end{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{outils_8c_aee92f4184daeb93e21be46685143e41a}{calcul\+Difficulte}} (int xp)
+\begin{DoxyCompactList}\small\item\em Calcul la difficulté a partir de l\textquotesingle{}xp que le joueur possède. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Bibliothèque de petites fonctions pratiques dans de nombreux cas. 
 
 \begin{DoxyAuthor}{Auteur}
-Camille 
+Camille Remoué 
 \end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{outils_8c_aee92f4184daeb93e21be46685143e41a}\label{outils_8c_aee92f4184daeb93e21be46685143e41a}} 
+\index{outils.c@{outils.c}!calculDifficulte@{calculDifficulte}}
+\index{calculDifficulte@{calculDifficulte}!outils.c@{outils.c}}
+\doxysubsubsection{\texorpdfstring{calculDifficulte()}{calculDifficulte()}}
+{\footnotesize\ttfamily int calcul\+Difficulte (\begin{DoxyParamCaption}\item[{int}]{xp }\end{DoxyParamCaption})}
+
+
+
+Calcul la difficulté a partir de l\textquotesingle{}xp que le joueur possède. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em xp} & xp du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+indice de difficulté 
+\end{DoxyReturn}
 \mbox{\Hypertarget{outils_8c_a1c7e045899fef698f17ac6ae5116421d}\label{outils_8c_a1c7e045899fef698f17ac6ae5116421d}} 
 \index{outils.c@{outils.c}!de@{de}}
 \index{de@{de}!outils.c@{outils.c}}

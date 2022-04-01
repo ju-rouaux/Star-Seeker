@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -71,32 +71,32 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="overlay_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _OVERLAY_</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define _OVERLAY_</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="overlay_8h.html">overlay.h</a>&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="textures_8h.html">textures.h</a>&gt;</span> </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="joueur_8h.html">joueur.h</a>&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="moteur_8h.html">moteur.h</a>&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="generation__niveau_8h.html">generation_niveau.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _OVERLAY_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _OVERLAY_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="overlay_8h.html">overlay.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="textures_8h.html">textures.h</a>&gt;</span> </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="joueur_8h.html">joueur.h</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="moteur_8h.html">moteur.h</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="generation__niveau_8h.html">generation_niveau.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="overlay_8h.html#a981c222c503070d57f4edb8ca611561b">dessiner_map</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur, niveau_informations_t * infosNiveau, <span class="keywordtype">int</span> idSalle);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="overlay_8h.html#a981c222c503070d57f4edb8ca611561b">dessiner_map</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur, niveau_informations_t * infosNiveau, <span class="keywordtype">int</span> idSalle);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="overlay_8h.html#a5d5c962ab2bacf2671b8833ad1de8c83">dessiner_hud</a>(<a class="code" href="structt__moteur.html">t_moteur</a> * moteur, <a class="code" href="structt__joueur.html">t_joueur</a> * joueur);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_OVERLAY_</span></div>
-<div class="ttc" id="ageneration__niveau_8h_html"><div class="ttname"><a href="generation__niveau_8h.html">generation_niveau.h</a></div><div class="ttdoc">Librairie de generation.c.</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_OVERLAY_</span></div>
+<div class="ttc" id="ageneration__niveau_8h_html"><div class="ttname"><a href="generation__niveau_8h.html">generation_niveau.h</a></div><div class="ttdoc">Librairie de generation.</div></div>
 <div class="ttc" id="ajoueur_8h_html"><div class="ttname"><a href="joueur_8h.html">joueur.h</a></div><div class="ttdoc">Module de gestion du joueur.</div></div>
 <div class="ttc" id="amoteur_8h_html"><div class="ttname"><a href="moteur_8h.html">moteur.h</a></div><div class="ttdoc">Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une...</div></div>
 <div class="ttc" id="aoverlay_8h_html"><div class="ttname"><a href="overlay_8h.html">overlay.h</a></div><div class="ttdoc">Module de gestion de l'interface utilisateur in-game.</div></div>
-<div class="ttc" id="aoverlay_8h_html_a981c222c503070d57f4edb8ca611561b"><div class="ttname"><a href="overlay_8h.html#a981c222c503070d57f4edb8ca611561b">dessiner_map</a></div><div class="ttdeci">void dessiner_map(t_moteur *moteur, niveau_informations_t *infosNiveau, int idSalle)</div><div class="ttdoc">Dessine toute la map à l'écran.</div><div class="ttdef"><b>Definition:</b> overlay.c:84</div></div>
-<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécéssaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
+<div class="ttc" id="aoverlay_8h_html_a5d5c962ab2bacf2671b8833ad1de8c83"><div class="ttname"><a href="overlay_8h.html#a5d5c962ab2bacf2671b8833ad1de8c83">dessiner_hud</a></div><div class="ttdeci">void dessiner_hud(t_moteur *moteur, t_joueur *joueur)</div><div class="ttdoc">Dessine le HUD.</div><div class="ttdef"><b>Definition:</b> overlay.c:129</div></div>
+<div class="ttc" id="aoverlay_8h_html_a981c222c503070d57f4edb8ca611561b"><div class="ttname"><a href="overlay_8h.html#a981c222c503070d57f4edb8ca611561b">dessiner_map</a></div><div class="ttdeci">void dessiner_map(t_moteur *moteur, niveau_informations_t *infosNiveau, int idSalle)</div><div class="ttdoc">Dessine toute la map à l'écran.</div><div class="ttdef"><b>Definition:</b> overlay.c:86</div></div>
+<div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
+<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécessaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
 <div class="ttc" id="atextures_8h_html"><div class="ttname"><a href="textures_8h.html">textures.h</a></div><div class="ttdoc">Module de chargement de textures. Propose aussi quelques outils relatifs aux terxtures.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

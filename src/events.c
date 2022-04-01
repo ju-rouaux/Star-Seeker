@@ -11,7 +11,7 @@
 #include <joueur.h>
 #include <menu.h>
 #include <moteur.h>
-#include <event.h>
+#include <events.h>
 #include <main.h>
 
 /**

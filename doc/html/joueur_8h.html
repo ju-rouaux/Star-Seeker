@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -82,7 +82,7 @@ $(function() {
 <code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="personnage_8h_source.html">personnage.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="attaque_8h_source.html">attaque.h</a>&gt;</code><br />
-<code>#include &lt;attributs_personnages.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="attributs__personnages_8h_source.html">attributs_personnages.h</a>&gt;</code><br />
 </div>
 <p><a href="joueur_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -94,10 +94,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a356b59b347562c683291691f5aa4dca0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#a356b59b347562c683291691f5aa4dca0">PROPORTION_JOUEUR</a>&#160;&#160;&#160;1.6</td></tr>
+<tr class="memitem:a356b59b347562c683291691f5aa4dca0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#a356b59b347562c683291691f5aa4dca0">PROPORTION_JOUEUR</a>&#160;&#160;&#160;1.2</td></tr>
 <tr class="separator:a356b59b347562c683291691f5aa4dca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ffc1a78b3ae6e72377a2641899ae51c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#a2ffc1a78b3ae6e72377a2641899ae51c">VITESSE_JOUEUR_DEFAULT</a>&#160;&#160;&#160;6.5</td></tr>
 <tr class="separator:a2ffc1a78b3ae6e72377a2641899ae51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd85826b77aa438c8057cce731f559b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#abd85826b77aa438c8057cce731f559b3">PV_JOUEUR_DEFAULT</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:abd85826b77aa438c8057cce731f559b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Définitions de type</h2></td></tr>
@@ -107,7 +109,7 @@ typedef struct s_joueur&#160;</td><td class="memItemRight" valign="bottom"><b>t_
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:abede277b4d13650249d6ef69b267f2a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a> (float x, float y, SDL_Texture *apparence)</td></tr>
+<tr class="memitem:abede277b4d13650249d6ef69b267f2a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">creerJoueur</a> (float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, SDL_Texture *apparence)</td></tr>
 <tr class="memdesc:abede277b4d13650249d6ef69b267f2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une structure joueur.  <a href="joueur_8h.html#abede277b4d13650249d6ef69b267f2a8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abede277b4d13650249d6ef69b267f2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e9013c729e9fe43289429dc9df96d0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8h.html#a1e9013c729e9fe43289429dc9df96d0e">detruireJoueur</a> (<a class="el" href="structt__joueur.html">t_joueur</a> **joueur)</td></tr>
@@ -125,11 +127,26 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PROPORTION_JOUEUR&#160;&#160;&#160;1.6</td>
+          <td class="memname">#define PROPORTION_JOUEUR&#160;&#160;&#160;1.2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Taille du joueur par rapport à la taille d'une tile </p>
+
+</div>
+</div>
+<a id="abd85826b77aa438c8057cce731f559b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd85826b77aa438c8057cce731f559b3">&#9670;&nbsp;</a></span>PV_JOUEUR_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PV_JOUEUR_DEFAULT&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Nombre de points de vie du joueur par défaut </p>
 
 </div>
 </div>

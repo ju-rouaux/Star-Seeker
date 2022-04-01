@@ -1,0 +1,51 @@
+\hypertarget{menu__niveau_8h}{}\doxysection{Référence du fichier include/menu\+\_\+niveau.h}
+\label{menu__niveau_8h}\index{include/menu\_niveau.h@{include/menu\_niveau.h}}
+
+
+Menu de sélection d\textquotesingle{}un niveau d\textquotesingle{}une partie.  
+
+
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__niveau_8h_a7cc9faa810ac136b0dbe54e2462f6d8c}{afficher\+Menu\+Niveau}} (int $\ast$retour, \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+infos, int ancien\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Affiche le menu de sélection d\textquotesingle{}une planète. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Menu de sélection d\textquotesingle{}un niveau d\textquotesingle{}une partie. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__niveau_8h_a7cc9faa810ac136b0dbe54e2462f6d8c}\label{menu__niveau_8h_a7cc9faa810ac136b0dbe54e2462f6d8c}} 
+\index{menu\_niveau.h@{menu\_niveau.h}!afficherMenuNiveau@{afficherMenuNiveau}}
+\index{afficherMenuNiveau@{afficherMenuNiveau}!menu\_niveau.h@{menu\_niveau.h}}
+\doxysubsubsection{\texorpdfstring{afficherMenuNiveau()}{afficherMenuNiveau()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main afficher\+Menu\+Niveau (\begin{DoxyParamCaption}\item[{int $\ast$}]{retour\+\_\+niveau,  }\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+infos,  }\item[{int}]{ancien\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu de sélection d\textquotesingle{}une planète. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em retour\+\_\+niveau} & Valeur de sortie, retourne l\textquotesingle{}indice du niveau à charger si un choix est fait \\
+\hline
+{\em moteur} & Le moteur \\
+\hline
+{\em infos\+\_\+niveaux} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+{\em nb\+\_\+infos} & Le nombre d\textquotesingle{}éléments de la liste \\
+\hline
+{\em ancien\+\_\+niveau\+\_\+charge} & Indice du niveau précédemment chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}action réalisée, l\textquotesingle{}indice du niveau choisi est retourné dans retour\+\_\+niveau si NIVEAU\+\_\+\+CHANGER est retourné. 
+\end{DoxyReturn}

@@ -2,61 +2,179 @@
 \label{sauvegarde_8h}\index{include/sauvegarde.h@{include/sauvegarde.h}}
 
 
-Sauvegarde l\textquotesingle{}etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.  
+Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.  
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$joueur.\+h$>$}\newline
-{\ttfamily \#include $<$entite.\+h$>$}\newline
-{\ttfamily \#include $<$animation.\+h$>$}\newline
 {\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
-\doxysubsection*{Macros}
+{\ttfamily \#include $<$monstre.\+h$>$}\newline
+{\ttfamily \#include $<$interaction.\+h$>$}\newline
+\doxysubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{sauvegarde_8h_a13f12457971e2cc047962ad3af7bbf83}\label{sauvegarde_8h_a13f12457971e2cc047962ad3af7bbf83}} 
-\#define {\bfseries filename\+\_\+joueur}~\char`\"{}./save/save\+\_\+joueur.\+save\char`\"{}
-\item 
-\mbox{\Hypertarget{sauvegarde_8h_a35d3a71f8b76929683ee93a56eae75d3}\label{sauvegarde_8h_a35d3a71f8b76929683ee93a56eae75d3}} 
-\#define {\bfseries filename\+\_\+niveau}~\char`\"{}./save/save\+\_\+niveau.\+save\char`\"{}
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}\label{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}} 
+enum \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \{ \newline
+{\bfseries NO\+\_\+\+FILE} = -\/5
+, {\bfseries MALLOC\+\_\+\+FAIL} = -\/4
+, {\bfseries READ\+\_\+\+OR\+\_\+\+WRITE\+\_\+\+FAIL} = -\/3
+, {\bfseries FOPEN\+\_\+\+FAIL} = -\/2
+, \newline
+{\bfseries SAVE\+\_\+\+ERROR} = -\/1
+, {\bfseries SUCCESS} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em Erreurs possibles lors des différentes sauvegarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}{charger\+Sauvegarde}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$$\ast$niveau)
-\begin{DoxyCompactList}\small\item\em Fonction de chargement du niveau et du joueur. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{sauvegarde_8h_aadf625542c1e15d2022e34eedb3ca925}\label{sauvegarde_8h_aadf625542c1e15d2022e34eedb3ca925}} 
-int {\bfseries sauvegarder} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$niveau)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_a80b90dc6e2a010d23a01d5c881facd10}{sauvegarder\+Partie}} (char $\ast$nom\+\_\+galaxie, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Sauvegarde les informations relatives à la partie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_add6045470a7ec5bc9b2bd4f72364a1cc}{sauvegarder\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Sauverde le joueur dans son fichier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_a02f62a3cc918e61ec3012366eb58b2a0}{sauvegarder\+Parametres}} (\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$parametres)
+\begin{DoxyCompactList}\small\item\em Sauvegarde des paramètres du joueur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_ad048f230be2b76ed45c7b13565025629}{charger\+Save\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Charge le joueur de ses données de sauvegarde. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_ae2d20f40304d66ccc8009f176f4faa3e}{charger\+Save\+Partie}} (char $\ast$$\ast$nom\+\_\+galaxie, niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$infos\+\_\+niveaux, int $\ast$nb\+\_\+niveaux, int $\ast$indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Charge les informations relatives à la partie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8h_aaa7e3d6a13ea4851abe232e0d31badb5}{charger\+Save\+Parametres}} (\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$parametres)
+\begin{DoxyCompactList}\small\item\em Charge les paramètres du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Sauvegarde l\textquotesingle{}etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés. 
+Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie. 
 
 \begin{DoxyAuthor}{Auteur}
-Guillaume 
+Julien Rouaux \& Guillaume Richard 
 \end{DoxyAuthor}
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}\label{sauvegarde_8h_a6a913649ad23f7a75097592877f2eee0}} 
-\index{sauvegarde.h@{sauvegarde.h}!chargerSauvegarde@{chargerSauvegarde}}
-\index{chargerSauvegarde@{chargerSauvegarde}!sauvegarde.h@{sauvegarde.h}}
-\doxysubsubsection{\texorpdfstring{chargerSauvegarde()}{chargerSauvegarde()}}
-{\footnotesize\ttfamily int charger\+Sauvegarde (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{\mbox{\hyperlink{structniveau__informations__t}{niveau\+\_\+informations\+\_\+t}} $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{sauvegarde_8h_ad048f230be2b76ed45c7b13565025629}\label{sauvegarde_8h_ad048f230be2b76ed45c7b13565025629}} 
+\index{sauvegarde.h@{sauvegarde.h}!chargerSaveJoueur@{chargerSaveJoueur}}
+\index{chargerSaveJoueur@{chargerSaveJoueur}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{chargerSaveJoueur()}{chargerSaveJoueur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} charger\+Save\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
 
 
 
-Fonction de chargement du niveau et du joueur. 
+Charge le joueur de ses données de sauvegarde. 
+
+Lis la sauvegarde dans le fichier binaire et met à jour la structure \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em joueur} & joueur \\
-\hline
-{\em niveau} & niveau (NULL si l\textquotesingle{}on ne souhaite pas charger le niveau) \\
+{\em joueur} & joueur à charger depuis la sauvegarde\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-0 si succès, valeur négative si echec. 
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8h_aaa7e3d6a13ea4851abe232e0d31badb5}\label{sauvegarde_8h_aaa7e3d6a13ea4851abe232e0d31badb5}} 
+\index{sauvegarde.h@{sauvegarde.h}!chargerSaveParametres@{chargerSaveParametres}}
+\index{chargerSaveParametres@{chargerSaveParametres}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{chargerSaveParametres()}{chargerSaveParametres()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} charger\+Save\+Parametres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$}]{parametres }\end{DoxyParamCaption})}
+
+
+
+Charge les paramètres du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parametres} & La structure des paramètres à sauvegarder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8h_ae2d20f40304d66ccc8009f176f4faa3e}\label{sauvegarde_8h_ae2d20f40304d66ccc8009f176f4faa3e}} 
+\index{sauvegarde.h@{sauvegarde.h}!chargerSavePartie@{chargerSavePartie}}
+\index{chargerSavePartie@{chargerSavePartie}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{chargerSavePartie()}{chargerSavePartie()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} charger\+Save\+Partie (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{nom\+\_\+galaxie,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int $\ast$}]{nb\+\_\+niveaux,  }\item[{int $\ast$}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Charge les informations relatives à la partie. 
+
+D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsque ce sera nécessaire. 
+\begin{DoxyParams}{Paramètres}
+{\em nom\+\_\+galaxie} & le nom de la galaxie \\
+\hline
+{\em infos\+\_\+niveaux} & L\textquotesingle{}adresse de la matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & L\textquotesingle{}adresse du nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & L\textquotesingle{}adresse de l\textquotesingle{}indice du niveau qui est actuellement chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8h_add6045470a7ec5bc9b2bd4f72364a1cc}\label{sauvegarde_8h_add6045470a7ec5bc9b2bd4f72364a1cc}} 
+\index{sauvegarde.h@{sauvegarde.h}!sauvegarderJoueur@{sauvegarderJoueur}}
+\index{sauvegarderJoueur@{sauvegarderJoueur}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{sauvegarderJoueur()}{sauvegarderJoueur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} sauvegarder\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Sauverde le joueur dans son fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & joueur à sauvegarder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8h_a02f62a3cc918e61ec3012366eb58b2a0}\label{sauvegarde_8h_a02f62a3cc918e61ec3012366eb58b2a0}} 
+\index{sauvegarde.h@{sauvegarde.h}!sauvegarderParametres@{sauvegarderParametres}}
+\index{sauvegarderParametres@{sauvegarderParametres}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{sauvegarderParametres()}{sauvegarderParametres()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} sauvegarder\+Parametres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$}]{parametres }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde des paramètres du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parametres} & La structure des paramètres à sauvegarder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8h_a80b90dc6e2a010d23a01d5c881facd10}\label{sauvegarde_8h_a80b90dc6e2a010d23a01d5c881facd10}} 
+\index{sauvegarde.h@{sauvegarde.h}!sauvegarderPartie@{sauvegarderPartie}}
+\index{sauvegarderPartie@{sauvegarderPartie}!sauvegarde.h@{sauvegarde.h}}
+\doxysubsubsection{\texorpdfstring{sauvegarderPartie()}{sauvegarderPartie()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} sauvegarder\+Partie (\begin{DoxyParamCaption}\item[{char $\ast$}]{nom\+\_\+galaxie,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde les informations relatives à la partie. 
+
+D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsque ce sera nécessaire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+\_\+galaxie} & le nom de la galaxie \\
+\hline
+{\em infos\+\_\+niveaux} & La matrice des structures de donnée de niveau \\
+\hline
+{\em nb\+\_\+niveaux} & Le nombre de structures contenues dans la matrice \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & L\textquotesingle{}indice du niveau qui est actuellement chargé\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+SUCCESS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}

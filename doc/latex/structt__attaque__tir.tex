@@ -12,11 +12,9 @@ Modélise une arme générant des projectiles.
 \doxysubsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structt__attaque__tir_aa4b3b226731d4853177f92105f1595a9}\label{structt__attaque__tir_aa4b3b226731d4853177f92105f1595a9}} 
-e\+\_\+type\+\_\+projectile {\bfseries type\+\_\+projectile}
+\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \mbox{\hyperlink{structt__attaque__tir_aa4b3b226731d4853177f92105f1595a9}{type\+\_\+projectile}}
 \item 
-\mbox{\Hypertarget{structt__attaque__tir_a71df56477bd591efcdbfebacd8d69b03}\label{structt__attaque__tir_a71df56477bd591efcdbfebacd8d69b03}} 
-int {\bfseries cooldown}
+int \mbox{\hyperlink{structt__attaque__tir_a71df56477bd591efcdbfebacd8d69b03}{cooldown}}
 \item 
 int \mbox{\hyperlink{structt__attaque__tir_ad7a799864f764222e79d5aedc1d4ab12}{nb\+\_\+salves}}
 \item 
@@ -26,7 +24,8 @@ int \mbox{\hyperlink{structt__attaque__tir_a654379393a4ac09f78c10e556038c3bc}{ti
 \item 
 float \mbox{\hyperlink{structt__attaque__tir_a4816f78a3d4b9e2f7793bdd05e5a863a}{etalement}}
 \item 
-int \mbox{\hyperlink{structt__attaque__tir_a5a2ac8ce5fd96cac17c537d57c607dae}{nb\+\_\+salves\+\_\+restantes}}
+\mbox{\Hypertarget{structt__attaque__tir_a5a2ac8ce5fd96cac17c537d57c607dae}\label{structt__attaque__tir_a5a2ac8ce5fd96cac17c537d57c607dae}} 
+int {\bfseries nb\+\_\+salves\+\_\+restantes}
 \item 
 int \mbox{\hyperlink{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}{temps\+\_\+debut\+\_\+attaque}}
 \end{DoxyCompactItemize}
@@ -36,31 +35,31 @@ int \mbox{\hyperlink{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}{te
 Modélise une arme générant des projectiles. 
 
 \doxysubsection{Documentation des données membres}
-\mbox{\Hypertarget{structt__attaque__tir_a4816f78a3d4b9e2f7793bdd05e5a863a}\label{structt__attaque__tir_a4816f78a3d4b9e2f7793bdd05e5a863a}} 
+\mbox{\Hypertarget{structt__attaque__tir_a71df56477bd591efcdbfebacd8d69b03}\label{structt__attaque__tir_a71df56477bd591efcdbfebacd8d69b03}} 
+\index{t\_attaque\_tir@{t\_attaque\_tir}!cooldown@{cooldown}}
+\index{cooldown@{cooldown}!t\_attaque\_tir@{t\_attaque\_tir}}
+\doxysubsubsection{\texorpdfstring{cooldown}{cooldown}}
+{\footnotesize\ttfamily int t\+\_\+attaque\+\_\+tir\+::cooldown}
+
+Temps en ms avant de pouvoir réutiliser l\textquotesingle{}attaque \mbox{\Hypertarget{structt__attaque__tir_a4816f78a3d4b9e2f7793bdd05e5a863a}\label{structt__attaque__tir_a4816f78a3d4b9e2f7793bdd05e5a863a}} 
 \index{t\_attaque\_tir@{t\_attaque\_tir}!etalement@{etalement}}
 \index{etalement@{etalement}!t\_attaque\_tir@{t\_attaque\_tir}}
 \doxysubsubsection{\texorpdfstring{etalement}{etalement}}
 {\footnotesize\ttfamily float t\+\_\+attaque\+\_\+tir\+::etalement}
 
-Temps en ms entre le tir de chaque salve \mbox{\Hypertarget{structt__attaque__tir_aa9ff1170ae3b69d969c62005381ea530}\label{structt__attaque__tir_aa9ff1170ae3b69d969c62005381ea530}} 
+Angle exprimé en radiant représentant le niveau d\textquotesingle{}étalement d\textquotesingle{}une salve de projectiles (ignoré lorsqu\textquotesingle{}une salve ne contient qu\textquotesingle{}un projectile) \mbox{\Hypertarget{structt__attaque__tir_aa9ff1170ae3b69d969c62005381ea530}\label{structt__attaque__tir_aa9ff1170ae3b69d969c62005381ea530}} 
 \index{t\_attaque\_tir@{t\_attaque\_tir}!nb\_proj\_salve@{nb\_proj\_salve}}
 \index{nb\_proj\_salve@{nb\_proj\_salve}!t\_attaque\_tir@{t\_attaque\_tir}}
 \doxysubsubsection{\texorpdfstring{nb\_proj\_salve}{nb\_proj\_salve}}
 {\footnotesize\ttfamily int t\+\_\+attaque\+\_\+tir\+::nb\+\_\+proj\+\_\+salve}
 
-Nombre de salves \mbox{\Hypertarget{structt__attaque__tir_ad7a799864f764222e79d5aedc1d4ab12}\label{structt__attaque__tir_ad7a799864f764222e79d5aedc1d4ab12}} 
+Nombre de projectiles par salves \mbox{\Hypertarget{structt__attaque__tir_ad7a799864f764222e79d5aedc1d4ab12}\label{structt__attaque__tir_ad7a799864f764222e79d5aedc1d4ab12}} 
 \index{t\_attaque\_tir@{t\_attaque\_tir}!nb\_salves@{nb\_salves}}
 \index{nb\_salves@{nb\_salves}!t\_attaque\_tir@{t\_attaque\_tir}}
 \doxysubsubsection{\texorpdfstring{nb\_salves}{nb\_salves}}
 {\footnotesize\ttfamily int t\+\_\+attaque\+\_\+tir\+::nb\+\_\+salves}
 
-Temps en ms avant de pouvoir réutiliser l\textquotesingle{}attaque \mbox{\Hypertarget{structt__attaque__tir_a5a2ac8ce5fd96cac17c537d57c607dae}\label{structt__attaque__tir_a5a2ac8ce5fd96cac17c537d57c607dae}} 
-\index{t\_attaque\_tir@{t\_attaque\_tir}!nb\_salves\_restantes@{nb\_salves\_restantes}}
-\index{nb\_salves\_restantes@{nb\_salves\_restantes}!t\_attaque\_tir@{t\_attaque\_tir}}
-\doxysubsubsection{\texorpdfstring{nb\_salves\_restantes}{nb\_salves\_restantes}}
-{\footnotesize\ttfamily int t\+\_\+attaque\+\_\+tir\+::nb\+\_\+salves\+\_\+restantes}
-
-Angle exprimé en radiant représentant le niveau d\textquotesingle{}étalement d\textquotesingle{}une salve de projectiles (ignoré lorsqu\textquotesingle{}une salve ne contient qu\textquotesingle{}un projectile) \mbox{\Hypertarget{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}\label{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}} 
+Nombre de salves \mbox{\Hypertarget{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}\label{structt__attaque__tir_adf292cac506397cf51109a251bd652d1}} 
 \index{t\_attaque\_tir@{t\_attaque\_tir}!temps\_debut\_attaque@{temps\_debut\_attaque}}
 \index{temps\_debut\_attaque@{temps\_debut\_attaque}!t\_attaque\_tir@{t\_attaque\_tir}}
 \doxysubsubsection{\texorpdfstring{temps\_debut\_attaque}{temps\_debut\_attaque}}
@@ -72,7 +71,13 @@ Nombre de salves restantes \mbox{\Hypertarget{structt__attaque__tir_a654379393a4
 \doxysubsubsection{\texorpdfstring{tir\_interval}{tir\_interval}}
 {\footnotesize\ttfamily int t\+\_\+attaque\+\_\+tir\+::tir\+\_\+interval}
 
-Nombre de projectiles par salves 
+Temps en ms entre le tir de chaque salve \mbox{\Hypertarget{structt__attaque__tir_aa4b3b226731d4853177f92105f1595a9}\label{structt__attaque__tir_aa4b3b226731d4853177f92105f1595a9}} 
+\index{t\_attaque\_tir@{t\_attaque\_tir}!type\_projectile@{type\_projectile}}
+\index{type\_projectile@{type\_projectile}!t\_attaque\_tir@{t\_attaque\_tir}}
+\doxysubsubsection{\texorpdfstring{type\_projectile}{type\_projectile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} t\+\_\+attaque\+\_\+tir\+::type\+\_\+projectile}
+
+Nom du projectile lancé 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 

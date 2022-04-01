@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -79,20 +79,60 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a0ad357ddc03b5f5132aa6979df6adf64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#a0ad357ddc03b5f5132aa6979df6adf64">dessiner_tile_map</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, int type, float x, float y)</td></tr>
+<tr class="memitem:a0ad357ddc03b5f5132aa6979df6adf64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#a0ad357ddc03b5f5132aa6979df6adf64">dessiner_tile_map</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, int <a class="el" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>, float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>)</td></tr>
 <tr class="memdesc:a0ad357ddc03b5f5132aa6979df6adf64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine une tile de map à la position voulue.  <a href="overlay_8c.html#a0ad357ddc03b5f5132aa6979df6adf64">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0ad357ddc03b5f5132aa6979df6adf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a351fc346334328961b7d26c44547d57c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#a351fc346334328961b7d26c44547d57c">type_salle_map</a> (int matrice[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], int x, int y)</td></tr>
-<tr class="memdesc:a351fc346334328961b7d26c44547d57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en haut et à gauche ?  <a href="overlay_8c.html#a351fc346334328961b7d26c44547d57c">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a351fc346334328961b7d26c44547d57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae43ff8520270751309c5b9a3b900953b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#ae43ff8520270751309c5b9a3b900953b">type_salle_map</a> (int *matrice, int hauteur, int longueur, int <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, int <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>)</td></tr>
+<tr class="memdesc:ae43ff8520270751309c5b9a3b900953b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en haut et à gauche ?  <a href="overlay_8c.html#ae43ff8520270751309c5b9a3b900953b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae43ff8520270751309c5b9a3b900953b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a981c222c503070d57f4edb8ca611561b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#a981c222c503070d57f4edb8ca611561b">dessiner_map</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, niveau_informations_t *infosNiveau, int idSalle)</td></tr>
 <tr class="memdesc:a981c222c503070d57f4edb8ca611561b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine toute la map à l'écran.  <a href="overlay_8c.html#a981c222c503070d57f4edb8ca611561b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a981c222c503070d57f4edb8ca611561b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5c962ab2bacf2671b8833ad1de8c83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html#a5d5c962ab2bacf2671b8833ad1de8c83">dessiner_hud</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur)</td></tr>
+<tr class="memdesc:a5d5c962ab2bacf2671b8833ad1de8c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le HUD.  <a href="overlay_8c.html#a5d5c962ab2bacf2671b8833ad1de8c83">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5d5c962ab2bacf2671b8833ad1de8c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p >Module de gestion de l'interface utilisateur in-game. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a5d5c962ab2bacf2671b8833ad1de8c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5c962ab2bacf2671b8833ad1de8c83">&#9670;&nbsp;</a></span>dessiner_hud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dessiner_hud </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine le HUD. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Informations d'échelle et de taille d'écran </td></tr>
+    <tr><td class="paramname">joueur</td><td>Points de vie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a981c222c503070d57f4edb8ca611561b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a981c222c503070d57f4edb8ca611561b">&#9670;&nbsp;</a></span>dessiner_map()</h2>
 
@@ -187,7 +227,7 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>nécessaire pour dessiner sur l'écran </td></tr>
-    <tr><td class="paramname">type</td><td>Type de salle, voir la fonction <a class="el" href="overlay_8c.html#a351fc346334328961b7d26c44547d57c" title="Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en hau...">type_salle_map()</a> </td></tr>
+    <tr><td class="paramname">type</td><td>Type de salle, voir la fonction <a class="el" href="overlay_8c.html#ae43ff8520270751309c5b9a3b900953b" title="Attribue un id de tile à chaque salle pour la map : est-ce une salle simple ? Une salle reliée en hau...">type_salle_map()</a> </td></tr>
     <tr><td class="paramname">x</td><td>Coordonnée de la salle à dessiner </td></tr>
     <tr><td class="paramname">y</td><td>Coordonnée de la salle à dessiner</td></tr>
   </table>
@@ -197,8 +237,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a351fc346334328961b7d26c44547d57c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a351fc346334328961b7d26c44547d57c">&#9670;&nbsp;</a></span>type_salle_map()</h2>
+<a id="ae43ff8520270751309c5b9a3b900953b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae43ff8520270751309c5b9a3b900953b">&#9670;&nbsp;</a></span>type_salle_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,8 +249,20 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">static int type_salle_map </td>
           <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>matrice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>matrice</em>[HAUTEUR_NIVEAU_MAX][LONGUEUR_NIVEAU_MAX], </td>
+          <td class="paramname"><em>hauteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>longueur</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -241,6 +293,8 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">matrice</td><td>Matrice des IDs des salles du niveau </td></tr>
+    <tr><td class="paramname">hauteur</td><td>taille en hauteur de la matrice </td></tr>
+    <tr><td class="paramname">longueur</td><td>taille en longueur de la matrice </td></tr>
     <tr><td class="paramname">x</td><td>Coordonnée de la salle dont le type doit être déterminé </td></tr>
     <tr><td class="paramname">y</td><td>Coordonnée de la salle dont le type doit être déterminé</td></tr>
   </table>

@@ -2,24 +2,24 @@
 \label{menu__options__keymap_8c}\index{src/menu\_options\_keymap.c@{src/menu\_options\_keymap.c}}
 
 
-Sous menu pour le mapping des touches.  
+Sous menu pour le mapping des touches Permet au joueur de redéfinir ses touches.  
 
 
 {\ttfamily \#include $<$menu\+\_\+options\+\_\+keymap.\+h$>$}\newline
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-static int \mbox{\hyperlink{menu__options__keymap_8c_a790273167e17882dd7c62894f274dc82}{handle\+Events\+\_\+options\+\_\+keymap}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, t\+\_\+bouton $\ast$$\ast$boutons, SDL\+\_\+\+Scancode $\ast$key\+\_\+code)
+static int \mbox{\hyperlink{menu__options__keymap_8c_a790273167e17882dd7c62894f274dc82}{handle\+Events\+\_\+options\+\_\+keymap}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$boutons, SDL\+\_\+\+Scancode $\ast$key\+\_\+code)
 \begin{DoxyCompactList}\small\item\em Gere tout les evenements liées au boutons danns le sous menu keymap. \end{DoxyCompactList}\item 
 e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__options__keymap_8c_ab94bfb1aa0b34089f558410dbaba3e1a}{charger\+Menu\+\_\+\+Options\+\_\+keymap}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
-\begin{DoxyCompactList}\small\item\em Charge tout les boutons / fonctionnalités du sous menu pour les keymap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Charge tous les boutons / fonctionnalités du sous menu pour les keymap. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Sous menu pour le mapping des touches. 
+Sous menu pour le mapping des touches Permet au joueur de redéfinir ses touches. 
 
 \begin{DoxyAuthor}{Auteur}
-Guillaume 
+Guillaume Richard 
 \end{DoxyAuthor}
 
 
@@ -32,21 +32,21 @@ Guillaume
 
 
 
-Charge tout les boutons / fonctionnalités du sous menu pour les keymap. 
+Charge tous les boutons / fonctionnalités du sous menu pour les keymap. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em moteur} & structure moteur \\
+{\em moteur} & le moteur \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-code de sortie personnalisé selon l\textquotesingle{}evenement 
+code de sortie personnalisé selon l\textquotesingle{}évenement 
 \end{DoxyReturn}
 \mbox{\Hypertarget{menu__options__keymap_8c_a790273167e17882dd7c62894f274dc82}\label{menu__options__keymap_8c_a790273167e17882dd7c62894f274dc82}} 
 \index{menu\_options\_keymap.c@{menu\_options\_keymap.c}!handleEvents\_options\_keymap@{handleEvents\_options\_keymap}}
 \index{handleEvents\_options\_keymap@{handleEvents\_options\_keymap}!menu\_options\_keymap.c@{menu\_options\_keymap.c}}
 \doxysubsubsection{\texorpdfstring{handleEvents\_options\_keymap()}{handleEvents\_options\_keymap()}}
-{\footnotesize\ttfamily static int handle\+Events\+\_\+options\+\_\+keymap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{t\+\_\+bouton $\ast$$\ast$}]{boutons,  }\item[{SDL\+\_\+\+Scancode $\ast$}]{key\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static int handle\+Events\+\_\+options\+\_\+keymap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$}]{boutons,  }\item[{SDL\+\_\+\+Scancode $\ast$}]{key\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -54,9 +54,9 @@ Gere tout les evenements liées au boutons danns le sous menu keymap.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em moteur} & structure moteur \\
+{\em moteur} & le moteur \\
 \hline
-{\em boutons} & tableau de boutons des options \\
+{\em boutons} & le tableau de boutons \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

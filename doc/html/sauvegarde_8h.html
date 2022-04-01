@@ -23,7 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Star Seeker
    </div>
-   <div id="projectbrief">Projet de L2</div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
   </td>
  </tr>
  </tbody>
@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -68,63 +68,150 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier sauvegarde.h</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Sauvegarde l'etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés.  
+<p>Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="joueur_8h_source.html">joueur.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="animation_8h_source.html">animation.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="monstre_8h_source.html">monstre.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="interaction_8h_source.html">interaction.h</a>&gt;</code><br />
 </div>
 <p><a href="sauvegarde_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a13f12457971e2cc047962ad3af7bbf83"><td class="memItemLeft" align="right" valign="top"><a id="a13f12457971e2cc047962ad3af7bbf83"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>filename_joueur</b>&#160;&#160;&#160;&quot;./save/save_joueur.save&quot;</td></tr>
-<tr class="separator:a13f12457971e2cc047962ad3af7bbf83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35d3a71f8b76929683ee93a56eae75d3"><td class="memItemLeft" align="right" valign="top"><a id="a35d3a71f8b76929683ee93a56eae75d3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>filename_niveau</b>&#160;&#160;&#160;&quot;./save/save_niveau.save&quot;</td></tr>
-<tr class="separator:a35d3a71f8b76929683ee93a56eae75d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a882cd556fd5182c1e9f38dcb950be3c8"><td class="memItemLeft" align="right" valign="top"><a id="a882cd556fd5182c1e9f38dcb950be3c8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> { <br />
+&#160;&#160;<b>NO_FILE</b> = -5
+, <b>MALLOC_FAIL</b> = -4
+, <b>READ_OR_WRITE_FAIL</b> = -3
+, <b>FOPEN_FAIL</b> = -2
+, <br />
+&#160;&#160;<b>SAVE_ERROR</b> = -1
+, <b>SUCCESS</b> = 0
+<br />
+ }</td></tr>
+<tr class="memdesc:a882cd556fd5182c1e9f38dcb950be3c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erreurs possibles lors des différentes sauvegarde. <br /></td></tr>
+<tr class="separator:a882cd556fd5182c1e9f38dcb950be3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a6a913649ad23f7a75097592877f2eee0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a6a913649ad23f7a75097592877f2eee0">chargerSauvegarde</a> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur, <a class="el" href="structniveau__informations__t.html">niveau_informations_t</a> **niveau)</td></tr>
-<tr class="memdesc:a6a913649ad23f7a75097592877f2eee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de chargement du niveau et du joueur.  <a href="sauvegarde_8h.html#a6a913649ad23f7a75097592877f2eee0">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a6a913649ad23f7a75097592877f2eee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf625542c1e15d2022e34eedb3ca925"><td class="memItemLeft" align="right" valign="top"><a id="aadf625542c1e15d2022e34eedb3ca925"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarder</b> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur, <a class="el" href="structniveau__informations__t.html">niveau_informations_t</a> *niveau)</td></tr>
-<tr class="separator:aadf625542c1e15d2022e34eedb3ca925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b90dc6e2a010d23a01d5c881facd10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a80b90dc6e2a010d23a01d5c881facd10">sauvegarderPartie</a> (char *nom_galaxie, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge)</td></tr>
+<tr class="memdesc:a80b90dc6e2a010d23a01d5c881facd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations relatives à la partie.  <a href="sauvegarde_8h.html#a80b90dc6e2a010d23a01d5c881facd10">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a80b90dc6e2a010d23a01d5c881facd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6045470a7ec5bc9b2bd4f72364a1cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#add6045470a7ec5bc9b2bd4f72364a1cc">sauvegarderJoueur</a> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur)</td></tr>
+<tr class="memdesc:add6045470a7ec5bc9b2bd4f72364a1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauverde le joueur dans son fichier.  <a href="sauvegarde_8h.html#add6045470a7ec5bc9b2bd4f72364a1cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:add6045470a7ec5bc9b2bd4f72364a1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f62a3cc918e61ec3012366eb58b2a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a02f62a3cc918e61ec3012366eb58b2a0">sauvegarderParametres</a> (<a class="el" href="structt__parametres.html">t_parametres</a> *parametres)</td></tr>
+<tr class="memdesc:a02f62a3cc918e61ec3012366eb58b2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde des paramètres du joueur.  <a href="sauvegarde_8h.html#a02f62a3cc918e61ec3012366eb58b2a0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a02f62a3cc918e61ec3012366eb58b2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad048f230be2b76ed45c7b13565025629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#ad048f230be2b76ed45c7b13565025629">chargerSaveJoueur</a> (<a class="el" href="structt__joueur.html">t_joueur</a> *joueur)</td></tr>
+<tr class="memdesc:ad048f230be2b76ed45c7b13565025629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge le joueur de ses données de sauvegarde.  <a href="sauvegarde_8h.html#ad048f230be2b76ed45c7b13565025629">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad048f230be2b76ed45c7b13565025629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d20f40304d66ccc8009f176f4faa3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#ae2d20f40304d66ccc8009f176f4faa3e">chargerSavePartie</a> (char **nom_galaxie, niveau_informations_t ***infos_niveaux, int *nb_niveaux, int *indice_niveau_charge)</td></tr>
+<tr class="memdesc:ae2d20f40304d66ccc8009f176f4faa3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les informations relatives à la partie.  <a href="sauvegarde_8h.html#ae2d20f40304d66ccc8009f176f4faa3e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae2d20f40304d66ccc8009f176f4faa3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7e3d6a13ea4851abe232e0d31badb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#aaa7e3d6a13ea4851abe232e0d31badb5">chargerSaveParametres</a> (<a class="el" href="structt__parametres.html">t_parametres</a> *parametres)</td></tr>
+<tr class="memdesc:aaa7e3d6a13ea4851abe232e0d31badb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les paramètres du joueur.  <a href="sauvegarde_8h.html#aaa7e3d6a13ea4851abe232e0d31badb5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa7e3d6a13ea4851abe232e0d31badb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Sauvegarde l'etat actuel de certains objets dans un fichier. Recupere la sauvegarde precedente si elle existe et la charge dans les objets appropriés. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Guillaume </dd></dl>
+<div class="textblock"><p >Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux &amp; Guillaume Richard </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a6a913649ad23f7a75097592877f2eee0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a913649ad23f7a75097592877f2eee0">&#9670;&nbsp;</a></span>chargerSauvegarde()</h2>
+<a id="ad048f230be2b76ed45c7b13565025629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad048f230be2b76ed45c7b13565025629">&#9670;&nbsp;</a></span>chargerSaveJoueur()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int chargerSauvegarde </td>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> chargerSaveJoueur </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
-          <td class="paramname"><em>joueur</em>, </td>
+          <td class="paramname"><em>joueur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge le joueur de ses données de sauvegarde. </p>
+<p >Lis la sauvegarde dans le fichier binaire et met à jour la structure <a class="el" href="structt__joueur.html" title="Structure modélisant le joueur, hérite des attributs d&#39;entité et de personnage.">t_joueur</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joueur</td><td>joueur à charger depuis la sauvegarde</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
+
+</div>
+</div>
+<a id="aaa7e3d6a13ea4851abe232e0d31badb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa7e3d6a13ea4851abe232e0d31badb5">&#9670;&nbsp;</a></span>chargerSaveParametres()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> chargerSaveParametres </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__parametres.html">t_parametres</a> *&#160;</td>
+          <td class="paramname"><em>parametres</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les paramètres du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parametres</td><td>La structure des paramètres à sauvegarder</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
+
+</div>
+</div>
+<a id="ae2d20f40304d66ccc8009f176f4faa3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d20f40304d66ccc8009f176f4faa3e">&#9670;&nbsp;</a></span>chargerSavePartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> chargerSavePartie </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>nom_galaxie</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structniveau__informations__t.html">niveau_informations_t</a> **&#160;</td>
-          <td class="paramname"><em>niveau</em>&#160;</td>
+          <td class="paramtype">niveau_informations_t ***&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nb_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>indice_niveau_charge</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -134,15 +221,124 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarder</b> (<a cl
       </table>
 </div><div class="memdoc">
 
-<p>Fonction de chargement du niveau et du joueur. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
+<p>Charge les informations relatives à la partie. </p>
+<p >D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire. </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">joueur</td><td>joueur </td></tr>
-    <tr><td class="paramname">niveau</td><td>niveau (NULL si l'on ne souhaite pas charger le niveau) </td></tr>
+    <tr><td class="paramname">nom_galaxie</td><td>le nom de la galaxie </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>L'adresse de la matrice des structures de donnée de niveau </td></tr>
+    <tr><td class="paramname">nb_niveaux</td><td>L'adresse du nombre de structures contenues dans la matrice </td></tr>
+    <tr><td class="paramname">indice_niveau_charge</td><td>L'adresse de l'indice du niveau qui est actuellement chargé</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>0 si succès, valeur négative si echec. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
+
+</div>
+</div>
+<a id="add6045470a7ec5bc9b2bd4f72364a1cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6045470a7ec5bc9b2bd4f72364a1cc">&#9670;&nbsp;</a></span>sauvegarderJoueur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> sauvegarderJoueur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauverde le joueur dans son fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joueur</td><td>joueur à sauvegarder</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
+
+</div>
+</div>
+<a id="a02f62a3cc918e61ec3012366eb58b2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f62a3cc918e61ec3012366eb58b2a0">&#9670;&nbsp;</a></span>sauvegarderParametres()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> sauvegarderParametres </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__parametres.html">t_parametres</a> *&#160;</td>
+          <td class="paramname"><em>parametres</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde des paramètres du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parametres</td><td>La structure des paramètres à sauvegarder</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
+
+</div>
+</div>
+<a id="a80b90dc6e2a010d23a01d5c881facd10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b90dc6e2a010d23a01d5c881facd10">&#9670;&nbsp;</a></span>sauvegarderPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> sauvegarderPartie </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom_galaxie</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice_niveau_charge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde les informations relatives à la partie. </p>
+<p >D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom_galaxie</td><td>le nom de la galaxie </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>La matrice des structures de donnée de niveau </td></tr>
+    <tr><td class="paramname">nb_niveaux</td><td>Le nombre de structures contenues dans la matrice </td></tr>
+    <tr><td class="paramname">indice_niveau_charge</td><td>L'indice du niveau qui est actuellement chargé</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SUCCESS ou la nature de l'erreur. </dd></dl>
 
 </div>
 </div>

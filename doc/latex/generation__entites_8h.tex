@@ -1,0 +1,76 @@
+\hypertarget{generation__entites_8h}{}\doxysection{Référence du fichier include/generation\+\_\+entites.h}
+\label{generation__entites_8h}\index{include/generation\_entites.h@{include/generation\_entites.h}}
+
+
+Module générant les entités des salles d\textquotesingle{}un niveau.  
+
+
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}}
+\begin{DoxyCompactList}\small\item\em Liste des entités présentes dans une salle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{generation__entites_8h_a0139363a7f2c734dd78fc6172081a903}{generer\+Entites}} (int indice\+\_\+difficulte, int $\ast$matrice\+\_\+n, int h\+\_\+mat, int l\+\_\+mat, \mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$$\ast$infos\+\_\+entites, int $\ast$nombre\+\_\+infos, int id\+\_\+salle\+\_\+dep)
+\begin{DoxyCompactList}\small\item\em A partir de l\textquotesingle{}indice de diffuculté, et de la matrice du niveau, générer une structure infos\+\_\+entites par salle, contenant la liste. des entités de la salle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{generation__entites_8h_acbbeacee20d42375fc1bbbdcd205d03e}{detruire\+Infos\+Entites}} (\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$infos)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux infos sur les entités d\textquotesingle{}une salle en détruisant les entités contenues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module générant les entités des salles d\textquotesingle{}un niveau. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux \& Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{generation__entites_8h_acbbeacee20d42375fc1bbbdcd205d03e}\label{generation__entites_8h_acbbeacee20d42375fc1bbbdcd205d03e}} 
+\index{generation\_entites.h@{generation\_entites.h}!detruireInfosEntites@{detruireInfosEntites}}
+\index{detruireInfosEntites@{detruireInfosEntites}!generation\_entites.h@{generation\_entites.h}}
+\doxysubsubsection{\texorpdfstring{detruireInfosEntites()}{detruireInfosEntites()}}
+{\footnotesize\ttfamily void detruire\+Infos\+Entites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$}]{infos }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée aux infos sur les entités d\textquotesingle{}une salle en détruisant les entités contenues. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em infos} & L\textquotesingle{}adresse de la structure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generation__entites_8h_a0139363a7f2c734dd78fc6172081a903}\label{generation__entites_8h_a0139363a7f2c734dd78fc6172081a903}} 
+\index{generation\_entites.h@{generation\_entites.h}!genererEntites@{genererEntites}}
+\index{genererEntites@{genererEntites}!generation\_entites.h@{generation\_entites.h}}
+\doxysubsubsection{\texorpdfstring{genererEntites()}{genererEntites()}}
+{\footnotesize\ttfamily int generer\+Entites (\begin{DoxyParamCaption}\item[{int}]{indice\+\_\+difficulte,  }\item[{int $\ast$}]{matrice\+\_\+n,  }\item[{int}]{h\+\_\+mat,  }\item[{int}]{l\+\_\+mat,  }\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$$\ast$}]{infos\+\_\+entites,  }\item[{int $\ast$}]{nombre\+\_\+infos,  }\item[{int}]{id\+\_\+salle\+\_\+dep }\end{DoxyParamCaption})}
+
+
+
+A partir de l\textquotesingle{}indice de diffuculté, et de la matrice du niveau, générer une structure infos\+\_\+entites par salle, contenant la liste. des entités de la salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em indice\+\_\+difficulte} & Calculée a partir de l\textquotesingle{}xp du joueur, faisant varier la quantité et la difficulté des monstres par salles \\
+\hline
+{\em matrice\+\_\+n} & Matrice du niveau \\
+\hline
+{\em h\+\_\+mat} & Hauteur de la matrice \\
+\hline
+{\em l\+\_\+mat} & Largeur de la matrice \\
+\hline
+{\em infos\+\_\+entites} & Retour de la liste des infos\+\_\+entites \\
+\hline
+{\em nombre\+\_\+infos} & Retour du nombre d\textquotesingle{}éléments dans la liste des infos\+\_\+entites \\
+\hline
+{\em id\+\_\+salle\+\_\+dep} & Id de la salle de départ\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si échec. 
+\end{DoxyReturn}

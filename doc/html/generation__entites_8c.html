@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -78,21 +78,25 @@ $(function() {
 <div class="textblock"><code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="monstre_8h_source.html">monstre.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="interaction_8h_source.html">interaction.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__entites_8h_source.html">generation_entites.h</a>&gt;</code><br />
+<code>#include &lt;outils.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a67be7170f31ad7b89fa7ea0f15e46158"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html#a67be7170f31ad7b89fa7ea0f15e46158">genererEntitesSalle</a> (float indice_difficulte, int x_orig_salle, int y_orig_salle, <a class="el" href="structt__entite.html">t_entite</a> ***liste_entites, int *nb_entites)</td></tr>
-<tr class="separator:a67be7170f31ad7b89fa7ea0f15e46158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af79e53313c94c73a9abe3498ca21ce79"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html#af79e53313c94c73a9abe3498ca21ce79">genererEntitesSalle</a> (int indice_difficulte, int x_orig_salle, int y_orig_salle, <a class="el" href="structt__entite.html">t_entite</a> ***liste_entites, int *nb_entites)</td></tr>
+<tr class="memdesc:af79e53313c94c73a9abe3498ca21ce79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genere les entités, les objets au sol (armes et vie)  <a href="generation__entites_8c.html#af79e53313c94c73a9abe3498ca21ce79">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af79e53313c94c73a9abe3498ca21ce79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbbeacee20d42375fc1bbbdcd205d03e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html#acbbeacee20d42375fc1bbbdcd205d03e">detruireInfosEntites</a> (<a class="el" href="structt__info__entites.html">t_info_entites</a> **infos)</td></tr>
 <tr class="memdesc:acbbeacee20d42375fc1bbbdcd205d03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée aux infos sur les entités d'une salle en détruisant les entités contenues.  <a href="generation__entites_8c.html#acbbeacee20d42375fc1bbbdcd205d03e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acbbeacee20d42375fc1bbbdcd205d03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78fdf8be0101024b48a67a596bfebe28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html#a78fdf8be0101024b48a67a596bfebe28">genererEntites</a> (int indice_difficulte, int *matrice_n, int h_mat, int l_mat, <a class="el" href="structt__info__entites.html">t_info_entites</a> ***infos_entites, int *nombre_infos)</td></tr>
-<tr class="memdesc:a78fdf8be0101024b48a67a596bfebe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">A partir de l'indice de diffuculté, et de la matrice du niveau, générer une structure infos_entites par salle, contenant la liste. des entités de la salle.  <a href="generation__entites_8c.html#a78fdf8be0101024b48a67a596bfebe28">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a78fdf8be0101024b48a67a596bfebe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0139363a7f2c734dd78fc6172081a903"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html#a0139363a7f2c734dd78fc6172081a903">genererEntites</a> (int indice_difficulte, int *matrice_n, int h_mat, int l_mat, <a class="el" href="structt__info__entites.html">t_info_entites</a> ***infos_entites, int *nombre_infos, int id_salle_dep)</td></tr>
+<tr class="memdesc:a0139363a7f2c734dd78fc6172081a903"><td class="mdescLeft">&#160;</td><td class="mdescRight">A partir de l'indice de diffuculté, et de la matrice du niveau, générer une structure infos_entites par salle, contenant la liste. des entités de la salle.  <a href="generation__entites_8c.html#a0139363a7f2c734dd78fc6172081a903">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0139363a7f2c734dd78fc6172081a903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p >Module générant les entités des salles d'un niveau. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux &amp; Guillaume Richard </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="acbbeacee20d42375fc1bbbdcd205d03e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbbeacee20d42375fc1bbbdcd205d03e">&#9670;&nbsp;</a></span>detruireInfosEntites()</h2>
@@ -120,8 +124,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a78fdf8be0101024b48a67a596bfebe28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78fdf8be0101024b48a67a596bfebe28">&#9670;&nbsp;</a></span>genererEntites()</h2>
+<a id="a0139363a7f2c734dd78fc6172081a903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0139363a7f2c734dd78fc6172081a903">&#9670;&nbsp;</a></span>genererEntites()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +164,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>nombre_infos</em>&#160;</td>
+          <td class="paramname"><em>nombre_infos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_salle_dep</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,12 +183,13 @@ Fonctions</h2></td></tr>
 <p>A partir de l'indice de diffuculté, et de la matrice du niveau, générer une structure infos_entites par salle, contenant la liste. des entités de la salle. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">indice_difficulte</td><td>Valeur arbitraire faisant varier la quantité et la difficulté des monstres par salles </td></tr>
+    <tr><td class="paramname">indice_difficulte</td><td>Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles </td></tr>
     <tr><td class="paramname">matrice_n</td><td>Matrice du niveau </td></tr>
     <tr><td class="paramname">h_mat</td><td>Hauteur de la matrice </td></tr>
     <tr><td class="paramname">l_mat</td><td>Largeur de la matrice </td></tr>
     <tr><td class="paramname">infos_entites</td><td>Retour de la liste des infos_entites </td></tr>
-    <tr><td class="paramname">nombre_infos</td><td>Retour du nombre d'éléments dans la liste des infos_entites</td></tr>
+    <tr><td class="paramname">nombre_infos</td><td>Retour du nombre d'éléments dans la liste des infos_entites </td></tr>
+    <tr><td class="paramname">id_salle_dep</td><td>Id de la salle de départ</td></tr>
   </table>
   </dd>
 </dl>
@@ -186,8 +197,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a67be7170f31ad7b89fa7ea0f15e46158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67be7170f31ad7b89fa7ea0f15e46158">&#9670;&nbsp;</a></span>genererEntitesSalle()</h2>
+<a id="af79e53313c94c73a9abe3498ca21ce79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af79e53313c94c73a9abe3498ca21ce79">&#9670;&nbsp;</a></span>genererEntitesSalle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +209,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">static int genererEntitesSalle </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>indice_difficulte</em>, </td>
         </tr>
         <tr>
@@ -237,7 +248,19 @@ Fonctions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >FONCTION A CODER RETOURNANT LA LISTE DES ENTITES D'UNE SALLE </p>
+
+<p>Genere les entités, les objets au sol (armes et vie) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indice_difficulte</td><td>Xp faisant varier la quantité et la difficulté des monstres par salles </td></tr>
+    <tr><td class="paramname">x_orig_salle</td><td>origine x de la salle </td></tr>
+    <tr><td class="paramname">y_orig_salle</td><td>origine y de la salle </td></tr>
+    <tr><td class="paramname">liste_entites</td><td>adresse de la structure </td></tr>
+    <tr><td class="paramname">nb_entites</td><td>nombre d'entités </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>booleen, 0 si succes, negatif si echec </dd></dl>
 
 </div>
 </div>

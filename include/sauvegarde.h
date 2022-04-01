@@ -1,5 +1,5 @@
 /**
- * \file sauvegarde.c
+ * \file sauvegarde.h
  * 
  * \brief Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie.
  * 

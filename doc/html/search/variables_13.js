@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['usage_2889',['usage',['../structSDL__hid__device__info.html#ab5851e5c55c1903b63ecf8bb736c4249',1,'SDL_hid_device_info']]],
-  ['usage_5fpage_2890',['usage_page',['../structSDL__hid__device__info.html#ace00a62000be5a947106f04d0dd5efc4',1,'SDL_hid_device_info']]],
-  ['user_2891',['user',['../unionSDL__Event.html#ab7c394e3ce7bf1e4f8d68bc0e9f1b042',1,'SDL_Event']]],
-  ['userdata_2892',['userdata',['../structSDL__AudioSpec.html#aeec9481666f5f0982c98d3878f175d9b',1,'SDL_AudioSpec::userdata()'],['../structSDL__Surface.html#ae66d973dcb9b57cb34815892e1ee1f31',1,'SDL_Surface::userdata()']]]
+  ['y_606',['y',['../structt__camera.html#a6c1215d21b9b9b6d232c57fa88588ef8',1,'t_camera::y()'],['../attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217',1,'y():&#160;attributs_entites.h']]]
 ];

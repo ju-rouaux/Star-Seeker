@@ -1,5 +1,5 @@
 /**
- * \file generateur_nom_planete.h
+ * \file generation_noms.h
  * 
  * \brief Générateur de nom de planète et de galaxie aléatoire
  *

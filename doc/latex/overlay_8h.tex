@@ -17,7 +17,9 @@ Module de gestion de l\textquotesingle{}interface utilisateur in-\/game.
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{overlay_8h_a981c222c503070d57f4edb8ca611561b}{dessiner\+\_\+map}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$infos\+Niveau, int id\+Salle)
-\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dessine toute la map à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{overlay_8h_a5d5c962ab2bacf2671b8833ad1de8c83}{dessiner\+\_\+hud}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Dessine le HUD. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -29,6 +31,23 @@ Camille Remoué
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{overlay_8h_a5d5c962ab2bacf2671b8833ad1de8c83}\label{overlay_8h_a5d5c962ab2bacf2671b8833ad1de8c83}} 
+\index{overlay.h@{overlay.h}!dessiner\_hud@{dessiner\_hud}}
+\index{dessiner\_hud@{dessiner\_hud}!overlay.h@{overlay.h}}
+\doxysubsubsection{\texorpdfstring{dessiner\_hud()}{dessiner\_hud()}}
+{\footnotesize\ttfamily void dessiner\+\_\+hud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Dessine le HUD. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Informations d\textquotesingle{}échelle et de taille d\textquotesingle{}écran \\
+\hline
+{\em joueur} & Points de vie \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{overlay_8h_a981c222c503070d57f4edb8ca611561b}\label{overlay_8h_a981c222c503070d57f4edb8ca611561b}} 
 \index{overlay.h@{overlay.h}!dessiner\_map@{dessiner\_map}}
 \index{dessiner\_map@{dessiner\_map}!overlay.h@{overlay.h}}

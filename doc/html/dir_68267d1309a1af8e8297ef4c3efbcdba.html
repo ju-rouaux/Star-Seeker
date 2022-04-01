@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -77,7 +77,7 @@ Fichiers</h2></td></tr>
 <tr class="memdesc:animation_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module facilitant la gestion des animations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="audio_8c.html">audio.c</a></td></tr>
-<tr class="memdesc:audio_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion des bruitages et de la musique. <br /></td></tr>
+<tr class="memdesc:audio_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestion des musiques et des bruitages. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html">camera.c</a></td></tr>
 <tr class="memdesc:camera_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de calcul de position de caméra pour savoir où dessiner les éléments sur la fenêtre. <br /></td></tr>
@@ -86,13 +86,19 @@ Fichiers</h2></td></tr>
 <tr class="memdesc:entite_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de manipulation des entites. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8c.html">events.c</a></td></tr>
-<tr class="memdesc:events_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de gestion des evenements (souris/clavier/fenetre) <br /></td></tr>
+<tr class="memdesc:events_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de gestion des evenements (souris/clavier/fenetre) Detecte les evenements liés au clics de la souris, aux touches appuyées ou relachées et a la croix de la fenetre pour quitter. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__entites_8c.html">generation_entites.c</a></td></tr>
 <tr class="memdesc:generation__entites_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module générant les entités des salles d'un niveau. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html">generation_niveau.c</a></td></tr>
 <tr class="memdesc:generation__niveau_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génération d'un niveau : l'agencement des salles et leurs ids. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__noms_8c.html">generation_noms.c</a></td></tr>
+<tr class="memdesc:generation__noms_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Générateur de nom de planète et de galaxie aléatoire. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interaction_8c.html">interaction.c</a></td></tr>
+<tr class="memdesc:interaction_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entités supportant une interaction par le joueur. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="joueur_8c.html">joueur.c</a></td></tr>
 <tr class="memdesc:joueur_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de gestion du joueur. <br /></td></tr>
@@ -101,10 +107,13 @@ Fichiers</h2></td></tr>
 <tr class="memdesc:liste_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de gestion de liste en <a class="el" href="structt__entite.html" title="Modélise une entité.">t_entite</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html">menu.c</a></td></tr>
-<tr class="memdesc:menu_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu principal. <br /></td></tr>
+<tr class="memdesc:menu_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu principal du jeu. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html">menu_niveau.c</a></td></tr>
+<tr class="memdesc:menu__niveau_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu de sélection d'un niveau d'une partie. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__options__keymap_8c.html">menu_options_keymap.c</a></td></tr>
-<tr class="memdesc:menu__options__keymap_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sous menu pour le mapping des touches. <br /></td></tr>
+<tr class="memdesc:menu__options__keymap_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sous menu pour le mapping des touches Permet au joueur de redéfinir ses touches. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8c.html">moteur.c</a></td></tr>
 <tr class="memdesc:moteur_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une structure. <br /></td></tr>
@@ -117,6 +126,9 @@ Fichiers</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overlay_8c.html">overlay.c</a></td></tr>
 <tr class="memdesc:overlay_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de gestion de l'interface utilisateur in-game. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particules_8c.html">particules.c</a></td></tr>
+<tr class="memdesc:particules_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module de définition de particules. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rendu__niveau_8c.html">rendu_niveau.c</a></td></tr>
 <tr class="memdesc:rendu__niveau_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module d'affichage d'un niveau. <br /></td></tr>

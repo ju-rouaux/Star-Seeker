@@ -1,0 +1,88 @@
+\hypertarget{generation__noms_8h}{}\doxysection{Référence du fichier include/generation\+\_\+noms.h}
+\label{generation__noms_8h}\index{include/generation\_noms.h@{include/generation\_noms.h}}
+
+
+Générateur de nom de planète et de galaxie aléatoire.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{generation__noms_8h_a78f3e1aa763fd7a89688869495957569}\label{generation__noms_8h_a78f3e1aa763fd7a89688869495957569}} 
+\#define {\bfseries MAX\+\_\+\+NOM\+\_\+\+NIVEAU}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{generation__noms_8h_acea764dd680ccaa39dda7a969d33376f}{creer\+\_\+nom}} (int taille\+\_\+mot)
+\begin{DoxyCompactList}\small\item\em Crée un nom semblable au français et à l\textquotesingle{}anglais aléatoirement. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{generation__noms_8h_a8a8d19c706a718a921eb77a6fbc4b1fa}{creer\+\_\+noms\+\_\+planetes}} (char $\ast$nom\+\_\+galaxie, int nombre)
+\begin{DoxyCompactList}\small\item\em Crée des noms de planètes à partir d\textquotesingle{}une seed (nom de galaxie) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{generation__noms_8h_a46859a0d2ae7f53657dac213280cb881}{detruire\+Noms\+Planetes}} (char $\ast$$\ast$$\ast$noms\+\_\+planetes, int nombre)
+\begin{DoxyCompactList}\small\item\em Détruit la mémoire allouée pour le tableau de chaines de noms de planètes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Générateur de nom de planète et de galaxie aléatoire. 
+
+\begin{DoxyAuthor}{Auteur}
+Camille Remoué 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{generation__noms_8h_acea764dd680ccaa39dda7a969d33376f}\label{generation__noms_8h_acea764dd680ccaa39dda7a969d33376f}} 
+\index{generation\_noms.h@{generation\_noms.h}!creer\_nom@{creer\_nom}}
+\index{creer\_nom@{creer\_nom}!generation\_noms.h@{generation\_noms.h}}
+\doxysubsubsection{\texorpdfstring{creer\_nom()}{creer\_nom()}}
+{\footnotesize\ttfamily char$\ast$ creer\+\_\+nom (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+mot }\end{DoxyParamCaption})}
+
+
+
+Crée un nom semblable au français et à l\textquotesingle{}anglais aléatoirement. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+mot} & Nombre de lettres du nom généré\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nom généré 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__noms_8h_a8a8d19c706a718a921eb77a6fbc4b1fa}\label{generation__noms_8h_a8a8d19c706a718a921eb77a6fbc4b1fa}} 
+\index{generation\_noms.h@{generation\_noms.h}!creer\_noms\_planetes@{creer\_noms\_planetes}}
+\index{creer\_noms\_planetes@{creer\_noms\_planetes}!generation\_noms.h@{generation\_noms.h}}
+\doxysubsubsection{\texorpdfstring{creer\_noms\_planetes()}{creer\_noms\_planetes()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ creer\+\_\+noms\+\_\+planetes (\begin{DoxyParamCaption}\item[{char $\ast$}]{nom\+\_\+galaxie,  }\item[{int}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Crée des noms de planètes à partir d\textquotesingle{}une seed (nom de galaxie) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nombre} & le nombre de noms à générer \\
+\hline
+{\em nom\+\_\+galaxie} & nom qui va générer la seed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char$\ast$$\ast$ tableau de chaines de caractères contenant les noms de planètes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generation__noms_8h_a46859a0d2ae7f53657dac213280cb881}\label{generation__noms_8h_a46859a0d2ae7f53657dac213280cb881}} 
+\index{generation\_noms.h@{generation\_noms.h}!detruireNomsPlanetes@{detruireNomsPlanetes}}
+\index{detruireNomsPlanetes@{detruireNomsPlanetes}!generation\_noms.h@{generation\_noms.h}}
+\doxysubsubsection{\texorpdfstring{detruireNomsPlanetes()}{detruireNomsPlanetes()}}
+{\footnotesize\ttfamily void detruire\+Noms\+Planetes (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{noms\+\_\+planetes,  }\item[{int}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Détruit la mémoire allouée pour le tableau de chaines de noms de planètes. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em noms\+\_\+planetes} & L\textquotesingle{}adresse du tableau de chaines à libérer \\
+\hline
+{\em nombre} & Le nombre de chaines du tableau \\
+\hline
+\end{DoxyParams}

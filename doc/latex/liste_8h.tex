@@ -22,34 +22,32 @@ typedef struct s\+\_\+liste {\bfseries t\+\_\+liste}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{liste_8h_abe0300eb76c1749fa17534d036708fbb}\label{liste_8h_abe0300eb76c1749fa17534d036708fbb}} 
-void {\bfseries init\+\_\+liste} (t\+\_\+liste $\ast$l)
-\item 
-int \mbox{\hyperlink{liste_8h_adacaeda25716d6afcd72396aca9c16e6}{liste\+\_\+vide}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_abe0300eb76c1749fa17534d036708fbb}{init\+\_\+liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em Initialise la liste. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{liste_8h_adacaeda25716d6afcd72396aca9c16e6}{liste\+\_\+vide}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Booleen, vrai si la liste est vide. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{liste_8h_a6171739f733a119dfb6c6f00ca73bb98}\label{liste_8h_a6171739f733a119dfb6c6f00ca73bb98}} 
-void {\bfseries detruire\+\_\+liste} (t\+\_\+liste $\ast$$\ast$l)
-\item 
-int \mbox{\hyperlink{liste_8h_afc2d7be72b4b2ab98dd1ab559b437ff1}{hors\+\_\+liste}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_a6171739f733a119dfb6c6f00ca73bb98}{detruire\+\_\+liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$$\ast$l)
+\begin{DoxyCompactList}\small\item\em Détruit la liste et libere la mémoire allouée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{liste_8h_afc2d7be72b4b2ab98dd1ab559b437ff1}{hors\+\_\+liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Booleen, l\textquotesingle{}element courant est hors liste. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a070f533bfd4486def1f9674e47dc168e}{en\+\_\+tete}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_a070f533bfd4486def1f9674e47dc168e}{en\+\_\+tete}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant au premier element de la liste. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_ae2372753e3cba6c70881a5d2538fb56b}{en\+\_\+queue}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_ae2372753e3cba6c70881a5d2538fb56b}{en\+\_\+queue}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant au dernier element de la liste. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a0367d75eae41b909ae2d23c9ad66b7e3}{precedent}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_a0367d75eae41b909ae2d23c9ad66b7e3}{precedent}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant a l\textquotesingle{}element juste avant l\textquotesingle{}element courant. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a0c65679dc18a2ba54aa3989b85c44ca0}{suivant}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_a0c65679dc18a2ba54aa3989b85c44ca0}{suivant}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}element courant a l\textquotesingle{}element juste apres l\textquotesingle{}element courant. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{liste_8h_aff849b441759cb0ed9e4a366eb70aad9}\label{liste_8h_aff849b441759cb0ed9e4a366eb70aad9}} 
-void \mbox{\hyperlink{liste_8h_aff849b441759cb0ed9e4a366eb70aad9}{valeur\+\_\+elt}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
+void \mbox{\hyperlink{liste_8h_aff849b441759cb0ed9e4a366eb70aad9}{valeur\+\_\+elt}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
 \begin{DoxyCompactList}\small\item\em Recupere la valeur de l\textquotesingle{}element de la liste et \+\_\+entite $\ast$. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a27185b0b04b69ee4a9840f0d74e4ac7e}{modif\+\_\+elt}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
+void \mbox{\hyperlink{liste_8h_a27185b0b04b69ee4a9840f0d74e4ac7e}{modif\+\_\+elt}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$v)
 \begin{DoxyCompactList}\small\item\em Recupere la valeur de l\textquotesingle{}element de la liste et l\textquotesingle{}assigne a v. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a3edded1c7bc6e97b1864f9cd57fa9a26}{oter\+\_\+elt}} (t\+\_\+liste $\ast$l)
+void \mbox{\hyperlink{liste_8h_a3edded1c7bc6e97b1864f9cd57fa9a26}{oter\+\_\+elt}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l)
 \begin{DoxyCompactList}\small\item\em Supprime l\textquotesingle{}element de la liste a l\textquotesingle{}endroit ou est l\textquotesingle{}ec. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_a4d1b6c1f4171a3edbf014461811a49c8}{ajout\+\_\+droit}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
+void \mbox{\hyperlink{liste_8h_a4d1b6c1f4171a3edbf014461811a49c8}{ajout\+\_\+droit}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
 \begin{DoxyCompactList}\small\item\em Ajoute a droite de l\textquotesingle{}element courant une valeur v. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{liste_8h_accaa03dd362641247cc87938bd1a39a0}{ajout\+\_\+gauche}} (t\+\_\+liste $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
+void \mbox{\hyperlink{liste_8h_accaa03dd362641247cc87938bd1a39a0}{ajout\+\_\+gauche}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$l, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$v)
 \begin{DoxyCompactList}\small\item\em Ajoute a gauche de l\textquotesingle{}element courant une valeur v. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -66,7 +64,7 @@ Guillaume Richard
 \index{liste.h@{liste.h}!ajout\_droit@{ajout\_droit}}
 \index{ajout\_droit@{ajout\_droit}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{ajout\_droit()}{ajout\_droit()}}
-{\footnotesize\ttfamily void ajout\+\_\+droit (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+\_\+droit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
 
 
 
@@ -83,7 +81,7 @@ Ajoute a droite de l\textquotesingle{}element courant une valeur v.
 \index{liste.h@{liste.h}!ajout\_gauche@{ajout\_gauche}}
 \index{ajout\_gauche@{ajout\_gauche}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{ajout\_gauche()}{ajout\_gauche()}}
-{\footnotesize\ttfamily void ajout\+\_\+gauche (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajout\+\_\+gauche (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{v }\end{DoxyParamCaption})}
 
 
 
@@ -96,11 +94,26 @@ Ajoute a gauche de l\textquotesingle{}element courant une valeur v.
 {\em v} & une valeur \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{liste_8h_a6171739f733a119dfb6c6f00ca73bb98}\label{liste_8h_a6171739f733a119dfb6c6f00ca73bb98}} 
+\index{liste.h@{liste.h}!detruire\_liste@{detruire\_liste}}
+\index{detruire\_liste@{detruire\_liste}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{detruire\_liste()}{detruire\_liste()}}
+{\footnotesize\ttfamily void detruire\+\_\+liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$$\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Détruit la liste et libere la mémoire allouée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & la liste a détruire \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{liste_8h_ae2372753e3cba6c70881a5d2538fb56b}\label{liste_8h_ae2372753e3cba6c70881a5d2538fb56b}} 
 \index{liste.h@{liste.h}!en\_queue@{en\_queue}}
 \index{en\_queue@{en\_queue}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{en\_queue()}{en\_queue()}}
-{\footnotesize\ttfamily void en\+\_\+queue (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void en\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -115,7 +128,7 @@ Met l\textquotesingle{}element courant au dernier element de la liste.
 \index{liste.h@{liste.h}!en\_tete@{en\_tete}}
 \index{en\_tete@{en\_tete}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{en\_tete()}{en\_tete()}}
-{\footnotesize\ttfamily void en\+\_\+tete (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void en\+\_\+tete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -130,7 +143,7 @@ Met l\textquotesingle{}element courant au premier element de la liste.
 \index{liste.h@{liste.h}!hors\_liste@{hors\_liste}}
 \index{hors\_liste@{hors\_liste}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{hors\_liste()}{hors\_liste()}}
-{\footnotesize\ttfamily int hors\+\_\+liste (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int hors\+\_\+liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -144,11 +157,26 @@ Booleen, l\textquotesingle{}element courant est hors liste.
 \begin{DoxyReturn}{Renvoie}
 int booleen 1 \+: vrai, 0 \+: faux 
 \end{DoxyReturn}
+\mbox{\Hypertarget{liste_8h_abe0300eb76c1749fa17534d036708fbb}\label{liste_8h_abe0300eb76c1749fa17534d036708fbb}} 
+\index{liste.h@{liste.h}!init\_liste@{init\_liste}}
+\index{init\_liste@{init\_liste}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{init\_liste()}{init\_liste()}}
+{\footnotesize\ttfamily void init\+\_\+liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Initialise la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & la liste à initialiser \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{liste_8h_adacaeda25716d6afcd72396aca9c16e6}\label{liste_8h_adacaeda25716d6afcd72396aca9c16e6}} 
 \index{liste.h@{liste.h}!liste\_vide@{liste\_vide}}
 \index{liste\_vide@{liste\_vide}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{liste\_vide()}{liste\_vide()}}
-{\footnotesize\ttfamily int liste\+\_\+vide (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int liste\+\_\+vide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -166,7 +194,7 @@ int booleen 1 \+: vrai, 0 \+: faux
 \index{liste.h@{liste.h}!modif\_elt@{modif\_elt}}
 \index{modif\_elt@{modif\_elt}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{modif\_elt()}{modif\_elt()}}
-{\footnotesize\ttfamily void modif\+\_\+elt (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$}]{v }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void modif\+\_\+elt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$}]{v }\end{DoxyParamCaption})}
 
 
 
@@ -183,7 +211,7 @@ Recupere la valeur de l\textquotesingle{}element de la liste et l\textquotesingl
 \index{liste.h@{liste.h}!oter\_elt@{oter\_elt}}
 \index{oter\_elt@{oter\_elt}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{oter\_elt()}{oter\_elt()}}
-{\footnotesize\ttfamily void oter\+\_\+elt (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void oter\+\_\+elt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -198,7 +226,7 @@ Supprime l\textquotesingle{}element de la liste a l\textquotesingle{}endroit ou 
 \index{liste.h@{liste.h}!precedent@{precedent}}
 \index{precedent@{precedent}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{precedent()}{precedent()}}
-{\footnotesize\ttfamily void precedent (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void precedent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 
@@ -213,7 +241,7 @@ Met l\textquotesingle{}element courant a l\textquotesingle{}element juste avant 
 \index{liste.h@{liste.h}!suivant@{suivant}}
 \index{suivant@{suivant}!liste.h@{liste.h}}
 \doxysubsubsection{\texorpdfstring{suivant()}{suivant()}}
-{\footnotesize\ttfamily void suivant (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{l }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void suivant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{l }\end{DoxyParamCaption})}
 
 
 

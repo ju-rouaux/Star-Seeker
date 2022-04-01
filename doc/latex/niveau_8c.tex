@@ -28,7 +28,6 @@ static \mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$ \mbox{\hyperlink
 \begin{DoxyCompactList}\small\item\em Charge le niveau dans une structure exploitable pour le jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{niveau_8c_a863d645e21d3d98663cad01cfe6dd24a}{detruire\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$niveau)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}\label{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}} 
 int \mbox{\hyperlink{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}{charger\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$info)
 \begin{DoxyCompactList}\small\item\em Lance un niveau s couleurs du niveau sont aussi chargées. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{niveau_8c_af6df4be5bf28ad11dafd0311b92abd3b}{update\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau, float j\+\_\+x, float j\+\_\+y, int echelle)
@@ -44,6 +43,23 @@ Julien Rouaux
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}\label{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}} 
+\index{niveau.c@{niveau.c}!chargerNiveau@{chargerNiveau}}
+\index{chargerNiveau@{chargerNiveau}!niveau.c@{niveau.c}}
+\doxysubsubsection{\texorpdfstring{chargerNiveau()}{chargerNiveau()}}
+{\footnotesize\ttfamily int charger\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Lance un niveau s couleurs du niveau sont aussi chargées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em info} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}\label{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}} 
 \index{niveau.c@{niveau.c}!chargerSalles@{chargerSalles}}
 \index{chargerSalles@{chargerSalles}!niveau.c@{niveau.c}}
@@ -185,7 +201,9 @@ Calcule les coordonnées des bords de la salle et change la salle courante du ni
 \begin{DoxyParams}{Paramètres}
 {\em niveau} & Le niveau chargé \\
 \hline
-{\em joueur} & Le joueur \\
+{\em j\+\_\+x} & Coordonnée x du joueur \\
+\hline
+{\em j\+\_\+y} & Coordonnée y du joueur \\
 \hline
 {\em echelle} & L\textquotesingle{}échelle du rendu \\
 \hline

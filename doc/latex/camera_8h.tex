@@ -20,7 +20,7 @@ typedef struct s\+\_\+moteur {\bfseries t\+\_\+moteur}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$ \mbox{\hyperlink{camera_8h_ad5704ec4fcf2885e58f79b68e54e5012}{creer\+Camera}} (float x, float y)
+\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$ \mbox{\hyperlink{camera_8h_ad5704ec4fcf2885e58f79b68e54e5012}{creer\+Camera}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}})
 \begin{DoxyCompactList}\small\item\em Alloue la mémoire pour une caméra. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{camera_8h_a062833823822b332767bf06838a65bea}{detruire\+Camera}} (\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$$\ast$camera)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une caméra et mets son pointeur à NULL. \end{DoxyCompactList}\item 
@@ -90,8 +90,6 @@ Les coordonnées de la caméra sont mises à l\textquotesingle{}échelle du jeu 
 \begin{DoxyParams}{Paramètres}
 {\em moteur} & Moteur du jeu \\
 \hline
-{\em camera} & Camera à actualiser \\
-\hline
 {\em largeur} & Nombre de sous-\/salles contenues dans la salle en largeur \\
 \hline
 {\em hauteur} & Nombre de sous-\/salles contenues dans la salle en hauteur \\
@@ -120,8 +118,6 @@ Les coordonnées de la caméra sont mises à l\textquotesingle{}échelle du jeu 
 
 \begin{DoxyParams}{Paramètres}
 {\em moteur} & Moteur du jeu \\
-\hline
-{\em camera} & Camera à actualiser \\
 \hline
 {\em largeur} & Nombre de sous-\/salles contenues dans la salle en largeur \\
 \hline

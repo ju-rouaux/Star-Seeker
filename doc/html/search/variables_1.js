@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['futur_5fx_333',['futur_x',['../structt__camera.html#ad30213a6ec0e467466ee8e511fa456d9',1,'t_camera']]],
-  ['futur_5fy_334',['futur_y',['../structt__camera.html#a124cbe627034979b4e5bcf1373995893',1,'t_camera']]]
+  ['collectibles_549',['collectibles',['../structt__textures.html#a47e2c576bf5a7637d64ee5aeda0b1ff3',1,'t_textures']]],
+  ['cooldown_550',['cooldown',['../structt__attaque__tir.html#a71df56477bd591efcdbfebacd8d69b03',1,'t_attaque_tir']]]
 ];

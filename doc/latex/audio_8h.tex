@@ -2,14 +2,37 @@
 \label{audio_8h}\index{include/audio.h@{include/audio.h}}
 
 
-Librairie de \mbox{\hyperlink{audio_8c}{audio.\+c}}.  
+Librairie de \mbox{\hyperlink{audio_8h}{audio.\+h}}.  
 
 
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}}
+\begin{DoxyCompactList}\small\item\em Structure comportant tous les sons du jeu. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}}
+\begin{DoxyCompactList}\small\item\em Structure comportant toutes les musiques du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{audio_8h_ab208cb811e41308fe78e1665c0476600}\label{audio_8h_ab208cb811e41308fe78e1665c0476600}} 
+int {\bfseries charger\+Audio} (int volume, \mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$musiques, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$bruitages)
+\item 
+\mbox{\Hypertarget{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}\label{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}} 
+void {\bfseries detruire\+Audio} (\mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$m, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$b)
+\item 
+\mbox{\Hypertarget{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}\label{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}} 
+void {\bfseries changer\+Volume} (int volume)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Librairie de \mbox{\hyperlink{audio_8c}{audio.\+c}}. 
+Librairie de \mbox{\hyperlink{audio_8h}{audio.\+h}}. 
 
 \begin{DoxyAuthor}{Auteur}
-Camille REMOUÉ 
+Camille Remoué 
 \end{DoxyAuthor}

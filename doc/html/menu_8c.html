@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -73,35 +73,35 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Menu principal.  
+<p>Menu principal du jeu.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="partie_8h_source.html">partie.h</a>&gt;</code><br />
 <code>#include &lt;menu.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a8b06dc224cfe3fc4789fb2e8213ae86c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a8b06dc224cfe3fc4789fb2e8213ae86c">maj_TextureMenu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, t_bouton **boutons, int nb_boutons)</td></tr>
+<tr class="memitem:a8b06dc224cfe3fc4789fb2e8213ae86c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a8b06dc224cfe3fc4789fb2e8213ae86c">maj_TextureMenu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__bouton.html">t_bouton</a> **boutons, int nb_boutons)</td></tr>
 <tr class="memdesc:a8b06dc224cfe3fc4789fb2e8213ae86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met a jour la texture de chacun des boutons passé en paramètre.  <a href="menu_8c.html#a8b06dc224cfe3fc4789fb2e8213ae86c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8b06dc224cfe3fc4789fb2e8213ae86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8941c9857a845236564e3d4ac675d3dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a8941c9857a845236564e3d4ac675d3dd">update_textureBouton</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, t_bouton *bouton, int rect_x, int rect_y)</td></tr>
+<tr class="memitem:a8941c9857a845236564e3d4ac675d3dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a8941c9857a845236564e3d4ac675d3dd">update_textureBouton</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__bouton.html">t_bouton</a> *bouton, int rect_x, int rect_y)</td></tr>
 <tr class="memdesc:a8941c9857a845236564e3d4ac675d3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met a jour la texture d'un bouton.  <a href="menu_8c.html#a8941c9857a845236564e3d4ac675d3dd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8941c9857a845236564e3d4ac675d3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c986bd730d976ddf6de3baa4475d2a0"><td class="memItemLeft" align="right" valign="top">t_bouton **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a3c986bd730d976ddf6de3baa4475d2a0">initialiserBoutons</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, int nb_boutons, char nom_boutons[][TAILLE_MAX])</td></tr>
+<tr class="memitem:a3c986bd730d976ddf6de3baa4475d2a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__bouton.html">t_bouton</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a3c986bd730d976ddf6de3baa4475d2a0">initialiserBoutons</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, int nb_boutons, char nom_boutons[][TAILLE_MAX])</td></tr>
 <tr class="memdesc:a3c986bd730d976ddf6de3baa4475d2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalise un bouton en allouant la memoire et en initialisant ses données.  <a href="menu_8c.html#a3c986bd730d976ddf6de3baa4475d2a0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3c986bd730d976ddf6de3baa4475d2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4136c2d61cdca7001a982868cc43cda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ad4136c2d61cdca7001a982868cc43cda">detruireBoutons</a> (t_bouton ***boutons, int nb_boutons)</td></tr>
+<tr class="memitem:ad4136c2d61cdca7001a982868cc43cda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ad4136c2d61cdca7001a982868cc43cda">detruireBoutons</a> (<a class="el" href="structt__bouton.html">t_bouton</a> ***boutons, int nb_boutons)</td></tr>
 <tr class="memdesc:ad4136c2d61cdca7001a982868cc43cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la memoire allouée par la structure d'un boutons, met son pointeur a NULL et libere la texture du bouton.  <a href="menu_8c.html#ad4136c2d61cdca7001a982868cc43cda">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad4136c2d61cdca7001a982868cc43cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca2f4dfe9f12d21a9ae0779130180c7e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#aca2f4dfe9f12d21a9ae0779130180c7e">handleEvents_menu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, t_bouton **boutons)</td></tr>
+<tr class="memitem:aca2f4dfe9f12d21a9ae0779130180c7e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#aca2f4dfe9f12d21a9ae0779130180c7e">handleEvents_menu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__bouton.html">t_bouton</a> **boutons)</td></tr>
 <tr class="memdesc:aca2f4dfe9f12d21a9ae0779130180c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gere les evenements pour le menu Gestion de la position de la souris et des clics.  <a href="menu_8c.html#aca2f4dfe9f12d21a9ae0779130180c7e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aca2f4dfe9f12d21a9ae0779130180c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8fe15762a817f4022d3e500d1d04479"><td class="memItemLeft" align="right" valign="top">SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ad8fe15762a817f4022d3e500d1d04479">initialiserTexte</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, SDL_Texture **texture, char *texte)</td></tr>
+<tr class="memitem:ad8fe15762a817f4022d3e500d1d04479"><td class="memItemLeft" align="right" valign="top">SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ad8fe15762a817f4022d3e500d1d04479">initialiserTexte</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, SDL_Texture **<a class="el" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>, char *texte)</td></tr>
 <tr class="memdesc:ad8fe15762a817f4022d3e500d1d04479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalise un rectangle pour du texte en allouant la memoire et en l'initialise.  <a href="menu_8c.html#ad8fe15762a817f4022d3e500d1d04479">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad8fe15762a817f4022d3e500d1d04479"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68da67e2888287eccacfa8f59bd2c5fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a68da67e2888287eccacfa8f59bd2c5fa">maj_TextureTexte</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, SDL_Rect *rect, SDL_Texture **texture, int rect_x, int rect_y, char *texte)</td></tr>
+<tr class="memitem:a68da67e2888287eccacfa8f59bd2c5fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a68da67e2888287eccacfa8f59bd2c5fa">maj_TextureTexte</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, SDL_Rect *rect, SDL_Texture **<a class="el" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>, int rect_x, int rect_y, char *texte)</td></tr>
 <tr class="memdesc:a68da67e2888287eccacfa8f59bd2c5fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met a jour la texture du texte.  <a href="menu_8c.html#a68da67e2888287eccacfa8f59bd2c5fa">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a68da67e2888287eccacfa8f59bd2c5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af526e65440b0018054f4e2f1f3b3506a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#af526e65440b0018054f4e2f1f3b3506a">detruireTexte</a> (SDL_Rect **rect, SDL_Texture *texture)</td></tr>
+<tr class="memitem:af526e65440b0018054f4e2f1f3b3506a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#af526e65440b0018054f4e2f1f3b3506a">detruireTexte</a> (SDL_Rect **rect, SDL_Texture *<a class="el" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>)</td></tr>
 <tr class="memdesc:af526e65440b0018054f4e2f1f3b3506a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a NULL et libere la texture de ce dernier.  <a href="menu_8c.html#af526e65440b0018054f4e2f1f3b3506a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af526e65440b0018054f4e2f1f3b3506a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a59f71b7ca00d82028685542739c5f"><td class="memItemLeft" align="right" valign="top">e_code_main&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ae5a59f71b7ca00d82028685542739c5f">chargerMenu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
@@ -109,9 +109,9 @@ Fonctions</h2></td></tr>
 <tr class="separator:ae5a59f71b7ca00d82028685542739c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Menu principal. </p>
-<p >Sous menu, volume et acces au menu pour le mapping des touches.</p>
-<dl class="section author"><dt>Auteur</dt><dd>Guillaume </dd></dl>
+<div class="textblock"><p >Menu principal du jeu. </p>
+<p >Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s'il veut du son et d'acceder au menu pour reparamétrer ses touches.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Guillaume Richard </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ae5a59f71b7ca00d82028685542739c5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5a59f71b7ca00d82028685542739c5f">&#9670;&nbsp;</a></span>chargerMenu()</h2>
@@ -149,7 +149,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void detruireBoutons </td>
           <td>(</td>
-          <td class="paramtype">t_bouton ***&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__bouton.html">t_bouton</a> ***&#160;</td>
           <td class="paramname"><em>boutons</em>, </td>
         </tr>
         <tr>
@@ -232,7 +232,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">t_bouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__bouton.html">t_bouton</a> **&#160;</td>
           <td class="paramname"><em>boutons</em>&#160;</td>
         </tr>
         <tr>
@@ -251,8 +251,8 @@ Fonctions</h2></td></tr>
 <p>Gere les evenements pour le menu Gestion de la position de la souris et des clics. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">moteur</td><td>strcture moteur </td></tr>
-    <tr><td class="paramname">boutons</td><td>tableau de boutons </td></tr>
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">boutons</td><td>le tableau de boutons </td></tr>
   </table>
   </dd>
 </dl>
@@ -267,7 +267,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">t_bouton** initialiserBoutons </td>
+          <td class="memname"><a class="el" href="structt__bouton.html">t_bouton</a>** initialiserBoutons </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
           <td class="paramname"><em>moteur</em>, </td>
@@ -295,13 +295,13 @@ Fonctions</h2></td></tr>
 <p>Initalise un bouton en allouant la memoire et en initialisant ses données. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">moteur</td><td>structure du moteur </td></tr>
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
     <tr><td class="paramname">nb_boutons</td><td>nombre de boutons </td></tr>
     <tr><td class="paramname">nom_boutons</td><td>tableau de nom des différents boutons </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>tableau de boutons initialisés </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>tableau de boutons alloués et initialisés </dd></dl>
 
 </div>
 </div>
@@ -365,7 +365,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">t_bouton **&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__bouton.html">t_bouton</a> **&#160;</td>
           <td class="paramname"><em>boutons</em>, </td>
         </tr>
         <tr>
@@ -476,7 +476,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">t_bouton *&#160;</td>
+          <td class="paramtype"><a class="el" href="structt__bouton.html">t_bouton</a> *&#160;</td>
           <td class="paramname"><em>bouton</em>, </td>
         </tr>
         <tr>
@@ -502,8 +502,8 @@ Fonctions</h2></td></tr>
 <p>Met a jour la texture d'un bouton. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">moteur</td><td>structure du moteur </td></tr>
-    <tr><td class="paramname">bouton</td><td>structure d'un bouton </td></tr>
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">bouton</td><td>un bouton </td></tr>
     <tr><td class="paramname">rect_x</td><td>coordonées x en haut a gauche du bouton (origine du rectangle en x) </td></tr>
     <tr><td class="paramname">rect_y</td><td>coordonées y en haut a gauche du bouton (origine du rectangle en y) </td></tr>
   </table>

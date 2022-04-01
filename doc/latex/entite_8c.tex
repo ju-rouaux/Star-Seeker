@@ -19,11 +19,11 @@ int \mbox{\hyperlink{entite_8c_aaa46b794fb0a1e3bbdeda1552699b2f9}{dessiner\+Enti
 \begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}entité à ses coordonnées, tout en gérant son animation s\textquotesingle{}il en possède une. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{entite_8c_a6a8da1bb938d887eff7742638a20f63f}{deplacer\+Entite}} (const \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
 \begin{DoxyCompactList}\small\item\em Déplace l\textquotesingle{}entité selon sa direction et sa vitesse. L\textquotesingle{}entité n\textquotesingle{}est pas avancé si sa future position entraine une collision avec un mur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{entite_8c_a513005586a3e271551d04be4fabbcbcc}{ajouter\+Entite\+Liste}} (t\+\_\+liste $\ast$liste, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
-\begin{DoxyCompactList}\small\item\em Ajoute une entité à la liste sans perturber son fonctionnement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{entite_8c_a513005586a3e271551d04be4fabbcbcc}{ajouter\+Entite\+Liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Ajoute une entité à la liste sans perturber l\textquotesingle{}emplacement de la tete. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{entite_8c_a29f11ad700be8e6e8dc23d460863f78a}{detruire\+Entite}} (\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$entite)
 \begin{DoxyCompactList}\small\item\em Détruit une entité générique et mets sont pointeur à NULL. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$ \mbox{\hyperlink{entite_8c_a0fcc0be31f136b0b50fc2cd0ad80bb32}{creer\+Entite}} (float x, float y, SDL\+\_\+\+Texture $\ast$texture)
+\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$ \mbox{\hyperlink{entite_8c_a0fcc0be31f136b0b50fc2cd0ad80bb32}{creer\+Entite}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
 \begin{DoxyCompactList}\small\item\em Génère une entité générique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -42,11 +42,11 @@ Julien Rouaux
 \index{entite.c@{entite.c}!ajouterEntiteListe@{ajouterEntiteListe}}
 \index{ajouterEntiteListe@{ajouterEntiteListe}!entite.c@{entite.c}}
 \doxysubsubsection{\texorpdfstring{ajouterEntiteListe()}{ajouterEntiteListe()}}
-{\footnotesize\ttfamily void ajouter\+Entite\+Liste (\begin{DoxyParamCaption}\item[{t\+\_\+liste $\ast$}]{liste,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{entite }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ajouter\+Entite\+Liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{liste,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{entite }\end{DoxyParamCaption})}
 
 
 
-Ajoute une entité à la liste sans perturber son fonctionnement. 
+Ajoute une entité à la liste sans perturber l\textquotesingle{}emplacement de la tete. 
 
 
 \begin{DoxyParams}{Paramètres}

@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -75,9 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Librairie de generation.c.  
+<p>Librairie de generation.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;generation_entites.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="generation__entites_8h_source.html">generation_entites.h</a>&gt;</code><br />
 </div>
 <p><a href="generation__niveau_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -135,14 +135,14 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN</b>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a5bb7a9833fb97c3a46d18b6e38e6f6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c2cd64a5ecb089958db0d662a08083"><td class="memItemLeft" align="right" valign="top"><a id="a95c2cd64a5ecb089958db0d662a08083"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE</b>&#160;&#160;&#160;15</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE</b>&#160;&#160;&#160;25</td></tr>
 <tr class="separator:a95c2cd64a5ecb089958db0d662a08083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="memItemLeft" align="right" valign="top">niveau_informations_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8h.html#adf7304357c3cd12ea6d7c3ee7b07ca36">creer_niveau_info</a> (const char *nom_planete)</td></tr>
-<tr class="memdesc:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale : crée le niveau et l'écrit dans une structure.  <a href="generation__niveau_8h.html#adf7304357c3cd12ea6d7c3ee7b07ca36">Plus de détails...</a><br /></td></tr>
-<tr class="separator:adf7304357c3cd12ea6d7c3ee7b07ca36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3e79b3cece398d7034c947809dff61"><td class="memItemLeft" align="right" valign="top">niveau_informations_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8h.html#a1c3e79b3cece398d7034c947809dff61">creer_niveau_info</a> (char *nom_planete, int indice_difficulte)</td></tr>
+<tr class="memdesc:a1c3e79b3cece398d7034c947809dff61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale : crée le niveau et l'écrit dans une structure niveau_informations_t.  <a href="generation__niveau_8h.html#a1c3e79b3cece398d7034c947809dff61">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1c3e79b3cece398d7034c947809dff61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adec97d0d2112b3247d1a5d6a39f094f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8h.html#adec97d0d2112b3247d1a5d6a39f094f7">detruire_niveau_info</a> (niveau_informations_t **niveau)</td></tr>
 <tr class="memdesc:adec97d0d2112b3247d1a5d6a39f094f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée à une information de niveau.  <a href="generation__niveau_8h.html#adec97d0d2112b3247d1a5d6a39f094f7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:adec97d0d2112b3247d1a5d6a39f094f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,11 +151,11 @@ Fonctions</h2></td></tr>
 <tr class="separator:ad12a4ac49cc571e2c925822363bd328f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Librairie de generation.c. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Camille REMOUÉ </dd></dl>
+<div class="textblock"><p >Librairie de generation. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="adf7304357c3cd12ea6d7c3ee7b07ca36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf7304357c3cd12ea6d7c3ee7b07ca36">&#9670;&nbsp;</a></span>creer_niveau_info()</h2>
+<a id="a1c3e79b3cece398d7034c947809dff61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3e79b3cece398d7034c947809dff61">&#9670;&nbsp;</a></span>creer_niveau_info()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,21 +163,32 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">niveau_informations_t* creer_niveau_info </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>nom_planete</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom_planete</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice_difficulte</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fonction principale : crée le niveau et l'écrit dans une structure. </p>
+<p>Fonction principale : crée le niveau et l'écrit dans une structure niveau_informations_t. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">nom_planete</td><td>Nom associé à un niveau unique : il génère la seed </td></tr>
+    <tr><td class="paramname">indice_difficulte</td><td>Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles</td></tr>
   </table>
   </dd>
 </dl>
-<p >!! A CALCULER</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Les informations du niveau dans une structure niveau_informations_t </dd></dl>
 
 </div>
 </div>
@@ -226,7 +237,7 @@ Fonctions</h2></td></tr>
 <p>Transforme arbitrairement un mot (lettres) en seed (entier) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mot</td><td>chaine de caractères en entrée</td></tr>
+    <tr><td class="paramname">mot</td><td>chaîne de caractères en entrée</td></tr>
   </table>
   </dd>
 </dl>

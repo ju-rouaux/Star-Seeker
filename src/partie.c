@@ -13,7 +13,7 @@
 #include <SDL2/SDL.h>
 #include <moteur.h>
 #include <camera.h>
-#include <event.h>
+#include <events.h>
 #include <niveau.h>
 #include <joueur.h>
 #include <monstre.h>
@@ -22,7 +22,7 @@
 #include <liste.h>
 #include <sauvegarde.h>
 #include <generation_niveau.h>
-#include <noms_generateur.h>
+#include <generation_noms.h>
 #include <outils.h>
 #include <generation_entites.h>
 #include <overlay.h>

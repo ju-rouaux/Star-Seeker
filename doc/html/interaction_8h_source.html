@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker:  Fichier source de include/interaction.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interaction.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interaction_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _JEU_INTERACTION_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _JEU_INTERACTION_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="entite_8h.html">entite.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="joueur_8h.html">joueur.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="attaque_8h.html">attaque.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="interaction_8h.html#a198380557efe68f0279cd18b34f20960">   21</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    VIE, ARME</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;} <a class="code" href="interaction_8h.html#a198380557efe68f0279cd18b34f20960">e_type_inter</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="uniondata__inter.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="uniondata__inter.html#a9d4e69de9222577e2bd3447f6943d44b">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="uniondata__inter.html#a9d4e69de9222577e2bd3447f6943d44b">nb_pv</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="uniondata__inter.html#a4b7ada739b56091ad6fc412e5ea248eb">   34</a></span>&#160;    <a class="code" href="attaque_8h.html#ac7dcc833fc35572565d511b3875d7880">e_nom_attaque</a> <a class="code" href="uniondata__inter.html#a4b7ada739b56091ad6fc412e5ea248eb">attaque</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <a class="code" href="uniondata__inter.html">data_inter</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structt__interaction.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">    #include &lt;<a class="code" href="attributs__entites_8h.html">attributs_entites.h</a>&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structt__interaction.html#ab9c990cb8d7e70436e08476c0cb78375">   45</a></span>&#160;    <a class="code" href="interaction_8h.html#a198380557efe68f0279cd18b34f20960">e_type_inter</a> <a class="code" href="structt__interaction.html#ab9c990cb8d7e70436e08476c0cb78375">type_inter</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structt__interaction.html#a68bcfecdf0608b6bf4590f57affc445f">   46</a></span>&#160;    <a class="code" href="uniondata__inter.html">data_inter</a> <a class="code" href="structt__interaction.html#a68bcfecdf0608b6bf4590f57affc445f">data</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <a class="code" href="structt__interaction.html">t_interaction</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="structt__interaction.html">t_interaction</a> * <a class="code" href="interaction_8h.html#a080e59822cd87213be0039f71059bfe3">creerInteraction</a>(<a class="code" href="interaction_8h.html#a198380557efe68f0279cd18b34f20960">e_type_inter</a> <a class="code" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, <a class="code" href="uniondata__inter.html">data_inter</a> data);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> <a class="code" href="interaction_8h.html#a50431ff4708e4c33e3aeb37f9a9bbe6a">interagir</a>(<a class="code" href="structt__interaction.html">t_interaction</a> * interaction, <a class="code" href="structt__joueur.html">t_joueur</a> * joueur);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_INTERACTION_</span></div>
+<div class="ttc" id="aattaque_8h_html"><div class="ttname"><a href="attaque_8h.html">attaque.h</a></div><div class="ttdoc">Module gérant les attaques des personnages.</div></div>
+<div class="ttc" id="aattaque_8h_html_ac7dcc833fc35572565d511b3875d7880"><div class="ttname"><a href="attaque_8h.html#ac7dcc833fc35572565d511b3875d7880">e_nom_attaque</a></div><div class="ttdeci">e_nom_attaque</div><div class="ttdoc">Identifiant pour reconnaitre le type de l'attaque.</div><div class="ttdef"><b>Definition:</b> attaque.h:24</div></div>
+<div class="ttc" id="aattributs__entites_8h_html"><div class="ttname"><a href="attributs__entites_8h.html">attributs_entites.h</a></div><div class="ttdoc">Fichier à inclure dans une structure héritant des attributs des entités.</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_aa4f0d3eebc3c443f9be81bf48561a217"><div class="ttname"><a href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:10</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_ac93814760289f83af971fa51b9c69bc9"><div class="ttname"><a href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a></div><div class="ttdeci">e_type_entite type</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:14</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_ad0da36b2558901e21e7a30f6c227a45e"><div class="ttname"><a href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:9</div></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Module de manipulation des entites.</div></div>
+<div class="ttc" id="ainteraction_8h_html_a080e59822cd87213be0039f71059bfe3"><div class="ttname"><a href="interaction_8h.html#a080e59822cd87213be0039f71059bfe3">creerInteraction</a></div><div class="ttdeci">t_interaction * creerInteraction(e_type_inter type, float x, float y, data_inter data)</div><div class="ttdoc">Création d'une interaction.</div><div class="ttdef"><b>Definition:</b> interaction.c:81</div></div>
+<div class="ttc" id="ainteraction_8h_html_a198380557efe68f0279cd18b34f20960"><div class="ttname"><a href="interaction_8h.html#a198380557efe68f0279cd18b34f20960">e_type_inter</a></div><div class="ttdeci">e_type_inter</div><div class="ttdoc">Type des interactions disponibles.</div><div class="ttdef"><b>Definition:</b> interaction.h:22</div></div>
+<div class="ttc" id="ainteraction_8h_html_a50431ff4708e4c33e3aeb37f9a9bbe6a"><div class="ttname"><a href="interaction_8h.html#a50431ff4708e4c33e3aeb37f9a9bbe6a">interagir</a></div><div class="ttdeci">int interagir(t_interaction *interaction, t_joueur *joueur)</div><div class="ttdoc">Exécute l'interaction sur le joueur si elle est possible et si elle est demandée.</div><div class="ttdef"><b>Definition:</b> interaction.c:42</div></div>
+<div class="ttc" id="ajoueur_8h_html"><div class="ttname"><a href="joueur_8h.html">joueur.h</a></div><div class="ttdoc">Module de gestion du joueur.</div></div>
+<div class="ttc" id="astructt__interaction_html"><div class="ttname"><a href="structt__interaction.html">t_interaction</a></div><div class="ttdoc">Modélise un objet déposé au sol pouvant être récupéré par le joueur.</div><div class="ttdef"><b>Definition:</b> interaction.h:43</div></div>
+<div class="ttc" id="astructt__interaction_html_a68bcfecdf0608b6bf4590f57affc445f"><div class="ttname"><a href="structt__interaction.html#a68bcfecdf0608b6bf4590f57affc445f">t_interaction::data</a></div><div class="ttdeci">data_inter data</div><div class="ttdef"><b>Definition:</b> interaction.h:46</div></div>
+<div class="ttc" id="astructt__interaction_html_ab9c990cb8d7e70436e08476c0cb78375"><div class="ttname"><a href="structt__interaction.html#ab9c990cb8d7e70436e08476c0cb78375">t_interaction::type_inter</a></div><div class="ttdeci">e_type_inter type_inter</div><div class="ttdef"><b>Definition:</b> interaction.h:45</div></div>
+<div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
+<div class="ttc" id="auniondata__inter_html"><div class="ttname"><a href="uniondata__inter.html">data_inter</a></div><div class="ttdoc">Donnée sur l'interaction.</div><div class="ttdef"><b>Definition:</b> interaction.h:32</div></div>
+<div class="ttc" id="auniondata__inter_html_a4b7ada739b56091ad6fc412e5ea248eb"><div class="ttname"><a href="uniondata__inter.html#a4b7ada739b56091ad6fc412e5ea248eb">data_inter::attaque</a></div><div class="ttdeci">e_nom_attaque attaque</div><div class="ttdef"><b>Definition:</b> interaction.h:34</div></div>
+<div class="ttc" id="auniondata__inter_html_a9d4e69de9222577e2bd3447f6943d44b"><div class="ttname"><a href="uniondata__inter.html#a9d4e69de9222577e2bd3447f6943d44b">data_inter::nb_pv</a></div><div class="ttdeci">int nb_pv</div><div class="ttdef"><b>Definition:</b> interaction.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

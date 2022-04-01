@@ -33,7 +33,7 @@
 <!-- Généré par Doxygen 1.9.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -83,13 +83,13 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ad5704ec4fcf2885e58f79b68e54e5012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__camera.html">t_camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#ad5704ec4fcf2885e58f79b68e54e5012">creerCamera</a> (float x, float y)</td></tr>
+<tr class="memitem:ad5704ec4fcf2885e58f79b68e54e5012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__camera.html">t_camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#ad5704ec4fcf2885e58f79b68e54e5012">creerCamera</a> (float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>)</td></tr>
 <tr class="memdesc:ad5704ec4fcf2885e58f79b68e54e5012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue la mémoire pour une caméra.  <a href="camera_8c.html#ad5704ec4fcf2885e58f79b68e54e5012">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad5704ec4fcf2885e58f79b68e54e5012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a062833823822b332767bf06838a65bea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#a062833823822b332767bf06838a65bea">detruireCamera</a> (<a class="el" href="structt__camera.html">t_camera</a> **camera)</td></tr>
 <tr class="memdesc:a062833823822b332767bf06838a65bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée à une caméra et mets son pointeur à NULL.  <a href="camera_8c.html#a062833823822b332767bf06838a65bea">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a062833823822b332767bf06838a65bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4065cec34608a388a331b55f642d38c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#ac4065cec34608a388a331b55f642d38c">calculerPosCamera</a> (float *x, float *y, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)</td></tr>
+<tr class="memitem:ac4065cec34608a388a331b55f642d38c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#ac4065cec34608a388a331b55f642d38c">calculerPosCamera</a> (float *<a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float *<a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)</td></tr>
 <tr class="memdesc:ac4065cec34608a388a331b55f642d38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calule la position de la caméra de telle sorte à ce que son origine soit au centre de la salle ou sur le joueur.  <a href="camera_8c.html#ac4065cec34608a388a331b55f642d38c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac4065cec34608a388a331b55f642d38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e27f4593c942c3426ebb843b903bcef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="camera_8c.html#a6e27f4593c942c3426ebb843b903bcef">updateCamera</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, int largeur, int hauteur, int orig_x, int orig_y, float j_x, float j_y)</td></tr>
@@ -315,7 +315,6 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>Moteur du jeu </td></tr>
-    <tr><td class="paramname">camera</td><td>Camera à actualiser </td></tr>
     <tr><td class="paramname">largeur</td><td>Nombre de sous-salles contenues dans la salle en largeur </td></tr>
     <tr><td class="paramname">hauteur</td><td>Nombre de sous-salles contenues dans la salle en hauteur </td></tr>
     <tr><td class="paramname">orig_x</td><td>Coordonnées d'origine de la salle en x </td></tr>
@@ -389,7 +388,6 @@ Fonctions</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>Moteur du jeu </td></tr>
-    <tr><td class="paramname">camera</td><td>Camera à actualiser </td></tr>
     <tr><td class="paramname">largeur</td><td>Nombre de sous-salles contenues dans la salle en largeur </td></tr>
     <tr><td class="paramname">hauteur</td><td>Nombre de sous-salles contenues dans la salle en hauteur </td></tr>
     <tr><td class="paramname">orig_x</td><td>Coordonnées d'origine de la salle en x </td></tr>

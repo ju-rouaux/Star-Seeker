@@ -1,0 +1,723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/menu_niveau.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier menu_niveau.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Menu de sélection d'un niveau d'une partie.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;main.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="audio_8h_source.html">audio.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__selection.html">t_selection</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente un choix sur le menu de sélection de niveau.  <a href="structt__selection.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__texte.html">t_texte</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure facilitant la manipulation des textes affichés.  <a href="structt__texte.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a44557b5181fff2d6ab54461c574c25de"><td class="memItemLeft" align="right" valign="top"><a id="a44557b5181fff2d6ab54461c574c25de"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PRECISION_RENDU_TEXTE</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a44557b5181fff2d6ab54461c574c25de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a5df673444946c038b9fc9d9e8f6473ec"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#a5df673444946c038b9fc9d9e8f6473ec">indiceSelection</a> (<a class="el" href="structt__selection.html">t_selection</a> **selections, int nb_selects, SDL_Point *souris)</td></tr>
+<tr class="memdesc:a5df673444946c038b9fc9d9e8f6473ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'indice du niveau étant survolé par la souris.  <a href="menu__niveau_8c.html#a5df673444946c038b9fc9d9e8f6473ec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5df673444946c038b9fc9d9e8f6473ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfa22a6e6fcc402f62dce5a34793386f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#adfa22a6e6fcc402f62dce5a34793386f">renduSelection</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__selection.html">t_selection</a> *select, SDL_Texture *apparence, int quantite)</td></tr>
+<tr class="memdesc:adfa22a6e6fcc402f62dce5a34793386f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche une sélection du menu en fonction de son indice.  <a href="menu__niveau_8c.html#adfa22a6e6fcc402f62dce5a34793386f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adfa22a6e6fcc402f62dce5a34793386f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9675b4125377a57443ef50eb280d74"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__selection.html">t_selection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#adc9675b4125377a57443ef50eb280d74">creerSelection</a> (SDL_Renderer *renderer, TTF_Font *police, char *texte, int indice, float taille_planete)</td></tr>
+<tr class="memdesc:adc9675b4125377a57443ef50eb280d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un bouton pour sélectionner un niveau.  <a href="menu__niveau_8c.html#adc9675b4125377a57443ef50eb280d74">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adc9675b4125377a57443ef50eb280d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ec48816673b56ee5943e6fc7e400ae"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#a03ec48816673b56ee5943e6fc7e400ae">detruireSelections</a> (<a class="el" href="structt__selection.html">t_selection</a> ***selections, int nb_selections)</td></tr>
+<tr class="memdesc:a03ec48816673b56ee5943e6fc7e400ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée à la liste de sélections du menu.  <a href="menu__niveau_8c.html#a03ec48816673b56ee5943e6fc7e400ae">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a03ec48816673b56ee5943e6fc7e400ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870acbe50ef3f25ba2367af8ac62ae01"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__selection.html">t_selection</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#a870acbe50ef3f25ba2367af8ac62ae01">initSelections</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, TTF_Font *police, niveau_informations_t **infos_niveaux, int nb_infos, int ancien_niveau_charge)</td></tr>
+<tr class="memdesc:a870acbe50ef3f25ba2367af8ac62ae01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue la liste infos_niveau les différents choix du menu.  <a href="menu__niveau_8c.html#a870acbe50ef3f25ba2367af8ac62ae01">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a870acbe50ef3f25ba2367af8ac62ae01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace26974a0a56624a3672ed0e3a48d598"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#ace26974a0a56624a3672ed0e3a48d598">renduTitre</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__texte.html">t_texte</a> *titre)</td></tr>
+<tr class="memdesc:ace26974a0a56624a3672ed0e3a48d598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le nom de la galaxie en guise de titre du menu.  <a href="menu__niveau_8c.html#ace26974a0a56624a3672ed0e3a48d598">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ace26974a0a56624a3672ed0e3a48d598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2dde669ccde80b5d1fc71d4338de52"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#adb2dde669ccde80b5d1fc71d4338de52">renduBoutonMenuPrincipal</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__texte.html">t_texte</a> *bouton, SDL_Point *souris)</td></tr>
+<tr class="separator:adb2dde669ccde80b5d1fc71d4338de52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c263d53bf2d6719c007e49081a3920"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structt__selection.html">t_selection</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#a91c263d53bf2d6719c007e49081a3920">initMenu</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, niveau_informations_t **infos_niveaux, int nb_infos, <a class="el" href="structt__texte.html">t_texte</a> **titre, <a class="el" href="structt__texte.html">t_texte</a> **menu, int ancien_niveau_charge)</td></tr>
+<tr class="memdesc:a91c263d53bf2d6719c007e49081a3920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le menu.  <a href="menu__niveau_8c.html#a91c263d53bf2d6719c007e49081a3920">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a91c263d53bf2d6719c007e49081a3920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01bdb5e12f93fc241ca7df391e2a722e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#a01bdb5e12f93fc241ca7df391e2a722e">freeMenu</a> (<a class="el" href="structt__selection.html">t_selection</a> ***selections, int nb_selections, <a class="el" href="structt__texte.html">t_texte</a> **titre, <a class="el" href="structt__texte.html">t_texte</a> **menu)</td></tr>
+<tr class="memdesc:a01bdb5e12f93fc241ca7df391e2a722e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detruit et libère la mémoire allouée.  <a href="menu__niveau_8c.html#a01bdb5e12f93fc241ca7df391e2a722e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a01bdb5e12f93fc241ca7df391e2a722e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46c6202b0ecdf76025f9b8c590915ab"><td class="memItemLeft" align="right" valign="top">e_code_main&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__niveau_8c.html#aa46c6202b0ecdf76025f9b8c590915ab">afficherMenuNiveau</a> (int *retour_niveau, <a class="el" href="structt__moteur.html">t_moteur</a> *moteur, niveau_informations_t **infos_niveaux, int nb_infos, int ancien_niveau_charge)</td></tr>
+<tr class="memdesc:aa46c6202b0ecdf76025f9b8c590915ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le menu de sélection d'une planète.  <a href="menu__niveau_8c.html#aa46c6202b0ecdf76025f9b8c590915ab">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa46c6202b0ecdf76025f9b8c590915ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Menu de sélection d'un niveau d'une partie. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa46c6202b0ecdf76025f9b8c590915ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46c6202b0ecdf76025f9b8c590915ab">&#9670;&nbsp;</a></span>afficherMenuNiveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">e_code_main afficherMenuNiveau </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>retour_niveau</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_infos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ancien_niveau_charge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le menu de sélection d'une planète. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">retour_niveau</td><td>Valeur de sortie, retourne l'indice du niveau à charger si un choix est fait </td></tr>
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>La liste des informations sur la structure des niveaux de la partie </td></tr>
+    <tr><td class="paramname">nb_infos</td><td>Le nombre d'éléments de la liste </td></tr>
+    <tr><td class="paramname">ancien_niveau_charge</td><td>Indice du niveau précédemment chargé</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'action réalisée, l'indice du niveau choisi est retourné dans retour_niveau si NIVEAU_CHANGER est retourné. </dd></dl>
+
+</div>
+</div>
+<a id="adc9675b4125377a57443ef50eb280d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc9675b4125377a57443ef50eb280d74">&#9670;&nbsp;</a></span>creerSelection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__selection.html">t_selection</a>* creerSelection </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>texte</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>taille_planete</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Créer un bouton pour sélectionner un niveau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Le renderer du jeu </td></tr>
+    <tr><td class="paramname">police</td><td>La police d'affichage du nom de la planète </td></tr>
+    <tr><td class="paramname">texte</td><td>Le nom de la planète </td></tr>
+    <tr><td class="paramname">indice</td><td>L'indice du niveau </td></tr>
+    <tr><td class="paramname">taille_planete</td><td>La taille d'affichage de la planète</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le bouton, NULl si echec. </dd></dl>
+
+</div>
+</div>
+<a id="a03ec48816673b56ee5943e6fc7e400ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ec48816673b56ee5943e6fc7e400ae">&#9670;&nbsp;</a></span>detruireSelections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void detruireSelections </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__selection.html">t_selection</a> ***&#160;</td>
+          <td class="paramname"><em>selections</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_selections</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée à la liste de sélections du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selections</td><td>Adresse de la liste des sélections à libérer </td></tr>
+    <tr><td class="paramname">nb_selections</td><td>Nombre d'éléments dans la liste </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a01bdb5e12f93fc241ca7df391e2a722e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01bdb5e12f93fc241ca7df391e2a722e">&#9670;&nbsp;</a></span>freeMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void freeMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__selection.html">t_selection</a> ***&#160;</td>
+          <td class="paramname"><em>selections</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_selections</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> **&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> **&#160;</td>
+          <td class="paramname"><em>menu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Detruit et libère la mémoire allouée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selections</td><td>Adresse de la liste des sélections à libérer </td></tr>
+    <tr><td class="paramname">nb_selections</td><td>Nombre d'éléments dans la liste </td></tr>
+    <tr><td class="paramname">titre</td><td>adresse du titre a detruire </td></tr>
+    <tr><td class="paramname">menu</td><td>adresse du menu a detruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5df673444946c038b9fc9d9e8f6473ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df673444946c038b9fc9d9e8f6473ec">&#9670;&nbsp;</a></span>indiceSelection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int indiceSelection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__selection.html">t_selection</a> **&#160;</td>
+          <td class="paramname"><em>selections</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_selects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>souris</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne l'indice du niveau étant survolé par la souris. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selections</td><td>La liste différentes options du menu </td></tr>
+    <tr><td class="paramname">nb_selects</td><td>Le nombre de sélections différentes </td></tr>
+    <tr><td class="paramname">souris</td><td>La position du curseur de la souris</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'indice du niveau survolé par la souris, ou -1 si aucun. </dd></dl>
+
+</div>
+</div>
+<a id="a91c263d53bf2d6719c007e49081a3920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91c263d53bf2d6719c007e49081a3920">&#9670;&nbsp;</a></span>initMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__selection.html">t_selection</a>** initMenu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_infos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> **&#160;</td>
+          <td class="paramname"><em>titre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> **&#160;</td>
+          <td class="paramname"><em>menu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ancien_niveau_charge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialise le menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>La liste des informations sur la structure des niveaux de la partie </td></tr>
+    <tr><td class="paramname">nb_infos</td><td>Le nombre d'éléments de la liste </td></tr>
+    <tr><td class="paramname">titre</td><td>L'adresse du titre a initialiser </td></tr>
+    <tr><td class="paramname">menu</td><td>L'adresse du menu a initialiser </td></tr>
+    <tr><td class="paramname">ancien_niveau_charge</td><td>Indice du niveau précédemment chargé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la structure du menu allouée </dd></dl>
+
+</div>
+</div>
+<a id="a870acbe50ef3f25ba2367af8ac62ae01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a870acbe50ef3f25ba2367af8ac62ae01">&#9670;&nbsp;</a></span>initSelections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structt__selection.html">t_selection</a>** initSelections </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_infos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ancien_niveau_charge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alloue la liste infos_niveau les différents choix du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
+    <tr><td class="paramname">police</td><td>La police du texte à afficher </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>La liste des informations sur la structure des niveaux de la partie </td></tr>
+    <tr><td class="paramname">nb_infos</td><td>Le nombre d'éléments de la liste </td></tr>
+    <tr><td class="paramname">ancien_niveau_charge</td><td>Indice du niveau précédemment chargé</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste des différents choix contextuels du menu. </dd></dl>
+
+</div>
+</div>
+<a id="adb2dde669ccde80b5d1fc71d4338de52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb2dde669ccde80b5d1fc71d4338de52">&#9670;&nbsp;</a></span>renduBoutonMenuPrincipal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int renduBoutonMenuPrincipal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> *&#160;</td>
+          <td class="paramname"><em>bouton</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Point *&#160;</td>
+          <td class="paramname"><em>souris</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">bouton</td><td>le bouton </td></tr>
+    <tr><td class="paramname">souris</td><td>Coordonnées de la souris </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si la souris survole le bouton, faux sinon. </dd></dl>
+
+</div>
+</div>
+<a id="adfa22a6e6fcc402f62dce5a34793386f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa22a6e6fcc402f62dce5a34793386f">&#9670;&nbsp;</a></span>renduSelection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void renduSelection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__selection.html">t_selection</a> *&#160;</td>
+          <td class="paramname"><em>select</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>apparence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>quantite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Affiche une sélection du menu en fonction de son indice. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
+    <tr><td class="paramname">select</td><td>La sélection à afficher </td></tr>
+    <tr><td class="paramname">apparence</td><td>L'apparence de la planète affichée sur la sélection </td></tr>
+    <tr><td class="paramname">quantite</td><td>Le nombre de sélections total qui sera affiché sur l'écran </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace26974a0a56624a3672ed0e3a48d598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace26974a0a56624a3672ed0e3a48d598">&#9670;&nbsp;</a></span>renduTitre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void renduTitre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__texte.html">t_texte</a> *&#160;</td>
+          <td class="paramname"><em>titre</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Affiche le nom de la galaxie en guise de titre du menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
+    <tr><td class="paramname">titre</td><td>Le titre à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

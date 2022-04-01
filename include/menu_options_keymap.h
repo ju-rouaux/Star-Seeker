@@ -1,5 +1,5 @@
 /**
- * \file menu_options_keymap.c
+ * \file menu_options_keymap.h
  * 
  * \brief Sous menu pour le mapping des touches
  * Permet au joueur de redéfinir ses touches

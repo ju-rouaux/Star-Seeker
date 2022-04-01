@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-#include <noms_generateur.h>
+#include <generation_noms.h>
 #include <generation_niveau.h>
 
 

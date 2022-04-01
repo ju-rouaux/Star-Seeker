@@ -1,0 +1,79 @@
+\hypertarget{particules_8c}{}\doxysection{Référence du fichier src/particules.c}
+\label{particules_8c}\index{src/particules.c@{src/particules.c}}
+
+
+Module de définition de particules.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$particules.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$outils.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{particules_8c_ae8fab27edfb58d6bda1de69e912392b5}{update\+Particule}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__particule}{t\+\_\+particule}} $\ast$particule, float j\+\_\+x, float j\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Mets à jour la particule ou la détruit si sa durée de vie est terminée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__particule}{t\+\_\+particule}} $\ast$ \mbox{\hyperlink{particules_8c_ac56e7337df230905de5f4fe34d130bc1}{creer\+Particule}} (\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une particule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de définition de particules. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{particules_8c_ac56e7337df230905de5f4fe34d130bc1}\label{particules_8c_ac56e7337df230905de5f4fe34d130bc1}} 
+\index{particules.c@{particules.c}!creerParticule@{creerParticule}}
+\index{creerParticule@{creerParticule}!particules.c@{particules.c}}
+\doxysubsubsection{\texorpdfstring{creerParticule()}{creerParticule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__particule}{t\+\_\+particule}}$\ast$ creer\+Particule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une particule. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & La nature de la particule désirée \\
+\hline
+{\em x} & La position de départ en x \\
+\hline
+{\em y} & La position de départ en y \\
+\hline
+{\em texture} & Tileset des particules\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur particule (NULL si echec). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{particules_8c_ae8fab27edfb58d6bda1de69e912392b5}\label{particules_8c_ae8fab27edfb58d6bda1de69e912392b5}} 
+\index{particules.c@{particules.c}!updateParticule@{updateParticule}}
+\index{updateParticule@{updateParticule}!particules.c@{particules.c}}
+\doxysubsubsection{\texorpdfstring{updateParticule()}{updateParticule()}}
+{\footnotesize\ttfamily static int update\+Particule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__particule}{t\+\_\+particule}} $\ast$}]{particule,  }\item[{float}]{j\+\_\+x,  }\item[{float}]{j\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mets à jour la particule ou la détruit si sa durée de vie est terminée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em particule} & La particule à actualiser \\
+\hline
+{\em j\+\_\+x} & Position en x du joueur \\
+\hline
+{\em j\+\_\+y} & Position en y du joueur\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si la particule doit être détruite, sinon 0. 
+\end{DoxyReturn}
