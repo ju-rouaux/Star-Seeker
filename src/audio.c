@@ -13,6 +13,12 @@
 
 #define NB_CHANNELS 7
 
+
+/**
+ * \brief Modifie le volume des bruitages et de la musique
+ * 
+ * \param volume Le volume souhaité
+ */
 void changerVolume(int volume)
 {
     Mix_VolumeMusic(3*volume/4);
@@ -20,6 +26,15 @@ void changerVolume(int volume)
 }
 
 
+/**
+ * \brief Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios
+ * 
+ * \param volume Le volume souhaité
+ * \param musiques La structure qui contient les pointeurs sur les musiques
+ * \param bruitages La structure qui contient les pointeurs sur les bruitages
+ * 
+ * \return 0 si l'appel se passe correctement, -1 s'il y a une erreur d'allocation
+ */
 int chargerAudio(int volume, t_musiques ** musiques, t_bruitages ** bruitages){
 
     t_musiques * m = malloc(sizeof(t_musiques));
@@ -68,6 +83,13 @@ int chargerAudio(int volume, t_musiques ** musiques, t_bruitages ** bruitages){
 }
 
 
+/**
+ * \brief Détruit les structures des pointeurs sur les fichiers audios
+ * 
+ * \param m La structure qui contient les pointeurs sur les musiques
+ * \param b La structure qui contient les pointeurs sur les bruitages
+ * 
+ */
 void detruireAudio(t_musiques ** m, t_bruitages ** b){
 
 
