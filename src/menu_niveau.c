@@ -450,7 +450,7 @@ e_code_main afficherMenuNiveau(int * retour_niveau, t_moteur * moteur, niveau_in
                         
                     default:
                         break;
-                    }
+                    }break;
 
                 case SDL_MOUSEBUTTONDOWN:
                     if(indice_selection == -2)
