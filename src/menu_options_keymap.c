@@ -45,11 +45,11 @@ static int handleEvents_options_keymap(t_moteur * moteur, t_bouton ** boutons,SD
                                     SDL_SetTextureColorMod(boutons[i] -> texture, 0, 0, 255);// On remet la couleur d'origine
                                 return (i + 2);
                             }
-                        } else return i + 2;
-                    }
-                    break;
-                default:
-                    break;
+                        }
+                        //Traitement du bouton retour
+                        if (SDL_PointInRect(&mouse,&boutons[NB_B_MENU_OPTIONS_KEYMAP - 1]->rect))
+                            return 12;
+                    }break;
                 };
                 break;
 

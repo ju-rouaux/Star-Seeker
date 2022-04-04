@@ -9,6 +9,8 @@
 
 #include <overlay.h>
 
+#define VIDE 0
+
 
 
 /**
@@ -37,8 +39,6 @@ static void dessiner_tile_map(t_moteur * moteur, int type, float x, float y){
     splitTexture(&source, type,0, NB_TILE_HAUTEUR, NB_TILE_LARGEUR, 16,16);
 
     SDL_RenderCopy(moteur->renderer, moteur->textures->overlay, &source, &destination);
-
-
 
 }
 
