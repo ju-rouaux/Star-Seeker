@@ -13,8 +13,8 @@ Ensuite exécutez
 make all
 ```
 
-Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires obj et save. <br />
-**Un répertoire obj est nécessaire à la compilation tandis qu'un répertoire save est nécessaire à la sauvegarde des parties.**
+Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires bin, obj et save. <br />
+**Les répertoires bin et obj sont nécessaires pour la compilation tandis qu'un répertoire save est nécessaire pour la sauvegarde des parties.**
 ```
 make init
 ```

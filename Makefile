@@ -1,5 +1,5 @@
 #Systeme d'exploitation (win pour windows, sinon n'importe quoi par défaut)
-ARCH = win
+ARCH = linux
 
 include Makefile.compilation
 
@@ -28,7 +28,7 @@ all: $(CIBLE_ARCH) $(APPNAME)
 
 # Générer les répertoires nécessaires s'ils sont manquants
 init:
-	mkdir $(PARAM_INIT) obj save
+	mkdir $(PARAM_INIT) obj save bin
 
 # Test algo génération
 algogen: $(OBJ)
