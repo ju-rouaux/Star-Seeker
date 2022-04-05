@@ -13,19 +13,17 @@ Ensuite exécutez
 make all
 ```
 
-Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires obj et save.
+Sur Windows, il peut être nécessaire d'exécuter la commande suivante pour créer les répertoires obj et save. <br />
+**Un répertoire obj est nécessaire à la compilation tandis qu'un répertoire save est nécessaire à la sauvegarde des parties.**
 ```
 make init
 ```
-obj est nécessaire à la compilation tandis que save est nécessaire à l'exécution du jeu.
+
+#  Présentation du jeu
+Star Seeker est un rogue-like basé sur le thème de l’espace (inspiré de The Binding of Isaac). Le but du jeu est d’explorer des planètes, dans des galaxies générées aléatoirement, afin d’abattre des monstres et gagner en expérience. Le joueur conserve son expérience au fil des parties, qui deviennent de plus en plus dures : les monstres deviennent plus forts, et plus nombreux. L’objectif est d’atteindre une galaxie de 10 planètes, la taille maximale.
 
 
-Star Seeker est un rogue-like basé sur le thème spatial. Le joueur incarne un voyageur de l’espace qui a pour objectif de se rendre sur la dernière planète d’une galaxie pour accomplir une mission qui lui est donnée : récupérer un artéfact ou battre un boss. 
-Pour atteindre les planètes les plus lointaines, il doit améliorer son vaisseau grâce aux débris mécaniques qu’il trouve sur les planètes qu’il peut explorer. 
-Sur son chemin, il rencontre des monstres qu’il doit combattre pour avancer dans son aventure. Il peut également trouver des objets / améliorations / vies en plus, pour faciliter son avancée.
-
-
-## Mappages des touches par défaut
+## Contrôles par défaut
 
 #### ----- Déplacements -----
 ```Z``` : Aller vers le haut<br />
@@ -42,5 +40,5 @@ Sur son chemin, il rencontre des monstres qu’il doit combattre pour avancer da
 #### ----- Autres compétences -----
 ```ESPACE``` : Esquive (dash)<br />
 ```E``` : Interaction<br />
-```ESC``` : Voyage sur une autre planètes, et accès menu principal<br />
-```TAB``` : Afficher la map<br />
+```ESC``` : Voyage sur une autre planète, et accès menu principal<br />
+```TAB``` : Afficher la carte<br />
