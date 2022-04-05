@@ -1,5 +1,5 @@
 #Systeme d'exploitation (win pour windows, sinon n'importe quoi par défaut)
-ARCH = linux
+ARCH = win
 
 include Makefile.compilation
 

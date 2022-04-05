@@ -13,7 +13,7 @@
 #include <menu.h>
 
 #define NB_B_MENU_OPTIONS 4
-#define NOMS_B_MENU_OPTIONS {"Toggle volume","Keymap","Credits","Retour"}
+#define NOMS_B_MENU_OPTIONS {"Volume on/off","Controles","Credits","Retour"}
 
 e_code_main chargerMenu_Options(t_moteur * moteur);
 
