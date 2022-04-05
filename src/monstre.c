@@ -78,13 +78,18 @@ static int updateMonstreStatique(t_moteur * moteur, t_monstre * monstre, float p
  */
 int dessinerMonstre(t_moteur * moteur, t_monstre * monstre)
 {
+    t_animation * animation = monstre->animation; //Sauver l'animation
     monstre->id_animation = monstre->deplacement; //Utiliser la valeur de la méthode de déplacement pour avoir la bonne animation
     monstre->texture = moteur->textures->monstres_bas;
     dessinerEntite(moteur, (t_entite*) monstre);
 
+    //Bloquer l'animation pour le rendu du corps
+    monstre->animation = NULL;
     monstre->id_animation = monstre->nom_attaque; //Utiliser la valeur de la méthode d'attaque pour avoir la bonne animation
     monstre->texture = moteur->textures->monstres_haut;
-    return dessinerEntite(moteur, (t_entite*) monstre);    
+    dessinerEntite(moteur, (t_entite*) monstre);    
+    monstre->animation = animation; //Rétablir l'animation
+    return 0;
 }
 
 
@@ -138,13 +143,9 @@ t_monstre * creerMonstre(float x, float y, float vitesse, int pv, float taille, 
 
     chargerAttaqueTir(&monstre->attaque_tir_equipee, type_attaque);
 
-    monstre->animation = creerAnimation(100, 1);
-    if(monstre->animation == NULL)
-    {
-        printf("Le monstre n'a pas pu être créé\n");
-        free(monstre);
-        return NULL;
-    }
+    monstre->animation = NULL;
+    if(deplacement == VERS_J)
+        monstre->animation = creerAnimation(100, 4);
 
     monstre->id_animation = type_attaque; //Associer à une attaque l'apparence du monstre
     monstre->deplacement = deplacement;
