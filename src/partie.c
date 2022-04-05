@@ -310,7 +310,7 @@ static int jouerNiveau(t_moteur * moteur, t_joueur * joueur, niveau_informations
                             ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_MORT, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             Mix_PlayChannel(3, moteur->bruitages->mort, 0);
                             //Ajouter l'xp gagné au joueur
-                            int xp_lache = de(10);
+                            int xp_lache = de(10 - calculDifficulte(joueur->xp) + 1);
                             for(int xp = 0; xp < xp_lache; xp++)
                                 ajouterEntiteListe(liste_entites, (t_entite*) creerParticule(P_XP, entite_courante->x, entite_courante->y, moteur->textures->particules));
                             joueur->xp += xp_lache;
