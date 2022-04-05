@@ -5,7 +5,7 @@
 Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures, d\textquotesingle{}une caméra et les retournes dans une structure.  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$textures.\+h$>$}\newline
 {\ttfamily \#include $<$audio.\+h$>$}\newline
 {\ttfamily \#include $<$camera.\+h$>$}\newline
@@ -17,18 +17,18 @@ struct \mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{NB\+\_\+\+FPS}}~60
+\#define \mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{N\+B\+\_\+\+F\+PS}}~60
 \item 
 \mbox{\Hypertarget{moteur_8h_ae7f255f11fb26158be219dde544a9472}\label{moteur_8h_ae7f255f11fb26158be219dde544a9472}} 
-\#define {\bfseries TEMPS\+\_\+\+POUR\+\_\+\+CHAQUE\+\_\+\+SECONDE}~((float)1000/\mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{NB\+\_\+\+FPS}})
+\#define {\bfseries T\+E\+M\+P\+S\+\_\+\+P\+O\+U\+R\+\_\+\+C\+H\+A\+Q\+U\+E\+\_\+\+S\+E\+C\+O\+N\+DE}~((float)1000/\mbox{\hyperlink{moteur_8h_afb773ba23c068f4f166d05461ea1d8e0}{N\+B\+\_\+\+F\+PS}})
 \item 
-\#define \mbox{\hyperlink{moteur_8h_a016709016317bfa58ededa3e5e3433b1}{VITESSE\+\_\+\+TRANSITION}}~10
+\#define \mbox{\hyperlink{moteur_8h_a016709016317bfa58ededa3e5e3433b1}{V\+I\+T\+E\+S\+S\+E\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+ON}}~10
 \item 
-\#define \mbox{\hyperlink{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}{NOMBRE\+\_\+\+DE\+\_\+\+PORTES}}~4
+\#define \mbox{\hyperlink{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}{N\+O\+M\+B\+R\+E\+\_\+\+D\+E\+\_\+\+P\+O\+R\+T\+ES}}~4
 \item 
-\#define \mbox{\hyperlink{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}{NB\+\_\+\+TILE\+\_\+\+LARGEUR}}~13
+\#define \mbox{\hyperlink{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}{N\+B\+\_\+\+T\+I\+L\+E\+\_\+\+L\+A\+R\+G\+E\+UR}}~13
 \item 
-\#define \mbox{\hyperlink{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}{NB\+\_\+\+TILE\+\_\+\+HAUTEUR}}~7
+\#define \mbox{\hyperlink{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}{N\+B\+\_\+\+T\+I\+L\+E\+\_\+\+H\+A\+U\+T\+E\+UR}}~7
 \end{DoxyCompactItemize}
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
@@ -46,19 +46,19 @@ typedef struct s\+\_\+moteur {\bfseries t\+\_\+moteur}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{moteur_8h_a10b960116f92254c4253c9c88a554777}\label{moteur_8h_a10b960116f92254c4253c9c88a554777}} 
-enum {\bfseries t\+\_\+bool\+\_\+param} \{ {\bfseries FAUX}
-, {\bfseries VRAI}
+enum {\bfseries t\+\_\+bool\+\_\+param} \{ {\bfseries F\+A\+UX}, 
+{\bfseries V\+R\+AI}
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{moteur_8h_a2cd613591520b21b4e6859b18ca7845e}{reguler\+FPS}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+void \mbox{\hyperlink{moteur_8h_a2cd613591520b21b4e6859b18ca7845e}{reguler\+F\+PS}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Fonction bloquante destinée à bloquer l\textquotesingle{}exécution du programme pour qu\textquotesingle{}il puisse tourner à 60 images par secondes, au maximum. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$ \mbox{\hyperlink{moteur_8h_a980e14a5af12b07ba4baf701b77954ae}{charger\+Moteur}} (unsigned int temps)
 \begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}{detruire\+Moteur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$moteur)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à N\+U\+LL. Sauvegarde aussi les paramètres. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8h_aebb3e2a0bb730dfb9391c82bf2c37d7c}{update\+Echelle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -78,31 +78,31 @@ Julien Rouaux
 \index{moteur.h@{moteur.h}!NB\_FPS@{NB\_FPS}}
 \index{NB\_FPS@{NB\_FPS}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{NB\_FPS}{NB\_FPS}}
-{\footnotesize\ttfamily \#define NB\+\_\+\+FPS~60}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+F\+PS~60}
 
 Nombre de frames par secondes du jeu \mbox{\Hypertarget{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}\label{moteur_8h_ad24341b1dc46d813928c0d57b0f4ff84}} 
 \index{moteur.h@{moteur.h}!NB\_TILE\_HAUTEUR@{NB\_TILE\_HAUTEUR}}
 \index{NB\_TILE\_HAUTEUR@{NB\_TILE\_HAUTEUR}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{NB\_TILE\_HAUTEUR}{NB\_TILE\_HAUTEUR}}
-{\footnotesize\ttfamily \#define NB\+\_\+\+TILE\+\_\+\+HAUTEUR~7}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+T\+I\+L\+E\+\_\+\+H\+A\+U\+T\+E\+UR~7}
 
 Surface au sol en hauteur \mbox{\Hypertarget{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}\label{moteur_8h_a56e417a69b01260f3a64db5273e2bf1f}} 
 \index{moteur.h@{moteur.h}!NB\_TILE\_LARGEUR@{NB\_TILE\_LARGEUR}}
 \index{NB\_TILE\_LARGEUR@{NB\_TILE\_LARGEUR}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{NB\_TILE\_LARGEUR}{NB\_TILE\_LARGEUR}}
-{\footnotesize\ttfamily \#define NB\+\_\+\+TILE\+\_\+\+LARGEUR~13}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+T\+I\+L\+E\+\_\+\+L\+A\+R\+G\+E\+UR~13}
 
 Surface au sol en largeur \mbox{\Hypertarget{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}\label{moteur_8h_a4ed291cf8084f5dfdc2b71abd8f8f0db}} 
 \index{moteur.h@{moteur.h}!NOMBRE\_DE\_PORTES@{NOMBRE\_DE\_PORTES}}
 \index{NOMBRE\_DE\_PORTES@{NOMBRE\_DE\_PORTES}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{NOMBRE\_DE\_PORTES}{NOMBRE\_DE\_PORTES}}
-{\footnotesize\ttfamily \#define NOMBRE\+\_\+\+DE\+\_\+\+PORTES~4}
+{\footnotesize\ttfamily \#define N\+O\+M\+B\+R\+E\+\_\+\+D\+E\+\_\+\+P\+O\+R\+T\+ES~4}
 
 Nombre de portes d\textquotesingle{}une salle (une par mur) \mbox{\Hypertarget{moteur_8h_a016709016317bfa58ededa3e5e3433b1}\label{moteur_8h_a016709016317bfa58ededa3e5e3433b1}} 
 \index{moteur.h@{moteur.h}!VITESSE\_TRANSITION@{VITESSE\_TRANSITION}}
 \index{VITESSE\_TRANSITION@{VITESSE\_TRANSITION}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{VITESSE\_TRANSITION}{VITESSE\_TRANSITION}}
-{\footnotesize\ttfamily \#define VITESSE\+\_\+\+TRANSITION~10}
+{\footnotesize\ttfamily \#define V\+I\+T\+E\+S\+S\+E\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+ON~10}
 
 Vitesse d\textquotesingle{}une transition exprimée en tile par secondes 
 
@@ -123,7 +123,7 @@ Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramèt
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Structure moteur, NULL si échec. 
+Structure moteur, N\+U\+LL si échec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}\label{moteur_8h_aa8ba0a1a326f5f885b9f58d650c5f50c}} 
 \index{moteur.h@{moteur.h}!detruireMoteur@{detruireMoteur}}
@@ -133,7 +133,7 @@ Structure moteur, NULL si échec.
 
 
 
-Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. 
+Libère la mémoire allouée pour la structure moteur et mets son pointeur à N\+U\+LL. Sauvegarde aussi les paramètres. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -144,7 +144,7 @@ Libère la mémoire allouée pour la structure moteur et mets son pointeur à NU
 \index{moteur.h@{moteur.h}!regulerFPS@{regulerFPS}}
 \index{regulerFPS@{regulerFPS}!moteur.h@{moteur.h}}
 \doxysubsubsection{\texorpdfstring{regulerFPS()}{regulerFPS()}}
-{\footnotesize\ttfamily void reguler\+FPS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void reguler\+F\+PS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
 
 
 

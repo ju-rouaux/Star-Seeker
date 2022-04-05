@@ -5,7 +5,7 @@
 Module de définition de projectiles.  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$entite.\+h$>$}\newline
 {\ttfamily \#include $<$liste.\+h$>$}\newline
 {\ttfamily \#include $<$attributs\+\_\+entites.\+h$>$}\newline
@@ -20,13 +20,13 @@ typedef struct s\+\_\+projectile {\bfseries t\+\_\+projectile}
 \item 
 \mbox{\Hypertarget{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}\label{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}} 
 enum \mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \{ \newline
-{\bfseries BALLE}
-, {\bfseries BOULE\+\_\+\+FEU}
-, {\bfseries BOULET}
-, {\bfseries SHURIKEN}
-, \newline
-{\bfseries TOURNER}
-, {\bfseries SABRE}
+{\bfseries B\+A\+L\+LE}, 
+{\bfseries B\+O\+U\+L\+E\+\_\+\+F\+EU}, 
+{\bfseries B\+O\+U\+L\+ET}, 
+{\bfseries S\+H\+U\+R\+I\+K\+EN}, 
+\newline
+{\bfseries T\+O\+U\+R\+N\+ER}, 
+{\bfseries S\+A\+B\+RE}
  \}
 \begin{DoxyCompactList}\small\item\em Les différents types de projectiles pouvant être générés. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
@@ -35,7 +35,7 @@ enum \mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+t
 \mbox{\Hypertarget{projectiles_8h_a54419c37c4af9b4b3d4af8cad856cf4f}\label{projectiles_8h_a54419c37c4af9b4b3d4af8cad856cf4f}} 
 int {\bfseries faire\+Degats} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile, struct s\+\_\+joueur $\ast$joueur, \mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste)
 \item 
-\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$ \mbox{\hyperlink{projectiles_8h_a4ae4edfde673d942e4b54428c2e7aad2}{creer\+Projectile}} (\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, float \mbox{\hyperlink{attributs__entites_8h_ad1e02f375b5146842baab1009b6e16ad}{direction\+\_\+vx}}, float \mbox{\hyperlink{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}{direction\+\_\+vy}}, \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} cible, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$ \mbox{\hyperlink{projectiles_8h_a4ae4edfde673d942e4b54428c2e7aad2}{creer\+Projectile}} (\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, float \mbox{\hyperlink{attributs__entites_8h_ad1e02f375b5146842baab1009b6e16ad}{direction\+\_\+vx}}, float \mbox{\hyperlink{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}{direction\+\_\+vy}}, \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} cible, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
 \begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un projectile. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}{detruire\+Projectile}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$$\ast$projectile)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une structure projectile. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -54,7 +54,7 @@ Julien Rouaux
 \index{projectiles.h@{projectiles.h}!creerProjectile@{creerProjectile}}
 \index{creerProjectile@{creerProjectile}!projectiles.h@{projectiles.h}}
 \doxysubsubsection{\texorpdfstring{creerProjectile()}{creerProjectile()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}}$\ast$ creer\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{direction\+\_\+vx,  }\item[{float}]{direction\+\_\+vy,  }\item[{\mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}}}]{cible,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}}$\ast$ creer\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{direction\+\_\+vx,  }\item[{float}]{direction\+\_\+vy,  }\item[{\mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}}}]{cible,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
 
 
 
@@ -78,7 +78,7 @@ Création d\textquotesingle{}un projectile.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur projectile (NULL si echec). 
+Le pointeur projectile (N\+U\+LL si echec). 
 \end{DoxyReturn}
 \mbox{\Hypertarget{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}\label{projectiles_8h_ac066b0c972bac50e2f6c8d6c0499872c}} 
 \index{projectiles.h@{projectiles.h}!detruireProjectile@{detruireProjectile}}

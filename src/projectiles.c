@@ -1,5 +1,5 @@
 /**
- * \file projectiles.h
+ * \file projectiles.c
  * 
  * \brief Module de définition de projectiles
  * 

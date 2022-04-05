@@ -1,0 +1,123 @@
+\hypertarget{projectiles_8c}{}\doxysection{Référence du fichier src/projectiles.c}
+\label{projectiles_8c}\index{src/projectiles.c@{src/projectiles.c}}
+
+
+Module de définition de projectiles.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$personnage.\+h$>$}\newline
+{\ttfamily \#include $<$joueur.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$projectiles.\+h$>$}\newline
+{\ttfamily \#include $<$definitions/definitions\+\_\+projectiles.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{projectiles_8c_a8061ff4eb98ff7da13bd83b84f119aec}{charger\+Projectile}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile, \mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}})
+\begin{DoxyCompactList}\small\item\em Actualise les champs de la structure projectile vers les paramètres décrits par le type. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{projectiles_8c_ac5e198c07ffe1e4a256fbe5b4c1025a6}{faire\+Degats}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$projectile, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, \mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste)
+\begin{DoxyCompactList}\small\item\em Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur à la recherche d\textquotesingle{}une cible avec laquelle le projectile pourrait être en collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{projectiles_8c_ac066b0c972bac50e2f6c8d6c0499872c}{detruire\+Projectile}} (\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$$\ast$projectile)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une structure projectile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$ \mbox{\hyperlink{projectiles_8c_a4ae4edfde673d942e4b54428c2e7aad2}{creer\+Projectile}} (\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, float \mbox{\hyperlink{attributs__entites_8h_ad1e02f375b5146842baab1009b6e16ad}{direction\+\_\+vx}}, float \mbox{\hyperlink{attributs__entites_8h_aac0ae24fad3d28b4b0e597969285e6d2}{direction\+\_\+vy}}, \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} cible, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un projectile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de définition de projectiles. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{projectiles_8c_a8061ff4eb98ff7da13bd83b84f119aec}\label{projectiles_8c_a8061ff4eb98ff7da13bd83b84f119aec}} 
+\index{projectiles.c@{projectiles.c}!chargerProjectile@{chargerProjectile}}
+\index{chargerProjectile@{chargerProjectile}!projectiles.c@{projectiles.c}}
+\doxysubsubsection{\texorpdfstring{chargerProjectile()}{chargerProjectile()}}
+{\footnotesize\ttfamily int charger\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile,  }\item[{\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Actualise les champs de la structure projectile vers les paramètres décrits par le type. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile à actualiser \\
+\hline
+{\em type} & Le type de projectile \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{projectiles_8c_a4ae4edfde673d942e4b54428c2e7aad2}\label{projectiles_8c_a4ae4edfde673d942e4b54428c2e7aad2}} 
+\index{projectiles.c@{projectiles.c}!creerProjectile@{creerProjectile}}
+\index{creerProjectile@{creerProjectile}!projectiles.c@{projectiles.c}}
+\doxysubsubsection{\texorpdfstring{creerProjectile()}{creerProjectile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}}$\ast$ creer\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projectiles_8h_af631d6b38be25cb10ad8ea2468e2b98d}{e\+\_\+type\+\_\+projectile}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{direction\+\_\+vx,  }\item[{float}]{direction\+\_\+vy,  }\item[{\mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}}}]{cible,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un projectile. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & La nature du projectile désiré \\
+\hline
+{\em x} & La position de départ en x \\
+\hline
+{\em y} & La position de départ en y \\
+\hline
+{\em direction\+\_\+vx} & Sa direction en x \\
+\hline
+{\em direction\+\_\+vy} & Sa direction en y \\
+\hline
+{\em cible} & Le type de l\textquotesingle{}entité qui doit subir des dégats s\textquotesingle{}il est touché \\
+\hline
+{\em texture} & Tileset des projectiles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur projectile (N\+U\+LL si echec). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{projectiles_8c_ac066b0c972bac50e2f6c8d6c0499872c}\label{projectiles_8c_ac066b0c972bac50e2f6c8d6c0499872c}} 
+\index{projectiles.c@{projectiles.c}!detruireProjectile@{detruireProjectile}}
+\index{detruireProjectile@{detruireProjectile}!projectiles.c@{projectiles.c}}
+\doxysubsubsection{\texorpdfstring{detruireProjectile()}{detruireProjectile()}}
+{\footnotesize\ttfamily void detruire\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$$\ast$}]{projectile }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire allouée à une structure projectile. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & L\textquotesingle{}adresse du pointeur du projectile \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{projectiles_8c_ac5e198c07ffe1e4a256fbe5b4c1025a6}\label{projectiles_8c_ac5e198c07ffe1e4a256fbe5b4c1025a6}} 
+\index{projectiles.c@{projectiles.c}!faireDegats@{faireDegats}}
+\index{faireDegats@{faireDegats}!projectiles.c@{projectiles.c}}
+\doxysubsubsection{\texorpdfstring{faireDegats()}{faireDegats()}}
+{\footnotesize\ttfamily int faire\+Degats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__projectile}{t\+\_\+projectile}} $\ast$}]{projectile,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{liste }\end{DoxyParamCaption})}
+
+
+
+Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur à la recherche d\textquotesingle{}une cible avec laquelle le projectile pourrait être en collision. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em projectile} & Le projectile cherchant une cible \\
+\hline
+{\em joueur} & Le joueur \\
+\hline
+{\em liste} & La liste des entités\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+-\/1 si collision avec une entité, sinon 0. 
+\end{DoxyReturn}

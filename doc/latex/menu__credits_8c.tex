@@ -1,0 +1,109 @@
+\hypertarget{menu__credits_8c}{}\doxysection{Référence du fichier src/menu\+\_\+credits.c}
+\label{menu__credits_8c}\index{src/menu\_credits.c@{src/menu\_credits.c}}
+
+
+Menu d\textquotesingle{}affichage des crédits du jeu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$main.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__texte}{t\+\_\+texte}}
+\begin{DoxyCompactList}\small\item\em Structure facilitant la manipulation des textes affichés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu__credits_8c_a44557b5181fff2d6ab54461c574c25de}\label{menu__credits_8c_a44557b5181fff2d6ab54461c574c25de}} 
+\#define {\bfseries P\+R\+E\+C\+I\+S\+I\+O\+N\+\_\+\+R\+E\+N\+D\+U\+\_\+\+T\+E\+X\+TE}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{menu__credits_8c_ad20a07d5fea657a00868639da87794f1}{rendu\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$texte, S\+D\+L\+\_\+\+Point $\ast$souris, S\+D\+L\+\_\+\+Rect $\ast$rect\+\_\+retour)
+\begin{DoxyCompactList}\small\item\em Affiche a l\textquotesingle{}écran du texte. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$ \mbox{\hyperlink{menu__credits_8c_a54c0b9677ee0c017cf4092e26d9cb042}{creer\+Rendu\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, T\+T\+F\+\_\+\+Font $\ast$police, char $\ast$contenu, int indice)
+\begin{DoxyCompactList}\small\item\em Génère le texte à afficher sur le menu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menu__credits_8c_a245f4379bef2276719e9bb39d2da8551}\label{menu__credits_8c_a245f4379bef2276719e9bb39d2da8551}} 
+static void \mbox{\hyperlink{menu__credits_8c_a245f4379bef2276719e9bb39d2da8551}{free\+Menu}} (\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$titre, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$julien, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$guillaume, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$camille, \mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$$\ast$retour)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux textes du menu. \end{DoxyCompactList}\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__credits_8c_af97cce2353845de9b770d6db7cf4b0d2}{afficher\+Menu\+Credits}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Affiche le menu des crédits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Menu d\textquotesingle{}affichage des crédits du jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__credits_8c_af97cce2353845de9b770d6db7cf4b0d2}\label{menu__credits_8c_af97cce2353845de9b770d6db7cf4b0d2}} 
+\index{menu\_credits.c@{menu\_credits.c}!afficherMenuCredits@{afficherMenuCredits}}
+\index{afficherMenuCredits@{afficherMenuCredits}!menu\_credits.c@{menu\_credits.c}}
+\doxysubsubsection{\texorpdfstring{afficherMenuCredits()}{afficherMenuCredits()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main afficher\+Menu\+Credits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu des crédits. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}action à réaliser après la fermeture du menu. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__credits_8c_a54c0b9677ee0c017cf4092e26d9cb042}\label{menu__credits_8c_a54c0b9677ee0c017cf4092e26d9cb042}} 
+\index{menu\_credits.c@{menu\_credits.c}!creerRenduTexte@{creerRenduTexte}}
+\index{creerRenduTexte@{creerRenduTexte}!menu\_credits.c@{menu\_credits.c}}
+\doxysubsubsection{\texorpdfstring{creerRenduTexte()}{creerRenduTexte()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structt__texte}{t\+\_\+texte}}$\ast$ creer\+Rendu\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police,  }\item[{char $\ast$}]{contenu,  }\item[{int}]{indice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Génère le texte à afficher sur le menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em police} & La police d\textquotesingle{}affichage \\
+\hline
+{\em contenu} & Le texte à afficher \\
+\hline
+{\em indice} & L\textquotesingle{}ordre d\textquotesingle{}affichagede haut en bas\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La structure pour afficher le texte. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__credits_8c_ad20a07d5fea657a00868639da87794f1}\label{menu__credits_8c_ad20a07d5fea657a00868639da87794f1}} 
+\index{menu\_credits.c@{menu\_credits.c}!renduTexte@{renduTexte}}
+\index{renduTexte@{renduTexte}!menu\_credits.c@{menu\_credits.c}}
+\doxysubsubsection{\texorpdfstring{renduTexte()}{renduTexte()}}
+{\footnotesize\ttfamily static void rendu\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__texte}{t\+\_\+texte}} $\ast$}]{texte,  }\item[{S\+D\+L\+\_\+\+Point $\ast$}]{souris,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rect\+\_\+retour }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche a l\textquotesingle{}écran du texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em texte} & Le texte à afficher \\
+\hline
+{\em souris} & L\textquotesingle{}emplacement de la souris (ou N\+U\+LL) si une variation de couleur est souhaitée lorsque la souris survole le texte \\
+\hline
+{\em rect\+\_\+retour} & Le rectangle où retourner l\textquotesingle{}emplacement du rendu du texte (ou N\+U\+LL si pas nécéssaire) \\
+\hline
+\end{DoxyParams}

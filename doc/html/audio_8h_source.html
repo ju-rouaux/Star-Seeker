@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker:  Fichier source de include/audio.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -67,7 +66,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">audio.h</div></div>
+  <div class="headertitle">
+<div class="title">audio.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="audio_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
@@ -98,19 +98,24 @@ $(function() {
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structt__musiques.html#a3a74b622358f03cda2cfc9af1246c315">   44</a></span>&#160;    Mix_Music * <a class="code" href="structt__musiques.html#a3a74b622358f03cda2cfc9af1246c315">ambiant</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <a class="code" href="structt__musiques.html">t_musiques</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> chargerAudio(<span class="keywordtype">int</span> volume, <a class="code" href="structt__musiques.html">t_musiques</a> ** musiques, <a class="code" href="structt__bruitages.html">t_bruitages</a> ** bruitages);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> detruireAudio(<a class="code" href="structt__musiques.html">t_musiques</a> ** m, <a class="code" href="structt__bruitages.html">t_bruitages</a> ** b);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> changerVolume(<span class="keywordtype">int</span> volume);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="audio_8h.html#ab208cb811e41308fe78e1665c0476600">chargerAudio</a>(<span class="keywordtype">int</span> volume, <a class="code" href="structt__musiques.html">t_musiques</a> ** musiques, <a class="code" href="structt__bruitages.html">t_bruitages</a> ** bruitages);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="audio_8h.html#adaf0fca24a49ad3e4e5d4b40e65f344b">detruireAudio</a>(<a class="code" href="structt__musiques.html">t_musiques</a> ** m, <a class="code" href="structt__bruitages.html">t_bruitages</a> ** b);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="audio_8h.html#a4ccf7bcc3afa505c7e893a4017706569">changerVolume</a>(<span class="keywordtype">int</span> volume);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// _JEU_AUDIO_</span></div>
-<div class="ttc" id="astructt__bruitages_html"><div class="ttname"><a href="structt__bruitages.html">t_bruitages</a></div><div class="ttdoc">Structure comportant tous les sons du jeu.</div><div class="ttdef"><b>Definition:</b> audio.h:25</div></div>
-<div class="ttc" id="astructt__musiques_html"><div class="ttname"><a href="structt__musiques.html">t_musiques</a></div><div class="ttdoc">Structure comportant toutes les musiques du jeu.</div><div class="ttdef"><b>Definition:</b> audio.h:41</div></div>
-<div class="ttc" id="astructt__musiques_html_a3a74b622358f03cda2cfc9af1246c315"><div class="ttname"><a href="structt__musiques.html#a3a74b622358f03cda2cfc9af1246c315">t_musiques::ambiant</a></div><div class="ttdeci">Mix_Music * ambiant</div><div class="ttdef"><b>Definition:</b> audio.h:44</div></div>
-<div class="ttc" id="astructt__musiques_html_a7fd6e99395d8a6c35c78a36b24e487f4"><div class="ttname"><a href="structt__musiques.html#a7fd6e99395d8a6c35c78a36b24e487f4">t_musiques::menu_principal</a></div><div class="ttdeci">Mix_Music * menu_principal</div><div class="ttdef"><b>Definition:</b> audio.h:43</div></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // _JEU_AUDIO_</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructt__musiques_html_a3a74b622358f03cda2cfc9af1246c315"><div class="ttname"><a href="structt__musiques.html#a3a74b622358f03cda2cfc9af1246c315">t_musiques::ambiant</a></div><div class="ttdeci">Mix_Music * ambiant</div><div class="ttdef"><b>Definition:</b> audio.h:44</div></div>
+<div class="ttc" id="astructt__musiques_html"><div class="ttname"><a href="structt__musiques.html">t_musiques</a></div><div class="ttdoc">Structure comportant toutes les musiques du jeu.</div><div class="ttdef"><b>Definition:</b> audio.h:41</div></div>
+<div class="ttc" id="astructt__bruitages_html"><div class="ttname"><a href="structt__bruitages.html">t_bruitages</a></div><div class="ttdoc">Structure comportant tous les sons du jeu.</div><div class="ttdef"><b>Definition:</b> audio.h:25</div></div>
+<div class="ttc" id="aaudio_8h_html_adaf0fca24a49ad3e4e5d4b40e65f344b"><div class="ttname"><a href="audio_8h.html#adaf0fca24a49ad3e4e5d4b40e65f344b">detruireAudio</a></div><div class="ttdeci">void detruireAudio(t_musiques **m, t_bruitages **b)</div><div class="ttdoc">Détruit les structures des pointeurs sur les fichiers audios.</div><div class="ttdef"><b>Definition:</b> audio.c:93</div></div>
+<div class="ttc" id="aaudio_8h_html_a4ccf7bcc3afa505c7e893a4017706569"><div class="ttname"><a href="audio_8h.html#a4ccf7bcc3afa505c7e893a4017706569">changerVolume</a></div><div class="ttdeci">void changerVolume(int volume)</div><div class="ttdoc">Modifie le volume des bruitages et de la musique.</div><div class="ttdef"><b>Definition:</b> audio.c:22</div></div>
+<div class="ttc" id="aaudio_8h_html_ab208cb811e41308fe78e1665c0476600"><div class="ttname"><a href="audio_8h.html#ab208cb811e41308fe78e1665c0476600">chargerAudio</a></div><div class="ttdeci">int chargerAudio(int volume, t_musiques **musiques, t_bruitages **bruitages)</div><div class="ttdoc">Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios.</div><div class="ttdef"><b>Definition:</b> audio.c:38</div></div>
+<div class="ttc" id="astructt__musiques_html_a7fd6e99395d8a6c35c78a36b24e487f4"><div class="ttname"><a href="structt__musiques.html#a7fd6e99395d8a6c35c78a36b24e487f4">t_musiques::menu_principal</a></div><div class="ttdeci">Mix_Music * menu_principal</div><div class="ttdef"><b>Definition:</b> audio.h:43</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker: Référence du fichier include/attaque.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -73,7 +72,8 @@ $(function() {
 <a href="#typedef-members">Définitions de type</a> &#124;
 <a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier attaque.h</div></div>
+  <div class="headertitle">
+<div class="title">Référence du fichier attaque.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -105,18 +105,18 @@ typedef struct s_personnage&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
 <tr class="memitem:ac7dcc833fc35572565d511b3875d7880"><td class="memItemLeft" align="right" valign="top"><a id="ac7dcc833fc35572565d511b3875d7880"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="attaque_8h.html#ac7dcc833fc35572565d511b3875d7880">e_nom_attaque</a> { <br />
-&#160;&#160;<b>A_DEFAUT</b>
-, <b>A_FEU_SIMPLE</b>
-, <b>A_360</b>
-, <b>A_SNIPER</b>
-, <br />
-&#160;&#160;<b>A_SNIPER_3</b>
-, <b>A_DEFAUT_LARGE</b>
-, <b>A_FEU</b>
-, <b>A_360_MORE</b>
-, <br />
-&#160;&#160;<b>A_TOURNER</b>
-, <b>A_SABRE</b>
+&#160;&#160;<b>A_DEFAUT</b>, 
+<b>A_FEU_SIMPLE</b>, 
+<b>A_360</b>, 
+<b>A_SNIPER</b>, 
+<br />
+&#160;&#160;<b>A_SNIPER_3</b>, 
+<b>A_DEFAUT_LARGE</b>, 
+<b>A_FEU</b>, 
+<b>A_360_MORE</b>, 
+<br />
+&#160;&#160;<b>A_TOURNER</b>, 
+<b>A_SABRE</b>
 <br />
  }</td></tr>
 <tr class="memdesc:ac7dcc833fc35572565d511b3875d7880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant pour reconnaitre le type de l'attaque. <br /></td></tr>
@@ -132,7 +132,7 @@ Fonctions</h2></td></tr>
 <tr class="separator:a8f4acf25e5f918118744d8ea52d33d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Module gérant les attaques des personnages. </p>
+<div class="textblock"><p>Module gérant les attaques des personnages. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="adb931616942b8e32011135199dc287c3"></a>
@@ -205,7 +205,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Cette fonction devant être appelée à chaque actualisation d'un personnage permet à une attaque de continuer de s'exécuter si elle dure dans le temps, ou bien de lancer une attaque si "attaquer" est vrai. </p>
-<p >Si attaquer est vrai, mais que le cooldown de l'attaque n'est pas terminé, l'attaque ne sera pas réalisée. ATTENTION : La direction de l'attaque est la même que la direction du personnage.</p>
+<p>Si attaquer est vrai, mais que le cooldown de l'attaque n'est pas terminé, l'attaque ne sera pas réalisée. ATTENTION : La direction de l'attaque est la même que la direction du personnage.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>Le moteur du jeu </td></tr>
@@ -220,7 +220,9 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

@@ -5,8 +5,8 @@
 Librairie de \mbox{\hyperlink{audio_8h}{audio.\+h}}.  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+mixer.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 \doxysubsection*{Classes}
@@ -19,15 +19,12 @@ struct \mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{audio_8h_ab208cb811e41308fe78e1665c0476600}\label{audio_8h_ab208cb811e41308fe78e1665c0476600}} 
-int {\bfseries charger\+Audio} (int volume, \mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$musiques, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$bruitages)
-\item 
-\mbox{\Hypertarget{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}\label{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}} 
-void {\bfseries detruire\+Audio} (\mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$m, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$b)
-\item 
-\mbox{\Hypertarget{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}\label{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}} 
-void {\bfseries changer\+Volume} (int volume)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{audio_8h_ab208cb811e41308fe78e1665c0476600}{charger\+Audio}} (int volume, \mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$musiques, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$bruitages)
+\begin{DoxyCompactList}\small\item\em Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}{detruire\+Audio}} (\mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$m, \mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$b)
+\begin{DoxyCompactList}\small\item\em Détruit les structures des pointeurs sur les fichiers audios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}{changer\+Volume}} (int volume)
+\begin{DoxyCompactList}\small\item\em Modifie le volume des bruitages et de la musique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -36,3 +33,60 @@ Librairie de \mbox{\hyperlink{audio_8h}{audio.\+h}}.
 \begin{DoxyAuthor}{Auteur}
 Camille Remoué 
 \end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}\label{audio_8h_a4ccf7bcc3afa505c7e893a4017706569}} 
+\index{audio.h@{audio.h}!changerVolume@{changerVolume}}
+\index{changerVolume@{changerVolume}!audio.h@{audio.h}}
+\doxysubsubsection{\texorpdfstring{changerVolume()}{changerVolume()}}
+{\footnotesize\ttfamily void changer\+Volume (\begin{DoxyParamCaption}\item[{int}]{volume }\end{DoxyParamCaption})}
+
+
+
+Modifie le volume des bruitages et de la musique. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volume} & Le volume souhaité \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{audio_8h_ab208cb811e41308fe78e1665c0476600}\label{audio_8h_ab208cb811e41308fe78e1665c0476600}} 
+\index{audio.h@{audio.h}!chargerAudio@{chargerAudio}}
+\index{chargerAudio@{chargerAudio}!audio.h@{audio.h}}
+\doxysubsubsection{\texorpdfstring{chargerAudio()}{chargerAudio()}}
+{\footnotesize\ttfamily int charger\+Audio (\begin{DoxyParamCaption}\item[{int}]{volume,  }\item[{\mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$}]{musiques,  }\item[{\mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$}]{bruitages }\end{DoxyParamCaption})}
+
+
+
+Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volume} & Le volume souhaité \\
+\hline
+{\em musiques} & La structure qui contient les pointeurs sur les musiques \\
+\hline
+{\em bruitages} & La structure qui contient les pointeurs sur les bruitages\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si l\textquotesingle{}appel se passe correctement, -\/1 s\textquotesingle{}il y a une erreur d\textquotesingle{}allocation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}\label{audio_8h_adaf0fca24a49ad3e4e5d4b40e65f344b}} 
+\index{audio.h@{audio.h}!detruireAudio@{detruireAudio}}
+\index{detruireAudio@{detruireAudio}!audio.h@{audio.h}}
+\doxysubsubsection{\texorpdfstring{detruireAudio()}{detruireAudio()}}
+{\footnotesize\ttfamily void detruire\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__musiques}{t\+\_\+musiques}} $\ast$$\ast$}]{m,  }\item[{\mbox{\hyperlink{structt__bruitages}{t\+\_\+bruitages}} $\ast$$\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Détruit les structures des pointeurs sur les fichiers audios. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em m} & La structure qui contient les pointeurs sur les musiques \\
+\hline
+{\em b} & La structure qui contient les pointeurs sur les bruitages \\
+\hline
+\end{DoxyParams}

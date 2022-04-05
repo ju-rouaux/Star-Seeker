@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['sauvegarderinfosniveaux_516',['sauvegarderInfosNiveaux',['../sauvegarde_8c.html#a9c60f2d17a8a80f46319a29b30ab6984',1,'sauvegarde.c']]],
-  ['sauvegarderjoueur_517',['sauvegarderJoueur',['../sauvegarde_8h.html#add6045470a7ec5bc9b2bd4f72364a1cc',1,'sauvegarderJoueur(t_joueur *joueur):&#160;sauvegarde.c'],['../sauvegarde_8c.html#add6045470a7ec5bc9b2bd4f72364a1cc',1,'sauvegarderJoueur(t_joueur *joueur):&#160;sauvegarde.c']]],
-  ['sauvegarderparametres_518',['sauvegarderParametres',['../sauvegarde_8h.html#a02f62a3cc918e61ec3012366eb58b2a0',1,'sauvegarderParametres(t_parametres *parametres):&#160;sauvegarde.c'],['../sauvegarde_8c.html#a02f62a3cc918e61ec3012366eb58b2a0',1,'sauvegarderParametres(t_parametres *parametres):&#160;sauvegarde.c']]],
-  ['sauvegarderpartie_519',['sauvegarderPartie',['../sauvegarde_8h.html#a80b90dc6e2a010d23a01d5c881facd10',1,'sauvegarderPartie(char *nom_galaxie, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge):&#160;sauvegarde.c'],['../sauvegarde_8c.html#a80b90dc6e2a010d23a01d5c881facd10',1,'sauvegarderPartie(char *nom_galaxie, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge):&#160;sauvegarde.c']]],
-  ['seed_5fdepuis_5fmot_520',['seed_depuis_mot',['../generation__niveau_8h.html#ad12a4ac49cc571e2c925822363bd328f',1,'seed_depuis_mot(const char *mot):&#160;generation_niveau.c'],['../generation__niveau_8c.html#ad12a4ac49cc571e2c925822363bd328f',1,'seed_depuis_mot(const char *mot):&#160;generation_niveau.c']]],
-  ['splittexture_521',['splitTexture',['../textures_8h.html#af7f9546af007eb8aa8382f6a097a48a1',1,'splitTexture(SDL_Rect *rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY):&#160;textures.c'],['../textures_8c.html#af7f9546af007eb8aa8382f6a097a48a1',1,'splitTexture(SDL_Rect *rectangle, int x, int y, int tailleX, int tailleY, int decalageX, int decalageY):&#160;textures.c']]],
-  ['suivant_522',['suivant',['../liste_8h.html#a0c65679dc18a2ba54aa3989b85c44ca0',1,'suivant(t_liste *l):&#160;liste.c'],['../liste_8c.html#a0c65679dc18a2ba54aa3989b85c44ca0',1,'suivant(t_liste *l):&#160;liste.c']]]
+  ['regulerfps_566',['regulerFPS',['../moteur_8c.html#a2cd613591520b21b4e6859b18ca7845e',1,'regulerFPS(t_moteur *moteur):&#160;moteur.c'],['../moteur_8h.html#a2cd613591520b21b4e6859b18ca7845e',1,'regulerFPS(t_moteur *moteur):&#160;moteur.c']]],
+  ['renduboutonmenuprincipal_567',['renduBoutonMenuPrincipal',['../menu__niveau_8c.html#adb2dde669ccde80b5d1fc71d4338de52',1,'menu_niveau.c']]],
+  ['renduentites_568',['renduEntites',['../partie_8c.html#ad146abed0637bc41616c22c56803e8b3',1,'partie.c']]],
+  ['renduselection_569',['renduSelection',['../menu__niveau_8c.html#adfa22a6e6fcc402f62dce5a34793386f',1,'menu_niveau.c']]],
+  ['rendutexte_570',['renduTexte',['../menu__credits_8c.html#ad20a07d5fea657a00868639da87794f1',1,'menu_credits.c']]],
+  ['rendutitre_571',['renduTitre',['../menu__niveau_8c.html#ace26974a0a56624a3672ed0e3a48d598',1,'menu_niveau.c']]]
 ];

@@ -17,14 +17,14 @@ Module de chargement d\textquotesingle{}une fenêtre, du renderer, des textures,
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{moteur_8c_a2cd613591520b21b4e6859b18ca7845e}{reguler\+FPS}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+void \mbox{\hyperlink{moteur_8c_a2cd613591520b21b4e6859b18ca7845e}{reguler\+F\+PS}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Fonction bloquante destinée à bloquer l\textquotesingle{}exécution du programme pour qu\textquotesingle{}il puisse tourner à 60 images par secondes, au maximum. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{moteur_8c_a4f3bfe3a3ec1fc0245a846151bf733ba}{initialiser\+Params}} (\mbox{\hyperlink{structt__parametres}{t\+\_\+parametres}} $\ast$parametres)
 \begin{DoxyCompactList}\small\item\em Initialise les parametres. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$ \mbox{\hyperlink{moteur_8c_a980e14a5af12b07ba4baf701b77954ae}{charger\+Moteur}} (unsigned int temps)
 \begin{DoxyCompactList}\small\item\em Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramètres depuis la sauvegarde. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}{detruire\+Moteur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$$\ast$moteur)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour la structure moteur et mets son pointeur à N\+U\+LL. Sauvegarde aussi les paramètres. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{moteur_8c_aebb3e2a0bb730dfb9391c82bf2c37d7c}{update\+Echelle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Calcule la taille en pixel d\textquotesingle{}un bloc selon la taille de l\textquotesingle{}écran et actualise les champs du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -56,7 +56,7 @@ Charge une fenêtre, un rendu, les textures, et une caméra. Charge les paramèt
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Structure moteur, NULL si échec. 
+Structure moteur, N\+U\+LL si échec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}\label{moteur_8c_aa8ba0a1a326f5f885b9f58d650c5f50c}} 
 \index{moteur.c@{moteur.c}!detruireMoteur@{detruireMoteur}}
@@ -66,7 +66,7 @@ Structure moteur, NULL si échec.
 
 
 
-Libère la mémoire allouée pour la structure moteur et mets son pointeur à NULL. Sauvegarde aussi les paramètres. 
+Libère la mémoire allouée pour la structure moteur et mets son pointeur à N\+U\+LL. Sauvegarde aussi les paramètres. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -92,7 +92,7 @@ Initialise les parametres.
 \index{moteur.c@{moteur.c}!regulerFPS@{regulerFPS}}
 \index{regulerFPS@{regulerFPS}!moteur.c@{moteur.c}}
 \doxysubsubsection{\texorpdfstring{regulerFPS()}{regulerFPS()}}
-{\footnotesize\ttfamily void reguler\+FPS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void reguler\+F\+PS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
 
 
 

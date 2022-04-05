@@ -1,0 +1,277 @@
+\hypertarget{partie_8c}{}\doxysection{Référence du fichier src/partie.c}
+\label{partie_8c}\index{src/partie.c@{src/partie.c}}
+
+
+Module de gestion d\textquotesingle{}une partie \+: appel de sauvegarde et appel des différents niveaux.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$camera.\+h$>$}\newline
+{\ttfamily \#include $<$events.\+h$>$}\newline
+{\ttfamily \#include $<$niveau.\+h$>$}\newline
+{\ttfamily \#include $<$joueur.\+h$>$}\newline
+{\ttfamily \#include $<$monstre.\+h$>$}\newline
+{\ttfamily \#include $<$rendu\+\_\+niveau.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$sauvegarde.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+noms.\+h$>$}\newline
+{\ttfamily \#include $<$outils.\+h$>$}\newline
+{\ttfamily \#include $<$generation\+\_\+entites.\+h$>$}\newline
+{\ttfamily \#include $<$overlay.\+h$>$}\newline
+{\ttfamily \#include $<$particules.\+h$>$}\newline
+{\ttfamily \#include $<$main.\+h$>$}\newline
+{\ttfamily \#include $<$menu\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{partie_8c_a744400f524b9b94f7102dbb95f723116}{animation\+Mort}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Genere une animation lors de la mort du joueur. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{partie_8c_abbecb94dd019fb946981797e56e38918}{vider\+Entites\+De\+Liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste\+\_\+entites, \mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$info\+\_\+entites, int nb\+\_\+info\+\_\+entites, int id\+\_\+ancienne\+\_\+salle)
+\begin{DoxyCompactList}\small\item\em Vide la liste de ses entités et note dans info\+\_\+entites les entités qui doivent être sauvegardées. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{partie_8c_ae1d13182e244e29696d01199868fdd6a}{charger\+Entites\+Vers\+Liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste\+\_\+entites, \mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$info\+\_\+entites, int nb\+\_\+info\+\_\+entites, int id\+\_\+salle\+\_\+courante)
+\begin{DoxyCompactList}\small\item\em Charge les entités associées à la salle dans la liste. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{partie_8c_ad146abed0637bc41616c22c56803e8b3}{rendu\+Entites}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Affiche les entités chargées dans la liste du moteur sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{partie_8c_a8dbe431f84d2de3b94230fd7cda1b174}{transition\+Changement\+Salle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, niveau\+\_\+informations\+\_\+t $\ast$infos\+\_\+niveau, int id\+\_\+ancienne\+\_\+salle)
+\begin{DoxyCompactList}\small\item\em Libère et charge les entités. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{partie_8c_adaaf093226048b2b036cf7edaef67413}{jouer\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, niveau\+\_\+informations\+\_\+t $\ast$infos\+\_\+niveau)
+\begin{DoxyCompactList}\small\item\em Phase de gameplay principale. Lance un niveau. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{partie_8c_aea1fa326b095a625d9cabf67115809da}{jouer\+Partie}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
+\begin{DoxyCompactList}\small\item\em Sélection et lancement de niveau. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{partie_8c_af850b99755439c06faffe676fced6b19}{generer\+Partie}} (int nb\+\_\+niveaux, niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$adr\+\_\+infos, char $\ast$$\ast$nom\+\_\+galaxie, int indice\+\_\+difficulte)
+\begin{DoxyCompactList}\small\item\em Fonction générant une nouvelle partie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{partie_8c_ae4ce517a8da0912fc4de2119f883744d}{nouvelle\+Partie}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Ecrase la sauvegarde pour générer une nouvelle partie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{partie_8c_ae49eedf18c5b9a3242a59d48bba10745}{charger\+Partie}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Charge la partie si le fichier de sauvegarde existe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion d\textquotesingle{}une partie \+: appel de sauvegarde et appel des différents niveaux. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{partie_8c_a744400f524b9b94f7102dbb95f723116}\label{partie_8c_a744400f524b9b94f7102dbb95f723116}} 
+\index{partie.c@{partie.c}!animationMort@{animationMort}}
+\index{animationMort@{animationMort}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{animationMort()}{animationMort()}}
+{\footnotesize\ttfamily static void animation\+Mort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genere une animation lors de la mort du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em joueur} & le joueur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{partie_8c_ae1d13182e244e29696d01199868fdd6a}\label{partie_8c_ae1d13182e244e29696d01199868fdd6a}} 
+\index{partie.c@{partie.c}!chargerEntitesVersListe@{chargerEntitesVersListe}}
+\index{chargerEntitesVersListe@{chargerEntitesVersListe}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{chargerEntitesVersListe()}{chargerEntitesVersListe()}}
+{\footnotesize\ttfamily static void charger\+Entites\+Vers\+Liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{liste\+\_\+entites,  }\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$}]{info\+\_\+entites,  }\item[{int}]{nb\+\_\+info\+\_\+entites,  }\item[{int}]{id\+\_\+salle\+\_\+courante }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Charge les entités associées à la salle dans la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+entites} & La liste à charger \\
+\hline
+{\em info\+\_\+entites} & La liste des informations sur les entités par salles \\
+\hline
+{\em nb\+\_\+info\+\_\+entites} & Le nombre d\textquotesingle{}éléments dans la liste info\+\_\+entites \\
+\hline
+{\em id\+\_\+salle\+\_\+courante} & L\textquotesingle{}identifiant de la nouvelle salle d\textquotesingle{}où charger les entités \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{partie_8c_ae49eedf18c5b9a3242a59d48bba10745}\label{partie_8c_ae49eedf18c5b9a3242a59d48bba10745}} 
+\index{partie.c@{partie.c}!chargerPartie@{chargerPartie}}
+\index{chargerPartie@{chargerPartie}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{chargerPartie()}{chargerPartie()}}
+{\footnotesize\ttfamily int charger\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Charge la partie si le fichier de sauvegarde existe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8c_af850b99755439c06faffe676fced6b19}\label{partie_8c_af850b99755439c06faffe676fced6b19}} 
+\index{partie.c@{partie.c}!genererPartie@{genererPartie}}
+\index{genererPartie@{genererPartie}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{genererPartie()}{genererPartie()}}
+{\footnotesize\ttfamily static int generer\+Partie (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+niveaux,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{adr\+\_\+infos,  }\item[{char $\ast$$\ast$}]{nom\+\_\+galaxie,  }\item[{int}]{indice\+\_\+difficulte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Fonction générant une nouvelle partie. 
+
+Sont chargés \+:
+\begin{DoxyItemize}
+\item La quête de la partie (soon) ;
+\item Les structures du niveau ;
+\item Les monstres et leur emplacement (soon) ;
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+\_\+niveaux} & Le nombre de niveaux désiré \\
+\hline
+{\em adr\+\_\+infos} & L\textquotesingle{}adresse de la matrice des infos sur la structure des niveaux, à N\+U\+LL de préférance \\
+\hline
+{\em nom\+\_\+galaxie} & le nom de la galaxie \\
+\hline
+{\em indice\+\_\+difficulte} & Calculée a partir de l\textquotesingle{}xp du joueur, faisant varier la quantité et la difficulté des monstres par salles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, une valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8c_adaaf093226048b2b036cf7edaef67413}\label{partie_8c_adaaf093226048b2b036cf7edaef67413}} 
+\index{partie.c@{partie.c}!jouerNiveau@{jouerNiveau}}
+\index{jouerNiveau@{jouerNiveau}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{jouerNiveau()}{jouerNiveau()}}
+{\footnotesize\ttfamily static int jouer\+Niveau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{infos\+\_\+niveau }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Phase de gameplay principale. Lance un niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Moteur du jeu \\
+\hline
+{\em joueur} & Le joueur \\
+\hline
+{\em infos\+\_\+niveau} & La liste des informations sur la structure des niveaux de la partie\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}action ayant mis fin au niveau. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8c_aea1fa326b095a625d9cabf67115809da}\label{partie_8c_aea1fa326b095a625d9cabf67115809da}} 
+\index{partie.c@{partie.c}!jouerPartie@{jouerPartie}}
+\index{jouerPartie@{jouerPartie}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{jouerPartie()}{jouerPartie()}}
+{\footnotesize\ttfamily static int jouer\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sélection et lancement de niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em joueur} & Le joueur \\
+\hline
+{\em infos\+\_\+niveaux} & Les informations sur la structure d\textquotesingle{}un niveau \\
+\hline
+{\em nb\+\_\+niveaux} & Le nombre de niveaux contenus dans la matrice des informations \\
+\hline
+{\em indice\+\_\+niveau\+\_\+charge} & Le niveau actuellement joué\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la fin d\textquotesingle{}une partie s\textquotesingle{}est bien passée, sinon une valeur négative. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8c_ae4ce517a8da0912fc4de2119f883744d}\label{partie_8c_ae4ce517a8da0912fc4de2119f883744d}} 
+\index{partie.c@{partie.c}!nouvellePartie@{nouvellePartie}}
+\index{nouvellePartie@{nouvellePartie}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{nouvellePartie()}{nouvellePartie()}}
+{\footnotesize\ttfamily int nouvelle\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Ecrase la sauvegarde pour générer une nouvelle partie. 
+
+Dans l\textquotesingle{}idéal cette fonction devra calculer le nombre de niveaux.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur du jeu \\
+\hline
+{\em nb\+\_\+niveaux} & !! T\+E\+M\+P\+O\+R\+A\+I\+RE le nombre de niveaux désiré pour la nouvelle partie\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, valeur négative si echec. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{partie_8c_ad146abed0637bc41616c22c56803e8b3}\label{partie_8c_ad146abed0637bc41616c22c56803e8b3}} 
+\index{partie.c@{partie.c}!renduEntites@{renduEntites}}
+\index{renduEntites@{renduEntites}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{renduEntites()}{renduEntites()}}
+{\footnotesize\ttfamily static void rendu\+Entites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche les entités chargées dans la liste du moteur sur l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{partie_8c_a8dbe431f84d2de3b94230fd7cda1b174}\label{partie_8c_a8dbe431f84d2de3b94230fd7cda1b174}} 
+\index{partie.c@{partie.c}!transitionChangementSalle@{transitionChangementSalle}}
+\index{transitionChangementSalle@{transitionChangementSalle}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{transitionChangementSalle()}{transitionChangementSalle()}}
+{\footnotesize\ttfamily void transition\+Changement\+Salle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$}]{joueur,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$}]{infos\+\_\+niveau,  }\item[{int}]{id\+\_\+ancienne\+\_\+salle }\end{DoxyParamCaption})}
+
+
+
+Libère et charge les entités. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em joueur} & le joueur \\
+\hline
+{\em infos\+\_\+niveau} & La liste des informations sur la structure des niveaux de la partie \\
+\hline
+{\em id\+\_\+ancienne\+\_\+salle} & L\textquotesingle{}identifiant de l\textquotesingle{}ancienne salle où sauvegarder les entités vidées \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{partie_8c_abbecb94dd019fb946981797e56e38918}\label{partie_8c_abbecb94dd019fb946981797e56e38918}} 
+\index{partie.c@{partie.c}!viderEntitesDeListe@{viderEntitesDeListe}}
+\index{viderEntitesDeListe@{viderEntitesDeListe}!partie.c@{partie.c}}
+\doxysubsubsection{\texorpdfstring{viderEntitesDeListe()}{viderEntitesDeListe()}}
+{\footnotesize\ttfamily static void vider\+Entites\+De\+Liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$}]{liste\+\_\+entites,  }\item[{\mbox{\hyperlink{structt__info__entites}{t\+\_\+info\+\_\+entites}} $\ast$$\ast$}]{info\+\_\+entites,  }\item[{int}]{nb\+\_\+info\+\_\+entites,  }\item[{int}]{id\+\_\+ancienne\+\_\+salle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Vide la liste de ses entités et note dans info\+\_\+entites les entités qui doivent être sauvegardées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+\_\+entites} & La liste à vider \\
+\hline
+{\em info\+\_\+entites} & La liste des informations sur les entités par salles \\
+\hline
+{\em nb\+\_\+info\+\_\+entites} & Le nombre d\textquotesingle{}éléments dans la liste info\+\_\+entites \\
+\hline
+{\em id\+\_\+ancienne\+\_\+salle} & L\textquotesingle{}identifiant de l\textquotesingle{}ancienne salle où sauvegarder les entités vidées \\
+\hline
+\end{DoxyParams}

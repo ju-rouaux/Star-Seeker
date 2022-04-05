@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker:  Fichier source de include/projectiles.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -67,7 +66,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">projectiles.h</div></div>
+  <div class="headertitle">
+<div class="title">projectiles.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="projectiles_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
@@ -94,30 +94,33 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> duree_de_vie; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} ;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> faireDegats(<a class="code" href="structt__projectile.html">t_projectile</a> * projectile, <span class="keyword">struct</span> s_joueur * joueur, <a class="code" href="structt__liste.html">t_liste</a> * liste);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="projectiles_8c.html#ac5e198c07ffe1e4a256fbe5b4c1025a6">faireDegats</a>(<a class="code" href="structt__projectile.html">t_projectile</a> * projectile, <span class="keyword">struct</span> s_joueur * joueur, <a class="code" href="structt__liste.html">t_liste</a> * liste);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="structt__projectile.html">t_projectile</a> * <a class="code" href="projectiles_8h.html#a4ae4edfde673d942e4b54428c2e7aad2">creerProjectile</a>(<a class="code" href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a> <a class="code" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#ad1e02f375b5146842baab1009b6e16ad">direction_vx</a>, <span class="keywordtype">float</span> <a class="code" href="attributs__entites_8h.html#aac0ae24fad3d28b4b0e597969285e6d2">direction_vy</a>, <a class="code" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> cible, SDL_Texture * <a class="code" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectiles_8h.html#ac066b0c972bac50e2f6c8d6c0499872c">detruireProjectile</a>(<a class="code" href="structt__projectile.html">t_projectile</a> ** projectile);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_PROJECTILE_</span></div>
-<div class="ttc" id="aattributs__entites_8h_html"><div class="ttname"><a href="attributs__entites_8h.html">attributs_entites.h</a></div><div class="ttdoc">Fichier à inclure dans une structure héritant des attributs des entités.</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_a859b8efbf9abe8e82757ee5c75a0c97c"><div class="ttname"><a href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a></div><div class="ttdeci">SDL_Texture * texture</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:18</div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif //_JEU_PROJECTILE_</span></div>
+</div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aattributs__entites_8h_html_aa4f0d3eebc3c443f9be81bf48561a217"><div class="ttname"><a href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:10</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_aac0ae24fad3d28b4b0e597969285e6d2"><div class="ttname"><a href="attributs__entites_8h.html#aac0ae24fad3d28b4b0e597969285e6d2">direction_vy</a></div><div class="ttdeci">float direction_vy</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:12</div></div>
+<div class="ttc" id="aprojectiles_8h_html_af631d6b38be25cb10ad8ea2468e2b98d"><div class="ttname"><a href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a></div><div class="ttdeci">e_type_projectile</div><div class="ttdoc">Les différents types de projectiles pouvant être générés.</div><div class="ttdef"><b>Definition:</b> projectiles.h:22</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_a859b8efbf9abe8e82757ee5c75a0c97c"><div class="ttname"><a href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a></div><div class="ttdeci">SDL_Texture * texture</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:18</div></div>
 <div class="ttc" id="aattributs__entites_8h_html_ac93814760289f83af971fa51b9c69bc9"><div class="ttname"><a href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a></div><div class="ttdeci">e_type_entite type</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:14</div></div>
 <div class="ttc" id="aattributs__entites_8h_html_ad0da36b2558901e21e7a30f6c227a45e"><div class="ttname"><a href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:9</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_ad1e02f375b5146842baab1009b6e16ad"><div class="ttname"><a href="attributs__entites_8h.html#ad1e02f375b5146842baab1009b6e16ad">direction_vx</a></div><div class="ttdeci">float direction_vx</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:11</div></div>
-<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Module de manipulation des entites.</div></div>
-<div class="ttc" id="aentite_8h_html_aaafe4b6a828c515418ebc7c038ac55b2"><div class="ttname"><a href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a></div><div class="ttdeci">e_type_entite</div><div class="ttdoc">Identifiant permettant de reconnaitre la nature d'une entité.</div><div class="ttdef"><b>Definition:</b> entite.h:27</div></div>
-<div class="ttc" id="aliste_8h_html"><div class="ttname"><a href="liste_8h.html">liste.h</a></div><div class="ttdoc">Module de gestion d'une liste.</div></div>
 <div class="ttc" id="aprojectiles_8h_html_a4ae4edfde673d942e4b54428c2e7aad2"><div class="ttname"><a href="projectiles_8h.html#a4ae4edfde673d942e4b54428c2e7aad2">creerProjectile</a></div><div class="ttdeci">t_projectile * creerProjectile(e_type_projectile type, float x, float y, float direction_vx, float direction_vy, e_type_entite cible, SDL_Texture *texture)</div><div class="ttdoc">Création d'un projectile.</div><div class="ttdef"><b>Definition:</b> projectiles.c:136</div></div>
-<div class="ttc" id="aprojectiles_8h_html_ac066b0c972bac50e2f6c8d6c0499872c"><div class="ttname"><a href="projectiles_8h.html#ac066b0c972bac50e2f6c8d6c0499872c">detruireProjectile</a></div><div class="ttdeci">void detruireProjectile(t_projectile **projectile)</div><div class="ttdoc">Libère la mémoire allouée à une structure projectile.</div><div class="ttdef"><b>Definition:</b> projectiles.c:113</div></div>
-<div class="ttc" id="aprojectiles_8h_html_af631d6b38be25cb10ad8ea2468e2b98d"><div class="ttname"><a href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a></div><div class="ttdeci">e_type_projectile</div><div class="ttdoc">Les différents types de projectiles pouvant être générés.</div><div class="ttdef"><b>Definition:</b> projectiles.h:23</div></div>
-<div class="ttc" id="astructt__liste_html"><div class="ttname"><a href="structt__liste.html">t_liste</a></div><div class="ttdoc">Modelise l'emplacement actuel dans la liste.</div></div>
 <div class="ttc" id="astructt__projectile_html"><div class="ttname"><a href="structt__projectile.html">t_projectile</a></div><div class="ttdoc">Modélise un projectile.</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructt__liste_html"><div class="ttname"><a href="structt__liste.html">t_liste</a></div><div class="ttdoc">Modelise l'emplacement actuel dans la liste.</div></div>
+<div class="ttc" id="aprojectiles_8h_html_ac066b0c972bac50e2f6c8d6c0499872c"><div class="ttname"><a href="projectiles_8h.html#ac066b0c972bac50e2f6c8d6c0499872c">detruireProjectile</a></div><div class="ttdeci">void detruireProjectile(t_projectile **projectile)</div><div class="ttdoc">Libère la mémoire allouée à une structure projectile.</div><div class="ttdef"><b>Definition:</b> projectiles.c:113</div></div>
+<div class="ttc" id="aliste_8h_html"><div class="ttname"><a href="liste_8h.html">liste.h</a></div><div class="ttdoc">Module de gestion d'une liste.</div></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Module de manipulation des entites.</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_aac0ae24fad3d28b4b0e597969285e6d2"><div class="ttname"><a href="attributs__entites_8h.html#aac0ae24fad3d28b4b0e597969285e6d2">direction_vy</a></div><div class="ttdeci">float direction_vy</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:12</div></div>
+<div class="ttc" id="aprojectiles_8c_html_ac5e198c07ffe1e4a256fbe5b4c1025a6"><div class="ttname"><a href="projectiles_8c.html#ac5e198c07ffe1e4a256fbe5b4c1025a6">faireDegats</a></div><div class="ttdeci">int faireDegats(t_projectile *projectile, t_joueur *joueur, t_liste *liste)</div><div class="ttdoc">Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur à la reche...</div><div class="ttdef"><b>Definition:</b> projectiles.c:69</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_ad1e02f375b5146842baab1009b6e16ad"><div class="ttname"><a href="attributs__entites_8h.html#ad1e02f375b5146842baab1009b6e16ad">direction_vx</a></div><div class="ttdeci">float direction_vx</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:11</div></div>
+<div class="ttc" id="aentite_8h_html_aaafe4b6a828c515418ebc7c038ac55b2"><div class="ttname"><a href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a></div><div class="ttdeci">e_type_entite</div><div class="ttdoc">Identifiant permettant de reconnaitre la nature d'une entité.</div><div class="ttdef"><b>Definition:</b> entite.h:26</div></div>
+<div class="ttc" id="aattributs__entites_8h_html"><div class="ttname"><a href="attributs__entites_8h.html">attributs_entites.h</a></div><div class="ttdoc">Fichier à inclure dans une structure héritant des attributs des entités.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

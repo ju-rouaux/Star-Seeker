@@ -27,9 +27,9 @@ static int \mbox{\hyperlink{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}{tai
 \begin{DoxyCompactList}\small\item\em Charge le joueur de ses données de sauvegarde. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}{sauvegarder\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$joueur)
 \begin{DoxyCompactList}\small\item\em Sauverde le joueur dans son fichier. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_af2495c9632180af60a06099a95c634ab}{charger\+Infos\+Niveaux}} (FILE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$infos\+\_\+niveaux, int $\ast$nb\+\_\+niveaux, int $\ast$indice\+\_\+niveau\+\_\+charge)
+static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_af2495c9632180af60a06099a95c634ab}{charger\+Infos\+Niveaux}} (F\+I\+LE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$infos\+\_\+niveaux, int $\ast$nb\+\_\+niveaux, int $\ast$indice\+\_\+niveau\+\_\+charge)
 \begin{DoxyCompactList}\small\item\em Charge les informations relatives à la structure des niveaux. Les données sont remplies dans les pointeurs donnés en paramètre. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}{sauvegarder\+Infos\+Niveaux}} (FILE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
+static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}{sauvegarder\+Infos\+Niveaux}} (F\+I\+LE $\ast$fichier, niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
 \begin{DoxyCompactList}\small\item\em Sauvegarde les informations relatives à la structure des niveaux. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \mbox{\hyperlink{sauvegarde_8c_a80b90dc6e2a010d23a01d5c881facd10}{sauvegarder\+Partie}} (char $\ast$nom\+\_\+galaxie, niveau\+\_\+informations\+\_\+t $\ast$$\ast$infos\+\_\+niveaux, int nb\+\_\+niveaux, int indice\+\_\+niveau\+\_\+charge)
 \begin{DoxyCompactList}\small\item\em Sauvegarde les informations relatives à la partie. \end{DoxyCompactList}\item 
@@ -54,7 +54,7 @@ Julien Rouaux \& Guillaume Richard
 \index{sauvegarde.c@{sauvegarde.c}!chargerInfosNiveaux@{chargerInfosNiveaux}}
 \index{chargerInfosNiveaux@{chargerInfosNiveaux}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{chargerInfosNiveaux()}{chargerInfosNiveaux()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} charger\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int $\ast$}]{nb\+\_\+niveaux,  }\item[{int $\ast$}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} charger\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$$\ast$}]{infos\+\_\+niveaux,  }\item[{int $\ast$}]{nb\+\_\+niveaux,  }\item[{int $\ast$}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -72,7 +72,7 @@ Charge les informations relatives à la structure des niveaux. Les données sont
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_ad048f230be2b76ed45c7b13565025629}\label{sauvegarde_8c_ad048f230be2b76ed45c7b13565025629}} 
 \index{sauvegarde.c@{sauvegarde.c}!chargerSaveJoueur@{chargerSaveJoueur}}
@@ -92,7 +92,7 @@ Lis la sauvegarde dans le fichier binaire et met à jour la structure \mbox{\hyp
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_aaa7e3d6a13ea4851abe232e0d31badb5}\label{sauvegarde_8c_aaa7e3d6a13ea4851abe232e0d31badb5}} 
 \index{sauvegarde.c@{sauvegarde.c}!chargerSaveParametres@{chargerSaveParametres}}
@@ -110,7 +110,7 @@ Charge les paramètres du joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_ae2d20f40304d66ccc8009f176f4faa3e}\label{sauvegarde_8c_ae2d20f40304d66ccc8009f176f4faa3e}} 
 \index{sauvegarde.c@{sauvegarde.c}!chargerSavePartie@{chargerSavePartie}}
@@ -134,13 +134,13 @@ D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsq
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}\label{sauvegarde_8c_a9c60f2d17a8a80f46319a29b30ab6984}} 
 \index{sauvegarde.c@{sauvegarde.c}!sauvegarderInfosNiveaux@{sauvegarderInfosNiveaux}}
 \index{sauvegarderInfosNiveaux@{sauvegarderInfosNiveaux}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{sauvegarderInfosNiveaux()}{sauvegarderInfosNiveaux()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} sauvegarder\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} sauvegarder\+Infos\+Niveaux (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fichier,  }\item[{niveau\+\_\+informations\+\_\+t $\ast$$\ast$}]{niveaux,  }\item[{int}]{nb\+\_\+niveaux,  }\item[{int}]{indice\+\_\+niveau\+\_\+charge }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -158,7 +158,7 @@ Sauvegarde les informations relatives à la structure des niveaux.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}\label{sauvegarde_8c_add6045470a7ec5bc9b2bd4f72364a1cc}} 
 \index{sauvegarde.c@{sauvegarde.c}!sauvegarderJoueur@{sauvegarderJoueur}}
@@ -176,7 +176,7 @@ Sauverde le joueur dans son fichier.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_a02f62a3cc918e61ec3012366eb58b2a0}\label{sauvegarde_8c_a02f62a3cc918e61ec3012366eb58b2a0}} 
 \index{sauvegarde.c@{sauvegarde.c}!sauvegarderParametres@{sauvegarderParametres}}
@@ -194,7 +194,7 @@ Sauvegarde des paramètres du joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_a80b90dc6e2a010d23a01d5c881facd10}\label{sauvegarde_8c_a80b90dc6e2a010d23a01d5c881facd10}} 
 \index{sauvegarde.c@{sauvegarde.c}!sauvegarderPartie@{sauvegarderPartie}}
@@ -220,7 +220,7 @@ D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsq
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}\label{sauvegarde_8c_a946377646eb5042439cbb94f33d2dd42}} 
 \index{sauvegarde.c@{sauvegarde.c}!tailleFichier@{tailleFichier}}

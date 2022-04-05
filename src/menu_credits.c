@@ -1,5 +1,5 @@
 /**
- * \file menu_credits.h
+ * \file menu_credits.c
  * 
  * \brief Menu d'affichage des crédits du jeu
  * 

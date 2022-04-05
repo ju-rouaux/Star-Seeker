@@ -7,7 +7,7 @@ Module d\textquotesingle{}affichage d\textquotesingle{}un niveau.
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$textures.\+h$>$}\newline
 {\ttfamily \#include $<$niveau.\+h$>$}\newline
@@ -15,9 +15,9 @@ Module d\textquotesingle{}affichage d\textquotesingle{}un niveau.
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-static int \mbox{\hyperlink{rendu__niveau_8c_a340eaaafff011905ae1b1f516aec3d66}{dessiner\+Tile}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Rect collisions\mbox{[}$\,$\mbox{]}, int $\ast$indice\+\_\+collision)
+static int \mbox{\hyperlink{rendu__niveau_8c_a340eaaafff011905ae1b1f516aec3d66}{dessiner\+Tile}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Rect collisions\mbox{[}$\,$\mbox{]}, int $\ast$indice\+\_\+collision)
 \begin{DoxyCompactList}\small\item\em Dessine un carré aux coordonnées données. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{rendu__niveau_8c_a5bd203ec6acfe31c89552155e7241a6a}{afficher\+Salle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, const \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$salle, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Rect collisions\mbox{[}$\,$\mbox{]}, int $\ast$indice\+\_\+collision)
+static int \mbox{\hyperlink{rendu__niveau_8c_a5bd203ec6acfe31c89552155e7241a6a}{afficher\+Salle}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, const \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$salle, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Rect collisions\mbox{[}$\,$\mbox{]}, int $\ast$indice\+\_\+collision)
 \begin{DoxyCompactList}\small\item\em Affiche une salle dont l\textquotesingle{}origine se situe aux coordonnées données. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{rendu__niveau_8c_ae60995b88d7b0e8ad7786bdef7bc4382}{afficher\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Affiche le niveau (la salle chargée) \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -54,7 +54,7 @@ Affiche le niveau (la salle chargée)
 \index{rendu\_niveau.c@{rendu\_niveau.c}!afficherSalle@{afficherSalle}}
 \index{afficherSalle@{afficherSalle}!rendu\_niveau.c@{rendu\_niveau.c}}
 \doxysubsubsection{\texorpdfstring{afficherSalle()}{afficherSalle()}}
-{\footnotesize\ttfamily static int afficher\+Salle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{const \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$}]{salle,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Rect}]{collisions\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{indice\+\_\+collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static int afficher\+Salle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{const \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$}]{salle,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Rect}]{collisions\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{indice\+\_\+collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -82,7 +82,7 @@ Affiche une salle dont l\textquotesingle{}origine se situe aux coordonnées donn
 \index{rendu\_niveau.c@{rendu\_niveau.c}!dessinerTile@{dessinerTile}}
 \index{dessinerTile@{dessinerTile}!rendu\_niveau.c@{rendu\_niveau.c}}
 \doxysubsubsection{\texorpdfstring{dessinerTile()}{dessinerTile()}}
-{\footnotesize\ttfamily static int dessiner\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Rect}]{collisions\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{indice\+\_\+collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static int dessiner\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{textures_8h_aa8ef9b33c5c731be9eb0f229a920f3ff}{t\+\_\+tile\+\_\+type}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Rect}]{collisions\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{indice\+\_\+collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -104,5 +104,5 @@ Dessine un carré aux coordonnées données.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-0 si succès, sinon faire un SDL\+\_\+\+Get\+Error() pour connaitre l\textquotesingle{}erreur. 
+0 si succès, sinon faire un S\+D\+L\+\_\+\+Get\+Error() pour connaitre l\textquotesingle{}erreur. 
 \end{DoxyReturn}

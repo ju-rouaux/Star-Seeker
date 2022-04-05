@@ -7,7 +7,7 @@ Module de calcul de position de caméra pour savoir où dessiner les éléments 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$camera.\+h$>$}\newline
 \doxysubsection*{Fonctions}
@@ -16,7 +16,7 @@ Module de calcul de position de caméra pour savoir où dessiner les éléments 
 \mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$ \mbox{\hyperlink{camera_8c_ad5704ec4fcf2885e58f79b68e54e5012}{creer\+Camera}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}})
 \begin{DoxyCompactList}\small\item\em Alloue la mémoire pour une caméra. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{camera_8c_a062833823822b332767bf06838a65bea}{detruire\+Camera}} (\mbox{\hyperlink{structt__camera}{t\+\_\+camera}} $\ast$$\ast$camera)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une caméra et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une caméra et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{camera_8c_ac4065cec34608a388a331b55f642d38c}{calculer\+Pos\+Camera}} (float $\ast$\mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float $\ast$\mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, int largeur, int hauteur, int orig\+\_\+x, int orig\+\_\+y, float j\+\_\+x, float j\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Calule la position de la caméra de telle sorte à ce que son origine soit au centre de la salle ou sur le joueur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{camera_8c_a6e27f4593c942c3426ebb843b903bcef}{update\+Camera}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int largeur, int hauteur, int orig\+\_\+x, int orig\+\_\+y, float j\+\_\+x, float j\+\_\+y)
@@ -81,7 +81,7 @@ Alloue la mémoire pour une caméra.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur de la caméra, NULL si échec. 
+Le pointeur de la caméra, N\+U\+LL si échec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{camera_8c_a062833823822b332767bf06838a65bea}\label{camera_8c_a062833823822b332767bf06838a65bea}} 
 \index{camera.c@{camera.c}!detruireCamera@{detruireCamera}}
@@ -91,7 +91,7 @@ Le pointeur de la caméra, NULL si échec.
 
 
 
-Libère la mémoire allouée à une caméra et mets son pointeur à NULL. 
+Libère la mémoire allouée à une caméra et mets son pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}

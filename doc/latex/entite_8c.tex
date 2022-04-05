@@ -6,7 +6,7 @@ Module de manipulation des entites.
 
 
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$textures.\+h$>$}\newline
 {\ttfamily \#include $<$animation.\+h$>$}\newline
@@ -22,8 +22,8 @@ int \mbox{\hyperlink{entite_8c_a6a8da1bb938d887eff7742638a20f63f}{deplacer\+Enti
 void \mbox{\hyperlink{entite_8c_a513005586a3e271551d04be4fabbcbcc}{ajouter\+Entite\+Liste}} (\mbox{\hyperlink{structt__liste}{t\+\_\+liste}} $\ast$liste, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$entite)
 \begin{DoxyCompactList}\small\item\em Ajoute une entité à la liste sans perturber l\textquotesingle{}emplacement de la tete. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{entite_8c_a29f11ad700be8e6e8dc23d460863f78a}{detruire\+Entite}} (\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$entite)
-\begin{DoxyCompactList}\small\item\em Détruit une entité générique et mets sont pointeur à NULL. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$ \mbox{\hyperlink{entite_8c_a0fcc0be31f136b0b50fc2cd0ad80bb32}{creer\+Entite}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\begin{DoxyCompactList}\small\item\em Détruit une entité générique et mets sont pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$ \mbox{\hyperlink{entite_8c_a0fcc0be31f136b0b50fc2cd0ad80bb32}{creer\+Entite}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
 \begin{DoxyCompactList}\small\item\em Génère une entité générique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -59,7 +59,7 @@ Ajoute une entité à la liste sans perturber l\textquotesingle{}emplacement de 
 \index{entite.c@{entite.c}!creerEntite@{creerEntite}}
 \index{creerEntite@{creerEntite}!entite.c@{entite.c}}
 \doxysubsubsection{\texorpdfstring{creerEntite()}{creerEntite()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__entite}{t\+\_\+entite}}$\ast$ creer\+Entite (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__entite}{t\+\_\+entite}}$\ast$ creer\+Entite (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
 
 
 
@@ -119,7 +119,7 @@ Dessine l\textquotesingle{}entité à ses coordonnées, tout en gérant son anim
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-0 si succès, sinon une valeur négative (SDL\+\_\+\+Error() pour connaitre l\textquotesingle{}erreur). 
+0 si succès, sinon une valeur négative (S\+D\+L\+\_\+\+Error() pour connaitre l\textquotesingle{}erreur). 
 \end{DoxyReturn}
 \mbox{\Hypertarget{entite_8c_a29f11ad700be8e6e8dc23d460863f78a}\label{entite_8c_a29f11ad700be8e6e8dc23d460863f78a}} 
 \index{entite.c@{entite.c}!detruireEntite@{detruireEntite}}
@@ -129,7 +129,7 @@ Dessine l\textquotesingle{}entité à ses coordonnées, tout en gérant son anim
 
 
 
-Détruit une entité générique et mets sont pointeur à NULL. 
+Détruit une entité générique et mets sont pointeur à N\+U\+LL. 
 
 Cette fonction détruit aussi l\textquotesingle{}animation si l\textquotesingle{}entité en a une.
 

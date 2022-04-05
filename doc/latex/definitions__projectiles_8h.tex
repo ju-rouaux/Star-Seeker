@@ -40,21 +40,21 @@ static int \mbox{\hyperlink{definitions__projectiles_8h_a54b9d4c59d2232d07b6d755
 \doxysubsection{Description détaillée}
 Fichier de définition des projectiles. 
 
-POUR CREER UN NOUVEAU PROJECTILE \+:
+P\+O\+UR C\+R\+E\+ER UN N\+O\+U\+V\+E\+AU P\+R\+O\+J\+E\+C\+T\+I\+LE \+:
 \begin{DoxyItemize}
-\item Ajouter le nom du projectile dans l\textquotesingle{}enum e\+\_\+type\+\_\+projectile sous la forme NOMPROJECTILE dans le fichier projectile.\+h
-\item Créer une fonction sous la forme \+: static int proj\+\_\+\+NOMPROJECTILE(t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$animation = creer\+Animation(\+INT, INT); //ou NULL si pas d\textquotesingle{}animation if(projectile-\/$>$animation == NULL) //pas nécessaire si pas d\textquotesingle{}animation return -\/1;
+\item Ajouter le nom du projectile dans l\textquotesingle{}enum e\+\_\+type\+\_\+projectile sous la forme N\+O\+M\+P\+R\+O\+J\+E\+C\+T\+I\+LE dans le fichier projectile.\+h
+\item Créer une fonction sous la forme \+: static int proj\+\_\+\+N\+O\+M\+P\+R\+O\+J\+E\+C\+T\+I\+L\+E(t\+\_\+projectile $\ast$ projectile) \{ projectile-\/$>$animation = creer\+Animation(\+I\+N\+T, I\+N\+T); //ou N\+U\+LL si pas d\textquotesingle{}animation if(projectile-\/$>$animation == N\+U\+LL) //pas nécessaire si pas d\textquotesingle{}animation return -\/1;
 
-projectile-\/$>$id\+\_\+animation = INT;
+projectile-\/$>$id\+\_\+animation = I\+NT;
 
-projectile-\/$>$taille = INT; projectile-\/$>$vitesse = INT; projectile-\/$>$dommages = INT; projectile-\/$>$duree\+\_\+de\+\_\+vie = INT;
+projectile-\/$>$taille = I\+NT; projectile-\/$>$vitesse = I\+NT; projectile-\/$>$dommages = I\+NT; projectile-\/$>$duree\+\_\+de\+\_\+vie = I\+NT;
 
 //\+Fonction générique update\+Projectile ou une fonction personnelle projectile-\/$>$update = (int ($\ast$)(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float)) update\+Projectile;
 
 return 0; \}
 \end{DoxyItemize}
 
-Ajouter la fonction au switch de charger\+Projectile \+: case NOMPROJECTILE\+: return proj\+\_\+\+NOMPROJECTILE(projectile);
+Ajouter la fonction au switch de charger\+Projectile \+: case N\+O\+M\+P\+R\+O\+J\+E\+C\+T\+I\+LE\+: return proj\+\_\+\+N\+O\+M\+P\+R\+O\+J\+E\+C\+T\+I\+L\+E(projectile);
 
 
 \begin{DoxyItemize}

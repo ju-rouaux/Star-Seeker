@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker: Référence du fichier include/entite.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -71,7 +70,8 @@ $(function() {
 <a href="#typedef-members">Définitions de type</a> &#124;
 <a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier entite.h</div></div>
+  <div class="headertitle">
+<div class="title">Référence du fichier entite.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -94,13 +94,13 @@ typedef struct s_entite&#160;</td><td class="memItemRight" valign="bottom"><b>t_
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
 <tr class="memitem:aaafe4b6a828c515418ebc7c038ac55b2"><td class="memItemLeft" align="right" valign="top"><a id="aaafe4b6a828c515418ebc7c038ac55b2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> { <br />
-&#160;&#160;<b>E_AUCUN</b> = -1
-, <b>E_JOUEUR</b>
-, <b>E_MONSTRE</b>
-, <b>E_PROJECTILE</b>
-, <br />
-&#160;&#160;<b>E_PARTICULE</b>
-, <b>E_INTERACTION</b>
+&#160;&#160;<b>E_AUCUN</b> = -1, 
+<b>E_JOUEUR</b>, 
+<b>E_MONSTRE</b>, 
+<b>E_PROJECTILE</b>, 
+<br />
+&#160;&#160;<b>E_PARTICULE</b>, 
+<b>E_INTERACTION</b>
 <br />
  }</td></tr>
 <tr class="memdesc:aaafe4b6a828c515418ebc7c038ac55b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant permettant de reconnaitre la nature d'une entité. <br /></td></tr>
@@ -125,8 +125,8 @@ Fonctions</h2></td></tr>
 <tr class="separator:a29f11ad700be8e6e8dc23d460863f78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Module de manipulation des entites. </p>
-<p >Pour faciliter le développement, ce module permet l'affichage et le déplacement automatique d'une entité selon ses paramètres.</p>
+<div class="textblock"><p>Module de manipulation des entites. </p>
+<p>Pour faciliter le développement, ce module permet l'affichage et le déplacement automatique d'une entité selon ses paramètres.</p>
 <dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a513005586a3e271551d04be4fabbcbcc"></a>
@@ -199,7 +199,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Génère une entité générique. </p>
-<p >Cette fonction est principalement utile pour créer une entité qui hérite des attributs de cette structure.</p>
+<p>Cette fonction est principalement utile pour créer une entité qui hérite des attributs de cette structure.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Position en x de l'entité </td></tr>
@@ -239,7 +239,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position entraine une collision avec un mur. </p>
-<p >La fonction teste si une collision survient en traitant les deux axes de déplacement séparément afin que l'entité puisse glisser contre le mur s'il se dirige en diagonale au lieu de se voir annuler son déplacement.</p>
+<p>La fonction teste si une collision survient en traitant les deux axes de déplacement séparément afin que l'entité puisse glisser contre le mur s'il se dirige en diagonale au lieu de se voir annuler son déplacement.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">moteur</td><td>Structure moteur du jeu </td></tr>
@@ -306,7 +306,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Détruit une entité générique et mets sont pointeur à NULL. </p>
-<p >Cette fonction détruit aussi l'animation si l'entité en a une.</p>
+<p>Cette fonction détruit aussi l'animation si l'entité en a une.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">entite</td><td>L'adresse du pointeur sur l'entité </td></tr>
@@ -319,7 +319,9 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

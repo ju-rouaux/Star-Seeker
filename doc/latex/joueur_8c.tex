@@ -7,7 +7,7 @@ Module de gestion du joueur.
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$niveau.\+h$>$}\newline
 {\ttfamily \#include $<$entite.\+h$>$}\newline
@@ -29,10 +29,10 @@ static int \mbox{\hyperlink{joueur_8c_aa58c1f0fe0f4136b3a2567b8c25b95ce}{update\
 static \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$ \mbox{\hyperlink{joueur_8c_a37eab5501f302a27263e524c03bf8b8f}{creer\+Joueur\+Flags}} ()
 \begin{DoxyCompactList}\small\item\em Génère une structure \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{joueur_8c_ae049d186bdc14bc896e1ada6d90983a8}{detruire\+Joueur\+Flags}} (\mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}} $\ast$$\ast$flags)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux flags et mets le pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée aux flags et mets le pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{joueur_8c_a1e9013c729e9fe43289429dc9df96d0e}{detruire\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$$\ast$joueur)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à NULL. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8c_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$apparence)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8c_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Texture $\ast$apparence)
 \begin{DoxyCompactList}\small\item\em Génère une structure joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -49,7 +49,7 @@ Julien Rouaux
 \index{joueur.c@{joueur.c}!creerJoueur@{creerJoueur}}
 \index{creerJoueur@{creerJoueur}!joueur.c@{joueur.c}}
 \doxysubsubsection{\texorpdfstring{creerJoueur()}{creerJoueur()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}$\ast$ creer\+Joueur (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{apparence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}$\ast$ creer\+Joueur (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{apparence }\end{DoxyParamCaption})}
 
 
 
@@ -65,7 +65,7 @@ Génère une structure joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur joueur, NULL si echec. 
+Le pointeur joueur, N\+U\+LL si echec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{joueur_8c_a37eab5501f302a27263e524c03bf8b8f}\label{joueur_8c_a37eab5501f302a27263e524c03bf8b8f}} 
 \index{joueur.c@{joueur.c}!creerJoueurFlags@{creerJoueurFlags}}
@@ -78,7 +78,7 @@ Le pointeur joueur, NULL si echec.
 Génère une structure \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}. 
 
 \begin{DoxyReturn}{Renvoie}
-Le pointeur \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}, NULL si échec. 
+Le pointeur \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}, N\+U\+LL si échec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{joueur_8c_a1e9013c729e9fe43289429dc9df96d0e}\label{joueur_8c_a1e9013c729e9fe43289429dc9df96d0e}} 
 \index{joueur.c@{joueur.c}!detruireJoueur@{detruireJoueur}}
@@ -88,7 +88,7 @@ Le pointeur \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}},
 
 
 
-Libère la mémoire allouée au joueur et mets son pointeur à NULL. 
+Libère la mémoire allouée au joueur et mets son pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -103,7 +103,7 @@ Libère la mémoire allouée au joueur et mets son pointeur à NULL.
 
 
 
-Libère la mémoire allouée aux flags et mets le pointeur à NULL. 
+Libère la mémoire allouée aux flags et mets le pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}

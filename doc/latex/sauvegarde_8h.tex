@@ -8,7 +8,7 @@ Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$joueur.\+h$>$}\newline
 {\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
@@ -19,13 +19,13 @@ Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie
 \item 
 \mbox{\Hypertarget{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}\label{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}} 
 enum \mbox{\hyperlink{sauvegarde_8h_a882cd556fd5182c1e9f38dcb950be3c8}{err\+\_\+save}} \{ \newline
-{\bfseries NO\+\_\+\+FILE} = -\/5
-, {\bfseries MALLOC\+\_\+\+FAIL} = -\/4
-, {\bfseries READ\+\_\+\+OR\+\_\+\+WRITE\+\_\+\+FAIL} = -\/3
-, {\bfseries FOPEN\+\_\+\+FAIL} = -\/2
-, \newline
-{\bfseries SAVE\+\_\+\+ERROR} = -\/1
-, {\bfseries SUCCESS} = 0
+{\bfseries N\+O\+\_\+\+F\+I\+LE} = -\/5, 
+{\bfseries M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL} = -\/4, 
+{\bfseries R\+E\+A\+D\+\_\+\+O\+R\+\_\+\+W\+R\+I\+T\+E\+\_\+\+F\+A\+IL} = -\/3, 
+{\bfseries F\+O\+P\+E\+N\+\_\+\+F\+A\+IL} = -\/2, 
+\newline
+{\bfseries S\+A\+V\+E\+\_\+\+E\+R\+R\+OR} = -\/1, 
+{\bfseries S\+U\+C\+C\+E\+SS} = 0
  \}
 \begin{DoxyCompactList}\small\item\em Erreurs possibles lors des différentes sauvegarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
@@ -72,7 +72,7 @@ Lis la sauvegarde dans le fichier binaire et met à jour la structure \mbox{\hyp
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8h_aaa7e3d6a13ea4851abe232e0d31badb5}\label{sauvegarde_8h_aaa7e3d6a13ea4851abe232e0d31badb5}} 
 \index{sauvegarde.h@{sauvegarde.h}!chargerSaveParametres@{chargerSaveParametres}}
@@ -90,7 +90,7 @@ Charge les paramètres du joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8h_ae2d20f40304d66ccc8009f176f4faa3e}\label{sauvegarde_8h_ae2d20f40304d66ccc8009f176f4faa3e}} 
 \index{sauvegarde.h@{sauvegarde.h}!chargerSavePartie@{chargerSavePartie}}
@@ -114,7 +114,7 @@ D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsq
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8h_add6045470a7ec5bc9b2bd4f72364a1cc}\label{sauvegarde_8h_add6045470a7ec5bc9b2bd4f72364a1cc}} 
 \index{sauvegarde.h@{sauvegarde.h}!sauvegarderJoueur@{sauvegarderJoueur}}
@@ -132,7 +132,7 @@ Sauverde le joueur dans son fichier.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8h_a02f62a3cc918e61ec3012366eb58b2a0}\label{sauvegarde_8h_a02f62a3cc918e61ec3012366eb58b2a0}} 
 \index{sauvegarde.h@{sauvegarde.h}!sauvegarderParametres@{sauvegarderParametres}}
@@ -150,7 +150,7 @@ Sauvegarde des paramètres du joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8h_a80b90dc6e2a010d23a01d5c881facd10}\label{sauvegarde_8h_a80b90dc6e2a010d23a01d5c881facd10}} 
 \index{sauvegarde.h@{sauvegarde.h}!sauvegarderPartie@{sauvegarderPartie}}
@@ -176,5 +176,5 @@ D\textquotesingle{}autres paramètres viendront s\textquotesingle{}ajouter lorsq
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SUCCESS ou la nature de l\textquotesingle{}erreur. 
+S\+U\+C\+C\+E\+SS ou la nature de l\textquotesingle{}erreur. 
 \end{DoxyReturn}

@@ -14,26 +14,24 @@ int \mbox{\hyperlink{menu_8c_a8b06dc224cfe3fc4789fb2e8213ae86c}{maj\+\_\+\+Textu
 \begin{DoxyCompactList}\small\item\em Met a jour la texture de chacun des boutons passé en paramètre. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{menu_8c_a8941c9857a845236564e3d4ac675d3dd}{update\+\_\+texture\+Bouton}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$bouton, int rect\+\_\+x, int rect\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Met a jour la texture d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$ \mbox{\hyperlink{menu_8c_a3c986bd730d976ddf6de3baa4475d2a0}{initialiser\+Boutons}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int nb\+\_\+boutons, char nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}TAILLE\+\_\+\+MAX\mbox{]})
+\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$ \mbox{\hyperlink{menu_8c_a3c986bd730d976ddf6de3baa4475d2a0}{initialiser\+Boutons}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int nb\+\_\+boutons, char nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}T\+A\+I\+L\+L\+E\+\_\+\+M\+AX\mbox{]})
 \begin{DoxyCompactList}\small\item\em Initalise un bouton en allouant la memoire et en initialisant ses données. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_ad4136c2d61cdca7001a982868cc43cda}{detruire\+Boutons}} (\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$$\ast$boutons, int nb\+\_\+boutons)
-\begin{DoxyCompactList}\small\item\em Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a NULL et libere la texture du bouton. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a N\+U\+LL et libere la texture du bouton. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{menu_8c_aca2f4dfe9f12d21a9ae0779130180c7e}{handle\+Events\+\_\+menu}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$boutons)
 \begin{DoxyCompactList}\small\item\em Gere les evenements pour le menu Gestion de la position de la souris et des clics. \end{DoxyCompactList}\item 
-SDL\+\_\+\+Rect $\ast$ \mbox{\hyperlink{menu_8c_ad8fe15762a817f4022d3e500d1d04479}{initialiser\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, SDL\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, char $\ast$texte)
+S\+D\+L\+\_\+\+Rect $\ast$ \mbox{\hyperlink{menu_8c_ad8fe15762a817f4022d3e500d1d04479}{initialiser\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, S\+D\+L\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, char $\ast$texte)
 \begin{DoxyCompactList}\small\item\em Initalise un rectangle pour du texte en allouant la memoire et en l\textquotesingle{}initialise. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menu_8c_a68da67e2888287eccacfa8f59bd2c5fa}{maj\+\_\+\+Texture\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, SDL\+\_\+\+Rect $\ast$rect, SDL\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, int rect\+\_\+x, int rect\+\_\+y, char $\ast$texte)
+int \mbox{\hyperlink{menu_8c_a68da67e2888287eccacfa8f59bd2c5fa}{maj\+\_\+\+Texture\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, S\+D\+L\+\_\+\+Rect $\ast$rect, S\+D\+L\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, int rect\+\_\+x, int rect\+\_\+y, char $\ast$texte)
 \begin{DoxyCompactList}\small\item\em Met a jour la texture du texte. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menu_8c_af526e65440b0018054f4e2f1f3b3506a}{detruire\+Texte}} (SDL\+\_\+\+Rect $\ast$$\ast$rect, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
-\begin{DoxyCompactList}\small\item\em Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a NULL et libere la texture de ce dernier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_af526e65440b0018054f4e2f1f3b3506a}{detruire\+Texte}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$rect, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\begin{DoxyCompactList}\small\item\em Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a N\+U\+LL et libere la texture de ce dernier. \end{DoxyCompactList}\item 
 e\+\_\+code\+\_\+main \mbox{\hyperlink{menu_8c_ae5a59f71b7ca00d82028685542739c5f}{charger\+Menu}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
 \begin{DoxyCompactList}\small\item\em Charge le menu (Rectangles, police) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Menu principal du jeu. 
-
-Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s\textquotesingle{}il veut du son et d\textquotesingle{}acceder au menu pour reparamétrer ses touches.
 
 \begin{DoxyAuthor}{Auteur}
 Guillaume Richard 
@@ -67,7 +65,7 @@ code de sortie personnalisé selon l\textquotesingle{}evenement
 
 
 
-Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a NULL et libere la texture du bouton. 
+Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a N\+U\+LL et libere la texture du bouton. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -80,11 +78,11 @@ Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met 
 \index{menu.c@{menu.c}!detruireTexte@{detruireTexte}}
 \index{detruireTexte@{detruireTexte}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{detruireTexte()}{detruireTexte()}}
-{\footnotesize\ttfamily void detruire\+Texte (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$$\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+Texte (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{rect,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
 
 
 
-Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a NULL et libere la texture de ce dernier. 
+Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a N\+U\+LL et libere la texture de ce dernier. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -117,7 +115,7 @@ Gere les evenements pour le menu Gestion de la position de la souris et des clic
 \index{menu.c@{menu.c}!initialiserBoutons@{initialiserBoutons}}
 \index{initialiserBoutons@{initialiserBoutons}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{initialiserBoutons()}{initialiserBoutons()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}}$\ast$$\ast$ initialiser\+Boutons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{nb\+\_\+boutons,  }\item[{char}]{nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}\+TAILLE\+\_\+\+MAX\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}}$\ast$$\ast$ initialiser\+Boutons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{nb\+\_\+boutons,  }\item[{char}]{nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}\+T\+A\+I\+L\+L\+E\+\_\+\+M\+A\+X\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -139,7 +137,7 @@ tableau de boutons alloués et initialisés
 \index{menu.c@{menu.c}!initialiserTexte@{initialiserTexte}}
 \index{initialiserTexte@{initialiserTexte}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{initialiserTexte()}{initialiserTexte()}}
-{\footnotesize\ttfamily SDL\+\_\+\+Rect$\ast$ initialiser\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect$\ast$ initialiser\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
 
 
 
@@ -155,7 +153,7 @@ Initalise un rectangle pour du texte en allouant la memoire et en l\textquotesin
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-SDL\+\_\+\+Rect$\ast$ 
+S\+D\+L\+\_\+\+Rect$\ast$ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{menu_8c_a8b06dc224cfe3fc4789fb2e8213ae86c}\label{menu_8c_a8b06dc224cfe3fc4789fb2e8213ae86c}} 
 \index{menu.c@{menu.c}!maj\_TextureMenu@{maj\_TextureMenu}}
@@ -183,7 +181,7 @@ Met a jour la texture de chacun des boutons passé en paramètre.
 \index{menu.c@{menu.c}!maj\_TextureTexte@{maj\_TextureTexte}}
 \index{maj\_TextureTexte@{maj\_TextureTexte}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{maj\_TextureTexte()}{maj\_TextureTexte()}}
-{\footnotesize\ttfamily int maj\+\_\+\+Texture\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{SDL\+\_\+\+Rect $\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{int}]{rect\+\_\+x,  }\item[{int}]{rect\+\_\+y,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int maj\+\_\+\+Texture\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rect,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{int}]{rect\+\_\+x,  }\item[{int}]{rect\+\_\+y,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
 
 
 

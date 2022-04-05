@@ -1,0 +1,157 @@
+\hypertarget{monstre_8c}{}\doxysection{Référence du fichier src/monstre.c}
+\label{monstre_8c}\index{src/monstre.c@{src/monstre.c}}
+
+
+Module de gestion des monstres.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$monstre.\+h$>$}\newline
+{\ttfamily \#include $<$outils.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{monstre_8c_a2585ef25c71959cc095edcfe5e8c0a0e}{update\+Monstre\+Vers\+Joueur}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$monstre, float pos\+\_\+joueur\+\_\+x, float pos\+\_\+joueur\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Met a jour la direction du vecteur pour que le monstre attaque et se déplace dans la direction du joueur. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{monstre_8c_a0c3ffd7c577b8ec2bd74c42c61bb2fcf}{update\+Monstre\+Statique}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$monstre, float pos\+\_\+joueur\+\_\+x, float pos\+\_\+joueur\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Met a jour le vecteur pour que le monstre attaque dans la direction du joueur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{monstre_8c_a9bab763194dc38097e2afd1c1b793a7d}{dessiner\+Monstre}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$monstre)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}enscapsulation pour dessiner un monstre car ces derniers utilisent deux textures. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$ \mbox{\hyperlink{monstre_8c_ae6d9e9ba039bfa6b61191ef778fbc6bf}{creer\+Monstre}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, float \mbox{\hyperlink{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}{vitesse}}, int \mbox{\hyperlink{attributs__personnages_8h_af1b58e608320ff939118a2a719ba3e6b}{pv}}, float \mbox{\hyperlink{attributs__entites_8h_a117a40becce0ce457e4ca4a705461882}{taille}}, \mbox{\hyperlink{attaque_8h_ac7dcc833fc35572565d511b3875d7880}{e\+\_\+nom\+\_\+attaque}} type\+\_\+attaque, \mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}} deplacement)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int($\ast$)(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float) \mbox{\hyperlink{monstre_8c_a522d0e11b033afd7cdd7a89c3a889a26}{get\+Deplacement}} (\mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}} deplacement)
+\begin{DoxyCompactList}\small\item\em Retourne un pointeur sur une fonction de déplacement d\textquotesingle{}un monstre à partir du déplacement spécifié. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Module de gestion des monstres. 
+
+\begin{DoxyAuthor}{Auteur}
+Julien Rouaux 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{monstre_8c_ae6d9e9ba039bfa6b61191ef778fbc6bf}\label{monstre_8c_ae6d9e9ba039bfa6b61191ef778fbc6bf}} 
+\index{monstre.c@{monstre.c}!creerMonstre@{creerMonstre}}
+\index{creerMonstre@{creerMonstre}!monstre.c@{monstre.c}}
+\doxysubsubsection{\texorpdfstring{creerMonstre()}{creerMonstre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}}$\ast$ creer\+Monstre (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{vitesse,  }\item[{int}]{pv,  }\item[{float}]{taille,  }\item[{\mbox{\hyperlink{attaque_8h_ac7dcc833fc35572565d511b3875d7880}{e\+\_\+nom\+\_\+attaque}}}]{type\+\_\+attaque,  }\item[{\mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}}}]{deplacement }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un monstre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & La position en x \\
+\hline
+{\em y} & La position en y \\
+\hline
+{\em vitesse} & Sa vitesse en tiles par secondes \\
+\hline
+{\em pv} & Son nombre de points de vie \\
+\hline
+{\em taille} & Sa taille à l\textquotesingle{}échelle d\textquotesingle{}une tile \\
+\hline
+{\em type\+\_\+attaque} & L\textquotesingle{}attaque équipée \\
+\hline
+{\em deplacement} & La méthode de déplacement équipée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le pointeur projectile (N\+U\+LL si echec). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monstre_8c_a9bab763194dc38097e2afd1c1b793a7d}\label{monstre_8c_a9bab763194dc38097e2afd1c1b793a7d}} 
+\index{monstre.c@{monstre.c}!dessinerMonstre@{dessinerMonstre}}
+\index{dessinerMonstre@{dessinerMonstre}!monstre.c@{monstre.c}}
+\doxysubsubsection{\texorpdfstring{dessinerMonstre()}{dessinerMonstre()}}
+{\footnotesize\ttfamily int dessiner\+Monstre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$}]{monstre }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}enscapsulation pour dessiner un monstre car ces derniers utilisent deux textures. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Le moteur \\
+\hline
+{\em monstre} & Le monstre à dessiner\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, sinon une valeur négative (S\+D\+L\+\_\+\+Error() pour connaitre l\textquotesingle{}erreur). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monstre_8c_a0c3ffd7c577b8ec2bd74c42c61bb2fcf}\label{monstre_8c_a0c3ffd7c577b8ec2bd74c42c61bb2fcf}} 
+\index{monstre.c@{monstre.c}!updateMonstreStatique@{updateMonstreStatique}}
+\index{updateMonstreStatique@{updateMonstreStatique}!monstre.c@{monstre.c}}
+\doxysubsubsection{\texorpdfstring{updateMonstreStatique()}{updateMonstreStatique()}}
+{\footnotesize\ttfamily static int update\+Monstre\+Statique (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$}]{monstre,  }\item[{float}]{pos\+\_\+joueur\+\_\+x,  }\item[{float}]{pos\+\_\+joueur\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Met a jour le vecteur pour que le monstre attaque dans la direction du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em monstre} & un monstre \\
+\hline
+{\em pos\+\_\+joueur\+\_\+x} & coordonées x du joueur \\
+\hline
+{\em pos\+\_\+joueur\+\_\+y} & coordonées y du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, -\/1 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{monstre_8c_a2585ef25c71959cc095edcfe5e8c0a0e}\label{monstre_8c_a2585ef25c71959cc095edcfe5e8c0a0e}} 
+\index{monstre.c@{monstre.c}!updateMonstreVersJoueur@{updateMonstreVersJoueur}}
+\index{updateMonstreVersJoueur@{updateMonstreVersJoueur}!monstre.c@{monstre.c}}
+\doxysubsubsection{\texorpdfstring{updateMonstreVersJoueur()}{updateMonstreVersJoueur()}}
+{\footnotesize\ttfamily static int update\+Monstre\+Vers\+Joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__monstre}{t\+\_\+monstre}} $\ast$}]{monstre,  }\item[{float}]{pos\+\_\+joueur\+\_\+x,  }\item[{float}]{pos\+\_\+joueur\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Met a jour la direction du vecteur pour que le monstre attaque et se déplace dans la direction du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em monstre} & un monstre \\
+\hline
+{\em pos\+\_\+joueur\+\_\+x} & coordonées x du joueur \\
+\hline
+{\em pos\+\_\+joueur\+\_\+y} & coordonées y du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, -\/1 sinon 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{monstre_8c_a522d0e11b033afd7cdd7a89c3a889a26}\label{monstre_8c_a522d0e11b033afd7cdd7a89c3a889a26}} 
+\index{monstre.c@{monstre.c}!getDeplacement@{getDeplacement}}
+\index{getDeplacement@{getDeplacement}!monstre.c@{monstre.c}}
+\doxysubsubsection{\texorpdfstring{getDeplacement}{getDeplacement}}
+{\footnotesize\ttfamily int($\ast$)(\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float) get\+Deplacement(\mbox{\hyperlink{monstre_8h_a36fdff9a23b289ff657d6dadf78941a7}{e\+\_\+deplacement\+\_\+monstre}} deplacement)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retourne un pointeur sur une fonction de déplacement d\textquotesingle{}un monstre à partir du déplacement spécifié. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em depacement} & Le déplacement souhaité\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur sur une fonction retournant un entier et prenant les paramètres (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float). 
+\end{DoxyReturn}

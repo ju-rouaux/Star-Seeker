@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker:  Fichier source de include/sauvegarde.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -67,7 +66,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">sauvegarde.h</div></div>
+  <div class="headertitle">
+<div class="title">sauvegarde.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="sauvegarde_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
@@ -95,25 +95,27 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> <a class="code" href="sauvegarde_8h.html#ad048f230be2b76ed45c7b13565025629">chargerSaveJoueur</a>(<a class="code" href="structt__joueur.html">t_joueur</a> * joueur);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> <a class="code" href="sauvegarde_8h.html#ae2d20f40304d66ccc8009f176f4faa3e">chargerSavePartie</a>(<span class="keywordtype">char</span> ** nom_galaxie, niveau_informations_t *** infos_niveaux, <span class="keywordtype">int</span> * nb_niveaux, <span class="keywordtype">int</span> * indice_niveau_charge);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> <a class="code" href="sauvegarde_8h.html#aaa7e3d6a13ea4851abe232e0d31badb5">chargerSaveParametres</a>(<a class="code" href="structt__parametres.html">t_parametres</a> * parametres);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_SAUVEGARDE_</span></div>
-<div class="ttc" id="ageneration__niveau_8h_html"><div class="ttname"><a href="generation__niveau_8h.html">generation_niveau.h</a></div><div class="ttdoc">Librairie de generation.</div></div>
-<div class="ttc" id="ainteraction_8h_html"><div class="ttname"><a href="interaction_8h.html">interaction.h</a></div><div class="ttdoc">Entités supportant une interaction par le joueur.</div></div>
-<div class="ttc" id="ajoueur_8h_html"><div class="ttname"><a href="joueur_8h.html">joueur.h</a></div><div class="ttdoc">Module de gestion du joueur.</div></div>
-<div class="ttc" id="amonstre_8h_html"><div class="ttname"><a href="monstre_8h.html">monstre.h</a></div><div class="ttdoc">Module de gestion des monstres.</div></div>
-<div class="ttc" id="amoteur_8h_html"><div class="ttname"><a href="moteur_8h.html">moteur.h</a></div><div class="ttdoc">Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une...</div></div>
-<div class="ttc" id="asauvegarde_8h_html_a02f62a3cc918e61ec3012366eb58b2a0"><div class="ttname"><a href="sauvegarde_8h.html#a02f62a3cc918e61ec3012366eb58b2a0">sauvegarderParametres</a></div><div class="ttdeci">err_save sauvegarderParametres(t_parametres *parametres)</div><div class="ttdoc">Sauvegarde des paramètres du joueur.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:399</div></div>
-<div class="ttc" id="asauvegarde_8h_html_a80b90dc6e2a010d23a01d5c881facd10"><div class="ttname"><a href="sauvegarde_8h.html#a80b90dc6e2a010d23a01d5c881facd10">sauvegarderPartie</a></div><div class="ttdeci">err_save sauvegarderPartie(char *nom_galaxie, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge)</div><div class="ttdoc">Sauvegarde les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:305</div></div>
-<div class="ttc" id="asauvegarde_8h_html_a882cd556fd5182c1e9f38dcb950be3c8"><div class="ttname"><a href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a></div><div class="ttdeci">err_save</div><div class="ttdoc">Erreurs possibles lors des différentes sauvegarde.</div><div class="ttdef"><b>Definition:</b> sauvegarde.h:27</div></div>
-<div class="ttc" id="asauvegarde_8h_html_aaa7e3d6a13ea4851abe232e0d31badb5"><div class="ttname"><a href="sauvegarde_8h.html#aaa7e3d6a13ea4851abe232e0d31badb5">chargerSaveParametres</a></div><div class="ttdeci">err_save chargerSaveParametres(t_parametres *parametres)</div><div class="ttdoc">Charge les paramètres du joueur.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:419</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif //_JEU_SAUVEGARDE_</span></div>
+</div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="asauvegarde_8h_html_ad048f230be2b76ed45c7b13565025629"><div class="ttname"><a href="sauvegarde_8h.html#ad048f230be2b76ed45c7b13565025629">chargerSaveJoueur</a></div><div class="ttdeci">err_save chargerSaveJoueur(t_joueur *joueur)</div><div class="ttdoc">Charge le joueur de ses données de sauvegarde.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:50</div></div>
 <div class="ttc" id="asauvegarde_8h_html_add6045470a7ec5bc9b2bd4f72364a1cc"><div class="ttname"><a href="sauvegarde_8h.html#add6045470a7ec5bc9b2bd4f72364a1cc">sauvegarderJoueur</a></div><div class="ttdeci">err_save sauvegarderJoueur(t_joueur *joueur)</div><div class="ttdoc">Sauverde le joueur dans son fichier.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:96</div></div>
-<div class="ttc" id="asauvegarde_8h_html_ae2d20f40304d66ccc8009f176f4faa3e"><div class="ttname"><a href="sauvegarde_8h.html#ae2d20f40304d66ccc8009f176f4faa3e">chargerSavePartie</a></div><div class="ttdeci">err_save chargerSavePartie(char **nom_galaxie, niveau_informations_t ***infos_niveaux, int *nb_niveaux, int *indice_niveau_charge)</div><div class="ttdoc">Charge les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:350</div></div>
+<div class="ttc" id="asauvegarde_8h_html_a02f62a3cc918e61ec3012366eb58b2a0"><div class="ttname"><a href="sauvegarde_8h.html#a02f62a3cc918e61ec3012366eb58b2a0">sauvegarderParametres</a></div><div class="ttdeci">err_save sauvegarderParametres(t_parametres *parametres)</div><div class="ttdoc">Sauvegarde des paramètres du joueur.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:399</div></div>
 <div class="ttc" id="astructt__joueur_html"><div class="ttname"><a href="structt__joueur.html">t_joueur</a></div><div class="ttdoc">Structure modélisant le joueur, hérite des attributs d'entité et de personnage.</div></div>
-<div class="ttc" id="astructt__parametres_html"><div class="ttname"><a href="structt__parametres.html">t_parametres</a></div><div class="ttdoc">Structure contenant les paramètres techniques du jeu pouvant être changés par le joueur.</div><div class="ttdef"><b>Definition:</b> moteur.h:47</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="ainteraction_8h_html"><div class="ttname"><a href="interaction_8h.html">interaction.h</a></div><div class="ttdoc">Entités supportant une interaction par le joueur.</div></div>
+<div class="ttc" id="amoteur_8h_html"><div class="ttname"><a href="moteur_8h.html">moteur.h</a></div><div class="ttdoc">Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra et les retournes dans une...</div></div>
+<div class="ttc" id="asauvegarde_8h_html_aaa7e3d6a13ea4851abe232e0d31badb5"><div class="ttname"><a href="sauvegarde_8h.html#aaa7e3d6a13ea4851abe232e0d31badb5">chargerSaveParametres</a></div><div class="ttdeci">err_save chargerSaveParametres(t_parametres *parametres)</div><div class="ttdoc">Charge les paramètres du joueur.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:419</div></div>
+<div class="ttc" id="ageneration__niveau_8h_html"><div class="ttname"><a href="generation__niveau_8h.html">generation_niveau.h</a></div><div class="ttdoc">Librairie de generation.</div></div>
+<div class="ttc" id="asauvegarde_8h_html_a80b90dc6e2a010d23a01d5c881facd10"><div class="ttname"><a href="sauvegarde_8h.html#a80b90dc6e2a010d23a01d5c881facd10">sauvegarderPartie</a></div><div class="ttdeci">err_save sauvegarderPartie(char *nom_galaxie, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge)</div><div class="ttdoc">Sauvegarde les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:305</div></div>
+<div class="ttc" id="ajoueur_8h_html"><div class="ttname"><a href="joueur_8h.html">joueur.h</a></div><div class="ttdoc">Module de gestion du joueur.</div></div>
+<div class="ttc" id="asauvegarde_8h_html_a882cd556fd5182c1e9f38dcb950be3c8"><div class="ttname"><a href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a></div><div class="ttdeci">err_save</div><div class="ttdoc">Erreurs possibles lors des différentes sauvegarde.</div><div class="ttdef"><b>Definition:</b> sauvegarde.h:26</div></div>
+<div class="ttc" id="astructt__parametres_html"><div class="ttname"><a href="structt__parametres.html">t_parametres</a></div><div class="ttdoc">Structure contenant les paramètres techniques du jeu pouvant être changés par le joueur.</div><div class="ttdef"><b>Definition:</b> moteur.h:46</div></div>
+<div class="ttc" id="asauvegarde_8h_html_ae2d20f40304d66ccc8009f176f4faa3e"><div class="ttname"><a href="sauvegarde_8h.html#ae2d20f40304d66ccc8009f176f4faa3e">chargerSavePartie</a></div><div class="ttdeci">err_save chargerSavePartie(char **nom_galaxie, niveau_informations_t ***infos_niveaux, int *nb_niveaux, int *indice_niveau_charge)</div><div class="ttdoc">Charge les informations relatives à la partie.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:350</div></div>
+<div class="ttc" id="amonstre_8h_html"><div class="ttname"><a href="monstre_8h.html">monstre.h</a></div><div class="ttdoc">Module de gestion des monstres.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

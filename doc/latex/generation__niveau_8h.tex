@@ -9,59 +9,8 @@ Librairie de generation.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}}
-\begin{DoxyCompactList}\small\item\em Structure qui stocke une couleur décomposée en RVB. Chaque int est compris entre 0 et 255 inclus. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a17b12220537b63a261987befc38d79a4}\label{generation__niveau_8h_a17b12220537b63a261987befc38d79a4}} 
-\#define {\bfseries LONGUEUR\+\_\+\+NIVEAU\+\_\+\+MAX}~20
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a12335bae550a01d75a29b6badee82861}\label{generation__niveau_8h_a12335bae550a01d75a29b6badee82861}} 
-\#define {\bfseries HAUTEUR\+\_\+\+NIVEAU\+\_\+\+MAX}~10
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a3ee479371002a0a258e5c4111cc6e54f}\label{generation__niveau_8h_a3ee479371002a0a258e5c4111cc6e54f}} 
-\#define {\bfseries VIDE}~0
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a4e266faa65b920356441404c5c423272}\label{generation__niveau_8h_a4e266faa65b920356441404c5c423272}} 
-\#define {\bfseries SALLE}~-\/1
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a8516025dbe2a22abcbfd9a5bb5dd7774}\label{generation__niveau_8h_a8516025dbe2a22abcbfd9a5bb5dd7774}} 
-\#define {\bfseries POURCENTAGE\+\_\+\+DE\+\_\+\+SALLES\+\_\+\+GLOBAL}~20
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a35c6f37fec0392cb61364bca66a93774}\label{generation__niveau_8h_a35c6f37fec0392cb61364bca66a93774}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+8\+\_\+\+VOISINES\+\_\+\+LIBRES}~100
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a3fcb9d4d6d4c68da49c352b94b0bedcb}\label{generation__niveau_8h_a3fcb9d4d6d4c68da49c352b94b0bedcb}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+7\+\_\+\+VOISINES\+\_\+\+LIBRES}~70
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_acf8ed33500281704bbb86a2f01c95530}\label{generation__niveau_8h_acf8ed33500281704bbb86a2f01c95530}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+6\+\_\+\+VOISINES\+\_\+\+LIBRES}~40
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a91bc234b909f598687c6ce723202df42}\label{generation__niveau_8h_a91bc234b909f598687c6ce723202df42}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+5\+\_\+\+VOISINES\+\_\+\+LIBRES}~20
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a1de9753a00375d6664de032399e803a8}\label{generation__niveau_8h_a1de9753a00375d6664de032399e803a8}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+4\+\_\+\+VOISINES\+\_\+\+LIBRES}~10
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a79b83e1929d6a930c241cd8957b77607}\label{generation__niveau_8h_a79b83e1929d6a930c241cd8957b77607}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+3\+\_\+\+VOISINES\+\_\+\+LIBRES}~5
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd}\label{generation__niveau_8h_aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+2\+\_\+\+VOISINES\+\_\+\+LIBRES}~1
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_aee467246a5f5e7aa703cd705a17a257a}\label{generation__niveau_8h_aee467246a5f5e7aa703cd705a17a257a}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+1\+\_\+\+VOISINE\+\_\+\+LIBRE}~1
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a031473f724c63d7134cf9a748ba1b222}\label{generation__niveau_8h_a031473f724c63d7134cf9a748ba1b222}} 
-\#define {\bfseries CHANCE\+\_\+\+GEN\+\_\+\+SALLE\+\_\+0\+\_\+\+VOISINE\+\_\+\+LIBRE}~0
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a5bb7a9833fb97c3a46d18b6e38e6f6f7}\label{generation__niveau_8h_a5bb7a9833fb97c3a46d18b6e38e6f6f7}} 
-\#define {\bfseries NOMBRE\+\_\+\+VOISINES\+\_\+\+DISPO\+\_\+\+NOUVELLE\+\_\+\+SALLE\+\_\+\+MIN}~4
-\item 
-\mbox{\Hypertarget{generation__niveau_8h_a95c2cd64a5ecb089958db0d662a08083}\label{generation__niveau_8h_a95c2cd64a5ecb089958db0d662a08083}} 
-\#define {\bfseries CHANCE\+\_\+\+DE\+\_\+\+GENERER\+\_\+\+EXTENSION\+\_\+\+DE\+\_\+\+ID\+\_\+\+DE\+\_\+\+SALLE}~25
-\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+R\+VB}}
+\begin{DoxyCompactList}\small\item\em Structure qui stocke une couleur décomposée en R\+VB. Chaque int est compris entre 0 et 255 inclus. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 

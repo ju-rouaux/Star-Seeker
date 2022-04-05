@@ -1,5 +1,5 @@
 /**
- * \file attaque.h
+ * \file attaque.c
  * 
  * \brief Module gérant les attaques des personnages
  * 

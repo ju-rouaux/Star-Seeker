@@ -6,7 +6,7 @@ Module de chargement d\textquotesingle{}un niveau en structure interprétable po
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$moteur.\+h$>$}\newline
 {\ttfamily \#include $<$entite.\+h$>$}\newline
 {\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
@@ -28,17 +28,17 @@ typedef struct s\+\_\+niveau {\bfseries t\+\_\+niveau}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}\label{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}} 
-enum \mbox{\hyperlink{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}{e\+\_\+porte}} \{ {\bfseries UP}
-, {\bfseries RIGHT}
-, {\bfseries DOWN}
-, {\bfseries LEFT}
+enum \mbox{\hyperlink{niveau_8h_ab9d1cf728ec24c75a60b8d8d5e31bca6}{e\+\_\+porte}} \{ {\bfseries UP}, 
+{\bfseries R\+I\+G\+HT}, 
+{\bfseries D\+O\+WN}, 
+{\bfseries L\+E\+FT}
  \}
 \begin{DoxyCompactList}\small\item\em Position d\textquotesingle{}une porte dans une salle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{niveau_8h_a863d645e21d3d98663cad01cfe6dd24a}{detruire\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$niveau)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{niveau_8h_a2aa88412eb1547b2bbaff8b3106cb780}{charger\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$info)
 \begin{DoxyCompactList}\small\item\em Lance un niveau s couleurs du niveau sont aussi chargées. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{niveau_8h_af6df4be5bf28ad11dafd0311b92abd3b}{update\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau, float j\+\_\+x, float j\+\_\+y, int echelle)
@@ -79,7 +79,7 @@ Lance un niveau s couleurs du niveau sont aussi chargées.
 
 
 
-Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. 
+Libère la mémoire allouée pour un niveau et mets son pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker:  Fichier source de include/definitions/definitions_projectiles.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -67,7 +66,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">definitions_projectiles.h</div></div>
+  <div class="headertitle">
+<div class="title">definitions_projectiles.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="definitions__projectiles_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span>(projectile-&gt;duree_de_vie &lt;= 0)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="entite_8c.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        projectile-&gt;vitesse = 8;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile) == -1){</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="entite_8c.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile) == -1){</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        projectile-&gt;direction_vx = <a class="code" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a> - projectile-&gt;x;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        projectile-&gt;direction_vy = <a class="code" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a> - projectile-&gt;y;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
@@ -130,7 +130,7 @@ $(function() {
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    projectile-&gt;vitesse = ((8000-projectile-&gt;duree_de_vie)/8000.0)*20;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="entite_8c.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a>(moteur, (<a class="code" href="structt__entite.html">t_entite</a>*) projectile);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
@@ -154,7 +154,7 @@ $(function() {
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="definitions__projectiles_8h.html#a956fc9a6681257b45f931a5bb3b25c80">  173</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="definitions__projectiles_8h.html#a956fc9a6681257b45f931a5bb3b25c80">proj_boule_feu</a>(<a class="code" href="structt__projectile.html">t_projectile</a> * projectile)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(1000, 2);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(1000, 2);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span>(projectile-&gt;animation == NULL)</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    projectile-&gt;id_animation = 1;</div>
@@ -188,7 +188,7 @@ $(function() {
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
 <div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="definitions__projectiles_8h.html#ab082233cd1dca89e9cddf51cd084dbeb">  221</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="definitions__projectiles_8h.html#ab082233cd1dca89e9cddf51cd084dbeb">proj_shuriken</a>(<a class="code" href="structt__projectile.html">t_projectile</a> * projectile)</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(200, 2);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(200, 2);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">if</span>(projectile-&gt;animation == NULL)</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    projectile-&gt;id_animation = 2;</div>
@@ -222,7 +222,7 @@ $(function() {
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
 <div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="definitions__projectiles_8h.html#a54b9d4c59d2232d07b6d7555d6ac570f">  269</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="definitions__projectiles_8h.html#a54b9d4c59d2232d07b6d7555d6ac570f">proj_sabre</a>(<a class="code" href="structt__projectile.html">t_projectile</a> * projectile)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(75, 2);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    projectile-&gt;animation = <a class="code" href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(75, 2);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">if</span>(projectile-&gt;animation == NULL)</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    projectile-&gt;id_animation = 4;</div>
@@ -238,29 +238,31 @@ $(function() {
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_DEF_PROJECTILE_</span></div>
-<div class="ttc" id="aanimation_8h_html"><div class="ttname"><a href="animation_8h.html">animation.h</a></div><div class="ttdoc">Module facilitant la gestion des animations.</div></div>
-<div class="ttc" id="aanimation_8h_html_aef0f577f19ba9a2ce6dca8dc282e59f3"><div class="ttname"><a href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a></div><div class="ttdeci">t_animation * creerAnimation(int vitesse, int nb_textures)</div><div class="ttdoc">Génère une structure permettant d'animer un objet.</div><div class="ttdef"><b>Definition:</b> animation.c:50</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_aa4f0d3eebc3c443f9be81bf48561a217"><div class="ttname"><a href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:10</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_ad0da36b2558901e21e7a30f6c227a45e"><div class="ttname"><a href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:9</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a1e96802c5b26b204f501833bd0490ebe"><div class="ttname"><a href="definitions__projectiles_8h.html#a1e96802c5b26b204f501833bd0490ebe">updateProjectile_tourner</a></div><div class="ttdeci">static int updateProjectile_tourner(t_moteur *moteur, t_projectile *projectile)</div><div class="ttdoc">Fait trourner le projectile en cercle.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:124</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a353344bce09f4983133c5587ef9d461f"><div class="ttname"><a href="definitions__projectiles_8h.html#a353344bce09f4983133c5587ef9d461f">proj_boule_metal</a></div><div class="ttdeci">static int proj_boule_metal(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile tres rapide, avec une tres longue portée.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:198</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a54b9d4c59d2232d07b6d7555d6ac570f"><div class="ttname"><a href="definitions__projectiles_8h.html#a54b9d4c59d2232d07b6d7555d6ac570f">proj_sabre</a></div><div class="ttdeci">static int proj_sabre(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile très rapide.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:269</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a8154c552954ced07ffcf9afda0c36141"><div class="ttname"><a href="definitions__projectiles_8h.html#a8154c552954ced07ffcf9afda0c36141">proj_balle</a></div><div class="ttdeci">static int proj_balle(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile de petite taille, simple.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:150</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a956fc9a6681257b45f931a5bb3b25c80"><div class="ttname"><a href="definitions__projectiles_8h.html#a956fc9a6681257b45f931a5bb3b25c80">proj_boule_feu</a></div><div class="ttdeci">static int proj_boule_feu(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile de grande taille, lent, mais infligeant pas mal de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:173</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_a9d51402ae282c2cb881fdeedd1c56f9e"><div class="ttname"><a href="definitions__projectiles_8h.html#a9d51402ae282c2cb881fdeedd1c56f9e">updateProjectile</a></div><div class="ttdeci">static int updateProjectile(t_moteur *moteur, t_projectile *projectile)</div><div class="ttdoc">Fonction générique de projectile lui donnant une trajectoire en ligne à vitesse constante.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:73</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_ab082233cd1dca89e9cddf51cd084dbeb"><div class="ttname"><a href="definitions__projectiles_8h.html#ab082233cd1dca89e9cddf51cd084dbeb">proj_shuriken</a></div><div class="ttdeci">static int proj_shuriken(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile très rapide mais avec une très courte portée et infligeant peu de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:221</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_ac803a63ea2ce6ea0d124b0b542747440"><div class="ttname"><a href="definitions__projectiles_8h.html#ac803a63ea2ce6ea0d124b0b542747440">updateProjectile_RetourProj</a></div><div class="ttdeci">static int updateProjectile_RetourProj(t_moteur *moteur, t_projectile *projectile, float x, float y)</div><div class="ttdoc">Fait revenir le projectile vers le joueur apres un certain temps ou lors d'une collision.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:93</div></div>
-<div class="ttc" id="adefinitions__projectiles_8h_html_ae5da1ec8b94bdacb91f0d2867861597b"><div class="ttname"><a href="definitions__projectiles_8h.html#ae5da1ec8b94bdacb91f0d2867861597b">proj_tourner</a></div><div class="ttdeci">static int proj_tourner(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile lent, avec une longue durée de vie mais infligeant beaucoup de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:246</div></div>
-<div class="ttc" id="aentite_8h_html_a6a8da1bb938d887eff7742638a20f63f"><div class="ttname"><a href="entite_8h.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a></div><div class="ttdeci">int deplacerEntite(const t_moteur *moteur, t_entite *entite)</div><div class="ttdoc">Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position en...</div><div class="ttdef"><b>Definition:</b> entite.c:67</div></div>
-<div class="ttc" id="aprojectiles_8h_html"><div class="ttname"><a href="projectiles_8h.html">projectiles.h</a></div><div class="ttdoc">Module de définition de projectiles.</div></div>
-<div class="ttc" id="astructt__entite_html"><div class="ttname"><a href="structt__entite.html">t_entite</a></div><div class="ttdoc">Modélise une entité.</div></div>
-<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécessaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
-<div class="ttc" id="astructt__projectile_html"><div class="ttname"><a href="structt__projectile.html">t_projectile</a></div><div class="ttdoc">Modélise un projectile.</div></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#endif //_JEU_DEF_PROJECTILE_</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aattributs__entites_8h_html_aa4f0d3eebc3c443f9be81bf48561a217"><div class="ttname"><a href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:10</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_ac803a63ea2ce6ea0d124b0b542747440"><div class="ttname"><a href="definitions__projectiles_8h.html#ac803a63ea2ce6ea0d124b0b542747440">updateProjectile_RetourProj</a></div><div class="ttdeci">static int updateProjectile_RetourProj(t_moteur *moteur, t_projectile *projectile, float x, float y)</div><div class="ttdoc">Fait revenir le projectile vers le joueur apres un certain temps ou lors d'une collision.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:93</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a956fc9a6681257b45f931a5bb3b25c80"><div class="ttname"><a href="definitions__projectiles_8h.html#a956fc9a6681257b45f931a5bb3b25c80">proj_boule_feu</a></div><div class="ttdeci">static int proj_boule_feu(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile de grande taille, lent, mais infligeant pas mal de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:173</div></div>
+<div class="ttc" id="aanimation_8h_html"><div class="ttname"><a href="animation_8h.html">animation.h</a></div><div class="ttdoc">Module facilitant la gestion des animations.</div></div>
+<div class="ttc" id="aentite_8c_html_a6a8da1bb938d887eff7742638a20f63f"><div class="ttname"><a href="entite_8c.html#a6a8da1bb938d887eff7742638a20f63f">deplacerEntite</a></div><div class="ttdeci">int deplacerEntite(const t_moteur *moteur, t_entite *entite)</div><div class="ttdoc">Déplace l'entité selon sa direction et sa vitesse. L'entité n'est pas avancé si sa future position en...</div><div class="ttdef"><b>Definition:</b> entite.c:67</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a54b9d4c59d2232d07b6d7555d6ac570f"><div class="ttname"><a href="definitions__projectiles_8h.html#a54b9d4c59d2232d07b6d7555d6ac570f">proj_sabre</a></div><div class="ttdeci">static int proj_sabre(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile très rapide.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:269</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_ad0da36b2558901e21e7a30f6c227a45e"><div class="ttname"><a href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:9</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a9d51402ae282c2cb881fdeedd1c56f9e"><div class="ttname"><a href="definitions__projectiles_8h.html#a9d51402ae282c2cb881fdeedd1c56f9e">updateProjectile</a></div><div class="ttdeci">static int updateProjectile(t_moteur *moteur, t_projectile *projectile)</div><div class="ttdoc">Fonction générique de projectile lui donnant une trajectoire en ligne à vitesse constante.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:73</div></div>
+<div class="ttc" id="aprojectiles_8h_html"><div class="ttname"><a href="projectiles_8h.html">projectiles.h</a></div><div class="ttdoc">Module de définition de projectiles.</div></div>
+<div class="ttc" id="astructt__projectile_html"><div class="ttname"><a href="structt__projectile.html">t_projectile</a></div><div class="ttdoc">Modélise un projectile.</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a8154c552954ced07ffcf9afda0c36141"><div class="ttname"><a href="definitions__projectiles_8h.html#a8154c552954ced07ffcf9afda0c36141">proj_balle</a></div><div class="ttdeci">static int proj_balle(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile de petite taille, simple.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:150</div></div>
+<div class="ttc" id="aanimation_8c_html_aef0f577f19ba9a2ce6dca8dc282e59f3"><div class="ttname"><a href="animation_8c.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a></div><div class="ttdeci">t_animation * creerAnimation(int vitesse, int nb_textures)</div><div class="ttdoc">Génère une structure permettant d'animer un objet.</div><div class="ttdef"><b>Definition:</b> animation.c:50</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a353344bce09f4983133c5587ef9d461f"><div class="ttname"><a href="definitions__projectiles_8h.html#a353344bce09f4983133c5587ef9d461f">proj_boule_metal</a></div><div class="ttdeci">static int proj_boule_metal(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile tres rapide, avec une tres longue portée.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:198</div></div>
+<div class="ttc" id="astructt__entite_html"><div class="ttname"><a href="structt__entite.html">t_entite</a></div><div class="ttdoc">Modélise une entité.</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_ae5da1ec8b94bdacb91f0d2867861597b"><div class="ttname"><a href="definitions__projectiles_8h.html#ae5da1ec8b94bdacb91f0d2867861597b">proj_tourner</a></div><div class="ttdeci">static int proj_tourner(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile lent, avec une longue durée de vie mais infligeant beaucoup de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:246</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_ab082233cd1dca89e9cddf51cd084dbeb"><div class="ttname"><a href="definitions__projectiles_8h.html#ab082233cd1dca89e9cddf51cd084dbeb">proj_shuriken</a></div><div class="ttdeci">static int proj_shuriken(t_projectile *projectile)</div><div class="ttdoc">Rend un projectile très rapide mais avec une très courte portée et infligeant peu de dégats.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:221</div></div>
+<div class="ttc" id="astructt__moteur_html"><div class="ttname"><a href="structt__moteur.html">t_moteur</a></div><div class="ttdoc">Objet contenant les données nécessaires au rendu du jeu, aussi pour la gestion des collisions.</div></div>
+<div class="ttc" id="adefinitions__projectiles_8h_html_a1e96802c5b26b204f501833bd0490ebe"><div class="ttname"><a href="definitions__projectiles_8h.html#a1e96802c5b26b204f501833bd0490ebe">updateProjectile_tourner</a></div><div class="ttdeci">static int updateProjectile_tourner(t_moteur *moteur, t_projectile *projectile)</div><div class="ttdoc">Fait trourner le projectile en cercle.</div><div class="ttdef"><b>Definition:</b> definitions_projectiles.h:124</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

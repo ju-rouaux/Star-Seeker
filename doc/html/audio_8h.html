@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker: Référence du fichier include/audio.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -70,7 +69,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier audio.h</div></div>
+  <div class="headertitle">
+<div class="title">Référence du fichier audio.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -94,23 +94,134 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ab208cb811e41308fe78e1665c0476600"><td class="memItemLeft" align="right" valign="top"><a id="ab208cb811e41308fe78e1665c0476600"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>chargerAudio</b> (int volume, <a class="el" href="structt__musiques.html">t_musiques</a> **musiques, <a class="el" href="structt__bruitages.html">t_bruitages</a> **bruitages)</td></tr>
+<tr class="memitem:ab208cb811e41308fe78e1665c0476600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="audio_8h.html#ab208cb811e41308fe78e1665c0476600">chargerAudio</a> (int volume, <a class="el" href="structt__musiques.html">t_musiques</a> **musiques, <a class="el" href="structt__bruitages.html">t_bruitages</a> **bruitages)</td></tr>
+<tr class="memdesc:ab208cb811e41308fe78e1665c0476600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios.  <a href="audio_8h.html#ab208cb811e41308fe78e1665c0476600">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab208cb811e41308fe78e1665c0476600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memItemLeft" align="right" valign="top"><a id="adaf0fca24a49ad3e4e5d4b40e65f344b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>detruireAudio</b> (<a class="el" href="structt__musiques.html">t_musiques</a> **m, <a class="el" href="structt__bruitages.html">t_bruitages</a> **b)</td></tr>
+<tr class="memitem:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="audio_8h.html#adaf0fca24a49ad3e4e5d4b40e65f344b">detruireAudio</a> (<a class="el" href="structt__musiques.html">t_musiques</a> **m, <a class="el" href="structt__bruitages.html">t_bruitages</a> **b)</td></tr>
+<tr class="memdesc:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit les structures des pointeurs sur les fichiers audios.  <a href="audio_8h.html#adaf0fca24a49ad3e4e5d4b40e65f344b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:adaf0fca24a49ad3e4e5d4b40e65f344b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ccf7bcc3afa505c7e893a4017706569"><td class="memItemLeft" align="right" valign="top"><a id="a4ccf7bcc3afa505c7e893a4017706569"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changerVolume</b> (int volume)</td></tr>
+<tr class="memitem:a4ccf7bcc3afa505c7e893a4017706569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="audio_8h.html#a4ccf7bcc3afa505c7e893a4017706569">changerVolume</a> (int volume)</td></tr>
+<tr class="memdesc:a4ccf7bcc3afa505c7e893a4017706569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le volume des bruitages et de la musique.  <a href="audio_8h.html#a4ccf7bcc3afa505c7e893a4017706569">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4ccf7bcc3afa505c7e893a4017706569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Librairie de <a class="el" href="audio_8h.html" title="Librairie de audio.h.">audio.h</a>. </p>
+<div class="textblock"><p>Librairie de <a class="el" href="audio_8h.html" title="Librairie de audio.h.">audio.h</a>. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a4ccf7bcc3afa505c7e893a4017706569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccf7bcc3afa505c7e893a4017706569">&#9670;&nbsp;</a></span>changerVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changerVolume </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>volume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifie le volume des bruitages et de la musique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>Le volume souhaité </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab208cb811e41308fe78e1665c0476600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab208cb811e41308fe78e1665c0476600">&#9670;&nbsp;</a></span>chargerAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int chargerAudio </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>volume</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__musiques.html">t_musiques</a> **&#160;</td>
+          <td class="paramname"><em>musiques</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__bruitages.html">t_bruitages</a> **&#160;</td>
+          <td class="paramname"><em>bruitages</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alloue dynamiquement et initialise les structures des pointeurs sur les fichiers audios. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>Le volume souhaité </td></tr>
+    <tr><td class="paramname">musiques</td><td>La structure qui contient les pointeurs sur les musiques </td></tr>
+    <tr><td class="paramname">bruitages</td><td>La structure qui contient les pointeurs sur les bruitages</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si l'appel se passe correctement, -1 s'il y a une erreur d'allocation </dd></dl>
+
+</div>
+</div>
+<a id="adaf0fca24a49ad3e4e5d4b40e65f344b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf0fca24a49ad3e4e5d4b40e65f344b">&#9670;&nbsp;</a></span>detruireAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireAudio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__musiques.html">t_musiques</a> **&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__bruitages.html">t_bruitages</a> **&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit les structures des pointeurs sur les fichiers audios. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>La structure qui contient les pointeurs sur les musiques </td></tr>
+    <tr><td class="paramname">b</td><td>La structure qui contient les pointeurs sur les bruitages </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

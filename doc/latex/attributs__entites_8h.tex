@@ -21,9 +21,9 @@ float \mbox{\hyperlink{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}{
 \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}
 \item 
 \mbox{\Hypertarget{attributs__entites_8h_af9bc52f89918d58a1ce342ff17ba8ec6}\label{attributs__entites_8h_af9bc52f89918d58a1ce342ff17ba8ec6}} 
-SDL\+\_\+\+Rect {\bfseries hitbox}
+S\+D\+L\+\_\+\+Rect {\bfseries hitbox}
 \item 
-SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}
 \item 
 float \mbox{\hyperlink{attributs__entites_8h_a117a40becce0ce457e4ca4a705461882}{taille}}
 \item 
@@ -54,17 +54,17 @@ Julien Rouaux
 \doxysubsubsection{\texorpdfstring{animation}{animation}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structt__animation}{t\+\_\+animation}}$\ast$ animation}
 
-L\textquotesingle{}animation de l\textquotesingle{}entité (NULL par défaut) \mbox{\Hypertarget{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}\label{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}} 
+L\textquotesingle{}animation de l\textquotesingle{}entité (N\+U\+LL par défaut) \mbox{\Hypertarget{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}\label{attributs__entites_8h_a58770e6651414f7e7445d4f523899cd7}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!dessiner@{dessiner}}
 \index{dessiner@{dessiner}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{dessiner}{dessiner}}
-{\footnotesize\ttfamily int($\ast$ dessiner) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int($\ast$ dessiner) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$)}
 
 Dessine l\textquotesingle{}entité sur l\textquotesingle{}écran (desinner\+Entite par défaut) \mbox{\Hypertarget{attributs__entites_8h_a57f57759ccbb882d8e5584543342a463}\label{attributs__entites_8h_a57f57759ccbb882d8e5584543342a463}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!detruire@{detruire}}
 \index{detruire@{detruire}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{detruire}{detruire}}
-{\footnotesize\ttfamily void($\ast$ detruire) (\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void($\ast$ detruire) (\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$$\ast$)}
 
 Destruction de l\textquotesingle{}entité (detruire\+Entite par défaut) \mbox{\Hypertarget{attributs__entites_8h_ad1e02f375b5146842baab1009b6e16ad}\label{attributs__entites_8h_ad1e02f375b5146842baab1009b6e16ad}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!direction\_vx@{direction\_vx}}
@@ -94,7 +94,7 @@ Taille de l\textquotesingle{}entité proportionnellement à une tile (1 par déf
 \index{attributs\_entites.h@{attributs\_entites.h}!texture@{texture}}
 \index{texture@{texture}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{texture}{texture}}
-{\footnotesize\ttfamily SDL\+\_\+\+Texture$\ast$ texture}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ texture}
 
 Zone où l\textquotesingle{}entité est présent physiquement. Elle est actualisée à l\textquotesingle{}échelle du jeu lorsque l\textquotesingle{}entité est dessinée. (0 par défaut) Texture de l\textquotesingle{}entité (renseignée) \mbox{\Hypertarget{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}\label{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!type@{type}}
@@ -102,13 +102,13 @@ Zone où l\textquotesingle{}entité est présent physiquement. Elle est actualis
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{entite_8h_aaafe4b6a828c515418ebc7c038ac55b2}{e\+\_\+type\+\_\+entite}} type}
 
-Type de l\textquotesingle{}entité (AUCUN par défaut) \mbox{\Hypertarget{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}\label{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}} 
+Type de l\textquotesingle{}entité (A\+U\+C\+UN par défaut) \mbox{\Hypertarget{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}\label{attributs__entites_8h_a2e209ce7f810632f32cbd0a49fd4c013}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!update@{update}}
 \index{update@{update}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{update}{update}}
-{\footnotesize\ttfamily int($\ast$ update) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{,  }\item[{\mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$}]{,  }\item[{float}]{,  }\item[{float}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int($\ast$ update) (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$, \mbox{\hyperlink{structt__entite}{t\+\_\+entite}} $\ast$, float, float)}
 
-Actualise les données sur l\textquotesingle{}entité, retourne -\/1 si l\textquotesingle{}entité doit être détruite (NULL par défaut) \mbox{\Hypertarget{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}\label{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}} 
+Actualise les données sur l\textquotesingle{}entité, retourne -\/1 si l\textquotesingle{}entité doit être détruite (N\+U\+LL par défaut) \mbox{\Hypertarget{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}\label{attributs__entites_8h_aef55e1775d611bfea0196692da1a0bc5}} 
 \index{attributs\_entites.h@{attributs\_entites.h}!vitesse@{vitesse}}
 \index{vitesse@{vitesse}!attributs\_entites.h@{attributs\_entites.h}}
 \doxysubsubsection{\texorpdfstring{vitesse}{vitesse}}

@@ -17,16 +17,16 @@ typedef struct s\+\_\+particule {\bfseries t\+\_\+particule}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}\label{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}} 
-enum \mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}} \{ {\bfseries P\+\_\+\+MORT}
-, {\bfseries P\+\_\+\+TOUCHE}
-, {\bfseries P\+\_\+\+XP}
-, {\bfseries P\+\_\+\+DASH}
+enum \mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}} \{ {\bfseries P\+\_\+\+M\+O\+RT}, 
+{\bfseries P\+\_\+\+T\+O\+U\+C\+HE}, 
+{\bfseries P\+\_\+\+XP}, 
+{\bfseries P\+\_\+\+D\+A\+SH}
  \}
 \begin{DoxyCompactList}\small\item\em Les différents types de particules pouvant être générés. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structt__particule}{t\+\_\+particule}} $\ast$ \mbox{\hyperlink{particules_8h_ac56e7337df230905de5f4fe34d130bc1}{creer\+Particule}} (\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\mbox{\hyperlink{structt__particule}{t\+\_\+particule}} $\ast$ \mbox{\hyperlink{particules_8h_ac56e7337df230905de5f4fe34d130bc1}{creer\+Particule}} (\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}} \mbox{\hyperlink{attributs__entites_8h_ac93814760289f83af971fa51b9c69bc9}{type}}, float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
 \begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une particule. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -43,7 +43,7 @@ Julien Rouaux
 \index{particules.h@{particules.h}!creerParticule@{creerParticule}}
 \index{creerParticule@{creerParticule}!particules.h@{particules.h}}
 \doxysubsubsection{\texorpdfstring{creerParticule()}{creerParticule()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__particule}{t\+\_\+particule}}$\ast$ creer\+Particule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__particule}{t\+\_\+particule}}$\ast$ creer\+Particule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{particules_8h_aebeb61a8d5d01f6b3efba001b8c6b799}{e\+\_\+type\+\_\+particule}}}]{type,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
 
 
 
@@ -61,5 +61,5 @@ Création d\textquotesingle{}une particule.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur particule (NULL si echec). 
+Le pointeur particule (N\+U\+LL si echec). 
 \end{DoxyReturn}

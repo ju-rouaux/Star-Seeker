@@ -1,0 +1,245 @@
+\hypertarget{menu_8h}{}\doxysection{Référence du fichier include/menu.h}
+\label{menu_8h}\index{include/menu.h@{include/menu.h}}
+
+
+Menu principal du jeu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$moteur.\+h$>$}\newline
+{\ttfamily \#include $<$window.\+h$>$}\newline
+{\ttfamily \#include $<$main.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu_8h_ae6ad0540d5109a0200f0dde5dc5b4bf6}\label{menu_8h_ae6ad0540d5109a0200f0dde5dc5b4bf6}} 
+\#define {\bfseries T\+A\+I\+L\+L\+E\+\_\+\+M\+AX}~17
+\item 
+\mbox{\Hypertarget{menu_8h_a1a19c0a5a19f8497d02e5903db0a5fe4}\label{menu_8h_a1a19c0a5a19f8497d02e5903db0a5fe4}} 
+\#define {\bfseries N\+B\+\_\+\+B\+\_\+\+M\+E\+NU}~5
+\item 
+\mbox{\Hypertarget{menu_8h_aad251a8f9b64276cfcc0f1fb4f15d772}\label{menu_8h_aad251a8f9b64276cfcc0f1fb4f15d772}} 
+\#define {\bfseries T\+\_\+\+L\+A\+R\+G\+E\+UR}~2
+\item 
+\mbox{\Hypertarget{menu_8h_ae722ce2e79f45ef35c736789e21b5910}\label{menu_8h_ae722ce2e79f45ef35c736789e21b5910}} 
+\#define {\bfseries T\+\_\+\+L\+O\+N\+G\+U\+E\+UR}~1.\+5
+\item 
+\mbox{\Hypertarget{menu_8h_aaa0febd75c5b97f8d12df5ffa44342b2}\label{menu_8h_aaa0febd75c5b97f8d12df5ffa44342b2}} 
+\#define {\bfseries B\+\_\+\+L\+A\+R\+G\+E\+UR}~2.\+5
+\item 
+\mbox{\Hypertarget{menu_8h_a2797df188347ff3b25c6d83fa7a4a756}\label{menu_8h_a2797df188347ff3b25c6d83fa7a4a756}} 
+\#define {\bfseries B\+\_\+\+L\+O\+N\+G\+U\+E\+UR}~1
+\item 
+\mbox{\Hypertarget{menu_8h_a76c5bee49d07d272831c01a14ff48d79}\label{menu_8h_a76c5bee49d07d272831c01a14ff48d79}} 
+\#define {\bfseries N\+O\+M\+S\+\_\+\+B\+\_\+\+M\+E\+NU}~\{\char`\"{}Nouvelle Partie\char`\"{},\char`\"{}Charger Partie\char`\"{},\char`\"{}Reset Joueur\char`\"{},\char`\"{}Options\char`\"{},\char`\"{}Quitter\char`\"{}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu_8h_ad26811d53247b43d568fae3f4e49c78e}\label{menu_8h_ad26811d53247b43d568fae3f4e49c78e}} 
+typedef struct s\+\_\+bouton {\bfseries t\+\_\+bouton}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu_8h_ae5a59f71b7ca00d82028685542739c5f}{charger\+Menu}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Charge le menu (Rectangles, police) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$ \mbox{\hyperlink{menu_8h_a3c986bd730d976ddf6de3baa4475d2a0}{initialiser\+Boutons}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, int nb\+\_\+boutons, char nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}T\+A\+I\+L\+L\+E\+\_\+\+M\+AX\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initalise un bouton en allouant la memoire et en initialisant ses données. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_ad4136c2d61cdca7001a982868cc43cda}{detruire\+Boutons}} (\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$$\ast$boutons, int nb\+\_\+boutons)
+\begin{DoxyCompactList}\small\item\em Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a N\+U\+LL et libere la texture du bouton. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a8941c9857a845236564e3d4ac675d3dd}{update\+\_\+texture\+Bouton}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$bouton, int rect\+\_\+x, int rect\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Met a jour la texture d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a8b06dc224cfe3fc4789fb2e8213ae86c}{maj\+\_\+\+Texture\+Menu}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$boutons, int nb\+\_\+boutons)
+\begin{DoxyCompactList}\small\item\em Met a jour la texture de chacun des boutons passé en paramètre. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Rect $\ast$ \mbox{\hyperlink{menu_8h_ad8fe15762a817f4022d3e500d1d04479}{initialiser\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, S\+D\+L\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, char $\ast$texte)
+\begin{DoxyCompactList}\small\item\em Initalise un rectangle pour du texte en allouant la memoire et en l\textquotesingle{}initialise. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a68da67e2888287eccacfa8f59bd2c5fa}{maj\+\_\+\+Texture\+Texte}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, S\+D\+L\+\_\+\+Rect $\ast$rect, S\+D\+L\+\_\+\+Texture $\ast$$\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}}, int rect\+\_\+x, int rect\+\_\+y, char $\ast$texte)
+\begin{DoxyCompactList}\small\item\em Met a jour la texture du texte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_af526e65440b0018054f4e2f1f3b3506a}{detruire\+Texte}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$rect, S\+D\+L\+\_\+\+Texture $\ast$\mbox{\hyperlink{attributs__entites_8h_a859b8efbf9abe8e82757ee5c75a0c97c}{texture}})
+\begin{DoxyCompactList}\small\item\em Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a N\+U\+LL et libere la texture de ce dernier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Menu principal du jeu. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu_8h_ae5a59f71b7ca00d82028685542739c5f}\label{menu_8h_ae5a59f71b7ca00d82028685542739c5f}} 
+\index{menu.h@{menu.h}!chargerMenu@{chargerMenu}}
+\index{chargerMenu@{chargerMenu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{chargerMenu()}{chargerMenu()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main charger\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Charge le menu (Rectangles, police) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & Structure du moteur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+code de sortie personnalisé selon l\textquotesingle{}evenement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_ad4136c2d61cdca7001a982868cc43cda}\label{menu_8h_ad4136c2d61cdca7001a982868cc43cda}} 
+\index{menu.h@{menu.h}!detruireBoutons@{detruireBoutons}}
+\index{detruireBoutons@{detruireBoutons}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{detruireBoutons()}{detruireBoutons()}}
+{\footnotesize\ttfamily void detruire\+Boutons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$$\ast$}]{boutons,  }\item[{int}]{nb\+\_\+boutons }\end{DoxyParamCaption})}
+
+
+
+Libère la memoire allouée par la structure d\textquotesingle{}un boutons, met son pointeur a N\+U\+LL et libere la texture du bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em boutons} & adresse du tableau de boutons \\
+\hline
+{\em nb\+\_\+boutons} & nombre de boutons \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_af526e65440b0018054f4e2f1f3b3506a}\label{menu_8h_af526e65440b0018054f4e2f1f3b3506a}} 
+\index{menu.h@{menu.h}!detruireTexte@{detruireTexte}}
+\index{detruireTexte@{detruireTexte}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{detruireTexte()}{detruireTexte()}}
+{\footnotesize\ttfamily void detruire\+Texte (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{rect,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Libère la memoire allouée pour (le rectangle du) texte, met son pointeur a N\+U\+LL et libere la texture de ce dernier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & Adresse du rectangle \\
+\hline
+{\em texture} & texture utilisée \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_a3c986bd730d976ddf6de3baa4475d2a0}\label{menu_8h_a3c986bd730d976ddf6de3baa4475d2a0}} 
+\index{menu.h@{menu.h}!initialiserBoutons@{initialiserBoutons}}
+\index{initialiserBoutons@{initialiserBoutons}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{initialiserBoutons()}{initialiserBoutons()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}}$\ast$$\ast$ initialiser\+Boutons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{int}]{nb\+\_\+boutons,  }\item[{char}]{nom\+\_\+boutons\mbox{[}$\,$\mbox{]}\mbox{[}\+T\+A\+I\+L\+L\+E\+\_\+\+M\+A\+X\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initalise un bouton en allouant la memoire et en initialisant ses données. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em nb\+\_\+boutons} & nombre de boutons \\
+\hline
+{\em nom\+\_\+boutons} & tableau de nom des différents boutons \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+tableau de boutons alloués et initialisés 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_ad8fe15762a817f4022d3e500d1d04479}\label{menu_8h_ad8fe15762a817f4022d3e500d1d04479}} 
+\index{menu.h@{menu.h}!initialiserTexte@{initialiserTexte}}
+\index{initialiserTexte@{initialiserTexte}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{initialiserTexte()}{initialiserTexte()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect$\ast$ initialiser\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
+
+
+
+Initalise un rectangle pour du texte en allouant la memoire et en l\textquotesingle{}initialise. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & moteur du jeu \\
+\hline
+{\em texture} & texture \\
+\hline
+{\em texte} & texte a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+\+Rect$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a8b06dc224cfe3fc4789fb2e8213ae86c}\label{menu_8h_a8b06dc224cfe3fc4789fb2e8213ae86c}} 
+\index{menu.h@{menu.h}!maj\_TextureMenu@{maj\_TextureMenu}}
+\index{maj\_TextureMenu@{maj\_TextureMenu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{maj\_TextureMenu()}{maj\_TextureMenu()}}
+{\footnotesize\ttfamily int maj\+\_\+\+Texture\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$}]{boutons,  }\item[{int}]{nb\+\_\+boutons }\end{DoxyParamCaption})}
+
+
+
+Met a jour la texture de chacun des boutons passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & moteur du jeu \\
+\hline
+{\em boutons} & tableau de boutons \\
+\hline
+{\em nb\+\_\+boutons} & nombre de boutons \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, negatif si echec 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a68da67e2888287eccacfa8f59bd2c5fa}\label{menu_8h_a68da67e2888287eccacfa8f59bd2c5fa}} 
+\index{menu.h@{menu.h}!maj\_TextureTexte@{maj\_TextureTexte}}
+\index{maj\_TextureTexte@{maj\_TextureTexte}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{maj\_TextureTexte()}{maj\_TextureTexte()}}
+{\footnotesize\ttfamily int maj\+\_\+\+Texture\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{rect,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture,  }\item[{int}]{rect\+\_\+x,  }\item[{int}]{rect\+\_\+y,  }\item[{char $\ast$}]{texte }\end{DoxyParamCaption})}
+
+
+
+Met a jour la texture du texte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & moteur du jeu \\
+\hline
+{\em rect} & rectangle du texte \\
+\hline
+{\em texture} & texture du texte \\
+\hline
+{\em rect\+\_\+x} & coordonnées x du rect \\
+\hline
+{\em rect\+\_\+y} & coordonnées y du rect \\
+\hline
+{\em texte} & texte a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si succès, negatif si echec 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a8941c9857a845236564e3d4ac675d3dd}\label{menu_8h_a8941c9857a845236564e3d4ac675d3dd}} 
+\index{menu.h@{menu.h}!update\_textureBouton@{update\_textureBouton}}
+\index{update\_textureBouton@{update\_textureBouton}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{update\_textureBouton()}{update\_textureBouton()}}
+{\footnotesize\ttfamily int update\+\_\+texture\+Bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$}]{bouton,  }\item[{int}]{rect\+\_\+x,  }\item[{int}]{rect\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Met a jour la texture d\textquotesingle{}un bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+{\em bouton} & un bouton \\
+\hline
+{\em rect\+\_\+x} & coordonées x en haut a gauche du bouton (origine du rectangle en x) \\
+\hline
+{\em rect\+\_\+y} & coordonées y en haut a gauche du bouton (origine du rectangle en y) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 0 si succès, negatif si echec 
+\end{DoxyReturn}

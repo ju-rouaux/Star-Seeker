@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/projectiles.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier projectiles.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de définition de projectiles.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="personnage_8h_source.html">personnage.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="joueur_8h_source.html">joueur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="projectiles_8h_source.html">projectiles.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="definitions__projectiles_8h_source.html">definitions/definitions_projectiles.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a8061ff4eb98ff7da13bd83b84f119aec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectiles_8c.html#a8061ff4eb98ff7da13bd83b84f119aec">chargerProjectile</a> (<a class="el" href="structt__projectile.html">t_projectile</a> *projectile, <a class="el" href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a> <a class="el" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>)</td></tr>
+<tr class="memdesc:a8061ff4eb98ff7da13bd83b84f119aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualise les champs de la structure projectile vers les paramètres décrits par le type.  <a href="projectiles_8c.html#a8061ff4eb98ff7da13bd83b84f119aec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8061ff4eb98ff7da13bd83b84f119aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e198c07ffe1e4a256fbe5b4c1025a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectiles_8c.html#ac5e198c07ffe1e4a256fbe5b4c1025a6">faireDegats</a> (<a class="el" href="structt__projectile.html">t_projectile</a> *projectile, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur, <a class="el" href="structt__liste.html">t_liste</a> *liste)</td></tr>
+<tr class="memdesc:ac5e198c07ffe1e4a256fbe5b4c1025a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur à la recherche d'une cible avec laquelle le projectile pourrait être en collision.  <a href="projectiles_8c.html#ac5e198c07ffe1e4a256fbe5b4c1025a6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac5e198c07ffe1e4a256fbe5b4c1025a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac066b0c972bac50e2f6c8d6c0499872c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectiles_8c.html#ac066b0c972bac50e2f6c8d6c0499872c">detruireProjectile</a> (<a class="el" href="structt__projectile.html">t_projectile</a> **projectile)</td></tr>
+<tr class="memdesc:ac066b0c972bac50e2f6c8d6c0499872c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire allouée à une structure projectile.  <a href="projectiles_8c.html#ac066b0c972bac50e2f6c8d6c0499872c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac066b0c972bac50e2f6c8d6c0499872c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ae4edfde673d942e4b54428c2e7aad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__projectile.html">t_projectile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectiles_8c.html#a4ae4edfde673d942e4b54428c2e7aad2">creerProjectile</a> (<a class="el" href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a> <a class="el" href="attributs__entites_8h.html#ac93814760289f83af971fa51b9c69bc9">type</a>, float <a class="el" href="attributs__entites_8h.html#ad0da36b2558901e21e7a30f6c227a45e">x</a>, float <a class="el" href="attributs__entites_8h.html#aa4f0d3eebc3c443f9be81bf48561a217">y</a>, float <a class="el" href="attributs__entites_8h.html#ad1e02f375b5146842baab1009b6e16ad">direction_vx</a>, float <a class="el" href="attributs__entites_8h.html#aac0ae24fad3d28b4b0e597969285e6d2">direction_vy</a>, <a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a> cible, SDL_Texture *<a class="el" href="attributs__entites_8h.html#a859b8efbf9abe8e82757ee5c75a0c97c">texture</a>)</td></tr>
+<tr class="memdesc:a4ae4edfde673d942e4b54428c2e7aad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un projectile.  <a href="projectiles_8c.html#a4ae4edfde673d942e4b54428c2e7aad2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4ae4edfde673d942e4b54428c2e7aad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de définition de projectiles. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a8061ff4eb98ff7da13bd83b84f119aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8061ff4eb98ff7da13bd83b84f119aec">&#9670;&nbsp;</a></span>chargerProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int chargerProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__projectile.html">t_projectile</a> *&#160;</td>
+          <td class="paramname"><em>projectile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualise les champs de la structure projectile vers les paramètres décrits par le type. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>Le projectile à actualiser </td></tr>
+    <tr><td class="paramname">type</td><td>Le type de projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4ae4edfde673d942e4b54428c2e7aad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ae4edfde673d942e4b54428c2e7aad2">&#9670;&nbsp;</a></span>creerProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__projectile.html">t_projectile</a>* creerProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectiles_8h.html#af631d6b38be25cb10ad8ea2468e2b98d">e_type_projectile</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>direction_vx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>direction_vy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="entite_8h.html#aaafe4b6a828c515418ebc7c038ac55b2">e_type_entite</a>&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un projectile. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>La nature du projectile désiré </td></tr>
+    <tr><td class="paramname">x</td><td>La position de départ en x </td></tr>
+    <tr><td class="paramname">y</td><td>La position de départ en y </td></tr>
+    <tr><td class="paramname">direction_vx</td><td>Sa direction en x </td></tr>
+    <tr><td class="paramname">direction_vy</td><td>Sa direction en y </td></tr>
+    <tr><td class="paramname">cible</td><td>Le type de l'entité qui doit subir des dégats s'il est touché </td></tr>
+    <tr><td class="paramname">texture</td><td>Tileset des projectiles</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le pointeur projectile (NULL si echec). </dd></dl>
+
+</div>
+</div>
+<a id="ac066b0c972bac50e2f6c8d6c0499872c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac066b0c972bac50e2f6c8d6c0499872c">&#9670;&nbsp;</a></span>detruireProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruireProjectile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__projectile.html">t_projectile</a> **&#160;</td>
+          <td class="paramname"><em>projectile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire allouée à une structure projectile. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>L'adresse du pointeur du projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5e198c07ffe1e4a256fbe5b4c1025a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e198c07ffe1e4a256fbe5b4c1025a6">&#9670;&nbsp;</a></span>faireDegats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int faireDegats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__projectile.html">t_projectile</a> *&#160;</td>
+          <td class="paramname"><em>projectile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>liste</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pour le projectile donné, cette fonction traverse la liste des entités ainsi que le joueur à la recherche d'une cible avec laquelle le projectile pourrait être en collision. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>Le projectile cherchant une cible </td></tr>
+    <tr><td class="paramname">joueur</td><td>Le joueur </td></tr>
+    <tr><td class="paramname">liste</td><td>La liste des entités</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>-1 si collision avec une entité, sinon 0. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

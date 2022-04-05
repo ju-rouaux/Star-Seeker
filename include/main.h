@@ -1,3 +1,12 @@
+/**
+ * \file main.h
+ * 
+ * \brief Fichier de définition des codes de retour de fonction pour l'appel
+ * des différents modules du projet.
+ * 
+ * \author Julien Rouaux
+ */
+
 #ifndef _JEU_MAIN_
 #define _JEU_MAIN_
 

@@ -1,5 +1,6 @@
 /**
  * \file moteur.c
+ 
  * \brief Module de chargement d'une fenêtre, du renderer, des textures, d'une caméra
  * et les retournes dans une structure.
  * 

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker: Référence du fichier src/generation_niveau.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -68,8 +67,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier generation_niveau.c</div></div>
+  <div class="headertitle">
+<div class="title">Référence du fichier generation_niveau.c</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -82,9 +83,54 @@ $(function() {
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="generation__entites_8h_source.html">generation_entites.h</a>&gt;</code><br />
-<code>#include &lt;outils.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="outils_8h_source.html">outils.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3ee479371002a0a258e5c4111cc6e54f"><td class="memItemLeft" align="right" valign="top"><a id="a3ee479371002a0a258e5c4111cc6e54f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>VIDE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a3ee479371002a0a258e5c4111cc6e54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e266faa65b920356441404c5c423272"><td class="memItemLeft" align="right" valign="top"><a id="a4e266faa65b920356441404c5c423272"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SALLE</b>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:a4e266faa65b920356441404c5c423272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8516025dbe2a22abcbfd9a5bb5dd7774"><td class="memItemLeft" align="right" valign="top"><a id="a8516025dbe2a22abcbfd9a5bb5dd7774"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>POURCENTAGE_DE_SALLES_GLOBAL</b>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a8516025dbe2a22abcbfd9a5bb5dd7774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c6f37fec0392cb61364bca66a93774"><td class="memItemLeft" align="right" valign="top"><a id="a35c6f37fec0392cb61364bca66a93774"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_8_VOISINES_LIBRES</b>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a35c6f37fec0392cb61364bca66a93774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcb9d4d6d4c68da49c352b94b0bedcb"><td class="memItemLeft" align="right" valign="top"><a id="a3fcb9d4d6d4c68da49c352b94b0bedcb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_7_VOISINES_LIBRES</b>&#160;&#160;&#160;70</td></tr>
+<tr class="separator:a3fcb9d4d6d4c68da49c352b94b0bedcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf8ed33500281704bbb86a2f01c95530"><td class="memItemLeft" align="right" valign="top"><a id="acf8ed33500281704bbb86a2f01c95530"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_6_VOISINES_LIBRES</b>&#160;&#160;&#160;40</td></tr>
+<tr class="separator:acf8ed33500281704bbb86a2f01c95530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91bc234b909f598687c6ce723202df42"><td class="memItemLeft" align="right" valign="top"><a id="a91bc234b909f598687c6ce723202df42"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_5_VOISINES_LIBRES</b>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a91bc234b909f598687c6ce723202df42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de9753a00375d6664de032399e803a8"><td class="memItemLeft" align="right" valign="top"><a id="a1de9753a00375d6664de032399e803a8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_4_VOISINES_LIBRES</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a1de9753a00375d6664de032399e803a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b83e1929d6a930c241cd8957b77607"><td class="memItemLeft" align="right" valign="top"><a id="a79b83e1929d6a930c241cd8957b77607"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_3_VOISINES_LIBRES</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a79b83e1929d6a930c241cd8957b77607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd"><td class="memItemLeft" align="right" valign="top"><a id="aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_2_VOISINES_LIBRES</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee467246a5f5e7aa703cd705a17a257a"><td class="memItemLeft" align="right" valign="top"><a id="aee467246a5f5e7aa703cd705a17a257a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_1_VOISINE_LIBRE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aee467246a5f5e7aa703cd705a17a257a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031473f724c63d7134cf9a748ba1b222"><td class="memItemLeft" align="right" valign="top"><a id="a031473f724c63d7134cf9a748ba1b222"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_GEN_SALLE_0_VOISINE_LIBRE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a031473f724c63d7134cf9a748ba1b222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb7a9833fb97c3a46d18b6e38e6f6f7"><td class="memItemLeft" align="right" valign="top"><a id="a5bb7a9833fb97c3a46d18b6e38e6f6f7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a5bb7a9833fb97c3a46d18b6e38e6f6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95c2cd64a5ecb089958db0d662a08083"><td class="memItemLeft" align="right" valign="top"><a id="a95c2cd64a5ecb089958db0d662a08083"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CHANCE_DE_GENERER_EXTENSION_DE_ID_DE_SALLE</b>&#160;&#160;&#160;25</td></tr>
+<tr class="separator:a95c2cd64a5ecb089958db0d662a08083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:afa09d611dc4963e0132f7375d7173354"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation__niveau_8c.html#afa09d611dc4963e0132f7375d7173354">coordonnees_valides</a> (int i, int j, int hauteur, int longueur)</td></tr>
@@ -119,7 +165,7 @@ Fonctions</h2></td></tr>
 <tr class="separator:a1c3e79b3cece398d7034c947809dff61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Génération d'un niveau : l'agencement des salles et leurs ids. </p>
+<div class="textblock"><p>Génération d'un niveau : l'agencement des salles et leurs ids. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Camille Remoué </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ad9b9e96d8137461928ea9bf0708c15bc"></a>
@@ -175,7 +221,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Crée une salle adjacente à un côté aléatoire de (i, j). </p>
-<p >Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN : Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDES. Attention : la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.</p>
+<p>Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de NOMBRE_VOISINES_DISPO_NOUVELLE_SALLE_MIN : Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDES. Attention : la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">niv</td><td>Pointeur sur le premier élément de la matrice du niveau </td></tr>
@@ -622,7 +668,9 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

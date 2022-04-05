@@ -17,17 +17,17 @@ Module de chargement d\textquotesingle{}un niveau en structure interprétable po
 static \mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}} $\ast$ \mbox{\hyperlink{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}{creer\+Dimensions}} (int i, int j)
 \begin{DoxyCompactList}\small\item\em Génère une structure dimensions de salle. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}{detruire\+Dimensions}} (\mbox{\hyperlink{structt__dimensions__salle}{t\+\_\+dimensions\+\_\+salle}} $\ast$$\ast$dimensions)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{niveau_8c_ac0cbed61af52654fdc8ccb20ee029a10}{lier\+Salles}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau)
 \begin{DoxyCompactList}\small\item\em Remplie la matrice \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ portes\mbox{[}\mbox{]} du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ \mbox{\hyperlink{niveau_8c_ac27f642324c09553bca751c5a54d3e28}{creer\+Salle}} (int id\+\_\+salle)
-\begin{DoxyCompactList}\small\item\em Génère une structure salle et mets les pointeurs de porte à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Génère une structure salle et mets les pointeurs de porte à N\+U\+LL. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{niveau_8c_aab89c9c3f9c68cce78ef8d74f775a61e}{detruire\+Salle}} (\mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$$\ast$salle)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour une salle et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour une salle et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$ \mbox{\hyperlink{niveau_8c_a318800dfb1c81e4b7054ebd66575356b}{charger\+Salles}} (niveau\+\_\+informations\+\_\+t $\ast$info)
 \begin{DoxyCompactList}\small\item\em Charge le niveau dans une structure exploitable pour le jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{niveau_8c_a863d645e21d3d98663cad01cfe6dd24a}{detruire\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$$\ast$niveau)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée pour un niveau et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{niveau_8c_a2aa88412eb1547b2bbaff8b3106cb780}{charger\+Niveau}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, niveau\+\_\+informations\+\_\+t $\ast$info)
 \begin{DoxyCompactList}\small\item\em Lance un niveau s couleurs du niveau sont aussi chargées. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{niveau_8c_af6df4be5bf28ad11dafd0311b92abd3b}{update\+Niveau}} (\mbox{\hyperlink{structt__niveau}{t\+\_\+niveau}} $\ast$niveau, float j\+\_\+x, float j\+\_\+y, int echelle)
@@ -76,7 +76,7 @@ Charge le niveau dans une structure exploitable pour le jeu.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur du niveau chargé, NULL si echec du chargement. 
+Le pointeur du niveau chargé, N\+U\+LL si echec du chargement. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}\label{niveau_8c_a9130bd9c6640053bbd276ecdbb2613ac}} 
 \index{niveau.c@{niveau.c}!creerDimensions@{creerDimensions}}
@@ -96,7 +96,7 @@ Génère une structure dimensions de salle.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur des dimensions, NULL si echec. 
+Le pointeur des dimensions, N\+U\+LL si echec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{niveau_8c_ac27f642324c09553bca751c5a54d3e28}\label{niveau_8c_ac27f642324c09553bca751c5a54d3e28}} 
 \index{niveau.c@{niveau.c}!creerSalle@{creerSalle}}
@@ -106,7 +106,7 @@ Le pointeur des dimensions, NULL si echec.
 
 
 
-Génère une structure salle et mets les pointeurs de porte à NULL. 
+Génère une structure salle et mets les pointeurs de porte à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -114,7 +114,7 @@ Génère une structure salle et mets les pointeurs de porte à NULL.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur de la salle créée, NULL si échec. 
+Le pointeur de la salle créée, N\+U\+LL si échec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}\label{niveau_8c_a5fd91d18a498c98ba89dcc4733ffe8bb}} 
 \index{niveau.c@{niveau.c}!detruireDimensions@{detruireDimensions}}
@@ -124,7 +124,7 @@ Le pointeur de la salle créée, NULL si échec.
 
 
 
-Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à NULL. 
+Libère la mémoire seulement si plus aucune salle ne pointe sur la dimension et mets son pointeur à N\+U\+LL. 
 
 C\textquotesingle{}est à dire si le champ nombre vaut 0. Ce champ est décrémenté à chaque appel de la fonction.
 
@@ -141,7 +141,7 @@ C\textquotesingle{}est à dire si le champ nombre vaut 0. Ce champ est décréme
 
 
 
-Libère la mémoire allouée pour un niveau et mets son pointeur à NULL. 
+Libère la mémoire allouée pour un niveau et mets son pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -156,7 +156,7 @@ Libère la mémoire allouée pour un niveau et mets son pointeur à NULL.
 
 
 
-Libère la mémoire allouée pour une salle et mets son pointeur à NULL. 
+Libère la mémoire allouée pour une salle et mets son pointeur à N\+U\+LL. 
 
 Détruit aussi ses entités.
 
@@ -175,7 +175,7 @@ Détruit aussi ses entités.
 
 Remplie la matrice \mbox{\hyperlink{structt__salle}{t\+\_\+salle}} $\ast$ portes\mbox{[}\mbox{]} du pointeur des salles voisines de chaque salles, et génère les dimensions de chaque salle. 
 
-Fonctionnement \+: Pour chaque salle, si une voisine existe, il faut lier les portes des salles. Sinon ne rien faire, pour que les portes pointent toujours vers NULL. Deux salles liées et ayant un même identifiant ne formeront qu\textquotesingle{}une salle. Si deux salles liées ne forment qu\textquotesingle{}une salle, actualiser les dimensions et faire pointer les salles sur la même structure dimensions.
+Fonctionnement \+: Pour chaque salle, si une voisine existe, il faut lier les portes des salles. Sinon ne rien faire, pour que les portes pointent toujours vers N\+U\+LL. Deux salles liées et ayant un même identifiant ne formeront qu\textquotesingle{}une salle. Si deux salles liées ne forment qu\textquotesingle{}une salle, actualiser les dimensions et faire pointer les salles sur la même structure dimensions.
 
 
 \begin{DoxyParams}{Paramètres}

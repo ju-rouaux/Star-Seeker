@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker: Référence du fichier include/sauvegarde.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -70,7 +69,8 @@ $(function() {
   <div class="summary">
 <a href="#enum-members">Énumérations</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
-  <div class="headertitle"><div class="title">Référence du fichier sauvegarde.h</div></div>
+  <div class="headertitle">
+<div class="title">Référence du fichier sauvegarde.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -91,13 +91,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
 <tr class="memitem:a882cd556fd5182c1e9f38dcb950be3c8"><td class="memItemLeft" align="right" valign="top"><a id="a882cd556fd5182c1e9f38dcb950be3c8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sauvegarde_8h.html#a882cd556fd5182c1e9f38dcb950be3c8">err_save</a> { <br />
-&#160;&#160;<b>NO_FILE</b> = -5
-, <b>MALLOC_FAIL</b> = -4
-, <b>READ_OR_WRITE_FAIL</b> = -3
-, <b>FOPEN_FAIL</b> = -2
-, <br />
-&#160;&#160;<b>SAVE_ERROR</b> = -1
-, <b>SUCCESS</b> = 0
+&#160;&#160;<b>NO_FILE</b> = -5, 
+<b>MALLOC_FAIL</b> = -4, 
+<b>READ_OR_WRITE_FAIL</b> = -3, 
+<b>FOPEN_FAIL</b> = -2, 
+<br />
+&#160;&#160;<b>SAVE_ERROR</b> = -1, 
+<b>SUCCESS</b> = 0
 <br />
  }</td></tr>
 <tr class="memdesc:a882cd556fd5182c1e9f38dcb950be3c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erreurs possibles lors des différentes sauvegarde. <br /></td></tr>
@@ -125,7 +125,7 @@ Fonctions</h2></td></tr>
 <tr class="separator:aaa7e3d6a13ea4851abe232e0d31badb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie. </p>
+<div class="textblock"><p>Sauvegarde des structures du jeu pour permettre au joueur de continuer sa partie. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux &amp; Guillaume Richard </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ad048f230be2b76ed45c7b13565025629"></a>
@@ -145,7 +145,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Charge le joueur de ses données de sauvegarde. </p>
-<p >Lis la sauvegarde dans le fichier binaire et met à jour la structure <a class="el" href="structt__joueur.html" title="Structure modélisant le joueur, hérite des attributs d&#39;entité et de personnage.">t_joueur</a>.</p>
+<p>Lis la sauvegarde dans le fichier binaire et met à jour la structure <a class="el" href="structt__joueur.html" title="Structure modélisant le joueur, hérite des attributs d&#39;entité et de personnage.">t_joueur</a>.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">joueur</td><td>joueur à charger depuis la sauvegarde</td></tr>
@@ -222,7 +222,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Charge les informations relatives à la partie. </p>
-<p >D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire. </p><dl class="params"><dt>Paramètres</dt><dd>
+<p>D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire. </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">nom_galaxie</td><td>le nom de la galaxie </td></tr>
     <tr><td class="paramname">infos_niveaux</td><td>L'adresse de la matrice des structures de donnée de niveau </td></tr>
@@ -328,7 +328,7 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sauvegarde les informations relatives à la partie. </p>
-<p >D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.</p>
+<p>D'autres paramètres viendront s'ajouter lorsque ce sera nécessaire.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">nom_galaxie</td><td>le nom de la galaxie </td></tr>
@@ -345,7 +345,9 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

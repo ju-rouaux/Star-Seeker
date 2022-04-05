@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.2"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Star Seeker:  Fichier source de include/animation.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.9.2 -->
+<!-- Généré par Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -44,8 +44,7 @@ $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -67,7 +66,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">animation.h</div></div>
+  <div class="headertitle">
+<div class="title">animation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="animation_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
@@ -88,17 +88,19 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="structt__animation.html">t_animation</a> * <a class="code" href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a>(<span class="keywordtype">int</span> <a class="code" href="attributs__entites_8h.html#aef55e1775d611bfea0196692da1a0bc5">vitesse</a>, <span class="keywordtype">int</span> nb_textures);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="animation_8h.html#a1e29331d629c266556bb66cfa75e66e7">detruireAnimation</a>(<a class="code" href="structt__animation.html">t_animation</a> ** <a class="code" href="attributs__entites_8h.html#aaa3c2a4d179666e4da09f5a3cd1019cb">animation</a>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//_JEU_ANIMATION_</span></div>
-<div class="ttc" id="aanimation_8h_html_a1e29331d629c266556bb66cfa75e66e7"><div class="ttname"><a href="animation_8h.html#a1e29331d629c266556bb66cfa75e66e7">detruireAnimation</a></div><div class="ttdeci">void detruireAnimation(t_animation **animation)</div><div class="ttdoc">Détruit une structure animation et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> animation.c:74</div></div>
-<div class="ttc" id="aanimation_8h_html_a9262f363dbd745b12413017d9ff1a320"><div class="ttname"><a href="animation_8h.html#a9262f363dbd745b12413017d9ff1a320">updateAnimation</a></div><div class="ttdeci">void updateAnimation(t_animation *animation, unsigned int temps)</div><div class="ttdoc">Actualise l'animation si nécessaire selon la configuration de la structure.</div><div class="ttdef"><b>Definition:</b> animation.c:24</div></div>
-<div class="ttc" id="aanimation_8h_html_aef0f577f19ba9a2ce6dca8dc282e59f3"><div class="ttname"><a href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a></div><div class="ttdeci">t_animation * creerAnimation(int vitesse, int nb_textures)</div><div class="ttdoc">Génère une structure permettant d'animer un objet.</div><div class="ttdef"><b>Definition:</b> animation.c:50</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_aaa3c2a4d179666e4da09f5a3cd1019cb"><div class="ttname"><a href="attributs__entites_8h.html#aaa3c2a4d179666e4da09f5a3cd1019cb">animation</a></div><div class="ttdeci">t_animation * animation</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:20</div></div>
-<div class="ttc" id="aattributs__entites_8h_html_aef55e1775d611bfea0196692da1a0bc5"><div class="ttname"><a href="attributs__entites_8h.html#aef55e1775d611bfea0196692da1a0bc5">vitesse</a></div><div class="ttdeci">float vitesse</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:13</div></div>
-<div class="ttc" id="astructt__animation_html"><div class="ttname"><a href="structt__animation.html">t_animation</a></div><div class="ttdoc">Structure contenant les données nécessaires à la réalisation d'une animation.</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif //_JEU_ANIMATION_</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aattributs__entites_8h_html_aef55e1775d611bfea0196692da1a0bc5"><div class="ttname"><a href="attributs__entites_8h.html#aef55e1775d611bfea0196692da1a0bc5">vitesse</a></div><div class="ttdeci">float vitesse</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:13</div></div>
+<div class="ttc" id="aanimation_8h_html_a9262f363dbd745b12413017d9ff1a320"><div class="ttname"><a href="animation_8h.html#a9262f363dbd745b12413017d9ff1a320">updateAnimation</a></div><div class="ttdeci">void updateAnimation(t_animation *animation, unsigned int temps)</div><div class="ttdoc">Actualise l'animation si nécessaire selon la configuration de la structure.</div><div class="ttdef"><b>Definition:</b> animation.c:24</div></div>
+<div class="ttc" id="astructt__animation_html"><div class="ttname"><a href="structt__animation.html">t_animation</a></div><div class="ttdoc">Structure contenant les données nécessaires à la réalisation d'une animation.</div></div>
+<div class="ttc" id="aattributs__entites_8h_html_aaa3c2a4d179666e4da09f5a3cd1019cb"><div class="ttname"><a href="attributs__entites_8h.html#aaa3c2a4d179666e4da09f5a3cd1019cb">animation</a></div><div class="ttdeci">t_animation * animation</div><div class="ttdef"><b>Definition:</b> attributs_entites.h:20</div></div>
+<div class="ttc" id="aanimation_8h_html_a1e29331d629c266556bb66cfa75e66e7"><div class="ttname"><a href="animation_8h.html#a1e29331d629c266556bb66cfa75e66e7">detruireAnimation</a></div><div class="ttdeci">void detruireAnimation(t_animation **animation)</div><div class="ttdoc">Détruit une structure animation et mets son pointeur à NULL.</div><div class="ttdef"><b>Definition:</b> animation.c:74</div></div>
+<div class="ttc" id="aanimation_8h_html_aef0f577f19ba9a2ce6dca8dc282e59f3"><div class="ttname"><a href="animation_8h.html#aef0f577f19ba9a2ce6dca8dc282e59f3">creerAnimation</a></div><div class="ttdeci">t_animation * creerAnimation(int vitesse, int nb_textures)</div><div class="ttdoc">Génère une structure permettant d'animer un objet.</div><div class="ttdef"><b>Definition:</b> animation.c:50</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
 </small></address>
 </body>
 </html>

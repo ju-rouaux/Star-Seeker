@@ -1,5 +1,5 @@
 /**
- * \file monstre.h
+ * \file monstre.c
  * 
  * \brief Module de gestion des monstres.
  * 

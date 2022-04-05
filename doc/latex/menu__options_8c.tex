@@ -1,0 +1,67 @@
+\hypertarget{menu__options_8c}{}\doxysection{Référence du fichier src/menu\+\_\+options.c}
+\label{menu__options_8c}\index{src/menu\_options.c@{src/menu\_options.c}}
+
+
+Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s\textquotesingle{}il veut du son et d\textquotesingle{}acceder au menu pour reparamétrer ses touches.  
+
+
+{\ttfamily \#include $<$menu\+\_\+options.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{menu__options_8c_aa7a8db840c8244962a74077bfa266fb7}{handle\+Events\+\_\+options}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur, \mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$boutons)
+\begin{DoxyCompactList}\small\item\em Gere les evenements dans le sous menu options. \end{DoxyCompactList}\item 
+e\+\_\+code\+\_\+main \mbox{\hyperlink{menu__options_8c_aa9f5f83f24e0b890fa76c3ed33ba31b7}{charger\+Menu\+\_\+\+Options}} (\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$moteur)
+\begin{DoxyCompactList}\small\item\em Charge le sous menu des options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Sous menu, volume et acces au menu pour le mapping des touches Permet au joueur de choisir s\textquotesingle{}il veut du son et d\textquotesingle{}acceder au menu pour reparamétrer ses touches. 
+
+\begin{DoxyAuthor}{Auteur}
+Guillaume Richard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__options_8c_aa9f5f83f24e0b890fa76c3ed33ba31b7}\label{menu__options_8c_aa9f5f83f24e0b890fa76c3ed33ba31b7}} 
+\index{menu\_options.c@{menu\_options.c}!chargerMenu\_Options@{chargerMenu\_Options}}
+\index{chargerMenu\_Options@{chargerMenu\_Options}!menu\_options.c@{menu\_options.c}}
+\doxysubsubsection{\texorpdfstring{chargerMenu\_Options()}{chargerMenu\_Options()}}
+{\footnotesize\ttfamily e\+\_\+code\+\_\+main charger\+Menu\+\_\+\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur }\end{DoxyParamCaption})}
+
+
+
+Charge le sous menu des options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le moteur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+code de sortie personnalisé selon l\textquotesingle{}evenement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__options_8c_aa7a8db840c8244962a74077bfa266fb7}\label{menu__options_8c_aa7a8db840c8244962a74077bfa266fb7}} 
+\index{menu\_options.c@{menu\_options.c}!handleEvents\_options@{handleEvents\_options}}
+\index{handleEvents\_options@{handleEvents\_options}!menu\_options.c@{menu\_options.c}}
+\doxysubsubsection{\texorpdfstring{handleEvents\_options()}{handleEvents\_options()}}
+{\footnotesize\ttfamily static int handle\+Events\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__moteur}{t\+\_\+moteur}} $\ast$}]{moteur,  }\item[{\mbox{\hyperlink{structt__bouton}{t\+\_\+bouton}} $\ast$$\ast$}]{boutons }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gere les evenements dans le sous menu options. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moteur} & le du moteur \\
+\hline
+{\em boutons} & le tableau de boutons \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 0 si succes, 1 si l\textquotesingle{}utilisateur ferme la fenetre, autre chiffre positif selon le bouton appuyé 
+\end{DoxyReturn}
+Si un des boutons de la souris est relaché
+
+Bouton gauche

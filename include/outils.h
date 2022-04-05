@@ -1,5 +1,5 @@
 /**
- * \file outils.c
+ * \file outils.h
  * \brief Bibliothèque de petites fonctions pratiques dans de nombreux cas.
  * \author Camille Remoué
 */

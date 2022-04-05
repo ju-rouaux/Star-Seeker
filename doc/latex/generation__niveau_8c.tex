@@ -14,13 +14,58 @@ Génération d\textquotesingle{}un niveau \+: l\textquotesingle{}agencement des 
 {\ttfamily \#include $<$generation\+\_\+entites.\+h$>$}\newline
 {\ttfamily \#include $<$outils.\+h$>$}\newline
 {\ttfamily \#include $<$generation\+\_\+niveau.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a3ee479371002a0a258e5c4111cc6e54f}\label{generation__niveau_8c_a3ee479371002a0a258e5c4111cc6e54f}} 
+\#define {\bfseries V\+I\+DE}~0
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a4e266faa65b920356441404c5c423272}\label{generation__niveau_8c_a4e266faa65b920356441404c5c423272}} 
+\#define {\bfseries S\+A\+L\+LE}~-\/1
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a8516025dbe2a22abcbfd9a5bb5dd7774}\label{generation__niveau_8c_a8516025dbe2a22abcbfd9a5bb5dd7774}} 
+\#define {\bfseries P\+O\+U\+R\+C\+E\+N\+T\+A\+G\+E\+\_\+\+D\+E\+\_\+\+S\+A\+L\+L\+E\+S\+\_\+\+G\+L\+O\+B\+AL}~20
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a35c6f37fec0392cb61364bca66a93774}\label{generation__niveau_8c_a35c6f37fec0392cb61364bca66a93774}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+8\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~100
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a3fcb9d4d6d4c68da49c352b94b0bedcb}\label{generation__niveau_8c_a3fcb9d4d6d4c68da49c352b94b0bedcb}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+7\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~70
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_acf8ed33500281704bbb86a2f01c95530}\label{generation__niveau_8c_acf8ed33500281704bbb86a2f01c95530}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+6\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~40
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a91bc234b909f598687c6ce723202df42}\label{generation__niveau_8c_a91bc234b909f598687c6ce723202df42}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+5\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~20
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a1de9753a00375d6664de032399e803a8}\label{generation__niveau_8c_a1de9753a00375d6664de032399e803a8}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+4\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~10
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a79b83e1929d6a930c241cd8957b77607}\label{generation__niveau_8c_a79b83e1929d6a930c241cd8957b77607}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+3\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~5
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd}\label{generation__niveau_8c_aa4f6ae7e5aa5718ce4dc2bfd7df9f5dd}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+2\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+L\+I\+B\+R\+ES}~1
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_aee467246a5f5e7aa703cd705a17a257a}\label{generation__niveau_8c_aee467246a5f5e7aa703cd705a17a257a}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+1\+\_\+\+V\+O\+I\+S\+I\+N\+E\+\_\+\+L\+I\+B\+RE}~1
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a031473f724c63d7134cf9a748ba1b222}\label{generation__niveau_8c_a031473f724c63d7134cf9a748ba1b222}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+G\+E\+N\+\_\+\+S\+A\+L\+L\+E\+\_\+0\+\_\+\+V\+O\+I\+S\+I\+N\+E\+\_\+\+L\+I\+B\+RE}~0
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a5bb7a9833fb97c3a46d18b6e38e6f6f7}\label{generation__niveau_8c_a5bb7a9833fb97c3a46d18b6e38e6f6f7}} 
+\#define {\bfseries N\+O\+M\+B\+R\+E\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+D\+I\+S\+P\+O\+\_\+\+N\+O\+U\+V\+E\+L\+L\+E\+\_\+\+S\+A\+L\+L\+E\+\_\+\+M\+IN}~4
+\item 
+\mbox{\Hypertarget{generation__niveau_8c_a95c2cd64a5ecb089958db0d662a08083}\label{generation__niveau_8c_a95c2cd64a5ecb089958db0d662a08083}} 
+\#define {\bfseries C\+H\+A\+N\+C\+E\+\_\+\+D\+E\+\_\+\+G\+E\+N\+E\+R\+E\+R\+\_\+\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+\+D\+E\+\_\+\+I\+D\+\_\+\+D\+E\+\_\+\+S\+A\+L\+LE}~25
+\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 static int \mbox{\hyperlink{generation__niveau_8c_afa09d611dc4963e0132f7375d7173354}{coordonnees\+\_\+valides}} (int i, int j, int hauteur, int longueur)
 \begin{DoxyCompactList}\small\item\em Vérifie si les coordonnées i et j sont dans la matrice de taille hauteur $\ast$ longueur. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{generation__niveau_8c_a3e48dded0f604598a77225c1625ff4bf}{nb\+\_\+salles\+\_\+adjacentes\+\_\+dispo}} (int $\ast$niv, int hauteur, int longueur, int i, int j, int compter\+Diagonales)
-\begin{DoxyCompactList}\small\item\em Compte les cases VIDES adjacentes à la case (i, j), possibilité de compter les voisines diagonales. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compte les cases V\+I\+D\+ES adjacentes à la case (i, j), possibilité de compter les voisines diagonales. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{generation__niveau_8c_ad9b9e96d8137461928ea9bf0708c15bc}{ajout\+\_\+salle\+\_\+adjacente}} (int $\ast$niv, int hauteur, int longueur, int i, int j)
 \begin{DoxyCompactList}\small\item\em Crée une salle adjacente à un côté aléatoire de (i, j). \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{generation__niveau_8c_ac4e49f162f2aaf89d29229c3d690712b}{identification\+Salles}} (int $\ast$niv, int hauteur, int longueur)
@@ -31,7 +76,7 @@ static void \mbox{\hyperlink{generation__niveau_8c_a70dc5f405c9b421fd99bf0664a8f
 \begin{DoxyCompactList}\small\item\em initialise une matrice avec un niveau aléatoirement généré \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}{seed\+\_\+depuis\+\_\+mot}} (const char $\ast$mot)
 \begin{DoxyCompactList}\small\item\em Transforme arbitrairement un mot (lettres) en seed (entier) \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}{couleur\+\_\+aleatoire}} (\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}} $\ast$couleur)
+static void \mbox{\hyperlink{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}{couleur\+\_\+aleatoire}} (\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+R\+VB}} $\ast$couleur)
 \begin{DoxyCompactList}\small\item\em génère une couleur aléatoire en évitant les nuances de gris. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{generation__niveau_8c_adec97d0d2112b3247d1a5d6a39f094f7}{detruire\+\_\+niveau\+\_\+info}} (niveau\+\_\+informations\+\_\+t $\ast$$\ast$niveau)
 \begin{DoxyCompactList}\small\item\em Libère la mémoire allouée à une information de niveau. \end{DoxyCompactList}\item 
@@ -58,7 +103,7 @@ Camille Remoué
 
 Crée une salle adjacente à un côté aléatoire de (i, j). 
 
-Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de NOMBRE\+\_\+\+VOISINES\+\_\+\+DISPO\+\_\+\+NOUVELLE\+\_\+\+SALLE\+\_\+\+MIN \+: Ne créera pas de nouvelle salle si son emplacement a trop de voisines non VIDES. Attention \+: la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
+Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche ou droite) de la salle aux coordonnées (i, j). Prise en compte de N\+O\+M\+B\+R\+E\+\_\+\+V\+O\+I\+S\+I\+N\+E\+S\+\_\+\+D\+I\+S\+P\+O\+\_\+\+N\+O\+U\+V\+E\+L\+L\+E\+\_\+\+S\+A\+L\+L\+E\+\_\+\+M\+IN \+: Ne créera pas de nouvelle salle si son emplacement a trop de voisines non V\+I\+D\+ES. Attention \+: la fonction ne vérifie pas si les coordonnées passées en paramètre correspondent à une salle.
 
 
 \begin{DoxyParams}{Paramètres}
@@ -74,7 +119,7 @@ Crée une nouvelle salle, adjacente à un côté aléatoire (haut, bas, gauche o
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-VRAI seulement si une nouvelle salle a été créée. 
+V\+R\+AI seulement si une nouvelle salle a été créée. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{generation__niveau_8c_afa09d611dc4963e0132f7375d7173354}\label{generation__niveau_8c_afa09d611dc4963e0132f7375d7173354}} 
 \index{generation\_niveau.c@{generation\_niveau.c}!coordonnees\_valides@{coordonnees\_valides}}
@@ -98,13 +143,13 @@ Vérifie si les coordonnées i et j sont dans la matrice de taille hauteur $\ast
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-VRAI seulement si les coordonnées sont à l\textquotesingle{}intérieur de la matrice 
+V\+R\+AI seulement si les coordonnées sont à l\textquotesingle{}intérieur de la matrice 
 \end{DoxyReturn}
 \mbox{\Hypertarget{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}\label{generation__niveau_8c_a4e6d9619346b3ac2f5c2ae1afb783774}} 
 \index{generation\_niveau.c@{generation\_niveau.c}!couleur\_aleatoire@{couleur\_aleatoire}}
 \index{couleur\_aleatoire@{couleur\_aleatoire}!generation\_niveau.c@{generation\_niveau.c}}
 \doxysubsubsection{\texorpdfstring{couleur\_aleatoire()}{couleur\_aleatoire()}}
-{\footnotesize\ttfamily static void couleur\+\_\+aleatoire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}} $\ast$}]{couleur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void couleur\+\_\+aleatoire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+R\+VB}} $\ast$}]{couleur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -112,7 +157,7 @@ génère une couleur aléatoire en évitant les nuances de gris.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em couleur} & Une structure \mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+RVB}} contenant les 3 canaux de couleur \\
+{\em couleur} & Une structure \mbox{\hyperlink{structt__couleurRVB}{t\+\_\+couleur\+R\+VB}} contenant les 3 canaux de couleur \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{generation__niveau_8c_a1c3e79b3cece398d7034c947809dff61}\label{generation__niveau_8c_a1c3e79b3cece398d7034c947809dff61}} 
@@ -219,7 +264,7 @@ initialise une matrice avec un niveau aléatoirement généré
 
 
 
-Compte les cases VIDES adjacentes à la case (i, j), possibilité de compter les voisines diagonales. 
+Compte les cases V\+I\+D\+ES adjacentes à la case (i, j), possibilité de compter les voisines diagonales. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -237,7 +282,7 @@ Compte les cases VIDES adjacentes à la case (i, j), possibilité de compter les
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le nombre de cases VIDES adjacentes à la case (i, j). 
+Le nombre de cases V\+I\+D\+ES adjacentes à la case (i, j). 
 \end{DoxyReturn}
 \mbox{\Hypertarget{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}\label{generation__niveau_8c_ad12a4ac49cc571e2c925822363bd328f}} 
 \index{generation\_niveau.c@{generation\_niveau.c}!seed\_depuis\_mot@{seed\_depuis\_mot}}

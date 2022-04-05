@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Star Seeker: Référence du fichier src/partie.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Star Seeker
+   </div>
+   <div id="projectbrief">Projet d&#39;étudiants en L2 Informatique</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier partie.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de gestion d'une partie : appel de sauvegarde et appel des différents niveaux.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="moteur_8h_source.html">moteur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="events_8h_source.html">events.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="niveau_8h_source.html">niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="joueur_8h_source.html">joueur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="monstre_8h_source.html">monstre.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="rendu__niveau_8h_source.html">rendu_niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="sauvegarde_8h_source.html">sauvegarde.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__niveau_8h_source.html">generation_niveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__noms_8h_source.html">generation_noms.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="outils_8h_source.html">outils.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation__entites_8h_source.html">generation_entites.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="overlay_8h_source.html">overlay.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="particules_8h_source.html">particules.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="main_8h_source.html">main.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="menu__niveau_8h_source.html">menu_niveau.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a744400f524b9b94f7102dbb95f723116"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#a744400f524b9b94f7102dbb95f723116">animationMort</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur)</td></tr>
+<tr class="memdesc:a744400f524b9b94f7102dbb95f723116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genere une animation lors de la mort du joueur.  <a href="partie_8c.html#a744400f524b9b94f7102dbb95f723116">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a744400f524b9b94f7102dbb95f723116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbecb94dd019fb946981797e56e38918"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#abbecb94dd019fb946981797e56e38918">viderEntitesDeListe</a> (<a class="el" href="structt__liste.html">t_liste</a> *liste_entites, <a class="el" href="structt__info__entites.html">t_info_entites</a> **info_entites, int nb_info_entites, int id_ancienne_salle)</td></tr>
+<tr class="memdesc:abbecb94dd019fb946981797e56e38918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide la liste de ses entités et note dans info_entites les entités qui doivent être sauvegardées.  <a href="partie_8c.html#abbecb94dd019fb946981797e56e38918">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abbecb94dd019fb946981797e56e38918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1d13182e244e29696d01199868fdd6a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#ae1d13182e244e29696d01199868fdd6a">chargerEntitesVersListe</a> (<a class="el" href="structt__liste.html">t_liste</a> *liste_entites, <a class="el" href="structt__info__entites.html">t_info_entites</a> **info_entites, int nb_info_entites, int id_salle_courante)</td></tr>
+<tr class="memdesc:ae1d13182e244e29696d01199868fdd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les entités associées à la salle dans la liste.  <a href="partie_8c.html#ae1d13182e244e29696d01199868fdd6a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae1d13182e244e29696d01199868fdd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad146abed0637bc41616c22c56803e8b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#ad146abed0637bc41616c22c56803e8b3">renduEntites</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:ad146abed0637bc41616c22c56803e8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les entités chargées dans la liste du moteur sur l'écran.  <a href="partie_8c.html#ad146abed0637bc41616c22c56803e8b3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad146abed0637bc41616c22c56803e8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dbe431f84d2de3b94230fd7cda1b174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#a8dbe431f84d2de3b94230fd7cda1b174">transitionChangementSalle</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur, niveau_informations_t *infos_niveau, int id_ancienne_salle)</td></tr>
+<tr class="memdesc:a8dbe431f84d2de3b94230fd7cda1b174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère et charge les entités.  <a href="partie_8c.html#a8dbe431f84d2de3b94230fd7cda1b174">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8dbe431f84d2de3b94230fd7cda1b174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaaf093226048b2b036cf7edaef67413"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#adaaf093226048b2b036cf7edaef67413">jouerNiveau</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur, niveau_informations_t *infos_niveau)</td></tr>
+<tr class="memdesc:adaaf093226048b2b036cf7edaef67413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phase de gameplay principale. Lance un niveau.  <a href="partie_8c.html#adaaf093226048b2b036cf7edaef67413">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adaaf093226048b2b036cf7edaef67413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1fa326b095a625d9cabf67115809da"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#aea1fa326b095a625d9cabf67115809da">jouerPartie</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur, <a class="el" href="structt__joueur.html">t_joueur</a> *joueur, niveau_informations_t **infos_niveaux, int nb_niveaux, int indice_niveau_charge)</td></tr>
+<tr class="memdesc:aea1fa326b095a625d9cabf67115809da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sélection et lancement de niveau.  <a href="partie_8c.html#aea1fa326b095a625d9cabf67115809da">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aea1fa326b095a625d9cabf67115809da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af850b99755439c06faffe676fced6b19"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#af850b99755439c06faffe676fced6b19">genererPartie</a> (int nb_niveaux, niveau_informations_t ***adr_infos, char **nom_galaxie, int indice_difficulte)</td></tr>
+<tr class="memdesc:af850b99755439c06faffe676fced6b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction générant une nouvelle partie.  <a href="partie_8c.html#af850b99755439c06faffe676fced6b19">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af850b99755439c06faffe676fced6b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ce517a8da0912fc4de2119f883744d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#ae4ce517a8da0912fc4de2119f883744d">nouvellePartie</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:ae4ce517a8da0912fc4de2119f883744d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrase la sauvegarde pour générer une nouvelle partie.  <a href="partie_8c.html#ae4ce517a8da0912fc4de2119f883744d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae4ce517a8da0912fc4de2119f883744d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49eedf18c5b9a3242a59d48bba10745"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="partie_8c.html#ae49eedf18c5b9a3242a59d48bba10745">chargerPartie</a> (<a class="el" href="structt__moteur.html">t_moteur</a> *moteur)</td></tr>
+<tr class="memdesc:ae49eedf18c5b9a3242a59d48bba10745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge la partie si le fichier de sauvegarde existe.  <a href="partie_8c.html#ae49eedf18c5b9a3242a59d48bba10745">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae49eedf18c5b9a3242a59d48bba10745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de gestion d'une partie : appel de sauvegarde et appel des différents niveaux. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Julien Rouaux </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a744400f524b9b94f7102dbb95f723116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744400f524b9b94f7102dbb95f723116">&#9670;&nbsp;</a></span>animationMort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void animationMort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genere une animation lors de la mort du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">joueur</td><td>le joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1d13182e244e29696d01199868fdd6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1d13182e244e29696d01199868fdd6a">&#9670;&nbsp;</a></span>chargerEntitesVersListe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void chargerEntitesVersListe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>liste_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__info__entites.html">t_info_entites</a> **&#160;</td>
+          <td class="paramname"><em>info_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_info_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_salle_courante</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge les entités associées à la salle dans la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_entites</td><td>La liste à charger </td></tr>
+    <tr><td class="paramname">info_entites</td><td>La liste des informations sur les entités par salles </td></tr>
+    <tr><td class="paramname">nb_info_entites</td><td>Le nombre d'éléments dans la liste info_entites </td></tr>
+    <tr><td class="paramname">id_salle_courante</td><td>L'identifiant de la nouvelle salle d'où charger les entités </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae49eedf18c5b9a3242a59d48bba10745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae49eedf18c5b9a3242a59d48bba10745">&#9670;&nbsp;</a></span>chargerPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int chargerPartie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge la partie si le fichier de sauvegarde existe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur du jeu</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si succès, valeur négative si echec. </dd></dl>
+
+</div>
+</div>
+<a id="af850b99755439c06faffe676fced6b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af850b99755439c06faffe676fced6b19">&#9670;&nbsp;</a></span>genererPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int genererPartie </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t ***&#160;</td>
+          <td class="paramname"><em>adr_infos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>nom_galaxie</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice_difficulte</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fonction générant une nouvelle partie. </p>
+<p>Sont chargés :</p><ul>
+<li>La quête de la partie (soon) ;</li>
+<li>Les structures du niveau ;</li>
+<li>Les monstres et leur emplacement (soon) ;</li>
+</ul>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_niveaux</td><td>Le nombre de niveaux désiré </td></tr>
+    <tr><td class="paramname">adr_infos</td><td>L'adresse de la matrice des infos sur la structure des niveaux, à NULL de préférance </td></tr>
+    <tr><td class="paramname">nom_galaxie</td><td>le nom de la galaxie </td></tr>
+    <tr><td class="paramname">indice_difficulte</td><td>Calculée a partir de l'xp du joueur, faisant varier la quantité et la difficulté des monstres par salles</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si succès, une valeur négative si echec. </dd></dl>
+
+</div>
+</div>
+<a id="adaaf093226048b2b036cf7edaef67413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaaf093226048b2b036cf7edaef67413">&#9670;&nbsp;</a></span>jouerNiveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int jouerNiveau </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t *&#160;</td>
+          <td class="paramname"><em>infos_niveau</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Phase de gameplay principale. Lance un niveau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Moteur du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Le joueur </td></tr>
+    <tr><td class="paramname">infos_niveau</td><td>La liste des informations sur la structure des niveaux de la partie</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'action ayant mis fin au niveau. </dd></dl>
+
+</div>
+</div>
+<a id="aea1fa326b095a625d9cabf67115809da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea1fa326b095a625d9cabf67115809da">&#9670;&nbsp;</a></span>jouerPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int jouerPartie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t **&#160;</td>
+          <td class="paramname"><em>infos_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_niveaux</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice_niveau_charge</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sélection et lancement de niveau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Le joueur </td></tr>
+    <tr><td class="paramname">infos_niveaux</td><td>Les informations sur la structure d'un niveau </td></tr>
+    <tr><td class="paramname">nb_niveaux</td><td>Le nombre de niveaux contenus dans la matrice des informations </td></tr>
+    <tr><td class="paramname">indice_niveau_charge</td><td>Le niveau actuellement joué</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si la fin d'une partie s'est bien passée, sinon une valeur négative. </dd></dl>
+
+</div>
+</div>
+<a id="ae4ce517a8da0912fc4de2119f883744d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ce517a8da0912fc4de2119f883744d">&#9670;&nbsp;</a></span>nouvellePartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nouvellePartie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrase la sauvegarde pour générer une nouvelle partie. </p>
+<p>Dans l'idéal cette fonction devra calculer le nombre de niveaux.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur du jeu </td></tr>
+    <tr><td class="paramname">nb_niveaux</td><td>!! TEMPORAIRE le nombre de niveaux désiré pour la nouvelle partie</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si succès, valeur négative si echec. </dd></dl>
+
+</div>
+</div>
+<a id="ad146abed0637bc41616c22c56803e8b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad146abed0637bc41616c22c56803e8b3">&#9670;&nbsp;</a></span>renduEntites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void renduEntites </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Affiche les entités chargées dans la liste du moteur sur l'écran. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>Le moteur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8dbe431f84d2de3b94230fd7cda1b174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dbe431f84d2de3b94230fd7cda1b174">&#9670;&nbsp;</a></span>transitionChangementSalle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transitionChangementSalle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__moteur.html">t_moteur</a> *&#160;</td>
+          <td class="paramname"><em>moteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">niveau_informations_t *&#160;</td>
+          <td class="paramname"><em>infos_niveau</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_ancienne_salle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère et charge les entités. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moteur</td><td>le moteur </td></tr>
+    <tr><td class="paramname">joueur</td><td>le joueur </td></tr>
+    <tr><td class="paramname">infos_niveau</td><td>La liste des informations sur la structure des niveaux de la partie </td></tr>
+    <tr><td class="paramname">id_ancienne_salle</td><td>L'identifiant de l'ancienne salle où sauvegarder les entités vidées </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abbecb94dd019fb946981797e56e38918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbecb94dd019fb946981797e56e38918">&#9670;&nbsp;</a></span>viderEntitesDeListe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void viderEntitesDeListe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>liste_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__info__entites.html">t_info_entites</a> **&#160;</td>
+          <td class="paramname"><em>info_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_info_entites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id_ancienne_salle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vide la liste de ses entités et note dans info_entites les entités qui doivent être sauvegardées. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste_entites</td><td>La liste à vider </td></tr>
+    <tr><td class="paramname">info_entites</td><td>La liste des informations sur les entités par salles </td></tr>
+    <tr><td class="paramname">nb_info_entites</td><td>Le nombre d'éléments dans la liste info_entites </td></tr>
+    <tr><td class="paramname">id_ancienne_salle</td><td>L'identifiant de l'ancienne salle où sauvegarder les entités vidées </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

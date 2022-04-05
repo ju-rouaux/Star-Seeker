@@ -5,7 +5,7 @@
 Module de gestion du joueur.  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$entite.\+h$>$}\newline
 {\ttfamily \#include $<$personnage.\+h$>$}\newline
 {\ttfamily \#include $<$attaque.\+h$>$}\newline
@@ -18,11 +18,11 @@ struct \mbox{\hyperlink{structt__joueur__flags}{t\+\_\+joueur\+\_\+flags}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{joueur_8h_a356b59b347562c683291691f5aa4dca0}{PROPORTION\+\_\+\+JOUEUR}}~1.\+2
+\#define \mbox{\hyperlink{joueur_8h_a356b59b347562c683291691f5aa4dca0}{P\+R\+O\+P\+O\+R\+T\+I\+O\+N\+\_\+\+J\+O\+U\+E\+UR}}~1.\+2
 \item 
-\#define \mbox{\hyperlink{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}{VITESSE\+\_\+\+JOUEUR\+\_\+\+DEFAULT}}~6.\+5
+\#define \mbox{\hyperlink{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}{V\+I\+T\+E\+S\+S\+E\+\_\+\+J\+O\+U\+E\+U\+R\+\_\+\+D\+E\+F\+A\+U\+LT}}~6.\+5
 \item 
-\#define \mbox{\hyperlink{joueur_8h_abd85826b77aa438c8057cce731f559b3}{PV\+\_\+\+JOUEUR\+\_\+\+DEFAULT}}~20
+\#define \mbox{\hyperlink{joueur_8h_abd85826b77aa438c8057cce731f559b3}{P\+V\+\_\+\+J\+O\+U\+E\+U\+R\+\_\+\+D\+E\+F\+A\+U\+LT}}~20
 \end{DoxyCompactItemize}
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
@@ -33,10 +33,10 @@ typedef struct s\+\_\+joueur {\bfseries t\+\_\+joueur}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8h_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, SDL\+\_\+\+Texture $\ast$apparence)
+\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$ \mbox{\hyperlink{joueur_8h_abede277b4d13650249d6ef69b267f2a8}{creer\+Joueur}} (float \mbox{\hyperlink{attributs__entites_8h_ad0da36b2558901e21e7a30f6c227a45e}{x}}, float \mbox{\hyperlink{attributs__entites_8h_aa4f0d3eebc3c443f9be81bf48561a217}{y}}, S\+D\+L\+\_\+\+Texture $\ast$apparence)
 \begin{DoxyCompactList}\small\item\em Génère une structure joueur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}{detruire\+Joueur}} (\mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}} $\ast$$\ast$joueur)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée au joueur et mets son pointeur à N\+U\+LL. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -52,19 +52,19 @@ Julien Rouaux
 \index{joueur.h@{joueur.h}!PROPORTION\_JOUEUR@{PROPORTION\_JOUEUR}}
 \index{PROPORTION\_JOUEUR@{PROPORTION\_JOUEUR}!joueur.h@{joueur.h}}
 \doxysubsubsection{\texorpdfstring{PROPORTION\_JOUEUR}{PROPORTION\_JOUEUR}}
-{\footnotesize\ttfamily \#define PROPORTION\+\_\+\+JOUEUR~1.\+2}
+{\footnotesize\ttfamily \#define P\+R\+O\+P\+O\+R\+T\+I\+O\+N\+\_\+\+J\+O\+U\+E\+UR~1.\+2}
 
 Taille du joueur par rapport à la taille d\textquotesingle{}une tile \mbox{\Hypertarget{joueur_8h_abd85826b77aa438c8057cce731f559b3}\label{joueur_8h_abd85826b77aa438c8057cce731f559b3}} 
 \index{joueur.h@{joueur.h}!PV\_JOUEUR\_DEFAULT@{PV\_JOUEUR\_DEFAULT}}
 \index{PV\_JOUEUR\_DEFAULT@{PV\_JOUEUR\_DEFAULT}!joueur.h@{joueur.h}}
 \doxysubsubsection{\texorpdfstring{PV\_JOUEUR\_DEFAULT}{PV\_JOUEUR\_DEFAULT}}
-{\footnotesize\ttfamily \#define PV\+\_\+\+JOUEUR\+\_\+\+DEFAULT~20}
+{\footnotesize\ttfamily \#define P\+V\+\_\+\+J\+O\+U\+E\+U\+R\+\_\+\+D\+E\+F\+A\+U\+LT~20}
 
 Nombre de points de vie du joueur par défaut \mbox{\Hypertarget{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}\label{joueur_8h_a2ffc1a78b3ae6e72377a2641899ae51c}} 
 \index{joueur.h@{joueur.h}!VITESSE\_JOUEUR\_DEFAULT@{VITESSE\_JOUEUR\_DEFAULT}}
 \index{VITESSE\_JOUEUR\_DEFAULT@{VITESSE\_JOUEUR\_DEFAULT}!joueur.h@{joueur.h}}
 \doxysubsubsection{\texorpdfstring{VITESSE\_JOUEUR\_DEFAULT}{VITESSE\_JOUEUR\_DEFAULT}}
-{\footnotesize\ttfamily \#define VITESSE\+\_\+\+JOUEUR\+\_\+\+DEFAULT~6.\+5}
+{\footnotesize\ttfamily \#define V\+I\+T\+E\+S\+S\+E\+\_\+\+J\+O\+U\+E\+U\+R\+\_\+\+D\+E\+F\+A\+U\+LT~6.\+5}
 
 La vitesse du joueur par défaut 
 
@@ -73,7 +73,7 @@ La vitesse du joueur par défaut
 \index{joueur.h@{joueur.h}!creerJoueur@{creerJoueur}}
 \index{creerJoueur@{creerJoueur}!joueur.h@{joueur.h}}
 \doxysubsubsection{\texorpdfstring{creerJoueur()}{creerJoueur()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}$\ast$ creer\+Joueur (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{SDL\+\_\+\+Texture $\ast$}]{apparence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__joueur}{t\+\_\+joueur}}$\ast$ creer\+Joueur (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{apparence }\end{DoxyParamCaption})}
 
 
 
@@ -89,7 +89,7 @@ Génère une structure joueur.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Le pointeur joueur, NULL si echec. 
+Le pointeur joueur, N\+U\+LL si echec. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}\label{joueur_8h_a1e9013c729e9fe43289429dc9df96d0e}} 
 \index{joueur.h@{joueur.h}!detruireJoueur@{detruireJoueur}}
@@ -99,7 +99,7 @@ Le pointeur joueur, NULL si echec.
 
 
 
-Libère la mémoire allouée au joueur et mets son pointeur à NULL. 
+Libère la mémoire allouée au joueur et mets son pointeur à N\+U\+LL. 
 
 
 \begin{DoxyParams}{Paramètres}

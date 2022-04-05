@@ -40,13 +40,13 @@ static void \mbox{\hyperlink{definitions__attaques__tir_8h_ad8ded96dbda9e032c414
 \doxysubsection{Description détaillée}
 Fichier de définition des attaques de tir. 
 
-POUR CREER UNE NOUVELLE ATTAQUE \+:
+P\+O\+UR C\+R\+E\+ER U\+NE N\+O\+U\+V\+E\+L\+LE A\+T\+T\+A\+Q\+UE \+:
 \begin{DoxyItemize}
-\item Ajouter le nom de l\textquotesingle{}attaque dans l\textquotesingle{}enum e\+\_\+nom\+\_\+attaque sous la forme NOMATTAQUE dans le fichier \mbox{\hyperlink{attaque_8h}{attaque.\+h}}
-\item Créer une fonction sous la forme \+: static void attaque\+\_\+tir\+\_\+\+NOMATTAQUE(t\+\_\+attaque\+\_\+tir $\ast$ attaque) \{ attaque-\/$>$type\+\_\+projectile = NOM\+\_\+\+DU\+\_\+\+TYPE\+\_\+\+PROJECTILE; attaque-\/$>$cooldown = INT; attaque-\/$>$nb\+\_\+salves = INT; attaque-\/$>$nb\+\_\+proj\+\_\+salve = INT; attaque-\/$>$tir\+\_\+interval = INT; attaque-\/$>$etalement = FLOAT; \}
+\item Ajouter le nom de l\textquotesingle{}attaque dans l\textquotesingle{}enum e\+\_\+nom\+\_\+attaque sous la forme N\+O\+M\+A\+T\+T\+A\+Q\+UE dans le fichier \mbox{\hyperlink{attaque_8h}{attaque.\+h}}
+\item Créer une fonction sous la forme \+: static void attaque\+\_\+tir\+\_\+\+N\+O\+M\+A\+T\+T\+A\+Q\+U\+E(t\+\_\+attaque\+\_\+tir $\ast$ attaque) \{ attaque-\/$>$type\+\_\+projectile = N\+O\+M\+\_\+\+D\+U\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+R\+O\+J\+E\+C\+T\+I\+LE; attaque-\/$>$cooldown = I\+NT; attaque-\/$>$nb\+\_\+salves = I\+NT; attaque-\/$>$nb\+\_\+proj\+\_\+salve = I\+NT; attaque-\/$>$tir\+\_\+interval = I\+NT; attaque-\/$>$etalement = F\+L\+O\+AT; \}
 \end{DoxyItemize}
 
-Ajouter la fonction au switch de charger\+Attaque\+Tir \+: case NOMATTAQUE\+: attaque\+\_\+tir\+\_\+\+NOMATTAQUE(attaque); break;
+Ajouter la fonction au switch de charger\+Attaque\+Tir \+: case N\+O\+M\+A\+T\+T\+A\+Q\+UE\+: attaque\+\_\+tir\+\_\+\+N\+O\+M\+A\+T\+T\+A\+Q\+U\+E(attaque); break;
 
 \begin{DoxyAuthor}{Auteur}
 Julien Rouaux \& Guillaume Richard 

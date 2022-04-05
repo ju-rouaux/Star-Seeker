@@ -16,7 +16,7 @@ struct \mbox{\hyperlink{structt__attaque__tir}{t\+\_\+attaque\+\_\+tir}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{attaque_8h_aced0fece1b18f6f943734bc39225cdaa}\label{attaque_8h_aced0fece1b18f6f943734bc39225cdaa}} 
-\#define {\bfseries NB\+\_\+\+ATTAQUE}~10
+\#define {\bfseries N\+B\+\_\+\+A\+T\+T\+A\+Q\+UE}~10
 \end{DoxyCompactItemize}
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
@@ -29,18 +29,18 @@ typedef struct s\+\_\+personnage {\bfseries t\+\_\+personnage}
 \item 
 \mbox{\Hypertarget{attaque_8h_ac7dcc833fc35572565d511b3875d7880}\label{attaque_8h_ac7dcc833fc35572565d511b3875d7880}} 
 enum \mbox{\hyperlink{attaque_8h_ac7dcc833fc35572565d511b3875d7880}{e\+\_\+nom\+\_\+attaque}} \{ \newline
-{\bfseries A\+\_\+\+DEFAUT}
-, {\bfseries A\+\_\+\+FEU\+\_\+\+SIMPLE}
-, {\bfseries A\+\_\+360}
-, {\bfseries A\+\_\+\+SNIPER}
-, \newline
-{\bfseries A\+\_\+\+SNIPER\+\_\+3}
-, {\bfseries A\+\_\+\+DEFAUT\+\_\+\+LARGE}
-, {\bfseries A\+\_\+\+FEU}
-, {\bfseries A\+\_\+360\+\_\+\+MORE}
-, \newline
-{\bfseries A\+\_\+\+TOURNER}
-, {\bfseries A\+\_\+\+SABRE}
+{\bfseries A\+\_\+\+D\+E\+F\+A\+UT}, 
+{\bfseries A\+\_\+\+F\+E\+U\+\_\+\+S\+I\+M\+P\+LE}, 
+{\bfseries A\+\_\+360}, 
+{\bfseries A\+\_\+\+S\+N\+I\+P\+ER}, 
+\newline
+{\bfseries A\+\_\+\+S\+N\+I\+P\+E\+R\+\_\+3}, 
+{\bfseries A\+\_\+\+D\+E\+F\+A\+U\+T\+\_\+\+L\+A\+R\+GE}, 
+{\bfseries A\+\_\+\+F\+EU}, 
+{\bfseries A\+\_\+360\+\_\+\+M\+O\+RE}, 
+\newline
+{\bfseries A\+\_\+\+T\+O\+U\+R\+N\+ER}, 
+{\bfseries A\+\_\+\+S\+A\+B\+RE}
  \}
 \begin{DoxyCompactList}\small\item\em Identifiant pour reconnaitre le type de l\textquotesingle{}attaque. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
@@ -88,7 +88,7 @@ Actualise les champs de la structure attaque vers les paramètres décrits par l
 
 Cette fonction devant être appelée à chaque actualisation d\textquotesingle{}un personnage permet à une attaque de continuer de s\textquotesingle{}exécuter si elle dure dans le temps, ou bien de lancer une attaque si \char`\"{}attaquer\char`\"{} est vrai. 
 
-Si attaquer est vrai, mais que le cooldown de l\textquotesingle{}attaque n\textquotesingle{}est pas terminé, l\textquotesingle{}attaque ne sera pas réalisée. ATTENTION \+: La direction de l\textquotesingle{}attaque est la même que la direction du personnage.
+Si attaquer est vrai, mais que le cooldown de l\textquotesingle{}attaque n\textquotesingle{}est pas terminé, l\textquotesingle{}attaque ne sera pas réalisée. A\+T\+T\+E\+N\+T\+I\+ON \+: La direction de l\textquotesingle{}attaque est la même que la direction du personnage.
 
 
 \begin{DoxyParams}{Paramètres}

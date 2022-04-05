@@ -1,5 +1,5 @@
 /**
- * \file partie.h
+ * \file partie.c
  * 
  * \brief Module de gestion d'une partie : appel de sauvegarde
  * et appel des différents niveaux.
