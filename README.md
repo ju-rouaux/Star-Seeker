@@ -1,5 +1,9 @@
-# Star-Seeker
+# Star Seeker
 Projet d'étudiants en L2 Informatique
+
+*Cliquez sur l'image pour visualiser la démonstration sur YouTube*
+
+[![Démonstration Star Seeker](https://img.youtube.com/vi/K0JfvkbuS6M/hqdefault.jpg)](https://www.youtube.com/watch?v=K0JfvkbuS6M)
 
 ## Compiler le projet
 Pour compiler le projet, changez la première variable du Makefile selon votre système d'exploitation.
